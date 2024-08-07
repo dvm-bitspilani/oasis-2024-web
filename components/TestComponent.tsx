@@ -1,5 +1,7 @@
 export default function Test() {
     return (
-        <p>Hello World</p>
+        <p style={{
+            color: 'white'
+        }}>Hello World</p>
     )
 }

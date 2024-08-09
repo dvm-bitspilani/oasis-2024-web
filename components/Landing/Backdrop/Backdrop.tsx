@@ -39,8 +39,6 @@ export default function LandingBackdrop() {
 
         const geometry = new THREE.PlaneGeometry(5, 5, 64, 64)
 
-        geometry.setAttribute('aRandom', new THREE.BufferAttribute(randoms, 1))
-
         const material = new THREE.ShaderMaterial({
             vertexShader: backdropVertexShader,
             fragmentShader: backdropFragmentShader,
@@ -71,6 +69,9 @@ export default function LandingBackdrop() {
             material.uniforms.uMouseY.value = (-(2 * (event.clientY / sizes.height) - 1)) * 1.15
         })
 
+        let animationFrameReqId: any;
+        animationFrameReqId = null
+
         const tick = () => {
             const elapsedTime = clock.getElapsedTime()
 
@@ -81,7 +82,7 @@ export default function LandingBackdrop() {
             renderer.render(scene, camera)
 
             // Call tick again on the next frame
-            window.requestAnimationFrame(tick)
+            animationFrameReqId = window.requestAnimationFrame(tick)
         }
         tick()
 
@@ -106,7 +107,14 @@ export default function LandingBackdrop() {
                 mesh.material.dispose()
             }
 
-            // window.cancelAnimationFrame(tick)
+            window.removeEventListener('mousemove', (event) => {
+                material.uniforms.uMouseX.value = (2 * (event.clientX / sizes.width) - 1) * 2.1
+                material.uniforms.uMouseY.value = (-(2 * (event.clientY / sizes.height) - 1)) * 1.15
+            })
+
+            if (animationFrameReqId) {
+                window.cancelAnimationFrame(animationFrameReqId)
+            }
         }
     }, [])
     return (

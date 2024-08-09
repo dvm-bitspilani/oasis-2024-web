@@ -37,14 +37,18 @@ export default function LandingBackdrop() {
         camera.position.set(0, 0, 1)
         scene.add(camera)
 
-        const geometry = new THREE.PlaneGeometry(1, 1, 32, 32)
+        const geometry = new THREE.PlaneGeometry(canvas.width, canvas.height, 32, 32)
+
+        const count = geometry.attributes.position.count
 
         const material = new THREE.ShaderMaterial({
             vertexShader: backdropVertexShader,
             fragmentShader: backdropFragmentShader,
             transparent: true,
             uniforms: {
-                uTime: { value: 0.0 }
+                uTime: { value: 0.0 },
+                uColor: { value: new THREE.Color('blue') }
+                // uColor: { value: new THREE.Color('#190D2C') }
             }
         })
 

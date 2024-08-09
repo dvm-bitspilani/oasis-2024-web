@@ -6,9 +6,11 @@ import { useEffect } from "react";
 import backdropVertexShader from '@/shaders/LandingBackdrop/vertex.glsl'
 import backdropFragmentShader from '@/shaders/LandingBackdrop/fragment.glsl'
 
+import styles from './backdrops.module.scss'
+
 export default function LandingBackdrop() {
     useEffect(() => {
-        const canvas = document.querySelector('#webgl')
+        const canvas = document.querySelector('#landingBackdrop') as HTMLCanvasElement
 
         const sizes = {
             width: window.innerWidth,
@@ -93,20 +95,13 @@ export default function LandingBackdrop() {
                 mesh.material.dispose()
             }
 
-            window.cancelAnimationFrame(tick)
+            // window.cancelAnimationFrame(tick)
         }
     }, [])
     return (
         <canvas
-            style={{
-                width: '100vw',
-                height: '100dvh',
-                position: 'fixed',
-                top: 0
-            }}
-            id="webgl"
-        >
-            {/* <BackdropGrid /> */}
-        </canvas>
+            className={styles.webgl}
+            id='landingBackdrop'
+        ></canvas>
     )
 }

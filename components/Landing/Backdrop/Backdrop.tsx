@@ -37,7 +37,7 @@ export default function LandingBackdrop() {
         camera.position.set(0, 0, 1)
         scene.add(camera)
 
-        const geometry = new THREE.PlaneGeometry(5, 5, 64, 64)
+        const geometry = new THREE.PlaneGeometry(4.5, 4.5, 64, 64)
 
         const material = new THREE.ShaderMaterial({
             vertexShader: backdropVertexShader,
@@ -56,6 +56,17 @@ export default function LandingBackdrop() {
 
         scene.add(mesh)
 
+        const raycaster = new THREE.Raycaster()
+        const rayOrigin = new THREE.Vector3(0, 0, 1)
+        const rayDirection = new THREE.Vector3(0, 0, -1)
+        rayDirection.normalize()
+        raycaster.set(rayOrigin, rayDirection)
+
+        mesh.updateMatrix()
+
+        // const intersect = raycaster.intersectObject(mesh)
+        // console.log(intersect)
+
         const renderer = new THREE.WebGLRenderer({
             canvas: canvas
         })
@@ -64,9 +75,12 @@ export default function LandingBackdrop() {
 
         const clock = new THREE.Clock()
 
+        const mouse = new THREE.Vector2()
         window.addEventListener('mousemove', (event) => {
-            material.uniforms.uMouseX.value = (2 * (event.clientX / sizes.width) - 1) * 2.1
-            material.uniforms.uMouseY.value = (-(2 * (event.clientY / sizes.height) - 1)) * 1.15
+            mouse.x = event.clientX / sizes.width * 2 - 1
+            mouse.y = - (event.clientY / sizes.height * 2 - 1)
+            // material.uniforms.uMouseX.value = (2 * (event.clientX / sizes.width) - 1) * 2.1
+            // material.uniforms.uMouseY.value = (-(2 * (event.clientY / sizes.height) - 1)) * 1.15
         })
 
         let animationFrameReqId: any;
@@ -74,6 +88,11 @@ export default function LandingBackdrop() {
 
         const tick = () => {
             const elapsedTime = clock.getElapsedTime()
+
+            raycaster.setFromCamera(mouse, camera)
+            const intersect = raycaster.intersectObject(mesh)
+            material.uniforms.uMouseX.value = intersect[0].point.x
+            material.uniforms.uMouseY.value = intersect[0].point.y
 
             // Update material
             material.uniforms.uTime.value = elapsedTime

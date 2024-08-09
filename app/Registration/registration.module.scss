@@ -1,0 +1,37 @@
+.pageContainer {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background-image: url("/backgroundNoiceImg.png");
+    background-size: cover; /* Maintain aspect ratio */
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    opacity: 0.2;
+  }
+  .pageContent {
+    font-family: Vidaloka;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 43px; /* 153.571% */
+    letter-spacing: 1.68px;
+    background: linear-gradient(
+      0deg,
+      #fffee5 -27.5%,
+      #efd48d -1.13%,
+      #ffce93 48.36%,
+      #f9e6a2 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .rouletteWheel {
+  }
+}

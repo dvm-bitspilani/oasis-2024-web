@@ -91,8 +91,8 @@ export default function LandingBackdrop() {
 
             raycaster.setFromCamera(mouse, camera)
             const intersect = raycaster.intersectObject(mesh)
-            material.uniforms.uMouseX.value = intersect[0].point.x
-            material.uniforms.uMouseY.value = intersect[0].point.y
+            material.uniforms.uMouseX.value = intersect[0]?.point.x
+            material.uniforms.uMouseY.value = intersect[0]?.point.y
 
             // Update material
             material.uniforms.uTime.value = elapsedTime

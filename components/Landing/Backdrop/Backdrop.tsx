@@ -1,7 +1,7 @@
 'use client';
 
-import * as THREE from 'three'
 import { useEffect } from "react";
+import * as THREE from 'three'
 
 import backdropVertexShader from '@/shaders/LandingBackdrop/vertex.glsl'
 import backdropFragmentShader from '@/shaders/LandingBackdrop/fragment.glsl'
@@ -44,7 +44,6 @@ export default function LandingBackdrop() {
             fragmentShader: backdropFragmentShader,
             transparent: true,
             uniforms: {
-                uTime: { value: 0.0 },
                 uColor: { value: new THREE.Color('white') },
                 uMouseX: { value: 0.0 },
                 uMouseY: { value: 0.0 }

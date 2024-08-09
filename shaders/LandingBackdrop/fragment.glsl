@@ -1,7 +1,6 @@
 varying float vModelPosX;
 varying float vModelPosY;
 varying float vModelPosZ;
-varying float vRandom;
 
 uniform vec3 uColor;
 

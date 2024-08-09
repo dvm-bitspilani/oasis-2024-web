@@ -2,12 +2,9 @@ uniform float uTime;
 uniform float uMouseX;
 uniform float uMouseY;
 
-attribute float aRandom;
-
 varying float vModelPosX;
 varying float vModelPosY;
 varying float vModelPosZ;
-varying float vRandom;
 
 void main(){
     vec4 modelPosition = modelMatrix * vec4(position, 1.0);
@@ -29,5 +26,4 @@ void main(){
     vModelPosX = modelPosition.x;
     vModelPosY = modelPosition.y;
     vModelPosZ = modelPosition.z;
-    vRandom = aRandom;
 }

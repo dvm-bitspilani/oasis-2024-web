@@ -2,7 +2,6 @@
 
 import * as THREE from 'three'
 import { useEffect } from "react";
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 import backdropVertexShader from '@/shaders/LandingBackdrop/vertex.glsl'
 import backdropFragmentShader from '@/shaders/LandingBackdrop/fragment.glsl'
@@ -39,19 +38,6 @@ export default function LandingBackdrop() {
         scene.add(camera)
 
         const geometry = new THREE.PlaneGeometry(5, 5, 64, 64)
-
-        const count = geometry.attributes.position.count
-
-        const randoms = new Float32Array(count)
-
-        for (let i = 0; i < count; i++) {
-            if (i % 5 === 0) {
-                randoms[i] = 1.0;
-            }
-            else {
-                randoms[i] = 0.0
-            }
-        }
 
         geometry.setAttribute('aRandom', new THREE.BufferAttribute(randoms, 1))
 

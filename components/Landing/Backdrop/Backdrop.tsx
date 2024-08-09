@@ -2,6 +2,7 @@
 
 import * as THREE from 'three'
 import { useEffect } from "react";
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 import backdropVertexShader from '@/shaders/LandingBackdrop/vertex.glsl'
 import backdropFragmentShader from '@/shaders/LandingBackdrop/fragment.glsl'
@@ -37,9 +38,22 @@ export default function LandingBackdrop() {
         camera.position.set(0, 0, 1)
         scene.add(camera)
 
-        const geometry = new THREE.PlaneGeometry(canvas.width, canvas.height, 32, 32)
+        const geometry = new THREE.PlaneGeometry(5, 5, 64, 64)
 
         const count = geometry.attributes.position.count
+
+        const randoms = new Float32Array(count)
+
+        for (let i = 0; i < count; i++) {
+            if (i % 5 === 0) {
+                randoms[i] = 1.0;
+            }
+            else {
+                randoms[i] = 0.0
+            }
+        }
+
+        geometry.setAttribute('aRandom', new THREE.BufferAttribute(randoms, 1))
 
         const material = new THREE.ShaderMaterial({
             vertexShader: backdropVertexShader,
@@ -47,9 +61,11 @@ export default function LandingBackdrop() {
             transparent: true,
             uniforms: {
                 uTime: { value: 0.0 },
-                uColor: { value: new THREE.Color('blue') }
-                // uColor: { value: new THREE.Color('#190D2C') }
-            }
+                uColor: { value: new THREE.Color('white') },
+                uMouseX: { value: 0.0 },
+                uMouseY: { value: 0.0 }
+            },
+            wireframe: true
         })
 
         const mesh = new THREE.Mesh(geometry, material)
@@ -63,6 +79,11 @@ export default function LandingBackdrop() {
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
         const clock = new THREE.Clock()
+
+        window.addEventListener('mousemove', (event) => {
+            material.uniforms.uMouseX.value = (2 * (event.clientX / sizes.width) - 1) * 2.1
+            material.uniforms.uMouseY.value = (-(2 * (event.clientY / sizes.height) - 1)) * 1.15
+        })
 
         const tick = () => {
             const elapsedTime = clock.getElapsedTime()

@@ -1,9 +1,27 @@
+uniform float uTime;
+uniform float uMouseX;
+uniform float uMouseY;
+
+attribute float aRandom;
+
 varying float vModelPosX;
 varying float vModelPosY;
 varying float vModelPosZ;
+varying float vRandom;
 
 void main(){
     vec4 modelPosition = modelMatrix * vec4(position, 1.0);
+
+    float xSquare = (uMouseX - modelPosition.x) * (uMouseX - modelPosition.x);
+    float ySquare = (uMouseY - modelPosition.y) * (uMouseY - modelPosition.y);
+
+    float radiusSquare = xSquare + ySquare;
+
+    float elevation = 1.0 / (radiusSquare + 0.15);
+    elevation += 1.0 / (radiusSquare + 0.15);
+
+    modelPosition.z -= elevation / 25.0;
+
     vec4 viewPosition = viewMatrix * modelPosition;
     vec4 projectedPosition = projectionMatrix * viewPosition;
     gl_Position = projectedPosition;
@@ -11,4 +29,5 @@ void main(){
     vModelPosX = modelPosition.x;
     vModelPosY = modelPosition.y;
     vModelPosZ = modelPosition.z;
+    vRandom = aRandom;
 }

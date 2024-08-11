@@ -10,7 +10,7 @@ export default function Home() {
     <main className={styles.page}>
       <FluidBackground />
       {/* <LandingBackdrop /> */}
-      <div style={{ pointerEvents: 'none', position: 'absolute', top: 0 }}>
+      <div className={styles.overlay}>
         <h1 className={styles.mainTitle}>Oasis 2024</h1>
       </div>
     </main>

@@ -9,7 +9,7 @@ export default function FluidBackground() {
     useEffect(() => {
         webGLFluidEnhanced.config({
             SIM_RESOLUTION: 256, // Resolution of the simulation grid
-            DYE_RESOLUTION: 1024, // Resolution of the dye grid
+            DYE_RESOLUTION: 256, // Resolution of the dye grid
             CAPTURE_RESOLUTION: 512, // Resolution of captured frames
             DENSITY_DISSIPATION: 1, // Rate at which density dissipates
             VELOCITY_DISSIPATION: 0.2, // Rate at which velocity dissipates

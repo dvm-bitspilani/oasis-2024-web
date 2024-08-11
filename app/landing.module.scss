@@ -5,7 +5,10 @@
 .overlay {
     pointer-events: none;
     position: absolute;
+    width: 100vw;
+    min-height: 100dvh;
     top: 0;
+    backdrop-filter: blur(10px);
 }
 
 .mainTitle {

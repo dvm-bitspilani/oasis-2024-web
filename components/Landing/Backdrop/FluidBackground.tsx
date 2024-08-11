@@ -18,7 +18,7 @@ export default function FluidBackground() {
             CURL: 30, // Curl value used in the simulation
             INITIAL: false, // Enables splats on initial load
             SPLAT_AMOUNT: 5, // Number of initial splats (Random number between n and n * 5)
-            SPLAT_RADIUS: 0.25, // Radius of the splats
+            SPLAT_RADIUS: 0.3, // Radius of the splats
             SPLAT_FORCE: 6000, // Force applied by the splats
             SPLAT_KEY: '', // Keyboard key to spawn new splats (empty to disable)
             SHADING: true, // Enables shading in the visualization
@@ -26,7 +26,7 @@ export default function FluidBackground() {
             COLOR_UPDATE_SPEED: 10, // Speed of color update
             COLOR_PALETTE: [], // Custom color palette (empty by default, uses hex colors)
             HOVER: true, // Enables interaction on hover
-            BACK_COLOR: '#000000', // Background color of the canvas
+            BACK_COLOR: '#190D2C', // Background color of the canvas
             TRANSPARENT: false, // Makes the canvas transparent if true
             BRIGHTNESS: 0.2, // Color brightness (Recommend lower than 1.0 if BLOOM is true)
             BLOOM: false, // Enables bloom effect

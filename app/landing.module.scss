@@ -1,3 +1,18 @@
+.page {
+    position: relative;
+}
+
+.overlay {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+}
+
 .mainTitle {
     color: white;
+    pointer-events: auto;
+
+    &:hover {
+        color: yellow;
+    }
 }

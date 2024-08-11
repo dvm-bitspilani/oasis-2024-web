@@ -7,10 +7,12 @@ import FluidBackground from '@/components/Landing/Backdrop/FluidBackground';
 
 export default function Home() {
   return (
-    <>
-      <h1 className={styles.mainTitle}>Oasis 2024</h1>
-      {/* <LandingBackdrop /> */}
+    <main className={styles.page}>
       <FluidBackground />
-    </>
+      {/* <LandingBackdrop /> */}
+      <div style={{ pointerEvents: 'none', position: 'absolute', top: 0 }}>
+        <h1 className={styles.mainTitle}>Oasis 2024</h1>
+      </div>
+    </main>
   );
 }

@@ -5,7 +5,6 @@ import LandingBackdrop from '@/components/Landing/Backdrop/Backdrop';
 // import FluidBackground from '@/components/Landing/Backdrop/FluidBackground';
 import FluidBackground from '@/components/Landing/Backdrop/FluidBackground';
 import LandingPage from '@/components/Landing/LandingPage/LandingPage';
-import CardsGroup from '@/components/Landing/CardsGroup/CardsGroup';
 
 export default function Home() {
   return (

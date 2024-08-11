@@ -12,7 +12,7 @@ export default function Home() {
       <FluidBackground />
       {/* <LandingBackdrop /> */}
       <div className={styles.overlay}>
-        <h1 className={styles.mainTitle}>Oasis 2024</h1>
+        {/* <h1 className={styles.mainTitle}>Oasis 2024</h1> */}
         <LandingPage />
       </div>
     </main>

@@ -4,15 +4,15 @@ import Test from "@/components/TestComponent";
 import LandingBackdrop from '@/components/Landing/Backdrop/Backdrop';
 // import FluidBackground from '@/components/Landing/Backdrop/FluidBackground';
 import FluidBackground from '@/components/Landing/Backdrop/FluidBackground';
-import LandingPage from '@/components/Landing/LandingPage/LandingPage';
 
 export default function Home() {
   return (
-    <>
-      <h1 className={styles.mainTitle}>Oasis 2024</h1>
-      {/* <LandingBackdrop /> */}
+    <main className={styles.page}>
       <FluidBackground />
-      {/* <LandingPage /> */}
-    </>
+      {/* <LandingBackdrop /> */}
+      <div className={styles.overlay}>
+        <h1 className={styles.mainTitle}>Oasis 2024</h1>
+      </div>
+    </main>
   );
 }

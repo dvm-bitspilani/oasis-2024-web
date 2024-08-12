@@ -9,8 +9,8 @@ import LandingPage from '@/components/Landing/LandingPage/LandingPage';
 export default function Home() {
   return (
     <main className={styles.page}>
-      <FluidBackground />
-      {/* <LandingBackdrop /> */}
+      {/* <FluidBackground /> */}
+      <LandingBackdrop />
       <div className={styles.overlay}>
         {/* <h1 className={styles.mainTitle}>Oasis 2024</h1> */}
         <LandingPage />

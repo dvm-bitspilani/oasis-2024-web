@@ -35,10 +35,11 @@ export default function LandingBackdrop() {
 
         const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
         // const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 100)
-        camera.position.set(0, 0, 1)
+        camera.position.set(0, -3, 1.5)
+        camera.lookAt(new THREE.Vector3(0, -2, 0))
         scene.add(camera)
 
-        const geometry = new THREE.PlaneGeometry(4.5, 4.5, 64, 64)
+        const geometry = new THREE.PlaneGeometry(12, 12, 64, 64)
 
         const material = new THREE.ShaderMaterial({
             vertexShader: backdropVertexShader,

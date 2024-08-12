@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./registration.module.scss";
 
 import Image from "next/image";
-import RegistrationForm from "@/components/Registration/RegistrationForm";
+import RegistrationForm from "@/components/Registration/RegistrationForm/RegistrationForm";
 
 const Registration = () => {
   return (

@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./registration.module.scss";
 
 import Image from "next/image";
+import RegistrationForm from "@/components/Registration/RegistrationForm";
 
 const Registration = () => {
   return (
@@ -99,8 +100,14 @@ const Registration = () => {
         <div className={styles.formContainer}></div>
       </div>
       <div className={styles.rouletteWheel}>
-        <Image src="/rouletteImg.png" alt="" width={108} height={108} />
+        <Image
+          src="/Registration/rouletteImg.png"
+          alt=""
+          width={108}
+          height={108}
+        />
       </div>
+      <RegistrationForm />
     </div>
   );
 };

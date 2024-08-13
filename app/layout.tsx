@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Oasis 2024 - ",
+  title: "Oasis '24",
   description: "The official website of Oasis 2024 - , Asia's Largest Student-Run College Cultural Festival returns for its 52nd edition in 2024! Est. 1971",
 };
 

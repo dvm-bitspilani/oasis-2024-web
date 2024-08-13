@@ -1,13 +1,20 @@
 import styles from './landing.module.scss'
 
-import Test from "@/components/TestComponent";
 import LandingBackdrop from '@/components/Landing/Backdrop/Backdrop';
+import FluidBackground from '@/components/Landing/Backdrop/FluidBackground';
+import Grunge from '@/components/Landing/Backdrop/Grunge';
+import LandingPage from '@/components/Landing/LandingPage/LandingPage';
 
 export default function Home() {
   return (
-    <>
-      <h1 className={styles.mainTitle}>Oasis 2024</h1>
+    <main className={styles.page}>
+      {/* <FluidBackground /> */}
       <LandingBackdrop />
-    </>
+      <div className={styles.overlay}>
+        <Grunge />
+        {/* <h1 className={styles.mainTitle}>Oasis 2024</h1> */}
+        <LandingPage />
+      </div>
+    </main>
   );
 }

@@ -12,6 +12,7 @@
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0.2;
+    z-index: -1;
   }
   .pageContent {
     font-family: Vidaloka;
@@ -20,24 +21,18 @@
     font-weight: 400;
     line-height: 43px; /* 153.571% */
     letter-spacing: 1.68px;
-    background: linear-gradient(
-      0deg,
-      #fffee5 -27.5%,
-      #efd48d -1.13%,
-      #ffce93 48.36%,
-      #f9e6a2 100%
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     display: flex;
+    flex-direction: column;
     padding: 4rem 0;
     width: 100%;
 
     .title {
       display: flex;
       justify-content: center;
+      // align-items: center;
+      width: 100%;
       gap: 1rem;
+      height: 3rem;
       .registration {
         height: 100%;
         font-family: Rye;
@@ -57,7 +52,28 @@
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
+      .rightSVG {
+        padding: 0 1.5rem 0 0;
+        transform: translateY(-0.4rem);
+        width: 80vw;
+      }
+      .leftSVG {
+        padding: 1.5rem 0 0 1.5rem;
+        width: 100%;
+      }
+    }
+    .formContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+      align-self: flex-end;
+      padding-top: 2rem;
     }
   }
   // .rouletteWheel {

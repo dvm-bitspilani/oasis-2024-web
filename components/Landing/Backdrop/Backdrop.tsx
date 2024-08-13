@@ -1,7 +1,7 @@
 'use client';
 
-import * as THREE from 'three'
 import { useEffect } from "react";
+import * as THREE from 'three'
 
 import backdropVertexShader from '@/shaders/LandingBackdrop/vertex.glsl'
 import backdropFragmentShader from '@/shaders/LandingBackdrop/fragment.glsl'
@@ -34,17 +34,18 @@ export default function LandingBackdrop() {
         const scene = new THREE.Scene()
 
         const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-        camera.position.set(0, 0, 1)
+        // const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 100)
+        camera.position.set(0, -3, 1.5)
+        camera.lookAt(new THREE.Vector3(0, -2, 0))
         scene.add(camera)
 
-        const geometry = new THREE.PlaneGeometry(4.5, 4.5, 64, 64)
+        const geometry = new THREE.PlaneGeometry(12, 12, 64, 64)
 
         const material = new THREE.ShaderMaterial({
             vertexShader: backdropVertexShader,
             fragmentShader: backdropFragmentShader,
             transparent: true,
             uniforms: {
-                uTime: { value: 0.0 },
                 uColor: { value: new THREE.Color('white') },
                 uMouseX: { value: 0.0 },
                 uMouseY: { value: 0.0 }
@@ -93,9 +94,6 @@ export default function LandingBackdrop() {
             const intersect = raycaster.intersectObject(mesh)
             material.uniforms.uMouseX.value = intersect[0]?.point.x
             material.uniforms.uMouseY.value = intersect[0]?.point.y
-
-            // Update material
-            material.uniforms.uTime.value = elapsedTime
 
             // Render
             renderer.render(scene, camera)

@@ -8,4 +8,5 @@
 
 body {
   background-color: #190d2c;
+  cursor: url("../assets/Global/Cursor.svg"), pointer;
 }

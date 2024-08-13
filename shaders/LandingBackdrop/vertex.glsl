@@ -1,4 +1,3 @@
-uniform float uTime;
 uniform float uMouseX;
 uniform float uMouseY;
 

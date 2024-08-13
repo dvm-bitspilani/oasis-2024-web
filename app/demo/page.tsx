@@ -83,7 +83,7 @@ export default function demoPage() {
         particles = null
 
         // Load Models
-        gltfLoader.load('/Models/SlotmachineScaled9.glb', (gltf) => {
+        gltfLoader.load('/Models/SlotmachineScaled13.glb', (gltf) => {
             particles = {
                 index: 0
             }
@@ -153,7 +153,6 @@ export default function demoPage() {
             particles.morph = (index: number) => {
                 // Update Attributes
                 particles.geometry.attributes.position = particles.positions[particles.index]
-                gsap.set(particles.material.uniforms.uProgress, { value: 0 })
                 particles.geometry.attributes.aPositionTarget = particles.positions[index]
 
                 // Animate

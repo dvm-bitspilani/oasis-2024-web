@@ -6,7 +6,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh; /* Full viewport height */
+    height: 100%;
     background-image: url("/backgroundNoiceImg.png");
     background-size: cover; /* Maintain aspect ratio */
     background-position: center;
@@ -23,7 +23,7 @@
     letter-spacing: 1.68px;
     display: flex;
     flex-direction: column;
-    padding: 4rem 0;
+    padding: 2.5rem 0;
     width: 100%;
 
     .title {
@@ -32,7 +32,7 @@
       // align-items: center;
       width: 100%;
       gap: 1rem;
-      height: 3rem;
+      height: 5rem;
       .registration {
         height: 100%;
         font-family: Rye;
@@ -48,7 +48,6 @@
           #d19b5b 71.28%,
           #f9e6a2 145.83%
         );
-
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -57,13 +56,25 @@
         align-items: center;
       }
       .rightSVG {
-        padding: 0 1.5rem 0 0;
-        transform: translateY(-0.4rem);
-        width: 80vw;
+        padding: 2.3rem 4rem 0 0;
+        width: 100%;
+        position: relative;
+      }
+      .rightSVGIcon {
+        position: absolute;
+        top: 0.5rem;
+        right: 2.175rem;
       }
       .leftSVG {
-        padding: 1.5rem 0 0 1.5rem;
+        padding: 2.3rem 0 0 4rem;
         width: 100%;
+        position: relative;
+
+        .backButton {
+          position: absolute;
+          top: -0.33rem;
+          left: 2rem;
+        }
       }
     }
     .formContainer {

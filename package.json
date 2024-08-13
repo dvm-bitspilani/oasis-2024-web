@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
+    "@react-three/drei": "^9.109.5",
+    "@react-three/fiber": "^8.16.8",
     "axios": "^1.7.2",
     "gsap": "^3.12.5",
     "next": "14.2.5",

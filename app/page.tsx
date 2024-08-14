@@ -9,11 +9,11 @@ export default function Home() {
   return (
     <main className={styles.page}>
       {/* <LandingBackdrop /> */}
-      <LandingScene />
+      {/* <LandingScene /> */}
       <Grunge />
-      {/* <div className={styles.overlay}>
+      <div className={styles.overlay}>
         <LandingPage />
-      </div> */}
+      </div>
     </main>
   );
 }

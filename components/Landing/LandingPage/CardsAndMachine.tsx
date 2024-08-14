@@ -12,8 +12,15 @@ export default function CardsAndMachine() {
     useGSAP(() => {
         const timeline = gsap.timeline({
             scrollTrigger: {
-                scrub: 2
+                trigger: 'img[alt="slot machine"]',
+                markers: true,
+                start: () => `top ${document.querySelector('img[alt="slot machine"]')?.getBoundingClientRect().top}`,
+                scrub: 1,
             }
+        })
+
+        timeline.to('img[alt="slot machine"]', {
+            xPercent: 80
         })
     }, {})
     return (

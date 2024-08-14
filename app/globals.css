@@ -7,6 +7,6 @@
 }
 
 body {
-  background-color: #190D2C;
-  cursor: url('../assets/Global/Cursor.svg'), pointer;
+  background-color: #190d2c;
+  cursor: url("../assets/Global/Cursor.svg"), pointer;
 }

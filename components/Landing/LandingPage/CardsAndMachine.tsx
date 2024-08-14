@@ -16,12 +16,19 @@ export default function CardsAndMachine() {
                 markers: true,
                 start: () => `top ${document.querySelector('img[alt="slot machine"]')?.getBoundingClientRect().top}`,
                 scrub: 1,
+                snap: {
+                    snapTo: [0, 1],
+                    ease: 'power2.inOut',
+                    duration: 2
+                }
             }
         })
 
-        timeline.to('img[alt="slot machine"]', {
-            xPercent: 80
-        })
+        timeline
+            .to('img[alt="slot machine"]', {
+                xPercent: 80
+            })
+
     }, {})
     return (
         <Image src="/slotmachine.png" alt="slot machine" width={449.65} height={669.1} />

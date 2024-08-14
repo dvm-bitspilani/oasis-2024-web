@@ -10,11 +10,10 @@ export default function Home() {
     <main className={styles.page}>
       {/* <LandingBackdrop /> */}
       <LandingScene />
-      <div className={styles.overlay}>
+      {/* <div className={styles.overlay}>
         <Grunge />
-        {/* <h1 className={styles.mainTitle}>Oasis 2024</h1> */}
         <LandingPage />
-      </div>
+      </div> */}
     </main>
   );
 }

@@ -56,7 +56,7 @@ export default function ParticleMorphing() {
         */
         // Base camera
         const camera = new THREE.PerspectiveCamera(35, sizes.width / sizes.height, 0.1, 500)
-        camera.position.set(5, 5, 5)
+        camera.position.set(3, 3, 3)
         camera.lookAt(new THREE.Vector3(0, 0, 0))
         scene.add(camera)
 

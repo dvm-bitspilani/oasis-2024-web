@@ -3,6 +3,7 @@ import styles from "./landingpage.module.scss";
 import CardsGroup from "../CardsGroup/CardsGroup";
 import Navbar from "../Navbar/Navbar";
 import Image from "next/image";
+import CardsAndMachine from "./CardsAndMachine";
 
 export default function LandingPage() {
   return (
@@ -11,7 +12,7 @@ export default function LandingPage() {
         <div className={styles.headerContainer}><Navbar /></div>
         <div className={styles.machinecontainer}>
           <div className={styles.cards}><CardsGroup /></div>
-          <Image src="/slotmachine.png" alt="" width={449.65} height={669.1} />
+          <CardsAndMachine />
           <div className={styles.cards}><CardsGroup /></div>
         </div>
         <div className={styles.treescontainer}>

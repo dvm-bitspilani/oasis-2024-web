@@ -23,10 +23,87 @@
       line-height: 43px; /* 307.143% */
       letter-spacing: 0.84px;
     }
+    .radioContainer {
+      display: flex;
+      gap: 20px;
+      .radioButtonContainer {
+        input {
+          appearance: none;
+          -webkit-appearance: none;
+          margin: 0;
+          display: none;
+          &:input {
+            .radioLabel:after {
+              content: "";
+              position: absolute;
+              left: 5px;
+              top: 50%;
+              transform: translateY(-50%);
+              width: 10px; 
+              height: 10px; 
+              border-radius: 50%;
+              background: #dcae6d;
+            }
+          }
+        }
+        .radioLabel {
+          position: relative;
+          padding-left: 20px; // Adjust as needed
+          padding-right: 20px;
+          border: none;
+          background-color: transparent;
+          outline: none;
+          font-family: Vidaloka;
+          font-size: 28px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 43px; /* 153.571% */
+          letter-spacing: 1.68px;
+          background: linear-gradient(
+            0deg,
+            #fffee5 -27.5%,
+            #efd48d -1.13%,
+            #ffce93 48.36%,
+            #f9e6a2 100%
+          );
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            border: 2px solid #dcae6d;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
     input {
-    //   border: none;
-    //   background-color: transparent;
-    //   outline: none;
+      caret-color: #efd48d;
+      border: none;
+      background-color: transparent;
+      outline: none;
+      font-family: Vidaloka;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 43px; /* 153.571% */
+      letter-spacing: 1.68px;
+      background: linear-gradient(
+        0deg,
+        #fffee5 -27.5%,
+        #efd48d -1.13%,
+        #ffce93 48.36%,
+        #f9e6a2 100%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   }
 }

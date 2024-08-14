@@ -9,10 +9,12 @@ export default function LandingOverlay() {
     return (
         <Scroll html>
             <main className={styles.wrapper}>
-                <Image
-                    src={oasisLogo}
-                    alt="oasis logo"
-                />
+                <div className={styles.imageWrapper}>
+                    <Image
+                        src={oasisLogo}
+                        alt="oasis logo"
+                    />
+                </div>
             </main>
         </Scroll>
     )

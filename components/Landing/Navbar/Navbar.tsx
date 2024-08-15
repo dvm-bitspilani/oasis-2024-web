@@ -24,13 +24,14 @@ export default function Navbar() {
     return (
         <>
             <div className={styles.header}>
-                <Image
+                {/* <Image
                     src="/hammenu.png"
                     alt=""
                     width={99}
                     height={99}
                     className={styles.hamburger}
-                />
+                /> */}
+                <HamBtn />
                 <div className={styles.btnwrapper}>
                     <div className={styles.btnborder}>
                         <div className={`${styles.circlewrapper} ${styles.top}`}>

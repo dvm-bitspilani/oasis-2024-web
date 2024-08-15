@@ -20,73 +20,33 @@ export default function CardsAndMachine() {
         const timeline = gsap.timeline({
             scrollTrigger: {
                 trigger: 'img[alt="slot machine"]',
-                markers: false,
+                markers: true,
                 start: () => `top ${document.querySelector('img[alt="slot machine"]')?.getBoundingClientRect().top}`,
                 scrub: 1,
                 snap: {
                     snapTo: [0, 1],
                     ease: 'power2.inOut',
                     duration: 2
-                }
+                },
             }
         })
 
         timeline
             .to('img[alt="slot machine"]', {
-                xPercent: 80
+                xPercent: 80,
             })
             .to('img[alt="oasis logo landing"]', {
                 y: -150,
                 opacity: 0,
             }, '<')
-
-
-        const cardAnimationConfig = {
-            scrollTrigger: {
-                trigger: 'img[alt="slot machine"]',
-                markers: true,
-                start: () => `top ${document.querySelector('img[alt="slot machine"]')?.getBoundingClientRect().top}`,
-                scrub: 1
-            }
-        }
-
-        gsap.to('#card1',
-            {
-                ...cardAnimationConfig,
-                x: 200,
-            }
-        )
-        gsap.to('#card2',
-            {
-                ...cardAnimationConfig,
-                y: 200,
-            }
-        )
-        gsap.to('#card3',
-            {
-                ...cardAnimationConfig,
-                x: -200,
-            }
-        )
-        gsap.to('#card4',
-            {
-                ...cardAnimationConfig,
-                y: -200,
-            }
-        )
-        gsap.to('#card5',
-            {
-                ...cardAnimationConfig,
-                x: 300,
-            }
-        )
-        gsap.to('#card6',
-            {
-                ...cardAnimationConfig,
-                y: 300,
-            }
-        )
-
+            .to('img[alt="left tree"]', {
+                x: -150,
+                opacity: 0
+            }, '<')
+            .to('img[alt="right tree"]', {
+                x: 150,
+                opacity: 0
+            }, '<')
     }, {})
     return (
         <Image src="/slotmachine.png" alt="slot machine" width={449.65} height={669.1} />

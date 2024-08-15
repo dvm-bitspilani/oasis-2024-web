@@ -18,14 +18,14 @@ export default function LandingPage() {
         <div className={styles.treescontainer}>
           <Image
             src="/tree.png"
-            alt=""
+            alt="left tree"
             width={430}
             height={530}
             style={{ transform: "scaleX(-1)" }}
           />
           <Image
             src="/tree.png"
-            alt=""
+            alt="right tree"
             width={430}
             height={530}
             className={styles.righttree}

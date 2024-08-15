@@ -1,0 +1,40 @@
+.btn {
+    aspect-ratio: 1 / 1;
+    width: 100px;
+    z-index: 10;
+    cursor: pointer;
+    pointer-events: all;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+        transition: all 300ms ease-in-out;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    &:hover {
+        svg {
+            transform: rotateZ(60deg);
+        }
+    }
+
+    .hamIcon {
+        position: absolute;
+        width: calc(18 / 74 * 100%);
+
+        .iconLine {
+            aspect-ratio: 295 / 30;
+            width: 100%;
+            height: auto;
+
+            &:last-of-type {
+                aspect-ratio: 200 / 30;
+                width: calc(20000 / 295 * 1%);
+            }
+        }
+    }
+}

@@ -1,7 +1,5 @@
 .header {
   width: 100%;
-  //   margin-top: 20px;
-  //   margin-left: 25px;
   display: flex;
   position: relative;
   top: 30px;
@@ -15,11 +13,11 @@
     position: absolute;
     right: 65px;
     border-radius: 36px;
-    background: conic-gradient(
-      from 176deg at 50% 50%,
-      #ffc76d 0deg,
-      #e59f2d 360deg
-    );
+    // background: conic-gradient(
+    //   from 176deg at 50% 50%,
+    //   #ffc76d 0deg,
+    //   #e59f2d 360deg
+    // );
     box-shadow: 4px 4px 8px 0px rgba(3, 1, 4, 0.28) inset;
     padding: 6px;
     .btnborder {
@@ -43,6 +41,7 @@
             #ffe887 100%
           );
           margin-right: 3px;
+          filter: blur(0.5px);
         }
       }
       .top {

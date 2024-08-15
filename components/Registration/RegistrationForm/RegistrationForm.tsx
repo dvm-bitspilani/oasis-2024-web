@@ -68,7 +68,7 @@ const RegistrationForm: React.FC = () => {
             <path
               d="M888.293 22.3075C895.265 19.5085 892.004 13.6209 889.118 12.2607C885.66 10.6306 875.637 12.2767 875.834 23.5311C877.338 32.6431 895.434 38.06 902.57 19.5421C905.43 11.2526 898.547 0.107649 882.739 1.05681H0"
               stroke="#F5E3AE"
-              stroke-width="1.58383"
+              strokeWidth="1.58383"
             />
             <line
               x1="-7.14315e-08"
@@ -76,8 +76,8 @@ const RegistrationForm: React.FC = () => {
               x2="875"
               y2="9.18284"
               stroke="#F5E3AE"
-              stroke-width="1.63416"
-              stroke-dasharray="1.63 1.63"
+              strokeWidth="1.63416"
+              strokeDasharray="1.63 1.63"
             />
           </svg>
         </div>
@@ -102,7 +102,7 @@ const RegistrationForm: React.FC = () => {
             <path
               d="M888.293 22.3075C895.265 19.5085 892.004 13.6209 889.118 12.2607C885.66 10.6306 875.637 12.2767 875.834 23.5311C877.338 32.6431 895.434 38.06 902.57 19.5421C905.43 11.2526 898.547 0.107649 882.739 1.05681H0"
               stroke="#F5E3AE"
-              stroke-width="1.58383"
+              strokeWidth="1.58383"
             />
             <line
               x1="-7.14315e-08"
@@ -110,8 +110,8 @@ const RegistrationForm: React.FC = () => {
               x2="875"
               y2="9.18284"
               stroke="#F5E3AE"
-              stroke-width="1.63416"
-              stroke-dasharray="1.63 1.63"
+              strokeWidth="1.63416"
+              strokeDasharray="1.63 1.63"
             />
           </svg>
         </div>
@@ -138,7 +138,7 @@ const RegistrationForm: React.FC = () => {
             <path
               d="M888.293 22.3075C895.265 19.5085 892.004 13.6209 889.118 12.2607C885.66 10.6306 875.637 12.2767 875.834 23.5311C877.338 32.6431 895.434 38.06 902.57 19.5421C905.43 11.2526 898.547 0.107649 882.739 1.05681H0"
               stroke="#F5E3AE"
-              stroke-width="1.58383"
+              strokeWidth="1.58383"
             />
             <line
               x1="-7.14315e-08"
@@ -146,8 +146,8 @@ const RegistrationForm: React.FC = () => {
               x2="875"
               y2="9.18284"
               stroke="#F5E3AE"
-              stroke-width="1.63416"
-              stroke-dasharray="1.63 1.63"
+              strokeWidth="1.63416"
+              strokeDasharray="1.63 1.63"
             />
           </svg>
         </div>

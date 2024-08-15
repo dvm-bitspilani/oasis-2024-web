@@ -11,7 +11,9 @@ export default function Grunge() {
                 height: '100dvh',
                 width: '100vw',
                 position: 'absolute',
-                pointerEvents: 'none'
+                pointerEvents: 'none',
+                top: 0,
+                zIndex: -1
             }} />
     )
 }

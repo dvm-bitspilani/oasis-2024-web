@@ -1,11 +1,12 @@
 "use client";
 
 import React from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
 import styles from "./registrationForm.module.scss";
+import Select from "react-select/base";
 
 const formSchema = z.object({
   name: z.string().min(1, { message: "*Name is required" }),
@@ -36,6 +37,7 @@ type FormData = z.infer<typeof formSchema>;
 
 const RegistrationForm: React.FC = () => {
   const {
+    control,
     register,
     handleSubmit,
     formState: { errors },
@@ -47,6 +49,12 @@ const RegistrationForm: React.FC = () => {
     console.log(data);
     // Handle form submission
   };
+
+  const interestOptions = `[
+    { value: "", label: "Select Interest" },
+    { value: "coding", label: "Coding" },
+    { value: "design", label: "Design" },
+  ]`;
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.registrationForm}>
@@ -212,7 +220,34 @@ const RegistrationForm: React.FC = () => {
         <label htmlFor="interests" className={styles.formFieldHeader}>
           INTERESTS
         </label>
-        <select id="interests" {...register("interests")}>
+
+        <Controller
+          name="interests"
+          control={control}
+          rules={{ required: "Interest is required" }}
+          render={({ field }) => (
+            <>
+              <Select
+                inputValue={""}
+                onInputChange={undefined}
+                onMenuOpen={function (): void {
+                  throw new Error("Function not implemented.");
+                }}
+                onMenuClose={function (): void {
+                  throw new Error("Function not implemented.");
+                }}
+                {...field}
+                options={interestOptions}
+                placeholder="Select Interest"
+              />
+              {errors.interests && (
+                <span style={{ color: "red" }}>{errors.interests.message}</span>
+              )}
+            </>
+          )}
+        />
+
+        <select {...register("interests")}>
           <option value="">Select Interest</option>
           <option value="coding">Coding</option>
           <option value="design">Design</option>

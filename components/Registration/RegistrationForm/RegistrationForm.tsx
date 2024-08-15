@@ -7,6 +7,7 @@ import * as z from "zod";
 
 import styles from "./registrationForm.module.scss";
 import Select from "react-select/base";
+import { SingleValue, Props as SelectProps } from "react-select";
 
 const formSchema = z.object({
   name: z.string().min(1, { message: "*Name is required" }),
@@ -50,11 +51,19 @@ const RegistrationForm: React.FC = () => {
     // Handle form submission
   };
 
-  const interestOptions = `[
+  interface Option {
+    value: string;
+    label: string;
+  }
+  interface FormValues {
+    interests: string | null; // Define the type for your form values
+  }
+
+  const interestOptions: Option[] = [
     { value: "", label: "Select Interest" },
     { value: "coding", label: "Coding" },
     { value: "design", label: "Design" },
-  ]`;
+  ];
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.registrationForm}>
@@ -247,6 +256,29 @@ const RegistrationForm: React.FC = () => {
           )}
         /> */}
 
+        <Controller
+          name="interests"
+          control={control}
+          render={({ field }) => (
+            <Select
+              {...field}
+              options={interestOptions}
+              placeholder="Select Interest"
+              value={
+                interestOptions.find(
+                  (option) => option.value === field.value
+                ) || null
+              }
+              onChange={(selectedOption: SingleValue<Option>) =>
+                field.onChange(selectedOption ? selectedOption.value : null)
+              }
+              onBlur={field.onBlur}
+              // No need to include these props if not used:
+              // inputValue, onInputChange, onMenuOpen, onMenuClose
+            />
+          )}
+        />
+
         <select {...register("interests")}>
           <option value="">Select Interest</option>
           <option value="coding">Coding</option>
@@ -292,6 +324,30 @@ const RegistrationForm: React.FC = () => {
           <option value="hackathon">Hackathon</option>
           <option value="workshop">Workshop</option>
         </select>
+        <div className={styles.inputUnderline}>
+          <svg
+            width="904"
+            height="33"
+            viewBox="0 0 904 33"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M888.293 22.3075C895.265 19.5085 892.004 13.6209 889.118 12.2607C885.66 10.6306 875.637 12.2767 875.834 23.5311C877.338 32.6431 895.434 38.06 902.57 19.5421C905.43 11.2526 898.547 0.107649 882.739 1.05681H0"
+              stroke="#F5E3AE"
+              strokeWidth="1.58383"
+            />
+            <line
+              x1="-7.14315e-08"
+              y1="9.18292"
+              x2="875"
+              y2="9.18284"
+              stroke="#F5E3AE"
+              strokeWidth="1.63416"
+              strokeDasharray="1.63 1.63"
+            />
+          </svg>
+        </div>
         {errors.events && (
           <span className={styles.formErrorMessage}>
             {errors.events.message}
@@ -307,6 +363,30 @@ const RegistrationForm: React.FC = () => {
           <option value="">Select College</option>
           <option value="RAJASTHAN">Rajasthan</option>
         </select>
+        <div className={styles.inputUnderline}>
+          <svg
+            width="904"
+            height="33"
+            viewBox="0 0 904 33"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M888.293 22.3075C895.265 19.5085 892.004 13.6209 889.118 12.2607C885.66 10.6306 875.637 12.2767 875.834 23.5311C877.338 32.6431 895.434 38.06 902.57 19.5421C905.43 11.2526 898.547 0.107649 882.739 1.05681H0"
+              stroke="#F5E3AE"
+              strokeWidth="1.58383"
+            />
+            <line
+              x1="-7.14315e-08"
+              y1="9.18292"
+              x2="875"
+              y2="9.18284"
+              stroke="#F5E3AE"
+              strokeWidth="1.63416"
+              strokeDasharray="1.63 1.63"
+            />
+          </svg>
+        </div>
         {errors.college && (
           <span className={styles.formErrorMessage}>
             {errors.college.message}
@@ -348,6 +428,30 @@ const RegistrationForm: React.FC = () => {
           <option value="">Select State</option>
           <option value="RAJASTHAN">Rajasthan</option>
         </select>
+        <div className={styles.inputUnderline}>
+          <svg
+            width="904"
+            height="33"
+            viewBox="0 0 904 33"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M888.293 22.3075C895.265 19.5085 892.004 13.6209 889.118 12.2607C885.66 10.6306 875.637 12.2767 875.834 23.5311C877.338 32.6431 895.434 38.06 902.57 19.5421C905.43 11.2526 898.547 0.107649 882.739 1.05681H0"
+              stroke="#F5E3AE"
+              strokeWidth="1.58383"
+            />
+            <line
+              x1="-7.14315e-08"
+              y1="9.18292"
+              x2="875"
+              y2="9.18284"
+              stroke="#F5E3AE"
+              strokeWidth="1.63416"
+              strokeDasharray="1.63 1.63"
+            />
+          </svg>
+        </div>
         {errors.state && (
           <span className={styles.formErrorMessage}>
             {errors.state.message}
@@ -363,6 +467,30 @@ const RegistrationForm: React.FC = () => {
           <option value="">Select City</option>
           <option value="PILANI">Pilani</option>
         </select>
+        <div className={styles.inputUnderline}>
+          <svg
+            width="904"
+            height="33"
+            viewBox="0 0 904 33"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M888.293 22.3075C895.265 19.5085 892.004 13.6209 889.118 12.2607C885.66 10.6306 875.637 12.2767 875.834 23.5311C877.338 32.6431 895.434 38.06 902.57 19.5421C905.43 11.2526 898.547 0.107649 882.739 1.05681H0"
+              stroke="#F5E3AE"
+              strokeWidth="1.58383"
+            />
+            <line
+              x1="-7.14315e-08"
+              y1="9.18292"
+              x2="875"
+              y2="9.18284"
+              stroke="#F5E3AE"
+              strokeWidth="1.63416"
+              strokeDasharray="1.63 1.63"
+            />
+          </svg>
+        </div>
         {errors.city && (
           <span className={styles.formErrorMessage}>{errors.city.message}</span>
         )}

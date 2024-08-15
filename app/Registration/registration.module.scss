@@ -125,10 +125,23 @@
     .formContainer {
       width: 50vw;
       max-width: 900px;
-      height: 80vh;
+      height: 77vh;
       align-self: flex-end;
       overflow-y: scroll;
-      border: 2px solid red;
+
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Hide scrollbar for IE, Edge and Firefox */
+
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+
+      // border: 2px solid red;
+
+      margin-right: 250px;
     }
   }
   .rouletteWheel {

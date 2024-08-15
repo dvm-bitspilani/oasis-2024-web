@@ -221,7 +221,7 @@ const RegistrationForm: React.FC = () => {
           INTERESTS
         </label>
 
-        <Controller
+        {/* <Controller
           name="interests"
           control={control}
           rules={{ required: "Interest is required" }}
@@ -245,7 +245,7 @@ const RegistrationForm: React.FC = () => {
               )}
             </>
           )}
-        />
+        /> */}
 
         <select {...register("interests")}>
           <option value="">Select Interest</option>
@@ -319,13 +319,15 @@ const RegistrationForm: React.FC = () => {
         <div className={styles.radioContainer}>
           {[1, 2, 3, 4, 5].map((year) => (
             <div key={year} className={styles.radioButtonContainer}>
-              <input
-                type="radio"
-                id={`year${year}`}
-                value={year.toString()}
-                {...register("yearOfStudy")}
-              />
               <label htmlFor={`year${year}`} className={styles.radioLabel}>
+                <input
+                  type="radio"
+                  id={`year${year}`}
+                  value={year.toString()}
+                  {...register("yearOfStudy")}
+                  className={styles.radioInput}
+                />
+                <span className={styles.radioCustom}></span>
                 {year}
               </label>
             </div>

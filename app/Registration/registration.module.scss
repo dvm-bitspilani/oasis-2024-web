@@ -123,15 +123,12 @@
       }
     }
     .formContainer {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 50%;
-      height: 100%;
+      width: 50vw;
+      max-width: 900px;
+      height: 80vh;
       align-self: flex-end;
-      padding-top: 2rem;
       overflow-y: scroll;
+      border: 2px solid red;
     }
   }
   .rouletteWheel {

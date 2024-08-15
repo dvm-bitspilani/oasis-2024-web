@@ -4,6 +4,16 @@
   .formField {
     display: flex;
     flex-direction: column;
+    .inputUnderline {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      height: 33px;
+      svg {
+        position: absolute;
+        right: 0;
+      }
+    }
     .formFieldHeader {
       color: #ffe3ad;
       text-shadow: 0px 0px 8px rgba(229, 195, 132, 0.48);
@@ -163,7 +173,7 @@
       -webkit-text-fill-color: transparent;
     }
     select {
-            caret-color: #efd48d;
+      caret-color: #efd48d;
       border: none;
       background-color: transparent;
       outline: none;

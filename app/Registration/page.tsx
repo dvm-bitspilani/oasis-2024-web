@@ -203,7 +203,7 @@ const Registration = () => {
           </svg>
         </div>
         <div className={styles.formContainer} ref={formRef}>
-          {/* <RegistrationForm /> */}
+          <RegistrationForm />
         </div>
       </div>
       <div className={styles.rouletteWheel} ref={wheelRef}>

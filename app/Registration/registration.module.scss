@@ -128,8 +128,10 @@
       justify-content: center;
       align-items: center;
       width: 50%;
+      height: 100%;
       align-self: flex-end;
       padding-top: 2rem;
+      overflow-y: scroll;
     }
   }
   .rouletteWheel {

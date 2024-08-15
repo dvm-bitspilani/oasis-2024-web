@@ -13,9 +13,8 @@ const formSchema = z.object({
   phoneNumber: z
     .string()
     .regex(/^\d{10}$/, { message: "*Invalid phone number" }),
-  // gender: z.enum(["MALE", "FEMALE", "OTHERS"]),
   gender: z
-    .enum(["MALE", "FEMALE"])
+    .enum(["MALE", "FEMALE", "OTHERS"])
     .nullable()
     .refine((value) => value !== undefined && value !== null, {
       message: "*Please select a gender",
@@ -161,36 +160,46 @@ const RegistrationForm: React.FC = () => {
         <label className={styles.formFieldHeader}>GENDER</label>
         <div className={styles.radioContainer}>
           <div className={styles.radioButtonContainer}>
-            <input
-              type="radio"
-              id="male"
-              value="MALE"
-              {...register("gender")}
-            />
             <label htmlFor="male" className={styles.radioLabel}>
+              <input
+                type="radio"
+                id="male"
+                value="MALE"
+                {...register("gender")}
+                className={styles.radioInput}
+              />
+              <span className={styles.radioCustom}></span>
               Male
             </label>
           </div>
 
           <div className={styles.radioButtonContainer}>
-            <input
-              type="radio"
-              id="female"
-              value="FEMALE"
-              {...register("gender")}
-            />
             <label htmlFor="female" className={styles.radioLabel}>
+              <input
+                type="radio"
+                id="female"
+                value="FEMALE"
+                {...register("gender")}
+                className={styles.radioInput}
+              />
+              <span className={styles.radioCustom}></span>
               Female
             </label>
           </div>
 
-          {/* <input
-            type="radio"
-            id="others"
-            value="OTHERS"
-            {...register("gender")}
-          />
-          <label htmlFor="others">Others</label> */}
+          <div className={styles.radioButtonContainer}>
+            <label htmlFor="others" className={styles.radioLabel}>
+              <input
+                type="radio"
+                id="others"
+                value="OTHERS"
+                {...register("gender")}
+                className={styles.radioInput}
+              />
+              <span className={styles.radioCustom}></span>
+              Others
+            </label>
+          </div>
         </div>
         {errors.gender && (
           <span className={styles.formErrorMessage}>
@@ -208,6 +217,30 @@ const RegistrationForm: React.FC = () => {
           <option value="coding">Coding</option>
           <option value="design">Design</option>
         </select>
+        <div className={styles.inputUnderline}>
+          <svg
+            width="904"
+            height="33"
+            viewBox="0 0 904 33"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M888.293 22.3075C895.265 19.5085 892.004 13.6209 889.118 12.2607C885.66 10.6306 875.637 12.2767 875.834 23.5311C877.338 32.6431 895.434 38.06 902.57 19.5421C905.43 11.2526 898.547 0.107649 882.739 1.05681H0"
+              stroke="#F5E3AE"
+              strokeWidth="1.58383"
+            />
+            <line
+              x1="-7.14315e-08"
+              y1="9.18292"
+              x2="875"
+              y2="9.18284"
+              stroke="#F5E3AE"
+              strokeWidth="1.63416"
+              strokeDasharray="1.63 1.63"
+            />
+          </svg>
+        </div>
         {errors.interests && (
           <span className={styles.formErrorMessage}>
             {errors.interests.message}

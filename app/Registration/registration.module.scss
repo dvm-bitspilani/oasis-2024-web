@@ -107,6 +107,20 @@
           left: 2rem;
         }
       }
+      .bottomSLine {
+        position: absolute;
+        bottom: -81.7vh;
+        right: 7.3rem;
+        // height: 2px;
+        width: 9.5vw;
+      }
+      .bottomLine {
+        position: absolute;
+        bottom: -82.1vh;
+        right: calc((9.5vw) + 7.3rem + 10vw);
+        // height: 2px;
+        width: 41vw;
+      }
     }
     .formContainer {
       display: flex;

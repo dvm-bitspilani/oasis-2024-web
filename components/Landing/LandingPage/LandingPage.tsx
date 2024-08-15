@@ -11,9 +11,9 @@ export default function LandingPage() {
       <div className={styles.mainwrapper}>
         <div className={styles.headerContainer}><Navbar /></div>
         <div className={styles.machinecontainer}>
-          <div className={styles.cards}><CardsGroup /></div>
+          <div className={styles.cards}><CardsGroup group={1} /></div>
           <CardsAndMachine />
-          <div className={styles.cards}><CardsGroup /></div>
+          <div className={styles.cards}><CardsGroup group={2} /></div>
         </div>
         <div className={styles.treescontainer}>
           <Image

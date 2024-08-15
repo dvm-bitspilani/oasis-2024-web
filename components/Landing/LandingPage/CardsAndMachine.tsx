@@ -20,7 +20,7 @@ export default function CardsAndMachine() {
         const timeline = gsap.timeline({
             scrollTrigger: {
                 trigger: 'img[alt="slot machine"]',
-                markers: true,
+                markers: false,
                 start: () => `top ${document.querySelector('img[alt="slot machine"]')?.getBoundingClientRect().top}`,
                 scrub: 1,
                 snap: {
@@ -35,6 +35,57 @@ export default function CardsAndMachine() {
             .to('img[alt="slot machine"]', {
                 xPercent: 80
             })
+            .to('img[alt="oasis logo landing"]', {
+                y: -150,
+                opacity: 0,
+            }, '<')
+
+
+        const cardAnimationConfig = {
+            scrollTrigger: {
+                trigger: 'img[alt="slot machine"]',
+                markers: true,
+                start: () => `top ${document.querySelector('img[alt="slot machine"]')?.getBoundingClientRect().top}`,
+                scrub: 1
+            }
+        }
+
+        gsap.to('#card1',
+            {
+                ...cardAnimationConfig,
+                x: 200,
+            }
+        )
+        gsap.to('#card2',
+            {
+                ...cardAnimationConfig,
+                y: 200,
+            }
+        )
+        gsap.to('#card3',
+            {
+                ...cardAnimationConfig,
+                x: -200,
+            }
+        )
+        gsap.to('#card4',
+            {
+                ...cardAnimationConfig,
+                y: -200,
+            }
+        )
+        gsap.to('#card5',
+            {
+                ...cardAnimationConfig,
+                x: 300,
+            }
+        )
+        gsap.to('#card6',
+            {
+                ...cardAnimationConfig,
+                y: 300,
+            }
+        )
 
     }, {})
     return (

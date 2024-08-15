@@ -256,7 +256,7 @@ const RegistrationForm: React.FC = () => {
           )}
         /> */}
 
-        <Controller
+        {/* <Controller
           name="interests"
           control={control}
           render={({ field }) => (
@@ -277,7 +277,7 @@ const RegistrationForm: React.FC = () => {
               // inputValue, onInputChange, onMenuOpen, onMenuClose
             />
           )}
-        />
+        /> */}
 
         <select {...register("interests")}>
           <option value="">Select Interest</option>

@@ -1,6 +1,6 @@
-export default function HamPokerChip() {
+export default function HamPokerChip({ svgClass }) {
     return (
-        <svg viewBox="0 0 91 91" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className={svgClass} viewBox="0 0 91 91" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d_1964_6826)">
                 <circle cx="45.0386" cy="45.9351" r="34.8756" stroke="#EDCF89" stroke-width="0.306546" />
                 <mask id="mask0_1964_6826" maskUnits="userSpaceOnUse" x="8" y="9" width="74" height="74">

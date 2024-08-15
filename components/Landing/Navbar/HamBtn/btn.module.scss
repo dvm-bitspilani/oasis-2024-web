@@ -9,7 +9,7 @@
     justify-content: center;
     align-items: center;
 
-    svg {
+    .pokerChip {
         transition: all 300ms ease-in-out;
         width: 100%;
         height: 100%;
@@ -17,24 +17,37 @@
     }
 
     &:hover {
-        svg {
+        .pokerChip {
             transform: rotateZ(60deg);
         }
     }
 
     .hamIcon {
         position: absolute;
+        aspect-ratio: 340 / 240;
         width: calc(18 / 74 * 100%);
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 5px;
+        flex-direction: column;
 
-        .iconLine {
-            aspect-ratio: 295 / 30;
+        .menuLines {
+            aspect-ratio: 340 / 240;
             width: 100%;
-            height: auto;
-
-            &:last-of-type {
-                aspect-ratio: 200 / 30;
-                width: calc(20000 / 295 * 1%);
-            }
         }
+
+        // .iconLine {
+        //     aspect-ratio: 295 / 30;
+        //     width: 100%;
+        //     height: auto;
+        //     background-color: #EDCF89;
+        //     border-radius: 10px;
+
+        //     &:last-of-type {
+        //         aspect-ratio: 200 / 30;
+        //         width: calc(20000 / 295 * 1%);
+        //     }
+        // }
     }
 }

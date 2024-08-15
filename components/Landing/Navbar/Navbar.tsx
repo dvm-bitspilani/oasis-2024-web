@@ -16,7 +16,7 @@ export default function Navbar() {
             <div className={styles.logo}>
                 <Image
                     src="/oasislogo.png"
-                    alt=""
+                    alt="oasis logo landing"
                     width={560}
                     height={205}
                 />

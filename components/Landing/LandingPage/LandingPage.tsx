@@ -3,7 +3,7 @@ import styles from "./landingpage.module.scss";
 import CardsGroup from "../CardsGroup/CardsGroup";
 import Navbar from "../Navbar/Navbar";
 import Image from "next/image";
-import CardsAndMachine from "./CardsAndMachine";
+import CardsAndMachine from "./LandingAnimations";
 
 export default function LandingPage() {
   return (

@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import Image from "next/image"
+import Image from "next/image";
 
 import { useGSAP } from "@gsap/react"
-import gsap from "gsap"
+import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useEffect } from "react";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 export default function CardsAndMachine() {
     useEffect(() => {
         window.onbeforeunload = function () {
             window.scrollTo(0, 0);
-        }
-    }, [])
+        };
+    }, []);
 
     useGSAP(() => {
         const timeline = gsap.timeline({

@@ -4,6 +4,16 @@
   .formField {
     display: flex;
     flex-direction: column;
+    .inputUnderline {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      height: 33px;
+      svg {
+        position: absolute;
+        right: 0;
+      }
+    }
     .formFieldHeader {
       color: #ffe3ad;
       text-shadow: 0px 0px 8px rgba(229, 195, 132, 0.48);
@@ -23,10 +33,166 @@
       line-height: 43px; /* 307.143% */
       letter-spacing: 0.84px;
     }
+    .radioContainer {
+      display: flex;
+      gap: 50px;
+
+      .radioButtonContainer {
+        .radioLabel {
+          font-family: Vidaloka;
+          font-size: 28px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 43px; /* 153.571% */
+          letter-spacing: 1.68px;
+          background: linear-gradient(
+            0deg,
+            #fffee5 -27.5%,
+            #efd48d -1.13%,
+            #ffce93 48.36%,
+            #f9e6a2 100%
+          );
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+
+          user-select: none;
+          display: inline-flex;
+          align-items: center;
+          position: relative;
+          cursor: pointer;
+          .radioInput {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            &:checked + .radioCustom {
+              &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background-color: #dcae6d;
+              }
+            }
+          }
+          .radioCustom {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #dcae6d;
+            border-radius: 50%;
+            margin-right: 10px;
+            position: relative;
+            display: inline-block;
+          }
+        }
+      }
+
+      // .radioButtonContainer {
+      //   .radioInput {
+      //     appearance: none;
+      //     -webkit-appearance: none;
+      //     -moz-appearance: none;
+      //     margin: 0;
+      //     display: none;
+      //     &:after {
+      //       content: "";
+      //       position: absolute;
+      //       display: flex;
+      //       left: 5px;
+      //       top: 50%;
+      //       transform: translateY(-50%);
+      //       width: 10px;
+      //       height: 10px;
+      //       border-radius: 50%;
+      //       background: #dcae6d;
+      //     }
+      //   }
+      //   .radioLabel {
+      //     cursor: pointer;
+      //     user-select: none;
+      //     position: relative;
+      //     padding-left: 40px;
+      //     margin-right: 40px;
+      //     border: none;
+      //     background-color: transparent;
+      //     outline: none;
+      //     font-family: Vidaloka;
+      //     font-size: 28px;
+      //     font-style: normal;
+      //     font-weight: 400;
+      //     line-height: 43px; /* 153.571% */
+      //     letter-spacing: 1.68px;
+      //     background: linear-gradient(
+      //       0deg,
+      //       #fffee5 -27.5%,
+      //       #efd48d -1.13%,
+      //       #ffce93 48.36%,
+      //       #f9e6a2 100%
+      //     );
+      //     background-clip: text;
+      //     -webkit-background-clip: text;
+      //     -webkit-text-fill-color: transparent;
+      //     // &:before {
+      //     //   content: "";
+      //     //   position: absolute;
+      //     //   left: 0;
+      //     //   top: 50%;
+      //     //   transform: translateY(-50%);
+      //     //   width: 18px;
+      //     //   height: 18px;
+      //     //   border: 2px solid #dcae6d;
+      //     //   border-radius: 50%;
+      //     // }
+      //   }
+      // }
+    }
     input {
-    //   border: none;
-    //   background-color: transparent;
-    //   outline: none;
+      caret-color: #efd48d;
+      border: none;
+      background-color: transparent;
+      outline: none;
+      font-family: Vidaloka;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 43px; /* 153.571% */
+      letter-spacing: 1.68px;
+      background: linear-gradient(
+        0deg,
+        #fffee5 -27.5%,
+        #efd48d -1.13%,
+        #ffce93 48.36%,
+        #f9e6a2 100%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    select {
+      caret-color: #efd48d;
+      border: none;
+      background-color: transparent;
+      outline: none;
+      font-family: Vidaloka;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 43px; /* 153.571% */
+      letter-spacing: 1.68px;
+      background: linear-gradient(
+        0deg,
+        #fffee5 -27.5%,
+        #efd48d -1.13%,
+        #ffce93 48.36%,
+        #f9e6a2 100%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   }
 }

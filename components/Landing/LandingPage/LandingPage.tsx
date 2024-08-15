@@ -31,8 +31,8 @@ export default function LandingPage() {
                 gradientUnits="userSpaceOnUse"
                 gradientTransform="translate(843.5 550.5) scale(843.5)"
               >
-                <stop stop-color="#FADC69" />
-                <stop offset="1" stop-color="#FADC69" stop-opacity="0" />
+                <stop stopColor="#FADC69" />
+                <stop offset="1" stopColor="#FADC69" stopOpacity="0" />
               </radialGradient>
             </defs>
           </svg>

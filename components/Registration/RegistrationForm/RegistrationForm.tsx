@@ -6,7 +6,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
 import styles from "./registrationForm.module.scss";
-import Image from "next/image";
 
 const formSchema = z.object({
   name: z.string().min(1, { message: "*Name is required" }),

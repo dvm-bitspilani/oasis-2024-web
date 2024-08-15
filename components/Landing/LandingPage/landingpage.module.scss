@@ -9,6 +9,11 @@
     z-index: -10;
   }
 
+  .headercontainer{
+    position: absolute;
+    z-index: 10;
+  }
+
   .treescontainer {
     width: 100vw;
     position: absolute;

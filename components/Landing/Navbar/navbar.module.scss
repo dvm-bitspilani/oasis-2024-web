@@ -21,6 +21,8 @@
     // );
     box-shadow: 4px 4px 8px 0px rgba(3, 1, 4, 0.28) inset;
     padding: 6px;
+    cursor: pointer;
+    pointer-events: all;
 
     .btnborder {
       border-radius: 30px;

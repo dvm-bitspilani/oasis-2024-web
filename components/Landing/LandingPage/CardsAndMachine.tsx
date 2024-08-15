@@ -48,8 +48,11 @@ export default function CardsAndMachine() {
                 opacity: 0
             }, '<')
             .to('#aboutUs', {
-                opacity: 1
+                opacity: 1,
             }, 0.25)
+            .from('#aboutUs', {
+                y: 75,
+            }, '<')
     }, {})
     return (
         <Image src="/slotmachine.png" alt="slot machine" width={449.65} height={669.1} />

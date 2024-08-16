@@ -3,13 +3,15 @@ import styles from './landing.module.scss'
 
 import Grunge from '@/components/Landing/Backdrop/Grunge';
 import LandingPage from '@/components/Landing/LandingPage/LandingPage';
+import LandingScene from '@/components/Landing/Scene/Scene';
 
 export default function Home() {
   return (
     <main className={styles.page}>
+      <LandingScene />
       <div className={styles.overlay}>
-        <LandingPage />
-        <AboutUsPage />
+        {/* <LandingPage /> */}
+        {/* <AboutUsPage /> */}
       </div>
       <Grunge />
     </main>

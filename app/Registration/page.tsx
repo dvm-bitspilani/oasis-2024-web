@@ -210,8 +210,8 @@ const Registration = () => {
         <Image
           src="/Registration/rouletteImg.png"
           alt=""
-          width={1032}
-          height={1022}
+          width={1514}
+          height={1500}
         />
       </div>
     </div>

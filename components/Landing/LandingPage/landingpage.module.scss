@@ -1,45 +1,49 @@
 .mainwrapper {
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: absolute;
 
-    .glow{
+  .glow {
+    position: absolute;
+    z-index: -10;
+  }
+
+  .headercontainer{
+    position: absolute;
+    z-index: 10;
+  }
+
+  .treescontainer {
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+
+    .righttree {
       position: absolute;
-      z-index: -10;
-    }
-  
-    .treescontainer {
-      width: 100vw;
-      position: absolute;
-      bottom: 0;
-      z-index: 2;
-  
-      .righttree {
-        position: absolute;
-        right: 0;
-      }
-    }
-  
-    .machinecontainer{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 0;
-      z-index: 10;
-  
-      .cards{
-          position: relative;
-          top: -4rem;
-      }
-  
-      .cards:nth-of-type(2){
-          transform: scaleX(-1);
-      }
+      right: 0;
     }
   }
-  
+
+  .machinecontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    z-index: 10;
+
+    .cards {
+      position: relative;
+      top: -4rem;
+    }
+
+    .cards:nth-of-type(2) {
+      transform: scaleX(-1);
+    }
+  }
+}

@@ -3,7 +3,7 @@ import styles from "./landingpage.module.scss";
 import CardsGroup from "../CardsGroup/CardsGroup";
 import Navbar from "../Navbar/Navbar";
 import Image from "next/image";
-import CardsAndMachine from "./CardsAndMachine";
+import CardsAndMachine from "./LandingAnimations";
 
 export default function LandingPage() {
   return (
@@ -31,8 +31,8 @@ export default function LandingPage() {
                 gradientUnits="userSpaceOnUse"
                 gradientTransform="translate(843.5 550.5) scale(843.5)"
               >
-                <stop stop-color="#FADC69" />
-                <stop offset="1" stop-color="#FADC69" stop-opacity="0" />
+                <stop stopColor="#FADC69" />
+                <stop offset="1" stopColor="#FADC69" stopOpacity="0" />
               </radialGradient>
             </defs>
           </svg>
@@ -41,25 +41,21 @@ export default function LandingPage() {
           <Navbar />
         </div>
         <div className={styles.machinecontainer}>
-          <div className={styles.cards}>
-            <CardsGroup />
-          </div>
+          <div className={styles.cards}><CardsGroup group={1} /></div>
           <CardsAndMachine />
-          <div className={styles.cards}>
-            <CardsGroup />
-          </div>
+          <div className={styles.cards}><CardsGroup group={2} /></div>
         </div>
         <div className={styles.treescontainer}>
           <Image
             src="/tree.png"
-            alt=""
+            alt="left tree"
             width={430}
             height={530}
             style={{ transform: "scaleX(-1)" }}
           />
           <Image
             src="/tree.png"
-            alt=""
+            alt="right tree"
             width={430}
             height={530}
             className={styles.righttree}

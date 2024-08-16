@@ -1,10 +1,14 @@
 import React from "react";
 import styles from "./card.module.scss";
 
-export default function Card() {
+interface CardProps {
+  cardID: string
+}
+
+export default function Card({ cardID }: CardProps) {
   return (
     <>
-      <div className={styles.cardwrapper}>
+      <div className={styles.cardwrapper} id={cardID}>
         <div className={styles.cardcontainer}></div>
         <div className={styles.heart}>
           <svg

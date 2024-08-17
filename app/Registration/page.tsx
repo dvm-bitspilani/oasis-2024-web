@@ -175,14 +175,14 @@ const Registration = () => {
           <RegistrationForm />
         </div>
       </div>
-      {/* <div className={styles.rouletteWheel} ref={wheelRef}>
+      <div className={styles.rouletteWheel} ref={wheelRef}>
         <Image
           src="/Registration/RouletteWheel.png"
           alt=""
-          width={1200}
-          height={1200}
+          width={1000}
+          height={1000}
         />
-      </div> */}
+      </div>
     </div>
   );
 };

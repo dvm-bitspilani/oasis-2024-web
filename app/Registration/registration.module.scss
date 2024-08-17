@@ -123,6 +123,7 @@
       }
     }
     .formContainer {
+      z-index: 3;
       width: 50vw;
       max-width: 900px;
       height: 70vh;
@@ -185,6 +186,6 @@
     width: 1514;
     height: 1500;
     transform: rotate(-38deg);
-    z-index: 10;
+    z-index: 2;
   }
 }

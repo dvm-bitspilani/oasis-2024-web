@@ -5,26 +5,9 @@
     position: fixed;
     z-index: -1;
 
-    .glow {
-        position: absolute;
-        z-index: -10;
-    }
-
     .headercontainer {
         position: absolute;
         z-index: 10;
-    }
-
-    .treescontainer {
-        width: 100vw;
-        position: absolute;
-        bottom: 0;
-        z-index: 2;
-
-        .righttree {
-            position: absolute;
-            right: 0;
-        }
     }
 
     .machinecontainer {

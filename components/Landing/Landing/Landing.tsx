@@ -11,6 +11,9 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import LandingScene from "../Scene/Scene";
 import Navbar from '../Navbar/Navbar';
 import CardsGroup from '../CardsGroup/CardsGroup';
+import AboutUsPage from '@/components/AboutUs/AboutUsPage';
+import Glow from '../Glow/Glow';
+import Trees from '../Trees/Trees';
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -37,22 +40,27 @@ export default function Landing() {
             timeline
                 .to(slotMachine.current.rotation, {
                     y: -Math.PI / 6,
+                    duration: 1
                 })
                 .to(slotMachine.current.position, {
                     x: -0.9,
                     z: -0.5,
+                    duration: 1
                 }, '<')
                 .to('img[alt="oasis logo landing"]', {
                     y: -150,
                     opacity: 0,
+                    duration: 0.75
                 }, '<')
                 .to('img[alt="left tree"]', {
                     x: -150,
-                    opacity: 0
+                    opacity: 0,
+                    duration: 0.75
                 }, '<')
                 .to('img[alt="right tree"]', {
                     x: 150,
-                    opacity: 0
+                    opacity: 0,
+                    duration: 0.75
                 }, '<')
                 .to(slotMachine.current.rotation, {
                     y: -Math.PI / 4,
@@ -70,34 +78,7 @@ export default function Landing() {
         <>
             <LandingScene ref={slotMachine} setIs3dLoaded={setIs3dLoaded} />
             <div className={styles.mainwrapper}>
-                <div className={styles.glow}>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="1687"
-                        height="1080"
-                        viewBox="0 0 1687 1080"
-                        fill="none"
-                    >
-                        <path
-                            opacity="0.15"
-                            d="M0 1394L0 -293L1687 -293L1687 1394L0 1394Z"
-                            fill="url(#paint0_radial_1444_3421)"
-                        />
-                        <defs>
-                            <radialGradient
-                                id="paint0_radial_1444_3421"
-                                cx="0"
-                                cy="0"
-                                r="1"
-                                gradientUnits="userSpaceOnUse"
-                                gradientTransform="translate(843.5 550.5) scale(843.5)"
-                            >
-                                <stop stopColor="#FADC69" />
-                                <stop offset="1" stopColor="#FADC69" stopOpacity="0" />
-                            </radialGradient>
-                        </defs>
-                    </svg>
-                </div>
+                <Glow />
                 <div className={styles.headerContainer}>
                     <Navbar />
                 </div>
@@ -106,22 +87,7 @@ export default function Landing() {
                     {/* <CardsAndMachine /> */}
                     <div className={styles.cards}><CardsGroup group={2} /></div>
                 </div>
-                <div className={styles.treescontainer}>
-                    <Image
-                        src="/tree.png"
-                        alt="left tree"
-                        width={430}
-                        height={530}
-                        style={{ transform: "scaleX(-1)" }}
-                    />
-                    <Image
-                        src="/tree.png"
-                        alt="right tree"
-                        width={430}
-                        height={530}
-                        className={styles.righttree}
-                    />
-                </div>
+                <Trees />
             </div>
         </>
     )

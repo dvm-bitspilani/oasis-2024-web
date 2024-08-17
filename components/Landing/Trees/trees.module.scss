@@ -1,0 +1,11 @@
+.treescontainer {
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+
+    .righttree {
+        position: absolute;
+        right: 0;
+    }
+}

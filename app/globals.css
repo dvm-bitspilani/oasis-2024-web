@@ -11,3 +11,13 @@ body {
   background-color: #190d2c;
   cursor: url("../assets/Global/Cursor.svg"), default;
 }
+
+.htmlScreen iframe {
+  width: 1024px;
+  height: 670px;
+  transform: rotateY(180deg);
+  border: none;
+  border-radius: 20px;
+  background-color: black;
+  /* position: fixed; */
+}

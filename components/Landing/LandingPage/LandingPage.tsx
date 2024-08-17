@@ -42,7 +42,7 @@ export default function LandingPage() {
         </div>
         <div className={styles.machinecontainer}>
           <div className={styles.cards}><CardsGroup group={1} /></div>
-          <CardsAndMachine />
+          {/* <CardsAndMachine /> */}
           <div className={styles.cards}><CardsGroup group={2} /></div>
         </div>
         <div className={styles.treescontainer}>

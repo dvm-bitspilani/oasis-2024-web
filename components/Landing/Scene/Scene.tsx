@@ -1,25 +1,31 @@
-'use client';
-
-import { OrbitControls, ScrollControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Perf } from 'r3f-perf'
 
 import SlotMachine from "./SlotMachine";
-import LandingOverlay from "./Overlay";
+import { SlotMachine2 } from "./SlotMachineTextured";
+import { useRef, forwardRef } from "react";
 
-export default function LandingScene() {
+const LandingScene = forwardRef(function (props: any, ref) {
+    const pointRef = useRef()
     return (
-        <Canvas>
-            <Perf />
-            <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} />
-            <ambientLight intensity={1.0} />
-            <perspectiveCamera fov={75} />
-            <ScrollControls pages={4} damping={0.25}>
-                <group position={[0, -4.25, 1.5]}>
-                    <SlotMachine />
+        <>
+            <Canvas style={{ position: 'fixed' }}>
+                <Perf />
+                <ambientLight intensity={2.0} />
+                <pointLight
+                    intensity={1.0}
+                    position={[0, 0, 4]}
+                />
+                <perspectiveCamera fov={75} />
+                <group position={[0, -0.7, 3]} rotation={[0, Math.PI, 0]}>
+                    <SlotMachine2 video='/Videos/curtainRaiser23_flipped.mp4' ref={ref} setIs3dLoaded={props.setIs3dLoaded} />
                 </group>
+                {/* <ScrollControls pages={1} damping={0.25}>
                 <LandingOverlay />
-            </ScrollControls>
-        </Canvas>
+            </ScrollControls> */}
+            </Canvas>
+        </>
     )
-}
+})
+
+export default LandingScene

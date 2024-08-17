@@ -9,7 +9,7 @@ export default function LandingPage() {
   return (
     <>
       <div className={styles.mainwrapper}>
-        <div className={styles.glow}>
+        {/* <div className={styles.glow}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="1687"
@@ -36,13 +36,13 @@ export default function LandingPage() {
               </radialGradient>
             </defs>
           </svg>
-        </div>
+        </div> */}
         <div className={styles.headerContainer}>
           <Navbar />
         </div>
         <div className={styles.machinecontainer}>
           <div className={styles.cards}><CardsGroup group={1} /></div>
-          <CardsAndMachine />
+          {/* <CardsAndMachine /> */}
           <div className={styles.cards}><CardsGroup group={2} /></div>
         </div>
         <div className={styles.treescontainer}>

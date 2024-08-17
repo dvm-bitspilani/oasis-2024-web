@@ -20,7 +20,12 @@ type GLTFResult = GLTF & {
     }
 }
 
-export const SlotMachine2 = forwardRef(function SlotMachine2({ video, setIs3dLoaded, ...props }: any, ref) {
+interface Props {
+    video: string;
+    setIs3dLoaded: (value: boolean) => void;
+}
+
+export const SlotMachine2 = forwardRef(function SlotMachine2({ video, setIs3dLoaded, ...props }: Props, ref: any) {
     const { nodes, materials } = useGLTF('/Models/slotMachine.glb') as GLTFResult
 
     const screen: any = useRef()

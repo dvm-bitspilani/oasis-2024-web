@@ -5,7 +5,11 @@ import SlotMachine from "./SlotMachine";
 import { SlotMachine2 } from "./SlotMachine2";
 import { useRef, forwardRef } from "react";
 
-const LandingScene = forwardRef(function LandingScene(props: any, ref) {
+interface Props {
+    setIs3dLoaded: (value: boolean) => void
+}
+
+const LandingScene = forwardRef(function LandingScene({ setIs3dLoaded }: Props, ref) {
     const pointRef = useRef()
     return (
         <>
@@ -20,8 +24,8 @@ const LandingScene = forwardRef(function LandingScene(props: any, ref) {
                 <group position={[0, -0.7, 3]} rotation={[0, Math.PI, 0]}>
                     <SlotMachine2
                         video='/Videos/curtainRaiser23_flipped.mp4'
-                        ref={ref as React.Ref<ThreeElements['mesh']>}
-                        setIs3dLoaded={props.setIs3dLoaded}
+                        ref={ref}
+                        setIs3dLoaded={setIs3dLoaded}
                     />
                 </group>
                 {/* <ScrollControls pages={1} damping={0.25}>

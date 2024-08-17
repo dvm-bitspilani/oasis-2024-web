@@ -22,7 +22,7 @@ export default function LandingScene() {
             <perspectiveCamera fov={75} />
             <ScrollControls pages={2} damping={0.25}>
                 <group position={[0, -0.7, 3]} rotation={[0, Math.PI, 0]}>
-                    <SlotMachine2 video='/Videos/curtainRaiser23.mp4' />
+                    <SlotMachine2 video='/Videos/curtainRaiser23_flipped.mp4' />
                 </group>
                 <LandingOverlay />
             </ScrollControls>

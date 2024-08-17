@@ -63,7 +63,7 @@ export function SlotMachine2(props) {
             {
                 duration: 0.5,
                 x: -0.9,
-                z: -0.75,
+                z: -0.5,
                 ease: 'sine.inOut'
             },
             0

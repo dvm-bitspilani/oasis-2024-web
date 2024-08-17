@@ -1,19 +1,11 @@
-interface PropTypes {
-    props: {
-        setIs3dLoaded: any
-    }
-}
-
-import { ScrollControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Perf } from 'r3f-perf'
 
 import SlotMachine from "./SlotMachine";
 import { SlotMachine2 } from "./SlotMachineTextured";
-import LandingOverlay from "./Overlay";
 import { useRef, forwardRef } from "react";
 
-const LandingScene = forwardRef(function (props: PropTypes, ref) {
+const LandingScene = forwardRef(function (props: any, ref) {
     const pointRef = useRef()
     return (
         <>

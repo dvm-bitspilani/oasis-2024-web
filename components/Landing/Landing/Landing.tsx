@@ -27,7 +27,7 @@ export default function Landing() {
                 scrub: 1,
                 snap: {
                     snapTo: [0, 1],
-                    ease: 'power2.inOut',
+                    ease: 'sine.inOut',
                     duration: 2
                 },
             }

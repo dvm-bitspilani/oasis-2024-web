@@ -24,23 +24,25 @@
     font-weight: 400;
     line-height: 43px; /* 153.571% */
     letter-spacing: 1.68px;
-    display: flex;
-    flex-direction: column;
     // padding: 1.5rem 0;
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
 
     .border {
-      position: relative;
+      position: absolute;
       display: flex;
       justify-content: center;
-      // align-items: center;
-      width: 100%;
+      width: 100vw;
       gap: 1rem;
-      height: 5rem;
+      height: 100vh;
       .registration {
-        height: 100%;
+        position: absolute;
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 70px;
         font-family: Rye;
-        font-size: 72px;
+        font-size: 52px;
         font-weight: 400;
         line-height: 43px;
         letter-spacing: 0.05em;
@@ -59,52 +61,37 @@
         justify-content: center;
         align-items: center;
       }
-      .rightSVG {
-        width: 100%;
-        position: relative;
-        display: flex;
-        align-items: center;
-        overflow-x: hidden;
-        overflow-y: hidden;
-
-        .rightLine {
-          // transform: translateX(-4rem);
-          width: calc((100%) - 7.4rem);
+      .backButton {
+        position: absolute;
+        top: 5px;
+        left: 10px;
+      }
+      .frameLeft {
+        position: absolute;
+        top: 110px;
+        left: 50px;
+        height: 100vw;
+        width: 2px;
+        background-color: #d6c28a;
+      }
+      .frameTopLeft {
+        position: absolute;
+        top : 46px;
+        left: 115px;
+        height: 1.5px;
+        width: calc(50vw - 395px);
+        background-color: #d6c28a;
+      }
+      .frameTopRight {
+        position: absolute;
+        top: 46px;
+        right: 50px;
+        height: 27px;
+        overflow: hidden;
+        width: calc(50vw - 330px);
+        svg {
           position: absolute;
-          top: 2.28rem;
-        }
-      }
-      .rightVerticalLine {
-        position: absolute;
-        height: 40vh;
-        top: 1.6vh;
-        right: 4.6rem;
-      }
-      .rightVerticalLine2 {
-        height: 40vh;
-        position: absolute;
-        top: calc((40vh) + 115px);
-        right: 4.55rem;
-      }
-      .rightSquigly {
-        position: absolute;
-        top: 40vh;
-        right: 5.8rem;
-      }
-      .rightSVGIcon {
-        position: absolute;
-        top: 0.5rem;
-        right: 2.175rem;
-      }
-      .leftSVG {
-        padding: 2.3rem 0 0 4rem;
-        width: 100%;
-        position: relative;
-
-        .backButton {
-          position: absolute;
-          top: -0.33rem;
-          left: 2rem;
+          right: 0px;
         }
       }
       .frameRight{
@@ -113,14 +100,31 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        top: 45px;
-        height: calc(100vh - 90px);
+        top: 71px;
+        height: calc(100vh - 142px);
         overflow: hidden;
+        width: 34px;
       }
       .frameBottomRight{
         position: absolute;
-        right: 50px;
-        bottom: 50px;
+        right: 52px;
+        bottom: 46px;
+        width: 200px;
+        height: 27px;
+        overflow: hidden;
+        svg {
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
+      .frameBottomLeft {
+        position: absolute;
+        bottom: 46px;
+        right: 500px;
+        width: 100vw;
+        height: 2px;
+        background-color: #d6c28a;
       }
       .bottomSLine {
         position: absolute;
@@ -138,12 +142,19 @@
       }
     }
     .formContainer {
+      position: absolute;
+      top: 50vh;
+      transform: translateY(-50%);
       z-index: 3;
       width: 50vw;
       max-width: 900px;
       height: 70vh;
       align-self: flex-end;
       overflow-y: scroll;
+      right: 100px;
+
+
+
 
       &::-webkit-scrollbar {
         overflow: visible;
@@ -163,6 +174,7 @@
       }
       &::-webkit-scrollbar-thumb {
         width: 12px;
+
         background-color: #d19b5b; /* Fallback color */
         // background-image: url("../../public/Registration/scrollBarThumb.svg");
         background-size: cover;
@@ -185,22 +197,16 @@
       }
 
       // /* Hide scrollbar for IE, Edge and Firefox */
-
       // -ms-overflow-style: none; /* IE and Edge */
       // scrollbar-width: none; /* Firefox */
-
       // // border: 2px solid red;
-
-      margin-right: 10vw;
     }
   }
   .rouletteWheel {
     position: absolute;
-    top: 10%;
-    left: calc(-1000px + 20vw);
-    width: 1514;
-    height: 1500;
-    transform: rotate(-38deg);
+    bottom: 0;
+    left: 0;
+    transform: translateX(calc(-50% + 150px)) translateY(calc(50% - 200px)) rotate(-38deg);
     z-index: 2;
   }
 }

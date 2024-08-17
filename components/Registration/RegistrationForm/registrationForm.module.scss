@@ -1,5 +1,5 @@
 .registrationForm {
-  // position: relative;
+  position: relative;
   margin-right: 95.8px;
   z-index: 1;
   .formField {
@@ -204,6 +204,8 @@
   position: absolute;
   top: calc(1.5rem + 86.1vh);
   right: calc((9.5vw) + 7.3rem);
+  // right: 200px;
+  // bottom: 200px;
   border-radius: 36px;
   background: conic-gradient(
     from 176deg at 50% 50%,

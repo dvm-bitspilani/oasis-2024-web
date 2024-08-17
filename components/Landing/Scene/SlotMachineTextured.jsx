@@ -6,8 +6,6 @@ import React, { useEffect, useLayoutEffect, useRef } from 'react'
 import { Html, useGLTF, useScroll, useVideoTexture } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
 import gsap from 'gsap'
-import { MeshTransmissionMaterial } from './MeshTransmssionMaterial'
-import { MeshBasicMaterial } from 'three'
 
 export function SlotMachine2(props) {
     const { nodes, materials } = useGLTF('/Models/slotMachine.glb')
@@ -17,6 +15,7 @@ export function SlotMachine2(props) {
     const tl = useRef()
     const slotMachine = useRef()
     const screen = useRef()
+    const htmlRef = useRef()
 
     const texture = useVideoTexture(props.video, {
         unsuspend: 'canplay',
@@ -30,23 +29,8 @@ export function SlotMachine2(props) {
     const scroll = useScroll()
 
     useEffect(() => {
+        console.log(gl)
         if (screen.current) {
-            const material = new MeshTransmissionMaterial(10);
-            material.clearcoat = 1;
-            material.clearcoatRoughness = 0;
-            material.transmission = 1.025;
-            material.chromaticAberration = 50;
-            material.anisotrophicBlur = 0;
-            material.roughness = 0;
-            material.thickness = 4.5;
-            material.ior = 0;
-            material.distortion = 0.1;
-            material.distortionScale = 0.2;
-            material.temporalDistortion = 0.2;
-            material.map = texture;
-            material.transparent = false;
-            material.opacity = 1;
-            // material.color = new THREE.Color(0x9AF0F4);
             screen.current.material.map = texture;
         }
 
@@ -63,6 +47,8 @@ export function SlotMachine2(props) {
     useLayoutEffect(() => {
         tl.current = gsap.timeline()
 
+        console.log(htmlRef.current)
+
         tl.current.to(
             slotMachine.current.rotation,
             {
@@ -77,7 +63,7 @@ export function SlotMachine2(props) {
             {
                 duration: 0.5,
                 x: -0.9,
-                z: -0.5,
+                z: -0.75,
                 ease: 'sine.inOut'
             },
             0
@@ -105,13 +91,16 @@ export function SlotMachine2(props) {
                 castShadow
                 receiveShadow
                 geometry={nodes.Sphere002.geometry}
-                material={materials.MapTest}
+                // material={materials.MapTest}
                 position={[0.008, 0.317, -0.235]}
+                ref={screen}
             >
-                <Html
+                {/* <Html
                     prepend
                     transform
-                    portal={gl.domElement.parentElement}
+                    portal={gl.domElement.parentNode}
+                    position={[0, -1, 4]}
+                    rotation={[0.30124383, 0, 0]}
                     wrapperClass='htmlScreen'
                     distanceFactor={1}
                 >
@@ -119,7 +108,7 @@ export function SlotMachine2(props) {
                         src="https://www.youtube.com/embed/ZCrClSBM1ns"
                         title="OASIS 2023 | Official Curtain Raiser"
                     />
-                </Html>
+                </Html> */}
             </mesh>
             <mesh
                 castShadow

@@ -1,6 +1,6 @@
 'use client';
 
-import { OrbitControls, ScrollControls, useHelper } from "@react-three/drei";
+import { ScrollControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Perf } from 'r3f-perf'
 
@@ -14,7 +14,6 @@ export default function LandingScene() {
     return (
         <Canvas>
             <Perf />
-            {/* <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} /> */}
             <ambientLight intensity={2.0} />
             <pointLight
                 intensity={1.0}

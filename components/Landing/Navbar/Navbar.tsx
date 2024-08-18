@@ -4,7 +4,7 @@ import styles from "./navbar.module.scss";
 import Image from "next/image";
 import gsap from "gsap";
 import HamBtn from "./HamBtn/Btn";
-import Link from "next/link";
+import RegBtn from "./RegBtn/RegBtn";
 
 export default function Navbar() {
   useEffect(() => {
@@ -25,90 +25,8 @@ export default function Navbar() {
   return (
     <>
       <div className={styles.header}>
-        {/* <Image
-                    src="/hammenu.png"
-                    alt=""
-                    width={99}
-                    height={99}
-                    className={styles.hamburger}
-                /> */}
         <HamBtn />
-        <Link href="/Registration">
-          <div className={styles.btnwrapper}>
-            <div className={styles.btnborder}>
-              <div className={`${styles.circlewrapper} ${styles.top}`}>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-              </div>
-              <div className={`${styles.circlewrapper} ${styles.bottom}`}>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-              </div>
-              <div className={`${styles.circlewrapper} ${styles.curve}`}>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-              </div>
-              <div
-                className={`${styles.circlewrapper} ${styles.curve} ${styles.left}`}
-              >
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-                <div className={`${styles.circle} bulb`}></div>
-              </div>
-              <div className={styles.register}>register</div>
-            </div>
-          </div>
-        </Link>
+        <RegBtn />
       </div>
       <div className={styles.logo}>
         <Image

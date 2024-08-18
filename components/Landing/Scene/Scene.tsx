@@ -1,3 +1,5 @@
+'use client'
+
 import { Canvas } from "@react-three/fiber";
 import { Perf } from 'r3f-perf'
 
@@ -6,9 +8,10 @@ import { forwardRef } from "react";
 
 interface Props {
     setIs3dLoaded: (value: boolean) => void
+    isXS: boolean
 }
 
-const LandingScene = forwardRef(function LandingScene({ setIs3dLoaded }: Props, ref) {
+const LandingScene = forwardRef(function LandingScene({ setIs3dLoaded, isXS }: Props, ref) {
     return (
         <>
             <Canvas style={{ position: 'fixed' }}>
@@ -19,7 +22,7 @@ const LandingScene = forwardRef(function LandingScene({ setIs3dLoaded }: Props, 
                     position={[0, 0, 4]}
                 />
                 <perspectiveCamera fov={75} />
-                <group position={window.innerWidth <= 515 ? [0, -1.25, 2] : [0, -0.7, 3]} rotation={[0, Math.PI, 0]}>
+                <group position={isXS ? [0, -1.25, 2] : [0, -0.7, 3]} rotation={[0, Math.PI, 0]}>
                     <SlotMachine2
                         video='/Videos/curtainRaiser23_flipped.mp4'
                         ref={ref}

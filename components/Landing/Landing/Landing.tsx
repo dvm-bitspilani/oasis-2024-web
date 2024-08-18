@@ -6,8 +6,10 @@ import { useEffect, useRef, useState } from 'react';
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import dynamic from 'next/dynamic';
 
 import LandingScene from "../Scene/Scene";
+// const LandingScene = dynamic(() => import('../Scene/Scene'), { ssr: false })
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -18,6 +20,7 @@ interface MatchMediaParams {
 export default function Landing() {
     const slotMachine: any = useRef()
     const [is3dLoaded, setIs3dLoaded] = useState(false)
+    const [isXS, setIsXS] = useState(false)
 
     useEffect(() => {
         window.addEventListener('beforeunload', () => {
@@ -51,9 +54,11 @@ export default function Landing() {
         if (is3dLoaded && slotMachine.current) {
             mm.add({
                 isMobile: "(max-width: 1000px)",
-                isDesktop: "(min-width: 1001px)"
+                isDesktop: "(min-width: 1001px)",
+                isXS: "(max-width: 515px)"
             }, ({ conditions }: any) => {
                 console.log(conditions)
+                setIsXS(conditions.isXS)
                 timeline
                     .to(slotMachine.current.rotation, {
                         y: conditions.isMobile ? 0 : -Math.PI / 6,
@@ -101,7 +106,7 @@ export default function Landing() {
 
     return (
         <>
-            <LandingScene ref={slotMachine} setIs3dLoaded={setIs3dLoaded} />
+            <LandingScene ref={slotMachine} setIs3dLoaded={setIs3dLoaded} isXS={isXS} />
         </>
     )
 }

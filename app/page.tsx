@@ -1,20 +1,23 @@
 import styles from './landing.module.scss'
 
-import LandingBackdrop from '@/components/Landing/Backdrop/Backdrop';
-import FluidBackground from '@/components/Landing/Backdrop/FluidBackground';
 import Grunge from '@/components/Landing/Backdrop/Grunge';
-import LandingPage from '@/components/Landing/LandingPage/LandingPage';
+import Glow from '@/components/Landing/Glow/Glow';
+import Landing from '@/components/Landing/Landing/Landing';
+import Trees from '@/components/Landing/Trees/Trees';
+import LandingOverlay from '@/components/Landing/LandingOverlay/LandingOverlay';
+import Countdown from '@/components/Landing/Countdown/Countdown';
 
 export default function Home() {
   return (
-    <main className={styles.page}>
-      {/* <FluidBackground /> */}
-      <LandingBackdrop />
-      <div className={styles.overlay}>
+    <main className={styles.scrollWrapper}>
+      <main className={styles.page}>
+        <Landing />
+        <LandingOverlay />
+        <Countdown dateString='December 1, 2024 03:24:00' />
+        <Glow />
+        <Trees />
         <Grunge />
-        {/* <h1 className={styles.mainTitle}>Oasis 2024</h1> */}
-        <LandingPage />
-      </div>
+      </main>
     </main>
   );
 }

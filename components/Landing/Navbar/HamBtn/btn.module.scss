@@ -1,0 +1,53 @@
+.btn {
+    aspect-ratio: 1 / 1;
+    width: 100px;
+    z-index: 10;
+    cursor: pointer;
+    pointer-events: all;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .pokerChip {
+        transition: all 300ms ease-in-out;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    &:hover {
+        .pokerChip {
+            transform: rotateZ(60deg);
+        }
+    }
+
+    .hamIcon {
+        position: absolute;
+        aspect-ratio: 340 / 240;
+        width: calc(18 / 74 * 100%);
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 5px;
+        flex-direction: column;
+
+        .menuLines {
+            aspect-ratio: 340 / 240;
+            width: 100%;
+        }
+
+        // .iconLine {
+        //     aspect-ratio: 295 / 30;
+        //     width: 100%;
+        //     height: auto;
+        //     background-color: #EDCF89;
+        //     border-radius: 10px;
+
+        //     &:last-of-type {
+        //         aspect-ratio: 200 / 30;
+        //         width: calc(20000 / 295 * 1%);
+        //     }
+        // }
+    }
+}

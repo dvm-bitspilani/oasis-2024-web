@@ -1,0 +1,333 @@
+.registrationForm {
+  position: relative;
+  margin-right: 95.8px;
+  z-index: 1;
+  .formField {
+    display: flex;
+    flex-direction: column;
+    .inputUnderline {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      height: 33px;
+      svg {
+        position: absolute;
+        right: 0;
+      }
+    }
+    .formFieldHeader {
+      color: #ffe3ad;
+      text-shadow: 0px 0px 8px rgba(229, 195, 132, 0.48);
+      font-family: "Source Serif 4";
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 43px; /* 238.889% */
+      letter-spacing: 1.08px;
+    }
+    .formErrorMessage {
+      color: #ea4335;
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 43px; /* 307.143% */
+      letter-spacing: 0.84px;
+    }
+    .radioContainer {
+      display: flex;
+      gap: 50px;
+
+      .radioButtonContainer {
+        .radioLabel {
+          font-family: Vidaloka;
+          font-size: 28px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 43px; /* 153.571% */
+          letter-spacing: 1.68px;
+          background: linear-gradient(
+            0deg,
+            #fffee5 -27.5%,
+            #efd48d -1.13%,
+            #ffce93 48.36%,
+            #f9e6a2 100%
+          );
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+
+          user-select: none;
+          display: inline-flex;
+          align-items: center;
+          position: relative;
+          cursor: pointer;
+          .radioInput {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            &:checked + .radioCustom {
+              &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background-color: #dcae6d;
+              }
+            }
+          }
+          .radioCustom {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #dcae6d;
+            border-radius: 50%;
+            margin-right: 10px;
+            position: relative;
+            display: inline-block;
+          }
+        }
+      }
+
+      // .radioButtonContainer {
+      //   .radioInput {
+      //     appearance: none;
+      //     -webkit-appearance: none;
+      //     -moz-appearance: none;
+      //     margin: 0;
+      //     display: none;
+      //     &:after {
+      //       content: "";
+      //       position: absolute;
+      //       display: flex;
+      //       left: 5px;
+      //       top: 50%;
+      //       transform: translateY(-50%);
+      //       width: 10px;
+      //       height: 10px;
+      //       border-radius: 50%;
+      //       background: #dcae6d;
+      //     }
+      //   }
+      //   .radioLabel {
+      //     cursor: pointer;
+      //     user-select: none;
+      //     position: relative;
+      //     padding-left: 40px;
+      //     margin-right: 40px;
+      //     border: none;
+      //     background-color: transparent;
+      //     outline: none;
+      //     font-family: Vidaloka;
+      //     font-size: 28px;
+      //     font-style: normal;
+      //     font-weight: 400;
+      //     line-height: 43px; /* 153.571% */
+      //     letter-spacing: 1.68px;
+      //     background: linear-gradient(
+      //       0deg,
+      //       #fffee5 -27.5%,
+      //       #efd48d -1.13%,
+      //       #ffce93 48.36%,
+      //       #f9e6a2 100%
+      //     );
+      //     background-clip: text;
+      //     -webkit-background-clip: text;
+      //     -webkit-text-fill-color: transparent;
+      //     // &:before {
+      //     //   content: "";
+      //     //   position: absolute;
+      //     //   left: 0;
+      //     //   top: 50%;
+      //     //   transform: translateY(-50%);
+      //     //   width: 18px;
+      //     //   height: 18px;
+      //     //   border: 2px solid #dcae6d;
+      //     //   border-radius: 50%;
+      //     // }
+      //   }
+      // }
+    }
+    input {
+      caret-color: #efd48d;
+      border: none;
+      background-color: transparent;
+      outline: none;
+      font-family: Vidaloka;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 43px; /* 153.571% */
+      letter-spacing: 1.68px;
+      background: linear-gradient(
+        0deg,
+        #fffee5 -27.5%,
+        #efd48d -1.13%,
+        #ffce93 48.36%,
+        #f9e6a2 100%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    select {
+      caret-color: #efd48d;
+      border: none;
+      background-color: transparent;
+      outline: none;
+      font-family: Vidaloka;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 43px; /* 153.571% */
+      letter-spacing: 1.68px;
+      background: linear-gradient(
+        0deg,
+        #fffee5 -27.5%,
+        #efd48d -1.13%,
+        #ffce93 48.36%,
+        #f9e6a2 100%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
+.btnwrapper {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  position: absolute;
+  top: calc(1.5rem + 86.1vh);
+  right: calc((9.5vw) + 7.3rem);
+  // right: 200px;
+  // bottom: 200px;
+  border-radius: 36px;
+  background: conic-gradient(
+    from 176deg at 50% 50%,
+    #ffc76d 0deg,
+    #e59f2d 360deg
+  );
+  box-shadow: 4px 4px 8px 0px rgba(3, 1, 4, 0.28) inset;
+  padding: 6px;
+  .btnborder {
+    border-radius: 30px;
+    background: linear-gradient(180deg, #160f21 0%, #1b1128 100%);
+    box-shadow: 4px 4px 8px 0px rgba(3, 1, 4, 0.28) inset;
+    padding: 7px 30px;
+    position: relative;
+    .circlewrapper {
+      display: flex;
+      flex-wrap: unset;
+      overflow: hidden;
+      position: absolute;
+      .circle {
+        height: 5px;
+        width: 5px;
+        border-radius: 50%;
+        background: radial-gradient(
+          50% 50% at 50% 50%,
+          #fffadd 0%,
+          #ffe887 100%
+        );
+        margin-right: 3px;
+        filter: blur(0.5px);
+      }
+    }
+    .top {
+      top: -5.5px;
+    }
+    .bottom {
+      bottom: -5.5px;
+    }
+    .curve {
+      flex-direction: column;
+      top: -5.5px;
+      right: -7px;
+      width: 36px;
+      // background-color: lightblue;
+      .circle {
+        margin-right: 0;
+        margin-bottom: 3px;
+        position: relative;
+      }
+      .circle:nth-child(1) {
+        left: 7.5px;
+        top: 1.5px;
+      }
+      .circle:nth-child(2) {
+        left: 15px;
+        top: -3px;
+      }
+      .circle:nth-child(3) {
+        left: 22px;
+        top: -4.5px;
+      }
+      .circle:nth-child(4) {
+        left: 27px;
+        top: -4.5px;
+      }
+      .circle:nth-child(5) {
+        left: 29px;
+        top: -4px;
+      }
+      .circle:nth-child(6) {
+        left: 29px;
+        top: -3px;
+      }
+      .circle:nth-child(7) {
+        left: 26px;
+        top: -2.5px;
+      }
+      .circle:nth-child(8) {
+        left: 20px;
+        top: -2.5px;
+      }
+      .circle:nth-child(9) {
+        left: 12px;
+        top: -4.5px;
+      }
+      .circle:nth-child(10) {
+        top: -10px;
+        left: 6px;
+      }
+    }
+    .left {
+      left: -7px;
+      transform: scaleX(-1);
+      .circle:nth-child(10) {
+        top: -9.5px;
+        left: 4px;
+      }
+      .circle:nth-child(11) {
+        top: -80px;
+        left: 1.5px;
+      }
+    }
+
+    .register {
+      -webkit-text-stroke-color: #f2eeaf;
+      font-family: Vidaloka;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 43px;
+      letter-spacing: 1.68px;
+      background: linear-gradient(
+        0deg,
+        #fffee5 0%,
+        #efd48d 39%,
+        #d19b5b 59.5%,
+        #f9e6a2 100%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+    }
+  }
+}

@@ -2,18 +2,12 @@
 
 import styles from './landing.module.scss'
 
-import Image from 'next/image';
 import { useRef, useState } from 'react';
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 import LandingScene from "../Scene/Scene";
-import Navbar from '../Navbar/Navbar';
-import CardsGroup from '../CardsGroup/CardsGroup';
-import AboutUsPage from '@/components/AboutUs/AboutUsPage';
-import Glow from '../Glow/Glow';
-import Trees from '../Trees/Trees';
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -77,18 +71,6 @@ export default function Landing() {
     return (
         <>
             <LandingScene ref={slotMachine} setIs3dLoaded={setIs3dLoaded} />
-            <div className={styles.mainwrapper}>
-                <Glow />
-                <div className={styles.headerContainer}>
-                    <Navbar />
-                </div>
-                <div className={styles.machinecontainer}>
-                    <div className={styles.cards}><CardsGroup group={1} /></div>
-                    {/* <CardsAndMachine /> */}
-                    <div className={styles.cards}><CardsGroup group={2} /></div>
-                </div>
-                <Trees />
-            </div>
         </>
     )
 }

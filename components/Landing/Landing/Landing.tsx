@@ -2,7 +2,7 @@
 
 import styles from './landing.module.scss'
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
@@ -18,6 +18,18 @@ interface MatchMediaParams {
 export default function Landing() {
     const slotMachine: any = useRef()
     const [is3dLoaded, setIs3dLoaded] = useState(false)
+
+    useEffect(() => {
+        window.addEventListener('beforeunload', () => {
+            window.scrollTo(0, 0)
+        })
+
+        return () => {
+            window.removeEventListener('beforeunload', () => {
+                window.scrollTo(0, 0)
+            })
+        }
+    }, [])
 
     useGSAP(() => {
         const timeline = gsap.timeline({

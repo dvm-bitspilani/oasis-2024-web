@@ -19,7 +19,7 @@ const LandingScene = forwardRef(function LandingScene({ setIs3dLoaded }: Props, 
                     position={[0, 0, 4]}
                 />
                 <perspectiveCamera fov={75} />
-                <group position={[0, -0.7, 3]} rotation={[0, Math.PI, 0]}>
+                <group position={window.innerWidth <= 515 ? [0, -1.25, 2] : [0, -0.7, 3]} rotation={[0, Math.PI, 0]}>
                     <SlotMachine2
                         video='/Videos/curtainRaiser23_flipped.mp4'
                         ref={ref}

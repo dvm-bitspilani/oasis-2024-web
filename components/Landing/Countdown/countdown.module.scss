@@ -10,7 +10,6 @@
     font-size: 24px;
     overflow: hidden;
 
-
     display: flex;
     justify-content: space-between;
     position: fixed;
@@ -22,5 +21,10 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    @media (width <=1262px) {
+        font-size: 20px;
+        width: 250px;
     }
 }

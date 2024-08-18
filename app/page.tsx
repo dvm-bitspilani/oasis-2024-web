@@ -13,7 +13,7 @@ export default function Home() {
       <main className={styles.page}>
         <Landing />
         <LandingOverlay />
-        <Countdown dateString='December 1, 2024 03:24:00' />
+        <Countdown dateString='October 23, 2024 19:00:00' />
         <Glow />
         <Trees />
         <Grunge />

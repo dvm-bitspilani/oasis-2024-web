@@ -202,8 +202,9 @@
   outline: none;
   border: none;
   position: absolute;
-  top: calc(1.5rem + 86.1vh);
-  right: calc((9.5vw) + 7.3rem);
+  bottom: 46px;
+  transform: translateY(50%);
+  right: 270px;
   // right: 200px;
   // bottom: 200px;
   border-radius: 36px;

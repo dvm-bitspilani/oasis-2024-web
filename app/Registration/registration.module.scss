@@ -18,6 +18,8 @@
     z-index: -1;
   }
   .pageContent {
+    display: flex;
+    flex-direction: column;
     font-family: Vidaloka;
     font-size: 28px;
     font-style: normal;
@@ -76,7 +78,7 @@
       }
       .frameTopLeft {
         position: absolute;
-        top : 46px;
+        top: 46px;
         left: 115px;
         height: 1.5px;
         width: calc(50vw - 395px);
@@ -94,7 +96,7 @@
           right: 0px;
         }
       }
-      .frameRight{
+      .frameRight {
         position: absolute;
         right: 50px;
         display: flex;
@@ -105,7 +107,7 @@
         overflow: hidden;
         width: 34px;
       }
-      .frameBottomRight{
+      .frameBottomRight {
         position: absolute;
         right: 52px;
         bottom: 46px;
@@ -142,9 +144,9 @@
       }
     }
     .formContainer {
-      position: absolute;
+      // position: absolute;
       top: 50vh;
-      transform: translateY(-50%);
+      // transform: translateY(-50%);
       z-index: 3;
       width: 50vw;
       max-width: 900px;
@@ -152,9 +154,8 @@
       align-self: flex-end;
       overflow-y: scroll;
       right: 100px;
-
-
-
+      margin-right: 7vw;
+      margin-top: 13vh;
 
       &::-webkit-scrollbar {
         overflow: visible;
@@ -206,7 +207,8 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    transform: translateX(calc(-50% + 150px)) translateY(calc(50% - 200px)) rotate(-38deg);
+    transform: translateX(calc(-50% + 150px)) translateY(calc(50% - 200px))
+      rotate(-38deg);
     z-index: 2;
   }
 }

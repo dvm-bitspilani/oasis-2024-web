@@ -39,8 +39,6 @@ export const SlotMachine2 = forwardRef(function SlotMachine2({ video, setIs3dLoa
         playsInline: true
     })
 
-    // const scroll = useScroll()
-
     useEffect(() => {
         if (screen.current) {
             screen.current.material.map = texture;
@@ -54,41 +52,6 @@ export const SlotMachine2 = forwardRef(function SlotMachine2({ video, setIs3dLoa
         setIs3dLoaded(true)
     }, [texture])
 
-    // useLayoutEffect(() => {
-    //     tl.current = gsap.timeline()
-
-    //     console.log(htmlRef.current)
-
-    //     tl.current.to(
-    //         slotMachine.current.rotation,
-    //         {
-    //             duration: 0.5,
-    //             y: -Math.PI / 6,
-    //             ease: 'sine.inOut'
-    //         },
-    //         0
-    //     )
-    //     tl.current.to(
-    //         slotMachine.current.position,
-    //         {
-    //             duration: 0.5,
-    //             x: -0.9,
-    //             z: -0.5,
-    //             ease: 'sine.inOut'
-    //         },
-    //         0
-    //     )
-    //     tl.current.to(
-    //         slotMachine.current.rotation,
-    //         {
-    //             duration: 0.45,
-    //             y: -Math.PI / 4,
-    //             ease: 'sine.inOut'
-    //         },
-    //         0.5
-    //     )
-    // }, [])
-
     return (
         <group ref={ref} {...props} dispose={null}>
             <mesh
@@ -101,7 +64,6 @@ export const SlotMachine2 = forwardRef(function SlotMachine2({ video, setIs3dLoa
                 castShadow
                 receiveShadow
                 geometry={nodes.Sphere002.geometry}
-                // material={materials.MapTest}
                 position={[0.008, 0.317, -0.235]}
                 ref={screen}
             >

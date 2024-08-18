@@ -56,6 +56,11 @@ export default function Landing() {
                     opacity: 0,
                     duration: 0.75
                 }, '<')
+                .to('#countdownTimer', {
+                    y: 100,
+                    opacity: 0,
+                    duration: 0.75
+                }, '<')
                 .to(slotMachine.current.rotation, {
                     y: -Math.PI / 4,
                 })

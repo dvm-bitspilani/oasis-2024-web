@@ -58,7 +58,9 @@ export default function Landing() {
                 isXS: "(max-width: 515px)"
             }, ({ conditions }: any) => {
                 console.log(conditions)
-                setIsXS(conditions.isXS)
+                if (conditions.isXS !== isXS) {
+                    setIsXS(conditions.isXS)
+                }
                 timeline
                     .to(slotMachine.current.rotation, {
                         y: conditions.isMobile ? 0 : -Math.PI / 6,

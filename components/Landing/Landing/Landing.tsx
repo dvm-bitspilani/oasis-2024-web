@@ -61,9 +61,9 @@ export default function Landing() {
                     opacity: 0,
                     duration: 0.75
                 }, '<')
-                .to(slotMachine.current.rotation, {
-                    y: -Math.PI / 4,
-                })
+                // .to(slotMachine.current.rotation, {
+                //     y: -Math.PI / 4,
+                // })
                 .to('#aboutUs', {
                     opacity: 1,
                 })

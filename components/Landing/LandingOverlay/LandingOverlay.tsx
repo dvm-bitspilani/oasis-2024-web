@@ -10,10 +10,10 @@ export default function LandingOverlay() {
             <div className={styles.headerContainer}>
                 <Navbar />
             </div>
-            {/* <div className={styles.machinecontainer}>
+            <div className={styles.machinecontainer}>
                 <div className={styles.cards}><CardsGroup group={1} /></div>
                 <div className={styles.cards}><CardsGroup group={2} /></div>
-            </div> */}
+            </div>
             <AboutUsPage />
         </div>
     )

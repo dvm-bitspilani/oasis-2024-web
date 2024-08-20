@@ -15,9 +15,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 2rem;
+        gap: 30rem;
         position: absolute;
         left: 50%;
+        top: 50%;
         transform: translateX(-50%);
         bottom: 0;
         z-index: 10;

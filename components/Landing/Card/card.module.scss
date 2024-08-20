@@ -1,61 +1,76 @@
 .cardwrapper {
+  width: 73.773px;
+  height: 103.282px;
+  flex-shrink: 0;
+  border-radius: 3.381px;
+  border: 2.152px solid #e3c041;
+  position: relative;
+  perspective: 1000px;
+  transition: transform 0.6s ease-in-out;
+  pointer-events: auto;
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+
+  @keyframes floating {
+    0% {
+      transform: translate(0, 0px);
+    }
+    50% {
+      transform: translate(0, 10px);
+    }
+    100% {
+      transform: translate(0, 0px);
+    }
+  }
+
+  .cardcontainer {
     width: 73.773px;
     height: 103.282px;
     flex-shrink: 0;
     border-radius: 3.381px;
     border: 2.152px solid #e3c041;
-    position: relative;
-    perspective: 1000px;
-    transition: transform 0.6s ease-in-out;
-    pointer-events: auto;
-  
-    .cardcontainer {
-      width: 73.773px;
-      height: 103.282px;
-      flex-shrink: 0;
-      border-radius: 3.381px;
-      border: 2.152px solid #e3c041;
-      filter: blur(5px);
+    filter: blur(5px);
+  }
+
+  .heart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .symbol {
+      transform: rotateZ(-14deg);
     }
-  
-    .heart {
+    .glow {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%,-50%);
-  
-      .symbol{
-          transform: rotateZ(-14deg);
-      }
-      .glow{
-          position: absolute;
-          top: 0;
-          left: 0;
-          transform: rotateZ(-14deg);
-          z-index: -1;
-      }
-    }
-  
-    .text{
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      svg{
-          transform: rotateZ(-14deg);
-      }
-    }
-    .top{
-      top: 2px;
-      right: 2px;
-    }
-    .bottom{
-      bottom: 2px;
-      left: 2px;
-      transform: rotateZ(-180deg);
-    }
-  
-    &:hover{
-      transform: rotateY(180deg);
+      top: 0;
+      left: 0;
+      transform: rotateZ(-14deg);
+      z-index: -1;
     }
   }
-  
+
+  .text {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    svg {
+      transform: rotateZ(-14deg);
+    }
+  }
+  .top {
+    top: 2px;
+    right: 2px;
+  }
+  .bottom {
+    bottom: 2px;
+    left: 2px;
+    transform: rotateZ(-180deg);
+  }
+
+  // &:hover{
+  //   transform: rotateY(180deg);
+  // }
+}

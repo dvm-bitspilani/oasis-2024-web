@@ -1,10 +1,11 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
-// import { Perf } from "r3f-perf";
+import { Perf } from "r3f-perf";
 
 import { SlotMachine2 } from "./SlotMachine2";
 import { forwardRef } from "react";
+import { EffectComposer, Bloom } from "@react-three/postprocessing";
 
 interface Props {
   setIs3dLoaded: (value: boolean) => void;
@@ -18,7 +19,15 @@ const LandingScene = forwardRef(function LandingScene(
   return (
     <>
       <Canvas style={{ position: "fixed" }}>
-        {/* <Perf /> */}
+        <Perf />
+        {/* <EffectComposer>
+          <Bloom
+            intensity={2.0}
+            luminanceThreshold={0.7}
+            luminanceSmoothing={0.025}
+            mipmapBlur={false}
+          />
+        </EffectComposer> */}
         <ambientLight intensity={2.0} />
         <pointLight intensity={1.0} position={[0, 0, 4]} />
         <perspectiveCamera fov={75} />

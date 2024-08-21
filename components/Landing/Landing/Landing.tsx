@@ -48,7 +48,7 @@ export default function Landing() {
             }`,
           scrub: 1,
           snap: {
-            snapTo: [0, 1],
+            snapTo: [0, 1, 2],
             ease: "sine.inOut",
             duration: 2,
           },
@@ -146,6 +146,38 @@ export default function Landing() {
               })
               .from(
                 "#aboutUs",
+                {
+                  y: 75,
+                },
+                "<"
+              )
+              .to(
+                "#aboutUs",
+                {
+                  opacity: 0,
+                  y: -75,
+                },
+                "+=1"
+              )
+              .to(
+                slotMachine.current.position,
+                {
+                  x: conditions.isMobile ? 0 : -3,
+                  y: conditions.isMobile ? -2 : 0,
+                  // z: conditions.isMobile ? 0 : -0.5,
+                  duration: 3,
+                },
+                "+=0.5"
+              )
+              .to(
+                "#contactUs",
+                {
+                  opacity: 1,
+                },
+                "<"
+              )
+              .from(
+                "#contactUs",
                 {
                   y: 75,
                 },

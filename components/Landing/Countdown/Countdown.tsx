@@ -61,7 +61,7 @@ export default function Countdown({ dateString, ...args }: Props) {
             <p className={styles.colon}>&#58;</p>
             <div className={styles.timeSegment}>
                 <p>{timeLeft.minutes}</p>
-                <p>Minutes</p>
+                <p>Mins</p>
             </div>
             {/* <p className={styles.colon}>&#58;</p>
             <div className={styles.timeSegment}>

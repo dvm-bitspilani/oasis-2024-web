@@ -15,7 +15,7 @@ const Registration = () => {
   const [wheelRotating, setWheelRotating] = useState(false);
   const formRef = useRef<HTMLDivElement | null>(null);
   const wheelRef = useRef(null);
-  const scrollbarThumbRef = useRef<SVGSVGElement | null>(null);
+  const scrollbarThumbRef = useRef<HTMLImageElement | null>(null);
   const handleScroll = () => {
     if (formRef.current && scrollbarThumbRef.current) {
       const { scrollHeight, clientHeight, scrollTop } = formRef.current;

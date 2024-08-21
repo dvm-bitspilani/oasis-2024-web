@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
-// import { Perf } from 'r3f-perf'
+// import { Perf } from "r3f-perf";
 
 import { SlotMachine2 } from "./SlotMachine2";
 import { forwardRef } from "react";

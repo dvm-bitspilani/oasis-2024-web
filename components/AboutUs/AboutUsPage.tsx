@@ -1,12 +1,19 @@
-import styles from './page.module.scss'
-import AboutUsTitle from './Title/Title'
+import styles from "./page.module.scss";
+import AboutUsTitle from "./Title/Title";
 
 export default function AboutUsPage() {
-    return (
-        <main className={styles.aboutUs} id='aboutUs'>
-            <AboutUsTitle />
-            <p className={styles.text}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, quibusdam dicta minima possimus asperiores quaerat molestiae nesciunt error eligendi dolores ducimus nobis nisi impedit ullam pariatur nihil expedita suscipit culpa.
-                Error odit, sapiente voluptatum harum quod molestiae! Officia, distinctio tempore, sapiente maiores, neque iusto cum necessitatibus asperiores doloribus fuga repudiandae? Voluptatibus placeat laudantium esse, excepturi itaque error quae neque officia!</p>
-        </main>
-    )
+  return (
+    <main className={styles.aboutUs} id="aboutUs">
+      <AboutUsTitle className={styles.title} />
+      <p className={styles.text}>
+        Oasis, the annual cultural extravaganza of Birla Institute of Technology
+        and Science, Pilani, has been a vibrant part of India&#39;s cultural
+        tapestry since 1971. Managed entirely by students, it&#39;s a dazzling
+        showcase of talent in Dance, Drama, Literature, Comedy, Fashion, and
+        Music. It&#39;s where dreams come alive, laughter fills the air, and
+        creativity knows no bounds. Step into the world of Oasis, where
+        youth&#39;s boundless potential shines.
+      </p>
+    </main>
+  );
 }

@@ -23,12 +23,13 @@ const Registration = () => {
       if (scrollHeight > clientHeight) {
         const maxScrollTopValue = scrollHeight - clientHeight;
         const percentage = (scrollTop / maxScrollTopValue) * 100;
+        scrollbarThumbRef.current.style.top = `${Math.min(percentage, 100)}%`;
 
-        gsap.to(scrollbarThumbRef.current, {
-          top: `${Math.min(percentage, 100)}%`,
-          delay: 0.2,
-          ease: "power1.out",
-        });
+        // gsap.to(scrollbarThumbRef.current, {
+        //   top: `${Math.min(percentage, 100)}%`,
+        //   // delay: 0.2,
+        //   ease: "none",
+        // });
 
         if (!wheelRotating) {
           gsap.to(wheelRef.current, {

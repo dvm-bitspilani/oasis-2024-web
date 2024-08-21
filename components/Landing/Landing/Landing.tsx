@@ -48,7 +48,7 @@ export default function Landing() {
             }`,
           scrub: 1,
           snap: {
-            snapTo: [0, 1, 2],
+            snapTo: [0, 0.3, 1],
             ease: "sine.inOut",
             duration: 2,
           },

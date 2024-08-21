@@ -1,0 +1,17 @@
+.heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+
+    h2 {
+        font-family: Rye, sans-serif;
+        font-size: 72px;
+        font-weight: 400;
+        line-height: 43px;
+        letter-spacing: 0.05em;
+        text-align: center;
+        color:#CCAE57;
+        box-shadow: 0px 0px 5px 0px #8C5A2E80;
+    }
+}

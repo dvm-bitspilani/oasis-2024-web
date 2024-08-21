@@ -1,56 +1,51 @@
 'use client';
 
-import styles from './countdown.module.scss'
-
+import styles from './countdown.module.scss';
 import { useState, useEffect } from 'react';
 
 interface Props {
-    dateString: string
+    dateString: string;
 }
 
 export default function Countdown({ dateString, ...args }: Props) {
     const oasis = new Date(dateString).getTime();
-
     const [curr, setCurr] = useState(new Date().getTime());
-
     const [timeLeft, setTimeLeft] = useState({
         days: 0,
         hours: 0,
         minutes: 0,
-        seconds: 0
+        seconds: 0,
     });
 
     useEffect(() => {
+        setCurr(new Date().getTime());
+    }, []);
+
+    useEffect(() => {
+        let timeout: ReturnType<typeof setInterval> | undefined;
         if (oasis > curr) {
-            setInterval(() => {
+            timeout = setInterval(() => {
                 setCurr(new Date().getTime());
-            }, 1000)
+            }, 1000);
         }
-    }, [oasis])
+
+        return () => {
+            clearInterval(timeout);
+        };
+    }, [oasis]);
 
     useEffect(() => {
         if (oasis > curr) {
-            const days = Math.floor((oasis - curr) / (1000 * 60 * 60 * 24));
-            const hours = Math.floor(((oasis - curr) / (1000 * 60 * 60)) - (days * 24))
-            const minutes = Math.floor(((oasis - curr) / (1000 * 60)) - ((hours * 60) + (days * 24 * 60)))
-            const seconds = Math.floor(((oasis - curr) / (1000)) - ((minutes * 60) + (hours * 60 * 60) + (days * 24 * 60 * 60)))
-            setTimeLeft({
-                days,
-                hours,
-                minutes,
-                seconds
-            })
+            const timeDiff = oasis - curr;
+            const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+            setTimeLeft({ days, hours, minutes, seconds });
+        } else {
+            setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
         }
-        else {
-            setTimeLeft({
-                days: 0,
-                hours: 0,
-                minutes: 0,
-                seconds: 0
-            })
-
-        }
-    }, [curr])
+    }, [curr, oasis]);
 
     return (
         <div {...args} className={styles.countdown} id='countdownTimer'>
@@ -74,5 +69,5 @@ export default function Countdown({ dateString, ...args }: Props) {
                 <p>Seconds</p>
             </div> */}
         </div>
-    )
+    );
 }

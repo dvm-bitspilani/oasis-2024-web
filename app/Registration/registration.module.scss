@@ -18,6 +18,8 @@
     z-index: -1;
   }
   .pageContent {
+    display: flex;
+    flex-direction: column;
     font-family: Vidaloka;
     font-size: 28px;
     font-style: normal;
@@ -60,6 +62,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        span {
+          padding: 0 1rem;
+        }
       }
       .backButton {
         position: absolute;
@@ -76,10 +81,10 @@
       }
       .frameTopLeft {
         position: absolute;
-        top : 46px;
+        top: 46px;
         left: 115px;
         height: 1.5px;
-        width: calc(50vw - 395px);
+        width: calc(50vw - 413px);
         background-color: #d6c28a;
       }
       .frameTopRight {
@@ -88,13 +93,13 @@
         right: 50px;
         height: 27px;
         overflow: hidden;
-        width: calc(50vw - 330px);
+        width: calc(50vw - 346px);
         svg {
           position: absolute;
           right: 0px;
         }
       }
-      .frameRight{
+      .frameRight {
         position: absolute;
         right: 50px;
         display: flex;
@@ -105,7 +110,7 @@
         overflow: hidden;
         width: 34px;
       }
-      .frameBottomRight{
+      .frameBottomRight {
         position: absolute;
         right: 52px;
         bottom: 46px;
@@ -142,46 +147,78 @@
       }
     }
     .formContainer {
-      position: absolute;
+      display: flex;
+      // position: relative;
       top: 50vh;
-      transform: translateY(-50%);
+      // transform: translateY(-50%);
       z-index: 3;
       width: 50vw;
       max-width: 900px;
       height: 70vh;
       align-self: flex-end;
-      overflow-y: scroll;
+      overflow-y: visible;
       right: 100px;
+      margin-right: 7vw;
+      margin-top: 13vh;
 
-
-
-
-      &::-webkit-scrollbar {
-        overflow: visible;
-        width: 8px;
-        height: 100%;
-      }
-      &::-webkit-scrollbar-track {
-        width: 8px;
-        height: 100%;
-        background-image: linear-gradient(
-          90deg,
-          #f9e6a2 -10.51%,
-          #d29e5d 48.78%,
-          #f9e6a2 111.99%
-        );
-        border-radius: 8px;
-      }
-      &::-webkit-scrollbar-thumb {
-        width: 12px;
-
-        background-color: #d19b5b; /* Fallback color */
-        // background-image: url("../../public/Registration/scrollBarThumb.svg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        border-radius: 8px;
+      .formContent {
+        width: 100%;
+        // max-width: 900px;
+        height: 70vh;
+        align-self: flex-end;
+        overflow-y: scroll;
         position: relative;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        // /* Hide scrollbar for IE, Edge and Firefox */
+
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+
+        // // border: 2px solid red;
+      }
+
+      .scrollbar {
+        margin: 5% 0;
+        height: 90%;
+        width: 10%;
+        position: relative;
+        transform: translateX(-2rem);
+        display: flex;
+        justify-content: center;
+
+        .scrollbarTrack {
+          width: 8px;
+          height: 100%;
+          border-radius: 8px;
+          background-image: linear-gradient(
+            90deg,
+            #f9e6a2 -10.51%,
+            #d29e5d 48.78%,
+            #f9e6a2 111.99%
+          );
+        }
+
+        .scrollbarThumb {
+          position: absolute;
+          transform: translateY(-50%);
+          cursor: pointer;
+        }
+      }
+      &::-webkit-scrollbar {
+        display: none;
+        // width: 12px;
+
+        // background-color: #d19b5b; /* Fallback color */
+        // // background-image: url("../../public/Registration/scrollBarThumb.svg");
+        // background-size: cover;
+        // background-repeat: no-repeat;
+        // background-position: center;
+        // border-radius: 8px;
+        // position: relative;
 
         // &::before {
         //   position: absolute;
@@ -206,7 +243,8 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    transform: translateX(calc(-50% + 150px)) translateY(calc(50% - 200px)) rotate(-38deg);
+    transform: translateX(calc(-50% + 150px)) translateY(calc(50% - 200px))
+      rotate(-38deg);
     z-index: 2;
   }
 }

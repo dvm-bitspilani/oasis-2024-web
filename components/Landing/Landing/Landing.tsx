@@ -165,7 +165,6 @@ export default function Landing() {
                   x: conditions.isMobile ? 0 : -3,
                   y: conditions.isMobile ? -2 : 0,
                   // z: conditions.isMobile ? 0 : -0.5,
-                  duration: 3,
                 },
                 "+=0.5"
               )

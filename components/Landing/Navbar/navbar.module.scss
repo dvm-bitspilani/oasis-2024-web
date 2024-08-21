@@ -11,4 +11,8 @@
   display: flex;
   justify-content: center;
   transform: translateY(-3.5rem);
+
+  @media (width <= 1150px){
+    transform: scale(0.9) translateY(-4.5rem);
+  }
 }

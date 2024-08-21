@@ -50,4 +50,8 @@
         //     }
         // }
     }
+
+    @media (width <= 1050){
+        transform: scale(0.8);
+    }
 }

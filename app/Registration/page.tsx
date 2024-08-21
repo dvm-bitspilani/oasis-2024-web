@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./registration.module.scss";
 
 import Image from "next/image";
@@ -12,10 +12,10 @@ import RegistrationForm from "@/components/Registration/RegistrationForm/Registr
 gsap.registerPlugin(ScrollTrigger);
 
 const Registration = () => {
+  const [wheelRotating, setWheelRotating] = useState(false);
   const formRef = useRef<HTMLDivElement | null>(null);
   const wheelRef = useRef(null);
   const scrollbarThumbRef = useRef<SVGSVGElement | null>(null);
-
   const handleScroll = () => {
     if (formRef.current && scrollbarThumbRef.current) {
       const { scrollHeight, clientHeight, scrollTop } = formRef.current;
@@ -29,33 +29,29 @@ const Registration = () => {
           delay: 0.2,
           ease: "power1.out",
         });
+
+        if (!wheelRotating) {
+          gsap.to(wheelRef.current, {
+            rotate: 360 + 360 * (percentage / 200),
+            duration: 2,
+            ease: "power1.out",
+          });
+        }
       }
     }
   };
 
   useEffect(() => {
+    setWheelRotating(true);
     const initialRotation = gsap.to(wheelRef.current, {
       rotate: 360,
       duration: 4,
       ease: "back.out(1)",
+      onComplete: () => setWheelRotating(false),
     });
-    // const scrollRotation = gsap.to(wheelRef.current, {
-    //   rotate: 360,
-    //   ease: "none",
-    //   scrollTrigger: {
-    //     trigger: formRef.current,
-    //     start: "top top",
-    //     end: "bottom bottom",
-    //     scrub: true,
-    //   },
-    // });
-    // initialRotation.eventCallback("onComplete", () => {
-    //   scrollRotation.play();
-    // });
 
     return () => {
       initialRotation.kill();
-      // scrollRotation.kill();
     };
   }, []);
 

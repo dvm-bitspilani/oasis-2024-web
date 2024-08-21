@@ -3,6 +3,7 @@ import styles from './overlay.module.scss'
 import Navbar from '../Navbar/Navbar'
 import CardsGroup from '../CardsGroup/CardsGroup'
 import AboutUsPage from '@/components/AboutUs/AboutUsPage'
+// import ContactUs from '@/components/ContactUs/ContactUs'
 
 export default function LandingOverlay() {
     return (
@@ -15,6 +16,7 @@ export default function LandingOverlay() {
                 <div className={styles.cards} id='rightcards'><CardsGroup group={2} /></div>
             </div>
             <AboutUsPage />
+            {/* <ContactUs /> */}
         </div>
     )
 }

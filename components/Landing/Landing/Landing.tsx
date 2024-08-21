@@ -120,6 +120,24 @@ export default function Landing() {
                 },
                 "<"
               )
+              .to(
+                "#leftcards",
+                {
+                  y: -150,
+                  opacity: 0,
+                  duration: 0.75,
+                },
+                "<"
+              )
+              .to(
+                "#rightcards",
+                {
+                  y: -150,
+                  opacity: 0,
+                  duration: 0.75,
+                },
+                "<"
+              )
               .to(slotMachine.current.rotation, {
                 y: conditions.isMobile ? 0 : -Math.PI / 4,
               })

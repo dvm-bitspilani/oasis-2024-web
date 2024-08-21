@@ -11,8 +11,8 @@ export default function LandingOverlay() {
                 <Navbar />
             </div>
             <div className={styles.machinecontainer}>
-                <div className={styles.cards}><CardsGroup group={1} /></div>
-                <div className={styles.cards}><CardsGroup group={2} /></div>
+                <div className={styles.cards} id='leftcards'><CardsGroup group={1} /></div>
+                <div className={styles.cards} id='rightcards'><CardsGroup group={2} /></div>
             </div>
             <AboutUsPage />
         </div>

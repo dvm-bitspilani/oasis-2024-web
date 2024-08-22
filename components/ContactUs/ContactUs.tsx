@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./contactus.module.scss";
-import ContactCrad from "./ContactCard/ContactCard";
+import ContactCard from "./ContactCard/ContactCard";
 
 export default function ContactUs() {
   return (
@@ -70,31 +70,31 @@ export default function ContactUs() {
 
         <div className={styles.cardContainer}>
           <div className={styles.first}>
-            <ContactCrad />
+            <ContactCard />
           </div>
           <div className={styles.second}>
-            <ContactCrad />
+            <ContactCard />
           </div>
           <div className={styles.third}>
-            <ContactCrad />
+            <ContactCard />
           </div>
           <div className={styles.fourth}>
-            <ContactCrad />
+            <ContactCard />
           </div>
           <div className={styles.fifth}>
-            <ContactCrad />
+            <ContactCard />
           </div>
         </div>
 
         <div className={styles.cardContainer1}>
           <div className={styles.first}>
-            <ContactCrad />
+            <ContactCard />
           </div>
           <div className={styles.second}>
-            <ContactCrad />
+            <ContactCard />
           </div>
           <div className={styles.third}>
-            <ContactCrad />
+            <ContactCard />
           </div>
         </div>
       </div>

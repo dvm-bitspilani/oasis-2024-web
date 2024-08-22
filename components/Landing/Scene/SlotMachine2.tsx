@@ -8,7 +8,6 @@ import React, { useEffect, useRef, forwardRef } from "react";
 import { Html, useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 import * as THREE from "three";
-import { useControls } from "leva";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -32,17 +31,6 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
   { video, setIs3dLoaded, ...props }: Props,
   ref: any
 ) {
-  const { distFactor, pos, rot } = useControls({
-    distFactor: {
-      value: 0.31000000000000005,
-      min: 0,
-      max: 5,
-      step: 0.01,
-    },
-    pos: [0, 0, 0],
-    rot: [0.4510000000000003, 0, 0],
-  });
-
   const { nodes, materials } = useGLTF("/Models/slotMachine.glb") as GLTFResult;
 
   const screen: any = useRef();
@@ -70,9 +58,9 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
         <Html
           transform
           wrapperClass="htmlScreen"
-          distanceFactor={distFactor}
-          position={pos}
-          rotation={rot}
+          distanceFactor={0.31000000000000005}
+          position={[0, 0, 0]}
+          rotation={[0.4510000000000003, 0, 0]}
         >
           <iframe
             src="https://www.youtube.com/embed/ZCrClSBM1ns"

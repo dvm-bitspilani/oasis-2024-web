@@ -39,7 +39,7 @@ export default function Landing() {
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: 'img[alt="right tree"]',
-          markers: true,
+          markers: false,
           start: () =>
             `top ${
               document

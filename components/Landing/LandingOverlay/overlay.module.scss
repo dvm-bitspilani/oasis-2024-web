@@ -4,6 +4,7 @@
     overflow: hidden;
     position: fixed;
     z-index: 1;
+    pointer-events: none;
 
     .headerContainer {
         position: absolute;
@@ -26,6 +27,7 @@
         .cards {
             position: relative;
             top: -4rem;
+            pointer-events: auto;
         }
 
         .cards:nth-of-type(2) {

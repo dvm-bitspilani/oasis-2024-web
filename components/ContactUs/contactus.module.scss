@@ -1,17 +1,65 @@
-.heading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.2rem;
+.contactPage {
+    position: fixed;
+    top: 5rem;
+    height: 100dvh;
+    width: 100vw;
+    opacity: 0;
+    pointer-events: none;
 
-    h2 {
-        font-family: Rye, sans-serif;
-        font-size: 72px;
-        font-weight: 400;
-        line-height: 43px;
-        letter-spacing: 0.05em;
-        text-align: center;
-        color:#CCAE57;
-        box-shadow: 0px 0px 5px 0px #8C5A2E80;
+    .heading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1.2rem;
+
+        h2 {
+            font-family: Rye, sans-serif;
+            font-size: 72px;
+            font-weight: 400;
+            line-height: 43px;
+            letter-spacing: 0.05em;
+            text-align: center;
+            color: #CCAE57;
+            box-shadow: 0px 0px 5px 0px #8C5A2E80;
+        }
     }
-}
+
+    .cardContainer {
+        margin-top: 5rem;
+        display: flex;
+        height: auto;
+        justify-content: space-evenly;
+
+        .first {
+            transform: rotate(-18deg) translate3d(0, 100px, 0);
+        }
+
+        .second {
+            transform: rotate(-12deg) translate3d(0, 30px, 0);
+        }
+
+        .fourth {
+            transform: rotate(12deg) translate3d(0, 30px, 0);
+        }
+
+        .fifth {
+            transform: rotate(18deg) translate3d(0, 100px ,0);
+        }
+    }
+
+    .cardContainer1 {
+        display: flex;
+        height: auto;
+        justify-content: center;
+        gap: 4rem;
+        margin-top: 4rem;
+
+        .first {
+            transform: rotate(-10deg) translate3d(0, 20px, 0);
+        }
+
+        .third {
+            transform: rotate( 10deg) translate3d(0, 20px, 0);
+        }
+    }
+}    

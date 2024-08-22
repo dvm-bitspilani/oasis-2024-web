@@ -27,6 +27,7 @@
         .cards {
             position: relative;
             top: -4rem;
+            pointer-events: auto;
         }
 
         .cards:nth-of-type(2) {

@@ -168,6 +168,7 @@ export default function Landing() {
                   y: conditions.isMobile ? -2 : 0,
                   // z: conditions.isMobile ? 0 : -0.5,
                   duration: 3,
+                  ease: "power1.in",
                 },
                 "<"
               )
@@ -178,7 +179,7 @@ export default function Landing() {
                   duration: 0.75,
                   pointerEvents: "auto",
                 },
-                "-=1.8"
+                "-=1.5"
               )
               .from(
                 "#contactUs",

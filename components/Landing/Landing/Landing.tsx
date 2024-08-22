@@ -127,6 +127,7 @@ export default function Landing() {
                 {
                   y: -150,
                   opacity: 0,
+                  pointerEvents: "none",
                   duration: 0.75,
                 },
                 "<"
@@ -136,6 +137,7 @@ export default function Landing() {
                 {
                   y: -150,
                   opacity: 0,
+                  pointerEvents: "none",
                   duration: 0.75,
                 },
                 "<"
@@ -165,7 +167,7 @@ export default function Landing() {
                 slotMachine.current.position,
                 {
                   x: conditions.isMobile ? 0 : -5,
-                  y: conditions.isMobile ? -2 : 0,
+                  y: conditions.isMobile ? -2.5 : 0,
                   // z: conditions.isMobile ? 0 : -0.5,
                   duration: 3,
                   ease: "power1.in",

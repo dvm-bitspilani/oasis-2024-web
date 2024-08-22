@@ -28,133 +28,338 @@
         margin-top: 5rem;
         display: flex;
         height: auto;
-        // justify-content: space-evenly;
-        position: relative;
-        width: 100vw;
-        transition: all 0.9s ease-in-out;
-        visibility: hidden;
-        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-
-
-        .first {
-            position: absolute;
-            z-index: 5;
-            transform: rotate(-18deg);
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-        }
-
-        .second {
-            position: absolute;
-            z-index: 4;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-        }
-
-        .third {
-            position: absolute;
-            z-index: 3;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-        }
-
-        .fourth {
-            position: absolute;
-            z-index: 2;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-        }
-
-        .fifth {
-            position: absolute;
-            z-index: 1;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-        }
-    }
-
-    .active {
         justify-content: space-evenly;
-        opacity: 1;
-        visibility: visible;
+        // position: relative;
+        // width: 100vw;
+        // transition: all 0.9s ease-in-out;
+        // visibility: hidden;
+        // transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+
+
+        // .first {
+        //     position: absolute;
+        //     z-index: 5;
+        //     transform: rotate(-18deg);
+        //     opacity: 0;
+        //     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        // }
+
+        // .second {
+        //     position: absolute;
+        //     z-index: 4;
+        //     opacity: 0;
+        //     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        // }
+
+        // .third {
+        //     position: absolute;
+        //     z-index: 3;
+        //     opacity: 0;
+        //     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        // }
+
+        // .fourth {
+        //     position: absolute;
+        //     z-index: 2;
+        //     opacity: 0;
+        //     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        // }
+
+        // .fifth {
+        //     position: absolute;
+        //     z-index: 1;
+        //     opacity: 0;
+        //     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        // }
 
         .first {
-            transform: rotate(-18deg) translate3d(0, 100px, 0);
-            position: static;
-            opacity: 1;
-            transition-delay: 0.5s;
+            transform: rotate(-18deg) translate3d(0, 80px, 0);
         }
 
         .second {
-            transform: rotate(-12deg) translate3d(0, 30px, 0);
-            position: static;
-            opacity: 1;
-            transition-delay: 0.6s;
+            transform: rotate(-12deg) translate3d(0, 0px, 0);
         }
 
         .third {
-            transform: rotate(0) translate3d(0, 0px, 0);
-            position: static;
-            opacity: 1;
-            transition-delay: 0.7s;
+            transform: rotate(0) translate3d(0, -30px, 0);
         }
 
         .fourth {
-            transform: rotate(12deg) translate3d(0, 30px, 0);
-            position: static;
-            opacity: 1;
-            transition-delay: 0.8s;
+            transform: rotate(12deg) translate3d(0, 0px, 0);
+            
         }
 
         .fifth {
-            transform: rotate(18deg) translate3d(0, 100px ,0);
-            position: static;
-            opacity: 1;
-            transition-delay: 0.9s;
+            transform: rotate(18deg) translate3d(0, 80px ,0);
         }
-
-
     }
+
+    // .active {
+    //     justify-content: space-evenly;
+    //     opacity: 1;
+    //     visibility: visible;
+
+    //     .first {
+    //         transform: rotate(-18deg) translate3d(0, 100px, 0);
+    //         position: static;
+    //         opacity: 1;
+    //         transition-delay: 0.5s;
+    //     }
+
+    //     .second {
+    //         transform: rotate(-12deg) translate3d(0, 30px, 0);
+    //         position: static;
+    //         opacity: 1;
+    //         transition-delay: 0.6s;
+    //     }
+
+    //     .third {
+    //         transform: rotate(0) translate3d(0, 0px, 0);
+    //         position: static;
+    //         opacity: 1;
+    //         transition-delay: 0.7s;
+    //     }
+
+    //     .fourth {
+    //         transform: rotate(12deg) translate3d(0, 30px, 0);
+    //         position: static;
+    //         opacity: 1;
+    //         transition-delay: 0.8s;
+    //     }
+
+    //     .fifth {
+    //         transform: rotate(18deg) translate3d(0, 100px ,0);
+    //         position: static;
+    //         opacity: 1;
+    //         transition-delay: 0.9s;
+    //     }
+
+
+    // }
 
     .cardContainer1 {
         display: flex;
         height: auto;
         justify-content: center;
-        gap: 4rem;
+        gap: 5vw;
         margin-top: 4rem;
-        position: relative;
+        // position: relative;
+
+        // .first {
+        //     position: absolute;
+        //     transform: rotate( 10deg) translate3d(0, 20px, 0);
+        // }
+
+        // .second {
+        //     position: absolute;
+        //     transform: rotate( 10deg) translate3d(0, 20px, 0);
+        // }
+
+        // .third {
+        //     position: absolute;
+        //     transform: rotate( 10deg) translate3d(0, 20px, 0);
+        // }
 
         .first {
-            position: absolute;
-            transform: rotate( 10deg) translate3d(0, 20px, 0);
+            transform: rotate( -12deg) translate3d(0, 0px, 0);
         }
 
         .second {
-            position: absolute;
-            transform: rotate( 10deg) translate3d(0, 20px, 0);
+            transform: rotate( 0deg) translate3d(0, -30px, 0);
         }
 
         .third {
-            position: absolute;
-            transform: rotate( 10deg) translate3d(0, 20px, 0);
+            transform: rotate( 12deg) translate3d(0, 0px, 0);
+        }
+
+        .fourth {
+            display: none;
         }
     }
 
-    .active1 {
+    // .active1 {
 
-        .first {
-            position: static;
-            transform: rotate(-10deg) translate3d(0, 20px, 0);
+    //     .first {
+    //         position: static;
+    //         transform: rotate(-10deg) translate3d(0, 20px, 0);
+    //     }
+
+    //     .second {
+    //         position: static;
+    //         transform: rotate(0) translate(0);
+    //     }
+
+    //     .third {
+    //         position: static;
+    //         transform: rotate( 10deg) translate3d(0, 20px, 0);
+    //     }
+    // }
+}
+
+@media(max-width: 1200px) {
+
+    .contactPage {
+        
+        .cardContainer {
+            .first {
+                transform: rotate(-18deg) translate3d(0, 60px, 0);
+            }
+
+            .fifth {
+                transform: rotate(18deg) translate3d(0, 60px, 0);
+            }
         }
 
-        .second {
-            position: static;
-            transform: rotate(0) translate(0);
-        }
-
-        .third {
-            position: static;
-            transform: rotate( 10deg) translate3d(0, 20px, 0);
+        .cardContainer1 {
+            gap:  2rem;
         }
     }
-}    
+}
+
+@media(max-width: 1100px) {
+
+    .contactPage {
+        top: 6rem;
+    }
+}
+
+@media(max-width:1000px) {
+
+    .contactPage {
+
+        .heading {
+    
+            h2 {
+                font-size: 62px;
+                font-weight: 400;
+                line-height: 43px;
+            }
+        }
+
+        .cardContainer {
+
+            .first {
+                transform: rotate( 0deg) translate3d(0, 0px, 0);
+            }
+    
+            .second {
+                transform: rotate( 0deg) translate3d(0, 0px, 0);
+            }
+    
+            .third {
+                transform: rotate(0) translate3d(0, 0px, 0);
+            }
+    
+            .fourth {
+                transform: rotate( 0deg) translate3d(0, 0px, 0);
+                
+            }
+    
+            .fifth {
+                transform: rotate( 0deg) translate3d(0, 0px ,0);
+                display: none;
+            }
+        }
+
+        .cardContainer1 {
+            gap: 0;
+            justify-content: space-evenly;
+            margin-top: 3rem;
+
+            .first {
+                transform: rotate( 0deg) translate3d(0, 0px, 0);
+            }
+    
+            .second {
+                transform: rotate( 0deg) translate3d(0, 0px, 0);
+            }
+    
+            .third {
+                transform: rotate(0) translate3d(0, 0px, 0);
+            }
+    
+            .fourth {
+                display: block;                
+            }
+        }
+    }
+}
+
+@media(max-width: 900px) {
+
+    .contactPage {
+
+        .cardContainer {
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .cardContainer1 {
+            margin-top: 1rem;
+            justify-content: center;
+            gap: 1rem;
+        }
+    }
+}
+
+@media(max-width: 600px) {
+
+    .contactPage {
+        height: fit-content;
+        top: 8rem;
+
+        .heading {
+    
+            h2 {
+                font-size: 43px;
+                font-weight: 400;
+                line-height: normal;
+            }
+
+            svg {
+                display: none;
+            }
+        }
+
+        .cardContainer {
+            margin-top: 2rem;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cardContainer1 {
+            margin-top: 1rem;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+    }
+}
+
+@media(max-width: 450px) {
+
+    .contactPage {
+
+        .cardContainer {
+            gap: 0;
+            .first, .second, .third, .fourth {
+                transform: scale(0.9);
+            }
+        }
+    }
+}
+
+// @media(max-width: 400px) {
+
+//     .contactPage {
+
+//         .cardContainer {
+//             .first, .second, .third, .fourth {
+//                 height: 225px;
+//                 width: 154px;
+//                 overflow: hidden;
+//             }
+//         }
+//     }
+// }

@@ -31,6 +31,9 @@
     height: 100vh;
 
     .border {
+      @media screen and (width <= 1250px) {
+        display: none;
+      }
       position: absolute;
       display: flex;
       justify-content: center;
@@ -147,6 +150,12 @@
       }
     }
     .formContainer {
+      @media screen and (width <= 1250px) {
+        padding-left: 60px;
+        width: 90vw;
+        margin: auto;
+        max-width: 2000px;
+      }
       display: flex;
       // position: relative;
       top: 50vh;
@@ -240,6 +249,9 @@
     }
   }
   .rouletteWheel {
+    @media screen and (width <= 1250px) {
+      display: none;
+    }
     position: absolute;
     bottom: 0;
     left: 0;

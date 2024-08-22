@@ -36,6 +36,7 @@
     }
     .radioContainer {
       display: flex;
+      flex-wrap: wrap;
       gap: 50px;
 
       .radioButtonContainer {

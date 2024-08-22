@@ -159,7 +159,7 @@ export default function Landing() {
                   opacity: 0,
                   y: -75,
                 },
-                "+=1"
+                "+=0.25"
               )
               .to(
                 slotMachine.current.position,
@@ -176,7 +176,7 @@ export default function Landing() {
                 "#contactUs",
                 {
                   opacity: 1,
-                  duration: 0.75,
+                  duration: 1,
                   pointerEvents: "auto",
                 },
                 "-=1.5"
@@ -185,7 +185,7 @@ export default function Landing() {
                 "#contactUs",
                 {
                   y: 75,
-                  duration: 0.75,
+                  duration: 1,
                 },
                 "<"
               );

@@ -72,7 +72,7 @@ export default function Landing() {
             }
             timeline
               .to(slotMachine.current.rotation, {
-                y: conditions.isMobile ? 0 : -Math.PI / 6,
+                y: conditions.isMobile ? 0 : -Math.PI / 9,
                 duration: 1,
               })
               .to(
@@ -141,7 +141,7 @@ export default function Landing() {
                 "<"
               )
               .to(slotMachine.current.rotation, {
-                y: conditions.isMobile ? 0 : -Math.PI / 4,
+                y: conditions.isMobile ? 0 : -Math.PI / 6,
               })
               .to("#aboutUs", {
                 opacity: 1,

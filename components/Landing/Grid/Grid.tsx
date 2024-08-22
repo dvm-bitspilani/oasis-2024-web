@@ -4,8 +4,6 @@ export default function Grid() {
   return (
     <div className={styles.grid}>
       <svg
-        width="1922"
-        height="1922"
         viewBox="0 0 1922 1922"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

@@ -231,12 +231,7 @@ const Registration = () => {
         </div>
       </div>
       <div className={styles.rouletteWheel} ref={wheelRef}>
-        <Image
-          src="/Registration/RouletteWheel.png"
-          alt=""
-          width={1000}
-          height={1000}
-        />
+        <img src="/Registration/RouletteWheel.png" alt="" />
       </div>
     </div>
   );

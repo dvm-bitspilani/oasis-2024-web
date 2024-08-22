@@ -31,7 +31,7 @@
     height: 100vh;
 
     .border {
-      @media screen and (width <= 1250px) {
+      @media screen and (width <= 1150px) {
         display: none;
       }
       position: absolute;
@@ -150,7 +150,7 @@
       }
     }
     .formContainer {
-      @media screen and (width <= 1250px) {
+      @media screen and (width <= 1150px) {
         padding-left: 60px;
         width: 90vw;
         margin: auto;
@@ -249,14 +249,23 @@
     }
   }
   .rouletteWheel {
-    @media screen and (width <= 1250px) {
+    @media screen and (width <= 1150px) {
       display: none;
     }
+
     position: absolute;
     bottom: 0;
     left: 0;
     transform: translateX(calc(-50% + 150px)) translateY(calc(50% - 200px))
       rotate(-38deg);
     z-index: 2;
+    img {
+      width: 70vw;
+      height: 70vw;
+      @media screen and (width >= 1450px) {
+        width: 65vw;
+        height: 65vw;
+      }
+    }
   }
 }

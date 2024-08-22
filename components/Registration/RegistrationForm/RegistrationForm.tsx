@@ -7,8 +7,6 @@ import * as z from "zod";
 import gsap from "gsap";
 
 import styles from "./registrationForm.module.scss";
-import Select from "react-select/base";
-import { SingleValue, Props as SelectProps } from "react-select";
 
 const formSchema = z.object({
   name: z.string().min(1, { message: "*Name is required" }),

@@ -4,6 +4,7 @@ import Navbar from "../Navbar/Navbar";
 import CardsGroup from "../CardsGroup/CardsGroup";
 import AboutUsPage from "@/components/AboutUs/AboutUsPage";
 import ContactUs from "@/components/ContactUs/ContactUs";
+import OasisLogo from "../Navbar/Logo/Logo";
 
 export default function LandingOverlay() {
   return (

@@ -7,11 +7,13 @@ import Trees from "@/components/Landing/Trees/Trees";
 import LandingOverlay from "@/components/Landing/LandingOverlay/LandingOverlay";
 import Countdown from "@/components/Landing/Countdown/Countdown";
 import Grid from "@/components/Landing/Grid/Grid";
+import OasisLogo from "@/components/Landing/Navbar/Logo/Logo";
 
 export default function Home() {
   return (
     <main className={styles.scrollWrapper} id="scrollWrapper">
       <main className={styles.page}>
+        <OasisLogo />
         <Landing />
         <LandingOverlay />
         <Countdown dateString="October 23, 2024 19:00:00" />

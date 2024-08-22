@@ -63,7 +63,7 @@ export default function Landing() {
           {
             isMobile: "(max-width: 1000px)",
             isDesktop: "(min-width: 1001px)",
-            isXS: "(max-width: 515px)",
+            isXS: "(max-width: 585px)",
           },
           ({ conditions }: any) => {
             console.log(conditions);

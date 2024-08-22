@@ -85,3 +85,39 @@
     bottom: 8px;
   }
 }
+
+@media(max-width: 1300px) {
+
+  .card {
+    transform: scale(0.9);
+  }
+}
+
+@media(max-width: 1200px) {
+  .card {
+    transform: scale(0.85);
+  }
+}
+
+@media(max-width: 1000px) {
+
+  .card {
+    transform: scale(1);
+  }
+}
+
+@media(max-width: 900px) {
+
+  .card {
+    transform: scale(0.9);
+  }
+}
+
+
+@media(max-width: 450px) {
+
+  .card {
+    transform: scale(0.9);
+  }
+}
+

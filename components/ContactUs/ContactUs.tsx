@@ -45,35 +45,35 @@ export default function ContactUs() {
   //   };
   // }, []);
 
-  const containerRef1 = useRef(null);
-  const containerRef2 = useRef(null);
+  // const containerRef1 = useRef(null);
+  // const containerRef2 = useRef(null);
 
-  const handleScroll = () => {
-    const scrollY = window.scrollY || window.pageYOffset;
-    // console.log(`Current scroll Y position: ${scrollY}px`);
+  // const handleScroll = () => {
+  //   const scrollY = window.scrollY || window.pageYOffset;
+  //   // console.log(`Current scroll Y position: ${scrollY}px`);
 
-    if (scrollY >= 2000) {
-      let container1: any
-      container1 = containerRef1.current;
-      if (container1 && !container1.classList.contains(styles.active)) {
-        container1.classList.add(styles.active);
-      }
+  //   if (scrollY >= 2000) {
+  //     let container1: any
+  //     container1 = containerRef1.current;
+  //     if (container1 && !container1.classList.contains(styles.active)) {
+  //       container1.classList.add(styles.active);
+  //     }
 
-      let container2: any
-      container2 = containerRef2.current;
-      if (container2 && !container2.classList.contains(styles.active1)) {
-        container2.classList.add(styles.active1);
-      }
-    }
-  };
+  //     let container2: any
+  //     container2 = containerRef2.current;
+  //     if (container2 && !container2.classList.contains(styles.active1)) {
+  //       container2.classList.add(styles.active1);
+  //     }
+  //   }
+  // };
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+  // useEffect(() => {
+  //   window.addEventListener('scroll', handleScroll);
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, []);
 
   return (
     <>
@@ -140,7 +140,7 @@ export default function ContactUs() {
           </svg>
         </div>
 
-        <div className={styles.cardContainer} ref={containerRef1}>
+        <div className={styles.cardContainer}>
           <div className={styles.first}>
             <ContactCard />
           </div>
@@ -158,7 +158,7 @@ export default function ContactUs() {
           </div>
         </div>
 
-        <div className={styles.cardContainer1} ref={containerRef2}>
+        <div className={styles.cardContainer1}>
           <div className={styles.first}>
             <ContactCard />
           </div>
@@ -166,6 +166,9 @@ export default function ContactUs() {
             <ContactCard />
           </div>
           <div className={styles.third}>
+            <ContactCard />
+          </div>
+          <div className={styles.fourth}>
             <ContactCard />
           </div>
         </div>

@@ -11,6 +11,14 @@
     height: 100dvh;
     margin-left: 8.5%;
 
+    @media (width <= 1000px){
+        width: 100%;
+        margin-left: 0;
+        margin-top: 100px;
+        justify-content: flex-start;
+        gap: 30px;
+    }
+
     .text {
         text-shadow: 0px 0px 8px rgba(229, 195, 132, 0.48);
         font-style: normal;
@@ -18,10 +26,19 @@
         letter-spacing: 2.1px;
         font-size: 20px;
         text-align: center;
+
+        @media (width <= 1000px) {
+            font-size: 16px;
+            width: 50%;
+        }
     }
 
     .title {
         aspect-ratio: 420 / 68;
         width: 420px;
+
+        @media (width <= 1000px) {
+            width: 200px;
+        }
     }
 }

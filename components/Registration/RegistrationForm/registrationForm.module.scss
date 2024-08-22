@@ -38,6 +38,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 50px;
+      align-content: start;
 
       .radioButtonContainer {
         .radioLabel {
@@ -199,7 +200,11 @@
   }
 }
 .btnwrapper {
-  
+  @media screen and (width <= 1150px) {
+    left: 50%;
+    transform: translateX(-50%) translateY(50%);
+    width: 215px;
+  }
   cursor: pointer;
   outline: none;
   border: none;

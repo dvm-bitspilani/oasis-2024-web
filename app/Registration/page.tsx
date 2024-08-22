@@ -59,6 +59,7 @@ const Registration = () => {
   return (
     <div className={styles.pageContainer}>
       <div className={styles.pageContent}>
+        <div className={styles.phoneBorder}>REGISTRATION</div>
         <div className={styles.border}>
           <Link href="/">
             <Image

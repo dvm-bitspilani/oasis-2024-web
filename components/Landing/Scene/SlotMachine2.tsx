@@ -40,7 +40,7 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
       step: 0.01,
     },
     pos: [0, 0, 0],
-    rot: [0.5210000000000004, 0, 0],
+    rot: [0.4510000000000003, 0, 0],
   });
 
   const { nodes, materials } = useGLTF("/Models/slotMachine.glb") as GLTFResult;

@@ -10,7 +10,7 @@ import Grid from "@/components/Landing/Grid/Grid";
 
 export default function Home() {
   return (
-    <main className={styles.scrollWrapper}>
+    <main className={styles.scrollWrapper} id="scrollWrapper">
       <main className={styles.page}>
         <Landing />
         <LandingOverlay />

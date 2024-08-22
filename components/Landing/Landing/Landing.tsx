@@ -46,9 +46,10 @@ export default function Landing() {
                 .querySelector('img[alt="right tree"]')
                 ?.getBoundingClientRect().top
             }`,
+          end: "+=200%",
           scrub: 1,
           snap: {
-            snapTo: [0, 0.3, 1],
+            snapTo: [0, 0.4, 1],
             ease: "sine.inOut",
             duration: 2,
           },
@@ -162,23 +163,26 @@ export default function Landing() {
               .to(
                 slotMachine.current.position,
                 {
-                  x: conditions.isMobile ? 0 : -5,
+                  x: conditions.isMobile ? 0 : -3,
                   y: conditions.isMobile ? -2 : 0,
                   // z: conditions.isMobile ? 0 : -0.5,
+                  duration: 3,
                 },
-                "+=0.5"
+                "<"
               )
               .to(
                 "#contactUs",
                 {
                   opacity: 1,
+                  duration: 0.75,
                 },
-                "<"
+                "-=1.8"
               )
               .from(
                 "#contactUs",
                 {
                   y: 75,
+                  duration: 0.75,
                 },
                 "<"
               );

@@ -14,7 +14,7 @@ body {
 }
 
 .htmlScreen iframe {
-  width: 1024px;
+  width: 1000px;
   height: 750px;
   transform: rotateY(180deg);
   border: none;

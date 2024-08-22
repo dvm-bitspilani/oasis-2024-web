@@ -4,6 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import { Perf } from "r3f-perf";
 
 import { SlotMachine2 } from "./SlotMachine2";
+import { SlotMachine } from "./SlotMachine";
 import { forwardRef } from "react";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 
@@ -35,11 +36,16 @@ const LandingScene = forwardRef(function LandingScene(
           position={isXS ? [0, -1.25, 2] : [0, -0.7, 3]}
           rotation={[0, Math.PI, 0]}
         >
-          <SlotMachine2
+          <SlotMachine
             video="/Videos/curtainRaiser23_flipped.mp4"
             ref={ref}
             setIs3dLoaded={setIs3dLoaded}
           />
+          {/* <SlotMachine2
+            video="/Videos/curtainRaiser23_flipped.mp4"
+            ref={ref}
+            setIs3dLoaded={setIs3dLoaded}
+          /> */}
         </group>
       </Canvas>
     </>

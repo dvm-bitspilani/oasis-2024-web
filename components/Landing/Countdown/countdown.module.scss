@@ -10,8 +10,11 @@
   justify-content: space-between;
   position: fixed;
   width: 300px;
-  bottom: 40px;
-  left: 25px;
+
+  @media (width > 760px) {
+    bottom: 40px;
+    left: 25px;
+  }
 
   .timeSegment {
     display: flex;
@@ -39,5 +42,15 @@
   @media (width <=1262px) {
     font-size: 20px;
     width: 250px;
+  }
+
+  @media (width <= 760px) {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 200px;
+  }
+
+  @media (width <= 585px) {
+    top: 275px;
   }
 }

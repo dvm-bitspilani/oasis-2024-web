@@ -63,7 +63,7 @@ export default function Landing() {
           {
             isMobile: "(max-width: 1000px)",
             isDesktop: "(min-width: 1001px)",
-            isXS: "(max-width: 515px)",
+            isXS: "(max-width: 585px)",
           },
           ({ conditions }: any) => {
             console.log(conditions);
@@ -164,7 +164,7 @@ export default function Landing() {
               .to(
                 slotMachine.current.position,
                 {
-                  x: conditions.isMobile ? 0 : -3,
+                  x: conditions.isMobile ? 0 : -5,
                   y: conditions.isMobile ? -2 : 0,
                   // z: conditions.isMobile ? 0 : -0.5,
                   duration: 3,

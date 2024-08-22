@@ -1,8 +1,80 @@
-import React from "react";
+'use client';
+
+import React, { useState,useEffect, useRef} from "react";
 import styles from "./contactus.module.scss";
 import ContactCard from "./ContactCard/ContactCard";
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 export default function ContactUs() {
+
+  // const containerRef = useRef(null);
+
+  // useEffect(() => {
+  //   const container = containerRef.current;
+
+  //   // GSAP animation with ScrollTrigger
+  //   gsap.to(container, {
+  //     scrollTrigger: {
+  //       trigger: container,
+  //       start: 'top 8%', // Adjust as needed
+  //       onEnter: () => {
+  //         gsap.to(container, { delay: 1, onComplete: () => container.classList.add(styles.active) });
+  //       },
+  //     },
+  //   });
+
+  //   return () => {
+  //     // Cleanup if necessary
+  //     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+  //   };
+  // }, []);
+
+  // const handleScroll = () => {
+  //   const scrollY = window.scrollY || window.pageYOffset;
+  //   console.log(`Current scroll Y position: ${scrollY}px`);
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener('scroll', handleScroll);
+
+  //   // Cleanup the event listener on component unmount
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, []);
+
+  const containerRef1 = useRef(null);
+  const containerRef2 = useRef(null);
+
+  const handleScroll = () => {
+    const scrollY = window.scrollY || window.pageYOffset;
+    // console.log(`Current scroll Y position: ${scrollY}px`);
+
+    if (scrollY >= 2000) {
+      let container1: any
+      container1 = containerRef1.current;
+      if (container1 && !container1.classList.contains(styles.active)) {
+        container1.classList.add(styles.active);
+      }
+
+      let container2: any
+      container2 = containerRef2.current;
+      if (container2 && !container2.classList.contains(styles.active1)) {
+        container2.classList.add(styles.active1);
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <>
       <div className={styles.contactPage} id="contactUs">
@@ -68,7 +140,7 @@ export default function ContactUs() {
           </svg>
         </div>
 
-        <div className={styles.cardContainer}>
+        <div className={styles.cardContainer} ref={containerRef1}>
           <div className={styles.first}>
             <ContactCard />
           </div>
@@ -86,7 +158,7 @@ export default function ContactUs() {
           </div>
         </div>
 
-        <div className={styles.cardContainer1}>
+        <div className={styles.cardContainer1} ref={containerRef2}>
           <div className={styles.first}>
             <ContactCard />
           </div>

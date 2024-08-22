@@ -91,6 +91,7 @@ export default function Landing() {
                   y: -150,
                   opacity: 0,
                   duration: 0.75,
+                  pointerEvents: "none",
                 },
                 "<"
               )
@@ -175,6 +176,7 @@ export default function Landing() {
                 {
                   opacity: 1,
                   duration: 0.75,
+                  pointerEvents: "auto",
                 },
                 "-=1.8"
               )

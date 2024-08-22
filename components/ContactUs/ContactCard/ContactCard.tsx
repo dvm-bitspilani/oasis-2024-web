@@ -4,7 +4,7 @@ import background from "../../../assets/Landing/contactUs/contactbg.svg";
 import profile from "../../../assets/Landing/contactUs/profile.png";
 import Image from "next/image";
 
-export default function ContactCrad() {
+export default function ContactCard() {
   return (
     <div className={styles.card}>
       <div className={styles.top}>

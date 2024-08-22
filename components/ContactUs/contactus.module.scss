@@ -4,6 +4,7 @@
     height: 100dvh;
     width: 100vw;
     opacity: 0;
+    pointer-events: none;
 
     .heading {
         display: flex;

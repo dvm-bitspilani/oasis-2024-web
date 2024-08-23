@@ -38,6 +38,14 @@
       line-height: 43px; /* 307.143% */
       letter-spacing: 0.84px;
     }
+    .radioError {
+      position: relative;
+      top: -10px;
+    }
+    .dropDownError {
+      position: absolute;
+      top: 80px;
+    }
     .radioContainer {
       display: flex;
       flex-wrap: wrap;

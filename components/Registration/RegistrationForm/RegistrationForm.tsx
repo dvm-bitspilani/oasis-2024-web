@@ -275,7 +275,7 @@ const RegistrationForm: React.FC = () => {
             </div>
           </div>
           {errors.gender && (
-            <span className={styles.formErrorMessage}>
+            <span className={`${styles.formErrorMessage} ${styles.radioError}`}>
               {errors.gender.message}
             </span>
           )}
@@ -365,7 +365,7 @@ const RegistrationForm: React.FC = () => {
             </svg>
           </div>
           {errors.interests && (
-            <span className={styles.formErrorMessage}>
+            <span className={`${styles.formErrorMessage} ${styles.dropDownError}}`}>
               {errors.interests.message}
             </span>
           )}
@@ -405,7 +405,7 @@ const RegistrationForm: React.FC = () => {
             </svg>
           </div>
           {errors.events && (
-            <span className={styles.formErrorMessage}>
+            <span className={`${styles.formErrorMessage} ${styles.dropDownError}}`}>
               {errors.events.message}
             </span>
           )}
@@ -444,7 +444,7 @@ const RegistrationForm: React.FC = () => {
             </svg>
           </div>
           {errors.college && (
-            <span className={styles.formErrorMessage}>
+            <span className={`${styles.formErrorMessage} ${styles.dropDownError}}`}>
               {errors.college.message}
             </span>
           )}
@@ -470,7 +470,7 @@ const RegistrationForm: React.FC = () => {
             ))}
           </div>
           {errors.yearOfStudy && (
-            <span className={styles.formErrorMessage}>
+            <span className={`${styles.formErrorMessage} ${styles.radioError}`}>
               {errors.yearOfStudy.message}
             </span>
           )}
@@ -509,7 +509,7 @@ const RegistrationForm: React.FC = () => {
             </svg>
           </div>
           {errors.state && (
-            <span className={styles.formErrorMessage}>
+            <span className={`${styles.formErrorMessage} ${styles.dropDownError}}`}>
               {errors.state.message}
             </span>
           )}
@@ -548,7 +548,7 @@ const RegistrationForm: React.FC = () => {
             </svg>
           </div>
           {errors.city && (
-            <span className={styles.formErrorMessage}>
+            <span className={`${styles.formErrorMessage} ${styles.dropDownError}}`}>
               {errors.city.message}
             </span>
           )}

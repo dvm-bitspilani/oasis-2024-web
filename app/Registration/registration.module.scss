@@ -217,8 +217,9 @@
       margin-top: 13vh;
 
       .formContent {
-        @media screen and (width <= 500px) {
-          height: 65vh;
+        @media screen and (width <= 1150px) {
+          transform: translateY(200px);
+          height: 85dvh;
           margin-top: 0;
           -webkit-mask-image: -webkit-gradient(
             linear,
@@ -229,6 +230,11 @@
               color-stop(100%, rgba(0, 0, 0, 0))
               /* Fade out at the bottom 30% */
           );
+        }
+        @media screen and (width <= 500px) {
+          padding-top: 0;
+          width: 65dvh;
+          transform: translateY(60px);
         }
 
         margin-top: 500px;

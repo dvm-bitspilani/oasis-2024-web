@@ -1,11 +1,15 @@
 import styles from "./gauth.module.scss";
+import Signin from "../SignIn/SignIn";
 
 export default function GoogleAuthPage() {
   return (
     <>
       <div className={styles.instructionsContainer}>
         <Signin />
-        <div onClick={() => signIn("google")} className={styles.btnwrapper}>
+        <div
+          onClick={() => console.log("sign in")}
+          className={styles.btnwrapper}
+        >
           <div className={styles.btnborder}>
             <div className={`${styles.circlewrapper} ${styles.top}`}>
               <div className={`${styles.circle} bulb`}></div>

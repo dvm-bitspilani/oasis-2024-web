@@ -217,6 +217,20 @@
       margin-top: 13vh;
 
       .formContent {
+        @media screen and (width <= 500px) {
+          height: 65vh;
+          margin-top: 0;
+          -webkit-mask-image: -webkit-gradient(
+            linear,
+            left top,
+            left bottom,
+            color-stop(90%, rgba(0, 0, 0, 1)),
+            /* Keep 70% of the element fully opaque */
+              color-stop(100%, rgba(0, 0, 0, 0))
+              /* Fade out at the bottom 30% */
+          );
+        }
+
         margin-top: 500px;
         width: 100%;
         // max-width: 900px;

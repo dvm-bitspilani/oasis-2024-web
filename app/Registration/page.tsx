@@ -291,27 +291,29 @@ const Registration = () => {
           <div className={styles.frameBottomLeft}></div>
         </div>
         <div className={styles.formContainer}>
-          <div
-            className={styles.formContent}
-            onScroll={() => handleScroll()}
-            ref={formRef}
-          >
-            <RegistrationForm />
-          </div>
-          <div className={styles.scrollbar} onClick={handleTrackSnap}>
-            <div className={styles.scrollbarTrack} />
-            <Image
-              draggable={false}
-              src="/Registration/ScrollBarThumb.png"
-              alt="scrollBarThumb"
-              width={85}
-              height={85}
-              className={styles.scrollbarThumb}
-              ref={scrollbarThumbRef}
-              onMouseDown={handleMouseDown}
-              onTouchStart={handleMouseDown}
-            />
-            {/* <svg
+          {true ? (
+            <>
+              <div
+                className={styles.formContent}
+                onScroll={() => handleScroll()}
+                ref={formRef}
+              >
+                <RegistrationForm />
+              </div>
+              <div className={styles.scrollbar} onClick={handleTrackSnap}>
+                <div className={styles.scrollbarTrack} />
+                <Image
+                  draggable={false}
+                  src="/Registration/ScrollBarThumb.png"
+                  alt="scrollBarThumb"
+                  width={85}
+                  height={85}
+                  className={styles.scrollbarThumb}
+                  ref={scrollbarThumbRef}
+                  onMouseDown={handleMouseDown}
+                  onTouchStart={handleMouseDown}
+                />
+                {/* <svg
               xmlns="http://www.w3.org/2000/svg"
               width="85"
               height="85"
@@ -332,7 +334,11 @@ const Registration = () => {
                 />
               </g>
             </svg> */}
-          </div>
+              </div>
+            </>
+          ) : (
+            <h1>Hi</h1>
+          )}
         </div>
       </div>
       <div className={styles.rouletteWheel} ref={wheelRef}>

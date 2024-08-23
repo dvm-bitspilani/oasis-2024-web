@@ -1,5 +1,5 @@
 .pageContainer {
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -187,13 +187,17 @@
     }
     .formContainer {
       @media screen and (width <= 1150px) {
+        padding-top: 40px;
         padding-left: 60px;
-        width: 90vw;
+        width: 85vw;
         margin: auto;
         max-width: 2000px;
+        height: 45dvh;
       }
       @media screen and (width <= 500px) {
-        padding-left: 0px;
+        padding-left: 30px;
+        width: 100vw;
+        height: 55dvh;
       }
       display: flex;
       // position: relative;
@@ -230,6 +234,9 @@
       }
 
       .scrollbar {
+        @media screen and (width <= 1150px) {
+          display: none;
+        }
         margin: 5% 0;
         height: 90%;
         width: 10%;

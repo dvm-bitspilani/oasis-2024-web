@@ -40,6 +40,8 @@ const RegistrationForm: React.FC = () => {
     control,
     register,
     handleSubmit,
+    setValue,
+    watch,
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -78,6 +80,23 @@ const RegistrationForm: React.FC = () => {
       tl.to(bulbs[i], { duration: 0.75, opacity: 0.5 });
     }
   }, []);
+
+  const numberValue = watch("phoneNumber");
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const charCode = e.which ? e.which : e.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      e.preventDefault();
+      return false;
+    }
+    return true;
+  };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (value.length <= 10) {
+      setValue("phoneNumber", value);
+    }
+  };
 
   return (
     <>
@@ -162,7 +181,23 @@ const RegistrationForm: React.FC = () => {
           <label htmlFor="phoneNumber" className={styles.formFieldHeader}>
             PHONE NUMBER
           </label>
-          <input id="phoneNumber" type="tel" {...register("phoneNumber")} />
+          <input
+            id="phoneNumber"
+            inputMode="numeric"
+            type="tel"
+            onKeyPress={handleKeyPress}
+            value={numberValue || ""}
+            {...register("phoneNumber", {
+              onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
+                const value = e.target.value;
+                if (value.length <= 10) {
+                  setValue("phoneNumber", value);
+                } else {
+                  e.target.value = value.slice(0, 10);
+                }
+              },
+            })}
+          />
           <div className={styles.inputUnderline}>
             <svg
               width="904"

@@ -31,6 +31,9 @@
     height: 100vh;
 
     .phoneBorder {
+      @media screen and (width >= 1150px) {
+        display: none;
+      }
       position: absolute;
       top: 12px;
       left: 50%;

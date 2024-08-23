@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
 import styles from "./navbar.module.scss";
-import Image from "next/image";
 import gsap from "gsap";
 import HamBtn from "./HamBtn/Btn";
 import RegBtn from "./RegBtn/RegBtn";
@@ -27,14 +26,6 @@ export default function Navbar() {
       <div className={styles.header}>
         <HamBtn />
         <RegBtn />
-      </div>
-      <div className={styles.logo}>
-        <Image
-          src="/oasislogo.png"
-          alt="oasis logo landing"
-          width={560}
-          height={205}
-        />
       </div>
     </>
   );

@@ -21,6 +21,7 @@ export default function Landing() {
   const slotMachine: any = useRef();
   const [is3dLoaded, setIs3dLoaded] = useState(false);
   const [isXS, setIsXS] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     window.addEventListener("beforeunload", () => {
@@ -39,19 +40,20 @@ export default function Landing() {
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: 'img[alt="right tree"]',
-          markers: true,
+          markers: false,
           start: () =>
             `top ${
               document
                 .querySelector('img[alt="right tree"]')
                 ?.getBoundingClientRect().top
             }`,
+          end: "+=200%",
           scrub: 1,
-          snap: {
-            snapTo: [0, 1],
-            ease: "sine.inOut",
-            duration: 2,
-          },
+          // snap: {
+          //   snapTo: [0, 0.4, 1],
+          //   ease: "sine.inOut",
+          //   duration: 2,
+          // },
         },
       });
 
@@ -62,23 +64,26 @@ export default function Landing() {
           {
             isMobile: "(max-width: 1000px)",
             isDesktop: "(min-width: 1001px)",
-            isXS: "(max-width: 515px)",
+            isXS: "(max-width: 585px)",
           },
           ({ conditions }: any) => {
             console.log(conditions);
             if (conditions.isXS !== isXS) {
               setIsXS(conditions.isXS);
             }
+            if (conditions.isMobile !== isMobile) {
+              setIsMobile(true);
+            }
             timeline
               .to(slotMachine.current.rotation, {
-                y: conditions.isMobile ? 0 : -Math.PI / 6,
+                y: conditions.isMobile ? 0 : -Math.PI / 9,
                 duration: 1,
               })
               .to(
                 slotMachine.current.position,
                 {
                   x: conditions.isMobile ? 0 : -0.9,
-                  y: conditions.isMobile ? -0.5 : 0,
+                  y: conditions.isMobile ? (conditions.isXS ? -0.75 : -0.5) : 0,
                   z: conditions.isMobile ? 0 : -0.5,
                   duration: 1,
                 },
@@ -90,6 +95,7 @@ export default function Landing() {
                   y: -150,
                   opacity: 0,
                   duration: 0.75,
+                  pointerEvents: "none",
                 },
                 "<"
               )
@@ -125,6 +131,7 @@ export default function Landing() {
                 {
                   y: -150,
                   opacity: 0,
+                  pointerEvents: "none",
                   duration: 0.75,
                 },
                 "<"
@@ -134,12 +141,13 @@ export default function Landing() {
                 {
                   y: -150,
                   opacity: 0,
+                  pointerEvents: "none",
                   duration: 0.75,
                 },
                 "<"
               )
               .to(slotMachine.current.rotation, {
-                y: conditions.isMobile ? 0 : -Math.PI / 4,
+                y: conditions.isMobile ? 0 : -Math.PI / 6,
               })
               .to("#aboutUs", {
                 opacity: 1,
@@ -148,6 +156,42 @@ export default function Landing() {
                 "#aboutUs",
                 {
                   y: 75,
+                },
+                "<"
+              )
+              .to(
+                "#aboutUs",
+                {
+                  opacity: 0,
+                  y: -75,
+                },
+                "+=1"
+              )
+              .to(
+                slotMachine.current.position,
+                {
+                  x: conditions.isMobile ? 0 : -5,
+                  y: conditions.isMobile ? -2.5 : 0,
+                  // z: conditions.isMobile ? 0 : -0.5,
+                  duration: 3,
+                  ease: "power1.in",
+                },
+                "<"
+              )
+              .to(
+                "#contactUs",
+                {
+                  opacity: 1,
+                  duration: 1,
+                  pointerEvents: "auto",
+                },
+                "-=1.5"
+              )
+              .from(
+                "#contactUs",
+                {
+                  y: 75,
+                  duration: 1,
                 },
                 "<"
               );
@@ -164,6 +208,7 @@ export default function Landing() {
         ref={slotMachine}
         setIs3dLoaded={setIs3dLoaded}
         isXS={isXS}
+        isMobile={isMobile}
       />
     </>
   );

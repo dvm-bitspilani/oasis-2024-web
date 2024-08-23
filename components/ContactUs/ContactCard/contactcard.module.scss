@@ -1,0 +1,193 @@
+.card {
+  height: auto;
+  width: 200px;
+  background: linear-gradient(
+    154.77deg,
+    #0d0d0d 0.23%,
+    #181818 24.62%,
+    #0b0b0b 56.47%,
+    #1a1a1a 99.77%
+  );
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e3c041;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  border-radius: 5px;
+  position: relative;
+
+  .center {
+    margin-top: 42px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    .name {
+      font-family: Playfair;
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: -0.04em;
+      color: #ccae57;
+      text-align: center;
+    }
+
+    .imgContainer {
+      height: auto;
+      width: 100%;
+      // position: relative;
+
+      // .backgroundImg {
+      //   position: absolute;
+      //   top: 0;
+      //   left: 0;
+      //   width: 100%;
+      //   height: 160px;
+      //   z-index: 1;
+      // }
+
+      .profileImg {
+        width: 155px;
+        height: 126px;
+        // position: relative;
+        // z-index: 2;
+        margin: auto;
+        display: block;
+      }
+    }
+
+    .desc {
+      font-family: Source Serif Pro;
+      font-size: 14px;
+      font-weight: 400;
+      text-align: center;
+      color: #ccae57;
+      width: 60%;
+      line-height: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: row;
+      gap: 1.8rem;
+      padding-top: 5px;
+    }
+  }
+
+  .top {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+  }
+
+  .bottom {
+    position: absolute;
+    right: 12px;
+    bottom: 8px;
+  }
+}
+
+// @media(max-width: 1300px) {
+
+//   .card {
+//     transform: scale(0.9);
+//   }
+// }
+
+// @media(max-width: 1200px) {
+//   .card {
+//     transform: scale(0.85);
+//   }
+// }
+
+// @media(max-width: 1000px) {
+
+//   .card {
+//     transform: scale(1);
+//   }
+// }
+
+// @media(max-width: 900px) {
+
+//   .card {
+//     transform: scale(0.9);
+//   }
+// }
+
+
+// @media(max-width: 450px) {
+
+//   .card {
+//     transform: scale(0.9);
+//   }
+// }
+
+@media(max-width: 500px) {
+
+  .card {
+    height: auto;
+    width: 40vw;
+  
+    .center {
+      margin-top: 30px;
+      margin-bottom: 24px;
+      gap: 5px;
+  
+      .name {
+        font-size: 16px;
+      }
+  
+      .imgContainer {
+        height: auto;
+        width: 100%;
+  
+        .profileImg {
+          width: 30vw;
+          height: 100%;
+        }
+      }
+  
+      .desc {
+        font-size: 12.5px;
+        width: 70%;
+        line-height: 18px;
+      }
+  
+      .buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 1.8rem;
+        padding-top: 5px;
+
+        svg {
+          height: 14px;
+          width: 17px;
+        }
+      }
+    }
+  
+    .top {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+
+      svg {
+        width: 12px;
+        height: 26px;
+      }
+    }
+  
+    .bottom {
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+
+      svg {
+        width: 12px;
+        height: 26px;
+      }
+    }
+  }
+}
+

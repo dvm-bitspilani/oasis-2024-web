@@ -1,7 +1,9 @@
 .registrationForm {
+  padding-top: 40px;
   position: relative;
   margin-right: 95.8px;
   z-index: 1;
+
   .formField {
     display: flex;
     flex-direction: column;
@@ -213,9 +215,11 @@
 }
 .btnwrapper {
   @media screen and (width <= 1150px) {
-    left: 50%;
-    transform: translateX(-50%) translateY(50%);
+    left: 40%;
+    top: 50px;
+    transform: translateX(-50%);
     width: 215px;
+    position: relative;
   }
   cursor: pointer;
   outline: none;

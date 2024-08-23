@@ -187,6 +187,7 @@
     }
     .formContainer {
       @media screen and (width <= 1150px) {
+        margin-top: 200px;
         padding-top: 40px;
         padding-left: 60px;
         width: 85vw;
@@ -195,10 +196,12 @@
         height: 45dvh;
       }
       @media screen and (width <= 500px) {
+        margin-top: 200px;
         padding-left: 30px;
         width: 100vw;
         height: 55dvh;
       }
+
       display: flex;
       // position: relative;
       top: 50vh;
@@ -214,6 +217,7 @@
       margin-top: 13vh;
 
       .formContent {
+        margin-top: 500px;
         width: 100%;
         // max-width: 900px;
         height: 70vh;

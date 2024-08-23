@@ -1,5 +1,14 @@
 .grid {
     position: absolute;
     z-index: -11;
-    width: 100vw;
+
+    @media (width > 735px) {
+        width: 100vw;
+    }
+
+    @media (width <= 735px) {
+        aspect-ratio: 1 / 1;
+        height: 100dvh;
+        object-fit: cover;
+    }
 }

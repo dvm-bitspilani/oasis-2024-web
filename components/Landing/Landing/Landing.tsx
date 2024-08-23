@@ -165,7 +165,7 @@ export default function Landing() {
                   opacity: 0,
                   y: -75,
                 },
-                "+=0.25"
+                "+=1"
               )
               .to(
                 slotMachine.current.position,

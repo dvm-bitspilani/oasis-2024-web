@@ -17,6 +17,7 @@ const Registration = () => {
   const wheelRef = useRef(null);
   const scrollbarThumbRef = useRef<HTMLImageElement | null>(null);
   const handleScroll = () => {
+    // console.log("scrolling");
     if (formRef.current && scrollbarThumbRef.current) {
       const { scrollHeight, clientHeight, scrollTop } = formRef.current;
 
@@ -40,6 +41,105 @@ const Registration = () => {
         }
       }
     }
+  };
+
+  const handleMouseDown = (e: MouseEvent | TouchEvent | any) => {
+    e.preventDefault();
+
+    const initialClientY =
+      (e as MouseEvent).clientY || (e as TouchEvent).touches[0].clientY;
+
+    const scrollbarThumbElem = scrollbarThumbRef.current;
+    const scrollBarContainer = document.querySelector(
+      `.${styles.scrollbarTrack}`
+    ) as HTMLElement;
+
+    if (scrollbarThumbElem && scrollBarContainer) {
+      const thumbOffsetTop =
+        initialClientY - scrollbarThumbElem.getBoundingClientRect().top;
+
+      const handleDragMove = (moveEvent: MouseEvent | TouchEvent) => {
+        moveEvent.preventDefault();
+
+        const clientY =
+          (moveEvent as MouseEvent).clientY ||
+          (moveEvent as TouchEvent).touches[0].clientY;
+        const scrollBarContainerRect =
+          scrollBarContainer.getBoundingClientRect();
+
+        // Calculate new top position of the scrollbar thumb relative to the scrollbar track
+        let newTop = clientY - scrollBarContainerRect.top - thumbOffsetTop;
+
+        // Constrain newTop within the scrollbar track bounds
+        newTop = Math.max(
+          0,
+          Math.min(
+            newTop,
+            scrollBarContainer.clientHeight - scrollbarThumbElem.offsetHeight
+          )
+        );
+
+        // Calculate the percentage of scroll based on new position
+        const percentage =
+          newTop /
+          (scrollBarContainer.clientHeight - scrollbarThumbElem.offsetHeight);
+
+        // Update the scrollTop of the form container based on the percentage
+        if (formRef.current) {
+          const maxScrollTopValue =
+            formRef.current.scrollHeight - formRef.current.clientHeight;
+          formRef.current.scrollTop = percentage * maxScrollTopValue;
+        }
+      };
+
+      document.addEventListener("mousemove", handleDragMove);
+      document.addEventListener("touchmove", handleDragMove);
+
+      const handleDragEnd = () => {
+        document.removeEventListener("mousemove", handleDragMove);
+        document.removeEventListener("mouseup", handleDragEnd);
+        document.removeEventListener("touchmove", handleDragMove);
+        document.removeEventListener("touchend", handleDragEnd);
+      };
+
+      document.addEventListener("mouseup", handleDragEnd);
+      document.addEventListener("touchend", handleDragEnd);
+    }
+  };
+
+  const handleTrackSnap = (e: MouseEvent | TouchEvent | any) => {
+    const formContainerElem = formRef.current;
+    const scrollBarContainer = document.querySelector(
+      `.${styles.scrollbar}`
+    ) as HTMLElement;
+    console.log(formContainerElem, scrollBarContainer);
+    if (!formContainerElem || !scrollBarContainer) return;
+
+    // Determine clientY for mouse or touch event
+    const clientY =
+      (e as MouseEvent).clientY || (e as TouchEvent).touches[0].clientY;
+
+    // Calculate position within the scrollbar track
+    const scrollBarContainerRect = scrollBarContainer.getBoundingClientRect();
+
+    let relativeClickPosition = clientY - scrollBarContainerRect.top;
+
+    // Constrain the position within the scrollbar track's height
+    relativeClickPosition = Math.max(
+      0,
+      Math.min(relativeClickPosition, scrollBarContainer.clientHeight)
+    );
+
+    // Calculate scroll percentage based on relative click position
+    const percentage = relativeClickPosition / scrollBarContainer.clientHeight;
+
+    // Calculate max scroll top value
+    const maxScrollTopValue =
+      formContainerElem.scrollHeight - formContainerElem.clientHeight;
+
+    // Scroll the form container based on the calculated percentage
+    if (formRef.current)
+      formRef.current.scrollTop = percentage * maxScrollTopValue;
   };
 
   useEffect(() => {
@@ -196,7 +296,7 @@ const Registration = () => {
           >
             <RegistrationForm />
           </div>
-          <div className={styles.scrollbar}>
+          <div className={styles.scrollbar} onClick={handleTrackSnap}>
             <div className={styles.scrollbarTrack} />
             <Image
               draggable={false}
@@ -206,6 +306,8 @@ const Registration = () => {
               height={85}
               className={styles.scrollbarThumb}
               ref={scrollbarThumbRef}
+              onMouseDown={handleMouseDown}
+              onTouchStart={handleMouseDown}
             />
             {/* <svg
               xmlns="http://www.w3.org/2000/svg"

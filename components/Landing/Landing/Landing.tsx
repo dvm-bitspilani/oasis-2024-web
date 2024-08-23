@@ -21,6 +21,7 @@ export default function Landing() {
   const slotMachine: any = useRef();
   const [is3dLoaded, setIs3dLoaded] = useState(false);
   const [isXS, setIsXS] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     window.addEventListener("beforeunload", () => {
@@ -70,6 +71,9 @@ export default function Landing() {
             if (conditions.isXS !== isXS) {
               setIsXS(conditions.isXS);
             }
+            if (conditions.isMobile !== isMobile) {
+              setIsMobile(true);
+            }
             timeline
               .to(slotMachine.current.rotation, {
                 y: conditions.isMobile ? 0 : -Math.PI / 9,
@@ -79,7 +83,7 @@ export default function Landing() {
                 slotMachine.current.position,
                 {
                   x: conditions.isMobile ? 0 : -0.9,
-                  y: conditions.isMobile ? -0.5 : 0,
+                  y: conditions.isMobile ? (conditions.isXS ? -0.25 : -0.5) : 0,
                   z: conditions.isMobile ? 0 : -0.5,
                   duration: 1,
                 },
@@ -204,6 +208,7 @@ export default function Landing() {
         ref={slotMachine}
         setIs3dLoaded={setIs3dLoaded}
         isXS={isXS}
+        isMobile={isMobile}
       />
     </>
   );

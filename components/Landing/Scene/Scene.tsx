@@ -11,10 +11,11 @@ import { forwardRef } from "react";
 interface Props {
   setIs3dLoaded: (value: boolean) => void;
   isXS: boolean;
+  isMobile: boolean;
 }
 
 const LandingScene = forwardRef(function LandingScene(
-  { setIs3dLoaded, isXS }: Props,
+  { setIs3dLoaded, isXS, isMobile }: Props,
   ref
 ) {
   return (
@@ -32,7 +33,9 @@ const LandingScene = forwardRef(function LandingScene(
         <ambientLight intensity={3.0} />
         <perspectiveCamera fov={75} />
         <group
-          position={isXS ? [0, -1.25, 2] : [0, -0.7, 3]}
+          position={
+            isXS ? [0, -1.15, 3.2] : isMobile ? [0, -1, 3] : [0, -0.7, 3]
+          }
           rotation={[0, Math.PI, 0]}
         >
           <SlotMachine

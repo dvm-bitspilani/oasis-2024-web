@@ -24,7 +24,7 @@ export default function Navbar() {
   return (
     <>
       <div className={styles.header}>
-        <HamBtn />
+        {/* <HamBtn /> */}
         <RegBtn />
       </div>
     </>

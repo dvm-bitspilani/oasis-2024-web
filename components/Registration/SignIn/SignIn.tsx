@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./signin.module.scss";
-import Instruction from "../Instructions/instructions";
+import Instruction from "../Instructions/Instructions";
 
 const Signin = () => {
   return (

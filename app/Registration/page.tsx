@@ -50,7 +50,17 @@ const Registration = () => {
 
   const googleSignIn = useGoogleLogin({
     onSuccess: (response) => {
-      console.log(response.access_token);
+      // Register URL: https://bits-oasis.org/2024/main/registrations/register/
+      axios
+        .post("https://bits-oasis.org/2024/main/registrations/google-reg/", {
+          access_token: response.access_token,
+        })
+        .then((res) => {
+          setUserState(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   });
 

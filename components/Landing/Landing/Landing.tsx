@@ -49,11 +49,11 @@ export default function Landing() {
             }`,
           end: "+=200%",
           scrub: 1,
-          snap: {
-            snapTo: [0, 0.4, 1],
-            ease: "sine.inOut",
-            duration: 2,
-          },
+          // snap: {
+          //   snapTo: [0, 0.4, 1],
+          //   ease: "sine.inOut",
+          //   duration: 2,
+          // },
         },
       });
 

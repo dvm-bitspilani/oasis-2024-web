@@ -5,6 +5,7 @@
   .formField {
     display: flex;
     flex-direction: column;
+    position: relative;
     .inputUnderline {
       width: 100%;
       overflow: hidden;
@@ -16,6 +17,7 @@
       }
     }
     .formFieldHeader {
+      padding-top: 20px;
       color: #ffe3ad;
       text-shadow: 0px 0px 8px rgba(229, 195, 132, 0.48);
       font-family: "Source Serif 4";
@@ -26,6 +28,8 @@
       letter-spacing: 1.08px;
     }
     .formErrorMessage {
+      position: absolute;
+      top: 112px;
       color: #ea4335;
       font-family: Inter;
       font-size: 14px;

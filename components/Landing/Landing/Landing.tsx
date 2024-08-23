@@ -83,7 +83,7 @@ export default function Landing() {
                 slotMachine.current.position,
                 {
                   x: conditions.isMobile ? 0 : -0.9,
-                  y: conditions.isMobile ? (conditions.isXS ? -0.25 : -0.5) : 0,
+                  y: conditions.isMobile ? (conditions.isXS ? -0.75 : -0.5) : 0,
                   z: conditions.isMobile ? 0 : -0.5,
                   duration: 1,
                 },

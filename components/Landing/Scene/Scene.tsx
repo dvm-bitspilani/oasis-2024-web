@@ -34,7 +34,7 @@ const LandingScene = forwardRef(function LandingScene(
         <perspectiveCamera fov={75} />
         <group
           position={
-            isXS ? [0, -1.15, 3.2] : isMobile ? [0, -1, 3] : [0, -0.7, 3]
+            isXS ? [0, -1.15, 2.5] : isMobile ? [0, -1, 3] : [0, -0.7, 3]
           }
           rotation={[0, Math.PI, 0]}
         >

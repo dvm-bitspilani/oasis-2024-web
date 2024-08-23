@@ -30,7 +30,46 @@
     width: 100vw;
     height: 100vh;
 
+    .phoneBorder {
+      @media screen and (width >= 1150px) {
+        display: none;
+      }
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 70px;
+      font-family: Rye;
+      font-size: 32px;
+      font-weight: 400;
+      line-height: 43px;
+      letter-spacing: 0.05em;
+      text-align: left;
+      background: linear-gradient(
+        0deg,
+        #fdfbb7 -76.04%,
+        #efd48d -13.59%,
+        #d19b5b 71.28%,
+        #f9e6a2 145.83%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      span {
+        padding: 0 1rem;
+      }
+      @media screen and (width > 1150px) {
+        display: none;
+      }
+    }
+
     .border {
+      @media screen and (width <= 1150px) {
+        display: none;
+      }
       position: absolute;
       display: flex;
       justify-content: center;
@@ -146,7 +185,17 @@
         width: 41vw;
       }
     }
+
     .formContainer {
+      @media screen and (width <= 1150px) {
+        padding-left: 60px;
+        width: 90vw;
+        margin: auto;
+        max-width: 2000px;
+      }
+      @media screen and (width <= 500px) {
+        padding-left: 0px;
+      }
       display: flex;
       // position: relative;
       top: 50vh;
@@ -203,6 +252,7 @@
         }
 
         .scrollbarThumb {
+          touch-action: none;
           position: absolute;
           transform: translateY(-50%);
           cursor: pointer;
@@ -240,11 +290,23 @@
     }
   }
   .rouletteWheel {
+    @media screen and (width <= 1150px) {
+      display: none;
+    }
+
     position: absolute;
     bottom: 0;
     left: 0;
     transform: translateX(calc(-50% + 150px)) translateY(calc(50% - 200px))
       rotate(-38deg);
     z-index: 2;
+    img {
+      width: 70vw;
+      height: 70vw;
+      @media screen and (width >= 1450px) {
+        width: 65vw;
+        height: 65vw;
+      }
+    }
   }
 }

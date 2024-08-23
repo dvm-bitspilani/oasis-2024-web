@@ -5,10 +5,10 @@ import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import gsap from "gsap";
+import { Select, Space } from "antd";
+import type { SelectProps } from "antd";
 
 import styles from "./registrationForm.module.scss";
-import Select from "react-select/base";
-import { SingleValue, Props as SelectProps } from "react-select";
 
 const formSchema = z.object({
   name: z.string().min(1, { message: "*Name is required" }),
@@ -22,8 +22,10 @@ const formSchema = z.object({
     .refine((value) => value !== undefined && value !== null, {
       message: "*Please select a gender",
     }),
-  interests: z.string().min(1, { message: "*Please select an interest" }),
-  events: z.string().min(1, { message: "*Please select an event" }),
+  interests: z
+    .array(z.string())
+    .nonempty({ message: "*Please select an interest" }),
+  events: z.array(z.string().min(1, { message: "*Please select an event" })),
   college: z.string().min(1, { message: "*Please select a college" }),
   yearOfStudy: z
     .enum(["1", "2", "3", "4", "5"])
@@ -42,6 +44,8 @@ const RegistrationForm: React.FC = () => {
     control,
     register,
     handleSubmit,
+    setValue,
+    watch,
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -61,10 +65,19 @@ const RegistrationForm: React.FC = () => {
   }
 
   const interestOptions: Option[] = [
-    { value: "", label: "Select Interest" },
     { value: "coding", label: "Coding" },
     { value: "design", label: "Design" },
   ];
+  const eventOptions: Option[] = [
+    { value: "hackathon", label: "Hackathon" },
+    { value: "workshop", label: "Workshop" },
+  ];
+
+  const collegeOptions: Option[] = [{ value: "BITS", label: "BITS" }];
+
+  const stateOptions: Option[] = [{ value: "rajasthan", label: "Rajasthan" }];
+
+  const cityOptions: Option[] = [{ value: "pilani", label: "Pilani" }];
 
   useEffect(() => {
     const bulbs = document.querySelectorAll(".bulb");
@@ -80,6 +93,23 @@ const RegistrationForm: React.FC = () => {
       tl.to(bulbs[i], { duration: 0.75, opacity: 0.5 });
     }
   }, []);
+
+  const numberValue = watch("phoneNumber");
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const charCode = e.which ? e.which : e.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      e.preventDefault();
+      return false;
+    }
+    return true;
+  };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (value.length <= 10) {
+      setValue("phoneNumber", value);
+    }
+  };
 
   return (
     <>
@@ -164,7 +194,23 @@ const RegistrationForm: React.FC = () => {
           <label htmlFor="phoneNumber" className={styles.formFieldHeader}>
             PHONE NUMBER
           </label>
-          <input id="phoneNumber" type="tel" {...register("phoneNumber")} />
+          <input
+            id="phoneNumber"
+            inputMode="numeric"
+            type="tel"
+            onKeyPress={handleKeyPress}
+            value={numberValue || ""}
+            {...register("phoneNumber", {
+              onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
+                const value = e.target.value;
+                if (value.length <= 10) {
+                  setValue("phoneNumber", value);
+                } else {
+                  e.target.value = value.slice(0, 10);
+                }
+              },
+            })}
+          />
           <div className={styles.inputUnderline}>
             <svg
               width="904"
@@ -242,7 +288,7 @@ const RegistrationForm: React.FC = () => {
             </div>
           </div>
           {errors.gender && (
-            <span className={styles.formErrorMessage}>
+            <span className={`${styles.formErrorMessage} ${styles.radioError}`}>
               {errors.gender.message}
             </span>
           )}
@@ -252,61 +298,30 @@ const RegistrationForm: React.FC = () => {
           <label htmlFor="interests" className={styles.formFieldHeader}>
             INTERESTS
           </label>
-
-          {/* <Controller
-          name="interests"
-          control={control}
-          rules={{ required: "Interest is required" }}
-          render={({ field }) => (
-            <>
+          <Controller
+            name="interests"
+            control={control}
+            render={({ field: { onChange, onBlur, value, ref } }) => (
               <Select
-                inputValue={""}
-                onInputChange={undefined}
-                onMenuOpen={function (): void {
-                  throw new Error("Function not implemented.");
+                mode="multiple"
+                allowClear
+                style={{
+                  width: "100%",
                 }}
-                onMenuClose={function (): void {
-                  throw new Error("Function not implemented.");
+                placeholder="Select Interests"
+                dropdownStyle={{
+                  backgroundImage:
+                    "linear-gradient(180deg, #1B112A 0%, #160B27 49.5%, #1B102A 100%)",
+                  color: "#F5E3AE",
                 }}
-                {...field}
                 options={interestOptions}
-                placeholder="Select Interest"
+                value={value}
+                onChange={(newValue) => onChange(newValue)}
+                onBlur={onBlur}
+                ref={ref}
               />
-              {errors.interests && (
-                <span style={{ color: "red" }}>{errors.interests.message}</span>
-              )}
-            </>
-          )}
-        /> */}
-
-          {/* <Controller
-          name="interests"
-          control={control}
-          render={({ field }) => (
-            <Select
-              {...field}
-              options={interestOptions}
-              placeholder="Select Interest"
-              value={
-                interestOptions.find(
-                  (option) => option.value === field.value
-                ) || null
-              }
-              onChange={(selectedOption: SingleValue<Option>) =>
-                field.onChange(selectedOption ? selectedOption.value : null)
-              }
-              onBlur={field.onBlur}
-              // No need to include these props if not used:
-              // inputValue, onInputChange, onMenuOpen, onMenuClose
-            />
-          )}
-        /> */}
-
-          <select {...register("interests")}>
-            <option value="">Select Interest</option>
-            <option value="coding">Coding</option>
-            <option value="design">Design</option>
-          </select>
+            )}
+          />
           <div className={styles.inputUnderline}>
             <svg
               width="904"
@@ -332,7 +347,7 @@ const RegistrationForm: React.FC = () => {
             </svg>
           </div>
           {errors.interests && (
-            <span className={styles.formErrorMessage}>
+            <span className={`${styles.formErrorMessage} ${styles.dropDownError}}`}>
               {errors.interests.message}
             </span>
           )}
@@ -342,11 +357,26 @@ const RegistrationForm: React.FC = () => {
           <label htmlFor="events" className={styles.formFieldHeader}>
             EVENTS
           </label>
-          <select id="events" {...register("events")}>
-            <option value="">Select Event</option>
-            <option value="hackathon">Hackathon</option>
-            <option value="workshop">Workshop</option>
-          </select>
+          <Controller
+            name="events"
+            control={control}
+            render={({ field }) => (
+              <Select
+                mode="multiple"
+                {...field}
+                style={{
+                  width: "100%",
+                }}
+                placeholder="Select Event"
+                dropdownStyle={{
+                  backgroundImage:
+                    "linear-gradient(180deg, #1B112A 0%, #160B27 49.5%, #1B102A 100%)",
+                  color: "#F5E3AE",
+                }}
+                options={eventOptions}
+              />
+            )}
+          />
           <div className={styles.inputUnderline}>
             <svg
               width="904"
@@ -372,7 +402,7 @@ const RegistrationForm: React.FC = () => {
             </svg>
           </div>
           {errors.events && (
-            <span className={styles.formErrorMessage}>
+            <span className={`${styles.formErrorMessage} ${styles.dropDownError}}`}>
               {errors.events.message}
             </span>
           )}
@@ -382,10 +412,25 @@ const RegistrationForm: React.FC = () => {
           <label htmlFor="college" className={styles.formFieldHeader}>
             COLLEGE
           </label>
-          <select id="college" {...register("college")}>
-            <option value="">Select College</option>
-            <option value="RAJASTHAN">Rajasthan</option>
-          </select>
+          <Controller
+            name="college"
+            control={control}
+            render={({ field }) => (
+              <Select
+                {...field}
+                style={{
+                  width: "100%",
+                }}
+                placeholder="Select College"
+                dropdownStyle={{
+                  backgroundImage:
+                    "linear-gradient(180deg, #1B112A 0%, #160B27 49.5%, #1B102A 100%)",
+                  color: "#F5E3AE",
+                }}
+                options={collegeOptions}
+              />
+            )}
+          />
           <div className={styles.inputUnderline}>
             <svg
               width="904"
@@ -411,7 +456,7 @@ const RegistrationForm: React.FC = () => {
             </svg>
           </div>
           {errors.college && (
-            <span className={styles.formErrorMessage}>
+            <span className={`${styles.formErrorMessage} ${styles.dropDownError}}`}>
               {errors.college.message}
             </span>
           )}
@@ -437,7 +482,7 @@ const RegistrationForm: React.FC = () => {
             ))}
           </div>
           {errors.yearOfStudy && (
-            <span className={styles.formErrorMessage}>
+            <span className={`${styles.formErrorMessage} ${styles.radioError}`}>
               {errors.yearOfStudy.message}
             </span>
           )}
@@ -447,10 +492,25 @@ const RegistrationForm: React.FC = () => {
           <label htmlFor="state" className={styles.formFieldHeader}>
             STATE
           </label>
-          <select id="state" {...register("state")}>
-            <option value="">Select State</option>
-            <option value="RAJASTHAN">Rajasthan</option>
-          </select>
+          <Controller
+            name="state"
+            control={control}
+            render={({ field }) => (
+              <Select
+                {...field}
+                style={{
+                  width: "100%",
+                }}
+                placeholder="Select State"
+                dropdownStyle={{
+                  backgroundImage:
+                    "linear-gradient(180deg, #1B112A 0%, #160B27 49.5%, #1B102A 100%)",
+                  color: "#F5E3AE",
+                }}
+                options={stateOptions}
+              />
+            )}
+          />
           <div className={styles.inputUnderline}>
             <svg
               width="904"
@@ -476,7 +536,7 @@ const RegistrationForm: React.FC = () => {
             </svg>
           </div>
           {errors.state && (
-            <span className={styles.formErrorMessage}>
+            <span className={`${styles.formErrorMessage} ${styles.dropDownError}}`}>
               {errors.state.message}
             </span>
           )}
@@ -486,10 +546,25 @@ const RegistrationForm: React.FC = () => {
           <label htmlFor="city" className={styles.formFieldHeader}>
             CITY
           </label>
-          <select id="city" {...register("city")}>
-            <option value="">Select City</option>
-            <option value="PILANI">Pilani</option>
-          </select>
+          <Controller
+            name="city"
+            control={control}
+            render={({ field }) => (
+              <Select
+                {...field}
+                style={{
+                  width: "100%",
+                }}
+                placeholder="Select City"
+                dropdownStyle={{
+                  backgroundImage:
+                    "linear-gradient(180deg, #1B112A 0%, #160B27 49.5%, #1B102A 100%)",
+                  color: "#F5E3AE",
+                }}
+                options={cityOptions}
+              />
+            )}
+          />
           <div className={styles.inputUnderline}>
             <svg
               width="904"
@@ -515,7 +590,7 @@ const RegistrationForm: React.FC = () => {
             </svg>
           </div>
           {errors.city && (
-            <span className={styles.formErrorMessage}>
+            <span className={`${styles.formErrorMessage} ${styles.dropDownError}}`}>
               {errors.city.message}
             </span>
           )}

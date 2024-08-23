@@ -6,7 +6,7 @@ import { Canvas } from "@react-three/fiber";
 import { SlotMachine2 } from "./SlotMachine2";
 import { SlotMachine } from "./SlotMachine";
 import { forwardRef } from "react";
-// import { EffectComposer, Bloom } from "@react-three/postprocessing";
+import { EffectComposer, Bloom } from "@react-three/postprocessing";
 
 interface Props {
   setIs3dLoaded: (value: boolean) => void;
@@ -24,13 +24,13 @@ const LandingScene = forwardRef(function LandingScene(
         {/* <Perf /> */}
         {/* <EffectComposer>
           <Bloom
-            intensity={2.0}
+            intensity={1}
             luminanceThreshold={0.7}
             luminanceSmoothing={0.025}
             mipmapBlur={false}
           />
         </EffectComposer> */}
-        <ambientLight intensity={3.0} />
+        <ambientLight intensity={1.3} />
         <perspectiveCamera fov={75} />
         <group
           position={

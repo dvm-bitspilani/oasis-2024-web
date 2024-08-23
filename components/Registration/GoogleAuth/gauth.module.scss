@@ -1,18 +1,17 @@
-.link{
+.instructionsContainer{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    text-decoration: none;
-
+    
     .btnwrapper {
-        // position: absolute;
-        right: 65px;
+        position: relative;
+        top: 85px;
         border-radius: 36px;
-        // background: conic-gradient(
-        //   from 176deg at 50% 50%,
-        //   #ffc76d 0deg,
-        //   #e59f2d 360deg
-        // );
+        background: conic-gradient(
+          from 176deg at 50% 50%,
+          #ffc76d 0deg,
+          #e59f2d 360deg
+        );
         box-shadow: 4px 4px 8px 0px rgba(3, 1, 4, 0.28) inset;
         padding: 6px;
         cursor: pointer;
@@ -133,6 +132,7 @@
     
             .register {
                 -webkit-text-stroke-color: #f2eeaf;
+                -webkit-text-stroke-width: 0.6174262762069702px;
                 font-family: Vidaloka;
                 font-size: 28px;
                 font-style: normal;
@@ -148,6 +148,9 @@
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 text-transform: uppercase;
+                display: flex;
+                align-items: center;
+                gap: 15px;
             }
         }
     
@@ -155,15 +158,5 @@
             transform: scale(0.8);
             right: 40px;
         }
-        
-        @media (width <= 900px) {
-            transform: scale(0.65);
-            right: 20px;
-        }
-        
-        @media (width <= 585px) {
-            transform: scale(0.8);
-            right: 40px;
-        }
     }
-}
+  }

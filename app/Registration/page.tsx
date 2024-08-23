@@ -6,29 +6,36 @@ import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGoogleLogin } from "@react-oauth/google";
+import axios from "axios";
 
 import RegistrationForm from "@/components/Registration/RegistrationForm/RegistrationForm";
+import GoogleAuthPage from "@/components/Registration/GoogleAuth/GAuth";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Registration = () => {
   const [wheelRotating, setWheelRotating] = useState(false);
+  const [userState, setUserState] = useState(null);
+
   const formRef = useRef<HTMLDivElement | null>(null);
   const wheelRef = useRef(null);
   const scrollbarThumbRef = useRef<HTMLImageElement | null>(null);
   const handleScroll = () => {
+    // console.log("scrolling");
     if (formRef.current && scrollbarThumbRef.current) {
       const { scrollHeight, clientHeight, scrollTop } = formRef.current;
 
       if (scrollHeight > clientHeight) {
         const maxScrollTopValue = scrollHeight - clientHeight;
         const percentage = (scrollTop / maxScrollTopValue) * 100;
+        scrollbarThumbRef.current.style.top = `${Math.min(percentage, 100)}%`;
 
-        gsap.to(scrollbarThumbRef.current, {
-          top: `${Math.min(percentage, 100)}%`,
-          delay: 0.2,
-          ease: "power1.out",
-        });
+        // gsap.to(scrollbarThumbRef.current, {
+        //   top: `${Math.min(percentage, 100)}%`,
+        //   // delay: 0.2,
+        //   ease: "none",
+        // });
 
         if (!wheelRotating) {
           gsap.to(wheelRef.current, {
@@ -39,6 +46,123 @@ const Registration = () => {
         }
       }
     }
+  };
+
+  const googleSignIn = useGoogleLogin({
+    onSuccess: (response) => {
+      // Register URL: https://bits-oasis.org/2024/main/registrations/register/
+      axios
+        .post("https://bits-oasis.org/2024/main/registrations/google-reg/", {
+          access_token: response.access_token,
+        })
+        .then((res) => {
+          setUserState(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  });
+
+  const handleMouseDown = (e: MouseEvent | TouchEvent | any) => {
+    e.preventDefault();
+
+    const initialClientY =
+      (e as MouseEvent).clientY || (e as TouchEvent).touches[0].clientY;
+
+    const scrollbarThumbElem = scrollbarThumbRef.current;
+    const scrollBarContainer = document.querySelector(
+      `.${styles.scrollbarTrack}`
+    ) as HTMLElement;
+
+    if (scrollbarThumbElem && scrollBarContainer) {
+      const thumbOffsetTop =
+        initialClientY - scrollbarThumbElem.getBoundingClientRect().top;
+
+      const handleDragMove = (moveEvent: MouseEvent | TouchEvent) => {
+        moveEvent.preventDefault();
+
+        const clientY =
+          (moveEvent as MouseEvent).clientY ||
+          (moveEvent as TouchEvent).touches[0].clientY;
+        const scrollBarContainerRect =
+          scrollBarContainer.getBoundingClientRect();
+
+        // Calculate new top position of the scrollbar thumb relative to the scrollbar track
+        let newTop = clientY - scrollBarContainerRect.top - thumbOffsetTop;
+
+        // Constrain newTop within the scrollbar track bounds
+        newTop = Math.max(
+          0,
+          Math.min(
+            newTop,
+            scrollBarContainer.clientHeight - scrollbarThumbElem.offsetHeight
+          )
+        );
+
+        // Calculate the percentage of scroll based on new position
+        const percentage =
+          newTop /
+          (scrollBarContainer.clientHeight - scrollbarThumbElem.offsetHeight);
+
+        // Update the scrollTop of the form container based on the percentage
+        if (formRef.current) {
+          const maxScrollTopValue =
+            formRef.current.scrollHeight - formRef.current.clientHeight;
+          formRef.current.scrollTop = percentage * maxScrollTopValue;
+        }
+      };
+
+      document.addEventListener("mousemove", handleDragMove);
+      document.addEventListener("touchmove", handleDragMove);
+
+      const handleDragEnd = () => {
+        document.removeEventListener("mousemove", handleDragMove);
+        document.removeEventListener("mouseup", handleDragEnd);
+        document.removeEventListener("touchmove", handleDragMove);
+        document.removeEventListener("touchend", handleDragEnd);
+      };
+
+      document.addEventListener("mouseup", handleDragEnd);
+      document.addEventListener("touchend", handleDragEnd);
+    }
+  };
+
+  const handleTrackSnap = (e: MouseEvent | TouchEvent | any) => {
+    const formContainerElem = formRef.current;
+    const scrollBarContainer = document.querySelector(
+      `.${styles.scrollbar}`
+    ) as HTMLElement;
+    console.log(formContainerElem, scrollBarContainer);
+    if (!formContainerElem || !scrollBarContainer) return;
+
+    // Determine clientY for mouse or touch event
+    const clientY =
+      (e as MouseEvent).clientY || (e as TouchEvent).touches[0].clientY;
+
+    // Calculate position within the scrollbar track
+    const scrollBarContainerRect = scrollBarContainer.getBoundingClientRect();
+
+    let relativeClickPosition = clientY - scrollBarContainerRect.top;
+
+    // Constrain the position within the scrollbar track's height
+    relativeClickPosition = Math.max(
+      0,
+      Math.min(relativeClickPosition, scrollBarContainer.clientHeight)
+    );
+
+    // Calculate scroll percentage based on relative click position
+    const percentage = relativeClickPosition / scrollBarContainer.clientHeight;
+
+    // Calculate max scroll top value
+    const maxScrollTopValue =
+      formContainerElem.scrollHeight - formContainerElem.clientHeight;
+
+    // Scroll the form container based on the calculated percentage
+    formContainerElem.scrollTo({
+      top: percentage * maxScrollTopValue,
+      behavior: "smooth",
+    });
   };
 
   useEffect(() => {
@@ -58,6 +182,7 @@ const Registration = () => {
   return (
     <div className={styles.pageContainer}>
       <div className={styles.pageContent}>
+        <div className={styles.phoneBorder}>REGISTRATION</div>
         <div className={styles.border}>
           <Link href="/">
             <Image
@@ -187,25 +312,29 @@ const Registration = () => {
           <div className={styles.frameBottomLeft}></div>
         </div>
         <div className={styles.formContainer}>
-          <div
-            className={styles.formContent}
-            onScroll={() => handleScroll()}
-            ref={formRef}
-          >
-            <RegistrationForm />
-          </div>
-          <div className={styles.scrollbar}>
-            <div className={styles.scrollbarTrack} />
-            <Image
-              draggable={false}
-              src="/Registration/ScrollBarThumb.png"
-              alt="scrollBarThumb"
-              width={85}
-              height={85}
-              className={styles.scrollbarThumb}
-              ref={scrollbarThumbRef}
-            />
-            {/* <svg
+          {userState ? (
+            <>
+              <div
+                className={styles.formContent}
+                onScroll={() => handleScroll()}
+                ref={formRef}
+              >
+                <RegistrationForm />
+              </div>
+              <div className={styles.scrollbar} onClick={handleTrackSnap}>
+                <div className={styles.scrollbarTrack} />
+                <Image
+                  draggable={false}
+                  src="/Registration/ScrollBarThumb.png"
+                  alt="scrollBarThumb"
+                  width={85}
+                  height={85}
+                  className={styles.scrollbarThumb}
+                  ref={scrollbarThumbRef}
+                  onMouseDown={handleMouseDown}
+                  onTouchStart={handleMouseDown}
+                />
+                {/* <svg
               xmlns="http://www.w3.org/2000/svg"
               width="85"
               height="85"
@@ -226,16 +355,15 @@ const Registration = () => {
                 />
               </g>
             </svg> */}
-          </div>
+              </div>
+            </>
+          ) : (
+            <GoogleAuthPage gSignIn={googleSignIn} />
+          )}
         </div>
       </div>
       <div className={styles.rouletteWheel} ref={wheelRef}>
-        <Image
-          src="/Registration/RouletteWheel.png"
-          alt=""
-          width={1000}
-          height={1000}
-        />
+        <img src="/Registration/RouletteWheel.png" alt="" />
       </div>
     </div>
   );

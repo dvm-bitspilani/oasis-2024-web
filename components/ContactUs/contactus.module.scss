@@ -234,6 +234,7 @@
                 font-size: 62px;
                 font-weight: 400;
                 line-height: 43px;
+                box-shadow: none;
             }
         }
 
@@ -307,6 +308,7 @@
 
     .contactPage {
         height: fit-content;
+        height: 85dvh;
         overflow-y: scroll;
 
         .heading {
@@ -346,15 +348,15 @@
 
         .cardContainer {
             gap: 1.5rem;
-            height: auto;
-            overflow-y: scroll;
+            // height: auto;
+            // overflow-y: scroll;
         }
 
         .cardContainer1 {
             margin-top: 1.5rem;
             gap: 1.5rem;
-            height: auto;
-            overflow-y: scroll;
+            // height: auto;
+            // overflow-y: scroll;
         }
     }
 }

@@ -62,4 +62,8 @@
     @media (width <= 585px){
         transform: scale(0.8);
     }
+
+    @media (width <= 450px) {
+        transform: translateY(-15px) scale(0.8);
+    }
 }

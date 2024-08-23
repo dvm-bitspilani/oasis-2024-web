@@ -79,8 +79,8 @@ export const SlotMachine = forwardRef(function SlotMachine2(
           rotation={[0.4510000000000003, 0, 0]}
         >
           <iframe
-            // src="https://www.youtube.com/embed/ZCrClSBM1ns"
-            src="https://bruno-simon.com/html"
+            src="https://www.youtube.com/embed/ZCrClSBM1ns"
+            // src="https://bruno-simon.com/html"
             title="OASIS 2023 | Official Curtain Raiser"
           />
         </Html>

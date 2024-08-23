@@ -61,6 +61,9 @@
       span {
         padding: 0 1rem;
       }
+      @media screen and (width > 1150px) {
+        display: none;
+      }
     }
 
     .border {
@@ -248,6 +251,7 @@
         }
 
         .scrollbarThumb {
+          touch-action: none;
           position: absolute;
           transform: translateY(-50%);
           cursor: pointer;

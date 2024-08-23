@@ -302,7 +302,7 @@ const Registration = () => {
           <div className={styles.frameBottomLeft}></div>
         </div>
         <div className={styles.formContainer}>
-          {false ? (
+          {userState ? (
             <>
               <div
                 className={styles.formContent}

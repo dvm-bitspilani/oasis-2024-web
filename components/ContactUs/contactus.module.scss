@@ -1,12 +1,13 @@
 .contactPage {
     position: fixed;
-    top: 5rem;
+    top: 0rem;
     height: 100dvh;
     width: 100vw;
     opacity: 0;
     pointer-events: none;
 
     .heading {
+        margin-top: 3.5rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -142,7 +143,7 @@
         height: auto;
         justify-content: center;
         gap: 5vw;
-        margin-top: 4rem;
+        margin-top: 3rem;
         // position: relative;
 
         // .first {

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./contactcard.module.scss";
-import background from "../../../assets/Landing/contactUs/contactbg.svg";
-import profile from "../../../assets/Landing/contactUs/profile.png";
+// import background from "../../../assets/Landing/contactUs/contactbg.svg";
+import profile from "../../../assets/Landing/contactUs/profilepic.png";
 import Image from "next/image";
 
 export default function ContactCard() {
@@ -55,16 +55,14 @@ export default function ContactCard() {
       <div className={styles.center}>
         <div className={styles.name}>Praneel Maddula</div>
         <div className={styles.imgContainer}>
-          <Image
+          {/* <Image
             src={background}
             alt="profile pic"
             className={styles.backgroundImg}
-          />
+          /> */}
           <Image
             src={profile}
             alt="profile pic"
-            width={130}
-            height={150}
             className={styles.profileImg}
           />
         </div>

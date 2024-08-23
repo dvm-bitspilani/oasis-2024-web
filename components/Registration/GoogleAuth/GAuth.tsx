@@ -1,13 +1,19 @@
 import styles from "./gauth.module.scss";
 import Signin from "../SignIn/SignIn";
 
-export default function GoogleAuthPage() {
+interface Props {
+  gSignIn: () => void;
+}
+
+export default function GoogleAuthPage({ gSignIn }: Props) {
   return (
     <>
       <div className={styles.instructionsContainer}>
         <Signin />
         <div
-          onClick={() => console.log("sign in")}
+          onClick={() => {
+            gSignIn();
+          }}
           className={styles.btnwrapper}
         >
           <div className={styles.btnborder}>

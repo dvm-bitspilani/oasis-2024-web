@@ -6,6 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGoogleLogin } from "@react-oauth/google";
+import axios from "axios";
 
 import RegistrationForm from "@/components/Registration/RegistrationForm/RegistrationForm";
 import GoogleAuthPage from "@/components/Registration/GoogleAuth/GAuth";
@@ -14,6 +16,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Registration = () => {
   const [wheelRotating, setWheelRotating] = useState(false);
+  const [userState, setUserState] = useState(null);
+
   const formRef = useRef<HTMLDivElement | null>(null);
   const wheelRef = useRef(null);
   const scrollbarThumbRef = useRef<HTMLImageElement | null>(null);
@@ -43,6 +47,12 @@ const Registration = () => {
       }
     }
   };
+
+  const googleSignIn = useGoogleLogin({
+    onSuccess: (response) => {
+      console.log(response.access_token);
+    },
+  });
 
   const handleMouseDown = (e: MouseEvent | TouchEvent | any) => {
     e.preventDefault();
@@ -338,7 +348,7 @@ const Registration = () => {
               </div>
             </>
           ) : (
-            <GoogleAuthPage />
+            <GoogleAuthPage gSignIn={googleSignIn} />
           )}
         </div>
       </div>

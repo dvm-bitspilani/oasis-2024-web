@@ -138,8 +138,10 @@ const Registration = () => {
       formContainerElem.scrollHeight - formContainerElem.clientHeight;
 
     // Scroll the form container based on the calculated percentage
-    if (formRef.current)
-      formRef.current.scrollTop = percentage * maxScrollTopValue;
+    formContainerElem.scrollTo({
+      top: percentage * maxScrollTopValue,
+      behavior: "smooth",
+    });
   };
 
   useEffect(() => {

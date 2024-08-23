@@ -13,6 +13,8 @@
     "@hookform/resolvers": "^3.9.0",
     "@react-three/drei": "^9.109.5",
     "@react-three/fiber": "^8.16.8",
+    "antd": "^5.20.2",
+    "@react-three/postprocessing": "^2.16.2",
     "axios": "^1.7.2",
     "gsap": "^3.12.5",
     "next": "14.2.5",
@@ -33,6 +35,7 @@
     "@types/three": "^0.167.1",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
+    "leva": "^0.9.35",
     "r3f-perf": "^7.2.1",
     "typescript": "^5"
   }

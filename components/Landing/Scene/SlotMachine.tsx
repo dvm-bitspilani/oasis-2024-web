@@ -11,9 +11,9 @@ import * as THREE from "three";
 
 type GLTFResult = GLTF & {
   nodes: {
-    Sphere011: THREE.Mesh;
-    Sphere011_1: THREE.Mesh;
-    Sphere011_2: THREE.Mesh;
+    Sphere003: THREE.Mesh;
+    Sphere003_1: THREE.Mesh;
+    Sphere003_2: THREE.Mesh;
     Sphere020: THREE.Mesh;
     Sphere020_1: THREE.Mesh;
     Sphere020_2: THREE.Mesh;
@@ -105,19 +105,19 @@ export const SlotMachine = forwardRef(function SlotMachine2(
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Sphere011.geometry}
+        geometry={nodes.Sphere003.geometry}
         material={materials["Material.040"]}
       />
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Sphere011_1.geometry}
+        geometry={nodes.Sphere003_1.geometry}
         material={materials["Material.015"]}
       />
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Sphere011_2.geometry}
+        geometry={nodes.Sphere003_2.geometry}
         material={materials.Slot1And2}
       />
       <mesh

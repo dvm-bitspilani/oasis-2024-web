@@ -22,15 +22,15 @@ const LandingScene = forwardRef(function LandingScene(
     <>
       <Canvas style={{ position: "fixed" }}>
         {/* <Perf /> */}
-        <EffectComposer>
+        {/* <EffectComposer>
           <Bloom
-            intensity={0.8}
+            intensity={1}
             luminanceThreshold={0.7}
             luminanceSmoothing={0.025}
             mipmapBlur={false}
           />
-        </EffectComposer>
-        <ambientLight intensity={1.5} />
+        </EffectComposer> */}
+        <ambientLight intensity={1.3} />
         <perspectiveCamera fov={75} />
         <group
           position={

@@ -88,38 +88,106 @@
   }
 }
 
-@media(max-width: 1300px) {
+// @media(max-width: 1300px) {
+
+//   .card {
+//     transform: scale(0.9);
+//   }
+// }
+
+// @media(max-width: 1200px) {
+//   .card {
+//     transform: scale(0.85);
+//   }
+// }
+
+// @media(max-width: 1000px) {
+
+//   .card {
+//     transform: scale(1);
+//   }
+// }
+
+// @media(max-width: 900px) {
+
+//   .card {
+//     transform: scale(0.9);
+//   }
+// }
+
+
+// @media(max-width: 450px) {
+
+//   .card {
+//     transform: scale(0.9);
+//   }
+// }
+
+@media(max-width: 500px) {
 
   .card {
-    transform: scale(0.9);
-  }
-}
+    height: auto;
+    width: 40vw;
+  
+    .center {
+      margin-top: 30px;
+      margin-bottom: 24px;
+      gap: 5px;
+  
+      .name {
+        font-size: 16px;
+      }
+  
+      .imgContainer {
+        height: auto;
+        width: 100%;
+  
+        .profileImg {
+          width: 30vw;
+          height: 100%;
+        }
+      }
+  
+      .desc {
+        font-size: 12.5px;
+        width: 70%;
+        line-height: 18px;
+      }
+  
+      .buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 1.8rem;
+        padding-top: 5px;
 
-@media(max-width: 1200px) {
-  .card {
-    transform: scale(0.85);
-  }
-}
+        svg {
+          height: 14px;
+          width: 17px;
+        }
+      }
+    }
+  
+    .top {
+      position: absolute;
+      top: 8px;
+      left: 8px;
 
-@media(max-width: 1000px) {
+      svg {
+        width: 12px;
+        height: 26px;
+      }
+    }
+  
+    .bottom {
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
 
-  .card {
-    transform: scale(1);
-  }
-}
-
-@media(max-width: 900px) {
-
-  .card {
-    transform: scale(0.9);
-  }
-}
-
-
-@media(max-width: 450px) {
-
-  .card {
-    transform: scale(0.9);
+      svg {
+        width: 12px;
+        height: 26px;
+      }
+    }
   }
 }
 

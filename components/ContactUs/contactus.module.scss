@@ -308,6 +308,7 @@
     .contactPage {
         height: fit-content;
         top: 8rem;
+        overflow-y: scroll;
 
         .heading {
     
@@ -334,6 +335,7 @@
             justify-content: center;
             gap: 1rem;
             flex-wrap: wrap;
+            overflow-y: scroll;
         }
     }
 }
@@ -343,10 +345,16 @@
     .contactPage {
 
         .cardContainer {
-            gap: 0;
-            .first, .second, .third, .fourth {
-                transform: scale(0.9);
-            }
+            gap: 1.5rem;
+            height: auto;
+            overflow-y: scroll;
+        }
+
+        .cardContainer1 {
+            margin-top: 1.5rem;
+            gap: 1.5rem;
+            height: auto;
+            overflow-y: scroll;
         }
     }
 }

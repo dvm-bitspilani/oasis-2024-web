@@ -32,9 +32,9 @@ export default function ContactCard() {
               y2="10.1294"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#D4A753" />
-              <stop offset="0.39" stop-color="#93702D" />
-              <stop offset="0.97" stop-color="#D4A753" />
+              <stop stopColor="#D4A753" />
+              <stop offset="0.39" stopColor="#93702D" />
+              <stop offset="0.97" stopColor="#D4A753" />
             </linearGradient>
             <linearGradient
               id="paint1_linear_2067_3381"
@@ -44,9 +44,9 @@ export default function ContactCard() {
               y2="34.5396"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#D4A753" />
-              <stop offset="0.39" stop-color="#93702D" />
-              <stop offset="0.97" stop-color="#D4A753" />
+              <stop stopColor="#D4A753" />
+              <stop offset="0.39" stopColor="#93702D" />
+              <stop offset="0.97" stopColor="#D4A753" />
             </linearGradient>
           </defs>
         </svg>
@@ -89,9 +89,9 @@ export default function ContactCard() {
                   y2="21"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#C99D4C" />
-                  <stop offset="0.375" stop-color="#84611F" />
-                  <stop offset="1" stop-color="#CEA14F" />
+                  <stop stopColor="#C99D4C" />
+                  <stop offset="0.375" stopColor="#84611F" />
+                  <stop offset="1" stopColor="#CEA14F" />
                 </linearGradient>
               </defs>
             </svg>
@@ -122,9 +122,9 @@ export default function ContactCard() {
                   y2="21"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#D4A753" />
-                  <stop offset="0.39" stop-color="#93702D" />
-                  <stop offset="0.97" stop-color="#D4A753" />
+                  <stop stopColor="#D4A753" />
+                  <stop offset="0.39" stopColor="#93702D" />
+                  <stop offset="0.97" stopColor="#D4A753" />
                 </linearGradient>
               </defs>
             </svg>
@@ -157,9 +157,9 @@ export default function ContactCard() {
               y2="19.1657"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#D4A753" />
-              <stop offset="0.531127" stop-color="#93702D" />
-              <stop offset="1" stop-color="#D4A753" />
+              <stop stopColor="#D4A753" />
+              <stop offset="0.531127" stopColor="#93702D" />
+              <stop offset="1" stopColor="#D4A753" />
             </linearGradient>
             <linearGradient
               id="paint1_linear_2067_3384"
@@ -169,9 +169,9 @@ export default function ContactCard() {
               y2="-0.473616"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#D4A753" />
-              <stop offset="0.531127" stop-color="#93702D" />
-              <stop offset="1" stop-color="#D4A753" />
+              <stop stopColor="#D4A753" />
+              <stop offset="0.531127" stopColor="#93702D" />
+              <stop offset="1" stopColor="#D4A753" />
             </linearGradient>
           </defs>
         </svg>

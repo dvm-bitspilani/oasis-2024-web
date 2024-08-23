@@ -8,6 +8,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import RegistrationForm from "@/components/Registration/RegistrationForm/RegistrationForm";
+import GoogleAuthPage from "@/components/Registration/GoogleAuth/GAuth";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -291,7 +292,7 @@ const Registration = () => {
           <div className={styles.frameBottomLeft}></div>
         </div>
         <div className={styles.formContainer}>
-          {true ? (
+          {false ? (
             <>
               <div
                 className={styles.formContent}
@@ -337,7 +338,7 @@ const Registration = () => {
               </div>
             </>
           ) : (
-            <h1>Hi</h1>
+            <GoogleAuthPage />
           )}
         </div>
       </div>

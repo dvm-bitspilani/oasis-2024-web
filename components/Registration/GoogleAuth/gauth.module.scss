@@ -153,10 +153,23 @@
                 gap: 15px;
             }
         }
+
+        @media (width <= 1500px){
+            transform: scale(0.8);
+            top: 50px;
+        }
+
+        @media (width <= 1150px){
+            top: -20%;
+        }
     
         @media (width <= 1050px){
-            transform: scale(0.8);
             right: 40px;
+        }
+
+        @media (width <= 650px){
+            transform: scale(0.6);
+            top: -25%;
         }
     }
   }

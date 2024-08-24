@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -9,25 +9,41 @@ import { Select, Space } from "antd";
 import type { SelectProps } from "antd";
 
 import styles from "./registrationForm.module.scss";
+import axios from "axios";
 
 const formSchema = z.object({
   name: z.string().min(1, { message: "*Name is required" }),
-  email: z.string().email({ message: "*Invalid email address" }),
-  phoneNumber: z
-    .string()
-    .regex(/^\d{10}$/, { message: "*Invalid phone number" }),
+  email: z.string().email({ message: "*Invalid email address" }).optional(),
+  phone: z.string().regex(/^\d{10}$/, { message: "*Invalid phone number" }),
   gender: z
-    .enum(["MALE", "FEMALE", "OTHERS"])
+    .enum(["M", "F", "O"])
     .nullable()
     .refine((value) => value !== undefined && value !== null, {
       message: "*Please select a gender",
     }),
-  interests: z
-    .array(z.string())
-    .nonempty({ message: "*Please select an interest" }),
-  events: z.array(z.string().min(1, { message: "*Please select an event" })),
-  college: z.string().min(1, { message: "*Please select a college" }),
-  yearOfStudy: z
+  events: z
+    .array(z.number())
+    .nonempty({ message: "*Please select at least one event" }),
+  college_id: z.number().min(1, { message: "*Please select a college" }),
+  choreographer: z
+    .enum(["true", "false"])
+    .nullable()
+    .transform((value) =>
+      value === "true" ? true : value === "false" ? false : null
+    ) // Converts "true" to true, "false" to false
+    .refine((value) => value !== undefined && value !== null, {
+      message: "*Please select if you are a choreographer",
+    }),
+  head_of_society: z
+    .enum(["true", "false"])
+    .nullable()
+    .transform((value) =>
+      value === "true" ? true : value === "false" ? false : null
+    ) // Converts "true" to true, "false" to false
+    .refine((value) => value !== undefined && value !== null, {
+      message: "*Please select if you are a Head Of Society",
+    }),
+  year: z
     .enum(["1", "2", "3", "4", "5"])
     .nullable()
     .refine((value) => value !== undefined && value !== null, {
@@ -39,7 +55,23 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-const RegistrationForm: React.FC = () => {
+type userStateType = {
+  access_token: string;
+  email: string;
+  exists: boolean;
+  message: string;
+};
+
+type registrationFormProps = {
+  userState: userStateType | null;
+};
+
+interface OptionType {
+  value: string;
+  label: string;
+}
+
+const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
   const {
     control,
     register,
@@ -50,11 +82,6 @@ const RegistrationForm: React.FC = () => {
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
   });
-
-  const onSubmit = (data: FormData) => {
-    console.log(data);
-    // Handle form submission
-  };
 
   interface Option {
     value: string;
@@ -68,16 +95,78 @@ const RegistrationForm: React.FC = () => {
     { value: "coding", label: "Coding" },
     { value: "design", label: "Design" },
   ];
-  const eventOptions: Option[] = [
-    { value: "hackathon", label: "Hackathon" },
-    { value: "workshop", label: "Workshop" },
+
+  const [eventOptions, setEventOptions] = useState([] as Option[]);
+
+  useEffect(() => {
+    axios
+      .get("https://bits-oasis.org/2024/main/registrations/events_list/")
+      .then((res) => {
+        const events = res.data;
+        setEventOptions(
+          events.map((event: { id: string; name: string }) => ({
+            value: event.id,
+            label: event.name,
+          }))
+        );
+      });
+  }, []);
+
+  const [collegeOptions, setCollegeOptions] = useState([] as Option[]);
+
+  useEffect(() => {
+    axios
+      .get("https://bits-oasis.org/2024/main/registrations/get_college/")
+      .then((res) => {
+        const colleges = res.data.data;
+        // console.log(colleges);
+        setCollegeOptions(
+          colleges.map((college: { id: number; name: string }) => ({
+            value: college.id,
+            label: college.name,
+          }))
+        );
+      });
+  }, []);
+
+  const states = [
+    "Andaman and Nicobar Islands",
+    "Andhra Pradesh",
+    "Arunachal Pradesh",
+    "Assam",
+    "Bihar",
+    "Chandigarh",
+    "Chhattisgarh",
+    "Dadra and Nagar Haveli and Daman and Diu",
+    "Delhi",
+    "Goa",
+    "Gujarat",
+    "Haryana",
+    "Himachal Pradesh",
+    "Jammu and Kashmir",
+    "Jharkhand",
+    "Karnataka",
+    "Kerala",
+    "Ladakh",
+    "Lakshadweep",
+    "Madhya Pradesh",
+    "Maharashtra",
+    "Manipur",
+    "Meghalaya",
+    "Mizoram",
+    "Nagaland",
+    "Odisha",
+    "Puducherry",
+    "Punjab",
+    "Rajasthan",
+    "Sikkim",
+    "Tamil Nadu",
+    "Telangana",
+    "Tripura",
+    "Uttar Pradesh",
+    "Uttarakhand",
+    "West Bengal",
   ];
-
-  const collegeOptions: Option[] = [{ value: "BITS", label: "BITS" }];
-
-  const stateOptions: Option[] = [{ value: "rajasthan", label: "Rajasthan" }];
-
-  const cityOptions: Option[] = [{ value: "pilani", label: "Pilani" }];
 
   useEffect(() => {
     const bulbs = document.querySelectorAll(".bulb");
@@ -94,7 +183,7 @@ const RegistrationForm: React.FC = () => {
     }
   }, []);
 
-  const numberValue = watch("phoneNumber");
+  const numberValue = watch("phone");
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const charCode = e.which ? e.which : e.keyCode;
@@ -107,8 +196,73 @@ const RegistrationForm: React.FC = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     if (value.length <= 10) {
-      setValue("phoneNumber", value);
+      setValue("phone", value);
     }
+  };
+
+  const [cityOptions, setCityOptions] = useState<SelectProps["options"]>([]);
+  const [citiesData, setCitiesData] = useState<
+    { state: string; cities: string[] }[]
+  >([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const citiesResponse = await import("./Cities.json");
+        setCitiesData(citiesResponse.default);
+        // console.log("Cities Data:", citiesResponse.default);
+      } catch (error) {
+        console.error("Error loading data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const stateOptions: SelectProps["options"] = states.map((state) => ({
+    value: state,
+    label: state,
+  }));
+
+  const selectedState = watch("state");
+
+  useEffect(() => {
+    if (userState?.email) {
+      setValue("email", userState.email);
+    }
+  }, [userState, setValue]);
+
+  useEffect(() => {
+    if (selectedState) {
+      const stateData = citiesData.find((data) => data.state === selectedState);
+      // console.log("State Data:", stateData);
+      if (stateData) {
+        setCityOptions(
+          stateData.cities.map((city) => ({ value: city, label: city }))
+        );
+      } else {
+        setCityOptions([]);
+      }
+    } else {
+      setCityOptions([]);
+    }
+  }, [selectedState, citiesData]);
+
+  const onSubmit = (data: FormData) => {
+    const reqData = { ...data, access_token: userState?.access_token };
+    // console.log(reqData);
+    axios
+      .post("https://bits-oasis.org/2024/main/registrations/register/", reqData)
+      .then((res) => {
+        localStorage.setItem("tokens", JSON.stringify(res.data.tokens));
+        alert("Registration Successful");
+        // console.log(res);
+        window.location.href = "/";
+      })
+      .catch((err) => {
+        console.log(err);
+        alert(err);
+      });
   };
 
   return (
@@ -158,7 +312,14 @@ const RegistrationForm: React.FC = () => {
           <label htmlFor="email" className={styles.formFieldHeader}>
             EMAIL ID
           </label>
-          <input id="email" type="email" {...register("email")} />
+          <input
+            id="email"
+            type="email"
+            {...register("email")}
+            value={userState?.email}
+            disabled
+            className={styles.disabledInput}
+          />
           <div className={styles.inputUnderline}>
             <svg
               width="904"
@@ -191,7 +352,7 @@ const RegistrationForm: React.FC = () => {
         </div>
 
         <div className={styles.formField}>
-          <label htmlFor="phoneNumber" className={styles.formFieldHeader}>
+          <label htmlFor="phone" className={styles.formFieldHeader}>
             PHONE NUMBER
           </label>
           <input
@@ -200,11 +361,11 @@ const RegistrationForm: React.FC = () => {
             type="tel"
             onKeyPress={handleKeyPress}
             value={numberValue || ""}
-            {...register("phoneNumber", {
+            {...register("phone", {
               onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
                 const value = e.target.value;
                 if (value.length <= 10) {
-                  setValue("phoneNumber", value);
+                  setValue("phone", value);
                 } else {
                   e.target.value = value.slice(0, 10);
                 }
@@ -235,9 +396,9 @@ const RegistrationForm: React.FC = () => {
               />
             </svg>
           </div>
-          {errors.phoneNumber && (
+          {errors.phone && (
             <span className={styles.formErrorMessage}>
-              {errors.phoneNumber.message}
+              {errors.phone.message}
             </span>
           )}
         </div>
@@ -250,7 +411,7 @@ const RegistrationForm: React.FC = () => {
                 <input
                   type="radio"
                   id="male"
-                  value="MALE"
+                  value="M"
                   {...register("gender")}
                   className={styles.radioInput}
                 />
@@ -264,7 +425,7 @@ const RegistrationForm: React.FC = () => {
                 <input
                   type="radio"
                   id="female"
-                  value="FEMALE"
+                  value="F"
                   {...register("gender")}
                   className={styles.radioInput}
                 />
@@ -278,7 +439,7 @@ const RegistrationForm: React.FC = () => {
                 <input
                   type="radio"
                   id="others"
-                  value="OTHERS"
+                  value="O"
                   {...register("gender")}
                   className={styles.radioInput}
                 />
@@ -294,66 +455,67 @@ const RegistrationForm: React.FC = () => {
           )}
         </div>
 
-        <div className={styles.formField}>
+        {/* <div className={styles.formField}>
           <label htmlFor="interests" className={styles.formFieldHeader}>
             INTERESTS
           </label>
           <Controller
             name="interests"
             control={control}
-            render={({ field: { onChange, onBlur, value, ref } }) => (
-              <Select
-                mode="multiple"
-                allowClear
-                style={{
-                  width: "100%",
-                }}
-                placeholder="Select Interests"
-                dropdownStyle={{
-                  backgroundImage:
-                    "linear-gradient(180deg, #1B112A 0%, #160B27 49.5%, #1B102A 100%)",
-                  color: "#F5E3AE",
-                }}
-                options={interestOptions}
-                value={value}
-                onChange={(newValue) => onChange(newValue)}
-                onBlur={onBlur}
-                ref={ref}
-              />
+            rules={{ required: "*Please select an interest" }}
+            render={({ field, fieldState: { error } }) => (
+              <>
+                <Select
+                  mode="multiple"
+                  {...field}
+                  notFoundContent={null}
+                  allowClear
+                  style={{
+                    width: "100%",
+                  }}
+                  placeholder="Select Interests"
+                  dropdownStyle={{
+                    backgroundImage:
+                      "linear-gradient(180deg, #1B112A 0%, #160B27 49.5%, #1B102A 100%)",
+                    color: "#F5E3AE",
+                  }}
+                  options={interestOptions}
+                />
+                <div className={styles.inputUnderline}>
+                  <svg
+                    width="904"
+                    height="33"
+                    viewBox="0 0 904 33"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M888.293 22.3075C895.265 19.5085 892.004 13.6209 889.118 12.2607C885.66 10.6306 875.637 12.2767 875.834 23.5311C877.338 32.6431 895.434 38.06 902.57 19.5421C905.43 11.2526 898.547 0.107649 882.739 1.05681H0"
+                      stroke="#F5E3AE"
+                      strokeWidth="1.58383"
+                    />
+                    <line
+                      x1="-7.14315e-08"
+                      y1="9.18292"
+                      x2="875"
+                      y2="9.18284"
+                      stroke="#F5E3AE"
+                      strokeWidth="1.63416"
+                      strokeDasharray="1.63 1.63"
+                    />
+                  </svg>
+                </div>
+                {error && (
+                  <span
+                    className={`${styles.formErrorMessage} ${styles.dropDownError}}`}
+                  >
+                    {error.message}
+                  </span>
+                )}
+              </>
             )}
           />
-          <div className={styles.inputUnderline}>
-            <svg
-              width="904"
-              height="33"
-              viewBox="0 0 904 33"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M888.293 22.3075C895.265 19.5085 892.004 13.6209 889.118 12.2607C885.66 10.6306 875.637 12.2767 875.834 23.5311C877.338 32.6431 895.434 38.06 902.57 19.5421C905.43 11.2526 898.547 0.107649 882.739 1.05681H0"
-                stroke="#F5E3AE"
-                strokeWidth="1.58383"
-              />
-              <line
-                x1="-7.14315e-08"
-                y1="9.18292"
-                x2="875"
-                y2="9.18284"
-                stroke="#F5E3AE"
-                strokeWidth="1.63416"
-                strokeDasharray="1.63 1.63"
-              />
-            </svg>
-          </div>
-          {errors.interests && (
-            <span
-              className={`${styles.formErrorMessage} ${styles.dropDownError}}`}
-            >
-              {errors.interests.message}
-            </span>
-          )}
-        </div>
+        </div> */}
 
         <div className={styles.formField}>
           <label htmlFor="events" className={styles.formFieldHeader}>
@@ -362,54 +524,63 @@ const RegistrationForm: React.FC = () => {
           <Controller
             name="events"
             control={control}
-            render={({ field }) => (
-              <Select
-                mode="multiple"
-                {...field}
-                style={{
-                  width: "100%",
-                }}
-                placeholder="Select Event"
-                dropdownStyle={{
-                  backgroundImage:
-                    "linear-gradient(180deg, #1B112A 0%, #160B27 49.5%, #1B102A 100%)",
-                  color: "#F5E3AE",
-                }}
-                options={eventOptions}
-              />
+            render={({ field, fieldState: { error } }) => (
+              <>
+                <Select
+                  mode="multiple"
+                  {...field}
+                  notFoundContent={null}
+                  allowClear
+                  style={{
+                    width: "100%",
+                  }}
+                  placeholder="Select Event"
+                  dropdownStyle={{
+                    backgroundImage:
+                      "linear-gradient(180deg, #1B112A 0%, #160B27 49.5%, #1B102A 100%)",
+                    color: "#F5E3AE",
+                  }}
+                  options={eventOptions}
+                  filterOption={(input, option: OptionType | undefined) =>
+                    option
+                      ? option.label.toLowerCase().includes(input.toLowerCase())
+                      : false
+                  }
+                />
+                <div className={styles.inputUnderline}>
+                  <svg
+                    width="904"
+                    height="33"
+                    viewBox="0 0 904 33"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M888.293 22.3075C895.265 19.5085 892.004 13.6209 889.118 12.2607C885.66 10.6306 875.637 12.2767 875.834 23.5311C877.338 32.6431 895.434 38.06 902.57 19.5421C905.43 11.2526 898.547 0.107649 882.739 1.05681H0"
+                      stroke="#F5E3AE"
+                      strokeWidth="1.58383"
+                    />
+                    <line
+                      x1="-7.14315e-08"
+                      y1="9.18292"
+                      x2="875"
+                      y2="9.18284"
+                      stroke="#F5E3AE"
+                      strokeWidth="1.63416"
+                      strokeDasharray="1.63 1.63"
+                    />
+                  </svg>
+                </div>
+                {error && (
+                  <span
+                    className={`${styles.formErrorMessage} ${styles.dropDownError}}`}
+                  >
+                    {error.message}
+                  </span>
+                )}
+              </>
             )}
           />
-          <div className={styles.inputUnderline}>
-            <svg
-              width="904"
-              height="33"
-              viewBox="0 0 904 33"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M888.293 22.3075C895.265 19.5085 892.004 13.6209 889.118 12.2607C885.66 10.6306 875.637 12.2767 875.834 23.5311C877.338 32.6431 895.434 38.06 902.57 19.5421C905.43 11.2526 898.547 0.107649 882.739 1.05681H0"
-                stroke="#F5E3AE"
-                strokeWidth="1.58383"
-              />
-              <line
-                x1="-7.14315e-08"
-                y1="9.18292"
-                x2="875"
-                y2="9.18284"
-                stroke="#F5E3AE"
-                strokeWidth="1.63416"
-                strokeDasharray="1.63 1.63"
-              />
-            </svg>
-          </div>
-          {errors.events && (
-            <span
-              className={`${styles.formErrorMessage} ${styles.dropDownError}}`}
-            >
-              {errors.events.message}
-            </span>
-          )}
         </div>
 
         <div className={styles.formField}>
@@ -417,11 +588,12 @@ const RegistrationForm: React.FC = () => {
             COLLEGE
           </label>
           <Controller
-            name="college"
+            name="college_id"
             control={control}
             render={({ field }) => (
               <Select
                 {...field}
+                showSearch
                 style={{
                   width: "100%",
                 }}
@@ -432,6 +604,11 @@ const RegistrationForm: React.FC = () => {
                   color: "#F5E3AE",
                 }}
                 options={collegeOptions}
+                filterOption={(input, option: OptionType | undefined) =>
+                  option
+                    ? option.label.toLowerCase().includes(input.toLowerCase())
+                    : false
+                }
               />
             )}
           />
@@ -459,11 +636,11 @@ const RegistrationForm: React.FC = () => {
               />
             </svg>
           </div>
-          {errors.college && (
+          {errors.college_id && (
             <span
               className={`${styles.formErrorMessage} ${styles.dropDownError}}`}
             >
-              {errors.college.message}
+              {errors.college_id.message}
             </span>
           )}
         </div>
@@ -478,7 +655,7 @@ const RegistrationForm: React.FC = () => {
                     type="radio"
                     id={`year${year}`}
                     value={year.toString()}
-                    {...register("yearOfStudy")}
+                    {...register("year")}
                     className={styles.radioInput}
                   />
                   <span className={styles.radioCustom}></span>
@@ -487,9 +664,87 @@ const RegistrationForm: React.FC = () => {
               </div>
             ))}
           </div>
-          {errors.yearOfStudy && (
+          {errors.year && (
             <span className={`${styles.formErrorMessage} ${styles.radioError}`}>
-              {errors.yearOfStudy.message}
+              {errors.year.message}
+            </span>
+          )}
+        </div>
+
+        <div className={`${styles.formField} ${styles.radioInput}`}>
+          <label className={styles.formFieldHeader}>
+            Are you a Choreographer ?
+          </label>
+          <div className={styles.radioContainer}>
+            <div className={styles.radioButtonContainer}>
+              <label htmlFor="choreo_Yes" className={styles.radioLabel}>
+                <input
+                  type="radio"
+                  id="choreo_Yes"
+                  value="true"
+                  {...register("choreographer")}
+                  className={styles.radioInput}
+                />
+                <span className={styles.radioCustom}></span>
+                Yes
+              </label>
+            </div>
+            <div className={styles.radioButtonContainer}>
+              <label htmlFor="choreo_No" className={styles.radioLabel}>
+                <input
+                  type="radio"
+                  id="choreo_No"
+                  value="false"
+                  {...register("choreographer")}
+                  className={styles.radioInput}
+                />
+                <span className={styles.radioCustom}></span>
+                No
+              </label>
+            </div>
+          </div>
+          {errors.choreographer && (
+            <span className={`${styles.formErrorMessage} ${styles.radioError}`}>
+              {errors.choreographer.message}
+            </span>
+          )}
+        </div>
+
+        <div className={`${styles.formField} ${styles.radioInput}`}>
+          <label className={styles.formFieldHeader}>
+            Are you a Head of Society ?
+          </label>
+          <div className={styles.radioContainer}>
+            <div className={styles.radioButtonContainer}>
+              <label htmlFor="head_Yes" className={styles.radioLabel}>
+                <input
+                  type="radio"
+                  id="head_Yes"
+                  value="true"
+                  {...register("head_of_society")}
+                  className={styles.radioInput}
+                />
+                <span className={styles.radioCustom}></span>
+                Yes
+              </label>
+            </div>
+            <div className={styles.radioButtonContainer}>
+              <label htmlFor="head_No" className={styles.radioLabel}>
+                <input
+                  type="radio"
+                  id="head_No"
+                  value="false"
+                  {...register("head_of_society")}
+                  className={styles.radioInput}
+                />
+                <span className={styles.radioCustom}></span>
+                No
+              </label>
+            </div>
+          </div>
+          {errors.choreographer && (
+            <span className={`${styles.formErrorMessage} ${styles.radioError}`}>
+              {errors.choreographer.message}
             </span>
           )}
         </div>
@@ -504,6 +759,8 @@ const RegistrationForm: React.FC = () => {
             render={({ field }) => (
               <Select
                 {...field}
+                showSearch
+                notFoundContent={null}
                 style={{
                   width: "100%",
                 }}
@@ -560,6 +817,8 @@ const RegistrationForm: React.FC = () => {
             render={({ field }) => (
               <Select
                 {...field}
+                showSearch
+                notFoundContent={null}
                 style={{
                   width: "100%",
                 }}

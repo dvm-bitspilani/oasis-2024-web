@@ -13,7 +13,7 @@ import axios from "axios";
 
 const formSchema = z.object({
   name: z.string().min(1, { message: "*Name is required" }),
-  email: z.string().email({ message: "*Invalid email address" }),
+  email: z.string().email({ message: "*Invalid email address" }).optional(),
   phone: z.string().regex(/^\d{10}$/, { message: "*Invalid phone number" }),
   gender: z
     .enum(["M", "F", "O"])
@@ -21,13 +21,28 @@ const formSchema = z.object({
     .refine((value) => value !== undefined && value !== null, {
       message: "*Please select a gender",
     }),
-  interests: z
-    .array(z.string())
-    .nonempty({ message: "*Please select at least one interest" }),
   events: z
-    .array(z.string())
+    .array(z.number())
     .nonempty({ message: "*Please select at least one event" }),
-  college: z.string().min(1, { message: "*Please select a college" }),
+  college_id: z.number().min(1, { message: "*Please select a college" }),
+  choreographer: z
+    .enum(["true", "false"])
+    .nullable()
+    .transform((value) =>
+      value === "true" ? true : value === "false" ? false : null
+    ) // Converts "true" to true, "false" to false
+    .refine((value) => value !== undefined && value !== null, {
+      message: "*Please select if you are a choreographer",
+    }),
+  head_of_society: z
+    .enum(["true", "false"])
+    .nullable()
+    .transform((value) =>
+      value === "true" ? true : value === "false" ? false : null
+    ) // Converts "true" to true, "false" to false
+    .refine((value) => value !== undefined && value !== null, {
+      message: "*Please select if you are a Head Of Society",
+    }),
   year: z
     .enum(["1", "2", "3", "4", "5"])
     .nullable()
@@ -50,6 +65,11 @@ type userStateType = {
 type registrationFormProps = {
   userState: userStateType | null;
 };
+
+interface OptionType {
+  value: string;
+  label: string;
+}
 
 const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
   const {
@@ -75,12 +95,39 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
     { value: "coding", label: "Coding" },
     { value: "design", label: "Design" },
   ];
-  const eventOptions: Option[] = [
-    { value: "hackathon", label: "Hackathon" },
-    { value: "workshop", label: "Workshop" },
-  ];
 
-  const collegeOptions: Option[] = [{ value: "BITS", label: "BITS" }];
+  const [eventOptions, setEventOptions] = useState([] as Option[]);
+
+  useEffect(() => {
+    axios
+      .get("https://bits-oasis.org/2024/main/registrations/events_list/")
+      .then((res) => {
+        const events = res.data;
+        setEventOptions(
+          events.map((event: { id: string; name: string }) => ({
+            value: event.id,
+            label: event.name,
+          }))
+        );
+      });
+  }, []);
+
+  const [collegeOptions, setCollegeOptions] = useState([] as Option[]);
+
+  useEffect(() => {
+    axios
+      .get("https://bits-oasis.org/2024/main/registrations/get_college/")
+      .then((res) => {
+        const colleges = res.data.data;
+        // console.log(colleges);
+        setCollegeOptions(
+          colleges.map((college: { id: number; name: string }) => ({
+            value: college.id,
+            label: college.name,
+          }))
+        );
+      });
+  }, []);
 
   const states = [
     "Andaman and Nicobar Islands",
@@ -180,9 +227,15 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
   const selectedState = watch("state");
 
   useEffect(() => {
+    if (userState?.email) {
+      setValue("email", userState.email);
+    }
+  }, [userState, setValue]);
+
+  useEffect(() => {
     if (selectedState) {
       const stateData = citiesData.find((data) => data.state === selectedState);
-      console.log("State Data:", stateData);
+      // console.log("State Data:", stateData);
       if (stateData) {
         setCityOptions(
           stateData.cities.map((city) => ({ value: city, label: city }))
@@ -197,14 +250,18 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
 
   const onSubmit = (data: FormData) => {
     const reqData = { ...data, access_token: userState?.access_token };
-    console.log(reqData);
+    // console.log(reqData);
     axios
       .post("https://bits-oasis.org/2024/main/registrations/register/", reqData)
       .then((res) => {
-        console.log(res);
+        localStorage.setItem("tokens", JSON.stringify(res.data.tokens));
+        alert("Registration Successful");
+        // console.log(res);
+        window.location.href = "/";
       })
       .catch((err) => {
         console.log(err);
+        alert(err);
       });
   };
 
@@ -398,7 +455,7 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
           )}
         </div>
 
-        <div className={styles.formField}>
+        {/* <div className={styles.formField}>
           <label htmlFor="interests" className={styles.formFieldHeader}>
             INTERESTS
           </label>
@@ -458,7 +515,7 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
               </>
             )}
           />
-        </div>
+        </div> */}
 
         <div className={styles.formField}>
           <label htmlFor="events" className={styles.formFieldHeader}>
@@ -484,6 +541,11 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
                     color: "#F5E3AE",
                   }}
                   options={eventOptions}
+                  filterOption={(input, option: OptionType | undefined) =>
+                    option
+                      ? option.label.toLowerCase().includes(input.toLowerCase())
+                      : false
+                  }
                 />
                 <div className={styles.inputUnderline}>
                   <svg
@@ -526,11 +588,12 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
             COLLEGE
           </label>
           <Controller
-            name="college"
+            name="college_id"
             control={control}
             render={({ field }) => (
               <Select
                 {...field}
+                showSearch
                 style={{
                   width: "100%",
                 }}
@@ -541,6 +604,11 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
                   color: "#F5E3AE",
                 }}
                 options={collegeOptions}
+                filterOption={(input, option: OptionType | undefined) =>
+                  option
+                    ? option.label.toLowerCase().includes(input.toLowerCase())
+                    : false
+                }
               />
             )}
           />
@@ -568,11 +636,11 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
               />
             </svg>
           </div>
-          {errors.college && (
+          {errors.college_id && (
             <span
               className={`${styles.formErrorMessage} ${styles.dropDownError}}`}
             >
-              {errors.college.message}
+              {errors.college_id.message}
             </span>
           )}
         </div>
@@ -599,6 +667,84 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
           {errors.year && (
             <span className={`${styles.formErrorMessage} ${styles.radioError}`}>
               {errors.year.message}
+            </span>
+          )}
+        </div>
+
+        <div className={`${styles.formField} ${styles.radioInput}`}>
+          <label className={styles.formFieldHeader}>
+            Are you a Choreographer ?
+          </label>
+          <div className={styles.radioContainer}>
+            <div className={styles.radioButtonContainer}>
+              <label htmlFor="choreo_Yes" className={styles.radioLabel}>
+                <input
+                  type="radio"
+                  id="choreo_Yes"
+                  value="true"
+                  {...register("choreographer")}
+                  className={styles.radioInput}
+                />
+                <span className={styles.radioCustom}></span>
+                Yes
+              </label>
+            </div>
+            <div className={styles.radioButtonContainer}>
+              <label htmlFor="choreo_No" className={styles.radioLabel}>
+                <input
+                  type="radio"
+                  id="choreo_No"
+                  value="false"
+                  {...register("choreographer")}
+                  className={styles.radioInput}
+                />
+                <span className={styles.radioCustom}></span>
+                No
+              </label>
+            </div>
+          </div>
+          {errors.choreographer && (
+            <span className={`${styles.formErrorMessage} ${styles.radioError}`}>
+              {errors.choreographer.message}
+            </span>
+          )}
+        </div>
+
+        <div className={`${styles.formField} ${styles.radioInput}`}>
+          <label className={styles.formFieldHeader}>
+            Are you a Head of Society ?
+          </label>
+          <div className={styles.radioContainer}>
+            <div className={styles.radioButtonContainer}>
+              <label htmlFor="head_Yes" className={styles.radioLabel}>
+                <input
+                  type="radio"
+                  id="head_Yes"
+                  value="true"
+                  {...register("head_of_society")}
+                  className={styles.radioInput}
+                />
+                <span className={styles.radioCustom}></span>
+                Yes
+              </label>
+            </div>
+            <div className={styles.radioButtonContainer}>
+              <label htmlFor="head_No" className={styles.radioLabel}>
+                <input
+                  type="radio"
+                  id="head_No"
+                  value="false"
+                  {...register("head_of_society")}
+                  className={styles.radioInput}
+                />
+                <span className={styles.radioCustom}></span>
+                No
+              </label>
+            </div>
+          </div>
+          {errors.choreographer && (
+            <span className={`${styles.formErrorMessage} ${styles.radioError}`}>
+              {errors.choreographer.message}
             </span>
           )}
         </div>

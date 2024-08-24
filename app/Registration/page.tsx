@@ -143,7 +143,7 @@ const Registration = () => {
     const scrollBarContainer = document.querySelector(
       `.${styles.scrollbar}`
     ) as HTMLElement;
-    console.log(formContainerElem, scrollBarContainer);
+    // console.log(formContainerElem, scrollBarContainer);
     if (!formContainerElem || !scrollBarContainer) return;
 
     // Determine clientY for mouse or touch event

@@ -31,11 +31,11 @@
     padding: 0 50px 40px 50px;
     position: relative;
 
-    @media(width <= 900px) {
+    @media (width <= 900px) {
       padding: 0 35px 40px 35px;
     }
 
-    @media(width <= 500px) {
+    @media (width <= 500px) {
       padding: 0 25px 40px 25px;
     }
 
@@ -165,7 +165,7 @@
         right: -6.5%;
       }
       @media (width <= 1200px) {
-        display: none
+        display: none;
       }
     }
     .leftframe {
@@ -187,7 +187,7 @@
         left: -6.5%;
       }
       @media (width <= 1200px) {
-        display: none
+        display: none;
       }
     }
     .toprightframe {
@@ -207,7 +207,7 @@
         right: -12%;
       }
       @media (width <= 1200px) {
-        display: none
+        display: none;
       }
     }
     .topleftframe {
@@ -227,7 +227,101 @@
         left: -12%;
       }
       @media (width <= 1200px) {
-        display: none
+        display: none;
+      }
+    }
+  }
+
+  .bottom {
+    display: flex;
+    position: relative;
+
+    .bottomframe {
+      display: flex;
+      transform: scale(0.765);
+      position: relative;
+      top: 9%;
+
+      @media (width >= 2000px) {
+        transform: scale(0.94);
+        top: 65px;
+      }
+
+      @media (1920px <= width <= 2000px) {
+        transform: scale(0.857);
+        top: 65px;
+      }
+
+      @media (1850px <= width <= 1920px) {
+        transform: scale(0.85);
+        top: 40px;
+      }
+
+      @media (1740px <= width <= 1850px) {
+        transform: scale(0.782);
+        top: 40px;
+      }
+    }
+
+    .bottomleftframe {
+      transform: scale(0.5);
+      position: absolute;
+      top: 12px;
+      left: 9.5%;
+
+      @media (width >= 2000px) {
+        top: 73px;
+        transform: scale(0.62);
+        left: 0.5%;
+      }
+
+      @media (1920px <= width <= 2000px) {
+        top: 73px;
+        transform: scale(0.62);
+        left: 4.5%;
+      }
+
+      @media (1850px <= width <= 1920px) {
+        left: 5.2%;
+        top: 45px;
+        transform: scale(0.62);
+      }
+
+      @media (1740px <= width <= 1850px) {
+        transform: scale(0.62);
+        top: 45px;
+        left: 8.5%;
+      }
+    }
+
+    .bottomrightframe {
+      transform: scale(-0.5, 0.5);
+      position: absolute;
+      top: 12px;
+      right: 9.5%;
+
+      @media (width >= 2000px) {
+        top: 73px;
+        transform: scale(-0.62, 0.62);
+        right: 0.5%;
+      }
+
+      @media (1920px <= width <= 2000px) {
+        top: 73px;
+        transform: scale(-0.62, 0.62);
+        right: 4.5%;
+      }
+
+      @media (1850px <= width <= 1920px) {
+        right: 5.2%;
+        top: 45px;
+        transform: scale(-0.62, 0.62);
+      }
+
+      @media (1740px <= width <= 1850px) {
+        transform: scale(-0.62, 0.62);
+        top: 45px;
+        right: 8.5%;
       }
     }
   }

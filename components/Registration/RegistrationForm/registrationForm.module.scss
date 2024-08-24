@@ -1,11 +1,14 @@
 .registrationForm {
+  padding-top: 40px;
   position: relative;
   margin-right: 95.8px;
   z-index: 1;
+
   .formField {
     display: flex;
     flex-direction: column;
     position: relative;
+
     .inputUnderline {
       width: 100%;
       overflow: hidden;
@@ -26,6 +29,12 @@
       font-weight: 400;
       line-height: 43px; /* 238.889% */
       letter-spacing: 1.08px;
+    }
+    .disabledInput {
+      cursor: not-allowed;
+      background-color: gray;
+      background-image: unset;
+      color: gray;
     }
     .formErrorMessage {
       position: absolute;
@@ -50,6 +59,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 50px;
+      row-gap: 20px;
       align-content: flex-start;
 
       .radioButtonContainer {
@@ -213,9 +223,11 @@
 }
 .btnwrapper {
   @media screen and (width <= 1150px) {
-    left: 50%;
-    transform: translateX(-50%) translateY(50%);
+    left: 40%;
+    top: 50px;
+    transform: translateX(-50%);
     width: 215px;
+    position: relative;
   }
   cursor: pointer;
   outline: none;

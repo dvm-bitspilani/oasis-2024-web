@@ -82,6 +82,23 @@ body {
   background-color: transparent !important;
 }
 
+.ant-select-multiple .ant-select-selection-item {
+  color: #efd48d !important;
+  padding-inline-start: 0 !important;
+  border: 1px solid !important;
+  height: 40px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ant-select-multiple
+  .ant-select-selection-item
+  .ant-select-selection-item-content {
+  padding-inline-start: 8px !important;
+  line-height: 43px !important;
+}
+
 .ant-select-selection-item {
   color: #efd48d !important;
   padding-inline-start: 0 !important;
@@ -109,4 +126,9 @@ body {
   -webkit-background-clip: unset !important;
   -webkit-text-fill-color: unset !important;
   transform: translateX(-8px) !important;
+}
+
+.ant-select-clear {
+  color: #efd48d !important;
+  background: transparent !important;
 }

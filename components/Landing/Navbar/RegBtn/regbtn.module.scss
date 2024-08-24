@@ -172,12 +172,8 @@
 
     @media (width <= 585px) {
       right: 50%;
-      transform: translateX(50%) scale(0.8);
-      bottom: -82vh;
-    }
-
-    @media (width <= 450px) {
-      transform: translateX(50%) scale(0.7);
+      transform: translateX(50%) scale(-0.7,0.7);
+      bottom: -78vh;
     }
   }
 }

@@ -236,6 +236,10 @@
     display: flex;
     position: relative;
 
+    @media (width <= 1200px) {
+      display: none;
+    }
+
     .bottomframe {
       display: flex;
       transform: scale(0.765);

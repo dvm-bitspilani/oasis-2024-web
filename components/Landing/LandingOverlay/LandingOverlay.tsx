@@ -22,6 +22,7 @@ export default function LandingOverlay() {
       </div>
       <AboutUsPage />
       <ContactUs />
+      
     </div>
   );
 }

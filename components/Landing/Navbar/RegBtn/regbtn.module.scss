@@ -165,5 +165,9 @@
             transform: scale(0.8);
             right: 40px;
         }
+
+        @media (width <= 450px) {
+            transform: translate3d(20px,-13px,0) scale(0.7);
+        }
     }
 }

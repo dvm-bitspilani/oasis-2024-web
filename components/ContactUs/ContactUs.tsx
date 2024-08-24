@@ -1,14 +1,13 @@
-'use client';
+"use client";
 
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./contactus.module.scss";
 import ContactCard from "./ContactCard/ContactCard";
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ContactUs() {
-
   // const containerRef = useRef(null);
 
   // useEffect(() => {
@@ -141,6 +140,7 @@ export default function ContactUs() {
         </div>
 
         <div className={styles.cardContainer}>
+          
           <div className={styles.first}>
             <ContactCard
               name="Prateek Kashyap"
@@ -149,6 +149,7 @@ export default function ContactUs() {
               mail="mailto:webmaster@bits-oasis.org"
             />
           </div>
+
           <div className={styles.second}>
             <ContactCard
               name="Jaiditya Singh"
@@ -157,6 +158,7 @@ export default function ContactUs() {
               mail="mailto:controls@bits-oasis.org"
             />
           </div>
+
           <div className={styles.third}>
             <ContactCard
               name="Shreeram Verma"
@@ -165,57 +167,66 @@ export default function ContactUs() {
               mail="mailto:shreeram@bits-oasis.org"
             />
           </div>
+
           <div className={styles.fourth}>
             <ContactCard
               name="Aryan Wadhwa"
               dept="Registration, Events & Approval Queries"
               contact="tel:+919810297034"
-              mail="mailto:Pcr@bits-oasis.org"
+              mail="mailto:pcr@bits-oasis.org"
             />
           </div>
+
           <div className={styles.fifth}>
             <ContactCard
-              name=""
+              name="Rijul Bassamboo"
               dept="Reception and Accommodation"
-              contact="tel:+91"
+              contact="tel:+919811529877"
               mail="mailto:recnacc@bits-oasis.org"
             />
           </div>
+
         </div>
 
+        
         <div className={styles.cardContainer1}>
+
           <div className={styles.fourth}>
             <ContactCard
-              name=""
+              name="Rijul Bassamboo"
               dept="Reception and Accommodation"
-              contact="tel:+91"
+              contact="tel:+919811529877"
               mail="mailto:recnacc@bits-oasis.org"
             />
           </div>
+
           <div className={styles.first}>
             <ContactCard
-              name=""
+              name="Shreyansh Vanjani"
               dept="Online Collaborations and Publicity"
-              contact="tel:+91"
+              contact="tel:+918000695988"
               mail="mailto:collaborations@bits-oasis.org"
             />
           </div>
+
           <div className={styles.second}>
             <ContactCard
               name="Sarthak Aggarwal"
               dept="President, Students' Union"
-              contact=""
+              contact="tel:+9180050 00213"
               mail="mailto:president@pilani.bits-pilani.ac.in"
             />
           </div>
+
           <div className={styles.third}>
             <ContactCard
               name="Abhinav Lamba"
               dept="General Secretary, Students' Union"
-              contact=""
+              contact="tel:+917078879443"
               mail="mailto:gensec@pilani.bits-pilani.ac.in"
             />
           </div>
+
         </div>
       </div>
     </>

@@ -17,6 +17,10 @@ export default function Countdown({ dateString, ...args }: Props) {
     seconds: 0,
   });
 
+  function padZero(number: number) {
+    return number < 10 ? "0" + number : "" + number;
+  }
+
   useEffect(() => {
     setCurr(new Date().getTime());
   }, []);
@@ -52,17 +56,17 @@ export default function Countdown({ dateString, ...args }: Props) {
   return (
     <div {...args} className={styles.countdown} id="countdownTimer">
       <div className={styles.timeSegment}>
-        <p>{timeLeft.days}</p>
+        <p>{padZero(timeLeft.days)}</p>
         <p>Days</p>
       </div>
       <p className={styles.colon}>&#58;</p>
       <div className={styles.timeSegment}>
-        <p>{timeLeft.hours}</p>
+        <p>{padZero(timeLeft.hours)}</p>
         <p>Hours</p>
       </div>
       <p className={styles.colon}>&#58;</p>
       <div className={styles.timeSegment}>
-        <p>{timeLeft.minutes}</p>
+        <p>{padZero(timeLeft.minutes)}</p>
         <p>Mins</p>
       </div>
       {/* <p className={styles.colon}>&#58;</p>

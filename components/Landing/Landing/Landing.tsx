@@ -95,7 +95,7 @@ export default function Landing() {
             }
             timeline
               .to(slotMachine.current.rotation, {
-                y: conditions.isMobile ? 0 : -Math.PI / 2,
+                y: conditions.isMobile ? 0 : -Math.PI / 9,
                 duration: 1,
               })
               .to(

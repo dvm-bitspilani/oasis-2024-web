@@ -28,9 +28,9 @@ const Instruction = ({ text }: Props) => {
             y2="20"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#EDD08D" />
-            <stop offset="0.465" stop-color="#D29D5D" />
-            <stop offset="1" stop-color="#F0D896" />
+            <stop stopColor="#EDD08D" />
+            <stop offset="0.465" stopColor="#D29D5D" />
+            <stop offset="1" stopColor="#F0D896" />
           </linearGradient>
         </defs>
       </svg>

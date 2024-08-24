@@ -255,7 +255,14 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
           <label htmlFor="email" className={styles.formFieldHeader}>
             EMAIL ID
           </label>
-          <input id="email" type="email" {...register("email")} />
+          <input
+            id="email"
+            type="email"
+            {...register("email")}
+            value={userState?.email}
+            disabled
+            className={styles.disabledInput}
+          />
           <div className={styles.inputUnderline}>
             <svg
               width="904"

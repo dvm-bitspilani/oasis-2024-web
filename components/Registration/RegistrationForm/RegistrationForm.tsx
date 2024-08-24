@@ -78,10 +78,6 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
   const eventOptions: Option[] = [
     { value: "hackathon", label: "Hackathon" },
     { value: "workshop", label: "Workshop" },
-    { value: "workshop2", label: "Workshop2" },
-    { value: "workshop3", label: "Workshop3" },
-    { value: "workshop4", label: "Workshop4" },
-    { value: "workshop5", label: "Workshop5" },
   ];
 
   const collegeOptions: Option[] = [{ value: "BITS", label: "BITS" }];

@@ -6,13 +6,18 @@ import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGoogleLogin } from "@react-oauth/google";
+import axios from "axios";
 
 import RegistrationForm from "@/components/Registration/RegistrationForm/RegistrationForm";
+import GoogleAuthPage from "@/components/Registration/GoogleAuth/GAuth";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Registration = () => {
   const [wheelRotating, setWheelRotating] = useState(false);
+  const [userState, setUserState] = useState(null);
+
   const formRef = useRef<HTMLDivElement | null>(null);
   const wheelRef = useRef(null);
   const scrollbarThumbRef = useRef<HTMLImageElement | null>(null);
@@ -42,6 +47,22 @@ const Registration = () => {
       }
     }
   };
+
+  const googleSignIn = useGoogleLogin({
+    onSuccess: (response) => {
+      // Register URL: https://bits-oasis.org/2024/main/registrations/register/
+      axios
+        .post("https://bits-oasis.org/2024/main/registrations/google-reg/", {
+          access_token: response.access_token,
+        })
+        .then((res) => {
+          setUserState(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  });
 
   const handleMouseDown = (e: MouseEvent | TouchEvent | any) => {
     e.preventDefault();
@@ -291,27 +312,29 @@ const Registration = () => {
           <div className={styles.frameBottomLeft}></div>
         </div>
         <div className={styles.formContainer}>
-          <div
-            className={styles.formContent}
-            onScroll={() => handleScroll()}
-            ref={formRef}
-          >
-            <RegistrationForm />
-          </div>
-          <div className={styles.scrollbar} onClick={handleTrackSnap}>
-            <div className={styles.scrollbarTrack} />
-            <Image
-              draggable={false}
-              src="/Registration/ScrollBarThumb.png"
-              alt="scrollBarThumb"
-              width={85}
-              height={85}
-              className={styles.scrollbarThumb}
-              ref={scrollbarThumbRef}
-              onMouseDown={handleMouseDown}
-              onTouchStart={handleMouseDown}
-            />
-            {/* <svg
+          {userState ? (
+            <>
+              <div
+                className={styles.formContent}
+                onScroll={() => handleScroll()}
+                ref={formRef}
+              >
+                <RegistrationForm />
+              </div>
+              <div className={styles.scrollbar} onClick={handleTrackSnap}>
+                <div className={styles.scrollbarTrack} />
+                <Image
+                  draggable={false}
+                  src="/Registration/ScrollBarThumb.png"
+                  alt="scrollBarThumb"
+                  width={85}
+                  height={85}
+                  className={styles.scrollbarThumb}
+                  ref={scrollbarThumbRef}
+                  onMouseDown={handleMouseDown}
+                  onTouchStart={handleMouseDown}
+                />
+                {/* <svg
               xmlns="http://www.w3.org/2000/svg"
               width="85"
               height="85"
@@ -332,7 +355,11 @@ const Registration = () => {
                 />
               </g>
             </svg> */}
-          </div>
+              </div>
+            </>
+          ) : (
+            <GoogleAuthPage gSignIn={googleSignIn} />
+          )}
         </div>
       </div>
       <div className={styles.rouletteWheel} ref={wheelRef}>

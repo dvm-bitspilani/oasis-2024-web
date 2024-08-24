@@ -80,6 +80,7 @@ export const SlotMachine = forwardRef(function SlotMachine2(
         >
           <iframe
             src="https://www.youtube.com/embed/ZCrClSBM1ns"
+            // src="https://bruno-simon.com/html"
             title="OASIS 2023 | Official Curtain Raiser"
           />
         </Html>

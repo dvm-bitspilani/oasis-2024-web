@@ -37,25 +37,44 @@ export default function Landing() {
 
   useGSAP(
     () => {
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: 'img[alt="right tree"]',
-          markers: false,
-          start: () =>
-            `top ${
-              document
-                .querySelector('img[alt="right tree"]')
-                ?.getBoundingClientRect().top
-            }`,
-          end: "+=200%",
-          scrub: 1,
-          // snap: {
-          //   snapTo: [0, 0.4, 1],
-          //   ease: "sine.inOut",
-          //   duration: 2,
-          // },
-        },
-      });
+      let timelineConfig;
+      if (window.innerWidth < 800) {
+        timelineConfig = {
+          scrollTrigger: {
+            trigger: 'img[alt="right tree"]',
+            markers: false,
+            start: () =>
+              `top ${
+                document
+                  .querySelector('img[alt="right tree"]')
+                  ?.getBoundingClientRect().top
+              }`,
+            end: "+=200%",
+            scrub: 1,
+          },
+        };
+      } else {
+        timelineConfig = {
+          scrollTrigger: {
+            trigger: 'img[alt="right tree"]',
+            markers: false,
+            start: () =>
+              `top ${
+                document
+                  .querySelector('img[alt="right tree"]')
+                  ?.getBoundingClientRect().top
+              }`,
+            end: "+=200%",
+            scrub: 1,
+            snap: {
+              snapTo: [0, 0.4, 1],
+              ease: "sine.inOut",
+              duration: 1,
+            },
+          },
+        };
+      }
+      const timeline = gsap.timeline(timelineConfig);
 
       const mm = gsap.matchMedia();
 

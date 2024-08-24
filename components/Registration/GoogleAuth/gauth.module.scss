@@ -171,5 +171,10 @@
             transform: scale(0.6);
             top: -25%;
         }
+
+        @media (width <= 650px){
+            transform: scale(0.6);
+            top: -35%;
+        }
     }
   }

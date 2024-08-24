@@ -28,6 +28,9 @@
         @media (width <= 1250px) {
           font-size: 32px;
         }
+        @media (width <= 650px) {
+          font-size: 28px;
+        }
       }
     }
     .contentcontainer{
@@ -54,6 +57,13 @@
       position: relative;
       left: -25px;
       transform: translateY(-30%);
+    }
+    @media (width <= 650px){
+      top: -20px;
+    }
+
+    @media (width <= 450px){
+      top: 0px;
     }
   }
   

@@ -11,7 +11,6 @@
   height: 100dvh;
   margin-left: 8.5%;
 
-
   @media (width <= 1000px) {
     width: 100%;
     margin-left: 0;
@@ -32,6 +31,18 @@
     padding: 0 50px 40px 50px;
     position: relative;
 
+    @media (width <= 900px) {
+      padding: 0 35px 40px 35px;
+    }
+
+    @media (width <= 500px) {
+      padding: 0 25px 40px 25px;
+    }
+
+    @media (width <= 405px) {
+      padding: 0 5px 40px 5px;
+    }
+
     .middle {
       margin-top: 40px;
       @media (width <= 1000px) {
@@ -48,6 +59,10 @@
       letter-spacing: 2.1px;
       font-size: 22px;
       text-align: center;
+
+      @media (width <= 1650px) {
+        font-size: 21.5px;
+      }
 
       @media (width <= 1000px) {
         font-size: 16px;
@@ -139,11 +154,18 @@
       top: -18.5%;
       right: 0;
 
-      @media(width >= 1920px) {
+      @media (width >= 1920px) {
         top: -22%;
       }
-      @media(1740px <= width <= 1920px) {
+      @media (1740px <= width <= 1920px) {
         top: -20%;
+      }
+      @media (width <= 1650px) {
+        top: -18%;
+        right: -6.5%;
+      }
+      @media (width <= 1200px) {
+        display: none;
       }
     }
     .leftframe {
@@ -154,40 +176,153 @@
       top: -18.5%;
       left: 0;
 
-      @media(width >= 1920px) {
+      @media (width >= 1920px) {
         top: -22%;
       }
-      @media(1740px <= width <= 1920px) {
+      @media (1740px <= width <= 1920px) {
         top: -20%;
+      }
+      @media (width <= 1650px) {
+        top: -18%;
+        left: -6.5%;
+      }
+      @media (width <= 1200px) {
+        display: none;
       }
     }
     .toprightframe {
-        transform: scale(0.5);
-        position: absolute;
-        right: -5%;
-        top: 6%;
-        @media(width >= 1920px) {
-          transform: scale(0.7);
-          right: -2%;
-        }
-        @media(1740px <= width <= 1920px) {
-          transform: scale(0.62);
-          right: -3%;
-        }
+      transform: scale(0.5);
+      position: absolute;
+      right: -5%;
+      top: 6%;
+      @media (width >= 1920px) {
+        transform: scale(0.7);
+        right: -2%;
+      }
+      @media (1740px <= width <= 1920px) {
+        transform: scale(0.62);
+        right: -3%;
+      }
+      @media (width <= 1650px) {
+        right: -12%;
+      }
+      @media (width <= 1200px) {
+        display: none;
+      }
     }
-    .topleftframe{
-        transform: scale(-0.5, 0.5);
-        position: absolute;
-        left: -5%;
-        top: 6%;
-        @media(width >= 1920px) {
-          transform: scale(-0.62, 0.62);
-          left: -3%;
-        }
-        @media(1740px <= width <= 1920px) {
-          transform: scale(-0.62, 0.62);
-          left: -3%;
-        }
+    .topleftframe {
+      transform: scale(-0.5, 0.5);
+      position: absolute;
+      left: -5%;
+      top: 6%;
+      @media (width >= 1920px) {
+        transform: scale(-0.62, 0.62);
+        left: -3%;
+      }
+      @media (1740px <= width <= 1920px) {
+        transform: scale(-0.62, 0.62);
+        left: -3%;
+      }
+      @media (width <= 1650px) {
+        left: -12%;
+      }
+      @media (width <= 1200px) {
+        display: none;
+      }
+    }
+  }
+
+  .bottom {
+    display: flex;
+    position: relative;
+
+    .bottomframe {
+      display: flex;
+      transform: scale(0.765);
+      position: relative;
+      top: 9%;
+
+      @media (width >= 2000px) {
+        transform: scale(0.94);
+        top: 65px;
+      }
+
+      @media (1920px <= width <= 2000px) {
+        transform: scale(0.857);
+        top: 65px;
+      }
+
+      @media (1850px <= width <= 1920px) {
+        transform: scale(0.85);
+        top: 40px;
+      }
+
+      @media (1740px <= width <= 1850px) {
+        transform: scale(0.782);
+        top: 40px;
+      }
+    }
+
+    .bottomleftframe {
+      transform: scale(0.5);
+      position: absolute;
+      top: 12px;
+      left: 9.5%;
+
+      @media (width >= 2000px) {
+        top: 73px;
+        transform: scale(0.62);
+        left: 0.5%;
+      }
+
+      @media (1920px <= width <= 2000px) {
+        top: 73px;
+        transform: scale(0.62);
+        left: 4.5%;
+      }
+
+      @media (1850px <= width <= 1920px) {
+        left: 5.2%;
+        top: 45px;
+        transform: scale(0.62);
+      }
+
+      @media (1740px <= width <= 1850px) {
+        transform: scale(0.62);
+        top: 45px;
+        left: 8.5%;
+      }
+    }
+
+    .bottomrightframe {
+      transform: scale(-0.5, 0.5);
+      position: absolute;
+      top: 12px;
+      right: 9.5%;
+
+      @media (width >= 2000px) {
+        top: 73px;
+        transform: scale(-0.62, 0.62);
+        right: 0.5%;
+      }
+
+      @media (1920px <= width <= 2000px) {
+        top: 73px;
+        transform: scale(-0.62, 0.62);
+        right: 4.5%;
+      }
+
+      @media (1850px <= width <= 1920px) {
+        right: 5.2%;
+        top: 45px;
+        transform: scale(-0.62, 0.62);
+      }
+
+      @media (1740px <= width <= 1850px) {
+        transform: scale(-0.62, 0.62);
+        top: 45px;
+        right: 8.5%;
+      }
     }
   }
 }

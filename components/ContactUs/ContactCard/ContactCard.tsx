@@ -4,7 +4,14 @@ import styles from "./contactcard.module.scss";
 import profile from "../../../assets/Landing/contactUs/profilepic.png";
 import Image from "next/image";
 
-export default function ContactCard() {
+interface ContactCardProps {
+  name: string;
+  dept: string;
+  contact: string;  // Ensure contact is a string
+  mail: string;     // Ensure mail is a string
+}
+
+const ContactCard: React.FC<ContactCardProps> = ({ name, dept, contact, mail }) => {
   return (
     <div className={styles.card}>
       <div className={styles.top}>
@@ -53,7 +60,7 @@ export default function ContactCard() {
       </div>
 
       <div className={styles.center}>
-        <div className={styles.name}>Praneel Maddula</div>
+        <div className={styles.name}>{name}</div>
         <div className={styles.imgContainer}>
           {/* <Image
             src={background}
@@ -66,9 +73,9 @@ export default function ContactCard() {
             className={styles.profileImg}
           />
         </div>
-        <div className={styles.desc}>Website, App & Online Payments</div>
+        <div className={styles.desc}>{dept}</div>
         <div className={styles.buttons}>
-          <a target="_blank" rel="noopener noreferrer" href="tel:+919928057474">
+          <a target="_blank" rel="noopener noreferrer" href={contact}>
             <svg
               width="22"
               height="22"
@@ -100,7 +107,7 @@ export default function ContactCard() {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="mailto:f20231342@pilani.bits-pilani.ac.in"
+            href={mail}
           >
             <svg
               width="27"
@@ -179,3 +186,5 @@ export default function ContactCard() {
     </div>
   );
 }
+
+export default ContactCard;

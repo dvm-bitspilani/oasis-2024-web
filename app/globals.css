@@ -82,11 +82,29 @@ body {
   background-color: transparent !important;
 }
 
+.ant-select-multiple .ant-select-selection-item {
+  color: #efd48d !important;
+  padding-inline-start: 0 !important;
+  border: 1px solid !important;
+  height: 40px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    margin-inline-start: 4px !important;
+    line-height: 43px !important;
+  }
+}
+
 .ant-select-selection-item {
   color: #efd48d !important;
   padding-inline-start: 0 !important;
 }
 
+.ant-select-selection-overflow-item {
+  padding-right: 0.5rem !important;
+}
 .anticon {
   svg {
     fill: #efd48d !important;

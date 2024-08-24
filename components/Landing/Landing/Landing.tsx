@@ -166,6 +166,15 @@ export default function Landing() {
                 "<"
               )
               .to(
+                "#gradient",
+                {
+                  y: 100,
+                  opacity: 0,
+                  duration: 0.75,
+                },
+                "<"
+              )
+              .to(
                 "#register",
                 {
                   y: conditions.isXS ? 100 : 0,

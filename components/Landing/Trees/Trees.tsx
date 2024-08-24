@@ -28,6 +28,7 @@ export default function Trees() {
         viewBox="0 0 390 313"
         fill="none"
         className={styles.gradient}
+        id="gradient"
       >
         <g filter="url(#filter0_f_2271_3970)">
           <path d="M0 123L198 170.977L390 123V321H0V123Z" fill="black" />

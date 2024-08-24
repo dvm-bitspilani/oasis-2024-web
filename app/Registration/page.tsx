@@ -12,16 +12,20 @@ import axios from "axios";
 import RegistrationForm from "@/components/Registration/RegistrationForm/RegistrationForm";
 import GoogleAuthPage from "@/components/Registration/GoogleAuth/GAuth";
 import { useCookies } from "react-cookie";
+import { useRouter } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
+type userStateType = {
+  access_token: string;
+  email: string;
+  exists: boolean;
+  message: string;
+};
+
 const Registration = () => {
-  type userStateType = {
-    access_token: string;
-    email: string;
-    exists: boolean;
-    message: string;
-  };
+  const router = useRouter();
+
   const [wheelRotating, setWheelRotating] = useState(false);
   const [userState, setUserState] = useState<userStateType | null>(null);
 
@@ -67,6 +71,7 @@ const Registration = () => {
         .then((res) => {
           if (res.data.exists) {
             setCookies("user-auth", res.data);
+            router.push("/dashboard");
           } else {
             setCookies("user-auth", res.data);
             setUserState({

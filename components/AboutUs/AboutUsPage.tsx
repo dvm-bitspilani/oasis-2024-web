@@ -9,7 +9,6 @@ export default function AboutUsPage() {
           <Spades className={`${styles.spade}`} />
           <h1 className={styles.title}>ABOUT US</h1>
           <Spades className={`${styles.spade}`} />
-          
         </div>
         <div className={styles.middle}>
           <p className={styles.text}>
@@ -130,6 +129,79 @@ export default function AboutUsPage() {
           >
             <path
               d="M166.927 25C158.952 25.3333 143 21 143 1L71.4999 1C43.5774 1 27.9224 1 -7.62939e-05 1"
+              stroke="#E5C66C"
+              stroke-width="1.58383"
+            />
+          </svg>
+        </div>
+      </div>
+      <div className={styles.bottom}>
+        <div className={styles.bottomleftframe}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="26"
+            height="26"
+            viewBox="0 0 26 26"
+            fill="none"
+          >
+            <path
+              d="M1 1.01733C8.97586 0.684001 24.9276 5.01733 24.9276 25.0173"
+              stroke="#E5C66C"
+              stroke-width="1.58383"
+            />
+          </svg>
+        </div>
+        <div className={styles.bottomframe}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="396"
+            height="33"
+            viewBox="0 0 396 33"
+            fill="none"
+          >
+            <path
+              d="M380.606 20.9318C377.148 22.5619 367.124 20.9158 367.321 9.66147C368.825 0.549447 386.921 -4.8675 394.058 13.6504C396.918 21.94 390.035 33.0849 374.227 32.1357H0"
+              stroke="#E5C66C"
+              stroke-width="1.58383"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="69"
+            height="33"
+            viewBox="0 0 69 33"
+            fill="none"
+          >
+            <path
+              d="M21.7307 32.1355C5.92273 33.0846 -0.960377 21.9397 1.89957 13.6502C9.03622 -4.86775 27.1325 0.549203 28.6362 9.66122C28.8334 20.9156 18.8096 22.5617 15.3517 20.9316C12.4663 19.5714 9.20506 13.6838 16.1766 10.8848M21.7307 32.1355H47.5474C63.3554 33.0846 70.2385 21.9397 67.3786 13.6502C60.2419 -4.86775 42.1456 0.549203 40.6419 9.66122C40.4448 20.9156 50.4685 22.5617 53.9265 20.9316C56.8119 19.5714 60.0731 13.6838 53.1016 10.8848M21.7307 32.1355H21.5102"
+              stroke="#E5C66C"
+              stroke-width="1.58383"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="380"
+            height="33"
+            viewBox="0 0 380 33"
+            fill="none"
+          >
+            <path
+              d="M15.078 20.644C18.5359 22.2741 28.5597 20.628 28.3625 9.37362C26.8588 0.261605 8.76255 -5.15534 1.62589 13.3626C-1.23406 21.6521 5.64905 32.7971 21.4571 31.8479H379.611"
+              stroke="#E5C66C"
+              stroke-width="1.58383"
+            />
+          </svg>
+        </div>
+        <div className={styles.bottomrightframe}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="26"
+            height="26"
+            viewBox="0 0 26 26"
+            fill="none"
+          >
+            <path
+              d="M1 1.01733C8.97586 0.684001 24.9276 5.01733 24.9276 25.0173"
               stroke="#E5C66C"
               stroke-width="1.58383"
             />

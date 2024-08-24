@@ -31,11 +31,11 @@
     padding: 0 50px 40px 50px;
     position: relative;
 
-    @media(width <= 900px) {
+    @media (width <= 900px) {
       padding: 0 35px 40px 35px;
     }
 
-    @media(width <= 500px) {
+    @media (width <= 500px) {
       padding: 0 25px 40px 25px;
     }
 
@@ -165,7 +165,7 @@
         right: -6.5%;
       }
       @media (width <= 1200px) {
-        display: none
+        display: none;
       }
     }
     .leftframe {
@@ -187,7 +187,7 @@
         left: -6.5%;
       }
       @media (width <= 1200px) {
-        display: none
+        display: none;
       }
     }
     .toprightframe {
@@ -207,7 +207,7 @@
         right: -12%;
       }
       @media (width <= 1200px) {
-        display: none
+        display: none;
       }
     }
     .topleftframe {
@@ -227,8 +227,34 @@
         left: -12%;
       }
       @media (width <= 1200px) {
-        display: none
+        display: none;
       }
+    }
+  }
+
+  .bottom {
+    display: flex;
+    position: relative;
+
+    .bottomframe {
+      display: flex;
+      transform: scale(0.765);
+      position: relative;
+      top: 9%;
+    }
+
+    .bottomleftframe {
+      transform: scale(0.5);
+      position: absolute;
+      top: 12px;
+      left: 9.5%;
+    }
+
+    .bottomrightframe {
+      transform: scale(-0.5, 0.5);
+      position: absolute;
+      top: 12px;
+      right: 9.5%;
     }
   }
 }

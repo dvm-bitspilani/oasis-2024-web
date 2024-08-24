@@ -35,6 +35,14 @@ export default function GoogleAuthPage({ gSignIn }: Props) {
               <div className={`${styles.circle} bulb`}></div>
               <div className={`${styles.circle} bulb`}></div>
               <div className={`${styles.circle} bulb`}></div>
+              {/* <div className={`${styles.circle} bulb`}></div>
+              <div className={`${styles.circle} bulb`}></div>
+              <div className={`${styles.circle} bulb`}></div>
+              <div className={`${styles.circle} bulb`}></div>
+              <div className={`${styles.circle} bulb`}></div>
+              <div className={`${styles.circle} bulb`}></div>
+              <div className={`${styles.circle} bulb`}></div> */}
+              {/* <div className={`${styles.circle} bulb`}></div>
               <div className={`${styles.circle} bulb`}></div>
               <div className={`${styles.circle} bulb`}></div>
               <div className={`${styles.circle} bulb`}></div>
@@ -52,16 +60,7 @@ export default function GoogleAuthPage({ gSignIn }: Props) {
               <div className={`${styles.circle} bulb`}></div>
               <div className={`${styles.circle} bulb`}></div>
               <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
+              <div className={`${styles.circle} bulb`}></div><div className={`${styles.circle} bulb`}></div> */}
               <div className={`${styles.circle} bulb`}></div>
               <div className={`${styles.circle} bulb`}></div>
               <div className={`${styles.circle} bulb`}></div>
@@ -87,6 +86,14 @@ export default function GoogleAuthPage({ gSignIn }: Props) {
               <div className={`${styles.circle} bulb`}></div>
               <div className={`${styles.circle} bulb`}></div>
               <div className={`${styles.circle} bulb`}></div>
+              {/* <div className={`${styles.circle} bulb`}></div>
+              <div className={`${styles.circle} bulb`}></div>
+              <div className={`${styles.circle} bulb`}></div>
+              <div className={`${styles.circle} bulb`}></div>
+              <div className={`${styles.circle} bulb`}></div>
+              <div className={`${styles.circle} bulb`}></div>
+              <div className={`${styles.circle} bulb`}></div> */}
+              {/* <div className={`${styles.circle} bulb`}></div>
               <div className={`${styles.circle} bulb`}></div>
               <div className={`${styles.circle} bulb`}></div>
               <div className={`${styles.circle} bulb`}></div>
@@ -104,16 +111,8 @@ export default function GoogleAuthPage({ gSignIn }: Props) {
               <div className={`${styles.circle} bulb`}></div>
               <div className={`${styles.circle} bulb`}></div>
               <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
+              <div className={`${styles.circle} bulb`}></div><div className={`${styles.circle} bulb`}></div> */}
+              
             </div>
             <div className={`${styles.circlewrapper} ${styles.curve}`}>
               <div className={`${styles.circle} bulb`}></div>
@@ -143,7 +142,7 @@ export default function GoogleAuthPage({ gSignIn }: Props) {
               <div className={`${styles.circle} bulb`}></div>
             </div>
             <div className={styles.register}>
-              sign in with google
+              sign in
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="29"

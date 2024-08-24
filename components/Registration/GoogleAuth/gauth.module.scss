@@ -169,12 +169,11 @@
 
         @media (width <= 650px){
             transform: scale(0.6);
-            top: -25%;
+            top: -100px;
         }
 
-        @media (width <= 650px){
-            transform: scale(0.6);
-            top: -35%;
+        @media (width <= 420px){
+            top: -150px;
         }
     }
   }

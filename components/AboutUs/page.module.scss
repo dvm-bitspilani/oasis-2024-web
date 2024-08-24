@@ -31,6 +31,18 @@
     padding: 0 50px 40px 50px;
     position: relative;
 
+    @media(width <= 900px) {
+      padding: 0 35px 40px 35px;
+    }
+
+    @media(width <= 500px) {
+      padding: 0 25px 40px 25px;
+    }
+
+    @media (width <= 405px) {
+      padding: 0 5px 40px 5px;
+    }
+
     .middle {
       margin-top: 40px;
       @media (width <= 1000px) {

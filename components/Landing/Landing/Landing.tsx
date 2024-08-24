@@ -95,7 +95,7 @@ export default function Landing() {
             }
             timeline
               .to(slotMachine.current.rotation, {
-                y: conditions.isMobile ? 0 : -Math.PI / 9,
+                y: conditions.isMobile ? 0 : -Math.PI / 2,
                 duration: 1,
               })
               .to(
@@ -162,6 +162,15 @@ export default function Landing() {
                   opacity: 0,
                   pointerEvents: "none",
                   duration: 0.75,
+                },
+                "<"
+              )
+              .to(
+                "#register",
+                {
+                  y: conditions.isXS ? 100 : 0,
+                  opacity: conditions.isXS ? 0 : 1,
+                  duration: conditions.isXS ? 0.75 : 0,
                 },
                 "<"
               )

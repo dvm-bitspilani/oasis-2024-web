@@ -9,4 +9,7 @@
         position: absolute;
         right: 0;
     }
+    @media(width <= 430px) {
+        display: none;
+    }
 }

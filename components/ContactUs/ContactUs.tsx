@@ -52,7 +52,7 @@ export default function ContactUs() {
   //   const scrollY = window.scrollY || window.pageYOffset;
   //   // console.log(`Current scroll Y position: ${scrollY}px`);
 
-  //   if (scrollY >= 2000) {
+  //   if (scrollY >= 1600) {
   //     let container1: any
   //     container1 = containerRef1.current;
   //     if (container1 && !container1.classList.contains(styles.active)) {

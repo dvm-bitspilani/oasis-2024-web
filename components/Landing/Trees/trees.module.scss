@@ -13,3 +13,12 @@
         display: none;
     }
 }
+
+.gradient{
+    position: absolute;
+    bottom: 0;
+    display: none;
+    @media(width <= 430px) {
+        display: block;
+    }
+}

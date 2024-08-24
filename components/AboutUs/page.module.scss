@@ -11,7 +11,6 @@
   height: 100dvh;
   margin-left: 8.5%;
 
-
   @media (width <= 1000px) {
     width: 100%;
     margin-left: 0;
@@ -48,6 +47,10 @@
       letter-spacing: 2.1px;
       font-size: 22px;
       text-align: center;
+
+      @media (width <= 1650px) {
+        font-size: 21.5px;
+      }
 
       @media (width <= 1000px) {
         font-size: 16px;
@@ -139,11 +142,18 @@
       top: -18.5%;
       right: 0;
 
-      @media(width >= 1920px) {
+      @media (width >= 1920px) {
         top: -22%;
       }
-      @media(1740px <= width <= 1920px) {
+      @media (1740px <= width <= 1920px) {
         top: -20%;
+      }
+      @media (width <= 1650px) {
+        top: -18%;
+        right: -6.5%;
+      }
+      @media (width <= 1200px) {
+        display: none
       }
     }
     .leftframe {
@@ -154,40 +164,59 @@
       top: -18.5%;
       left: 0;
 
-      @media(width >= 1920px) {
+      @media (width >= 1920px) {
         top: -22%;
       }
-      @media(1740px <= width <= 1920px) {
+      @media (1740px <= width <= 1920px) {
         top: -20%;
+      }
+      @media (width <= 1650px) {
+        top: -18%;
+        left: -6.5%;
+      }
+      @media (width <= 1200px) {
+        display: none
       }
     }
     .toprightframe {
-        transform: scale(0.5);
-        position: absolute;
-        right: -5%;
-        top: 6%;
-        @media(width >= 1920px) {
-          transform: scale(0.7);
-          right: -2%;
-        }
-        @media(1740px <= width <= 1920px) {
-          transform: scale(0.62);
-          right: -3%;
-        }
+      transform: scale(0.5);
+      position: absolute;
+      right: -5%;
+      top: 6%;
+      @media (width >= 1920px) {
+        transform: scale(0.7);
+        right: -2%;
+      }
+      @media (1740px <= width <= 1920px) {
+        transform: scale(0.62);
+        right: -3%;
+      }
+      @media (width <= 1650px) {
+        right: -12%;
+      }
+      @media (width <= 1200px) {
+        display: none
+      }
     }
-    .topleftframe{
-        transform: scale(-0.5, 0.5);
-        position: absolute;
-        left: -5%;
-        top: 6%;
-        @media(width >= 1920px) {
-          transform: scale(-0.62, 0.62);
-          left: -3%;
-        }
-        @media(1740px <= width <= 1920px) {
-          transform: scale(-0.62, 0.62);
-          left: -3%;
-        }
+    .topleftframe {
+      transform: scale(-0.5, 0.5);
+      position: absolute;
+      left: -5%;
+      top: 6%;
+      @media (width >= 1920px) {
+        transform: scale(-0.62, 0.62);
+        left: -3%;
+      }
+      @media (1740px <= width <= 1920px) {
+        transform: scale(-0.62, 0.62);
+        left: -3%;
+      }
+      @media (width <= 1650px) {
+        left: -12%;
+      }
+      @media (width <= 1200px) {
+        display: none
+      }
     }
   }
 }

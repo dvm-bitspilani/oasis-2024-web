@@ -193,3 +193,17 @@
   }
 }
 
+@media(max-width: 400px) {
+
+  .card {
+    width: 41.5vw;
+
+    .center {
+
+      .desc {
+        width: 80%;
+      }
+    }
+  }
+}
+

@@ -1,5 +1,5 @@
 .pageContainer {
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -188,14 +188,21 @@
 
     .formContainer {
       @media screen and (width <= 1150px) {
+        margin-top: 200px;
+        padding-top: 40px;
         padding-left: 60px;
-        width: 90vw;
+        width: 85vw;
         margin: auto;
         max-width: 2000px;
+        height: 45dvh;
       }
       @media screen and (width <= 500px) {
-        padding-left: 0px;
+        margin-top: 200px;
+        padding-left: 30px;
+        width: 100vw;
+        height: 55dvh;
       }
+
       display: flex;
       // position: relative;
       top: 50vh;
@@ -211,6 +218,27 @@
       margin-top: 13vh;
 
       .formContent {
+        @media screen and (width <= 1150px) {
+          transform: translateY(200px);
+          height: 85dvh;
+          margin-top: 0;
+          -webkit-mask-image: -webkit-gradient(
+            linear,
+            left top,
+            left bottom,
+            color-stop(90%, rgba(0, 0, 0, 1)),
+            /* Keep 70% of the element fully opaque */
+              color-stop(100%, rgba(0, 0, 0, 0))
+              /* Fade out at the bottom 30% */
+          );
+        }
+        @media screen and (width <= 500px) {
+          padding-top: 0;
+          width: 65dvh;
+          transform: translateY(60px);
+        }
+
+        margin-top: 500px;
         width: 100%;
         // max-width: 900px;
         height: 70vh;
@@ -231,6 +259,9 @@
       }
 
       .scrollbar {
+        @media screen and (width <= 1150px) {
+          display: none;
+        }
         margin: 5% 0;
         height: 90%;
         width: 10%;

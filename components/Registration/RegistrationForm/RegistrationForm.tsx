@@ -24,8 +24,10 @@ const formSchema = z.object({
     }),
   interests: z
     .array(z.string())
-    .nonempty({ message: "*Please select an interest" }),
-  events: z.array(z.string().min(1, { message: "*Please select an event" })),
+    .nonempty({ message: "*Please select at least one interest" }),
+  events: z
+    .array(z.string())
+    .nonempty({ message: "*Please select at least one event" }),
   college: z.string().min(1, { message: "*Please select a college" }),
   yearOfStudy: z
     .enum(["1", "2", "3", "4", "5"])
@@ -301,58 +303,59 @@ const RegistrationForm: React.FC = () => {
           <Controller
             name="interests"
             control={control}
-            render={({ field: { onChange, onBlur, value, ref } }) => (
-              <Select
-                mode="multiple"
-                allowClear
-                style={{
-                  width: "100%",
-                }}
-                placeholder="Select Interests"
-                dropdownStyle={{
-                  backgroundImage:
-                    "linear-gradient(180deg, #1B112A 0%, #160B27 49.5%, #1B102A 100%)",
-                  color: "#F5E3AE",
-                }}
-                options={interestOptions}
-                value={value}
-                onChange={(newValue) => onChange(newValue)}
-                onBlur={onBlur}
-                ref={ref}
-              />
+            rules={{ required: "*Please select an interest" }}
+            render={({ field, fieldState: { error } }) => (
+              <>
+                <Select
+                  mode="multiple"
+                  {...field}
+                  notFoundContent={null}
+                  allowClear
+                  style={{
+                    width: "100%",
+                  }}
+                  placeholder="Select Interests"
+                  dropdownStyle={{
+                    backgroundImage:
+                      "linear-gradient(180deg, #1B112A 0%, #160B27 49.5%, #1B102A 100%)",
+                    color: "#F5E3AE",
+                  }}
+                  options={interestOptions}
+                />
+                <div className={styles.inputUnderline}>
+                  <svg
+                    width="904"
+                    height="33"
+                    viewBox="0 0 904 33"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M888.293 22.3075C895.265 19.5085 892.004 13.6209 889.118 12.2607C885.66 10.6306 875.637 12.2767 875.834 23.5311C877.338 32.6431 895.434 38.06 902.57 19.5421C905.43 11.2526 898.547 0.107649 882.739 1.05681H0"
+                      stroke="#F5E3AE"
+                      strokeWidth="1.58383"
+                    />
+                    <line
+                      x1="-7.14315e-08"
+                      y1="9.18292"
+                      x2="875"
+                      y2="9.18284"
+                      stroke="#F5E3AE"
+                      strokeWidth="1.63416"
+                      strokeDasharray="1.63 1.63"
+                    />
+                  </svg>
+                </div>
+                {error && (
+                  <span
+                    className={`${styles.formErrorMessage} ${styles.dropDownError}}`}
+                  >
+                    {error.message}
+                  </span>
+                )}
+              </>
             )}
           />
-          <div className={styles.inputUnderline}>
-            <svg
-              width="904"
-              height="33"
-              viewBox="0 0 904 33"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M888.293 22.3075C895.265 19.5085 892.004 13.6209 889.118 12.2607C885.66 10.6306 875.637 12.2767 875.834 23.5311C877.338 32.6431 895.434 38.06 902.57 19.5421C905.43 11.2526 898.547 0.107649 882.739 1.05681H0"
-                stroke="#F5E3AE"
-                strokeWidth="1.58383"
-              />
-              <line
-                x1="-7.14315e-08"
-                y1="9.18292"
-                x2="875"
-                y2="9.18284"
-                stroke="#F5E3AE"
-                strokeWidth="1.63416"
-                strokeDasharray="1.63 1.63"
-              />
-            </svg>
-          </div>
-          {errors.interests && (
-            <span
-              className={`${styles.formErrorMessage} ${styles.dropDownError}}`}
-            >
-              {errors.interests.message}
-            </span>
-          )}
         </div>
 
         <div className={styles.formField}>
@@ -362,54 +365,58 @@ const RegistrationForm: React.FC = () => {
           <Controller
             name="events"
             control={control}
-            render={({ field }) => (
-              <Select
-                mode="multiple"
-                {...field}
-                style={{
-                  width: "100%",
-                }}
-                placeholder="Select Event"
-                dropdownStyle={{
-                  backgroundImage:
-                    "linear-gradient(180deg, #1B112A 0%, #160B27 49.5%, #1B102A 100%)",
-                  color: "#F5E3AE",
-                }}
-                options={eventOptions}
-              />
+            render={({ field, fieldState: { error } }) => (
+              <>
+                <Select
+                  mode="multiple"
+                  {...field}
+                  notFoundContent={null}
+                  allowClear
+                  style={{
+                    width: "100%",
+                  }}
+                  placeholder="Select Event"
+                  dropdownStyle={{
+                    backgroundImage:
+                      "linear-gradient(180deg, #1B112A 0%, #160B27 49.5%, #1B102A 100%)",
+                    color: "#F5E3AE",
+                  }}
+                  options={eventOptions}
+                />
+                <div className={styles.inputUnderline}>
+                  <svg
+                    width="904"
+                    height="33"
+                    viewBox="0 0 904 33"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M888.293 22.3075C895.265 19.5085 892.004 13.6209 889.118 12.2607C885.66 10.6306 875.637 12.2767 875.834 23.5311C877.338 32.6431 895.434 38.06 902.57 19.5421C905.43 11.2526 898.547 0.107649 882.739 1.05681H0"
+                      stroke="#F5E3AE"
+                      strokeWidth="1.58383"
+                    />
+                    <line
+                      x1="-7.14315e-08"
+                      y1="9.18292"
+                      x2="875"
+                      y2="9.18284"
+                      stroke="#F5E3AE"
+                      strokeWidth="1.63416"
+                      strokeDasharray="1.63 1.63"
+                    />
+                  </svg>
+                </div>
+                {error && (
+                  <span
+                    className={`${styles.formErrorMessage} ${styles.dropDownError}}`}
+                  >
+                    {error.message}
+                  </span>
+                )}
+              </>
             )}
           />
-          <div className={styles.inputUnderline}>
-            <svg
-              width="904"
-              height="33"
-              viewBox="0 0 904 33"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M888.293 22.3075C895.265 19.5085 892.004 13.6209 889.118 12.2607C885.66 10.6306 875.637 12.2767 875.834 23.5311C877.338 32.6431 895.434 38.06 902.57 19.5421C905.43 11.2526 898.547 0.107649 882.739 1.05681H0"
-                stroke="#F5E3AE"
-                strokeWidth="1.58383"
-              />
-              <line
-                x1="-7.14315e-08"
-                y1="9.18292"
-                x2="875"
-                y2="9.18284"
-                stroke="#F5E3AE"
-                strokeWidth="1.63416"
-                strokeDasharray="1.63 1.63"
-              />
-            </svg>
-          </div>
-          {errors.events && (
-            <span
-              className={`${styles.formErrorMessage} ${styles.dropDownError}}`}
-            >
-              {errors.events.message}
-            </span>
-          )}
         </div>
 
         <div className={styles.formField}>

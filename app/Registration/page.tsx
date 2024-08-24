@@ -15,8 +15,14 @@ import GoogleAuthPage from "@/components/Registration/GoogleAuth/GAuth";
 gsap.registerPlugin(ScrollTrigger);
 
 const Registration = () => {
+  type userStateType = {
+    access_token: string;
+    email: string;
+    exists: boolean;
+    message: string;
+  };
   const [wheelRotating, setWheelRotating] = useState(false);
-  const [userState, setUserState] = useState(null);
+  const [userState, setUserState] = useState<userStateType | null>(null);
 
   const formRef = useRef<HTMLDivElement | null>(null);
   const wheelRef = useRef(null);
@@ -56,7 +62,11 @@ const Registration = () => {
           access_token: response.access_token,
         })
         .then((res) => {
-          setUserState(res.data);
+          setUserState({
+            ...res.data,
+            access_token: response.access_token,
+          });
+          // console.log(res.data);
         })
         .catch((err) => {
           console.log(err);
@@ -133,7 +143,7 @@ const Registration = () => {
     const scrollBarContainer = document.querySelector(
       `.${styles.scrollbar}`
     ) as HTMLElement;
-    console.log(formContainerElem, scrollBarContainer);
+    // console.log(formContainerElem, scrollBarContainer);
     if (!formContainerElem || !scrollBarContainer) return;
 
     // Determine clientY for mouse or touch event
@@ -265,7 +275,7 @@ const Registration = () => {
               <path
                 d="M914.928 25C906.952 25.3333 891 21 891 1L-3.05176e-05 1"
                 stroke="#F5E3AE"
-                stroke-width="1.58383"
+                strokeWidth="1.58383"
               />
             </svg>
           </div>
@@ -280,17 +290,17 @@ const Registration = () => {
               <path
                 d="M31.8475 440.652C32.7966 456.46 21.6517 463.343 13.3622 460.483C-5.15575 453.346 0.261202 435.25 9.37322 433.746C20.6276 433.549 22.2737 443.573 20.6436 447.031C19.2834 449.916 13.3958 453.177 10.5968 446.206M10.5968 409.281C13.3958 402.309 19.2834 405.571 20.6436 408.456C22.2737 411.914 20.6276 421.938 9.37322 421.74C0.261202 420.237 -5.15575 402.14 13.3622 395.004C21.6517 392.144 32.7966 399.027 31.8475 414.835L31.8475 440.872"
                 stroke="#F5E3AE"
-                stroke-width="1.58383"
+                strokeWidth="1.58383"
               />
               <path
                 d="M20.7237 479.084C22.3538 482.542 20.7077 492.566 9.4533 492.369C0.34128 490.865 -5.07567 472.769 13.4423 465.632C21.7318 462.772 32.8767 469.655 31.9276 485.463L31.9276 855.372"
                 stroke="#F5E3AE"
-                stroke-width="1.58383"
+                strokeWidth="1.58383"
               />
               <path
                 d="M21.644 376.287C23.2741 372.829 21.628 362.806 10.3736 363.003C1.26163 364.507 -4.15532 382.603 14.3626 389.74C22.6521 392.599 33.7971 385.716 32.8479 369.908L32.8479 0"
                 stroke="#F5E3AE"
-                stroke-width="1.58383"
+                strokeWidth="1.58383"
               />
             </svg>
           </div>
@@ -305,7 +315,7 @@ const Registration = () => {
               <path
                 d="M1317.93 1.37173C1309.95 1.0384 1294 5.37173 1294 25.3717L6.10352e-05 25.3717"
                 stroke="#F5E3AE"
-                stroke-width="1.58383"
+                strokeWidth="1.58383"
               />
             </svg>
           </div>
@@ -319,7 +329,7 @@ const Registration = () => {
                 onScroll={() => handleScroll()}
                 ref={formRef}
               >
-                <RegistrationForm />
+                <RegistrationForm userState={userState} />
               </div>
               <div className={styles.scrollbar} onClick={handleTrackSnap}>
                 <div className={styles.scrollbarTrack} />

@@ -4,6 +4,7 @@ import styles from "./navbar.module.scss";
 import gsap from "gsap";
 import HamBtn from "./HamBtn/Btn";
 import RegBtn from "./RegBtn/RegBtn";
+import Image from "next/image";
 
 export default function Navbar() {
   useEffect(() => {
@@ -24,6 +25,13 @@ export default function Navbar() {
   return (
     <>
       <div className={styles.header}>
+        <Image
+          className={styles.logo}
+          src="/oasismobilelogo.png"
+          alt=""
+          width={43}
+          height={45}
+        />
         <HamBtn />
         <RegBtn />
       </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -9,15 +9,14 @@ import { Select, Space } from "antd";
 import type { SelectProps } from "antd";
 
 import styles from "./registrationForm.module.scss";
+import axios from "axios";
 
 const formSchema = z.object({
   name: z.string().min(1, { message: "*Name is required" }),
   email: z.string().email({ message: "*Invalid email address" }),
-  phoneNumber: z
-    .string()
-    .regex(/^\d{10}$/, { message: "*Invalid phone number" }),
+  phone: z.string().regex(/^\d{10}$/, { message: "*Invalid phone number" }),
   gender: z
-    .enum(["MALE", "FEMALE", "OTHERS"])
+    .enum(["M", "F", "O"])
     .nullable()
     .refine((value) => value !== undefined && value !== null, {
       message: "*Please select a gender",
@@ -29,7 +28,7 @@ const formSchema = z.object({
     .array(z.string())
     .nonempty({ message: "*Please select at least one event" }),
   college: z.string().min(1, { message: "*Please select a college" }),
-  yearOfStudy: z
+  year: z
     .enum(["1", "2", "3", "4", "5"])
     .nullable()
     .refine((value) => value !== undefined && value !== null, {
@@ -41,7 +40,18 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-const RegistrationForm: React.FC = () => {
+type userStateType = {
+  access_token: string;
+  email: string;
+  exists: boolean;
+  message: string;
+};
+
+type registrationFormProps = {
+  userState: userStateType | null;
+};
+
+const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
   const {
     control,
     register,
@@ -52,11 +62,6 @@ const RegistrationForm: React.FC = () => {
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
   });
-
-  const onSubmit = (data: FormData) => {
-    console.log(data);
-    // Handle form submission
-  };
 
   interface Option {
     value: string;
@@ -73,13 +78,52 @@ const RegistrationForm: React.FC = () => {
   const eventOptions: Option[] = [
     { value: "hackathon", label: "Hackathon" },
     { value: "workshop", label: "Workshop" },
+    { value: "workshop2", label: "Workshop2" },
+    { value: "workshop3", label: "Workshop3" },
+    { value: "workshop4", label: "Workshop4" },
+    { value: "workshop5", label: "Workshop5" },
   ];
 
   const collegeOptions: Option[] = [{ value: "BITS", label: "BITS" }];
 
-  const stateOptions: Option[] = [{ value: "rajasthan", label: "Rajasthan" }];
-
-  const cityOptions: Option[] = [{ value: "pilani", label: "Pilani" }];
+  const states = [
+    "Andaman and Nicobar Islands",
+    "Andhra Pradesh",
+    "Arunachal Pradesh",
+    "Assam",
+    "Bihar",
+    "Chandigarh",
+    "Chhattisgarh",
+    "Dadra and Nagar Haveli and Daman and Diu",
+    "Delhi",
+    "Goa",
+    "Gujarat",
+    "Haryana",
+    "Himachal Pradesh",
+    "Jammu and Kashmir",
+    "Jharkhand",
+    "Karnataka",
+    "Kerala",
+    "Ladakh",
+    "Lakshadweep",
+    "Madhya Pradesh",
+    "Maharashtra",
+    "Manipur",
+    "Meghalaya",
+    "Mizoram",
+    "Nagaland",
+    "Odisha",
+    "Puducherry",
+    "Punjab",
+    "Rajasthan",
+    "Sikkim",
+    "Tamil Nadu",
+    "Telangana",
+    "Tripura",
+    "Uttar Pradesh",
+    "Uttarakhand",
+    "West Bengal",
+  ];
 
   useEffect(() => {
     const bulbs = document.querySelectorAll(".bulb");
@@ -96,7 +140,7 @@ const RegistrationForm: React.FC = () => {
     }
   }, []);
 
-  const numberValue = watch("phoneNumber");
+  const numberValue = watch("phone");
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const charCode = e.which ? e.which : e.keyCode;
@@ -109,8 +153,63 @@ const RegistrationForm: React.FC = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     if (value.length <= 10) {
-      setValue("phoneNumber", value);
+      setValue("phone", value);
     }
+  };
+
+  const [cityOptions, setCityOptions] = useState<SelectProps["options"]>([]);
+  const [citiesData, setCitiesData] = useState<
+    { state: string; cities: string[] }[]
+  >([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const citiesResponse = await import("./Cities.json");
+        setCitiesData(citiesResponse.default);
+        // console.log("Cities Data:", citiesResponse.default);
+      } catch (error) {
+        console.error("Error loading data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const stateOptions: SelectProps["options"] = states.map((state) => ({
+    value: state,
+    label: state,
+  }));
+
+  const selectedState = watch("state");
+
+  useEffect(() => {
+    if (selectedState) {
+      const stateData = citiesData.find((data) => data.state === selectedState);
+      console.log("State Data:", stateData);
+      if (stateData) {
+        setCityOptions(
+          stateData.cities.map((city) => ({ value: city, label: city }))
+        );
+      } else {
+        setCityOptions([]);
+      }
+    } else {
+      setCityOptions([]);
+    }
+  }, [selectedState, citiesData]);
+
+  const onSubmit = (data: FormData) => {
+    const reqData = { ...data, access_token: userState?.access_token };
+    console.log(reqData);
+    axios
+      .post("https://bits-oasis.org/2024/main/registrations/register/", reqData)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -193,7 +292,7 @@ const RegistrationForm: React.FC = () => {
         </div>
 
         <div className={styles.formField}>
-          <label htmlFor="phoneNumber" className={styles.formFieldHeader}>
+          <label htmlFor="phone" className={styles.formFieldHeader}>
             PHONE NUMBER
           </label>
           <input
@@ -202,11 +301,11 @@ const RegistrationForm: React.FC = () => {
             type="tel"
             onKeyPress={handleKeyPress}
             value={numberValue || ""}
-            {...register("phoneNumber", {
+            {...register("phone", {
               onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
                 const value = e.target.value;
                 if (value.length <= 10) {
-                  setValue("phoneNumber", value);
+                  setValue("phone", value);
                 } else {
                   e.target.value = value.slice(0, 10);
                 }
@@ -237,9 +336,9 @@ const RegistrationForm: React.FC = () => {
               />
             </svg>
           </div>
-          {errors.phoneNumber && (
+          {errors.phone && (
             <span className={styles.formErrorMessage}>
-              {errors.phoneNumber.message}
+              {errors.phone.message}
             </span>
           )}
         </div>
@@ -252,7 +351,7 @@ const RegistrationForm: React.FC = () => {
                 <input
                   type="radio"
                   id="male"
-                  value="MALE"
+                  value="M"
                   {...register("gender")}
                   className={styles.radioInput}
                 />
@@ -266,7 +365,7 @@ const RegistrationForm: React.FC = () => {
                 <input
                   type="radio"
                   id="female"
-                  value="FEMALE"
+                  value="F"
                   {...register("gender")}
                   className={styles.radioInput}
                 />
@@ -280,7 +379,7 @@ const RegistrationForm: React.FC = () => {
                 <input
                   type="radio"
                   id="others"
-                  value="OTHERS"
+                  value="O"
                   {...register("gender")}
                   className={styles.radioInput}
                 />
@@ -485,7 +584,7 @@ const RegistrationForm: React.FC = () => {
                     type="radio"
                     id={`year${year}`}
                     value={year.toString()}
-                    {...register("yearOfStudy")}
+                    {...register("year")}
                     className={styles.radioInput}
                   />
                   <span className={styles.radioCustom}></span>
@@ -494,9 +593,9 @@ const RegistrationForm: React.FC = () => {
               </div>
             ))}
           </div>
-          {errors.yearOfStudy && (
+          {errors.year && (
             <span className={`${styles.formErrorMessage} ${styles.radioError}`}>
-              {errors.yearOfStudy.message}
+              {errors.year.message}
             </span>
           )}
         </div>
@@ -511,6 +610,8 @@ const RegistrationForm: React.FC = () => {
             render={({ field }) => (
               <Select
                 {...field}
+                showSearch
+                notFoundContent={null}
                 style={{
                   width: "100%",
                 }}
@@ -567,6 +668,8 @@ const RegistrationForm: React.FC = () => {
             render={({ field }) => (
               <Select
                 {...field}
+                showSearch
+                notFoundContent={null}
                 style={{
                   width: "100%",
                 }}

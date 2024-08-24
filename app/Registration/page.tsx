@@ -15,8 +15,14 @@ import GoogleAuthPage from "@/components/Registration/GoogleAuth/GAuth";
 gsap.registerPlugin(ScrollTrigger);
 
 const Registration = () => {
+  type userStateType = {
+    access_token: string;
+    email: string;
+    exists: boolean;
+    message: string;
+  };
   const [wheelRotating, setWheelRotating] = useState(false);
-  const [userState, setUserState] = useState(null);
+  const [userState, setUserState] = useState<userStateType | null>(null);
 
   const formRef = useRef<HTMLDivElement | null>(null);
   const wheelRef = useRef(null);
@@ -56,7 +62,11 @@ const Registration = () => {
           access_token: response.access_token,
         })
         .then((res) => {
-          setUserState(res.data);
+          setUserState({
+            ...res.data,
+            access_token: response.access_token,
+          });
+          // console.log(res.data);
         })
         .catch((err) => {
           console.log(err);
@@ -319,7 +329,7 @@ const Registration = () => {
                 onScroll={() => handleScroll()}
                 ref={formRef}
               >
-                <RegistrationForm />
+                <RegistrationForm userState={userState} />
               </div>
               <div className={styles.scrollbar} onClick={handleTrackSnap}>
                 <div className={styles.scrollbarTrack} />

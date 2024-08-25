@@ -21,12 +21,12 @@
 
     @media (width <= 650px) {
       font-size: 11px;
-      padding: 0 10px;
+      padding: 0 20px;
     }
   }
-  // svg{
-  //   @media (width <= 650px) {
-  //     display: none;
-  //   }
-  // }
+  svg{
+    @media (width <= 1150px) {
+      display: none;
+    }
+  }
 }

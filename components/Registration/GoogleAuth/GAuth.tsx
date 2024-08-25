@@ -16,6 +16,7 @@ export default function GoogleAuthPage({ gSignIn }: Props) {
           }}
           className={styles.btnwrapper}
         >
+          <div className={styles.glow}></div>
           <div className={styles.btnborder}>
             <div className={`${styles.circlewrapper} ${styles.top}`}>
               <div className={`${styles.circle} bulb`}></div>
@@ -112,7 +113,6 @@ export default function GoogleAuthPage({ gSignIn }: Props) {
               <div className={`${styles.circle} bulb`}></div>
               <div className={`${styles.circle} bulb`}></div>
               <div className={`${styles.circle} bulb`}></div><div className={`${styles.circle} bulb`}></div> */}
-              
             </div>
             <div className={`${styles.circlewrapper} ${styles.curve}`}>
               <div className={`${styles.circle} bulb`}></div>

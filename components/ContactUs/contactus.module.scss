@@ -16,7 +16,7 @@
     gap: 1.2rem;
 
     h2 {
-      font-family: Rye, sans-serif;
+      font-family: "Rye", sans-serif;
       font-size: 52px;
       font-weight: 400;
       line-height: 43px;
@@ -35,58 +35,58 @@
     position: relative;
     width: 100vw;
     transition: all 0.9s ease-in-out;
-    // visibility: hidden;
+    visibility: hidden;
     transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 
-    // .first {
-    //     opacity: 1;
-    //     position: absolute;
-    //     // transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    // }
-
-    // .second {
-    //     opacity: 1;
-    //     position: absolute;
-    //     // transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    // }
-
-    // .third {
-    //     opacity: 1;
-    //     position: absolute;
-    //     // transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    // }
-
-    // .fourth {
-    //     opacity: 1;
-    //     position: absolute;
-    //     // transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    // }
-
-    // .fifth {
-    //     opacity: 1;
-    //     position: absolute;
-    //     // transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    // }
-
     .first {
-      transform: rotate(-18deg) translate3d(0, 60px, 0);
+        opacity: 1;
+        position: absolute;
+        // transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
     }
 
     .second {
-      transform: rotate(-12deg) translate3d(0, -5px, 0);
+        opacity: 1;
+        position: absolute;
+        // transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
     }
 
     .third {
-      transform: rotate(0) translate3d(0, -30px, 0);
+        opacity: 1;
+        position: absolute;
+        // transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
     }
 
     .fourth {
-      transform: rotate(12deg) translate3d(0, -5px, 0);
+        opacity: 1;
+        position: absolute;
+        // transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
     }
 
     .fifth {
-      transform: rotate(18deg) translate3d(0, 60px, 0);
+        opacity: 1;
+        position: absolute;
+        // transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
     }
+
+    // .first {
+    //   transform: rotate(-18deg) translate3d(0, 60px, 0);
+    // }
+
+    // .second {
+    //   transform: rotate(-12deg) translate3d(0, -5px, 0);
+    // }
+
+    // .third {
+    //   transform: rotate(0) translate3d(0, -30px, 0);
+    // }
+
+    // .fourth {
+    //   transform: rotate(12deg) translate3d(0, -5px, 0);
+    // }
+
+    // .fifth {
+    //   transform: rotate(18deg) translate3d(0, 60px, 0);
+    // }
   }
 
   .active {
@@ -97,37 +97,41 @@
     .first {
       opacity: 1;
       position: static;
-      transform: rotate(-18deg) translate3d(0px, 100px, 0);
-      transition-delay: 1.7s;
+      transform: rotate(-18deg) translate3d(0px, 70px, 0);
+      // transition-delay: 1.7s;
+      transition-delay: 0.5s;
     }
 
     .second {
       opacity: 1;
       position: static;
-      transform: rotate(-12deg) translate3d(0px, 30px, 0);
-      transition-delay: 1.4s;
+      transform: rotate(-12deg) translate3d(0px, -10px, 0);
+      // transition-delay: 1.4s;
+      transition-delay: 0.7s;
     }
 
     .third {
       opacity: 1;
       position: static;
       transform: rotate(0) translate3d(0, 0px, 0);
-      transition-delay: 1.1s;
+      // transition-delay: 1.1s;
+      transition-delay: 0.9s;
     }
 
     .fourth {
       opacity: 1;
       position: static;
-      transform: rotate(12deg) translate3d(0px, 30px, 0);
-      transition-delay: 0.8s;
+      transform: rotate(12deg) translate3d(0px, -10px, 0);
+      // transition-delay: 0.8s;
+      transition-delay: 1.1s;
     }
 
     .fifth {
       opacity: 1;
       position: static;
-      transform: rotate(18deg) translate3d(0px, 100px, 0);
-
-      transition-delay: 0.4s;
+      transform: rotate(18deg) translate3d(0px, 70px, 0);
+      // transition-delay: 0.4s;
+      transition-delay: 1.4s;
     }
   }
 
@@ -139,36 +143,36 @@
     margin-top: 2rem;
     position: relative;
     transition: all 0.9s ease-in-out;
-    // visibility: hidden;
+    visibility: hidden;
     transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
     margin-bottom: 3rem;
 
-    // .first {
-    //     position: absolute;
-    //     transform: rotate( 10deg) translate3d(0, 20px, 0);
-    // }
-
-    // .second {
-    //     position: absolute;
-    //     transform: rotate( 10deg) translate3d(0, 20px, 0);
-    // }
-
-    // .third {
-    //     position: absolute;
-    //     transform: rotate( 10deg) translate3d(0, 20px, 0);
-    // }
-
     .first {
-        transform: rotate( -12deg) translate3d(0, 0px, 0);
+        position: absolute;
+        transform: rotate( 10deg) translate3d(0, 20px, 0);
     }
 
     .second {
-        transform: rotate( 0deg) translate3d(0, -30px, 0);
+        position: absolute;
+        transform: rotate( 10deg) translate3d(0, 20px, 0);
     }
 
     .third {
-        transform: rotate( 12deg) translate3d(0, 0px, 0);
+        position: absolute;
+        transform: rotate( 10deg) translate3d(0, 20px, 0);
     }
+
+    // .first {
+    //     transform: rotate( -12deg) translate3d(0, 0px, 0);
+    // }
+
+    // .second {
+    //     transform: rotate( 0deg) translate3d(0, -30px, 0);
+    // }
+
+    // .third {
+    //     transform: rotate( 12deg) translate3d(0, 0px, 0);
+    // }
 
     // .first {
     //     opacity: 1;
@@ -200,23 +204,123 @@
     .first {
       opacity: 1;
       position: static;
-      transform: rotate(-10deg) translate3d(0, 20px, 0);
-      transition-delay: 2.6s;
+      transform: rotate(-12deg) translate3d(0, 20px, 0);
+      // transition-delay: 2.6s;
+      transition-delay: 1.7s;
     }
 
     .second {
       opacity: 1;
       position: static;
-      transform: rotate(0) translate(0);
-      transition-delay: 2.3s;
+      transform: rotate(0) translate3d(0,-10px,0);
+      // transition-delay: 2.3s;
+      transition-delay: 1.9s;
     }
 
     .third {
       opacity: 1;
       position: static;
-      transform: rotate(10deg) translate3d(0, 20px, 0);
-      transition-delay: 2s;
+      transform: rotate(12deg) translate3d(0, 20px, 0);
+      // transition-delay: 2s;
+      transition-delay: 2.1s;
     }
+  }
+}
+
+@media(max-width: 2100px)  and (min-width:1400px){
+
+  .contactPage {
+
+    .heading {
+      margin-top: 5rem;
+       
+      h2 {
+        font-size: 72px;
+      }
+    }
+
+    .cardContainer {
+      margin-top: 5rem;
+
+      .first {
+        transform: rotate(-18deg) translate3d(0, 90px, 0);
+      }
+
+      .third {
+        transform: rotate(0deg) translate3d(0, -45px, 0);
+      }
+
+      .fifth {
+        transform: rotate( 18deg) translate3d(0, 90px, 0);
+      }
+    }
+  }
+}
+
+@media(max-width: 1900px)  and (min-width:1400px){
+
+  .contactPage {
+
+    .heading {
+      margin-top: 4rem;
+       
+      h2 {
+        font-size: 65px;
+      }
+    }
+
+    .cardContainer {
+      margin-top: 5rem;
+
+      .first {
+        transform: rotate(-18deg) translate3d(0, 77px, 0);
+      }
+
+      .fifth {
+        transform: rotate( 18deg) translate3d(0, 77px, 0);
+      }
+    }
+
+    .cardContainer1 {
+      margin-top: 1rem;
+    }
+  }
+}
+
+@media(max-width: 1700px) and (min-width:1400px) {
+
+  .contactPage {
+
+    .cardContainer {
+
+      .third {
+        transform: rotate(0) translate3d(0, -40px, 0);
+      }
+
+    }
+  }
+}
+
+@media(max-width: 1400px){
+
+  .contactPage {
+
+    .cardContainer {
+      margin-top: 7vh;
+
+      .first {
+        transform: rotate(-18deg) translate3d(0, 64px, 0);
+      }
+
+      .third {
+        transform: rotate(0) translate3d(0, -30px, 0);
+      }
+
+      .fifth {
+        transform: rotate( 18deg) translate3d(0, 64px, 0);
+      }
+    }
+
   }
 }
 
@@ -224,11 +328,11 @@
   .contactPage {
     .cardContainer {
       .first {
-        transform: rotate(-18deg) translate3d(0, 90px, 0);
+        transform: rotate(-18deg) translate3d(0, 60px, 0);
       }
 
       .fifth {
-        transform: rotate(18deg) translate3d(0, 90px, 0);
+        transform: rotate(18deg) translate3d(0, 60px, 0);
       }
     }
 

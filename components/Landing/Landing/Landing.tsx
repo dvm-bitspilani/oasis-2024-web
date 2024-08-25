@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "./landing.module.scss";
+// import styles from "./landing.module.scss";
 
 import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
@@ -9,6 +9,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import dynamic from "next/dynamic";
 
 import LandingScene from "../Scene/Scene";
+import styles from "../../ContactUs/contactus.module.scss"
 // const LandingScene = dynamic(() => import('../Scene/Scene'), { ssr: false })
 
 gsap.registerPlugin(ScrollTrigger);
@@ -44,10 +45,9 @@ export default function Landing() {
             trigger: 'img[alt="right tree"]',
             markers: false,
             start: () =>
-              `top ${
-                document
-                  .querySelector('img[alt="right tree"]')
-                  ?.getBoundingClientRect().top
+              `top ${document
+                .querySelector('img[alt="right tree"]')
+                ?.getBoundingClientRect().top
               }`,
             end: "+=200%",
             scrub: 1,
@@ -59,10 +59,9 @@ export default function Landing() {
             trigger: 'img[alt="right tree"]',
             markers: false,
             start: () =>
-              `top ${
-                document
-                  .querySelector('img[alt="right tree"]')
-                  ?.getBoundingClientRect().top
+              `top ${document
+                .querySelector('img[alt="right tree"]')
+                ?.getBoundingClientRect().top
               }`,
             end: "+=200%",
             scrub: 1,
@@ -86,7 +85,7 @@ export default function Landing() {
             isXS: "(max-width: 585px)",
           },
           ({ conditions }: any) => {
-            console.log(conditions);
+            // console.log(conditions);
             if (conditions.isXS !== isXS) {
               setIsXS(conditions.isXS);
             }
@@ -229,6 +228,31 @@ export default function Landing() {
                 {
                   y: 75,
                   duration: 1,
+                },
+                "<"
+              )
+              .to(
+                {},
+                {
+                  onComplete: () => {
+                    const contactCard = document.querySelector('#contactCard');
+                    if (contactCard) {
+                      contactCard.classList.add(styles.active);
+                      // console.log(document.querySelector('#contactCard'));
+                    }
+                  },
+                },
+                "<"
+              )
+              .to(
+                {},
+                {
+                  onComplete: () => {
+                    const contactCard1 = document.querySelector('#contactCard1');
+                    if (contactCard1) {
+                      contactCard1.classList.add(styles.active1);
+                    }
+                  },
                 },
                 "<"
               );

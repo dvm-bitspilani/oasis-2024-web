@@ -181,7 +181,7 @@
       background-color: transparent;
       outline: none;
       font-family: Vidaloka;
-      font-size: 28px;
+      font-size: 24px;
       font-style: normal;
       font-weight: 400;
       line-height: 43px; /* 153.571% */
@@ -236,8 +236,6 @@
   bottom: 46px;
   transform: translateY(50%);
   right: 270px;
-  // right: 200px;
-  // bottom: 200px;
   border-radius: 36px;
   background: conic-gradient(
     from 176deg at 50% 50%,
@@ -246,6 +244,18 @@
   );
   box-shadow: 4px 4px 8px 0px rgba(3, 1, 4, 0.28) inset;
   padding: 6px;
+  .glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 40%;
+    background: #e6a02f;
+    filter: blur(32px);
+    z-index: 0;
+    pointer-events: none;
+  }
   .btnborder {
     border-radius: 30px;
     background: linear-gradient(180deg, #160f21 0%, #1b1128 100%);

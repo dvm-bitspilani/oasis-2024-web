@@ -52,6 +52,9 @@
       @media (width <= 650px) {
         gap: 15px;
       }
+      @media (width <= 650px) {
+        top: 10px;
+      }
     }
     @media (width <= 1150px){
       position: relative;

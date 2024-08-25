@@ -71,7 +71,7 @@ const Registration = () => {
         .then((res) => {
           if (res.data.exists) {
             setCookies("user-auth", res.data);
-            router.push("/dashboard");
+            router.push("/");
           } else {
             setCookies("user-auth", res.data);
             setUserState({
@@ -386,8 +386,8 @@ const Registration = () => {
           )}
         </div>
       </div>
-      <div className={styles.rouletteWheel} ref={wheelRef}>
-        <img src="/Registration/RouletteWheel.png" alt="" />
+      <div className={styles.rouletteWheel}>
+        <img src="/Registration/RouletteWheel.png" alt="" ref={wheelRef} />
       </div>
     </div>
   );

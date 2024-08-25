@@ -21,6 +21,12 @@
 
     @media (width <= 650px) {
       font-size: 11px;
+      padding: 0 10px;
     }
   }
+  // svg{
+  //   @media (width <= 650px) {
+  //     display: none;
+  //   }
+  // }
 }

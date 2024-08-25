@@ -10,6 +10,7 @@ import type { SelectProps } from "antd";
 
 import styles from "./registrationForm.module.scss";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   name: z.string().min(1, { message: "*Name is required" }),
@@ -72,6 +73,7 @@ interface OptionType {
 }
 
 const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
+  const router = useRouter();
   const {
     control,
     register,
@@ -256,8 +258,8 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
       .then((res) => {
         localStorage.setItem("tokens", JSON.stringify(res.data.tokens));
         alert("Registration Successful");
+        router.push("/dashboard");
         // console.log(res);
-        window.location.href = "/";
       })
       .catch((err) => {
         console.log(err);

@@ -389,16 +389,23 @@
   }
 }
 
-// @media(max-width: 400px) {
+@media(max-width: 400px) {
 
-//     .contactPage {
+    .contactPage {
 
-//         .cardContainer {
-//             .first, .second, .third, .fourth {
-//                 height: 225px;
-//                 width: 154px;
-//                 overflow: hidden;
-//             }
-//         }
-//     }
-// }
+      .heading {
+        margin-top: 1rem;
+      }
+
+      .cardContainer {
+        margin-top: 1.5rem;
+        gap: 1rem;
+      }
+
+      .cardContainer1 {
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+    
+    }
+}

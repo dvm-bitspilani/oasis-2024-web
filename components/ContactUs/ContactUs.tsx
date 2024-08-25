@@ -3,9 +3,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./contactus.module.scss";
 import ContactCard from "./ContactCard/ContactCard";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+// import gsap from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+// gsap.registerPlugin(ScrollTrigger);
 
 export default function ContactUs() {
   // const containerRef = useRef(null);
@@ -51,7 +51,7 @@ export default function ContactUs() {
   //   const scrollY = window.scrollY || window.pageYOffset;
   //   // console.log(`Current scroll Y position: ${scrollY}px`);
 
-  //   if (scrollY >= 1600) {
+  //   if (scrollY >= 2000) {
   //     let container1: any
   //     container1 = containerRef1.current;
   //     if (container1 && !container1.classList.contains(styles.active)) {
@@ -74,6 +74,48 @@ export default function ContactUs() {
   //   };
   // }, []);
 
+  // const containerRef1 = useRef(null);
+  // const containerRef2 = useRef(null);
+
+  // useEffect(() => {
+  //   const container1 = containerRef1.current;
+  //   const container2 = containerRef2.current;
+  //   const container = containerRef.current;
+
+  //   // Delay the animation setup by 11 seconds
+  //   const timeoutId = setTimeout(() => {
+  //     // Create a timeline for the animations
+  //     const tl = gsap.timeline({
+  //       scrollTrigger: {
+  //         trigger: container, // Use container1 as the trigger element
+  //         start: 'top center+=400', // Adjust start point as needed
+  //         end: 'bottom center', // Adjust end point as needed
+  //         scrub: true, // Smooth scrubbing
+  //         markers: true, // Remove this line in production
+  //       },
+  //     });
+
+  //     // Add animations to the timeline
+  //     tl.to(container1, {
+  //       duration: 1,
+  //       onStart: () => container1.classList.add(styles.active), // Add the active class
+  //     });
+
+  //     tl.to(container2, {
+  //       duration: 1,
+  //       onStart: () => container2.classList.add(styles.active1), // Add the active1 class
+  //     }, '-=0.5'); // Overlap the second animation slightly
+  //   }, 1000); // 11000 milliseconds = 11 seconds
+
+  //   return () => {
+  //     // Clear the timeout if the component unmounts before the delay completes
+  //     clearTimeout(timeoutId);
+
+  //     // Clean up the ScrollTrigger instance
+  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  //   };
+  // }, []);
+  
   return (
     <>
       <div className={styles.contactPage} id="contactUs">
@@ -139,8 +181,8 @@ export default function ContactUs() {
           </svg>
         </div>
 
-        <div className={styles.cardContainer}>
-          
+        <div className={styles.cardContainer} id="contactCard">
+
           <div className={styles.first}>
             <ContactCard
               name="Prateek Kashyap"
@@ -188,8 +230,8 @@ export default function ContactUs() {
 
         </div>
 
-        
-        <div className={styles.cardContainer1}>
+
+        <div className={styles.cardContainer1} id="contactCard1">
 
           <div className={styles.fourth}>
             <ContactCard
@@ -203,7 +245,7 @@ export default function ContactUs() {
           <div className={styles.first}>
             <ContactCard
               name="Shreyansh Vanjani"
-              dept="Online Collaborations and Publicity"
+              dept="Publicity and Collaborations"
               contact="tel:+918000695988"
               mail="mailto:collaborations@bits-oasis.org"
             />
@@ -232,3 +274,5 @@ export default function ContactUs() {
     </>
   );
 }
+
+

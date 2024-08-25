@@ -328,8 +328,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    transform: translateX(calc(-50% + 150px)) translateY(calc(50% - 200px))
-      rotate(-38deg);
+    transform: translateX(calc(-50% + 150px)) translateY(calc(50% - 200px));
     z-index: 2;
     img {
       width: 70vw;

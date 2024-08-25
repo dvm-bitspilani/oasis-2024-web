@@ -85,7 +85,7 @@ export default function Landing() {
             isXS: "(max-width: 585px)",
           },
           ({ conditions }: any) => {
-            console.log(conditions);
+            // console.log(conditions);
             if (conditions.isXS !== isXS) {
               setIsXS(conditions.isXS);
             }

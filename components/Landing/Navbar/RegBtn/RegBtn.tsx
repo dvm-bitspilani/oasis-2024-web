@@ -6,6 +6,7 @@ export default function RegBtn() {
   return (
     <Link href="/Registration" className={styles.link}>
       <div className={styles.btnwrapper}  id="register">
+        <div className={styles.glow}></div>
         <div className={styles.btnborder}>
           <div className={`${styles.circlewrapper} ${styles.top}`}>
             <div className={`${styles.circle} bulb`}></div>

@@ -872,6 +872,7 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
         className={styles.btnwrapper}
         type="submit"
       >
+        <div className={styles.glow}></div>
         <div className={styles.btnborder}>
           <div className={`${styles.circlewrapper} ${styles.top}`}>
             <div className={`${styles.circle} bulb`}></div>

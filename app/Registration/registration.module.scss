@@ -235,7 +235,7 @@
         @media screen and (width <= 500px) {
           padding-top: 0;
           width: 65dvh;
-          transform: translateY(60px);
+          transform: translateY(110px);
         }
 
         margin-top: 500px;
@@ -328,8 +328,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    transform: translateX(calc(-50% + 150px)) translateY(calc(50% - 200px))
-      rotate(-38deg);
+    transform: translateX(calc(-50% + 150px)) translateY(calc(50% - 200px));
     z-index: 2;
     img {
       width: 70vw;
@@ -339,8 +338,5 @@
         height: 65vw;
       }
     }
-  }
-  @media (width <= 650px) {
-    overflow-y: scroll;
   }
 }

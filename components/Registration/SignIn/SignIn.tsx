@@ -65,11 +65,10 @@ const Signin = () => {
         </svg>
       </div>
       <div className={styles.contentcontainer}>
-        <Instruction text="Lorem ipsum dolor sit amet consectetur. Venenatis quis sed scelerisque sed tincidunt quis massa gravida gravida." />
-        <Instruction text="Lorem ipsum dolor sit amet consectetur. Venenatis quis sed scelerisque sed tincidunt quis massa gravida gravida." />
-        <Instruction text="Lorem ipsum dolor sit amet consectetur. Venenatis quis sed scelerisque sed tincidunt quis massa gravida gravida." />
-        <Instruction text="Lorem ipsum dolor sit amet consectetur. Venenatis quis sed scelerisque sed tincidunt quis massa gravida gravida." />
-        <Instruction text="Lorem ipsum dolor sit amet consectetur. Venenatis quis sed scelerisque sed tincidunt quis massa gravida gravida." />
+        <Instruction text="Sign in with your Google account to securely access the registration page and begin the setup process." />
+        <Instruction text="Provide your college information along with other required details to complete your registration." />
+        <Instruction text="After completing the registration process, you will receive access to log in to the platform once everything is set up." />
+        <Instruction text="Note: Login access will be activated within a few days. We will send you an email notification with details once your account is ready." />
       </div>
     </div>
   );

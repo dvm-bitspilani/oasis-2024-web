@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./landing.module.scss";
 
 import Grunge from "@/components/Landing/Backdrop/Grunge";

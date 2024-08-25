@@ -220,15 +220,103 @@
   }
 }
 
-@media (max-width: 1200px) {
+@media(max-width: 2100px)  and (min-width:1400px){
+
   .contactPage {
+
+    .heading {
+      margin-top: 5rem;
+       
+      h2 {
+        font-size: 72px;
+      }
+    }
+
     .cardContainer {
+      margin-top: 5rem;
+
       .first {
         transform: rotate(-18deg) translate3d(0, 90px, 0);
       }
 
       .fifth {
-        transform: rotate(18deg) translate3d(0, 90px, 0);
+        transform: rotate( 18deg) translate3d(0, 90px, 0);
+      }
+    }
+  }
+}
+
+@media(max-width: 1900px)  and (min-width:1400px){
+
+  .contactPage {
+
+    .heading {
+      margin-top: 4rem;
+       
+      h2 {
+        font-size: 65px;
+      }
+    }
+
+    .cardContainer {
+      margin-top: 5rem;
+
+      .first {
+        transform: rotate(-18deg) translate3d(0, 77px, 0);
+      }
+
+      .fifth {
+        transform: rotate( 18deg) translate3d(0, 77px, 0);
+      }
+    }
+
+    .cardContainer1 {
+      margin-top: 1rem;
+    }
+  }
+}
+
+@media(max-width: 1700px) and (min-width:1400px) {
+
+  .contactPage {
+
+    .cardContainer {
+
+      .third {
+        transform: rotate(0) translate3d(0, -40px, 0);
+      }
+
+    }
+  }
+}
+
+@media(max-width: 1400px){
+
+  .contactPage {
+
+    .cardContainer {
+
+      .first {
+        transform: rotate(-18deg) translate3d(0, 64px, 0);
+      }
+
+      .fifth {
+        transform: rotate( 18deg) translate3d(0, 64px, 0);
+      }
+    }
+
+  }
+}
+
+@media (max-width: 1200px) {
+  .contactPage {
+    .cardContainer {
+      .first {
+        transform: rotate(-18deg) translate3d(0, 60px, 0);
+      }
+
+      .fifth {
+        transform: rotate(18deg) translate3d(0, 60px, 0);
       }
     }
 

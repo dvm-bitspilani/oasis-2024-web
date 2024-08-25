@@ -119,6 +119,15 @@ body {
   line-height: 43px;
   letter-spacing: 0.06em;
 }
+.ant-select-item-option-active {
+  background-image: linear-gradient(
+    180deg,
+    #deb372 0%,
+    #d5a261 48.5%,
+    #ecce88 100%
+  ) !important;
+  color: #1b112a !important;
+}
 
 @media screen and (max-width: 768px) {
   .ant-select-item-option-content {

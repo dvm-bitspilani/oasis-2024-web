@@ -26,7 +26,7 @@
     gap: 5px;
 
     .name {
-      font-family: Playfair;
+      font-family: "Playfair Display";
       font-size: 20px;
       font-weight: 500;
       letter-spacing: -0.04em;
@@ -59,7 +59,7 @@
     }
 
     .desc {
-      font-family: Source Serif Pro;
+      font-family: "Source Serif 4";
       font-size: 14px;
       font-weight: 400;
       text-align: center;
@@ -86,6 +86,78 @@
     position: absolute;
     right: 12px;
     bottom: 8px;
+  }
+}
+
+@media(max-width:2100px) and (min-width:1500px) {
+
+  .card {
+    height: auto;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e3c041;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    border-radius: 5px;
+    position: relative;
+    transform: scale(0.9);
+  
+    .center {
+      margin-top: 45px;
+      margin-bottom: 25px;
+      gap: 10px;
+  
+      .name {
+        font-size: 22px;
+      }
+  
+      .imgContainer {
+  
+        .profileImg {
+          width: 175px;
+          height: 155px;
+        }
+      }
+  
+      .desc {
+        font-size: 17px;
+        line-height: 23px;
+      }
+  
+      .buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        padding-top: 7px;
+
+        svg {
+          height: 28px;
+          width: 32px;
+        }
+      }
+    }
+  
+    .top {
+      position: absolute;
+      top: 8px;
+      left: 12px;
+
+      svg {
+        width: 25px;
+        height: 40px;
+      }
+    }
+  
+    .bottom {
+      position: absolute;
+      right: 12px;
+      bottom: 8px;
+
+      svg {
+        width: 25px;
+        height: 40px;
+      }
+    }
   }
 }
 

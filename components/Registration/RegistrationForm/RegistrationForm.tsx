@@ -258,7 +258,7 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
       .then((res) => {
         localStorage.setItem("tokens", JSON.stringify(res.data.tokens));
         alert("Registration Successful");
-        router.push("/dashboard");
+        router.push("/");
         // console.log(res);
       })
       .catch((err) => {

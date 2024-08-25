@@ -71,7 +71,7 @@ const Registration = () => {
         .then((res) => {
           if (res.data.exists) {
             setCookies("user-auth", res.data);
-            router.push("/dashboard");
+            router.push("/");
           } else {
             setCookies("user-auth", res.data);
             setUserState({

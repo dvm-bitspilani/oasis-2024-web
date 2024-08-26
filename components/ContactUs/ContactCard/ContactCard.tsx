@@ -1,17 +1,19 @@
 import React from "react";
 import styles from "./contactcard.module.scss";
 // import background from "../../../assets/Landing/contactUs/contactbg.svg";
-import profile from "../../../assets/Landing/contactUs/profilepic.png";
+// import profile from "../../../assets/Landing/contactUs/profilepic.png";
 import Image from "next/image";
+import { StaticImageData } from 'next/image';
 
 interface ContactCardProps {
   name: string;
   dept: string;
-  contact: string;  // Ensure contact is a string
-  mail: string;     // Ensure mail is a string
+  contact: string;
+  mail: string;
+  img: StaticImageData;
 }
 
-const ContactCard: React.FC<ContactCardProps> = ({ name, dept, contact, mail }) => {
+const ContactCard: React.FC<ContactCardProps> = ({ name, dept, contact, mail, img }) => {
   return (
     <div className={styles.card}>
       <div className={styles.top}>
@@ -68,8 +70,8 @@ const ContactCard: React.FC<ContactCardProps> = ({ name, dept, contact, mail }) 
             className={styles.backgroundImg}
           /> */}
           <Image
-            src={profile}
-            alt="profile pic"
+            src={img}
+            alt="profile-pic"
             className={styles.profileImg}
           />
         </div>

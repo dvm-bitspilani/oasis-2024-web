@@ -11,6 +11,7 @@ import type { SelectProps } from "antd";
 import styles from "./registrationForm.module.scss";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { useCookies } from "react-cookie";
 
 const formSchema = z.object({
   name: z.string().min(1, { message: "*Name is required" }),
@@ -74,6 +75,7 @@ interface OptionType {
 
 const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
   const router = useRouter();
+  const [cookies, setCookies, removeCookie] = useCookies(["Authorization"]);
   const {
     control,
     register,
@@ -256,9 +258,10 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
     axios
       .post("https://bits-oasis.org/2024/main/registrations/register/", reqData)
       .then((res) => {
-        localStorage.setItem("tokens", JSON.stringify(res.data.tokens));
+        setCookies("Authorization", res.data.tokens.access);
         alert("Registration Successful");
         router.push("/");
+        // localStorage.setItem("tokens", JSON.stringify(res.data.tokens));
         // console.log(res);
       })
       .catch((err) => {

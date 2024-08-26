@@ -13,15 +13,11 @@ export default function PreloaderProMax() {
   }, []);
 
   return (
-    <div
+    <Preloader
       style={{
-        width: "100vw",
-        height: "100dvh",
         zIndex: 99999999999,
-        display: isLoaded ? "none" : "block",
+        display: isLoaded ? "none" : "flex",
       }}
-    >
-      <Preloader />
-    </div>
+    />
   );
 }

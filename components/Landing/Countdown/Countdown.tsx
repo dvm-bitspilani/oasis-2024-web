@@ -17,12 +17,18 @@ export default function Countdown({ dateString, ...args }: Props) {
     seconds: 0,
   });
 
+  const [isLoaded, setIsLoaded] = useState(false);
+
   function padZero(number: number) {
     return number < 10 ? "0" + number : "" + number;
   }
 
   useEffect(() => {
     setCurr(new Date().getTime());
+
+    setTimeout(() => {
+      setIsLoaded(true);
+    }, 3000);
   }, []);
 
   useEffect(() => {
@@ -54,7 +60,14 @@ export default function Countdown({ dateString, ...args }: Props) {
   }, [curr, oasis]);
 
   return (
-    <div {...args} className={styles.countdown} id="countdownTimer">
+    <div
+      style={{
+        opacity: isLoaded ? 1 : 0,
+      }}
+      {...args}
+      className={styles.countdown}
+      id="countdownTimer"
+    >
       <div className={styles.timeSegment}>
         <p>{padZero(timeLeft.days)}</p>
         <p>Days</p>

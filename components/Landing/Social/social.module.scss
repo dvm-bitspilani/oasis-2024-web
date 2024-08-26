@@ -5,6 +5,10 @@
   position: absolute;
   right: 60px;
   bottom: 45px;
+  pointer-events: auto;
+  svg{
+    cursor: pointer;
+  }
 
   @media (width <=1262px) {
     transform: scale(0.8);

@@ -29,7 +29,10 @@ const Registration = () => {
   const [wheelRotating, setWheelRotating] = useState(false);
   const [userState, setUserState] = useState<userStateType | null>(null);
 
-  const [cookies, setCookies, removeCookie] = useCookies(["user-auth"]);
+  const [cookies, setCookies, removeCookie] = useCookies([
+    "user-auth",
+    "Authorization",
+  ]);
 
   const formRef = useRef<HTMLDivElement | null>(null);
   const wheelRef = useRef(null);
@@ -71,6 +74,7 @@ const Registration = () => {
         .then((res) => {
           if (res.data.exists) {
             setCookies("user-auth", res.data);
+            setCookies("Authorization", res.data.tokens.access);
             router.push("https://bits-oasis.org/2024/main/registrations");
             // router.push("/");
           } else {

@@ -1,11 +1,28 @@
+"use client";
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
 import styles from "./gauth.module.scss";
 import Signin from "../SignIn/SignIn";
+import Image from "next/image";
 
 interface Props {
   gSignIn: () => void;
 }
 
 export default function GoogleAuthPage({ gSignIn }: Props) {
+  const wheelRef = useRef(null);
+  useEffect(() => {
+    const initialRotation = gsap.to(wheelRef.current, {
+      rotate: 360,
+      duration: 4,
+      ease: "back.out(1)",
+    });
+
+    return () => {
+      initialRotation.kill();
+    };
+  }, []);
+
   return (
     <>
       <div className={styles.instructionsContainer}>
@@ -108,6 +125,14 @@ export default function GoogleAuthPage({ gSignIn }: Props) {
             </div>
           </div>
         </div>
+        <Image
+          className={styles.rouletteWheel}
+          src="/Registration/RouletteWheel.png"
+          alt=""
+          width={460}
+          height={440}
+          ref={wheelRef}
+        />
       </div>
     </>
   );

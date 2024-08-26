@@ -71,7 +71,8 @@ const Registration = () => {
         .then((res) => {
           if (res.data.exists) {
             setCookies("user-auth", res.data);
-            router.push("/");
+            router.push("https://bits-oasis.org/2024/main/registrations");
+            // router.push("/");
           } else {
             setCookies("user-auth", res.data);
             setUserState({

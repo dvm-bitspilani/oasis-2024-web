@@ -260,7 +260,7 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
       .then((res) => {
         setCookies("Authorization", res.data.tokens.access);
         alert("Registration Successful");
-        router.push("/");
+        router.push("https://bits-oasis.org/2024/main/registrations");
         // localStorage.setItem("tokens", JSON.stringify(res.data.tokens));
         // console.log(res);
       })
@@ -824,6 +824,7 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
                 {...field}
                 showSearch
                 notFoundContent={null}
+                disabled={!selectedState}
                 style={{
                   width: "100%",
                 }}

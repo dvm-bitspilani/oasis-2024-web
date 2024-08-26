@@ -73,6 +73,7 @@ const ContactCard: React.FC<ContactCardProps> = ({ name, dept, contact, mail, im
             src={img}
             alt="profile-pic"
             className={styles.profileImg}
+            draggable={false}
           />
         </div>
         <div className={styles.desc}>{dept}</div>

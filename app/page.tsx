@@ -8,11 +8,13 @@ import LandingOverlay from "@/components/Landing/LandingOverlay/LandingOverlay";
 import Countdown from "@/components/Landing/Countdown/Countdown";
 import Grid from "@/components/Landing/Grid/Grid";
 import OasisLogo from "@/components/Landing/Navbar/Logo/Logo";
+import PreloaderProMax from "@/components/PreloaderProMax/PreloaderProMax";
 
 export default function Home() {
   return (
     <main className={styles.scrollWrapper} id="scrollWrapper">
       <main className={styles.page}>
+        <PreloaderProMax />
         <OasisLogo />
         <Landing />
         <LandingOverlay />

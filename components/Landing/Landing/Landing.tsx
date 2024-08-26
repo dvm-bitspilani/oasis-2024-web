@@ -2,14 +2,15 @@
 
 // import styles from "./landing.module.scss";
 
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import dynamic from "next/dynamic";
 
 import LandingScene from "../Scene/Scene";
-import styles from "../../ContactUs/contactus.module.scss"
+import styles from "../../ContactUs/contactus.module.scss";
+import Preloader from "@/components/Preloader/Preloader";
 // const LandingScene = dynamic(() => import('../Scene/Scene'), { ssr: false })
 
 gsap.registerPlugin(ScrollTrigger);
@@ -45,9 +46,10 @@ export default function Landing() {
             trigger: 'img[alt="right tree"]',
             markers: false,
             start: () =>
-              `top ${document
-                .querySelector('img[alt="right tree"]')
-                ?.getBoundingClientRect().top
+              `top ${
+                document
+                  .querySelector('img[alt="right tree"]')
+                  ?.getBoundingClientRect().top
               }`,
             end: "+=200%",
             scrub: 1,
@@ -59,9 +61,10 @@ export default function Landing() {
             trigger: 'img[alt="right tree"]',
             markers: false,
             start: () =>
-              `top ${document
-                .querySelector('img[alt="right tree"]')
-                ?.getBoundingClientRect().top
+              `top ${
+                document
+                  .querySelector('img[alt="right tree"]')
+                  ?.getBoundingClientRect().top
               }`,
             end: "+=200%",
             scrub: 1,
@@ -235,7 +238,7 @@ export default function Landing() {
                 {},
                 {
                   onComplete: () => {
-                    const contactCard = document.querySelector('#contactCard');
+                    const contactCard = document.querySelector("#contactCard");
                     if (contactCard) {
                       contactCard.classList.add(styles.active);
                       // console.log(document.querySelector('#contactCard'));
@@ -248,7 +251,8 @@ export default function Landing() {
                 {},
                 {
                   onComplete: () => {
-                    const contactCard1 = document.querySelector('#contactCard1');
+                    const contactCard1 =
+                      document.querySelector("#contactCard1");
                     if (contactCard1) {
                       contactCard1.classList.add(styles.active1);
                     }
@@ -264,13 +268,13 @@ export default function Landing() {
   );
 
   return (
-    <>
+    <Suspense fallback={<Preloader />}>
       <LandingScene
         ref={slotMachine}
         setIs3dLoaded={setIs3dLoaded}
         isXS={isXS}
         isMobile={isMobile}
       />
-    </>
+    </Suspense>
   );
 }

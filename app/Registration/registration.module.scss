@@ -235,6 +235,10 @@
         @media screen and (width <= 500px) {
           padding-top: 0;
           width: 65dvh;
+          transform: translateY(60px);
+        }
+
+        @media screen and (height >= 700px) {
           transform: translateY(110px);
         }
 

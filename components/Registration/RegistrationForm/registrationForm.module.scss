@@ -1,5 +1,4 @@
 .registrationForm {
-  padding-top: 40px;
   position: relative;
   margin-right: 95.8px;
   z-index: 1;
@@ -9,6 +8,14 @@
     flex-direction: column;
     position: relative;
 
+    &:first-of-type {
+      .formFieldHeader {
+        padding-top: 0;
+      }
+      .formErrorMessage {
+        top: 92px;
+      }
+    }
     .inputUnderline {
       width: 100%;
       overflow: hidden;

@@ -1,5 +1,6 @@
 import styles from "./gauth.module.scss";
 import Signin from "../SignIn/SignIn";
+import Image from "next/image";
 
 interface Props {
   gSignIn: () => void;
@@ -108,6 +109,13 @@ export default function GoogleAuthPage({ gSignIn }: Props) {
             </div>
           </div>
         </div>
+        <Image
+          className={styles.rouletteWheel}
+          src="/Registration/RouletteWheel.png"
+          alt=""
+          width={460}
+          height={440}
+        />
       </div>
     </>
   );

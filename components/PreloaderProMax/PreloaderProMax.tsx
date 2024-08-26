@@ -3,21 +3,46 @@
 import { useEffect, useState } from "react";
 import Preloader from "../Preloader/Preloader";
 
-export default function PreloaderProMax() {
+function waitForPreload(querySelector: string) {
+  return new Promise((resolve, reject) => {
+    const preloader = document.querySelector(querySelector);
+    if (preloader) {
+      return resolve("loaded");
+    }
+
+    const observer = new MutationObserver(() => {
+      if (preloader) {
+        observer.disconnect();
+        return resolve("loaded");
+      }
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+  });
+}
+
+export default function PrePreloader() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoaded(true);
-    }, 3000);
+    waitForPreload("#preloader").then(() => {
+      setTimeout(() => {
+        setIsLoaded(true);
+      }, 100);
+      console.log("#preloader");
+    });
   }, []);
 
   return (
-    <Preloader
+    <div
       style={{
-        zIndex: 99999999999,
         display: isLoaded ? "none" : "flex",
       }}
-    />
+    >
+      <Preloader />
+    </div>
   );
 }

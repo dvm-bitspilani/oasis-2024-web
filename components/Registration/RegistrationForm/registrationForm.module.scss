@@ -71,6 +71,9 @@
 
       .radioButtonContainer {
         .radioLabel {
+          @media screen and (max-width: 1150px) {
+            font-size: 20px;
+          }
           font-family: Vidaloka;
           font-size: 28px;
           font-style: normal;

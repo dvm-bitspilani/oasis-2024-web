@@ -3,7 +3,7 @@ import styles from "./social.module.scss";
 
 const Social = () => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} id="social">
       <a href="https://www.instagram.com/bitsoasis" target="_blank">
         <svg
           xmlns="http://www.w3.org/2000/svg"

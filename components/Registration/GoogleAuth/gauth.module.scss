@@ -198,7 +198,6 @@
   }
 
   .rouletteWheel{
-    border: 2px solid white;
     position: relative;
     z-index: -100;
     bottom: -25%;
@@ -220,11 +219,8 @@
       bottom: 15%;
     }
 
-    // @media (width <= 470px) {
-    //   // display: none;
-    //   transform: scale(0.6);
-    //   bottom: 40%;
-    //   left: -50%;
-    // }
+    @media (width <= 470px) {
+      display: none;
+    }
   }
 }

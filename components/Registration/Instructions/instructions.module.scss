@@ -26,15 +26,16 @@
   }
   .bullet{
     position: relative;
-    top: 25%;
+    top: 18px;
     transform: translateY(-50%);
-    // width: 30px !important;
+    width: 35px;
     // width: 25px;
-    // aspect-ratio: 16 / 20;
+    aspect-ratio: 16 / 20;
 
-    // @media (width <= 1500px) {
-    //   width: 20px !important;
-    // }
+    @media (width <= 1250px) {
+      transform: scale(0.9);
+      top: 8px;
+    }
 
     @media (width <= 1150px) {
       display: none;

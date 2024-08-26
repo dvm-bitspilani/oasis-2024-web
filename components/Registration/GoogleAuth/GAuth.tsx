@@ -34,37 +34,6 @@ export default function GoogleAuthPage({ gSignIn }: Props) {
               <div className={`${styles.circle} bulb`}></div>
               <div className={`${styles.circle} bulb`}></div>
               <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              {/* <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div> */}
-              {/* <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div><div className={`${styles.circle} bulb`}></div> */}
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
             </div>
             <div className={`${styles.circlewrapper} ${styles.bottom}`}>
               <div className={`${styles.circle} bulb`}></div>
@@ -82,37 +51,6 @@ export default function GoogleAuthPage({ gSignIn }: Props) {
               <div className={`${styles.circle} bulb`}></div>
               <div className={`${styles.circle} bulb`}></div>
               <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              {/* <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div> */}
-              {/* <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div>
-              <div className={`${styles.circle} bulb`}></div><div className={`${styles.circle} bulb`}></div> */}
             </div>
             <div className={`${styles.circlewrapper} ${styles.curve}`}>
               <div className={`${styles.circle} bulb`}></div>
@@ -143,7 +81,7 @@ export default function GoogleAuthPage({ gSignIn }: Props) {
             </div>
             <div className={styles.register}>
               sign in
-              <svg
+              {/* <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="29"
                 height="30"
@@ -166,7 +104,7 @@ export default function GoogleAuthPage({ gSignIn }: Props) {
                   d="M14.8874 7.20869C16.7867 7.20869 18.4919 7.8614 19.8326 9.1433L23.5431 5.43286C21.3027 3.34537 18.3743 2.06348 14.8874 2.06348C9.83034 2.06348 5.45543 4.96244 3.32678 9.19034L7.64877 12.5421C8.66605 9.48435 11.518 7.20869 14.8874 7.20869Z"
                   fill="#EA4335"
                 />
-              </svg>
+              </svg> */}
             </div>
           </div>
         </div>

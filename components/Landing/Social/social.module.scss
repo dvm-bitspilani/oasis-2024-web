@@ -1,8 +1,16 @@
-.wrapper{
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    position: absolute;
-    right: 60px;
-    bottom: 45px;
+.wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  position: absolute;
+  right: 60px;
+  bottom: 45px;
+
+  @media (width <=1262px) {
+    transform: scale(0.8);
+  }
+
+  @media (width <= 760px) {
+    display: none;
+  }
 }

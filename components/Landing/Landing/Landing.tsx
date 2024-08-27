@@ -19,18 +19,34 @@ interface MatchMediaParams {
 
 export default function Landing() {
   const slotMachine: any = useRef();
-  const [camera, setCamera] = useState(null);
+  const [camera, setCamera] = useState<any>(null);
 
   const [is3dLoaded, setIs3dLoaded] = useState(false);
   const [isXS, setIsXS] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isVideoFocused, setIsVideoFocused] = useState(false);
 
-  useEffect(() => {
-    if (camera) {
-      console.log(camera);
-    }
-  }, [isVideoFocused, camera]);
+  useGSAP(
+    () => {
+      if (camera) {
+        console.log(camera);
+        console.dir(camera);
+        if (isVideoFocused) {
+          gsap.to(camera.position, {
+            z: 3.8,
+            duration: 0.5,
+            ease: "sine.inOut",
+          });
+          gsap.to(camera.rotation, {
+            x: -0.4,
+            duration: 0.5,
+            ease: "sine.inOut",
+          });
+        }
+      }
+    },
+    { dependencies: [isVideoFocused, camera] }
+  );
 
   function iframeClick() {
     setIsVideoFocused((prev) => !prev);

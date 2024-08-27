@@ -82,7 +82,7 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
           >
             <IframeClickComponent
               src="https://www.youtube.com/embed/ZCrClSBM1ns"
-              onInferredClick={() => console.log("iframe")}
+              onInferredClick={iframeClick}
               // src="https://bruno-simon.com/html"
             />
           </Html>

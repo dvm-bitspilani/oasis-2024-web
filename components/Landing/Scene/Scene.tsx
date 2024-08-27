@@ -40,18 +40,20 @@ const LandingScene = forwardRef(function LandingScene(
           }
           rotation={[0, Math.PI, 0]}
         >
-          <SlotMachine
+          {/* <SlotMachine
+            video="/Videos/curtainRaiser23_flipped.mp4"
+            ref={ref}
+            setIs3dLoaded={setIs3dLoaded}
+            iframeClick={iframeClick}
+            setCamera={setCamera}
+          /> */}
+          <SlotMachine2
             video="/Videos/curtainRaiser23_flipped.mp4"
             ref={ref}
             setIs3dLoaded={setIs3dLoaded}
             iframeClick={iframeClick}
             setCamera={setCamera}
           />
-          {/* <SlotMachine2
-            video="/Videos/curtainRaiser23_flipped.mp4"
-            ref={ref}
-            setIs3dLoaded={setIs3dLoaded}
-          /> */}
         </group>
       </Canvas>
     </>

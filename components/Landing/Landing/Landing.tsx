@@ -9,7 +9,6 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 import LandingScene from "../Scene/Scene";
 import styles from "../../ContactUs/contactus.module.scss";
-import { Camera, useThree } from "@react-three/fiber";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,16 +28,25 @@ export default function Landing() {
   useGSAP(
     () => {
       if (camera) {
-        console.log(camera);
-        console.dir(camera);
         if (isVideoFocused) {
           gsap.to(camera.position, {
-            z: 3.8,
+            z: 3.5,
             duration: 0.5,
             ease: "sine.inOut",
           });
           gsap.to(camera.rotation, {
             x: -0.4,
+            duration: 0.5,
+            ease: "sine.inOut",
+          });
+        } else {
+          gsap.to(camera.position, {
+            z: 5,
+            duration: 0.5,
+            ease: "sine.inOut",
+          });
+          gsap.to(camera.rotation, {
+            x: 0,
             duration: 0.5,
             ease: "sine.inOut",
           });
@@ -49,7 +57,9 @@ export default function Landing() {
   );
 
   function iframeClick() {
-    setIsVideoFocused((prev) => !prev);
+    if (window.scrollY === 0) {
+      setIsVideoFocused((prev) => !prev);
+    }
   }
 
   useEffect(() => {
@@ -57,12 +67,24 @@ export default function Landing() {
       window.scrollTo(0, 0);
     });
 
+    window.addEventListener("scroll", () => {
+      if (isVideoFocused) {
+        setIsVideoFocused(false);
+      }
+    });
+
     return () => {
       window.removeEventListener("beforeunload", () => {
         window.scrollTo(0, 0);
       });
+
+      window.removeEventListener("scroll", () => {
+        if (isVideoFocused) {
+          setIsVideoFocused(false);
+        }
+      });
     };
-  }, []);
+  }, [isVideoFocused]);
 
   useGSAP(
     () => {
@@ -108,6 +130,7 @@ export default function Landing() {
           },
         };
       }
+
       const timeline = gsap.timeline(timelineConfig);
 
       const mm = gsap.matchMedia();

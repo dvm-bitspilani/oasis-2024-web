@@ -65,16 +65,9 @@ export const SlotMachine = forwardRef(function SlotMachine2(
 
   return (
     <>
-      <group ref={ref} {...props} dispose={null}>
+      <group ref={ref} {...props} dispose={null} onClick={iframeClick}>
+        <mesh geometry={nodes.Sphere001.geometry} material={materials.Export} />
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Sphere001.geometry}
-          material={materials.Export}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
           geometry={nodes.Sphere023.geometry}
           material={nodes.Sphere023.material}
           position={[0, 0.488, -0.092]}
@@ -88,98 +81,59 @@ export const SlotMachine = forwardRef(function SlotMachine2(
           >
             <IframeClickComponent
               src="https://www.youtube.com/embed/ZCrClSBM1ns"
-              onInferredClick={iframeClick}
+              onInferredClick={() => console.log("iframe")}
               // src="https://bruno-simon.com/html"
             />
           </Html>
         </mesh>
+        <mesh geometry={nodes.Sphere024.geometry} material={materials.Export} />
+        <mesh geometry={nodes.Sphere026.geometry} material={materials.Export} />
+        <mesh geometry={nodes.Sphere025.geometry} material={materials.Export} />
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Sphere024.geometry}
-          material={materials.Export}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Sphere026.geometry}
-          material={materials.Export}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Sphere025.geometry}
-          material={materials.Export}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
           geometry={nodes.Sphere003.geometry}
           material={materials["Material.040"]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
           geometry={nodes.Sphere003_1.geometry}
           material={materials["Material.015"]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
           geometry={nodes.Sphere003_2.geometry}
           material={materials.Slot1And2}
         />
         <mesh
-          // castShadow
-          // receiveShadow
           geometry={nodes.Sphere020.geometry}
           material={materials["Material.040"]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
           geometry={nodes.Sphere020_1.geometry}
           material={materials["Material.015"]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
           geometry={nodes.Sphere020_2.geometry}
           material={materials.Slot1And2}
         />
         <mesh
-          // castShadow
-          // receiveShadow
           geometry={nodes.Sphere021.geometry}
           material={materials["Material.040"]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
           geometry={nodes.Sphere021_1.geometry}
           material={materials["Material.015"]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
           geometry={nodes.Sphere021_2.geometry}
           material={materials.Slot1And2}
         />
         <mesh
-          // castShadow
-          // receiveShadow
           geometry={nodes.Sphere022.geometry}
           material={materials["Material.040"]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
           geometry={nodes.Sphere022_1.geometry}
           material={materials["Material.015"]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
           geometry={nodes.Sphere022_2.geometry}
           material={materials.Slot1And2}
         />

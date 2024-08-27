@@ -2,16 +2,14 @@
 
 // import styles from "./landing.module.scss";
 
-import { Suspense, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import dynamic from "next/dynamic";
 
 import LandingScene from "../Scene/Scene";
 import styles from "../../ContactUs/contactus.module.scss";
-import Preloader from "@/components/Preloader/Preloader";
-// const LandingScene = dynamic(() => import('../Scene/Scene'), { ssr: false })
+import { Camera, useThree } from "@react-three/fiber";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,9 +19,22 @@ interface MatchMediaParams {
 
 export default function Landing() {
   const slotMachine: any = useRef();
+  const [camera, setCamera] = useState(null);
+
   const [is3dLoaded, setIs3dLoaded] = useState(false);
   const [isXS, setIsXS] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isVideoFocused, setIsVideoFocused] = useState(false);
+
+  useEffect(() => {
+    if (camera) {
+      console.log(camera);
+    }
+  }, [isVideoFocused, camera]);
+
+  function iframeClick() {
+    setIsVideoFocused((prev) => !prev);
+  }
 
   useEffect(() => {
     window.addEventListener("beforeunload", () => {
@@ -282,13 +293,13 @@ export default function Landing() {
   );
 
   return (
-    <Suspense fallback={<Preloader />}>
-      <LandingScene
-        ref={slotMachine}
-        setIs3dLoaded={setIs3dLoaded}
-        isXS={isXS}
-        isMobile={isMobile}
-      />
-    </Suspense>
+    <LandingScene
+      ref={slotMachine}
+      setIs3dLoaded={setIs3dLoaded}
+      iframeClick={iframeClick}
+      isXS={isXS}
+      isMobile={isMobile}
+      setCamera={setCamera}
+    />
   );
 }

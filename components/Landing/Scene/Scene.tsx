@@ -1,6 +1,6 @@
 "use client";
 
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useThree } from "@react-three/fiber";
 // import { Perf } from "r3f-perf";
 
 import { SlotMachine2 } from "./SlotMachine2";
@@ -12,10 +12,12 @@ interface Props {
   setIs3dLoaded: (value: boolean) => void;
   isXS: boolean;
   isMobile: boolean;
+  iframeClick: () => void;
+  setCamera: (value: any) => void;
 }
 
 const LandingScene = forwardRef(function LandingScene(
-  { setIs3dLoaded, isXS, isMobile }: Props,
+  { setIs3dLoaded, isXS, isMobile, iframeClick, setCamera }: Props,
   ref
 ) {
   return (
@@ -42,6 +44,8 @@ const LandingScene = forwardRef(function LandingScene(
             video="/Videos/curtainRaiser23_flipped.mp4"
             ref={ref}
             setIs3dLoaded={setIs3dLoaded}
+            iframeClick={iframeClick}
+            setCamera={setCamera}
           />
           {/* <SlotMachine2
             video="/Videos/curtainRaiser23_flipped.mp4"

@@ -9,6 +9,7 @@ import { Html, useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 import Iframe from "react-iframe-click";
 import * as THREE from "three";
+import { useThree } from "@react-three/fiber";
 
 const IframeClickComponent: any = Iframe;
 
@@ -43,21 +44,23 @@ type GLTFResult = GLTF & {
 interface Props {
   video: string;
   setIs3dLoaded: (value: boolean) => void;
+  iframeClick: () => void;
+  setCamera: (value: any) => void;
 }
 
 export const SlotMachine = forwardRef(function SlotMachine2(
-  { video, setIs3dLoaded, ...props }: Props,
+  { video, setIs3dLoaded, iframeClick, setCamera, ...props }: Props,
   ref: any
 ) {
   const { nodes, materials } = useGLTF(
     "/Models/slotMachineFinal.glb"
   ) as GLTFResult;
 
-  const screen: any = useRef();
-  const modal: any = useRef();
+  const { camera } = useThree();
 
   useEffect(() => {
     setIs3dLoaded(true);
+    setCamera(camera);
   }, []);
 
   return (
@@ -85,9 +88,7 @@ export const SlotMachine = forwardRef(function SlotMachine2(
           >
             <IframeClickComponent
               src="https://www.youtube.com/embed/ZCrClSBM1ns"
-              onInferredClick={() => {
-                console.log("test");
-              }}
+              onInferredClick={iframeClick}
               // src="https://bruno-simon.com/html"
             />
           </Html>

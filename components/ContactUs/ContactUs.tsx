@@ -201,6 +201,16 @@ export default function ContactUs() {
             />
           </div>
 
+          <div className={styles.mobile}>
+            <ContactCard
+              name="Shreeram Verma"
+              img={shreeram}
+              dept="Sponsorship and Marketing"
+              contact="tel:+918889588288"
+              mail="mailto:shreeram@bits-oasis.org"
+            />
+          </div>
+
           <div className={styles.second}>
             <ContactCard
               name="Prateek Kashyap"

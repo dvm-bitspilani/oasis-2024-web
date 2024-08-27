@@ -72,6 +72,10 @@
       transform: rotate(-18deg) translate3d(0, 60px, 0);
     }
 
+    .mobile {
+      display: none;
+    }
+
     .second {
       transform: rotate(-12deg) translate3d(0, -5px, 0);
     }
@@ -361,11 +365,16 @@
 
     .cardContainer {
       visibility: visible;
+      flex-direction: row-reverse;
 
       .first {
         transform: rotate(0deg) translate3d(0, 0px, 0);
         transition-delay: 0;
         position: static;
+      }
+
+      .mobile {
+        display: block;
       }
 
       .second {
@@ -381,6 +390,7 @@
       }
 
       .fourth {
+        display: none;
         position: static;
         transform: rotate(0deg) translate3d(0, 0px, 0);
         transition-delay: 0;
@@ -463,7 +473,7 @@
       margin-top: 2rem;
       justify-content: center;
       gap: 1rem;
-      flex-wrap: wrap;
+      flex-wrap: wrap-reverse;
     }
 
     .cardContainer1 {

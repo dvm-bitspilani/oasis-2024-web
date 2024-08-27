@@ -9,7 +9,8 @@ import { Html, useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 import Iframe from "react-iframe-click";
 import * as THREE from "three";
-import Modal from "@/components/IFrameModal/Modal";
+
+const IframeClickComponent: any = Iframe;
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -61,7 +62,6 @@ export const SlotMachine = forwardRef(function SlotMachine2(
 
   return (
     <>
-      <Modal ref={} />
       <group ref={ref} {...props} dispose={null}>
         <mesh
           // castShadow
@@ -83,7 +83,7 @@ export const SlotMachine = forwardRef(function SlotMachine2(
             position={[0, 0, 0]}
             rotation={[0.4510000000000003, 0, 0]}
           >
-            <Iframe
+            <IframeClickComponent
               src="https://www.youtube.com/embed/ZCrClSBM1ns"
               onInferredClick={() => {
                 console.log("test");

@@ -191,54 +191,67 @@ export default function ContactUs() {
 
           <div className={styles.first}>
             <ContactCard
-              name="Prateek Kashyap"
-              img= {prateek}
-              dept="Website, App and Online Payments"
-              contact="tel:+918700225449"
-              mail="mailto:webmaster@bits-oasis.org"
+              name="Jaiditya Singh"
+              img={jaiditya}
+              dept="Logistics and Operations"
+              // contact="tel:+919168421199"
+              contact={null}
+              // mail="mailto:controls@bits-oasis.org"
+              mail={null}
             />
           </div>
 
-          <div className={styles.second}>
-            <ContactCard
-              name="Aryan Wadhwa"
-              img= {aryan}
-              dept="Registration, Events & Approval Queries"
-              contact="tel:+919810297034"
-              mail="mailto:pcr@bits-oasis.org"
-            />
-          </div>
-
-          <div className={styles.third}>
+          <div className={styles.mobile}>
             <ContactCard
               name="Shreeram Verma"
-              img= {shreeram}
+              img={shreeram}
               dept="Sponsorship and Marketing"
               contact="tel:+918889588288"
               mail="mailto:shreeram@bits-oasis.org"
             />
           </div>
 
+          <div className={styles.second}>
+            <ContactCard
+              name="Prateek Kashyap"
+              img={prateek}
+              dept="Website, App and Online Payments"
+              contact="tel:+918700225449"
+              mail="mailto:webmaster@bits-oasis.org"
+            />
+          </div>
+
+          <div className={styles.third}>
+            <ContactCard
+              name="Aryan Wadhwa"
+              img={aryan}
+              dept="Registration, Events & Approval Queries"
+              contact="tel:+919810297034"
+              mail="mailto:pcr@bits-oasis.org"
+            />
+          </div>
+
           <div className={styles.fourth}>
             <ContactCard
-              name="Jaiditya Singh"
-              img= {jaiditya}
-              dept="Logistics and Operations"
-              contact="tel:+919168421199"
-              mail="mailto:controls@bits-oasis.org"
+              name="Shreeram Verma"
+              img={shreeram}
+              dept="Sponsorship and Marketing"
+              contact="tel:+918889588288"
+              mail="mailto:shreeram@bits-oasis.org"
             />
           </div>
 
           <div className={styles.fifth}>
             <ContactCard
               name="Rijul Bassamboo"
-              img= {rijul}
+              img={rijul}
               dept="Reception and Accommodation"
-              contact="tel:+919811529877"
-              mail="mailto:recnacc@bits-oasis.org"
+              // contact="tel:+919811529877"
+              contact={null}
+              // mail="mailto:recnacc@bits-oasis.org"
+              mail={null}
             />
           </div>
-
         </div>
 
 
@@ -247,40 +260,48 @@ export default function ContactUs() {
           <div className={styles.fourth}>
             <ContactCard
               name="Rijul Bassamboo"
-              img= {rijul}
+              img={rijul}
               dept="Reception and Accommodation"
-              contact="tel:+919811529877"
-              mail="mailto:recnacc@bits-oasis.org"
+              //contact="tel:+919811529877"
+              contact={null}
+              // mail="mailto:recnacc@bits-oasis.org"
+              mail={null}
             />
           </div>
 
           <div className={styles.first}>
             <ContactCard
               name="Shreyansh Vanjani"
-              img= {shreyansh}
+              img={shreyansh}
               dept="Publicity and Collaborations"
-              contact="tel:+918000695988"
-              mail="mailto:collaborations@bits-oasis.org"
+              //contact="tel:+918000695988"
+              contact={null}
+              // mail="mailto:collaborations@bits-oasis.org"
+              mail={null}
             />
           </div>
 
           <div className={styles.second}>
             <ContactCard
               name="Sarthak Aggarwal"
-              img= {sarthak}
+              img={sarthak}
               dept="President, Students' Union"
-              contact="tel:+9180050 00213"
-              mail="mailto:president@pilani.bits-pilani.ac.in"
+              // contact="tel:+9180050 00213"
+              contact={null}
+              // mail="mailto:president@pilani.bits-pilani.ac.in"
+              mail={null}
             />
           </div>
 
           <div className={styles.third}>
             <ContactCard
               name="Abhinav Lamba"
-              img= {abhinav}
+              img={abhinav}
               dept="General Secretary, Students' Union"
-              contact="tel:+917078879443"
-              mail="mailto:gensec@pilani.bits-pilani.ac.in"
+              // contact="tel:+917078879443"
+              contact={null}
+              // mail="mailto:gensec@pilani.bits-pilani.ac.in"
+              mail={null}
             />
           </div>
 

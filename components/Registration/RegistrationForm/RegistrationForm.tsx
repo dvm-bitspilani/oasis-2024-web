@@ -104,7 +104,7 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
 
   useEffect(() => {
     axios
-      .get("https://bits-oasis.org/2024/main/registrations/events_list/")
+      .get("https://bits-oasis.org/2024/main/registrations/events_details/")
       .then((res) => {
         const events = res.data;
         setEventOptions(

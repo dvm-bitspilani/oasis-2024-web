@@ -3,8 +3,8 @@ import styles from "./social.module.scss";
 
 const Social = () => {
   return (
-    <div className={styles.wrapper}>
-      <a href="https://www.instagram.com/bitsoasis">
+    <div className={styles.wrapper} id="social">
+      <a href="https://www.instagram.com/bitsoasis" target="_blank">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="36"
@@ -33,7 +33,7 @@ const Social = () => {
           </defs>
         </svg>
       </a>
-      <a href="https://www.linkedin.com/company/oasis24-bits-pilani/">
+      <a href="https://www.linkedin.com/company/oasis24-bits-pilani/" target="_blank">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="50"
@@ -62,7 +62,7 @@ const Social = () => {
           </defs>
         </svg>
       </a>
-      <a href="https://twitter.com/bitsoasis">
+      <a href="https://twitter.com/bitsoasis" target="_blank">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="40"

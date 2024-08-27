@@ -148,6 +148,15 @@ export default function Landing() {
                 "<"
               )
               .to(
+                "#social",
+                {
+                  y: 100,
+                  opacity: 0,
+                  duration: 0.75,
+                },
+                "<"
+              )
+              .to(
                 "#leftcards",
                 {
                   y: -150,

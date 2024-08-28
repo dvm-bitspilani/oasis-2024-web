@@ -1,9 +1,10 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import styles from "./gauth.module.scss";
 import Signin from "../SignIn/SignIn";
 import Image from "next/image";
+import Modal from "../Modal/Modal";
 
 interface Props {
   gSignIn: () => void;
@@ -22,6 +23,12 @@ export default function GoogleAuthPage({ gSignIn }: Props) {
       initialRotation.kill();
     };
   }, []);
+
+  const [isOpen, setisOpen] = useState(false);
+
+  const toggleModal = () => {
+    setisOpen(!isOpen);
+  };
 
   return (
     <>
@@ -125,6 +132,8 @@ export default function GoogleAuthPage({ gSignIn }: Props) {
             </div>
           </div>
         </div>
+        <div className={styles.modalbtn} onClick={toggleModal}>?</div>
+        {isOpen && <Modal closeModal={toggleModal} />}
         <Image
           className={styles.rouletteWheel}
           src="/Registration/RouletteWheel.png"

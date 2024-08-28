@@ -65,10 +65,10 @@ const Signin = () => {
         </svg>
       </div>
       <div className={styles.contentcontainer}>
-        <Instruction text="Sign in with your Google account to securely access the registration page and begin the setup process." />
-        <Instruction text="Provide your college information along with other required details to complete your registration." />
-        <Instruction text="After completing the registration process, you will receive access to log in to the platform once everything is set up." />
-        <Instruction text="Note: Login access will be activated within a few days. We will send you an email notification with details once your account is ready." />
+        <Instruction text="Complete the registration form with all required details. You'll be able to login through your registered email id when required." />
+        <Instruction text="All team members are required to register separately." />
+        <Instruction text="A College Representative (CR) will be appointed for each college who'll be responsible for allotting heads for all the societies the college will be participating for." />
+        <Instruction text="For further details contact: Parimal: 8638304074 Ishita: 7804051996" />
       </div>
     </div>
   );

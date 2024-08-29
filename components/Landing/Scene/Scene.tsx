@@ -14,10 +14,18 @@ interface Props {
   isMobile: boolean;
   iframeClick: () => void;
   setCamera: (value: any) => void;
+  isVideoFocused: boolean;
 }
 
 const LandingScene = forwardRef(function LandingScene(
-  { setIs3dLoaded, isXS, isMobile, iframeClick, setCamera }: Props,
+  {
+    setIs3dLoaded,
+    isXS,
+    isMobile,
+    iframeClick,
+    isVideoFocused,
+    setCamera,
+  }: Props,
   ref
 ) {
   return (
@@ -46,6 +54,7 @@ const LandingScene = forwardRef(function LandingScene(
             setIs3dLoaded={setIs3dLoaded}
             iframeClick={iframeClick}
             setCamera={setCamera}
+            isVideoFocused={isVideoFocused}
           /> */}
           <SlotMachine2
             video="/Videos/curtainRaiser23_flipped.mp4"
@@ -53,6 +62,7 @@ const LandingScene = forwardRef(function LandingScene(
             setIs3dLoaded={setIs3dLoaded}
             iframeClick={iframeClick}
             setCamera={setCamera}
+            isVideoFocused={isVideoFocused}
           />
         </group>
       </Canvas>

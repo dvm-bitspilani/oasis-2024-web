@@ -17,16 +17,48 @@
     padding: 20px;
     position: relative;
     color: white;
+    border-radius: 50px;
+
+    .title {
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(
+        0deg,
+        #fffee5 -27.5%,
+        #efd48d -1.13%,
+        #ffce93 48.36%,
+        #f9e6a2 100%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: Vidaloka;
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 43px;
+      letter-spacing: 2.16px;
+      text-transform: uppercase;
+    }
 
     .closeButton {
       position: absolute;
-      top: 10px;
-      right: 10px;
+      right: 45px;
+      top: 30px;
       background: transparent;
       border: none;
       font-size: 30px;
-      color: white;
+      color: gold;
       cursor: pointer;
+    }
+
+    .content {
+      position: absolute;
+      right: 45px;
+      left: 45px;
+      top: 120px;
     }
   }
 }

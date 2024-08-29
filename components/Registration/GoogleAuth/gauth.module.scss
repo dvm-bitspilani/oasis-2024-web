@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
 
-  .modalbtn{
+  .modalbtn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,11 +13,23 @@
     position: fixed;
     bottom: 46px;
     transform: translateY(50%);
-    right: 265px;
-    background-color: white;
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
+    right: 262px;
+    // background-color: white;
+    // height: 30px;
+    // width: 30px;
+    // border-radius: 50%;
+    .symbols {
+      position: relative;
+      // display: flex;
+      // align-items: center;
+      // justify-content: center;
+      svg:nth-of-type(2) {
+        position: absolute;
+        left: 50%;
+        top: 35%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+    }
   }
 
   .btnwrapper {

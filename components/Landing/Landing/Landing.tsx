@@ -336,6 +336,7 @@ export default function Landing() {
       ref={slotMachine}
       setIs3dLoaded={setIs3dLoaded}
       iframeClick={iframeClick}
+      isVideoFocused={isVideoFocused}
       isXS={isXS}
       isMobile={isMobile}
       setCamera={setCamera}

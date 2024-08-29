@@ -15,6 +15,7 @@ interface Props {
   iframeClick: () => void;
   setCamera: (value: any) => void;
   isVideoFocused: boolean;
+  isLanding: boolean;
 }
 
 const LandingScene = forwardRef(function LandingScene(
@@ -25,12 +26,18 @@ const LandingScene = forwardRef(function LandingScene(
     iframeClick,
     isVideoFocused,
     setCamera,
+    isLanding,
   }: Props,
   ref
 ) {
   return (
     <>
-      <Canvas style={{ position: "fixed" }}>
+      <Canvas
+        style={{
+          position: "absolute",
+          pointerEvents: isLanding ? "none" : "auto",
+        }}
+      >
         {/* <Perf /> */}
         {/* <EffectComposer>
           <Bloom

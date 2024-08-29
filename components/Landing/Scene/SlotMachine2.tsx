@@ -125,6 +125,9 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
         <mesh
           geometry={nodes.Sphere003_2.geometry}
           material={materials.Slot1And2}
+          onClick={() => {
+            console.log("yoooo");
+          }}
         />
         <mesh
           geometry={nodes.Sphere020.geometry}

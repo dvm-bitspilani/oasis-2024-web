@@ -24,6 +24,7 @@ export default function Landing() {
   const [isXS, setIsXS] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isVideoFocused, setIsVideoFocused] = useState(false);
+  const [isLanding, setIsLanding] = useState(true);
 
   useGSAP(
     () => {
@@ -71,6 +72,11 @@ export default function Landing() {
       if (isVideoFocused) {
         setIsVideoFocused(false);
       }
+      if (window.scrollY === 0 && !isLanding) {
+        setIsLanding(true);
+      } else if (window.scrollY !== 0 && isLanding) {
+        setIsLanding(false);
+      }
     });
 
     return () => {
@@ -81,6 +87,11 @@ export default function Landing() {
       window.removeEventListener("scroll", () => {
         if (isVideoFocused) {
           setIsVideoFocused(false);
+        }
+        if (window.scrollY === 0 && !isLanding) {
+          setIsLanding(true);
+        } else if (window.scrollY !== 0 && isLanding) {
+          setIsLanding(false);
         }
       });
     };
@@ -336,6 +347,7 @@ export default function Landing() {
       ref={slotMachine}
       setIs3dLoaded={setIs3dLoaded}
       iframeClick={iframeClick}
+      isLanding={isLanding}
       isVideoFocused={isVideoFocused}
       isXS={isXS}
       isMobile={isMobile}

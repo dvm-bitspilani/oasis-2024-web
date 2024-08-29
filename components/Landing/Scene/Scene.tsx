@@ -30,7 +30,7 @@ const LandingScene = forwardRef(function LandingScene(
 ) {
   return (
     <>
-      <Canvas style={{ position: "fixed" }}>
+      <Canvas style={{ position: "absolute", pointerEvents: "none" }}>
         {/* <Perf /> */}
         {/* <EffectComposer>
           <Bloom

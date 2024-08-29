@@ -68,7 +68,15 @@ const Signin = () => {
         <Instruction text="Complete the registration form with all required details. You'll be able to login through your registered email id when required." />
         <Instruction text="All team members are required to register separately." />
         <Instruction text="A College Representative (CR) will be appointed for each college who'll be responsible for allotting heads for all the societies the college will be participating for." />
-        <Instruction text="For further details contact: Parimal: 8638304074 Ishita: 7804051996" />
+        <Instruction text="For further details contact:" />
+        <div className={styles.contact}>
+          <div className={styles.content}>
+            <div className={styles.text}>Parimal: 8638304074</div>
+          </div>
+          <div className={styles.content}>
+            <div className={styles.text}>Ishita: 7804051996</div>
+          </div>
+        </div>
       </div>
     </div>
   );

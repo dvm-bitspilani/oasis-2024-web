@@ -24,6 +24,7 @@ export default function Landing() {
   const [isXS, setIsXS] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isVideoFocused, setIsVideoFocused] = useState(false);
+  const [isLanding, setIsLanding] = useState(true);
 
   useGSAP(
     () => {
@@ -63,6 +64,8 @@ export default function Landing() {
   }
 
   useEffect(() => {
+    let overlayWrapper: any = document.querySelector("#mainwrapper");
+
     window.addEventListener("beforeunload", () => {
       window.scrollTo(0, 0);
     });
@@ -70,6 +73,13 @@ export default function Landing() {
     window.addEventListener("scroll", () => {
       if (isVideoFocused) {
         setIsVideoFocused(false);
+      }
+      if (window.scrollY === 0 && !isLanding) {
+        setIsLanding(true);
+        overlayWrapper.setAttribute("style", "z-index: -2;");
+      } else if (window.scrollY !== 0 && isLanding) {
+        setIsLanding(false);
+        overlayWrapper.setAttribute("style", "z-index: 1;");
       }
     });
 
@@ -81,6 +91,13 @@ export default function Landing() {
       window.removeEventListener("scroll", () => {
         if (isVideoFocused) {
           setIsVideoFocused(false);
+        }
+        if (window.scrollY === 0 && !isLanding) {
+          setIsLanding(true);
+          overlayWrapper.setAttribute("style", "z-index: -2;");
+        } else if (window.scrollY !== 0 && isLanding) {
+          setIsLanding(false);
+          overlayWrapper.setAttribute("style", "z-index: 1;");
         }
       });
     };
@@ -336,6 +353,8 @@ export default function Landing() {
       ref={slotMachine}
       setIs3dLoaded={setIs3dLoaded}
       iframeClick={iframeClick}
+      isLanding={isLanding}
+      isVideoFocused={isVideoFocused}
       isXS={isXS}
       isMobile={isMobile}
       setCamera={setCamera}

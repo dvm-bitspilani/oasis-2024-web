@@ -1,7 +1,7 @@
 .contactPage {
   position: fixed;
   top: 0rem;
-  height: 100dvh;
+  height: 100lvh;
   width: 100vw;
   opacity: 0;
   pointer-events: none;
@@ -452,7 +452,7 @@
 @media (max-width: 600px) {
   .contactPage {
     height: fit-content;
-    height: 85dvh;
+    height: 85lvh;
     overflow-y: scroll;
 
     .heading {

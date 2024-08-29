@@ -6,67 +6,69 @@ export default function AboutUsPage() {
     <main className={styles.aboutUs} id="aboutUs">
       <div className={styles.container}>
         <div className={styles.top}>
-          <div className={styles.topFrame}>
-            <div className={styles.topRightCurve}>
-              <svg
-                width="25"
-                height="25"
-                viewBox="0 0 25 25"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M24.9431 24C16.9673 24.3333 1.01555 20 1.01555 0"
-                  stroke="#E5C66C"
-                  stroke-width="1.58383"
-                />
-              </svg>
-            </div>
-            <div className={styles.bottomRightCurve}>
-              <svg
-                width="25"
-                height="26"
-                viewBox="0 0 25 26"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M24.9434 1.37158C16.9675 1.03825 1.01579 5.37158 1.01579 25.3716"
-                  stroke="#E5C66C"
-                  stroke-width="1.58383"
-                />
-              </svg>
-            </div>
-            <div className={styles.bottomLeftCurve}>
-              <svg
-                width="26"
-                height="26"
-                viewBox="0 0 26 26"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1 1.37158C8.97586 1.03825 24.9276 5.37158 24.9276 25.3716"
-                  stroke="#E5C66C"
-                  stroke-width="1.58383"
-                />
-              </svg>
-            </div>
-            <div className={styles.topLeftCurve}>
-              <svg
-                width="25"
-                height="25"
-                viewBox="0 0 25 25"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0.0568848 24C8.03274 24.3333 23.9845 20 23.9845 0"
-                  stroke="#E5C66C"
-                  stroke-width="1.58383"
-                />
-              </svg>
-            </div>
+          <div className={styles.borderTop}></div>
+          <div className={styles.borderLeft}></div>
+          <div className={styles.borderRight}></div>
+          <div className={styles.borderBottom}></div>
+          <div className={styles.topRightCurve}>
+            <svg
+              width="25"
+              height="25"
+              viewBox="0 0 25 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24.9431 24C16.9673 24.3333 1.01555 20 1.01555 0"
+                stroke="#E5C66C"
+                stroke-width="1.58383"
+              />
+            </svg>
+          </div>
+          <div className={styles.bottomRightCurve}>
+            <svg
+              width="25"
+              height="26"
+              viewBox="0 0 25 26"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24.9434 1.37158C16.9675 1.03825 1.01579 5.37158 1.01579 25.3716"
+                stroke="#E5C66C"
+                stroke-width="1.58383"
+              />
+            </svg>
+          </div>
+          <div className={styles.bottomLeftCurve}>
+            <svg
+              width="26"
+              height="26"
+              viewBox="0 0 26 26"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 1.37158C8.97586 1.03825 24.9276 5.37158 24.9276 25.3716"
+                stroke="#E5C66C"
+                stroke-width="1.58383"
+              />
+            </svg>
+          </div>
+          <div className={styles.topLeftCurve}>
+            <svg
+              width="25"
+              height="25"
+              viewBox="0 0 25 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.0568848 24C8.03274 24.3333 23.9845 20 23.9845 0"
+                stroke="#E5C66C"
+                stroke-width="1.58383"
+              />
+            </svg>
           </div>
           <Spades className={`${styles.spade}`} />
           <h1 className={styles.title}>ABOUT US</h1>
@@ -148,7 +150,7 @@ export default function AboutUsPage() {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M418.731 32.1356C402.923 33.0847 396.04 21.9398 398.9 13.6503C406.036 -4.86766 424.132 0.54929 425.636 9.66131C425.833 20.9157 415.81 22.5618 412.352 20.9317C409.466 19.5715 406.205 13.6839 413.177 10.8849M418.731 32.1356H444.547C460.355 33.0847 467.239 21.9398 464.379 13.6503C457.242 -4.86766 439.146 0.54929 437.642 9.66131C437.445 20.9157 447.469 22.5618 450.926 20.9317C453.812 19.5715 457.073 13.6839 450.102 10.8849M418.731 32.1356H418.51M483.078 20.644C486.536 22.2741 496.56 20.628 496.362 9.37362C494.859 0.261605 476.762 -5.15534 469.626 13.3626C466.766 21.6521 473.649 32.7971 489.457 31.8479H847.611M380.606 20.9318C377.148 22.5619 367.124 20.9158 367.321 9.66147C368.825 0.549447 386.921 -4.8675 394.058 13.6504C396.918 21.94 390.035 33.0849 374.227 32.1357H0.000113139"
+                  d="M418.912 32.1358C403.104 33.085 396.221 21.94 399.081 13.6505C406.218 -4.86741 424.314 0.549534 425.818 9.66155C426.015 20.9159 415.991 22.562 412.533 20.9319C409.648 19.5717 406.387 13.6842 413.358 10.8852M418.912 32.1358H444.729C460.537 33.085 467.42 21.94 464.56 13.6505C457.424 -4.86741 439.327 0.549534 437.824 9.66155C437.626 20.9159 447.65 22.562 451.108 20.9319C453.993 19.5717 457.255 13.6842 450.283 10.8852M418.912 32.1358H418.692M483.26 20.6442C486.717 22.2743 496.741 20.6282 496.544 9.37387C495.04 0.261849 476.944 -5.1551 469.807 13.3628C466.947 21.6524 473.831 32.7973 489.639 31.8481H847.792M380.787 20.9321C377.33 22.5622 367.306 20.9161 367.503 9.66171C369.007 0.549691 387.103 -4.86726 394.24 13.6507C397.1 21.9402 390.216 33.0851 374.408 32.136H0.181754"
                   stroke="#E5C66C"
                   stroke-width="1.58383"
                 />

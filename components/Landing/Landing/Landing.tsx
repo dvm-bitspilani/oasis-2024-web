@@ -64,6 +64,8 @@ export default function Landing() {
   }
 
   useEffect(() => {
+    let overlayWrapper: any = document.querySelector("#mainwrapper");
+
     window.addEventListener("beforeunload", () => {
       window.scrollTo(0, 0);
     });
@@ -74,25 +76,16 @@ export default function Landing() {
       }
       if (window.scrollY === 0 && !isLanding) {
         setIsLanding(true);
+        overlayWrapper.setAttribute("style", "z-index: -2;");
       } else if (window.scrollY !== 0 && isLanding) {
         setIsLanding(false);
+        overlayWrapper.setAttribute("style", "z-index: 1;");
       }
     });
 
     return () => {
       window.removeEventListener("beforeunload", () => {
         window.scrollTo(0, 0);
-      });
-
-      window.removeEventListener("scroll", () => {
-        if (isVideoFocused) {
-          setIsVideoFocused(false);
-        }
-        if (window.scrollY === 0 && !isLanding) {
-          setIsLanding(true);
-        } else if (window.scrollY !== 0 && isLanding) {
-          setIsLanding(false);
-        }
       });
     };
   }, [isVideoFocused]);

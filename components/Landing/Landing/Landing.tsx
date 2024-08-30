@@ -6,12 +6,10 @@ import { Suspense, useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import dynamic from "next/dynamic";
 
 import LandingScene from "../Scene/Scene";
-// import styles from "../../ContactUs/contactus.module.scss";
+import styles from "../../ContactUs/contactus.module.scss";
 import Preloader from "@/components/Preloader/Preloader";
-// const LandingScene = dynamic(() => import('../Scene/Scene'), { ssr: false })
 
 gsap.registerPlugin(ScrollTrigger);
 

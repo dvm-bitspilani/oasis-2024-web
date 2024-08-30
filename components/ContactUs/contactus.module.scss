@@ -31,12 +31,21 @@
     margin-top: 3rem;
     display: flex;
     height: auto;
-    justify-content: space-evenly;
+    // justify-content: space-evenly;
     position: relative;
     width: 100vw;
     transition: all 0.9s ease-in-out;
     // visibility: hidden;
     transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+
+    .first,
+    .second,
+    .third,
+    .fourth,
+    .fifth {
+      position: absolute;
+      opacity: 1;
+    }
 
     // .first {
     //     opacity: 1;
@@ -68,29 +77,29 @@
     //     // transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
     // }
 
-    .first {
-      transform: rotate(-18deg) translate3d(0, 60px, 0);
-    }
+    // .first {
+    //   transform: rotate(-18deg) translate3d(0, 60px, 0);
+    // }
 
-    .mobile {
-      display: none;
-    }
+    // .mobile {
+    //   display: none;
+    // }
 
-    .second {
-      transform: rotate(-12deg) translate3d(0, -5px, 0);
-    }
+    // .second {
+    //   transform: rotate(-12deg) translate3d(0, -5px, 0);
+    // }
 
-    .third {
-      transform: rotate(0) translate3d(0, -30px, 0);
-    }
+    // .third {
+    //   transform: rotate(0) translate3d(0, -30px, 0);
+    // }
 
-    .fourth {
-      transform: rotate(12deg) translate3d(0, -5px, 0);
-    }
+    // .fourth {
+    //   transform: rotate(12deg) translate3d(0, -5px, 0);
+    // }
 
-    .fifth {
-      transform: rotate(18deg) translate3d(0, 60px, 0);
-    }
+    // .fifth {
+    //   transform: rotate(18deg) translate3d(0, 60px, 0);
+    // }
   }
 
   // .active {
@@ -142,8 +151,8 @@
   .cardContainer1 {
     display: flex;
     height: auto;
-    justify-content: center;
-    gap: 5vw;
+    // justify-content: center;
+    // gap: 5vw;
     margin-top: 2rem;
     position: relative;
     transition: all 0.9s ease-in-out;
@@ -151,54 +160,61 @@
     transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
     margin-bottom: 3rem;
 
-    // .first {
-    //     position: absolute;
-    //     transform: rotate( 10deg) translate3d(0, 20px, 0);
-    // }
-
-    // .second {
-    //     position: absolute;
-    //     transform: rotate( 10deg) translate3d(0, 20px, 0);
-    // }
-
-    // .third {
-    //     position: absolute;
-    //     transform: rotate( 10deg) translate3d(0, 20px, 0);
-    // }
-
-    .first {
-        transform: rotate( -12deg) translate3d(0, 0px, 0);
-    }
-
-    .second {
-        transform: rotate( 0deg) translate3d(0, -30px, 0);
-    }
-
+    .first,
+    .second,
     .third {
-        transform: rotate( 12deg) translate3d(0, 0px, 0);
+      position: absolute;
+      opacity: 1;
     }
-
-    // .first {
-    //     opacity: 1;
-    //     position: absolute;
-    //     // transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    // }
-
-    // .second {
-    //     opacity: 1;
-    //     position: absolute;
-    //     // transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    // }
-
-    // .third {
-    //     opacity: 1;
-    //     position: absolute;
-    //     // transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    // }
 
     .fourth {
-        display: none;
+      display: none;
     }
+
+    // .first {
+    //     position: absolute;
+    //     transform: rotate( 10deg) translate3d(0, 20px, 0);
+    // }
+
+    // .second {
+    //     position: absolute;
+    //     transform: rotate( 10deg) translate3d(0, 20px, 0);
+    // }
+
+    // .third {
+    //     position: absolute;
+    //     transform: rotate( 10deg) translate3d(0, 20px, 0);
+    // }
+
+    // .first {
+    //     transform: rotate( -12deg) translate3d(0, 0px, 0);
+    // }
+
+    // .second {
+    //     transform: rotate( 0deg) translate3d(0, -30px, 0);
+    // }
+
+    // .third {
+    //     transform: rotate( 12deg) translate3d(0, 0px, 0);
+    // }
+
+    // .first {
+    //     opacity: 1;
+    //     position: absolute;
+    //     // transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    // }
+
+    // .second {
+    //     opacity: 1;
+    //     position: absolute;
+    //     // transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    // }
+
+    // .third {
+    //     opacity: 1;
+    //     position: absolute;
+    //     // transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    // }
   }
 
   // .active1 {
@@ -231,13 +247,11 @@
   // }
 }
 
-@media(max-width: 2100px)  and (min-width:1400px){
-
+@media (max-width: 2100px) and (min-width: 1400px) {
   .contactPage {
-
     .heading {
       margin-top: 5rem;
-       
+
       h2 {
         font-size: 72px;
       }
@@ -255,19 +269,17 @@
       }
 
       .fifth {
-        transform: rotate( 18deg) translate3d(0, 90px, 0);
+        transform: rotate(18deg) translate3d(0, 90px, 0);
       }
     }
   }
 }
 
-@media(max-width: 1900px)  and (min-width:1400px){
-
+@media (max-width: 1900px) and (min-width: 1400px) {
   .contactPage {
-
     .heading {
       margin-top: 4rem;
-       
+
       h2 {
         font-size: 65px;
       }
@@ -281,7 +293,7 @@
       }
 
       .fifth {
-        transform: rotate( 18deg) translate3d(0, 77px, 0);
+        transform: rotate(18deg) translate3d(0, 77px, 0);
       }
     }
 
@@ -291,24 +303,18 @@
   }
 }
 
-@media(max-width: 1700px) and (min-width:1400px) {
-
+@media (max-width: 1700px) and (min-width: 1400px) {
   .contactPage {
-
     .cardContainer {
-
       .third {
         transform: rotate(0) translate3d(0, -40px, 0);
       }
-
     }
   }
 }
 
-@media(max-width: 1400px){
-
+@media (max-width: 1400px) {
   .contactPage {
-
     .cardContainer {
       margin-top: 7vh;
 
@@ -321,10 +327,9 @@
       }
 
       .fifth {
-        transform: rotate( 18deg) translate3d(0, 64px, 0);
+        transform: rotate(18deg) translate3d(0, 64px, 0);
       }
     }
-
   }
 }
 
@@ -503,23 +508,20 @@
   }
 }
 
-@media(max-width: 400px) {
-
-    .contactPage {
-
-      .heading {
-        margin-top: 1rem;
-      }
-
-      .cardContainer {
-        margin-top: 1.5rem;
-        gap: 1rem;
-      }
-
-      .cardContainer1 {
-        gap: 1rem;
-        margin-top: 1rem;
-      }
-    
+@media (max-width: 400px) {
+  .contactPage {
+    .heading {
+      margin-top: 1rem;
     }
+
+    .cardContainer {
+      margin-top: 1.5rem;
+      gap: 1rem;
+    }
+
+    .cardContainer1 {
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+  }
 }

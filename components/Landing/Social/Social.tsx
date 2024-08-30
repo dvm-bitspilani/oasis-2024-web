@@ -25,15 +25,18 @@ const Social = () => {
               y2="40.8751"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#876D24" />
-              <stop offset="0.28" stop-color="#F3D57B" />
-              <stop offset="0.66" stop-color="#B69637" />
-              <stop offset="1" stop-color="#DCBF69" />
+              <stop stopColor="#876D24" />
+              <stop offset="0.28" stopColor="#F3D57B" />
+              <stop offset="0.66" stopColor="#B69637" />
+              <stop offset="1" stopColor="#DCBF69" />
             </linearGradient>
           </defs>
         </svg>
       </a>
-      <a href="https://www.linkedin.com/company/oasis24-bits-pilani/" target="_blank">
+      <a
+        href="https://www.linkedin.com/company/oasis24-bits-pilani/"
+        target="_blank"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="50"
@@ -54,10 +57,10 @@ const Social = () => {
               y2="46.9105"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#876D24" />
-              <stop offset="0.28" stop-color="#F3D57B" />
-              <stop offset="0.66" stop-color="#B69637" />
-              <stop offset="1" stop-color="#DCBF69" />
+              <stop stopColor="#876D24" />
+              <stop offset="0.28" stopColor="#F3D57B" />
+              <stop offset="0.66" stopColor="#B69637" />
+              <stop offset="1" stopColor="#DCBF69" />
             </linearGradient>
           </defs>
         </svg>
@@ -70,7 +73,7 @@ const Social = () => {
           viewBox="0 0 40 36"
           fill="none"
         >
-          <g clip-path="url(#clip0_2986_4725)">
+          <g clipPath="url(#clip0_2986_4725)">
             <path
               d="M31.4859 0H37.5904L24.257 15.28L40 36H27.6305L17.992 23.44L6.90763 36H0.803213L15.1004 19.68L0 0H12.6908L21.4458 11.52L31.4859 0ZM29.3173 32.32H32.6908L10.8434 3.44H7.14859L29.3173 32.32Z"
               fill="url(#paint0_linear_2986_4725)"
@@ -85,10 +88,10 @@ const Social = () => {
               y2="40.875"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#876D24" />
-              <stop offset="0.28" stop-color="#F3D57B" />
-              <stop offset="0.66" stop-color="#B69637" />
-              <stop offset="1" stop-color="#DCBF69" />
+              <stop stopColor="#876D24" />
+              <stop offset="0.28" stopColor="#F3D57B" />
+              <stop offset="0.66" stopColor="#B69637" />
+              <stop offset="1" stopColor="#DCBF69" />
             </linearGradient>
             <clipPath id="clip0_2986_4725">
               <rect width="40" height="36" fill="white" />

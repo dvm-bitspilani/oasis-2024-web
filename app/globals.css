@@ -14,14 +14,34 @@ body {
   cursor: url("../assets/Global/Cursor.svg"), default;
 }
 
-.htmlScreen iframe {
+.htmlScreen iframe, #iframe-overlay {
   width: 1000px;
   height: 750px;
   transform: rotateY(180deg);
   border: none;
   border-radius: 20px;
   background-color: black;
-  /* position: fixed; */
+  position: absolute;
+}
+
+#iframe-overlay{
+  z-index: 1;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#iframe-overlay + div{
+  width: 1000px !important;
+  height: 750px !important;
+}
+
+#iframe-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 1000px;
+  height: 750px;
 }
 
 .ant-select-selector {

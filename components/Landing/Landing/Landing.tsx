@@ -2,14 +2,13 @@
 
 // import styles from "./landing.module.scss";
 
-import { Suspense, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 import LandingScene from "../Scene/Scene";
 import styles from "../../ContactUs/contactus.module.scss";
-import Preloader from "@/components/Preloader/Preloader";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,21 +18,90 @@ interface MatchMediaParams {
 
 export default function Landing() {
   const slotMachine: any = useRef();
+  const [camera, setCamera] = useState<any>(null);
+
   const [is3dLoaded, setIs3dLoaded] = useState(false);
   const [isXS, setIsXS] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isVideoFocused, setIsVideoFocused] = useState(false);
+  const [isLanding, setIsLanding] = useState(true);
+
+  useGSAP(
+    () => {
+      if (camera) {
+        if (isVideoFocused) {
+          gsap.to(camera.position, {
+            z: 3.5,
+            duration: 0.5,
+            ease: "sine.inOut",
+          });
+          gsap.to(camera.rotation, {
+            x: -0.4,
+            duration: 0.5,
+            ease: "sine.inOut",
+          });
+        } else {
+          gsap.to(camera.position, {
+            z: 5,
+            duration: 0.5,
+            ease: "sine.inOut",
+          });
+          gsap.to(camera.rotation, {
+            x: 0,
+            duration: 0.5,
+            ease: "sine.inOut",
+          });
+        }
+      }
+    },
+    { dependencies: [isVideoFocused, camera] }
+  );
+
+  function iframeClick() {
+    if (window.scrollY === 0) {
+      setIsVideoFocused((prev) => !prev);
+    }
+  }
 
   useEffect(() => {
+    let overlayWrapper: any = document.querySelector("#mainwrapper");
+
     window.addEventListener("beforeunload", () => {
       window.scrollTo(0, 0);
+    });
+
+    window.addEventListener("scroll", () => {
+      if (isVideoFocused) {
+        setIsVideoFocused(false);
+      }
+      if (window.scrollY === 0 && !isLanding) {
+        setIsLanding(true);
+        overlayWrapper.setAttribute("style", "z-index: -2;");
+      } else if (window.scrollY !== 0 && isLanding) {
+        setIsLanding(false);
+        overlayWrapper.setAttribute("style", "z-index: 1;");
+      }
     });
 
     return () => {
       window.removeEventListener("beforeunload", () => {
         window.scrollTo(0, 0);
       });
+
+      window.removeEventListener("scroll", () => {
+        if (isVideoFocused) {
+          setIsVideoFocused(false);
+        }
+        if (window.scrollY === 0 && !isLanding) {
+          setIsLanding(true);
+          overlayWrapper.setAttribute("style", "z-index: -2;");
+        } else if (window.scrollY !== 0 && isLanding) {
+          setIsLanding(false);
+          overlayWrapper.setAttribute("style", "z-index: 1;");
+        }
+      });
     };
-  }, []);
+  }, [isVideoFocused]);
 
   useGSAP(
     () => {
@@ -51,6 +119,11 @@ export default function Landing() {
               }`,
             end: "+=200%",
             scrub: 1,
+            snap: {
+              snapTo: [0, 0.4, 1],
+              ease: "sine.inOut",
+              duration: 1,
+            },
           },
         };
       } else {
@@ -74,6 +147,7 @@ export default function Landing() {
           },
         };
       }
+
       const timeline = gsap.timeline(timelineConfig);
 
       const mm = gsap.matchMedia();
@@ -402,13 +476,15 @@ export default function Landing() {
   );
 
   return (
-    <Suspense fallback={<Preloader />}>
-      <LandingScene
-        ref={slotMachine}
-        setIs3dLoaded={setIs3dLoaded}
-        isXS={isXS}
-        isMobile={isMobile}
-      />
-    </Suspense>
+    <LandingScene
+      ref={slotMachine}
+      setIs3dLoaded={setIs3dLoaded}
+      iframeClick={iframeClick}
+      isLanding={isLanding}
+      isVideoFocused={isVideoFocused}
+      isXS={isXS}
+      isMobile={isMobile}
+      setCamera={setCamera}
+    />
   );
 }

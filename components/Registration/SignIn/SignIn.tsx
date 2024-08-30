@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./signin.module.scss";
 import Instruction from "../Instructions/Instructions";
+import Modal from "../Modal/Modal";
 
 const Signin = () => {
+  const [isOpen, setisOpen] = useState(false);
+
+  const toggleModal = () => {
+    setisOpen(!isOpen);
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.titlecontainer}>
@@ -77,7 +84,12 @@ const Signin = () => {
             <div className={styles.text}>Ishita: 7804051996</div>
           </div>
         </div>
+        <div className={styles.details}>
+          <Instruction text="For detailed instructions" />
+          <div className={styles.modalbtn} onClick={toggleModal}>click here</div>
+        </div>
       </div>
+      {isOpen && <Modal closeModal={toggleModal} />}
     </div>
   );
 };

@@ -6,6 +6,7 @@ import Signin from "../SignIn/SignIn";
 import Image from "next/image";
 import Modal from "../Modal/Modal";
 import { Tooltip } from "antd";
+import Instruction from "../Instructions/Instructions";
 
 interface Props {
   gSignIn: () => void;
@@ -133,7 +134,7 @@ export default function GoogleAuthPage({ gSignIn }: Props) {
             </div>
           </div>
         </div>
-        <Tooltip title="Click to view detailed instructions">
+        {/* <Tooltip title="Click to view detailed instructions">
           <div className={styles.modalbtn} onClick={toggleModal}>
             <div className={styles.symbols}>
               <svg
@@ -166,8 +167,9 @@ export default function GoogleAuthPage({ gSignIn }: Props) {
               </svg>
             </div>
           </div>
-        </Tooltip>
-        {isOpen && <Modal closeModal={toggleModal} />}
+        </Tooltip> */}
+        {/* <div className={styles.modalbtn} onClick={toggleModal}>click here</div> */}
+        {/* {isOpen && <Modal closeModal={toggleModal} />} */}
         <Image
           className={styles.rouletteWheel}
           src="/Registration/RouletteWheel.png"

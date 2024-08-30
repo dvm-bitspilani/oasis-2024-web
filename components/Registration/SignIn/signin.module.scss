@@ -1,110 +1,139 @@
 .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .titlecontainer {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    .titlecontainer {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      .title {
-        background: linear-gradient(
-          0deg,
-          #fffee5 -27.5%,
-          #efd48d -1.13%,
-          #ffce93 48.36%,
-          #f9e6a2 100%
-        );
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-family: Vidaloka;
-        font-size: 36px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 43px;
-        letter-spacing: 2.16px;
-        text-transform: uppercase;
-
-        @media (width <= 1250px) {
-          font-size: 32px;
-        }
-        @media (width <= 650px) {
-          font-size: 28px;
-        }
-      }
-    }
-    .contentcontainer{
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-      position: relative;
-      top: 50px;
-
-      .contact{
-        position: relative;
-        top: -20px;
-        left: 50px;
-
-        @media (width <= 1150px) {
-          left: 0;
-        }
-      }
-
-      .content {
-        display: flex;
-        .text {
-          color: #ffe3ad;
-          text-shadow: 0px 0px 8px rgba(229, 195, 132, 0.24);
-          font-family: "Source Serif 4";
-          font-size: 24px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 32px;
-          letter-spacing: 1.44px;
-      
-          @media (width <= 1500px) {
-            font-size: 20px;
-          }
-      
-          @media (width <= 1250px) {
-            font-size: 16px;
-          }
-      
-          @media (width <= 650px) {
-            font-size: 11px;
-            padding: 0 20px;
-          }
-        }
-      }
-      
-
-      @media (width <= 1500px) {
-        gap: 30px;
-        top: 30px;
-      }
+    gap: 10px;
+    .title {
+      background: linear-gradient(
+        0deg,
+        #fffee5 -27.5%,
+        #efd48d -1.13%,
+        #ffce93 48.36%,
+        #f9e6a2 100%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: Vidaloka;
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 43px;
+      letter-spacing: 2.16px;
+      text-transform: uppercase;
 
       @media (width <= 1250px) {
-        gap: 20px;
-      }
-
-      @media (width <= 650px) {
-        gap: 15px;
+        font-size: 32px;
       }
       @media (width <= 650px) {
-        top: 10px;
+        font-size: 28px;
       }
-    }
-    @media (width <= 1150px){
-      position: relative;
-      left: -25px;
-      transform: translateY(-30%);
-    }
-    @media (width <= 650px){
-      top: -20px;
-    }
-
-    @media (width <= 450px){
-      top: 0px;
     }
   }
-  
+  .contentcontainer {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    position: relative;
+    top: 50px;
+
+    .contact {
+      position: relative;
+      top: -20px;
+      left: 50px;
+
+      @media (width <= 1150px) {
+        left: 0;
+      }
+    }
+
+    .content {
+      display: flex;
+      .text {
+        color: #ffe3ad;
+        text-shadow: 0px 0px 8px rgba(229, 195, 132, 0.24);
+        font-family: "Source Serif 4";
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 32px;
+        letter-spacing: 1.44px;
+
+        @media (width <= 1500px) {
+          font-size: 20px;
+        }
+
+        @media (width <= 1250px) {
+          font-size: 16px;
+        }
+
+        @media (width <= 650px) {
+          font-size: 11px;
+          padding: 0 20px;
+        }
+      }
+    }
+
+    .details {
+      display: flex;
+      gap: 8px;
+      position: relative;
+      top: -20px;
+      .modalbtn {
+        color: #ffe3ad;
+        text-shadow: 0px 0px 8px rgba(229, 195, 132, 0.24);
+        font-family: "Source Serif 4";
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 32px;
+        letter-spacing: 1.44px;
+        cursor: pointer;
+        position: relative;
+        display: inline-block;
+        // text-decoration: underline;
+        // text-decoration-color: #FFE3AD;
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -1.5px;
+          width: 100%;
+          height: 1.5px;
+          background-color: #FFE3AD;
+        }
+      }
+    }
+
+    @media (width <= 1500px) {
+      gap: 30px;
+      top: 30px;
+    }
+
+    @media (width <= 1250px) {
+      gap: 20px;
+    }
+
+    @media (width <= 650px) {
+      gap: 15px;
+    }
+    @media (width <= 650px) {
+      top: 10px;
+    }
+  }
+  @media (width <= 1150px) {
+    position: relative;
+    left: -25px;
+    transform: translateY(-30%);
+  }
+  @media (width <= 650px) {
+    top: -20px;
+  }
+
+  @media (width <= 450px) {
+    top: 0px;
+  }
+}

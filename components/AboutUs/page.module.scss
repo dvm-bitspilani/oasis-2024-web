@@ -95,14 +95,22 @@
         align-items: center;
         overflow: hidden;
       }
-      .borderBottom {
+      .borderMiddleBottom {
         width: calc(100% - 47px);
-        display: flex;
-        justify-content: center;
-        overflow: hidden;
         position: absolute;
         left: 24px;
-        bottom: 2px;
+        bottom: 4px;
+        height: 40px;
+        svg {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        overflow: hidden;
       }
 
       .topRightCurve {

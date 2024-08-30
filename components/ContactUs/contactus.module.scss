@@ -27,6 +27,10 @@
     }
   }
 
+  .mobileContainer {
+    display: none;
+  }
+
   .cardContainer {
     margin-top: 3rem;
     display: flex;
@@ -368,91 +372,107 @@
       }
     }
 
-    .cardContainer {
-      visibility: visible;
-      flex-direction: row-reverse;
-
-      .first {
-        transform: rotate(0deg) translate3d(0, 0px, 0);
-        transition-delay: 0;
-        position: static;
-      }
-
-      .mobile {
-        display: block;
-      }
-
-      .second {
-        transform: rotate(0deg) translate3d(0, 0px, 0);
-        transition-delay: 0;
-        position: static;
-      }
-
-      .third {
-        position: static;
-        transform: rotate(0) translate3d(0, 0px, 0);
-        transition-delay: 0;
-      }
-
-      .fourth {
-        display: none;
-        position: static;
-        transform: rotate(0deg) translate3d(0, 0px, 0);
-        transition-delay: 0;
-      }
-
-      .fifth {
-        position: static;
-        transform: rotate(0deg) translate3d(0, 0px, 0);
-        display: none;
-      }
+    .cardContainer, 
+    .cardContainer1 {
+      opacity: 0;
+      margin-top: 0;
+      margin-bottom: 0;
     }
 
-    .cardContainer1 {
-      gap: 0;
-      justify-content: space-evenly;
+    .mobileContainer {
       margin-top: 3rem;
-      visibility: visible;
-
-      .first {
-        position: static;
-        transform: rotate(0deg) translate3d(0, 0px, 0);
-        transition-delay: 0;
-      }
-
-      .second {
-        position: static;
-        transform: rotate(0deg) translate3d(0, 0px, 0);
-        transition-delay: 0;
-      }
-
-      .third {
-        position: static;
-        transform: rotate(0) translate3d(0, 0px, 0);
-        transition-delay: 0;
-      }
-
-      .fourth {
-        display: block;
-      }
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
     }
+
+    // .cardContainer {
+    //   visibility: visible;
+    //   flex-direction: row-reverse;
+
+    //   .first {
+    //     transform: rotate(0deg) translate3d(0, 0px, 0);
+    //     transition-delay: 0;
+    //     position: static;
+    //   }
+
+    //   .mobile {
+    //     display: block;
+    //   }
+
+    //   .second {
+    //     transform: rotate(0deg) translate3d(0, 0px, 0);
+    //     transition-delay: 0;
+    //     position: static;
+    //   }
+
+    //   .third {
+    //     position: static;
+    //     transform: rotate(0) translate3d(0, 0px, 0);
+    //     transition-delay: 0;
+    //   }
+
+    //   .fourth {
+    //     display: none;
+    //     position: static;
+    //     transform: rotate(0deg) translate3d(0, 0px, 0);
+    //     transition-delay: 0;
+    //   }
+
+    //   .fifth {
+    //     position: static;
+    //     transform: rotate(0deg) translate3d(0, 0px, 0);
+    //     display: none;
+    //   }
+    // }
+
+    // .cardContainer1 {
+    //   gap: 0;
+    //   justify-content: space-evenly;
+    //   margin-top: 3rem;
+    //   visibility: visible;
+
+    //   .first {
+    //     position: static;
+    //     transform: rotate(0deg) translate3d(0, 0px, 0);
+    //     transition-delay: 0;
+    //   }
+
+    //   .second {
+    //     position: static;
+    //     transform: rotate(0deg) translate3d(0, 0px, 0);
+    //     transition-delay: 0;
+    //   }
+
+    //   .third {
+    //     position: static;
+    //     transform: rotate(0) translate3d(0, 0px, 0);
+    //     transition-delay: 0;
+    //   }
+
+    //   .fourth {
+    //     display: block;
+    //   }
+    // }
   }
 }
 
-@media (max-width: 900px) {
-  .contactPage {
-    .cardContainer {
-      justify-content: center;
-      gap: 1rem;
-    }
+// @media (max-width: 900px) {
+//   .contactPage {
+//     .cardContainer {
+//       justify-content: center;
+//       gap: 1rem;
+//     }
 
-    .cardContainer1 {
-      margin-top: 1rem;
-      justify-content: center;
-      gap: 1rem;
-    }
-  }
-}
+//     .cardContainer1 {
+//       margin-top: 1rem;
+//       justify-content: center;
+//       gap: 1rem;
+//     }
+//   }
+// }
 
 @media (max-width: 600px) {
   .contactPage {
@@ -474,54 +494,85 @@
       }
     }
 
-    .cardContainer {
-      margin-top: 2rem;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap-reverse;
-    }
-
-    .cardContainer1 {
-      margin-top: 1rem;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      overflow-y: scroll;
-    }
-  }
-}
-
-@media (max-width: 450px) {
-  .contactPage {
-    .cardContainer {
-      gap: 1.5rem;
-      // height: auto;
-      // overflow-y: scroll;
-    }
-
-    .cardContainer1 {
+    .mobileContainer {
       margin-top: 1.5rem;
-      gap: 1.5rem;
-      // height: auto;
-      // overflow-y: scroll;
     }
+
+    // .cardContainer {
+    //   margin-top: 2rem;
+    //   justify-content: center;
+    //   gap: 1rem;
+    //   flex-wrap: wrap-reverse;
+    // }
+
+    // .cardContainer1 {
+    //   margin-top: 1rem;
+    //   justify-content: center;
+    //   gap: 1rem;
+    //   flex-wrap: wrap;
+    //   overflow-y: scroll;
+    // }
   }
 }
 
-@media (max-width: 400px) {
+// @media (max-width: 450px) {
+//   .contactPage {
+//     .cardContainer {
+//       gap: 1.5rem;
+//       // height: auto;
+//       // overflow-y: scroll;
+//     }
+
+//     .cardContainer1 {
+//       margin-top: 1.5rem;
+//       gap: 1.5rem;
+//       // height: auto;
+//       // overflow-y: scroll;
+//     }
+//   }
+// }
+
+// @media (max-width: 400px) {
+//   .contactPage {
+//     .heading {
+//       margin-top: 1rem;
+//     }
+
+//     .cardContainer {
+//       margin-top: 1.5rem;
+//       gap: 1rem;
+//     }
+
+//     .cardContainer1 {
+//       gap: 1rem;
+//       margin-top: 1rem;
+//     }
+//   }
+// }
+
+@media(max-width: 450px) {
+
   .contactPage {
+
     .heading {
       margin-top: 1rem;
     }
 
-    .cardContainer {
+    .mobileContainer {
       margin-top: 1.5rem;
       gap: 1rem;
     }
+  }
+}
 
-    .cardContainer1 {
-      gap: 1rem;
-      margin-top: 1rem;
+@media(max-width: 400px) {
+
+  .contactPage {
+
+    .mobileContainer {
+      gap: 0.9rem;
     }
   }
 }
+
+

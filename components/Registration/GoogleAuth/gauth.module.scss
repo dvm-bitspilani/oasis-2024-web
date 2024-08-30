@@ -227,12 +227,12 @@
       transform: scale(0.5);
       top: -100px;
     }
-    @media (width <= 400px) {
-      top: -115px;
-    }
-    @media (width <= 350px) {
-      top: -150px;
-    }
+    // @media (width <= 400px) {
+    //   top: -115px;
+    // }
+    // @media (width <= 350px) {
+    //   top: -150px;
+    // }
   }
 
   .rouletteWheel {

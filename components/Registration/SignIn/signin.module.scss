@@ -39,15 +39,17 @@
     gap: 35px;
     position: relative;
     top: 50px;
-    background-color: black;
+    height: 55vh;
     // height: 50%;
-    // overflow-y: scroll;
+    overflow-y: scroll;
 
-    .mobilecontent{
+    .mobilecontent {
+      flex-direction: column;
+      gap: 20px;
       display: none;
-      // @media (width <= 1150px) {
-      //   display: inline-block;
-      // }
+      @media (width <= 1150px) {
+        display: flex;
+      }
     }
 
     .contact {
@@ -175,7 +177,7 @@
   }
 }
 
-.modal{
+.modal {
   @media (width <= 1150px) {
     display: none;
   }

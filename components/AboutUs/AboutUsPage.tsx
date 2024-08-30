@@ -141,7 +141,7 @@ export default function AboutUsPage() {
                 />
               </svg>
             </div>
-            <div className={styles.borderBottom}>
+            <div className={styles.borderMiddleBottom}>
               <svg
                 width="848"
                 height="33"

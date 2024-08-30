@@ -44,6 +44,10 @@
         position: relative;
         top: -20px;
         left: 50px;
+
+        @media (width <= 1150px) {
+          left: 0;
+        }
       }
 
       .content {

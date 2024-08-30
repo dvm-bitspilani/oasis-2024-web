@@ -39,6 +39,18 @@
     gap: 35px;
     position: relative;
     top: 50px;
+    height: 55vh;
+    // height: 50%;
+    overflow-y: scroll;
+
+    .mobilecontent {
+      flex-direction: column;
+      gap: 20px;
+      display: none;
+      @media (width <= 1150px) {
+        display: flex;
+      }
+    }
 
     .contact {
       position: relative;
@@ -86,9 +98,12 @@
       @media (width <= 1250px) {
         gap: 6px;
       }
-      @media (width <= 650px) {
-        gap: 0;
+      @media (width <= 1150px) {
+        display: none;
       }
+      // @media (width <= 650px) {
+      //   gap: 0;
+      // }
       .modalbtn {
         color: #ffe3ad;
         text-shadow: 0px 0px 8px rgba(229, 195, 132, 0.24);
@@ -112,10 +127,10 @@
           height: 1.5px;
           background-color: #ffe3ad;
 
-          @media (width <= 650px) {
-            bottom: 4px;
-            height: 1px;
-          }
+          // @media (width <= 650px) {
+          //   bottom: 4px;
+          //   height: 1px;
+          // }
         }
 
         @media (width <= 1500px) {
@@ -125,10 +140,10 @@
         @media (width <= 1250px) {
           font-size: 16px;
         }
-        @media (width <= 650px) {
-          font-size: 11px;
-          left: -15px;
-        }
+        // @media (width <= 650px) {
+        //   font-size: 11px;
+        //   left: -15px;
+        // }
       }
     }
 
@@ -159,5 +174,11 @@
 
   @media (width <= 450px) {
     top: 0px;
+  }
+}
+
+.modal {
+  @media (width <= 1150px) {
+    display: none;
   }
 }

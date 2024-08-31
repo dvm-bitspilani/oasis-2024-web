@@ -9,7 +9,7 @@
   display: flex;
   justify-content: space-between;
   position: fixed;
-  width: 300px;
+  width: 200px;
 
   @media (width > 760px) {
     bottom: 40px;
@@ -31,7 +31,6 @@
 
   @media (width <=1262px) {
     font-size: 20px;
-    width: 200px;
   }
 
   @media (width <= 760px) {

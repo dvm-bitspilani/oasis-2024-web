@@ -32,8 +32,8 @@ export default function Navbar() {
           width={43}
           height={45}
         />
-        {/* <HamBtn /> */}
-        {/* <RegBtn /> */}
+        <HamBtn />
+        <RegBtn />
       </div>
     </>
   );

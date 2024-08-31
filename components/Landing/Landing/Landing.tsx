@@ -30,24 +30,54 @@ export default function Landing() {
     () => {
       if (camera) {
         if (isVideoFocused) {
-          gsap.to(camera.position, {
-            z: 3.5,
+          const slotMachineVector = {
+            posX: slotMachine.current.position.x,
+            posZ: slotMachine.current.position.z,
+            rotY: slotMachine.current.rotation.y,
+          };
+
+          const camTl = gsap.timeline();
+
+          camTl.to(camera.position, {
+            // z: 4,
+            // x: 0.65,
+            z:
+              5 -
+              Math.abs(slotMachineVector.posZ) -
+              1.5 * Math.cos(slotMachineVector.rotY),
+            x: Math.abs(slotMachineVector.posX),
             duration: 0.5,
             ease: "sine.inOut",
           });
-          gsap.to(camera.rotation, {
-            x: -0.4,
-            duration: 0.5,
-            ease: "sine.inOut",
-          });
+          // .to(camera.position, {
+          //   z:
+          //     5 -
+          //     slotMachineVector.posZ -
+          //     1.5 * Math.cos(slotMachineVector.rotY),
+          //   x:
+          //     slotMachineVector.posX + 1.5 * Math.sin(slotMachineVector.rotY),
+          //   duration: 0.5,
+          //   ease: "sine.inOut",
+          // })
+          // .to(
+          //   camera.rotation,
+          //   {
+          //     y: slotMachine.current.rotation.y,
+          //     duration: 0.5,
+          //     ease: "sine.inOut",
+          //   },
+          //   "<"
+          // );
         } else {
           gsap.to(camera.position, {
             z: 5,
+            x: 0,
             duration: 0.5,
             ease: "sine.inOut",
           });
           gsap.to(camera.rotation, {
             x: 0,
+            y: 0,
             duration: 0.5,
             ease: "sine.inOut",
           });
@@ -58,8 +88,12 @@ export default function Landing() {
   );
 
   function iframeClick() {
+    console.log(slotMachine.current.position);
+    console.log(slotMachine.current.rotation.y);
+    console.log(camera.position);
+    console.log(camera.rotation);
+    setIsVideoFocused((prev) => !prev);
     if (window.scrollY === 0) {
-      setIsVideoFocused((prev) => !prev);
     }
   }
 
@@ -119,11 +153,11 @@ export default function Landing() {
               }`,
             end: "+=200%",
             scrub: 1,
-            snap: {
-              snapTo: [0, 0.4, 1],
-              ease: "sine.inOut",
-              duration: 1,
-            },
+            // snap: {
+            //   snapTo: [0, 0.4, 1],
+            //   ease: "sine.inOut",
+            //   duration: 1,
+            // },
           },
         };
       } else {
@@ -139,11 +173,11 @@ export default function Landing() {
               }`,
             end: "+=200%",
             scrub: 1,
-            snap: {
-              snapTo: [0, 0.4, 1],
-              ease: "sine.inOut",
-              duration: 1,
-            },
+            // snap: {
+            //   snapTo: [0, 0.4, 1],
+            //   ease: "sine.inOut",
+            //   duration: 1,
+            // },
           },
         };
       }
@@ -305,8 +339,12 @@ export default function Landing() {
                   duration: 0,
                   pointerEvents: "auto",
                   onComplete: () => {
-                    const container = document.querySelector("#contactCard") as HTMLElement;
-                    const cards = container?.querySelectorAll(".card") as NodeListOf<HTMLElement>;
+                    const container = document.querySelector(
+                      "#contactCard"
+                    ) as HTMLElement;
+                    const cards = container?.querySelectorAll(
+                      ".card"
+                    ) as NodeListOf<HTMLElement>;
                     if (cards) {
                       const cardCount = cards.length;
                       const containerWidth = container.offsetWidth;
@@ -361,8 +399,12 @@ export default function Landing() {
                         });
                       }
 
-                      const container1 = document.querySelector("#contactCard1") as HTMLElement;
-                      const cards1 = container1?.querySelectorAll(".card") as NodeListOf<HTMLElement>;
+                      const container1 = document.querySelector(
+                        "#contactCard1"
+                      ) as HTMLElement;
+                      const cards1 = container1?.querySelectorAll(
+                        ".card"
+                      ) as NodeListOf<HTMLElement>;
                       if (cards1) {
                         const cardCount1 = cards1.length;
                         const cardHeight = cards[0]?.offsetHeight || 0;
@@ -371,9 +413,9 @@ export default function Landing() {
                         const X7 = X6 + cardWidth + 50;
                         const X8 = X7 + cardWidth + 50;
 
-                        const Y6 = cardHeight ;
+                        const Y6 = cardHeight;
                         const Y7 = cardHeight - 30;
-                        const Y8 = cardHeight ;
+                        const Y8 = cardHeight;
 
                         const translations1 = [
                           { x: X6, y: Y6, rotation: -12 },

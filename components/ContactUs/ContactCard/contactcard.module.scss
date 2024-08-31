@@ -23,7 +23,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 0px;
 
     .name {
       font-family: "Playfair Display";
@@ -43,7 +43,7 @@
     }
 
     .imgContainer {
-      height: auto;
+      height: 100%;
       width: 100%;
       // position: relative;
 
@@ -58,7 +58,7 @@
 
       .profileImg {
         width: 155px;
-        height: 126px;
+        height: 100%;
         // position: relative;
         // z-index: 2;
         margin: auto;
@@ -137,7 +137,7 @@
       .imgContainer {
         .profileImg {
           width: 175px;
-          height: 155px;
+          height: 100%;
         }
       }
 
@@ -233,7 +233,7 @@
       }
 
       .imgContainer {
-        height: 116px;
+        height: 100%;
         width: 100%;
 
         .profileImg {

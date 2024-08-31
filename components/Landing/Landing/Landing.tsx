@@ -6,11 +6,9 @@ import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import dynamic from "next/dynamic";
 
 import LandingScene from "../Scene/Scene";
-import styles from "../../ContactUs/contactus.module.scss"
-// const LandingScene = dynamic(() => import('../Scene/Scene'), { ssr: false })
+import styles from "../../ContactUs/contactus.module.scss";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,21 +18,73 @@ interface MatchMediaParams {
 
 export default function Landing() {
   const slotMachine: any = useRef();
+  const [camera, setCamera] = useState<any>(null);
+
   const [is3dLoaded, setIs3dLoaded] = useState(false);
   const [isXS, setIsXS] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isVideoFocused, setIsVideoFocused] = useState(false);
+
+  useGSAP(
+    () => {
+      if (camera) {
+        if (isVideoFocused) {
+          gsap.to(camera.position, {
+            z: 3.5,
+            duration: 0.5,
+            ease: "sine.inOut",
+          });
+          gsap.to(camera.rotation, {
+            x: -0.4,
+            duration: 0.5,
+            ease: "sine.inOut",
+          });
+        } else {
+          gsap.to(camera.position, {
+            z: 5,
+            duration: 0.5,
+            ease: "sine.inOut",
+          });
+          gsap.to(camera.rotation, {
+            x: 0,
+            duration: 0.5,
+            ease: "sine.inOut",
+          });
+        }
+      }
+    },
+    { dependencies: [isVideoFocused, camera] }
+  );
+
+  function iframeClick() {
+    if (window.scrollY === 0) {
+      setIsVideoFocused((prev) => !prev);
+    }
+  }
 
   useEffect(() => {
     window.addEventListener("beforeunload", () => {
       window.scrollTo(0, 0);
     });
 
+    window.addEventListener("scroll", () => {
+      if (isVideoFocused) {
+        setIsVideoFocused(false);
+      }
+    });
+
     return () => {
       window.removeEventListener("beforeunload", () => {
         window.scrollTo(0, 0);
       });
+
+      window.removeEventListener("scroll", () => {
+        if (isVideoFocused) {
+          setIsVideoFocused(false);
+        }
+      });
     };
-  }, []);
+  }, [isVideoFocused]);
 
   useGSAP(
     () => {
@@ -45,12 +95,18 @@ export default function Landing() {
             trigger: 'img[alt="right tree"]',
             markers: false,
             start: () =>
-              `top ${document
-                .querySelector('img[alt="right tree"]')
-                ?.getBoundingClientRect().top
+              `top ${
+                document
+                  .querySelector('img[alt="right tree"]')
+                  ?.getBoundingClientRect().top
               }`,
             end: "+=200%",
             scrub: 1,
+            snap: {
+              snapTo: [0, 0.4, 1],
+              ease: "sine.inOut",
+              duration: 1,
+            },
           },
         };
       } else {
@@ -59,9 +115,10 @@ export default function Landing() {
             trigger: 'img[alt="right tree"]',
             markers: false,
             start: () =>
-              `top ${document
-                .querySelector('img[alt="right tree"]')
-                ?.getBoundingClientRect().top
+              `top ${
+                document
+                  .querySelector('img[alt="right tree"]')
+                  ?.getBoundingClientRect().top
               }`,
             end: "+=200%",
             scrub: 1,
@@ -73,6 +130,7 @@ export default function Landing() {
           },
         };
       }
+
       const timeline = gsap.timeline(timelineConfig);
 
       const mm = gsap.matchMedia();
@@ -137,6 +195,15 @@ export default function Landing() {
               )
               .to(
                 "#countdownTimer",
+                {
+                  y: 100,
+                  opacity: 0,
+                  duration: 0.75,
+                },
+                "<"
+              )
+              .to(
+                "#social",
                 {
                   y: 100,
                   opacity: 0,
@@ -235,7 +302,7 @@ export default function Landing() {
                 {},
                 {
                   onComplete: () => {
-                    const contactCard = document.querySelector('#contactCard');
+                    const contactCard = document.querySelector("#contactCard");
                     if (contactCard) {
                       contactCard.classList.add(styles.active);
                       // console.log(document.querySelector('#contactCard'));
@@ -248,7 +315,8 @@ export default function Landing() {
                 {},
                 {
                   onComplete: () => {
-                    const contactCard1 = document.querySelector('#contactCard1');
+                    const contactCard1 =
+                      document.querySelector("#contactCard1");
                     if (contactCard1) {
                       contactCard1.classList.add(styles.active1);
                     }
@@ -264,13 +332,13 @@ export default function Landing() {
   );
 
   return (
-    <>
-      <LandingScene
-        ref={slotMachine}
-        setIs3dLoaded={setIs3dLoaded}
-        isXS={isXS}
-        isMobile={isMobile}
-      />
-    </>
+    <LandingScene
+      ref={slotMachine}
+      setIs3dLoaded={setIs3dLoaded}
+      iframeClick={iframeClick}
+      isXS={isXS}
+      isMobile={isMobile}
+      setCamera={setCamera}
+    />
   );
 }

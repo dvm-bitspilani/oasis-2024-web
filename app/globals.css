@@ -25,6 +25,7 @@ body {
 }
 
 .ant-select-selector {
+  width: 90% !important;
   background-color: transparent !important;
   color: linear-gradient(
     0deg,
@@ -53,6 +54,16 @@ body {
 
 .ant-select-selection-placeholder {
   color: #efd48d !important;
+}
+@media screen and (max-width: 768px) {
+  .ant-select-selection-placeholder,
+  .ant-select-selection-item {
+    font-size: 20px !important;
+  }
+}
+
+.ant-select-selection-overflow-item-suffix {
+  width: 0px !important;
 }
 
 .ant-select-multiple .ant-select-selection-placeholder {

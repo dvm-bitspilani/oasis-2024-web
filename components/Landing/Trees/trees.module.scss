@@ -2,7 +2,7 @@
     width: 100vw;
     position: absolute;
     bottom: 0;
-    z-index: -1;
+    z-index: -2;
     pointer-events: none;
 
     .righttree {
@@ -16,7 +16,7 @@
 
 .gradient{
     position: absolute;
-    bottom: 0;
+    bottom: -20px;
     display: none;
     @media(width <= 430px) {
         display: block;

@@ -8,6 +8,7 @@ import React, { useEffect, useRef, forwardRef } from "react";
 import { Html, useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 import * as THREE from "three";
+import { useThree } from "@react-three/fiber";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -40,142 +41,101 @@ type GLTFResult = GLTF & {
 interface Props {
   video: string;
   setIs3dLoaded: (value: boolean) => void;
+  iframeClick: () => void;
+  setCamera: (value: any) => void;
 }
 
 export const SlotMachine = forwardRef(function SlotMachine2(
-  { video, setIs3dLoaded, ...props }: Props,
+  { video, setIs3dLoaded, iframeClick, setCamera, ...props }: Props,
   ref: any
 ) {
   const { nodes, materials } = useGLTF(
     "/Models/slotMachineFinal.glb"
   ) as GLTFResult;
 
-  const screen: any = useRef();
+  const { camera } = useThree();
 
   useEffect(() => {
     setIs3dLoaded(true);
+    setCamera(camera);
   }, []);
 
   return (
-    <group ref={ref} {...props} dispose={null}>
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Sphere001.geometry}
-        material={materials.Export}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Sphere023.geometry}
-        material={nodes.Sphere023.material}
-        position={[0, 0.488, -0.092]}
-      >
-        <Html
-          transform
-          wrapperClass="htmlScreen"
-          distanceFactor={0.31000000000000005}
-          position={[0, 0, 0]}
-          rotation={[0.4510000000000003, 0, 0]}
+    <>
+      <group ref={ref} {...props} dispose={null} onClick={iframeClick}>
+        <mesh geometry={nodes.Sphere001.geometry} material={materials.Export} />
+        <mesh
+          geometry={nodes.Sphere023.geometry}
+          material={nodes.Sphere023.material}
+          position={[0, 0.488, -0.092]}
         >
-          <iframe
-            src="https://www.youtube.com/embed/ZCrClSBM1ns"
-            // src="https://bruno-simon.com/html"
-            title="OASIS 2023 | Official Curtain Raiser"
-          />
-        </Html>
-      </mesh>
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Sphere024.geometry}
-        material={materials.Export}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Sphere026.geometry}
-        material={materials.Export}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Sphere025.geometry}
-        material={materials.Export}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Sphere003.geometry}
-        material={materials["Material.040"]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Sphere003_1.geometry}
-        material={materials["Material.015"]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Sphere003_2.geometry}
-        material={materials.Slot1And2}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Sphere020.geometry}
-        material={materials["Material.040"]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Sphere020_1.geometry}
-        material={materials["Material.015"]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Sphere020_2.geometry}
-        material={materials.Slot1And2}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Sphere021.geometry}
-        material={materials["Material.040"]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Sphere021_1.geometry}
-        material={materials["Material.015"]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Sphere021_2.geometry}
-        material={materials.Slot1And2}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Sphere022.geometry}
-        material={materials["Material.040"]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Sphere022_1.geometry}
-        material={materials["Material.015"]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Sphere022_2.geometry}
-        material={materials.Slot1And2}
-      />
-    </group>
+          <Html
+            transform
+            wrapperClass="htmlScreen"
+            distanceFactor={0.31000000000000005}
+            position={[0, 0, 0]}
+            rotation={[0.4510000000000003, 0, 0]}
+          >
+            <iframe
+              src="https://www.youtube.com/embed/ZCrClSBM1ns"
+              // src="https://bruno-simon.com/html"
+              title="Oasis 2023 Curtain Raiser"
+            />
+          </Html>
+        </mesh>
+        <mesh geometry={nodes.Sphere024.geometry} material={materials.Export} />
+        <mesh geometry={nodes.Sphere026.geometry} material={materials.Export} />
+        <mesh geometry={nodes.Sphere025.geometry} material={materials.Export} />
+        <mesh
+          geometry={nodes.Sphere003.geometry}
+          material={materials["Material.040"]}
+        />
+        <mesh
+          geometry={nodes.Sphere003_1.geometry}
+          material={materials["Material.015"]}
+        />
+        <mesh
+          geometry={nodes.Sphere003_2.geometry}
+          material={materials.Slot1And2}
+        />
+        <mesh
+          geometry={nodes.Sphere020.geometry}
+          material={materials["Material.040"]}
+        />
+        <mesh
+          geometry={nodes.Sphere020_1.geometry}
+          material={materials["Material.015"]}
+        />
+        <mesh
+          geometry={nodes.Sphere020_2.geometry}
+          material={materials.Slot1And2}
+        />
+        <mesh
+          geometry={nodes.Sphere021.geometry}
+          material={materials["Material.040"]}
+        />
+        <mesh
+          geometry={nodes.Sphere021_1.geometry}
+          material={materials["Material.015"]}
+        />
+        <mesh
+          geometry={nodes.Sphere021_2.geometry}
+          material={materials.Slot1And2}
+        />
+        <mesh
+          geometry={nodes.Sphere022.geometry}
+          material={materials["Material.040"]}
+        />
+        <mesh
+          geometry={nodes.Sphere022_1.geometry}
+          material={materials["Material.015"]}
+        />
+        <mesh
+          geometry={nodes.Sphere022_2.geometry}
+          material={materials.Slot1And2}
+        />
+      </group>
+    </>
   );
 });
 

@@ -13,7 +13,7 @@ export default function Grunge() {
         position: "absolute",
         pointerEvents: "none",
         top: 0,
-        zIndex: -2,
+        zIndex: -3,
       }}
     />
   );

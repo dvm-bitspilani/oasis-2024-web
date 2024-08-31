@@ -1,5 +1,4 @@
 .registrationForm {
-  padding-top: 40px;
   position: relative;
   margin-right: 95.8px;
   z-index: 1;
@@ -9,6 +8,14 @@
     flex-direction: column;
     position: relative;
 
+    &:first-of-type {
+      .formFieldHeader {
+        padding-top: 0;
+      }
+      .formErrorMessage {
+        top: 92px;
+      }
+    }
     .inputUnderline {
       width: 100%;
       overflow: hidden;
@@ -64,6 +71,9 @@
 
       .radioButtonContainer {
         .radioLabel {
+          @media screen and (max-width: 1150px) {
+            font-size: 20px;
+          }
           font-family: Vidaloka;
           font-size: 28px;
           font-style: normal;

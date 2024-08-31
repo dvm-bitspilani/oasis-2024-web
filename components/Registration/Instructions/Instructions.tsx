@@ -14,6 +14,7 @@ const Instruction = ({ text }: Props) => {
         height="20"
         viewBox="0 0 16 20"
         fill="none"
+        className={styles.bullet}
       >
         <path
           d="M16 10L8 0L0 10L8 20L16 10Z"

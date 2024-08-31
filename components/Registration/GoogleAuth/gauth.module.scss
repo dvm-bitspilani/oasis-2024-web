@@ -10,26 +10,35 @@
     cursor: pointer;
     outline: none;
     border: none;
-    position: fixed;
-    bottom: 46px;
+    position: absolute;
+    top: 637px;
+    // bottom: 46px;
     transform: translateY(50%);
-    right: 262px;
+    right: 503px;
+    color: #ffe3ad;
+    text-shadow: 0px 0px 8px rgba(229, 195, 132, 0.24);
+    font-family: "Source Serif 4";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 1.44px;
     // background-color: white;
     // height: 30px;
     // width: 30px;
     // border-radius: 50%;
-    .symbols {
-      position: relative;
-      // display: flex;
-      // align-items: center;
-      // justify-content: center;
-      svg:nth-of-type(2) {
-        position: absolute;
-        left: 50%;
-        top: 35%;
-        transform: translateX(-50%) translateY(-50%);
-      }
-    }
+    // .symbols {
+    //   position: relative;
+    //   // display: flex;
+    //   // align-items: center;
+    //   // justify-content: center;
+    //   svg:nth-of-type(2) {
+    //     position: absolute;
+    //     left: 50%;
+    //     top: 35%;
+    //     transform: translateX(-50%) translateY(-50%);
+    //   }
+    // }
   }
 
   .btnwrapper {
@@ -39,7 +48,7 @@
     position: fixed;
     bottom: 46px;
     transform: translateY(50%);
-    right: 305px;
+    right: 285px;
     border-radius: 36px;
     background: conic-gradient(
       from 176deg at 50% 50%,
@@ -218,12 +227,12 @@
       transform: scale(0.5);
       top: -100px;
     }
-    @media (width <= 400px) {
-      top: -115px;
-    }
-    @media (width <= 350px) {
-      top: -150px;
-    }
+    // @media (width <= 400px) {
+    //   top: -115px;
+    // }
+    // @media (width <= 350px) {
+    //   top: -150px;
+    // }
   }
 
   .rouletteWheel {

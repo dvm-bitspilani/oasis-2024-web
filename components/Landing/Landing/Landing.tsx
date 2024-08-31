@@ -409,7 +409,7 @@ export default function Landing() {
                         const cardCount1 = cards1.length;
                         const cardHeight = cards[0]?.offsetHeight || 0;
 
-                        const X6 = (containerWidth - 3 * cardWidth - 105) / 2;
+                        const X6 = (containerWidth - 3 * cardWidth - 114) / 2;
                         const X7 = X6 + cardWidth + 50;
                         const X8 = X7 + cardWidth + 50;
 

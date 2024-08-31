@@ -477,8 +477,6 @@
 @media (max-width: 600px) {
   .contactPage {
     height: fit-content;
-    height: 85lvh;
-    overflow-y: scroll;
 
     .heading {
       margin-top: 2rem;
@@ -496,6 +494,9 @@
 
     .mobileContainer {
       margin-top: 1.5rem;
+      margin-bottom: 0rem;
+      height: 70lvh;
+      overflow-y: scroll;
     }
 
     // .cardContainer {
@@ -559,7 +560,8 @@
     }
 
     .mobileContainer {
-      margin-top: 1.5rem;
+      margin-top: 1rem;
+      margin-bottom: 0rem;
       gap: 1rem;
     }
   }
@@ -570,7 +572,7 @@
   .contactPage {
 
     .mobileContainer {
-      gap: 0.9rem;
+      gap: 0.8rem 0.9rem;
     }
   }
 }

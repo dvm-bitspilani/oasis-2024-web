@@ -477,6 +477,7 @@
 @media (max-width: 600px) {
   .contactPage {
     height: fit-content;
+    margin-bottom: 3lvh;
 
     .heading {
       margin-top: 2rem;
@@ -494,8 +495,8 @@
 
     .mobileContainer {
       margin-top: 1.5rem;
-      margin-bottom: 2rem;
-      height: 80lvh;
+      margin-bottom: 0rem;
+      height: 77lvh;
       overflow-y: scroll;
     }
 
@@ -560,7 +561,7 @@
     }
 
     .mobileContainer {
-      margin-top: 1.5rem;
+      margin-top: 1rem;
       margin-bottom: 0rem;
       gap: 1rem;
     }

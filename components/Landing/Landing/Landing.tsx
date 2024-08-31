@@ -319,16 +319,16 @@ export default function Landing() {
                       const X5 = X4 + cardWidth + 50;
 
                       const translations = [
-                        { x: X1, y: 70, rotation: -18 },
+                        { x: X1, y: 50, rotation: -18 },
                         { x: X2, y: -10, rotation: -10 },
                         { x: X3, y: -35, rotation: 0 },
                         { x: X4, y: -10, rotation: 10 },
-                        { x: X5, y: 70, rotation: 18 },
+                        { x: X5, y: 50, rotation: 18 },
                       ];
 
                       gsap.set(cards, {
                         x: X1,
-                        y: 70,
+                        y: 50,
                         rotation: -18,
                         zIndex: (index) => index,
                         duration: 0,
@@ -371,9 +371,9 @@ export default function Landing() {
                         const X7 = X6 + cardWidth + 50;
                         const X8 = X7 + cardWidth + 50;
 
-                        const Y6 = cardHeight ;
-                        const Y7 = cardHeight - 30;
-                        const Y8 = cardHeight ;
+                        const Y6 = cardHeight -10;
+                        const Y7 = cardHeight - 40;
+                        const Y8 = cardHeight -10;
 
                         const translations1 = [
                           { x: X6, y: Y6, rotation: -12 },

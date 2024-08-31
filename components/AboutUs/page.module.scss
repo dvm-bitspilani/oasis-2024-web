@@ -8,7 +8,7 @@
   flex-direction: column;
   width: 40%;
 
-  height: 100dvh;
+  height: 100lvh;
   margin-left: 8.5%;
 
   @media (width <= 1000px) {
@@ -28,7 +28,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 50px 40px 50px;
+    // padding: 0 50px 40px 50px;
     position: relative;
 
     @media (width <= 900px) {
@@ -44,11 +44,94 @@
     }
 
     .middle {
-      margin-top: 40px;
+      ::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        border-radius: 42px;
+        opacity: 0.6;
+        background: #170d26;
+        filter: blur(15px);
+      }
+
+      position: relative;
+      margin-top: 60px;
+      padding: 30px;
+      padding: 70px 40px;
       @media (width <= 1000px) {
         display: flex;
         justify-content: center;
         align-items: center;
+      }
+      .borderTop {
+        width: calc(100% - 48px);
+        overflow: hidden;
+        position: absolute;
+        left: 23px;
+        top: -15px;
+      }
+      .borderRight {
+        height: calc(100% - 54px);
+        position: absolute;
+        right: -0px;
+        top: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      .borderLeft {
+        height: calc(100% - 54px);
+        position: absolute;
+        left: -0px;
+        top: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      .borderMiddleBottom {
+        width: calc(100% - 47px);
+        position: absolute;
+        left: 24px;
+        bottom: 4px;
+        height: 40px;
+        svg {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        overflow: hidden;
+      }
+
+      .topRightCurve {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      .bottomRightCurve {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+      .bottomLeftCurve {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+      .topLeftCurve {
+        position: absolute;
+        top: 0;
+        left: 0;
       }
     }
 
@@ -76,21 +159,94 @@
     }
 
     .top {
+      ::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        border-radius: 42px;
+        opacity: 0.6;
+        background: #170d26;
+        filter: blur(15px);
+      }
+
+      position: relative;
+      width: 100%;
+      padding: 30px 0px;
+      .borderTop {
+        position: absolute;
+        top: 0;
+        left: 24px;
+        width: calc(100% - 48px);
+        height: 2px;
+        background-color: #b9a46a;
+      }
+      .borderLeft {
+        position: absolute;
+        top: 24px;
+        left: 0px;
+        height: calc(100% - 53px);
+        width: 2px;
+        background-color: #b9a46a;
+      }
+      .borderRight {
+        position: absolute;
+        top: 24px;
+        right: 0px;
+        height: calc(100% - 53px);
+        width: 2px;
+        background-color: #b9a46a;
+      }
+      .borderBottom {
+        position: absolute;
+        bottom: 5px;
+        left: 24px;
+        width: calc(100% - 48px);
+        height: 2px;
+        background-color: #b9a46a;
+      }
+      .topRightCurve {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      .bottomRightCurve {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+      .bottomLeftCurve {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+      .topLeftCurve {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
       display: flex;
-      width: 488px;
-      justify-content: space-between;
+      justify-content: center;
+      gap: 30px;
       align-items: center;
 
       @media (width <= 1000px) {
-        width: 410px;
+        // width: 410px;
+        width: 100%;
       }
 
       @media (width <= 500px) {
-        width: 350px;
+        // width: 350px;
+        width: 100%;
       }
 
       @media (width <= 405px) {
-        width: 300px;
+        // width: 300px;
+        width: 100%;
       }
 
       .spade {

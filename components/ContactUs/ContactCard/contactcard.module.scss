@@ -1,6 +1,6 @@
 .card {
   height: auto;
-  width: 190px;
+  width: 175px;
   background: linear-gradient(
     154.77deg,
     #0d0d0d 0.23%,
@@ -113,10 +113,10 @@
   }
 }
 
-@media (max-width: 2100px) and (min-width: 1500px) {
+@media (max-width: 2100px) and (min-width: 1600px) {
   .card {
     height: auto;
-    width: 250px;
+    width: 220px;
     display: flex;
     flex-direction: column;
     border: 1px solid #e3c041;
@@ -126,9 +126,9 @@
     transform: scale(0.9);
 
     .center {
-      margin-top: 45px;
+      margin-top: 40px;
       margin-bottom: 25px;
-      gap: 10px;
+      gap: 0px;
 
       .name {
         font-size: 22px;
@@ -136,7 +136,7 @@
 
       .imgContainer {
         .profileImg {
-          width: 175px;
+          width: 145px;
           height: 100%;
         }
       }

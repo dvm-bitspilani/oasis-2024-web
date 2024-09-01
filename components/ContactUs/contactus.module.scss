@@ -264,17 +264,17 @@
     .cardContainer {
       margin-top: 5rem;
 
-      .first {
-        transform: rotate(-18deg) translate3d(0, 90px, 0);
-      }
+      // .first {
+      //   transform: rotate(-18deg) translate3d(0, 90px, 0);
+      // }
 
-      .third {
-        transform: rotate(0deg) translate3d(0, -45px, 0);
-      }
+      // .third {
+      //   transform: rotate(0deg) translate3d(0, -45px, 0);
+      // }
 
-      .fifth {
-        transform: rotate(18deg) translate3d(0, 90px, 0);
-      }
+      // .fifth {
+      //   transform: rotate(18deg) translate3d(0, 90px, 0);
+      // }
     }
   }
 }
@@ -292,13 +292,13 @@
     .cardContainer {
       margin-top: 5rem;
 
-      .first {
-        transform: rotate(-18deg) translate3d(0, 77px, 0);
-      }
+      // .first {
+      //   transform: rotate(-18deg) translate3d(0, 77px, 0);
+      // }
 
-      .fifth {
-        transform: rotate(18deg) translate3d(0, 77px, 0);
-      }
+      // .fifth {
+      //   transform: rotate(18deg) translate3d(0, 77px, 0);
+      // }
     }
 
     .cardContainer1 {
@@ -307,53 +307,53 @@
   }
 }
 
-@media (max-width: 1700px) and (min-width: 1400px) {
-  .contactPage {
-    .cardContainer {
-      .third {
-        transform: rotate(0) translate3d(0, -40px, 0);
-      }
-    }
-  }
-}
+// @media (max-width: 1700px) and (min-width: 1400px) {
+//   .contactPage {
+//     .cardContainer {
+//       .third {
+//         transform: rotate(0) translate3d(0, -40px, 0);
+//       }
+//     }
+//   }
+// }
 
 @media (max-width: 1400px) {
   .contactPage {
     .cardContainer {
       margin-top: 7vh;
 
-      .first {
-        transform: rotate(-18deg) translate3d(0, 64px, 0);
-      }
+      // .first {
+      //   transform: rotate(-18deg) translate3d(0, 64px, 0);
+      // }
 
-      .third {
-        transform: rotate(0) translate3d(0, -30px, 0);
-      }
+      // .third {
+      //   transform: rotate(0) translate3d(0, -30px, 0);
+      // }
 
-      .fifth {
-        transform: rotate(18deg) translate3d(0, 64px, 0);
-      }
+      // .fifth {
+      //   transform: rotate(18deg) translate3d(0, 64px, 0);
+      // }
     }
   }
 }
 
-@media (max-width: 1200px) {
-  .contactPage {
-    .cardContainer {
-      .first {
-        transform: rotate(-18deg) translate3d(0, 60px, 0);
-      }
+// @media (max-width: 1200px) {
+//   .contactPage {
+//     .cardContainer {
+//       .first {
+//         transform: rotate(-18deg) translate3d(0, 60px, 0);
+//       }
 
-      .fifth {
-        transform: rotate(18deg) translate3d(0, 60px, 0);
-      }
-    }
+//       .fifth {
+//         transform: rotate(18deg) translate3d(0, 60px, 0);
+//       }
+//     }
 
-    .cardContainer1 {
-      gap: 2rem;
-    }
-  }
-}
+//     .cardContainer1 {
+//       gap: 2rem;
+//     }
+//   }
+// }
 
 @media (max-width: 1100px) {
   .contactPage {

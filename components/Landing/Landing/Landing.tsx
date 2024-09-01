@@ -112,10 +112,9 @@ export default function Landing() {
             trigger: 'img[alt="right tree"]',
             markers: false,
             start: () =>
-              `top ${
-                document
-                  .querySelector('img[alt="right tree"]')
-                  ?.getBoundingClientRect().top
+              `top ${document
+                .querySelector('img[alt="right tree"]')
+                ?.getBoundingClientRect().top
               }`,
             end: "+=200%",
             scrub: 1,
@@ -132,10 +131,9 @@ export default function Landing() {
             trigger: 'img[alt="right tree"]',
             markers: false,
             start: () =>
-              `top ${
-                document
-                  .querySelector('img[alt="right tree"]')
-                  ?.getBoundingClientRect().top
+              `top ${document
+                .querySelector('img[alt="right tree"]')
+                ?.getBoundingClientRect().top
               }`,
             end: "+=200%",
             scrub: 1,
@@ -371,9 +369,9 @@ export default function Landing() {
                         const X7 = X6 + cardWidth + 50;
                         const X8 = X7 + cardWidth + 50;
 
-                        const Y6 = cardHeight -10;
+                        const Y6 = cardHeight - 10;
                         const Y7 = cardHeight - 40;
-                        const Y8 = cardHeight -10;
+                        const Y8 = cardHeight - 10;
 
                         const translations1 = [
                           { x: X6, y: Y6, rotation: -12 },
@@ -436,6 +434,23 @@ export default function Landing() {
               )
               .from(
                 "#contactUs",
+                {
+                  y: 75,
+                  duration: 1,
+                },
+                "<"
+              )
+              .to(
+                "#contactBottom",
+                {
+                  opacity: 1,
+                  duration: 0,
+                  pointerEvents: "auto",
+                },
+                "-=1.5"
+              )
+              .from(
+                "#contactBottom",
                 {
                   y: 75,
                   duration: 1,

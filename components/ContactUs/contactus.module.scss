@@ -154,7 +154,7 @@
 
   .cardContainer1 {
     display: flex;
-    height: auto;
+    height: fit-content;
     // justify-content: center;
     // gap: 5vw;
     margin-top: 2rem;
@@ -251,6 +251,22 @@
   // }
 }
 
+.bottom {
+  opacity: 0;
+  position: fixed;
+  bottom: 0%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+
+  .bottomAnimation {
+    width: 255px;
+    height: 240px;
+    object-fit: contain;
+  }
+}
+
 @media (max-width: 2100px) and (min-width: 1400px) {
   .contactPage {
     .heading {
@@ -275,6 +291,18 @@
       // .fifth {
       //   transform: rotate(18deg) translate3d(0, 90px, 0);
       // }
+    }
+  }
+}
+
+@media (max-width: 2100px) and (min-width: 1700px) {
+
+  .bottom {
+    
+    .bottomAnimation {
+      width: 300px;
+      height: 280px;
+      object-fit: contain;
     }
   }
 }
@@ -456,6 +484,10 @@
     //     display: block;
     //   }
     // }
+  }
+
+  .bottom {
+    display: none
   }
 }
 

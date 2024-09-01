@@ -41,7 +41,7 @@
     top: 50px;
     height: 55vh;
     // height: 50%;
-    overflow-y: scroll;
+    // overflow-y: scroll;
 
     .mobilecontent {
       flex-direction: column;
@@ -154,6 +154,10 @@
 
     @media (width <= 1250px) {
       gap: 20px;
+    }
+
+    @media (width <= 1150px) {
+      overflow-y: scroll;
     }
 
     @media (width <= 650px) {

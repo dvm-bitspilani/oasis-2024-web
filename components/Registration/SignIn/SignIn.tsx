@@ -78,7 +78,7 @@ const Signin = () => {
           <Instruction text="A College Representative (CR) will be appointed for each college who'll be responsible for allotting heads for all the societies the college will be participating for." />
           <div className={styles.mobilecontent}>
             <Instruction text="Complete the registration form with all required details. You'll be able to login through your registered email id when required. All team members are required to register separately." />
-            <Instruction text="⁠A College Representative (CR) will be appointed for each college who'll be responsible for allotting heads for all the societies the college will be participating for." />
+            {/* <Instruction text="⁠A College Representative (CR) will be appointed for each college who'll be responsible for allotting heads for all the societies the college will be participating for." /> */}
             <Instruction text="Heads will then have to form the team and lock it." />
             <Instruction text="After the teams are locked, an approval email will be sent from the Department of Publication and Correspondence." />
             <Instruction text="Make the required payment as instructed." />

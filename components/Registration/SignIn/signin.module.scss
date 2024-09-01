@@ -43,6 +43,14 @@
     // height: 50%;
     // overflow-y: scroll;
 
+    .two{
+      position: relative;
+      left: -10px;
+      div{
+        gap: 5px;
+      }
+    }
+
     .mobilecontent {
       flex-direction: column;
       gap: 20px;
@@ -55,7 +63,7 @@
     .contact {
       position: relative;
       top: -20px;
-      left: 50px;
+      left: 40px;
 
       @media (width <= 1150px) {
         left: 0;

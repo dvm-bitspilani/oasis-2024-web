@@ -96,11 +96,15 @@
       right: 45px;
       left: 45px;
       top: 120px;
-      height: 55vh;
+      height: 55dvh;
       overflow-y: scroll;
+      overflow-x: hidden;
 
       @media (width <= 650px) {
         font-size: 16px !important;
+        left: 0px;
+        height: 65dvh;
+        right: 0px;
       }
 
       .two{
@@ -109,6 +113,10 @@
         div{
           gap: 22px;
         }
+
+        @media (width <= 1150px) {
+          left: 0;
+        }
       }
 
       .three{
@@ -116,6 +124,10 @@
         left: 2px;
         div{
           gap: 16px;
+        }
+
+        @media (width <= 1150px) {
+          left: 0;
         }
       }
     }

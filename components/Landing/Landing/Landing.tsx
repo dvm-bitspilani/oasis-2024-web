@@ -25,14 +25,15 @@ export default function Landing() {
   const [isMobile, setIsMobile] = useState(false);
   const [isVideoFocused, setIsVideoFocused] = useState(false);
   const [isLanding, setIsLanding] = useState(true);
+  const [tlProgress, setTlProgress] = useState(0);
 
   useGSAP(
     () => {
       if (camera) {
-        console.log(slotMachine.current.position);
-        console.log(slotMachine.current.rotation.y);
-        console.log(camera.position);
-        console.log(camera.rotation);
+        // console.log(slotMachine.current.position);
+        // console.log(slotMachine.current.rotation.y);
+        // console.log(camera.position);
+        // console.log(camera.rotation);
         if (isVideoFocused) {
           const slotMachineVector = {
             posX: slotMachine.current.position.x,
@@ -43,13 +44,19 @@ export default function Landing() {
           const camTl = gsap.timeline();
 
           camTl
+            // .to(camera.position, {
+            //   z:
+            //     Math.abs(slotMachineVector.posZ) +
+            //     3.5 * Math.abs(Math.cos(slotMachineVector.rotY)),
+            //   x:
+            //     Math.abs(slotMachineVector.posX) -
+            //     1.5 * Math.sin(slotMachineVector.rotY),
+            //   duration: 0.5,
+            //   ease: "sine.inOut",
+            // })
             .to(camera.position, {
-              z:
-                Math.abs(slotMachineVector.posZ) +
-                3.5 * Math.abs(Math.cos(slotMachineVector.rotY)),
-              x:
-                Math.abs(slotMachineVector.posX) -
-                1.5 * Math.sin(slotMachineVector.rotY),
+              z: 4.1,
+              x: 0.565,
               duration: 0.5,
               ease: "sine.inOut",
             })
@@ -57,24 +64,43 @@ export default function Landing() {
               camera.rotation,
               {
                 y: slotMachine.current.rotation.y,
+                x: -0.1,
+                z: -0.3,
                 duration: 0.5,
                 ease: "sine.inOut",
               },
               "<"
+            )
+            .to(
+              "#mainwrapper",
+              {
+                zIndex: -1,
+              },
+              "<"
             );
         } else {
-          gsap.to(camera.position, {
-            z: 5,
-            x: 0,
-            duration: 0.5,
-            ease: "sine.inOut",
-          });
-          gsap.to(camera.rotation, {
-            x: 0,
-            y: 0,
-            duration: 0.5,
-            ease: "sine.inOut",
-          });
+          const resetTl = gsap.timeline();
+          resetTl
+            .to(camera.position, {
+              z: 5,
+              x: 0,
+              duration: 0.5,
+              ease: "sine.inOut",
+            })
+            .to(
+              camera.rotation,
+              {
+                x: 0,
+                y: 0,
+                z: 0,
+                duration: 0.5,
+                ease: "sine.inOut",
+              },
+              "<"
+            )
+            .to("#mainwrapper", {
+              zIndex: 2,
+            });
         }
       }
     },
@@ -82,8 +108,11 @@ export default function Landing() {
   );
 
   function iframeClick() {
-    setIsVideoFocused((prev) => !prev);
-    if (window.scrollY === 0) {
+    console.log("click");
+    console.log(tlProgress);
+    if (tlProgress >= 0.39 && tlProgress <= 0.4) {
+      console.log("state");
+      setIsVideoFocused((prev) => !prev);
     }
   }
 
@@ -130,44 +159,43 @@ export default function Landing() {
   useGSAP(
     () => {
       let timelineConfig;
+      const commonConfigs = {
+        onUpdate: (timeLine: any) => {
+          console.log(timeLine.progress);
+          if (
+            timeLine.progress > 0.38 &&
+            timeLine.progress <= 0.41 &&
+            (tlProgress < 0.39 || tlProgress > 0.41)
+          ) {
+            setTlProgress(timeLine.progress);
+          }
+        },
+        trigger: 'img[alt="right tree"]',
+        markers: false,
+        start: () =>
+          `top ${
+            document
+              .querySelector('img[alt="right tree"]')
+              ?.getBoundingClientRect().top
+          }`,
+        end: "+=200%",
+        scrub: 1,
+        snap: {
+          snapTo: [0, 0.4, 1],
+          ease: "sine.inOut",
+          duration: 1,
+        },
+      };
       if (window.innerWidth < 800) {
         timelineConfig = {
           scrollTrigger: {
-            trigger: 'img[alt="right tree"]',
-            markers: false,
-            start: () =>
-              `top ${
-                document
-                  .querySelector('img[alt="right tree"]')
-                  ?.getBoundingClientRect().top
-              }`,
-            end: "+=200%",
-            scrub: 1,
-            // snap: {
-            //   snapTo: [0, 0.4, 1],
-            //   ease: "sine.inOut",
-            //   duration: 1,
-            // },
+            ...commonConfigs,
           },
         };
       } else {
         timelineConfig = {
           scrollTrigger: {
-            trigger: 'img[alt="right tree"]',
-            markers: false,
-            start: () =>
-              `top ${
-                document
-                  .querySelector('img[alt="right tree"]')
-                  ?.getBoundingClientRect().top
-              }`,
-            end: "+=200%",
-            scrub: 1,
-            // snap: {
-            //   snapTo: [0, 0.4, 1],
-            //   ease: "sine.inOut",
-            //   duration: 1,
-            // },
+            ...commonConfigs,
           },
         };
       }

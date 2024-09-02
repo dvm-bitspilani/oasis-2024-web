@@ -30,10 +30,10 @@ export default function Landing() {
   useGSAP(
     () => {
       if (camera) {
-        // console.log(slotMachine.current.position);
-        // console.log(slotMachine.current.rotation.y);
-        // console.log(camera.position);
-        // console.log(camera.rotation);
+        console.log(slotMachine.current.position);
+        console.log(slotMachine.current.rotation);
+        console.log(camera.position);
+        console.log(camera.rotation);
         if (isVideoFocused) {
           const slotMachineVector = {
             posX: slotMachine.current.position.x,
@@ -55,7 +55,7 @@ export default function Landing() {
             //   ease: "sine.inOut",
             // })
             .to(camera.position, {
-              z: 4.1,
+              z: 4,
               x: 0.565,
               duration: 0.5,
               ease: "sine.inOut",
@@ -64,8 +64,8 @@ export default function Landing() {
               camera.rotation,
               {
                 y: slotMachine.current.rotation.y,
-                x: -0.1,
-                z: -0.3,
+                x: -0.277,
+                z: -0.124,
                 duration: 0.5,
                 ease: "sine.inOut",
               },
@@ -108,10 +108,7 @@ export default function Landing() {
   );
 
   function iframeClick() {
-    console.log("click");
-    console.log(tlProgress);
     if (tlProgress >= 0.39 && tlProgress <= 0.4) {
-      console.log("state");
       setIsVideoFocused((prev) => !prev);
     }
   }
@@ -161,7 +158,6 @@ export default function Landing() {
       let timelineConfig;
       const commonConfigs = {
         onUpdate: (timeLine: any) => {
-          console.log(timeLine.progress);
           if (
             timeLine.progress > 0.38 &&
             timeLine.progress <= 0.41 &&

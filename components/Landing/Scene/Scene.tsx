@@ -75,7 +75,7 @@ const LandingScene = forwardRef(function LandingScene(
           }
           rotation={[0, Math.PI, 0]}
         >
-          {/* <SlotMachine
+          {/* <SlotMachine2
             video="/Videos/curtainRaiser23_flipped.mp4"
             ref={ref}
             setIs3dLoaded={setIs3dLoaded}
@@ -93,7 +93,7 @@ const LandingScene = forwardRef(function LandingScene(
               isVideoFocused={isVideoFocused}
             />
           ) : (
-            <SlotMachine2
+            <SlotMachine
               video="/Videos/curtainRaiser23_flipped.mp4"
               ref={ref}
               setIs3dLoaded={setIs3dLoaded}

@@ -7,6 +7,7 @@ import { SlotMachine2 } from "./SlotMachine2";
 import { SlotMachine } from "./SlotMachine";
 import { forwardRef } from "react";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
+import { SlotMachineiOS } from "./SlotMachineiOS";
 
 interface Props {
   setIs3dLoaded: (value: boolean) => void;
@@ -63,7 +64,15 @@ const LandingScene = forwardRef(function LandingScene(
             setCamera={setCamera}
             isVideoFocused={isVideoFocused}
           /> */}
-          <SlotMachine2
+          {/* <SlotMachine2
+            video="/Videos/curtainRaiser23_flipped.mp4"
+            ref={ref}
+            setIs3dLoaded={setIs3dLoaded}
+            iframeClick={iframeClick}
+            setCamera={setCamera}
+            isVideoFocused={isVideoFocused}
+          /> */}
+          <SlotMachineiOS
             video="/Videos/curtainRaiser23_flipped.mp4"
             ref={ref}
             setIs3dLoaded={setIs3dLoaded}

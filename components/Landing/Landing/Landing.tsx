@@ -29,6 +29,10 @@ export default function Landing() {
   useGSAP(
     () => {
       if (camera) {
+        console.log(slotMachine.current.position);
+        console.log(slotMachine.current.rotation.y);
+        console.log(camera.position);
+        console.log(camera.rotation);
         if (isVideoFocused) {
           const slotMachineVector = {
             posX: slotMachine.current.position.x,
@@ -38,36 +42,26 @@ export default function Landing() {
 
           const camTl = gsap.timeline();
 
-          camTl.to(camera.position, {
-            // z: 4,
-            // x: 0.65,
-            z:
-              5 -
-              Math.abs(slotMachineVector.posZ) -
-              1.5 * Math.cos(slotMachineVector.rotY),
-            x: Math.abs(slotMachineVector.posX),
-            duration: 0.5,
-            ease: "sine.inOut",
-          });
-          // .to(camera.position, {
-          //   z:
-          //     5 -
-          //     slotMachineVector.posZ -
-          //     1.5 * Math.cos(slotMachineVector.rotY),
-          //   x:
-          //     slotMachineVector.posX + 1.5 * Math.sin(slotMachineVector.rotY),
-          //   duration: 0.5,
-          //   ease: "sine.inOut",
-          // })
-          // .to(
-          //   camera.rotation,
-          //   {
-          //     y: slotMachine.current.rotation.y,
-          //     duration: 0.5,
-          //     ease: "sine.inOut",
-          //   },
-          //   "<"
-          // );
+          camTl
+            .to(camera.position, {
+              z:
+                Math.abs(slotMachineVector.posZ) +
+                3.5 * Math.abs(Math.cos(slotMachineVector.rotY)),
+              x:
+                Math.abs(slotMachineVector.posX) -
+                1.5 * Math.sin(slotMachineVector.rotY),
+              duration: 0.5,
+              ease: "sine.inOut",
+            })
+            .to(
+              camera.rotation,
+              {
+                y: slotMachine.current.rotation.y,
+                duration: 0.5,
+                ease: "sine.inOut",
+              },
+              "<"
+            );
         } else {
           gsap.to(camera.position, {
             z: 5,
@@ -88,10 +82,6 @@ export default function Landing() {
   );
 
   function iframeClick() {
-    console.log(slotMachine.current.position);
-    console.log(slotMachine.current.rotation.y);
-    console.log(camera.position);
-    console.log(camera.rotation);
     setIsVideoFocused((prev) => !prev);
     if (window.scrollY === 0) {
     }

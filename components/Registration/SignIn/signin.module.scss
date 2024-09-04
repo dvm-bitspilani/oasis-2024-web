@@ -41,7 +41,8 @@
     top: 50px;
     height: 55vh;
     // height: 50%;
-    // overflow-y: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
 
     .two{
       position: relative;

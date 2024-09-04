@@ -1,14 +1,29 @@
 .header {
-  width: 100%;
+  width: calc(100% - 40px);
   display: flex;
+  justify-content: space-between;
   position: relative;
   top: 30px;
   padding: 0 20px;
-}
+  z-index: 10;
 
-.logo {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  transform: translateY(-3.5rem);
+  .logo{
+    display: none;
+    position: absolute;
+    right: 35px;
+    top: 50%;
+    transform: translateY(-50%) scale(-1,1);
+
+    @media (width <= 585px) {
+      display: inline;
+    }
+  }
+
+  @media (width <= 1000px) {
+    top: 15px;
+  }
+
+  @media (width <= 585px) {
+    transform: scale(-1,1);
+  }
 }

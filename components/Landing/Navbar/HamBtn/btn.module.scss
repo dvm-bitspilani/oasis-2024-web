@@ -14,6 +14,10 @@
         width: 100%;
         height: 100%;
         position: absolute;
+
+        @media (width <= 585px) {
+            display: none;
+        }
     }
 
     &:hover {
@@ -49,5 +53,17 @@
         //         width: calc(20000 / 295 * 1%);
         //     }
         // }
+    }
+
+    @media (width <= 1050px){
+        transform: scale(0.8);
+    }
+    
+    @media (width <= 900px){
+        transform: scale(0.65);
+    }
+
+    @media (width <= 585px){
+        transform: scale(1);
     }
 }

@@ -29,10 +29,10 @@ const Social = () => {
               y2="28.9047"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#876D24" />
-              <stop offset="0.28" stop-color="#F3D57B" />
-              <stop offset="0.66" stop-color="#B69637" />
-              <stop offset="1" stop-color="#DCBF69" />
+              <stop stopColor="#876D24" />
+              <stop offset="0.28" stopColor="#F3D57B" />
+              <stop offset="0.66" stopColor="#B69637" />
+              <stop offset="1" stopColor="#DCBF69" />
             </linearGradient>
             <linearGradient
               id="paint1_linear_3375_4726"
@@ -42,10 +42,10 @@ const Social = () => {
               y2="38.6042"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#876D24" />
-              <stop offset="0.28" stop-color="#F3D57B" />
-              <stop offset="0.66" stop-color="#B69637" />
-              <stop offset="1" stop-color="#DCBF69" />
+              <stop stopColor="#876D24" />
+              <stop offset="0.28" stopColor="#F3D57B" />
+              <stop offset="0.66" stopColor="#B69637" />
+              <stop offset="1" stopColor="#DCBF69" />
             </linearGradient>
           </defs>
         </svg>

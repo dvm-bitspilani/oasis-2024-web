@@ -14,30 +14,21 @@ import ReactPlayer from "react-player/youtube";
 
 type GLTFResult = GLTF & {
   nodes: {
-    Sphere003: THREE.Mesh;
-    Sphere003_1: THREE.Mesh;
-    Sphere003_2: THREE.Mesh;
-    Sphere020: THREE.Mesh;
-    Sphere020_1: THREE.Mesh;
-    Sphere020_2: THREE.Mesh;
-    Sphere021: THREE.Mesh;
-    Sphere021_1: THREE.Mesh;
-    Sphere021_2: THREE.Mesh;
-    Sphere022: THREE.Mesh;
-    Sphere022_1: THREE.Mesh;
-    Sphere022_2: THREE.Mesh;
-    Sphere001: THREE.Mesh;
-    Sphere023: THREE.Mesh;
-    Sphere024: THREE.Mesh;
-    Sphere026: THREE.Mesh;
-    Sphere025: THREE.Mesh;
-    Sphere002: THREE.Mesh;
+    Sphere014: THREE.Mesh;
+    Sphere015: THREE.Mesh;
+    Sphere018: THREE.Mesh;
+    Sphere010: THREE.Mesh;
+    Sphere011: THREE.Mesh;
+    Sphere013: THREE.Mesh;
+    Sphere019: THREE.Mesh;
+    Sphere008: THREE.Mesh;
+    Sphere009: THREE.Mesh;
+    Sphere012: THREE.Mesh;
   };
   materials: {
-    ["Material.040"]: THREE.MeshStandardMaterial;
-    ["Material.015"]: THREE.MeshPhysicalMaterial;
-    Slot1And2: THREE.MeshStandardMaterial;
-    Export: THREE.MeshStandardMaterial;
+    Buttons: THREE.MeshStandardMaterial;
+    ["export"]: THREE.MeshBasicMaterial;
+    ["Material.001"]: THREE.MeshStandardMaterial;
   };
 };
 
@@ -60,9 +51,7 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
   }: Props,
   ref: any
 ) {
-  const { nodes, materials } = useGLTF(
-    "/Models/slotMachineHandleSeparated.glb"
-  ) as GLTFResult;
+  const { nodes, materials } = useGLTF("/Models/uSlotM.glb") as GLTFResult;
 
   const { camera } = useThree();
 
@@ -78,96 +67,121 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
   return (
     <>
       <group ref={ref} {...props} dispose={null}>
-        <mesh geometry={nodes.Sphere001.geometry} material={materials.Export} />
-        <mesh
-          geometry={nodes.Sphere023.geometry}
-          material={nodes.Sphere023.material}
-          position={[0, 0.488, -0.092]}
-        >
-          <Html
-            transform
-            wrapperClass="htmlScreen"
-            distanceFactor={0.31000000000000005}
-            // position={position}
-            position={[0, 0, 0]}
-            rotation={[0.4510000000000003, 0, 0]}
+        <group rotation={[-Math.PI, 0.009, -Math.PI]}>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Sphere014.geometry}
+            material={materials.Buttons}
+            position={[-0.005, 0.734, -0.084]}
+            rotation={[Math.PI, -0.009, Math.PI]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Sphere015.geometry}
+            material={materials.Buttons}
+            position={[-0.005, 0.734, -0.084]}
+            rotation={[Math.PI, -0.009, Math.PI]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Sphere018.geometry}
+            material={materials.Buttons}
+            position={[-0.005, 0.734, -0.084]}
+            rotation={[Math.PI, -0.009, Math.PI]}
+          />
+        </group>
+        <group rotation={[-Math.PI, 0.009, -Math.PI]}>
+          <group
+            position={[0.001, 1.019, 0.1]}
+            rotation={[1.241, -0.006, -0.008]}
           >
-            <div id="iframe-container">
-              <div id="iframe-overlay" onClick={iframeClick}></div>
-              <ReactPlayer
-                url="https://www.youtube.com/embed/ZCrClSBM1ns"
-                playing={isVideoFocused}
+            <group position={[-0.273, 0, 0]}>
+              <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.Sphere010.geometry}
+                material={materials["export"]}
+                rotation={[1.901, -0.003, 3.133]}
               />
-              {/* <iframe
+              <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.Sphere011.geometry}
+                material={materials["export"]}
+                position={[0.365, 0.001, -0.001]}
+                rotation={[1.901, -0.003, 3.133]}
+              />
+              <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.Sphere013.geometry}
+                material={materials["export"]}
+                position={[0.545, 0, 0]}
+                rotation={[1.901, -0.003, 3.133]}
+              />
+              <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.Sphere019.geometry}
+                material={materials["export"]}
+                position={[0.185, 0.003, -0.003]}
+                rotation={[1.901, -0.003, 3.133]}
+              />
+            </group>
+          </group>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Sphere008.geometry}
+            material={materials["export"]}
+            position={[-0.005, 0.734, -0.084]}
+            rotation={[Math.PI, -0.009, Math.PI]}
+          >
+            <Html
+              transform
+              wrapperClass="htmlScreen"
+              distanceFactor={0.31000000000000005}
+              // position={position}
+              position={[0, 0, 0]}
+              rotation={[0.4510000000000003, 0, 0]}
+            >
+              <div id="iframe-container">
+                <div id="iframe-overlay" onClick={iframeClick}></div>
+                <ReactPlayer
+                  url="https://www.youtube.com/embed/ZCrClSBM1ns"
+                  playing={isVideoFocused}
+                />
+                {/* <iframe
                 src="https://www.youtube.com/embed/ZCrClSBM1ns"
                 // src="https://bruno-simon.com/html"
                 title="Oasis 2023 Curtain Raiser"
               /> */}
-            </div>
-          </Html>
-        </mesh>
-        <mesh geometry={nodes.Sphere024.geometry} material={materials.Export} />
-        <mesh geometry={nodes.Sphere026.geometry} material={materials.Export} />
-        <mesh geometry={nodes.Sphere025.geometry} material={materials.Export} />
-        <mesh
-          geometry={nodes.Sphere002.geometry}
-          material={materials.Export}
-          position={[-0.555, -0.143, 0.15]}
-        />
-        <mesh
-          geometry={nodes.Sphere003.geometry}
-          material={materials["Material.040"]}
-        />
-        <mesh
-          geometry={nodes.Sphere003_1.geometry}
-          material={materials["Material.015"]}
-        />
-        <mesh
-          geometry={nodes.Sphere003_2.geometry}
-          material={materials.Slot1And2}
-          onClick={() => {
-            console.log("yoooo");
-          }}
-        />
-        <mesh
-          geometry={nodes.Sphere020.geometry}
-          material={materials["Material.040"]}
-        />
-        <mesh
-          geometry={nodes.Sphere020_1.geometry}
-          material={materials["Material.015"]}
-        />
-        <mesh
-          geometry={nodes.Sphere020_2.geometry}
-          material={materials.Slot1And2}
-        />
-        <mesh
-          geometry={nodes.Sphere021.geometry}
-          material={materials["Material.040"]}
-        />
-        <mesh
-          geometry={nodes.Sphere021_1.geometry}
-          material={materials["Material.015"]}
-        />
-        <mesh
-          geometry={nodes.Sphere021_2.geometry}
-          material={materials.Slot1And2}
-        />
-        <mesh
-          geometry={nodes.Sphere022.geometry}
-          material={materials["Material.040"]}
-        />
-        <mesh
-          geometry={nodes.Sphere022_1.geometry}
-          material={materials["Material.015"]}
-        />
-        <mesh
-          geometry={nodes.Sphere022_2.geometry}
-          material={materials.Slot1And2}
-        />
+              </div>
+            </Html>
+          </mesh>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Sphere009.geometry}
+            material={materials["Material.001"]}
+            position={[-0.001, 0.488, 0.092]}
+            rotation={[Math.PI, -0.009, Math.PI]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Sphere012.geometry}
+            material={materials["export"]}
+            position={[0.577, -0.147, -0.155]}
+            rotation={[Math.PI, -0.009, Math.PI]}
+          />
+        </group>
       </group>
     </>
   );
 });
 
-useGLTF.preload("/Models/slotMachineHandleSeparated.glb");
+useGLTF.preload("/Models/uSlotM.glb");

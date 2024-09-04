@@ -22,6 +22,7 @@ type GLTFResult = GLTF & {
     Sphere019: THREE.Mesh;
     Sphere008: THREE.Mesh;
     Sphere009: THREE.Mesh;
+    Sphere012: THREE.Mesh;
   };
   materials: {
     Buttons: THREE.MeshStandardMaterial;
@@ -49,9 +50,7 @@ export const SlotMachineiOS = forwardRef(function SlotMachine2(
   }: Props,
   ref: any
 ) {
-  const { nodes, materials } = useGLTF(
-    "/Models/SlotMCompressedCombined.glb"
-  ) as GLTFResult;
+  const { nodes, materials } = useGLTF("/Models/uSlotM.glb") as GLTFResult;
 
   const videoMesh: any = useRef(null);
 
@@ -76,81 +75,101 @@ export const SlotMachineiOS = forwardRef(function SlotMachine2(
 
   return (
     <>
-      <group ref={ref} {...props} dispose={null}>
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Sphere014.geometry}
-          material={materials.Buttons}
-          position={[0.004, 0.734, 0.084]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Sphere015.geometry}
-          material={materials.Buttons}
-          position={[0.004, 0.734, 0.084]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Sphere018.geometry}
-          material={materials.Buttons}
-          position={[0.004, 0.734, 0.084]}
-        />
-        <group position={[0, 1.019, -0.1]} rotation={[1.901, 0.009, -Math.PI]}>
-          <group position={[-0.273, 0, 0]}>
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.Sphere010.geometry}
-              material={materials["export"]}
-              rotation={[1.901, -0.003, 3.133]}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.Sphere011.geometry}
-              material={materials["export"]}
-              position={[0.365, 0.001, -0.001]}
-              rotation={[1.901, -0.003, 3.133]}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.Sphere013.geometry}
-              material={materials["export"]}
-              position={[0.545, 0, 0]}
-              rotation={[1.901, -0.003, 3.133]}
-            />
-            <mesh
-              castShadow
-              receiveShadow
-              geometry={nodes.Sphere019.geometry}
-              material={materials["export"]}
-              position={[0.185, 0.003, -0.003]}
-              rotation={[1.901, -0.003, 3.133]}
-            />
-          </group>
+      <group ref={ref} dispose={null}>
+        <group rotation={[-Math.PI, 0.009, -Math.PI]}>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Sphere014.geometry}
+            material={materials.Buttons}
+            position={[-0.005, 0.734, -0.084]}
+            rotation={[Math.PI, -0.009, Math.PI]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Sphere015.geometry}
+            material={materials.Buttons}
+            position={[-0.005, 0.734, -0.084]}
+            rotation={[Math.PI, -0.009, Math.PI]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Sphere018.geometry}
+            material={materials.Buttons}
+            position={[-0.005, 0.734, -0.084]}
+            rotation={[Math.PI, -0.009, Math.PI]}
+          />
         </group>
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Sphere008.geometry}
-          material={materials["export"]}
-          position={[0.004, 0.734, 0.084]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Sphere009.geometry}
-          material={materials["Material.001"]}
-          position={[0.002, 0.488, -0.092]}
-          ref={videoMesh}
-        />
+        <group rotation={[-Math.PI, 0.009, -Math.PI]}>
+          <group
+            position={[0.001, 1.019, 0.1]}
+            rotation={[1.241, -0.006, -0.008]}
+          >
+            <group position={[-0.273, 0, 0]}>
+              <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.Sphere010.geometry}
+                material={materials["export"]}
+                rotation={[1.901, -0.003, 3.133]}
+              />
+              <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.Sphere011.geometry}
+                material={materials["export"]}
+                position={[0.365, 0.001, -0.001]}
+                rotation={[1.901, -0.003, 3.133]}
+              />
+              <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.Sphere013.geometry}
+                material={materials["export"]}
+                position={[0.545, 0, 0]}
+                rotation={[1.901, -0.003, 3.133]}
+              />
+              <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.Sphere019.geometry}
+                material={materials["export"]}
+                position={[0.185, 0.003, -0.003]}
+                rotation={[1.901, -0.003, 3.133]}
+              />
+            </group>
+          </group>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Sphere008.geometry}
+            material={materials["export"]}
+            position={[-0.005, 0.734, -0.084]}
+            rotation={[Math.PI, -0.009, Math.PI]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Sphere009.geometry}
+            material={materials["Material.001"]}
+            ref={videoMesh}
+            position={[-0.001, 0.488, 0.092]}
+            rotation={[Math.PI, -0.009, Math.PI]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Sphere012.geometry}
+            material={materials["export"]}
+            position={[0.577, -0.147, -0.155]}
+            rotation={[Math.PI, -0.009, Math.PI]}
+          />
+        </group>
       </group>
     </>
   );
 });
 
-useGLTF.preload("/Models/SlotMCompressedCombined.glb");
+useGLTF.preload("/Models/uSlotM.glb");

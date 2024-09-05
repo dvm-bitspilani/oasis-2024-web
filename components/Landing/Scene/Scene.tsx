@@ -57,6 +57,9 @@ const LandingScene = forwardRef(function LandingScene(
           position: "absolute",
           pointerEvents: isLanding ? "none" : "auto",
         }}
+        camera={{
+          fov: 50,
+        }}
       >
         {/* <Perf /> */}
         {/* <EffectComposer>
@@ -68,10 +71,10 @@ const LandingScene = forwardRef(function LandingScene(
           />
         </EffectComposer> */}
         <ambientLight intensity={1.3} />
-        <perspectiveCamera fov={75} />
+        {/* <perspectiveCamera fov={500} /> */}
         <group
           position={
-            isXS ? [0, -1.15, 2.5] : isMobile ? [0, -1, 3] : [0, -0.7, 3]
+            isXS ? [0, -1.15, 2.5] : isMobile ? [0, -1, 2] : [0, -0.6, 2]
           }
           rotation={[0, Math.PI, 0]}
         >

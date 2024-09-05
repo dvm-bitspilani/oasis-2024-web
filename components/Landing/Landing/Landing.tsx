@@ -9,6 +9,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 import LandingScene from "../Scene/Scene";
 import styles from "../../ContactUs/contactus.module.scss";
+import SlotMachineExitCross from "@/components/AboutUs/SlotMachineExitCross/SlotMachineExitCross";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,33 +31,13 @@ export default function Landing() {
   useGSAP(
     () => {
       if (camera) {
-        console.log(slotMachine.current.position);
-        console.log(slotMachine.current.rotation);
-        console.log(camera.position);
-        console.log(camera.rotation);
         if (isVideoFocused) {
-          const slotMachineVector = {
-            posX: slotMachine.current.position.x,
-            posZ: slotMachine.current.position.z,
-            rotY: slotMachine.current.rotation.y,
-          };
-
           const camTl = gsap.timeline();
 
           camTl
-            // .to(camera.position, {
-            //   z:
-            //     Math.abs(slotMachineVector.posZ) +
-            //     3.5 * Math.abs(Math.cos(slotMachineVector.rotY)),
-            //   x:
-            //     Math.abs(slotMachineVector.posX) -
-            //     1.5 * Math.sin(slotMachineVector.rotY),
-            //   duration: 0.5,
-            //   ease: "sine.inOut",
-            // })
             .to(camera.position, {
               z: 4,
-              x: 0.565,
+              x: 0,
               duration: 0.5,
               ease: "sine.inOut",
             })
@@ -64,17 +45,26 @@ export default function Landing() {
               camera.rotation,
               {
                 y: slotMachine.current.rotation.y,
-                x: -0.277,
-                z: -0.124,
                 duration: 0.5,
                 ease: "sine.inOut",
               },
               "<"
             )
             .to(
+              "#exit-cross",
+              {
+                opacity: 1,
+                zIndex: 100,
+                duration: 0.25,
+              },
+              "<"
+            )
+            .to(
               "#mainwrapper",
               {
+                opacity: 0,
                 zIndex: -1,
+                duration: 0.25,
               },
               "<"
             );
@@ -98,9 +88,24 @@ export default function Landing() {
               },
               "<"
             )
-            .to("#mainwrapper", {
-              zIndex: 2,
-            });
+            .to(
+              "#exit-cross",
+              {
+                opacity: 0,
+                zIndex: -1,
+                duration: 0.25,
+              },
+              "<"
+            )
+            .to(
+              "#mainwrapper",
+              {
+                opacity: 1,
+                zIndex: 2,
+                duration: 0.25,
+              },
+              "-=0.25"
+            );
         }
       }
     },
@@ -549,15 +554,18 @@ export default function Landing() {
   );
 
   return (
-    <LandingScene
-      ref={slotMachine}
-      setIs3dLoaded={setIs3dLoaded}
-      iframeClick={iframeClick}
-      isLanding={isLanding}
-      isVideoFocused={isVideoFocused}
-      isXS={isXS}
-      isMobile={isMobile}
-      setCamera={setCamera}
-    />
+    <>
+      <SlotMachineExitCross iframeClick={iframeClick} />
+      <LandingScene
+        ref={slotMachine}
+        setIs3dLoaded={setIs3dLoaded}
+        iframeClick={iframeClick}
+        isLanding={isLanding}
+        isVideoFocused={isVideoFocused}
+        isXS={isXS}
+        isMobile={isMobile}
+        setCamera={setCamera}
+      />
+    </>
   );
 }

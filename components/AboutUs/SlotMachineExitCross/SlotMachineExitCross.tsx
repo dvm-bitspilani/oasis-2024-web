@@ -11,16 +11,16 @@ export default function SlotMachineExitCross({ iframeClick }: Props) {
         <path
           d="M28.5 18H7.5"
           stroke="#FFD66C"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M17.1818 28.5L6.68182 18L17.1818 7.5"
           stroke="#FFD66C"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     </div>

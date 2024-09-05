@@ -19,15 +19,15 @@ const Modal = ({ closeModal }) => {
               d="M24 8L8 24"
               stroke="#FAE29F"
               strokeWidth="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M8 8L24 24"
               stroke="#FAE29F"
               strokeWidth="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         </button>

@@ -195,7 +195,7 @@ const Registration = () => {
   };
 
   useEffect(() => {
-    console.log("dkjaldkwajlkadjsa");
+    console.log("372163731");
     setWheelRotating(true);
     const initialRotation = gsap.to(wheelRef.current, {
       rotate: 360,

@@ -1,9 +1,11 @@
-.preloader{
-    width: 100vw;
-    height: 100lvh;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
+.preloader {
+  width: 100vw;
+  height: 100lvh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: fixed;
+  z-index: 10000;
 }

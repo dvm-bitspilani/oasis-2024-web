@@ -31,7 +31,7 @@ export default function PrePreloader() {
     waitForPreload("#preloader").then(() => {
       setTimeout(() => {
         setIsLoaded(true);
-      }, 100);
+      }, 500);
       console.log("#preloader");
     });
   }, []);

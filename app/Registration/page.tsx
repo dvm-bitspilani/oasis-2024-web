@@ -13,6 +13,7 @@ import RegistrationForm from "@/components/Registration/RegistrationForm/Registr
 import GoogleAuthPage from "@/components/Registration/GoogleAuth/GAuth";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/navigation";
+import BackButton from "@/components/Registration/BackButton/BackButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -214,14 +215,8 @@ const Registration = () => {
         <div className={styles.pageContent}>
           <div className={styles.phoneBorder}>REGISTRATION</div>
           <div className={styles.border}>
-            <Link href="/">
-              <Image
-                className={styles.backButton}
-                src="/Registration/backButton.png"
-                alt=""
-                width={88}
-                height={88}
-              />
+            <Link href="/" className={styles.backButton}>
+              <BackButton />
             </Link>
             <div className={styles.frameLeft}></div>
             <div className={styles.frameTopLeft}></div>

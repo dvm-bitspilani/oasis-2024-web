@@ -41,13 +41,13 @@
     top: 50px;
     height: 55vh;
     // height: 50%;
-    overflow-y: scroll;
+    // overflow-y: scroll;
     overflow-x: hidden;
 
-    .two{
+    .two {
       position: relative;
       left: -10px;
-      div{
+      div {
         gap: 5px;
       }
       @media (width <= 1150px) {
@@ -169,7 +169,7 @@
     }
 
     @media (width <= 1150px) {
-      overflow-y: scroll;
+      // overflow-y: scroll;
     }
 
     @media (width <= 650px) {

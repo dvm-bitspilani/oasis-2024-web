@@ -14,6 +14,7 @@ import GoogleAuthPage from "@/components/Registration/GoogleAuth/GAuth";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/navigation";
 import BackButton from "@/components/Registration/BackButton/BackButton";
+import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -211,6 +212,7 @@ const Registration = () => {
 
   return (
     <>
+      <PrePreloader />
       <div className={styles.pageContainer}>
         <div className={styles.pageContent}>
           <div className={styles.phoneBorder}>REGISTRATION</div>

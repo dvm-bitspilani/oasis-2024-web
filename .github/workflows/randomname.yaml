@@ -19,7 +19,6 @@ jobs:
           port: 22
           script: |
             cd /srv/static/oasis/2024/oasis-2024-web
-            sudo git pull origin prod
-            git status
+            echo "${{ secrets.PASSWORD }}" | sudo -S git pull origin prod
             npm install
-            sudo npm run build
+            echo "${{ secrets.PASSWORD }}" | sudo -S npm run build

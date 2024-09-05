@@ -54,6 +54,30 @@ export const SlotMachine = forwardRef(function SlotMachine2(
     "/Models/SlotMCompressedCombined.glb"
   ) as GLTFResult;
 
+  const videoUrlArrayIframe = ["ZCrClSBM1ns", "0BYgHIMnz50", "krsrGOqnAN0"];
+
+  const [iframeIndex, setIframeIndex] = useState(0);
+
+  const nextVideoIframe = () => {
+    setIframeIndex((prev) => {
+      console.log(prev);
+      if (prev === 2) {
+        return 0;
+      }
+      return prev + 1;
+    });
+  };
+
+  const prevVideoIframe = () => {
+    setIframeIndex((prev) => {
+      console.log(prev);
+      if (prev === 0) {
+        return 2;
+      }
+      return prev - 1;
+    });
+  };
+
   const { camera } = useThree();
 
   useEffect(() => {
@@ -69,54 +93,43 @@ export const SlotMachine = forwardRef(function SlotMachine2(
     <>
       <group ref={ref} {...props} dispose={null}>
         <mesh
-          castShadow
-          receiveShadow
           geometry={nodes.Sphere014.geometry}
           material={materials.Buttons}
           position={[0.004, 0.734, 0.084]}
+          onClick={nextVideoIframe}
         />
         <mesh
-          castShadow
-          receiveShadow
           geometry={nodes.Sphere015.geometry}
           material={materials.Buttons}
           position={[0.004, 0.734, 0.084]}
+          onClick={prevVideoIframe}
         />
         <mesh
-          castShadow
-          receiveShadow
           geometry={nodes.Sphere018.geometry}
           material={materials.Buttons}
           position={[0.004, 0.734, 0.084]}
+          onClick={iframeClick}
         />
         <group position={[0, 1.019, -0.1]} rotation={[1.901, 0.009, -Math.PI]}>
           <group position={[-0.273, 0, 0]}>
             <mesh
-              castShadow
-              receiveShadow
               geometry={nodes.Sphere010.geometry}
               material={materials["export"]}
               rotation={[1.901, -0.003, 3.133]}
             />
             <mesh
-              castShadow
-              receiveShadow
               geometry={nodes.Sphere011.geometry}
               material={materials["export"]}
               position={[0.365, 0.001, -0.001]}
               rotation={[1.901, -0.003, 3.133]}
             />
             <mesh
-              castShadow
-              receiveShadow
               geometry={nodes.Sphere013.geometry}
               material={materials["export"]}
               position={[0.545, 0, 0]}
               rotation={[1.901, -0.003, 3.133]}
             />
             <mesh
-              castShadow
-              receiveShadow
               geometry={nodes.Sphere019.geometry}
               material={materials["export"]}
               position={[0.185, 0.003, -0.003]}
@@ -125,15 +138,11 @@ export const SlotMachine = forwardRef(function SlotMachine2(
           </group>
         </group>
         <mesh
-          castShadow
-          receiveShadow
           geometry={nodes.Sphere008.geometry}
           material={materials["export"]}
           position={[0.004, 0.734, 0.084]}
         />
         <mesh
-          castShadow
-          receiveShadow
           geometry={nodes.Sphere009.geometry}
           material={materials["Material.001"]}
           position={[0.002, 0.488, -0.092]}
@@ -149,7 +158,7 @@ export const SlotMachine = forwardRef(function SlotMachine2(
             <div id="iframe-container">
               <div id="iframe-overlay" onClick={iframeClick}></div>
               <ReactPlayer
-                url="https://www.youtube.com/embed/ZCrClSBM1ns"
+                url={`https://www.youtube.com/embed/${videoUrlArrayIframe[iframeIndex]}`}
                 playing={isVideoFocused}
               />
               {/* <iframe

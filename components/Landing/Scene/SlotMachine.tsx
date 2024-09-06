@@ -60,7 +60,6 @@ export const SlotMachine = forwardRef(function SlotMachine2(
 
   const nextVideoIframe = () => {
     setIframeIndex((prev) => {
-      console.log(prev);
       if (prev === 2) {
         return 0;
       }
@@ -70,7 +69,6 @@ export const SlotMachine = forwardRef(function SlotMachine2(
 
   const prevVideoIframe = () => {
     setIframeIndex((prev) => {
-      console.log(prev);
       if (prev === 0) {
         return 2;
       }
@@ -160,12 +158,8 @@ export const SlotMachine = forwardRef(function SlotMachine2(
               <ReactPlayer
                 url={`https://www.youtube.com/embed/${videoUrlArrayIframe[iframeIndex]}`}
                 playing={isVideoFocused}
+                loop
               />
-              {/* <iframe
-                src="https://www.youtube.com/embed/ZCrClSBM1ns"
-                // src="https://bruno-simon.com/html"
-                title="Oasis 2023 Curtain Raiser"
-              /> */}
             </div>
           </Html>
         </mesh>

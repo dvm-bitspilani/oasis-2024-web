@@ -96,7 +96,7 @@ const LandingScene = forwardRef(function LandingScene(
               isVideoFocused={isVideoFocused}
             />
           ) : (
-            <SlotMachine
+            <SlotMachine2
               video="/Videos/curtainRaiser23_flipped.mp4"
               ref={ref}
               setIs3dLoaded={setIs3dLoaded}

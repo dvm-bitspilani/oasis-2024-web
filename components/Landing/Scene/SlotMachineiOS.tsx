@@ -32,7 +32,6 @@ type GLTFResult = GLTF & {
 };
 
 interface Props {
-  video: string;
   setIs3dLoaded: (value: boolean) => void;
   iframeClick: () => void;
   setCamera: (value: any) => void;
@@ -40,14 +39,7 @@ interface Props {
 }
 
 export const SlotMachineiOS = forwardRef(function SlotMachine2(
-  {
-    video,
-    setIs3dLoaded,
-    iframeClick,
-    setCamera,
-    isVideoFocused,
-    ...props
-  }: Props,
+  { setIs3dLoaded, iframeClick, setCamera, isVideoFocused, ...props }: Props,
   ref: any
 ) {
   const { nodes, materials } = useGLTF("/Models/uSlotM.glb") as GLTFResult;
@@ -56,7 +48,7 @@ export const SlotMachineiOS = forwardRef(function SlotMachine2(
 
   const { camera } = useThree();
 
-  const texture = useVideoTexture(video);
+  const texture = useVideoTexture("/Videos/curtainRaiser23_flipped.mp4");
 
   useEffect(() => {
     if (videoMesh.current) {

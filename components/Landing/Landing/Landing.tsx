@@ -17,7 +17,40 @@ interface MatchMediaParams {
   isMobile: boolean;
 }
 
+function waitForPreload(querySelector: string) {
+  return new Promise((resolve, reject) => {
+    const preloader = document.querySelector(querySelector);
+    if (preloader) {
+      return resolve("loaded");
+    }
+
+    const observer = new MutationObserver(() => {
+      if (preloader) {
+        observer.disconnect();
+        return resolve("loaded");
+      }
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+  });
+}
+
 export default function Landing() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    waitForPreload("#preloader").then(() => {
+      setTimeout(() => {
+        setIsLoaded(true);
+        console.log("hello loaded");
+      }, 500);
+      console.log("#preloader");
+    });
+  }, []);
+
   const slotMachine: any = useRef();
   const [camera, setCamera] = useState<any>(null);
 
@@ -157,6 +190,33 @@ export default function Landing() {
       });
     };
   }, [isVideoFocused]);
+
+
+    useGSAP(
+      () => {
+        let timelineConfig;
+        if (isLoaded) {
+          timelineConfig = gsap.timeline();
+
+          timelineConfig
+            .to(".lefttree", {
+              x: "100vw",
+              duration: 0.5,
+              ease: "sine.inOut",
+            })
+            .to(
+              ".righttree",
+              {
+                x: "-100vw",
+                duration: 0.5,
+                ease: "sine.inOut",
+              },
+              "<"
+            );
+        }
+      },
+      [isLoaded]
+    );
 
   useGSAP(
     () => {

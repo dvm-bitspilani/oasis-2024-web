@@ -111,7 +111,7 @@ const Social = () => {
           </defs>
         </svg>
       </a>
-      <a href="https://twitter.com/bitsoasis" target="_blank">
+      <a href="https://twitter.com/bitsoasis" target="_blank" style={{scale: 0.8, transform: 'translateX(-15px) translateY(5px)'}}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="40"

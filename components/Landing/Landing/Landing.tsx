@@ -197,6 +197,7 @@ export default function Landing() {
       timelineConfig = gsap.timeline();
       timelineConfig
         .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state
+        .set("#oasisLogo", { autoAlpha: 0 })
         .from(
           "#leftTree",
           {
@@ -215,9 +216,14 @@ export default function Landing() {
           },
           0
         )
-        .to("#mainwrapper", {
+        // .from(slotMachine.current, {
+        //   y: "100vw", // Start from below the screen
+        //   duration: 1.5,
+        //   ease: "sine.inOut",
+        // })
+        .to(["#mainwrapper", "#oasisLogo"], {
           autoAlpha: 1,
-          duration: 2,
+          duration: 1,
           ease: "sine.inOut",
         });
     }

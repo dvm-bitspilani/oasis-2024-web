@@ -19,6 +19,8 @@ jobs:
           port: 22
           script: |
             cd /srv/static/oasis/2024/oasis-2024-web
-            echo "${{ secrets.PASSWORD }}" | sudo -S git pull origin prod
+            eval "$(ssh-agent -s)"
+            ssh-add ~/.ssh/id_rsa
+            echo "${{ secrets.PASSWORD }}" | sudo -S SSH_AUTH_SOCK='$(echo $SSH_AUTH_SOCK)' git pull origin prod
             npm install
             echo "${{ secrets.PASSWORD }}" | sudo -S npm run build

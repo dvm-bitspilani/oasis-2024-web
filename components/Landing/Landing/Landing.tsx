@@ -9,6 +9,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 import LandingScene from "../Scene/Scene";
 import styles from "../../ContactUs/contactus.module.scss";
+import SlotMachineExitCross from "@/components/AboutUs/SlotMachineExitCross/SlotMachineExitCross";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,32 +26,86 @@ export default function Landing() {
   const [isMobile, setIsMobile] = useState(false);
   const [isVideoFocused, setIsVideoFocused] = useState(false);
   const [isLanding, setIsLanding] = useState(true);
+  const [tlProgress, setTlProgress] = useState(0);
 
   useGSAP(
     () => {
       if (camera) {
         if (isVideoFocused) {
-          gsap.to(camera.position, {
-            z: 3.5,
-            duration: 0.5,
-            ease: "sine.inOut",
-          });
-          gsap.to(camera.rotation, {
-            x: -0.4,
-            duration: 0.5,
-            ease: "sine.inOut",
-          });
+          const camTl = gsap.timeline();
+
+          camTl
+            .to(camera.position, {
+              z: 4,
+              x: 0,
+              duration: 0.5,
+              ease: "sine.inOut",
+            })
+            .to(
+              camera.rotation,
+              {
+                y: slotMachine.current.rotation.y,
+                duration: 0.5,
+                ease: "sine.inOut",
+              },
+              "<"
+            )
+            .to(
+              "#exit-cross",
+              {
+                opacity: 1,
+                zIndex: 100,
+                duration: 0.25,
+              },
+              "<"
+            )
+            .to(
+              "#mainwrapper",
+              {
+                opacity: 0,
+                zIndex: -1,
+                duration: 0.25,
+              },
+              "<"
+            );
         } else {
-          gsap.to(camera.position, {
-            z: 5,
-            duration: 0.5,
-            ease: "sine.inOut",
-          });
-          gsap.to(camera.rotation, {
-            x: 0,
-            duration: 0.5,
-            ease: "sine.inOut",
-          });
+          const resetTl = gsap.timeline();
+          resetTl
+            .to(camera.position, {
+              z: 5,
+              x: 0,
+              duration: 0.5,
+              ease: "sine.inOut",
+            })
+            .to(
+              camera.rotation,
+              {
+                x: 0,
+                y: 0,
+                z: 0,
+                duration: 0.5,
+                ease: "sine.inOut",
+              },
+              "<"
+            )
+            .to(
+              "#exit-cross",
+              {
+                opacity: 0,
+                zIndex: -1,
+                duration: 0.25,
+              },
+              "<"
+            )
+            .to(
+              "#mainwrapper",
+              {
+                opacity: 1,
+                zIndex: 2,
+                duration: 0.25,
+              },
+              "-=0.25"
+            );
         }
       }
     },
@@ -58,7 +113,7 @@ export default function Landing() {
   );
 
   function iframeClick() {
-    if (window.scrollY === 0) {
+    if (tlProgress >= 0.39 && tlProgress <= 0.4) {
       setIsVideoFocused((prev) => !prev);
     }
   }
@@ -106,42 +161,42 @@ export default function Landing() {
   useGSAP(
     () => {
       let timelineConfig;
+      const commonConfigs = {
+        onUpdate: (timeLine: any) => {
+          if (
+            timeLine.progress > 0.38 &&
+            timeLine.progress <= 0.41 &&
+            (tlProgress < 0.39 || tlProgress > 0.41)
+          ) {
+            setTlProgress(timeLine.progress);
+          }
+        },
+        trigger: 'img[alt="right tree"]',
+        markers: false,
+        start: () =>
+          `top ${
+            document
+              .querySelector('img[alt="right tree"]')
+              ?.getBoundingClientRect().top
+          }`,
+        end: "+=200%",
+        scrub: 1,
+        snap: {
+          snapTo: [0, 0.4, 1],
+          ease: "sine.inOut",
+          duration: 1,
+        },
+      };
       if (window.innerWidth < 800) {
         timelineConfig = {
           scrollTrigger: {
-            trigger: 'img[alt="right tree"]',
-            markers: false,
-            start: () =>
-              `top ${document
-                .querySelector('img[alt="right tree"]')
-                ?.getBoundingClientRect().top
-              }`,
-            end: "+=200%",
-            scrub: 1,
-            snap: {
-              snapTo: [0, 0.4, 1],
-              ease: "sine.inOut",
-              duration: 1,
-            },
+            ...commonConfigs,
           },
         };
       } else {
         timelineConfig = {
           scrollTrigger: {
-            trigger: 'img[alt="right tree"]',
-            markers: false,
-            start: () =>
-              `top ${document
-                .querySelector('img[alt="right tree"]')
-                ?.getBoundingClientRect().top
-              }`,
-            end: "+=200%",
-            scrub: 1,
-            snap: {
-              snapTo: [0, 0.4, 1],
-              ease: "sine.inOut",
-              duration: 1,
-            },
+            ...commonConfigs,
           },
         };
       }
@@ -303,8 +358,12 @@ export default function Landing() {
                   duration: 0,
                   pointerEvents: "auto",
                   onComplete: () => {
-                    const container = document.querySelector("#contactCard") as HTMLElement;
-                    const cards = container?.querySelectorAll(".card") as NodeListOf<HTMLElement>;
+                    const container = document.querySelector(
+                      "#contactCard"
+                    ) as HTMLElement;
+                    const cards = container?.querySelectorAll(
+                      ".card"
+                    ) as NodeListOf<HTMLElement>;
                     if (cards) {
                       const cardCount = cards.length;
                       const containerWidth = container.offsetWidth;
@@ -359,8 +418,12 @@ export default function Landing() {
                         });
                       }
 
-                      const container1 = document.querySelector("#contactCard1") as HTMLElement;
-                      const cards1 = container1?.querySelectorAll(".card") as NodeListOf<HTMLElement>;
+                      const container1 = document.querySelector(
+                        "#contactCard1"
+                      ) as HTMLElement;
+                      const cards1 = container1?.querySelectorAll(
+                        ".card"
+                      ) as NodeListOf<HTMLElement>;
                       if (cards1) {
                         const cardCount1 = cards1.length;
                         const cardHeight = cards[0]?.offsetHeight || 0;
@@ -491,15 +554,18 @@ export default function Landing() {
   );
 
   return (
-    <LandingScene
-      ref={slotMachine}
-      setIs3dLoaded={setIs3dLoaded}
-      iframeClick={iframeClick}
-      isLanding={isLanding}
-      isVideoFocused={isVideoFocused}
-      isXS={isXS}
-      isMobile={isMobile}
-      setCamera={setCamera}
-    />
+    <>
+      <SlotMachineExitCross iframeClick={iframeClick} />
+      <LandingScene
+        ref={slotMachine}
+        setIs3dLoaded={setIs3dLoaded}
+        iframeClick={iframeClick}
+        isLanding={isLanding}
+        isVideoFocused={isVideoFocused}
+        isXS={isXS}
+        isMobile={isMobile}
+        setCamera={setCamera}
+      />
+    </>
   );
 }

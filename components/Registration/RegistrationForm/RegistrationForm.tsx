@@ -747,9 +747,9 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
               </label>
             </div>
           </div>
-          {errors.choreographer && (
+          {errors.head_of_society && (
             <span className={`${styles.formErrorMessage} ${styles.radioError}`}>
-              {errors.choreographer.message}
+              {errors.head_of_society.message}
             </span>
           )}
         </div>

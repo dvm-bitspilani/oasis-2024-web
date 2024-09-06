@@ -5,7 +5,6 @@ import Glow from "@/components/Landing/Glow/Glow";
 import Landing from "@/components/Landing/Landing/Landing";
 import Trees from "@/components/Landing/Trees/Trees";
 import LandingOverlay from "@/components/Landing/LandingOverlay/LandingOverlay";
-import Countdown from "@/components/Landing/Countdown/Countdown";
 import Grid from "@/components/Landing/Grid/Grid";
 import OasisLogo from "@/components/Landing/Navbar/Logo/Logo";
 import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
@@ -19,7 +18,6 @@ export default function Home() {
           <OasisLogo />
           <Landing />
           <LandingOverlay />
-          <Countdown dateString="October 23, 2024 19:00:00" />
           <Grid />
           <Glow />
           <Trees />

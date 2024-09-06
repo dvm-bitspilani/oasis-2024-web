@@ -1,0 +1,69 @@
+.btn {
+  aspect-ratio: 1 / 1;
+  width: 100px;
+  z-index: 10;
+  cursor: pointer;
+  pointer-events: all;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .pokerChip {
+    transition: all 300ms ease-in-out;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    @media (width <= 585px) {
+      display: none;
+    }
+  }
+
+  &:hover {
+    .pokerChip {
+      transform: rotateZ(60deg);
+    }
+  }
+
+  .hamIcon {
+    position: absolute;
+    aspect-ratio: 36/36;
+    width: 36px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 5px;
+    flex-direction: column;
+
+    svg {
+      width: 36px;
+      height: 36px;
+    }
+
+    // .iconLine {
+    //     aspect-ratio: 295 / 30;
+    //     width: 100%;
+    //     height: auto;
+    //     background-color: #EDCF89;
+    //     border-radius: 10px;
+
+    //     &:last-of-type {
+    //         aspect-ratio: 200 / 30;
+    //         width: calc(20000 / 295 * 1%);
+    //     }
+    // }
+  }
+
+  @media (width <= 1050px) {
+    transform: scale(0.8);
+  }
+
+  @media (width <= 900px) {
+    transform: scale(0.65);
+  }
+
+  @media (width <= 585px) {
+    transform: scale(1);
+  }
+}

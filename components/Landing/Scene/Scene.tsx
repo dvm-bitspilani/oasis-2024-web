@@ -6,7 +6,6 @@ import { Canvas, useThree } from "@react-three/fiber";
 import { SlotMachine2 } from "./SlotMachine2";
 import { SlotMachine } from "./SlotMachine";
 import { forwardRef, useEffect, useState } from "react";
-import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { SlotMachineiOS } from "./SlotMachineiOS";
 
 function detectAppleDevice() {

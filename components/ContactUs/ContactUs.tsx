@@ -3,19 +3,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./contactus.module.scss";
 import ContactCard from "./ContactCard/ContactCard";
-import Image from "next/image";
 
 import prateek from "../../assets/Landing/contactUs/prateek.png";
 import aryan from "../../assets/Landing/contactUs/aryan.png";
 import shreeram from "../../assets/Landing/contactUs/shreeram.png";
 import jaiditya from "../../assets/Landing/contactUs/jaiditya.png";
 import rijul from "../../assets/Landing/contactUs/rijul.png";
-import shreyansh from "../../assets/Landing/contactUs/shreyansh.png"
+import shreyansh from "../../assets/Landing/contactUs/shreyansh.png";
 import sarthak from "../../assets/Landing/contactUs/sarthak.png";
 import abhinav from "../../assets/Landing/contactUs/abhinav.png";
 
-import left from "../../assets/Landing/contactUs/left.png";
-import right from "../../assets/Landing/contactUs/right.png";
+import ContactUsBottomIcons from "./ContactUsBottomIcons/ContactUsBottomIcons";
 
 export default function ContactUs() {
   // const containerRef = useRef(null);
@@ -171,7 +169,6 @@ export default function ContactUs() {
   //   });
   // }, []);
 
-
   // useEffect(() => {
   //   const container = cardContainerRef.current;
   //   const cards = container.querySelectorAll('.card');
@@ -294,14 +291,13 @@ export default function ContactUs() {
   //   masterTimeline.add(() => {
   //     tl1.play();
   //     return null;
-  //   }); 
+  //   });
 
   //   // Cleanup
   //   return () => {
   //     masterTimeline.kill();
   //   };
   // }, []);
-
 
   return (
     <>
@@ -369,7 +365,6 @@ export default function ContactUs() {
         </div>
 
         <div className={styles.cardContainer} id="contactCard">
-
           <div className={`${styles.first} card`}>
             <ContactCard
               name="Jaiditya Singh"
@@ -426,7 +421,6 @@ export default function ContactUs() {
         </div>
 
         <div className={styles.cardContainer1} id="contactCard1">
-
           <div className={`${styles.first} card`}>
             <ContactCard
               name="Shreyansh Vanjani"
@@ -462,11 +456,9 @@ export default function ContactUs() {
               mail={null}
             />
           </div>
-
         </div>
 
         <div className={styles.mobileContainer}>
-
           <ContactCard
             name="Aryan Wadhwa"
             img={aryan}
@@ -540,25 +532,11 @@ export default function ContactUs() {
             // mail="mailto:gensec@pilani.bits-pilani.ac.in"
             mail={null}
           />
-
         </div>
       </div>
       <div className={styles.bottom} id="contactBottom">
-        <Image
-          src={left}
-          alt="animation"
-          className={styles.bottomAnimation}
-          draggable={false}
-        />
-        <Image
-          src={right}
-          alt="animation"
-          className={styles.bottomAnimation}
-          draggable={false}
-        />
+        <ContactUsBottomIcons />
       </div>
     </>
   );
 }
-
-

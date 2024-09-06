@@ -199,19 +199,23 @@ export default function Landing() {
           timelineConfig = gsap.timeline();
 
           timelineConfig
-            .to(".lefttree", {
-              x: "100vw",
-              duration: 0.5,
-              ease: "sine.inOut",
-            })
-            .to(
-              ".righttree",
+            .from(
+              "#leftTree",
               {
                 x: "-100vw",
                 duration: 0.5,
                 ease: "sine.inOut",
               },
-              "<"
+              0
+            )
+            .from(
+              "#rightTree",
+              {
+                x: "100vw",
+                duration: 0.5,
+                ease: "sine.inOut",
+              },
+              0
             );
         }
       },

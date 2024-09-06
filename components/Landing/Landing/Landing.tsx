@@ -191,36 +191,37 @@ export default function Landing() {
     };
   }, [isVideoFocused]);
 
-
-    useGSAP(
-      () => {
-        let timelineConfig;
-        if (isLoaded) {
-          timelineConfig = gsap.timeline();
-
-          timelineConfig
-            .from(
-              "#leftTree",
-              {
-                x: "-100vw",
-                duration: 0.5,
-                ease: "sine.inOut",
-              },
-              0
-            )
-            .from(
-              "#rightTree",
-              {
-                x: "100vw",
-                duration: 0.5,
-                ease: "sine.inOut",
-              },
-              0
-            );
-        }
-      },
-      [isLoaded]
-    );
+  useGSAP(() => {
+    let timelineConfig;
+    if (isLoaded) {
+      timelineConfig = gsap.timeline();
+      timelineConfig
+        .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state
+        .from(
+          "#leftTree",
+          {
+            x: "-100vw",
+            duration: 1.5,
+            ease: "sine.inOut",
+          },
+          0
+        )
+        .from(
+          "#rightTree",
+          {
+            x: "100vw",
+            duration: 1.5,
+            ease: "sine.inOut",
+          },
+          0
+        )
+        .to("#mainwrapper", {
+          autoAlpha: 1,
+          duration: 2,
+          ease: "sine.inOut",
+        });
+    }
+  }, [isLoaded]);
 
   useGSAP(
     () => {

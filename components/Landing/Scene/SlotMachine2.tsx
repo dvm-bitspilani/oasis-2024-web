@@ -35,7 +35,6 @@ type GLTFResult = GLTF & {
 };
 
 interface Props {
-  video: string;
   setIs3dLoaded: (value: boolean) => void;
   iframeClick: () => void;
   setCamera: (value: any) => void;
@@ -43,14 +42,7 @@ interface Props {
 }
 
 export const SlotMachine2 = forwardRef(function SlotMachine2(
-  {
-    video,
-    setIs3dLoaded,
-    iframeClick,
-    setCamera,
-    isVideoFocused,
-    ...props
-  }: Props,
+  { setIs3dLoaded, iframeClick, setCamera, isVideoFocused, ...props }: Props,
   ref: any
 ) {
   const { nodes, materials } = useGLTF("/Models/uSlotM.glb") as GLTFResult;

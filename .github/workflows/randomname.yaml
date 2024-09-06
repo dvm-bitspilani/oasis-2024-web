@@ -21,5 +21,6 @@ jobs:
             eval "$(ssh-agent -s)"
             ssh-add ~/.ssh/id_rsa
             echo "${{ secrets.PASSWORD }}" | sudo -S SSH_AUTH_SOCK=$(echo $SSH_AUTH_SOCK) git pull origin prod
-            npm install
+            echo "${{ secrets.PASSWORD }}" | sudo -S npm install
             echo "${{ secrets.PASSWORD }}" | sudo -S npm run build
+            echo "${{ secrets.PASSWORD }}" | sudo -S pm2 restart 2

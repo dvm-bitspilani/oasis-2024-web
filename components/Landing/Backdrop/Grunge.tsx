@@ -8,7 +8,7 @@ export default function Grunge() {
       alt="grunge effect"
       draggable={false}
       style={{
-        height: "100dvh",
+        height: "100lvh",
         width: "100vw",
         position: "absolute",
         pointerEvents: "none",

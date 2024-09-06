@@ -1,9 +1,12 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import styles from "./gauth.module.scss";
 import Signin from "../SignIn/SignIn";
 import Image from "next/image";
+import Modal from "../Modal/Modal";
+import { Tooltip } from "antd";
+import Instruction from "../Instructions/Instructions";
 
 interface Props {
   gSignIn: () => void;
@@ -22,6 +25,12 @@ export default function GoogleAuthPage({ gSignIn }: Props) {
       initialRotation.kill();
     };
   }, []);
+
+  const [isOpen, setisOpen] = useState(false);
+
+  const toggleModal = () => {
+    setisOpen(!isOpen);
+  };
 
   return (
     <>
@@ -125,6 +134,42 @@ export default function GoogleAuthPage({ gSignIn }: Props) {
             </div>
           </div>
         </div>
+        {/* <Tooltip title="Click to view detailed instructions">
+          <div className={styles.modalbtn} onClick={toggleModal}>
+            <div className={styles.symbols}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="36"
+                height="36"
+                viewBox="0 0 36 36"
+                fill="none"
+              >
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="17.1281"
+                  fill="#170F22"
+                  stroke="#F5E3AE"
+                  stroke-width="1.74375"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="26"
+                height="26"
+                viewBox="0 0 26 26"
+                fill="none"
+              >
+                <path
+                  d="M12.4833 17.4126C13.234 17.4126 13.5822 16.8902 13.5822 16.1938V15.8238C13.604 14.3873 14.1264 13.7888 15.8674 12.5924C17.7283 11.3295 18.9141 9.87164 18.9141 7.77121C18.9141 4.50682 16.2593 2.63528 12.9619 2.63528C10.5026 2.63528 8.33719 3.79971 7.41233 5.89968C7.1839 6.41132 7.08594 6.91182 7.08594 7.32503C7.08594 7.94532 7.44483 8.38082 8.10876 8.38082C8.66358 8.38082 9.03362 8.05443 9.19704 7.52096C9.76254 5.4535 11.1229 4.67025 12.8858 4.67025C15.0076 4.67025 16.6618 5.86718 16.6618 7.76053C16.6618 9.31636 15.6933 10.1869 14.3005 11.1665C12.5919 12.3528 11.3407 13.6259 11.3407 15.541V16.2263C11.3407 16.9227 11.7218 17.4126 12.4833 17.4126ZM12.4828 23.3647C13.3422 23.3647 14.0279 22.6683 14.0279 21.8196C14.029 21.6163 13.9898 21.4149 13.9126 21.227C13.8353 21.039 13.7215 20.8682 13.5778 20.7245C13.4341 20.5808 13.2634 20.467 13.0754 20.3898C12.8874 20.3125 12.686 20.2733 12.4828 20.2744C11.6341 20.2744 10.9265 20.9602 10.9265 21.8196C10.9265 22.6683 11.6341 23.3647 12.4828 23.3647Z"
+                  fill="#F5E3AE"
+                />
+              </svg>
+            </div>
+          </div>
+        </Tooltip> */}
+        {/* <div className={styles.modalbtn} onClick={toggleModal}>click here</div> */}
+        {/* {isOpen && <Modal closeModal={toggleModal} />} */}
         <Image
           className={styles.rouletteWheel}
           src="/Registration/RouletteWheel.png"

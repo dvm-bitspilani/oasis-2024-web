@@ -1,0 +1,100 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100000;
+
+  .modalContent {
+    width: 76.9444444444vw;
+    height: 73.2421875dvh;
+    background-color: #190d2c;
+    padding: 20px;
+    position: relative;
+    border-radius: 16px;
+    border: 1px solid #fae29f;
+
+    .grunge {
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("/backgroundNoiceImg.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.2;
+      }
+    }
+
+    .title {
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(
+        0deg,
+        #fffee5 -27.5%,
+        #efd48d -1.13%,
+        #ffce93 48.36%,
+        #f9e6a2 100%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: Vidaloka;
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 43px;
+      letter-spacing: 2.16px;
+      text-transform: uppercase;
+    }
+
+    .closeButton {
+      position: absolute;
+      right: 45px;
+      top: 30px;
+      background: transparent;
+      border: none;
+      font-size: 30px;
+      color: gold;
+      cursor: pointer;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: absolute;
+      right: 45px;
+      left: 45px;
+      top: 120px;
+
+      .two{
+        position: relative;
+        left: 8px;
+        div{
+          gap: 22px;
+        }
+      }
+
+      .three{
+        position: relative;
+        left: 2px;
+        div{
+          gap: 16px;
+        }
+      }
+    }
+  }
+}

@@ -4,12 +4,11 @@ import Navbar from "../Navbar/Navbar";
 import CardsGroup from "../CardsGroup/CardsGroup";
 import AboutUsPage from "@/components/AboutUs/AboutUsPage";
 import ContactUs from "@/components/ContactUs/ContactUs";
-import OasisLogo from "../Navbar/Logo/Logo";
 import Social from "../Social/Social";
 
 export default function LandingOverlay() {
   return (
-    <div className={styles.mainwrapper}>
+    <div className={styles.mainwrapper} id="mainwrapper">
       <Social />
       <div className={styles.headerContainer}>
         <Navbar />
@@ -24,7 +23,6 @@ export default function LandingOverlay() {
       </div>
       <AboutUsPage />
       <ContactUs />
-      
     </div>
   );
 }

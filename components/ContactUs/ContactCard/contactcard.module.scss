@@ -1,6 +1,6 @@
 .card {
   height: auto;
-  width: 200px;
+  width: 175px;
   background: linear-gradient(
     154.77deg,
     #0d0d0d 0.23%,
@@ -17,17 +17,17 @@
   transform: scale(0.9);
 
   .center {
-    margin-top: 42px;
+    margin-top: 32px;
     margin-bottom: 24px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 0px;
 
     .name {
       font-family: "Playfair Display";
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 500;
       letter-spacing: -0.04em;
       // color: #ccae57;
@@ -43,7 +43,7 @@
     }
 
     .imgContainer {
-      height: auto;
+      height: 100%;
       width: 100%;
       // position: relative;
 
@@ -57,8 +57,8 @@
       // }
 
       .profileImg {
-        width: 155px;
-        height: 126px;
+        width: 125px;
+        height: 100%;
         // position: relative;
         // z-index: 2;
         margin: auto;
@@ -72,7 +72,7 @@
       font-weight: 400;
       text-align: center;
       // color: #ccae57;
-      width: 70%;
+      width: 80%;
       line-height: 20px;
       min-height: 42px;
       background: linear-gradient(
@@ -113,10 +113,10 @@
   }
 }
 
-@media (max-width: 2100px) and (min-width: 1500px) {
+@media (max-width: 2100px) and (min-width: 1600px) {
   .card {
     height: auto;
-    width: 250px;
+    width: 230px;
     display: flex;
     flex-direction: column;
     border: 1px solid #e3c041;
@@ -128,7 +128,7 @@
     .center {
       margin-top: 45px;
       margin-bottom: 25px;
-      gap: 10px;
+      gap: 0px;
 
       .name {
         font-size: 22px;
@@ -136,14 +136,16 @@
 
       .imgContainer {
         .profileImg {
-          width: 175px;
-          height: 155px;
+          width: 155px;
+          height: 100%;
         }
       }
 
       .desc {
         font-size: 17px;
         line-height: 23px;
+        width: 80%;
+        min-height: 46px;
       }
 
       .buttons {
@@ -233,7 +235,7 @@
       }
 
       .imgContainer {
-        height: 116px;
+        height: 100%;
         width: 100%;
 
         .profileImg {

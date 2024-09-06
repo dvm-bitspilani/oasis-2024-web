@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./contactus.module.scss";
 import ContactCard from "./ContactCard/ContactCard";
+import Image from "next/image";
 
 import prateek from "../../assets/Landing/contactUs/prateek.png";
 import aryan from "../../assets/Landing/contactUs/aryan.png";
@@ -12,6 +13,9 @@ import rijul from "../../assets/Landing/contactUs/rijul.png";
 import shreyansh from "../../assets/Landing/contactUs/shreyansh.png"
 import sarthak from "../../assets/Landing/contactUs/sarthak.png";
 import abhinav from "../../assets/Landing/contactUs/abhinav.png";
+
+import left from "../../assets/Landing/contactUs/left.png";
+import right from "../../assets/Landing/contactUs/right.png";
 
 export default function ContactUs() {
   // const containerRef = useRef(null);
@@ -122,6 +126,183 @@ export default function ContactUs() {
   //   };
   // }, []);
 
+  // const cardContainerRef = useRef(null);
+
+  // useEffect(() => {
+  //   const container = cardContainerRef.current;
+  //   const cards = container.querySelectorAll('.card');
+  //   const cardCount = cards.length;
+  //   const cardSpacing = 10;
+
+  //   // Define custom x and y translations and rotations for each card
+  //   const translations = [
+  //     { x: 0, y: 70, rotation: -18 },
+  //     { x: 0, y: -10, rotation: -10 },
+  //     { x: 0, y: -30, rotation: 0 },
+  //     { x: 0, y: -10, rotation: 10 },
+  //     { x: 0, y: 70, rotation: 18 }
+  //   ];
+
+  //   // Set the initial state of all cards
+  //   gsap.set(cards, {
+  //     x: 0, // Initial x position for all cards
+  //     y: 70, // Initial y position for all cards
+  //     rotation: -18, // Initial rotation for all cards
+  //     zIndex: (index) => cardCount - index, // Ensure proper stacking order
+  //     duration: 0
+  //   });
+
+  //   // Animation after 10 seconds
+  //   gsap.to(cards, {
+  //     x: (index) => {
+  //       const { x: tx } = translations[index % translations.length];
+  //       return (index % 5) * (cards[0].offsetWidth + cardSpacing) + tx; // Apply custom x translation
+  //     },
+  //     y: (index) => {
+  //       const { y: ty } = translations[index % translations.length];
+  //       return Math.floor(index / 5) * (cards[0].offsetHeight + cardSpacing) + ty; // Apply custom y translation
+  //     },
+  //     rotation: (index) => translations[index % translations.length].rotation, // Apply custom rotation
+  //     transformOrigin: 'center center', // Ensures rotation is around the center
+  //     duration: 5, // Duration of animation
+  //     stagger: 1, // Stagger animation
+  //     delay: 10, // Delay before animation starts
+  //     ease: "power1.out"
+  //   });
+  // }, []);
+
+
+  // useEffect(() => {
+  //   const container = cardContainerRef.current;
+  //   const cards = container.querySelectorAll('.card');
+  //   const cardCount = cards.length;
+  //   const containerWidth = container.offsetWidth;
+  //   const cardWidth = cards[1]?.offsetWidth || 0;
+
+  //   const X1 = (containerWidth - 5 * cardWidth - 215) / 2;
+  //   const X2 = X1 + cardWidth + 50;
+  //   const X3 = X2 + cardWidth + 50;
+  //   const X4 = X3 + cardWidth + 50;
+  //   const X5 = X4 + cardWidth + 50;
+
+  //   const translations = [
+  //     { x: X1, y: 60, rotation: -18 },
+  //     { x: X2, y: -10, rotation: -10 },
+  //     { x: X3, y: -30, rotation: 0 },
+  //     { x: X4, y: -10, rotation: 10 },
+  //     { x: X5, y: 60, rotation: 18 }
+  //   ];
+
+  //   gsap.set(cards, {
+  //     x: X1,
+  //     y: 50,
+  //     rotation: -18,
+  //     zIndex: (index) => index,
+  //     duration: 0
+  //   });
+
+  //   const tl = gsap.timeline({ delay: 5 });
+
+  //   for (let i = 1; i < cardCount; i++) {
+  //     tl.to(cards[i], {
+  //       x: translations[i].x,
+  //       y: translations[i].y,
+  //       rotation: translations[i].rotation,
+  //       zIndex: cardCount - i,
+  //       transformOrigin: 'center center',
+  //       duration: 0.2,
+  //       ease: "power1.inOut",
+  //       onStart: () => {
+  //         for (let j = i + 1; j < cardCount; j++) {
+  //           gsap.to(cards[j], {
+  //             x: translations[i].x,
+  //             y: translations[i].y,
+  //             rotation: translations[i].rotation,
+  //             transformOrigin: 'center center',
+  //             duration: 0.2,
+  //             ease: "power1.inOut",
+  //             zIndex: j,
+  //           });
+  //         }
+  //       }
+  //     });
+  //   }
+
+  //   // Second set of cards
+  //   const container1 = cardContainer1Ref.current;
+  //   const cards1 = container1.querySelectorAll('.card');
+  //   const cardCount1 = cards1.length;
+  //   const cardHeight = cards[0]?.offsetHeight || 0;
+
+  //   const X6 = (containerWidth - 3 * cardWidth - 105) / 2;
+  //   const X7 = X6 + cardWidth + 50;
+  //   const X8 = X7 + cardWidth + 50;
+
+  //   const Y6 = cardHeight + 10;
+  //   const Y7 = cardHeight - 10;
+  //   const Y8 = cardHeight + 10;
+
+  //   const translations1 = [
+  //     { x: X6, y: Y6, rotation: -12 },
+  //     { x: X7, y: Y7, rotation: 0 },
+  //     { x: X8, y: Y8, rotation: 12 }
+  //   ];
+
+  //   gsap.set(cards1, {
+  //     opacity: 0,
+  //     x: X6,
+  //     y: Y6,
+  //     rotation: -12,
+  //     zIndex: (index) => index,
+  //     duration: 0
+  //   });
+
+  //   const tl1 = gsap.timeline({
+  //     paused: true,
+  //     onStart: () => {
+  //       gsap.to(cards1, { opacity: 1, duration: 0.5 });
+  //     }
+  //   });
+
+  //   for (let i = 0; i < cardCount1; i++) {
+  //     tl1.to(cards1[i], {
+  //       x: translations1[i].x,
+  //       y: translations1[i].y,
+  //       rotation: translations1[i].rotation,
+  //       zIndex: cardCount1 - i,
+  //       transformOrigin: 'center center',
+  //       duration: 0.2,
+  //       ease: "power1.out",
+  //       onStart: () => {
+  //         for (let j = i + 1; j < cardCount1; j++) {
+  //           gsap.to(cards1[j], {
+  //             x: translations1[i].x,
+  //             y: translations1[i].y,
+  //             rotation: translations1[i].rotation,
+  //             transformOrigin: 'center center',
+  //             duration: 0.2,
+  //             ease: "power1.out",
+  //             zIndex: j,
+  //           });
+  //         }
+  //       }
+  //     });
+  //   }
+
+  //   const masterTimeline = gsap.timeline();
+  //   masterTimeline.add(tl);
+  //   masterTimeline.add(() => {
+  //     tl1.play();
+  //     return null;
+  //   }); 
+
+  //   // Cleanup
+  //   return () => {
+  //     masterTimeline.kill();
+  //   };
+  // }, []);
+
+
   return (
     <>
       <div className={styles.contactPage} id="contactUs">
@@ -189,7 +370,7 @@ export default function ContactUs() {
 
         <div className={styles.cardContainer} id="contactCard">
 
-          <div className={styles.first}>
+          <div className={`${styles.first} card`}>
             <ContactCard
               name="Jaiditya Singh"
               img={jaiditya}
@@ -201,17 +382,7 @@ export default function ContactUs() {
             />
           </div>
 
-          <div className={styles.mobile}>
-            <ContactCard
-              name="Shreeram Verma"
-              img={shreeram}
-              dept="Sponsorship and Marketing"
-              contact="tel:+918889588288"
-              mail="mailto:shreeram@bits-oasis.org"
-            />
-          </div>
-
-          <div className={styles.second}>
+          <div className={`${styles.second} card`}>
             <ContactCard
               name="Prateek Kashyap"
               img={prateek}
@@ -221,7 +392,7 @@ export default function ContactUs() {
             />
           </div>
 
-          <div className={styles.third}>
+          <div className={`${styles.third} card`}>
             <ContactCard
               name="Aryan Wadhwa"
               img={aryan}
@@ -231,7 +402,7 @@ export default function ContactUs() {
             />
           </div>
 
-          <div className={styles.fourth}>
+          <div className={`${styles.fourth} card`}>
             <ContactCard
               name="Shreeram Verma"
               img={shreeram}
@@ -241,7 +412,7 @@ export default function ContactUs() {
             />
           </div>
 
-          <div className={styles.fifth}>
+          <div className={`${styles.fifth} card`}>
             <ContactCard
               name="Rijul Bassamboo"
               img={rijul}
@@ -254,22 +425,9 @@ export default function ContactUs() {
           </div>
         </div>
 
-
         <div className={styles.cardContainer1} id="contactCard1">
 
-          <div className={styles.fourth}>
-            <ContactCard
-              name="Rijul Bassamboo"
-              img={rijul}
-              dept="Reception and Accommodation"
-              //contact="tel:+919811529877"
-              contact={null}
-              // mail="mailto:recnacc@bits-oasis.org"
-              mail={null}
-            />
-          </div>
-
-          <div className={styles.first}>
+          <div className={`${styles.first} card`}>
             <ContactCard
               name="Shreyansh Vanjani"
               img={shreyansh}
@@ -281,7 +439,7 @@ export default function ContactUs() {
             />
           </div>
 
-          <div className={styles.second}>
+          <div className={`${styles.second} card`}>
             <ContactCard
               name="Sarthak Aggarwal"
               img={sarthak}
@@ -293,7 +451,7 @@ export default function ContactUs() {
             />
           </div>
 
-          <div className={styles.third}>
+          <div className={`${styles.third} card`}>
             <ContactCard
               name="Abhinav Lamba"
               img={abhinav}
@@ -306,6 +464,98 @@ export default function ContactUs() {
           </div>
 
         </div>
+
+        <div className={styles.mobileContainer}>
+
+          <ContactCard
+            name="Aryan Wadhwa"
+            img={aryan}
+            dept="Registration, Events & Approval Queries"
+            contact="tel:+919810297034"
+            mail="mailto:pcr@bits-oasis.org"
+          />
+
+          <ContactCard
+            name="Prateek Kashyap"
+            img={prateek}
+            dept="Website, App and Online Payments"
+            contact="tel:+918700225449"
+            mail="mailto:webmaster@bits-oasis.org"
+          />
+
+          <ContactCard
+            name="Shreeram Verma"
+            img={shreeram}
+            dept="Sponsorship and Marketing"
+            contact="tel:+918889588288"
+            mail="mailto:shreeram@bits-oasis.org"
+          />
+
+          <ContactCard
+            name="Jaiditya Singh"
+            img={jaiditya}
+            dept="Logistics and Operations"
+            // contact="tel:+919168421199"
+            contact={null}
+            // mail="mailto:controls@bits-oasis.org"
+            mail={null}
+          />
+
+          <ContactCard
+            name="Rijul Bassamboo"
+            img={rijul}
+            dept="Reception and Accommodation"
+            // contact="tel:+919811529877"
+            contact={null}
+            // mail="mailto:recnacc@bits-oasis.org"
+            mail={null}
+          />
+
+          <ContactCard
+            name="Shreyansh Vanjani"
+            img={shreyansh}
+            dept="Publicity and Collaborations"
+            //contact="tel:+918000695988"
+            contact={null}
+            // mail="mailto:collaborations@bits-oasis.org"
+            mail={null}
+          />
+
+          <ContactCard
+            name="Sarthak Aggarwal"
+            img={sarthak}
+            dept="President, Students' Union"
+            // contact="tel:+9180050 00213"
+            contact={null}
+            // mail="mailto:president@pilani.bits-pilani.ac.in"
+            mail={null}
+          />
+
+          <ContactCard
+            name="Abhinav Lamba"
+            img={abhinav}
+            dept="General Secretary, Students' Union"
+            // contact="tel:+917078879443"
+            contact={null}
+            // mail="mailto:gensec@pilani.bits-pilani.ac.in"
+            mail={null}
+          />
+
+        </div>
+      </div>
+      <div className={styles.bottom} id="contactBottom">
+        <Image
+          src={left}
+          alt="animation"
+          className={styles.bottomAnimation}
+          draggable={false}
+        />
+        <Image
+          src={right}
+          alt="animation"
+          className={styles.bottomAnimation}
+          draggable={false}
+        />
       </div>
     </>
   );

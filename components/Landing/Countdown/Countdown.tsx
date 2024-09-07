@@ -36,7 +36,7 @@ export default function Countdown({ dateString, ...args }: Props) {
     return () => {
       clearInterval(timeout);
     };
-  }, [oasis]);
+  }, [oasis, curr]);
 
   useEffect(() => {
     if (oasis > curr) {

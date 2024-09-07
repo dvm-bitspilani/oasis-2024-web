@@ -59,7 +59,7 @@ export const SlotMachineiOS = forwardRef(function SlotMachine2(
 
     setIs3dLoaded(true);
     setCamera(camera);
-  }, []);
+  }, [camera, setCamera, setIs3dLoaded, texture]);
 
   // const { position } = useControls({
   //   position: [0, 0, 0],

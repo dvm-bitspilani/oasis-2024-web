@@ -97,7 +97,7 @@ export const SlotMachine = forwardRef(function SlotMachine2(
   useEffect(() => {
     setIs3dLoaded(true);
     setCamera(camera);
-  }, []);
+  }, [camera, setCamera, setIs3dLoaded]);
 
   return (
     <>

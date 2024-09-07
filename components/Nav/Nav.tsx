@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import styles from "./nav.module.scss";
 import Image from "next/image";
@@ -10,8 +10,35 @@ import events from "../../public/events.png";
 const Nav = () => {
   const [active, setActive] = useState("home");
 
+  const handleScroll = (position) => {
+    const totalHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
+
+    window.scrollTo({
+      top: totalHeight * position,
+      behavior: "smooth",
+    });
+  };
+
   const handleImageClick = (name) => {
-    setActive(name); 
+    setActive(name);
+
+    switch (name) {
+      case "home":
+        handleScroll(0);
+        break;
+      case "about":
+        handleScroll(0.4);
+        break;
+      case "events":
+        handleScroll(0.6);
+        break;
+      case "contact":
+        handleScroll(1);
+        break;
+      default:
+        break;
+    }
   };
 
   return (
@@ -30,7 +57,9 @@ const Nav = () => {
           alt="about"
           width={347}
           height={168}
-          className={`${styles.about} ${active === "about" ? styles.active : ""}`} 
+          className={`${styles.about} ${
+            active === "about" ? styles.active : ""
+          }`}
           onClick={() => handleImageClick("about")}
         />
         <Image
@@ -38,7 +67,9 @@ const Nav = () => {
           alt="events"
           width={347}
           height={168}
-          className={`${styles.events} ${active === "events" ? styles.active : ""}`}
+          className={`${styles.events} ${
+            active === "events" ? styles.active : ""
+          }`}
           onClick={() => handleImageClick("events")}
         />
         <Image
@@ -46,7 +77,9 @@ const Nav = () => {
           alt="contact"
           width={347}
           height={168}
-          className={`${styles.contact} ${active === "contact" ? styles.active : ""}`}
+          className={`${styles.contact} ${
+            active === "contact" ? styles.active : ""
+          }`}
           onClick={() => handleImageClick("contact")}
         />
       </div>

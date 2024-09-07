@@ -540,9 +540,9 @@ export default function ContactUs() {
           />
         </div>
       </div>
-      <div className={styles.bottom} id="contactBottom">
+      {/* <div className={styles.bottom} id="contactBottom">
         <ContactUsBottomIcons />
-      </div>
+      </div> */}
     </>
   );
 }

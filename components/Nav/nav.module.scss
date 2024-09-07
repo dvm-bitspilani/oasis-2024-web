@@ -1,26 +1,43 @@
-.wrapper{
-    display: flex;
-    flex-direction: column;
-    position: relative;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  pointer-events: auto;
 
-    .home{
-        position: relative;
-        top: 200px;
-        transform: rotateZ(15deg) translateX(15px);
+  .home {
+    position: relative;
+    top: 200px;
+    transform: rotateZ(15deg) translateX(15px);
+    transition: all 0.3s ease-out;
+    &.active {
+      transform: rotateZ(15deg) translateX(-50px);
     }
-    .about{
-        position: relative;
-        top: 150px;
-        transform: rotateZ(10deg) translateX(-20px);
+  }
+  .about {
+    position: relative;
+    top: 150px;
+    transform: rotateZ(10deg) translateX(-20px);
+    transition: all 0.3s ease-out;
+    &.active {
+      transform: rotateZ(10deg) translateX(-60px);
     }
-    .events{
-        position: relative;
-        top: 60px;
-        transform: rotateZ(-10deg) translateX(-15px);
+  }
+  .events {
+    position: relative;
+    top: 60px;
+    transform: rotateZ(-10deg) translateX(-15px);
+    transition: all 0.3s ease-out;
+    &.active {
+      transform: rotateZ(-10deg) translateX(-60px);
     }
-    .contact{
-        position: relative;
-        top: 0px;
-        transform: rotateZ(-15deg) translateX(15px);
+  }
+  .contact {
+    position: relative;
+    top: 0px;
+    transform: rotateZ(-15deg) translateX(20px);
+    transition: all 0.3s ease-out;
+    &.active {
+      transform: rotateZ(-15deg) translateX(-50px);
     }
+  }
 }

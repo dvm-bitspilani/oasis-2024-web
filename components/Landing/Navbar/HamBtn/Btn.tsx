@@ -10,6 +10,7 @@ export default function HamBtn() {
   const [isHamOpen, setIsHamOpen] = useState(false);
   const BtnRef = useRef(null);
   const pokerChipRef = useRef(null);
+  const hamIconRef = useRef(null);
   const handleClick = () => {
     setIsHamOpen(!isHamOpen);
     animation();
@@ -22,29 +23,69 @@ export default function HamBtn() {
         y: "0",
         duration: 0.5,
         scale: 1,
-      }).to(
-        pokerChipRef.current,
-        {
-          rotate: 0,
-          duration: 0.5,
-          ease: "none",
-        },
-        "<"
-      );
+      })
+        .to(
+          pokerChipRef.current,
+          {
+            rotate: 0,
+            duration: 0.5,
+            ease: "none",
+          },
+          "<"
+        )
+        .to(
+          hamIconRef.current,
+          {
+            opacity: 0,
+            duration: 0.1,
+            ease: "power2.out",
+          },
+          "<"
+        )
+        .to(
+          hamIconRef.current,
+          {
+            opacity: 1,
+            delay: 0.05,
+            duration: 0.1,
+            ease: "power2.in",
+          },
+          "<"
+        );
     } else {
       tl.to(BtnRef.current, {
         y: `${window.innerHeight / 2 - 50}`,
         duration: 0.5,
         scale: 8.9,
-      }).to(
-        pokerChipRef.current,
-        {
-          rotate: 180,
-          duration: 1,
-          ease: "none",
-        },
-        "<"
-      );
+      })
+        .to(
+          pokerChipRef.current,
+          {
+            rotate: 180,
+            duration: 1,
+            ease: "none",
+          },
+          "<"
+        )
+        .to(
+          hamIconRef.current,
+          {
+            opacity: 0,
+            duration: 0.1,
+            ease: "power2.out",
+          },
+          "<"
+        )
+        .to(
+          hamIconRef.current,
+          {
+            opacity: 1,
+            delay: 0.05,
+            duration: 0.1,
+            ease: "power2.in",
+          },
+          "<"
+        );
     }
   };
 
@@ -56,8 +97,8 @@ export default function HamBtn() {
         svgClass={styles.pokerChip}
         isHamOpen={isHamOpen}
       />
-      <div className={styles.hamIcon}>
-        <MenuLines svgClass={styles.menuLines} />
+      <div className={styles.hamIcon} ref={hamIconRef}>
+        <MenuLines svgClass={styles.menuLines} isHamOpen={isHamOpen} />
       </div>
     </div>
   );

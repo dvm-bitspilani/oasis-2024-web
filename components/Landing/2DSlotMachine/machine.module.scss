@@ -1,0 +1,19 @@
+.slotMachine{
+    aspect-ratio: 316 / 534;
+    position: absolute;
+    bottom: 0px;
+    height: 534px;
+    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+
+    img{
+        aspect-ratio: 316 / 534;
+        position: absolute;
+        height: 100%;
+        width: auto;
+        padding: 0;
+        margin: 0;
+    }
+}

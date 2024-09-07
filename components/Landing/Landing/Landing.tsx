@@ -8,7 +8,6 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import LandingScene from "../Scene/Scene";
 import styles from "../../ContactUs/contactus.module.scss";
 import SlotMachineExitCross from "@/components/AboutUs/SlotMachineExitCross/SlotMachineExitCross";
-import MobileSlotMachine from "../2DSlotMachine/2DSlotMachine";
 
 gsap.registerPlugin(ScrollTrigger);
 

@@ -3,6 +3,24 @@
   flex-direction: column;
   position: relative;
   pointer-events: auto;
+  transform: rotateZ(-15deg);
+  transition: all 0.3s ease-out;
+
+  &:hover{
+    transform: rotateZ(0deg);
+    .home{
+        transform: rotateZ(15deg) translateX(-50px);
+    }
+    .about{
+        transform: rotateZ(5deg) translateX(-75px);
+    }
+    .events{
+        transform: rotateZ(-10deg) translateX(-60px);
+    }
+    .contact{
+        transform: rotateZ(-15deg) translateX(-20px);
+    }
+  }
 
   .home {
     position: relative;
@@ -10,34 +28,34 @@
     transform: rotateZ(15deg) translateX(15px);
     transition: all 0.3s ease-out;
     &.active {
-      transform: rotateZ(15deg) translateX(-50px);
+      transform: rotateZ(15deg) translateX(-60px);
     }
   }
   .about {
     position: relative;
-    top: 150px;
-    transform: rotateZ(10deg) translateX(-20px);
+    top: 130px;
+    transform: rotateZ(5deg) translateX(-30px);
     transition: all 0.3s ease-out;
-    &.active {
-      transform: rotateZ(10deg) translateX(-60px);
-    }
+    // &.active {
+    //   transform: rotateZ(10deg) translateX(-60px);
+    // }
   }
   .events {
     position: relative;
-    top: 60px;
+    top: 50px;
     transform: rotateZ(-10deg) translateX(-15px);
     transition: all 0.3s ease-out;
-    &.active {
-      transform: rotateZ(-10deg) translateX(-60px);
-    }
+    // &.active {
+    //   transform: rotateZ(-10deg) translateX(-60px);
+    // }
   }
   .contact {
     position: relative;
     top: 0px;
     transform: rotateZ(-15deg) translateX(20px);
     transition: all 0.3s ease-out;
-    &.active {
-      transform: rotateZ(-15deg) translateX(-50px);
-    }
+    // &.active {
+    //   transform: rotateZ(-15deg) translateX(-50px);
+    // }
   }
 }

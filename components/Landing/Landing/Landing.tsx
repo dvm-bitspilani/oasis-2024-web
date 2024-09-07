@@ -189,7 +189,7 @@ export default function Landing() {
         }
       });
     };
-  }, [isVideoFocused]);
+  }, [isVideoFocused, isLanding]);
 
   useGSAP(() => {
     let timelineConfig;
@@ -300,7 +300,7 @@ export default function Landing() {
                 slotMachine.current.position,
                 {
                   x: conditions.isMobile ? 0 : -0.9,
-                  y: conditions.isMobile ? (conditions.isXS ? -0.75 : -0.5) : 0,
+                  y: conditions.isMobile ? (conditions.isXS ? -0.5 : -0.5) : 0,
                   z: conditions.isMobile ? 0 : -0.5,
                   duration: 1,
                 },
@@ -591,32 +591,6 @@ export default function Landing() {
                 },
                 "<"
               );
-            // .to(
-            //   {},
-            //   {
-            //     onComplete: () => {
-            //       const contactCard = document.querySelector("#contactCard");
-            //       if (contactCard) {
-            //         contactCard.classList.add(styles.active);
-            //         // console.log(document.querySelector('#contactCard'));
-            //       }
-            //     },
-            //   },
-            //   "<"
-            // )
-            // .to(
-            //   {},
-            //   {
-            //     onComplete: () => {
-            //       const contactCard1 =
-            //         document.querySelector("#contactCard1");
-            //       if (contactCard1) {
-            //         contactCard1.classList.add(styles.active1);
-            //       }
-            //     },
-            //   },
-            //   "<"
-            // );
           }
         );
       }

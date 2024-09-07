@@ -1,7 +1,5 @@
 "use client";
 
-// import styles from "./landing.module.scss";
-
 import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -10,6 +8,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import LandingScene from "../Scene/Scene";
 import styles from "../../ContactUs/contactus.module.scss";
 import SlotMachineExitCross from "@/components/AboutUs/SlotMachineExitCross/SlotMachineExitCross";
+import MobileSlotMachine from "../2DSlotMachine/2DSlotMachine";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -52,6 +51,7 @@ export default function Landing() {
   }, []);
 
   const slotMachine: any = useRef();
+  const slotMachine2D: any = useRef();
   const [camera, setCamera] = useState<any>(null);
 
   const [is3dLoaded, setIs3dLoaded] = useState(false);
@@ -164,7 +164,9 @@ export default function Landing() {
       }
       if (window.scrollY === 0 && !isLanding) {
         setIsLanding(true);
-        overlayWrapper.setAttribute("style", "z-index: -2;");
+        if (window.innerWidth > 1000) {
+          overlayWrapper.setAttribute("style", "z-index: -2;");
+        }
       } else if (window.scrollY !== 0 && isLanding) {
         setIsLanding(false);
         overlayWrapper.setAttribute("style", "z-index: 1;");
@@ -182,7 +184,9 @@ export default function Landing() {
         }
         if (window.scrollY === 0 && !isLanding) {
           setIsLanding(true);
-          overlayWrapper.setAttribute("style", "z-index: -2;");
+          if (window.innerWidth > 1000) {
+            overlayWrapper.setAttribute("style", "z-index: -2;");
+          }
         } else if (window.scrollY !== 0 && isLanding) {
           setIsLanding(false);
           overlayWrapper.setAttribute("style", "z-index: 1;");
@@ -416,7 +420,7 @@ export default function Landing() {
                 {
                   x: conditions.isMobile ? 0 : -5,
                   y: conditions.isMobile ? -2.5 : 0,
-                  // z: conditions.isMobile ? 0 : -0.5,
+                  z: conditions.isMobile ? 0 : -0.5,
                   duration: 3,
                   ease: "power1.in",
                 },
@@ -611,6 +615,7 @@ export default function Landing() {
         isMobile={isMobile}
         setCamera={setCamera}
       />
+      {/* {isMobile ? <MobileSlotMachine ref={slotMachine2D} /> : <></>} */}
     </>
   );
 }

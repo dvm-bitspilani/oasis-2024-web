@@ -6,19 +6,21 @@
     .home{
         position: relative;
         top: 200px;
-        // transform: rotateZ(10deg);
+        transform: rotateZ(15deg) translateX(15px);
     }
     .about{
         position: relative;
         top: 150px;
-        // transform: rotateZ(5deg);
+        transform: rotateZ(10deg) translateX(-20px);
     }
     .events{
         position: relative;
-        top: 100px;
+        top: 60px;
+        transform: rotateZ(-10deg) translateX(-15px);
     }
     .contact{
         position: relative;
-        top: 40px;
+        top: 0px;
+        transform: rotateZ(-15deg) translateX(15px);
     }
 }

@@ -2,13 +2,37 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import "./globals.css";
+import OasisLogo from "../assets/Landing/oasislogo.png";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Oasis '24",
-  description:
-    "The official website of Oasis 2024 - , Asia's Largest Student-Run College Cultural Festival returns for its 52nd edition in 2024! Est. 1971",
+  description: "The official website of Oasis 2024 - , Asia's Largest Student-Run College Cultural Festival returns for its 52nd edition in 2024! Est. 1971",
+  colorScheme: "dark",
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  openGraph: {
+    images: [
+      OasisLogo.src,
+    ],
+  },
 };
 
 export default function RootLayout({

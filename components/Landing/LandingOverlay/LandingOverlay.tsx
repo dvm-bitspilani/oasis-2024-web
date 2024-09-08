@@ -25,6 +25,12 @@ export default function LandingOverlay() {
           <div
             className={styles.cardsFollowZone}
             ref={leftCardContainerRef}
+            onMouseEnter={() => {
+              console.log("enter");
+            }}
+            onMouseLeave={() => {
+              console.log("leave");
+            }}
           ></div>
           <div className={styles.cardContainer}>
             <div className={styles.card}></div>

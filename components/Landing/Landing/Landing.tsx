@@ -146,7 +146,8 @@ export default function Landing() {
   );
 
   function iframeClick() {
-    if (tlProgress >= 0.39 && tlProgress <= 0.4) {
+    if (tlProgress >= 0.3 && tlProgress <= 0.4) {
+      console.log(tlProgress, "Iframe click recorded");
       setIsVideoFocused((prev) => !prev);
     }
   }
@@ -261,13 +262,16 @@ export default function Landing() {
       let timelineConfig;
       const commonConfigs = {
         onUpdate: (timeLine: any) => {
-          if (
-            timeLine.progress > 0.38 &&
-            timeLine.progress <= 0.41 &&
-            (tlProgress < 0.39 || tlProgress > 0.41)
-          ) {
-            setTlProgress(timeLine.progress);
-          }
+          setTlProgress(timeLine.progress);
+          // if (
+          //   timeLine.progress > 0.39 &&
+          //   timeLine.progress <= 0.41 &&
+          //   (tlProgress < 0.39 || tlProgress > 0.41)
+          // ) {
+          //   setTlProgress(timeLine.progress);
+          // } else {
+          //   setTlProgress(0);
+          // }
         },
         trigger: 'img[alt="right tree"]',
         markers: false,
@@ -954,23 +958,23 @@ export default function Landing() {
 
   return (
     <>
-      <SlotMachineExitCross iframeClick={iframeClick} />
-      <LandingScene
-        ref={slotMachine}
-        setIs3dLoaded={setIs3dLoaded}
-        iframeClick={iframeClick}
-        isLanding={isLanding}
-        isVideoFocused={isVideoFocused}
-        isXS={isXS}
-        isMobile={isMobile}
-        setCamera={setCamera}
-      />
-      {/* {renderMobile ? (
+      {renderMobile ? (
         <MobileSlotMachine ref={slotMachine2D} />
       ) : (
         <>
+          <SlotMachineExitCross iframeClick={iframeClick} />
+          <LandingScene
+            ref={slotMachine}
+            setIs3dLoaded={setIs3dLoaded}
+            iframeClick={iframeClick}
+            isLanding={isLanding}
+            isVideoFocused={isVideoFocused}
+            isXS={isXS}
+            isMobile={isMobile}
+            setCamera={setCamera}
+          />
         </>
-      )} */}
+      )}
     </>
   );
 }

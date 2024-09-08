@@ -57,7 +57,7 @@ export default function Landing() {
   const [is3dLoaded, setIs3dLoaded] = useState(false);
   const [isXS, setIsXS] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [renderMobile, setRenderMobile] = useState(true);
+  const [renderMobile, setRenderMobile] = useState(false);
   const [isVideoFocused, setIsVideoFocused] = useState(false);
   const [isLanding, setIsLanding] = useState(true);
   const [tlProgress, setTlProgress] = useState(0);
@@ -276,7 +276,13 @@ export default function Landing() {
         end: "+=200%",
         scrub: 1,
         snap: {
-          snapTo: [0, 0.4, 1],
+          snapTo: [0, 0.39, 0.4, 1],
+          // snapTo: (value: number) => {
+          //   const snapPoints = [0, 0.4, 1];
+          //   return snapPoints.reduce((prev, curr) =>
+          //     Math.abs(curr - value) < Math.abs(prev - value) ? curr : prev
+          //   );
+          // },
           ease: "sine.inOut",
           duration: 1,
         },

@@ -11,7 +11,6 @@ import gsap from "gsap";
 const Nav = () => {
   const [active, setActive] = useState("home");
   const ticketRef = useRef(null);
-  console.log(ticketRef);
 
   const handleScroll = (position) => {
     const totalHeight =
@@ -43,20 +42,37 @@ const Nav = () => {
     }
   };
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", () => {
-  //     if (window.scrollY != 0) {
-  //       const totalHeight =
-  //         document.documentElement.scrollHeight - window.innerHeight;
-  //       const percent = scrollY / totalHeight;
-  //       gsap.to(ticketRef.current, {
-  //         rotate: percent,
-  //         duration: 2,
-  //         ease: "power1.out",
-  //       });
-  //     }
-  //   });
-  // });
+  useEffect(() => {
+    const handleState = () => {
+      const totalHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const check = window.scrollY / totalHeight;
+      console.log(check, active);
+
+      switch (check) {
+        case 0:
+          setActive("home");
+          break;
+        case 0.4:
+          setActive("about");
+          break;
+        case 0.6:
+          setActive("events");
+          break;
+        case 1:
+          setActive("contact");
+          break;
+        default:
+          break;
+      }
+    };
+
+    window.addEventListener("scroll", handleState);
+
+    return () => {
+      window.removeEventListener("scroll", handleState);
+    };
+  });
 
   return (
     <>
@@ -86,7 +102,7 @@ const Nav = () => {
           height={168}
           className={`${styles.events} ${
             active === "events" ? styles.active : ""
-          } ${active === "about" ? styles.aboutevents : ""}` }
+          } ${active === "about" ? styles.aboutevents : ""}`}
           onClick={() => handleImageClick("events")}
         />
         <Image

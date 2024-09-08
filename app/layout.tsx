@@ -24,9 +24,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  // openGraph: {
-  //   title: "Oasis '24",
-  // },
+  openGraph: {
+    title: "Oasis '24",
+  },
   // openGraph: {
   //   images: [
   //     OasisLogo.src,

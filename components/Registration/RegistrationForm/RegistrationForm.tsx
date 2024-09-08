@@ -275,7 +275,6 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
       <form
         onSubmit={handleSubmit(onSubmit)}
         className={styles.registrationForm}
-        autoComplete="off"
       >
         <div className={styles.formField}>
           <label htmlFor="name" className={styles.formFieldHeader}>
@@ -835,6 +834,7 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
                   color: "#F5E3AE",
                 }}
                 options={cityOptions}
+                className={selectedState ? "" : styles.disabledInput}
               />
             )}
           />

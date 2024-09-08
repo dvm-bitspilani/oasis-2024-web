@@ -27,6 +27,14 @@
         right: 10vw;
         bottom: 10vh;
         width: 25vw;
+        // border: #fff 1px solid;
+      }
+      .cardContainer {
+        position: absolute;
+        height: 500px;
+        right: 10vw;
+        bottom: 10vh;
+        width: 25vw;
         border: #fff 1px solid;
       }
     }
@@ -36,6 +44,13 @@
       width: 50vw;
       height: 100lvh;
       .cardsFollowZone {
+        position: absolute;
+        bottom: 10vh;
+        left: 10vw;
+        height: 500px;
+        width: 25vw;
+      }
+      .cardContainer {
         position: absolute;
         bottom: 10vh;
         left: 10vw;

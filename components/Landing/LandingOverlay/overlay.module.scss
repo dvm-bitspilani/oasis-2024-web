@@ -36,6 +36,12 @@
         right: 0;
         width: 50vw;
         border: #fff 1px solid;
+        .card {
+          position: absolute;
+          background-color: red;
+          height: 110px;
+          width: 80px;
+        }
       }
     }
     .cardsRightOuterContainer {

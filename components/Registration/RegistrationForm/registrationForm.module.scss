@@ -39,9 +39,8 @@
     }
     .disabledInput {
       cursor: not-allowed;
-      background-color: gray;
       background-image: unset;
-      color: gray;
+      color: #937958;
     }
     .formErrorMessage {
       position: absolute;
@@ -90,6 +89,7 @@
           background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
+          // color: #fffee5;
 
           user-select: none;
           display: inline-flex;
@@ -186,7 +186,6 @@
       // }
     }
     input {
-      caret-color: #efd48d;
       border: none;
       background-color: transparent;
       outline: none;
@@ -196,16 +195,7 @@
       font-weight: 400;
       line-height: 43px; /* 153.571% */
       letter-spacing: 1.68px;
-      background: linear-gradient(
-        0deg,
-        #fffee5 -27.5%,
-        #efd48d -1.13%,
-        #ffce93 48.36%,
-        #f9e6a2 100%
-      );
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #ffce93;
     }
     select {
       caret-color: #efd48d;

@@ -835,6 +835,7 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
                   color: "#F5E3AE",
                 }}
                 options={cityOptions}
+                className={selectedState ? "" : styles.disabledInput}
               />
             )}
           />

@@ -3,19 +3,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./contactus.module.scss";
 import ContactCard from "./ContactCard/ContactCard";
-import Image from "next/image";
 
 import prateek from "../../assets/Landing/contactUs/prateek.png";
 import aryan from "../../assets/Landing/contactUs/aryan.png";
 import shreeram from "../../assets/Landing/contactUs/shreeram.png";
 import jaiditya from "../../assets/Landing/contactUs/jaiditya.png";
 import rijul from "../../assets/Landing/contactUs/rijul.png";
-import shreyansh from "../../assets/Landing/contactUs/shreyansh.png"
+import shreyansh from "../../assets/Landing/contactUs/shreyansh.png";
 import sarthak from "../../assets/Landing/contactUs/sarthak.png";
 import abhinav from "../../assets/Landing/contactUs/abhinav.png";
 
-import left from "../../assets/Landing/contactUs/left.png";
-import right from "../../assets/Landing/contactUs/right.png";
+import ContactUsBottomIcons from "./ContactUsBottomIcons/ContactUsBottomIcons";
 
 export default function ContactUs() {
   // const containerRef = useRef(null);
@@ -171,7 +169,6 @@ export default function ContactUs() {
   //   });
   // }, []);
 
-
   // useEffect(() => {
   //   const container = cardContainerRef.current;
   //   const cards = container.querySelectorAll('.card');
@@ -294,14 +291,13 @@ export default function ContactUs() {
   //   masterTimeline.add(() => {
   //     tl1.play();
   //     return null;
-  //   }); 
+  //   });
 
   //   // Cleanup
   //   return () => {
   //     masterTimeline.kill();
   //   };
   // }, []);
-
 
   return (
     <>
@@ -369,12 +365,12 @@ export default function ContactUs() {
         </div>
 
         <div className={styles.cardContainer} id="contactCard">
-
           <div className={`${styles.first} card`}>
             <ContactCard
               name="Jaiditya Singh"
               img={jaiditya}
-              dept="Logistics and Operations"
+              dept1="Logistics and"
+              dept2="Operations"
               // contact="tel:+919168421199"
               contact={null}
               // mail="mailto:controls@bits-oasis.org"
@@ -386,7 +382,8 @@ export default function ContactUs() {
             <ContactCard
               name="Prateek Kashyap"
               img={prateek}
-              dept="Website, App and Online Payments"
+              dept1="Website, App &"
+              dept2="Online Payments"
               contact="tel:+918700225449"
               mail="mailto:webmaster@bits-oasis.org"
             />
@@ -396,7 +393,8 @@ export default function ContactUs() {
             <ContactCard
               name="Aryan Wadhwa"
               img={aryan}
-              dept="Registration, Events & Approval Queries"
+              dept1="Registration, Events &"
+              dept2="Approval Queries"
               contact="tel:+919810297034"
               mail="mailto:pcr@bits-oasis.org"
             />
@@ -406,7 +404,8 @@ export default function ContactUs() {
             <ContactCard
               name="Shreeram Verma"
               img={shreeram}
-              dept="Sponsorship and Marketing"
+              dept1="Sponsorship and"
+              dept2="Marketing"
               contact="tel:+918889588288"
               mail="mailto:shreeram@bits-oasis.org"
             />
@@ -416,7 +415,8 @@ export default function ContactUs() {
             <ContactCard
               name="Rijul Bassamboo"
               img={rijul}
-              dept="Reception and Accommodation"
+              dept1="Reception and"
+              dept2="Accommodation"
               // contact="tel:+919811529877"
               contact={null}
               // mail="mailto:recnacc@bits-oasis.org"
@@ -426,12 +426,12 @@ export default function ContactUs() {
         </div>
 
         <div className={styles.cardContainer1} id="contactCard1">
-
           <div className={`${styles.first} card`}>
             <ContactCard
               name="Shreyansh Vanjani"
               img={shreyansh}
-              dept="Publicity and Collaborations"
+              dept1="Publicity and"
+              dept2="Collaborations"
               //contact="tel:+918000695988"
               contact={null}
               // mail="mailto:collaborations@bits-oasis.org"
@@ -443,7 +443,8 @@ export default function ContactUs() {
             <ContactCard
               name="Sarthak Aggarwal"
               img={sarthak}
-              dept="President, Students' Union"
+              dept1="President,"
+              dept2="Students' Union"
               // contact="tel:+9180050 00213"
               contact={null}
               // mail="mailto:president@pilani.bits-pilani.ac.in"
@@ -455,22 +456,22 @@ export default function ContactUs() {
             <ContactCard
               name="Abhinav Lamba"
               img={abhinav}
-              dept="General Secretary, Students' Union"
+              dept1="General Secretary,"
+              dept2="Students' Union"
               // contact="tel:+917078879443"
               contact={null}
               // mail="mailto:gensec@pilani.bits-pilani.ac.in"
               mail={null}
             />
           </div>
-
         </div>
 
         <div className={styles.mobileContainer}>
-
           <ContactCard
             name="Aryan Wadhwa"
             img={aryan}
-            dept="Registration, Events & Approval Queries"
+            dept1="Registration, Events &"
+            dept2="Approval Queries"
             contact="tel:+919810297034"
             mail="mailto:pcr@bits-oasis.org"
           />
@@ -478,7 +479,8 @@ export default function ContactUs() {
           <ContactCard
             name="Prateek Kashyap"
             img={prateek}
-            dept="Website, App and Online Payments"
+            dept1="Website, App &"
+            dept2="Online Payments"
             contact="tel:+918700225449"
             mail="mailto:webmaster@bits-oasis.org"
           />
@@ -486,7 +488,8 @@ export default function ContactUs() {
           <ContactCard
             name="Shreeram Verma"
             img={shreeram}
-            dept="Sponsorship and Marketing"
+            dept1="Sponsorship and"
+            dept2="Marketing"
             contact="tel:+918889588288"
             mail="mailto:shreeram@bits-oasis.org"
           />
@@ -494,71 +497,52 @@ export default function ContactUs() {
           <ContactCard
             name="Jaiditya Singh"
             img={jaiditya}
-            dept="Logistics and Operations"
-            // contact="tel:+919168421199"
+            dept1="Logistics and"
+            dept2="Operations"
             contact={null}
-            // mail="mailto:controls@bits-oasis.org"
             mail={null}
           />
 
           <ContactCard
             name="Rijul Bassamboo"
             img={rijul}
-            dept="Reception and Accommodation"
-            // contact="tel:+919811529877"
+            dept1="Reception and"
+            dept2="Accommodation"
             contact={null}
-            // mail="mailto:recnacc@bits-oasis.org"
             mail={null}
           />
 
           <ContactCard
             name="Shreyansh Vanjani"
             img={shreyansh}
-            dept="Publicity and Collaborations"
-            //contact="tel:+918000695988"
+            dept1="Publicity and"
+            dept2="Collaborations"
             contact={null}
-            // mail="mailto:collaborations@bits-oasis.org"
             mail={null}
           />
 
           <ContactCard
             name="Sarthak Aggarwal"
             img={sarthak}
-            dept="President, Students' Union"
-            // contact="tel:+9180050 00213"
+            dept1="President, "
+            dept2="Students' Union"
             contact={null}
-            // mail="mailto:president@pilani.bits-pilani.ac.in"
             mail={null}
           />
 
           <ContactCard
             name="Abhinav Lamba"
             img={abhinav}
-            dept="General Secretary, Students' Union"
-            // contact="tel:+917078879443"
+            dept1="General Secretary,"
+            dept2="Students' Union"
             contact={null}
-            // mail="mailto:gensec@pilani.bits-pilani.ac.in"
             mail={null}
           />
-
         </div>
       </div>
-      <div className={styles.bottom} id="contactBottom">
-        <Image
-          src={left}
-          alt="animation"
-          className={styles.bottomAnimation}
-          draggable={false}
-        />
-        <Image
-          src={right}
-          alt="animation"
-          className={styles.bottomAnimation}
-          draggable={false}
-        />
-      </div>
+      {/* <div className={styles.bottom} id="contactBottom">
+        <ContactUsBottomIcons />
+      </div> */}
     </>
   );
 }
-
-

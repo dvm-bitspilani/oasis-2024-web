@@ -259,12 +259,6 @@
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-
-  .bottomAnimation {
-    width: 255px;
-    height: 240px;
-    object-fit: contain;
-  }
 }
 
 @media (max-width: 2100px) and (min-width: 1400px) {

@@ -8,6 +8,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  visibility: hidden;
+  cursor: initial;
 
   .hamOverlay {
     position: absolute;

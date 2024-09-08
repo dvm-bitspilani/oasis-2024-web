@@ -12,8 +12,9 @@ export default function HamBtn() {
   const pokerChipRef = useRef(null);
   const hamIconRef = useRef(null);
   const handleClick = () => {
-    setIsHamOpen(!isHamOpen);
-    animation();
+    return;
+    // setIsHamOpen(!isHamOpen);
+    // animation();
   };
 
   const animation = () => {

@@ -6,19 +6,19 @@
   transform: rotateZ(-15deg);
   transition: all 0.5s ease-out;
 
-  &:hover{
+  &:hover {
     transform: rotateZ(0deg) !important;
-    .home{
-        transform: rotateZ(15deg) translateX(-50px) !important;
+    .home {
+      transform: rotateZ(15deg) translateX(-50px) !important;
     }
-    .about{
-        transform: rotateZ(5deg) translateX(-75px);
+    .about {
+      transform: rotateZ(5deg) translateX(-75px);
     }
-    .events{
-        transform: rotateZ(-10deg) translateX(-60px);
+    .events {
+      transform: rotateZ(-10deg) translateX(-60px);
     }
-    .contact{
-        transform: rotateZ(-15deg) translateX(-20px);
+    .contact {
+      transform: rotateZ(-15deg) translateX(-20px);
     }
   }
 
@@ -38,9 +38,9 @@
     transform: rotateZ(5deg) translateX(-30px);
     transition: all 0.5s ease-out;
     pointer-events: auto;
-    // &.active {
-    //   transform: rotateZ(10deg) translateX(-60px);
-    // }
+    &.active {
+      transform: rotateZ(5deg) translateX(-60px);
+    }
   }
   .events {
     position: relative;
@@ -52,6 +52,9 @@
     //   transform: rotateZ(-10deg) translateX(-60px);
     // }
   }
+  .aboutevents {
+    transform: rotateZ(-15deg) translateX(5px) !important;
+  }
   .contact {
     position: relative;
     top: 0px;
@@ -61,5 +64,8 @@
     // &.active {
     //   transform: rotateZ(-15deg) translateX(-50px);
     // }
+  }
+  .aboutcontact {
+    transform: rotateZ(-30deg) translateX(50px) !important;
   }
 }

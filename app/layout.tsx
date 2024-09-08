@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { Viewport } from 'next'
 import { Inter } from "next/font/google";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleAnalytics } from '@next/third-parties/google';
@@ -9,8 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Oasis '24",
-  description: "The official website of Oasis 2024 - , Asia's Largest Student-Run College Cultural Festival returns for its 52nd edition in 2024! Est. 1971",
-  colorScheme: "dark",
+  description: "The official website of Oasis 2024 - Asia's Largest Student-Run College Cultural Festival returns for its 52nd edition in 2024! Est. 1971",
   robots: {
     index: true,
     follow: true,
@@ -24,17 +24,22 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
-  openGraph: {
-    images: [
-      OasisLogo.src,
-    ],
-  },
+  // openGraph: {
+  //   title: "Oasis '24",
+  // },
+  // openGraph: {
+  //   images: [
+  //     OasisLogo.src,
+  //   ],
+  // },
 };
+
+export const viewport: Viewport = {
+  colorScheme: 'dark',
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+}
 
 export default function RootLayout({
   children,

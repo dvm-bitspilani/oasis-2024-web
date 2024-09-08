@@ -925,23 +925,23 @@ export default function Landing() {
                   },
                   "<"
                 )
-                .to(
-                  "#contactBottom",
-                  {
-                    opacity: 1,
-                    duration: 0,
-                    pointerEvents: "auto",
-                  },
-                  "-=1.5"
-                )
-                .from(
-                  "#contactBottom",
-                  {
-                    y: 75,
-                    duration: 1,
-                  },
-                  "<"
-                );
+                // .to(
+                //   "#contactBottom",
+                //   {
+                //     opacity: 1,
+                //     duration: 0,
+                //     pointerEvents: "auto",
+                //   },
+                //   "-=1.5"
+                // )
+                // .from(
+                //   "#contactBottom",
+                //   {
+                //     y: 75,
+                //     duration: 1,
+                //   },
+                //   "<"
+                // );
             }
           );
         }

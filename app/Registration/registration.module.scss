@@ -34,6 +34,11 @@
       @media screen and (width >= 1150px) {
         display: none;
       }
+
+      @media (width <= 450px) {
+        font-size: 25px;
+        top: 20px;
+      }
       position: absolute;
       top: 12px;
       left: 50%;
@@ -61,15 +66,12 @@
       span {
         padding: 0 1rem;
       }
-      @media screen and (width > 1150px) {
-        display: none;
-      }
     }
 
     .border {
-      @media screen and (width <= 1150px) {
-        display: none;
-      }
+      // @media screen and (width <= 1150px) {
+      //   display: none;
+      // }
       position: absolute;
       display: flex;
       justify-content: center;
@@ -77,6 +79,9 @@
       gap: 1rem;
       height: 100vh;
       .registration {
+        @media screen and (width <= 1150px) {
+          display: none;
+        }
         position: absolute;
         top: 12px;
         left: 50%;
@@ -110,8 +115,19 @@
         top: 5px;
         left: 10px;
         z-index: 100;
+
+        @media(width <= 500px) {
+          left: -10px;
+        }
+        // @media(width <= 450px) {
+        //   left: 50%;
+        //   transform: translateX(-50%);
+        // }
       }
       .frameLeft {
+        @media screen and (width <= 1150px) {
+          display: none;
+        }
         position: absolute;
         top: 110px;
         left: 50px;
@@ -120,6 +136,9 @@
         background-color: #d6c28a;
       }
       .frameTopLeft {
+        @media screen and (width <= 1150px) {
+          display: none;
+        }
         position: absolute;
         top: 46px;
         left: 115px;
@@ -128,6 +147,9 @@
         background-color: #d6c28a;
       }
       .frameTopRight {
+        @media screen and (width <= 1150px) {
+          display: none;
+        }
         position: absolute;
         top: 46px;
         right: 50px;
@@ -140,6 +162,9 @@
         }
       }
       .frameRight {
+        @media screen and (width <= 1150px) {
+          display: none;
+        }
         position: absolute;
         right: 50px;
         display: flex;
@@ -151,6 +176,9 @@
         width: 34px;
       }
       .frameBottomRight {
+        @media screen and (width <= 1150px) {
+          display: none;
+        }
         position: absolute;
         right: 52px;
         bottom: 46px;
@@ -164,6 +192,9 @@
         }
       }
       .frameBottomLeft {
+        @media screen and (width <= 1150px) {
+          display: none;
+        }
         position: absolute;
         bottom: 46px;
         right: 500px;
@@ -172,6 +203,9 @@
         background-color: #d6c28a;
       }
       .bottomSLine {
+        @media screen and (width <= 1150px) {
+          display: none;
+        }
         position: absolute;
         bottom: -81.7vh;
         right: 7.3rem;
@@ -179,6 +213,9 @@
         width: 9.5vw;
       }
       .bottomLine {
+        @media screen and (width <= 1150px) {
+          display: none;
+        }
         position: absolute;
         bottom: -82.1vh;
         right: calc((9.5vw) + 7.3rem + 10vw);

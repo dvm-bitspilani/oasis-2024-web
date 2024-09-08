@@ -58,23 +58,6 @@ const Nav = () => {
       } else if (check > 0.6) {
         setActive("contact");
       }
-
-      // switch (check) {
-      //   case 0:
-      //     setActive("home");
-      //     break;
-      //   case 0.4:
-      //     setActive("about");
-      //     break;
-      //   case 0.6:
-      //     setActive("events");
-      //     break;
-      //   case 1:
-      //     setActive("contact");
-      //     break;
-      //   default:
-      //     break;
-      // }
     };
 
     window.addEventListener("scroll", handleState);
@@ -102,7 +85,7 @@ const Nav = () => {
           height={168}
           className={`${styles.about} ${
             active === "about" ? styles.active : ""
-          }`}
+          } ${active === "contact" ? styles.contactabout : ""}`}
           onClick={() => handleImageClick("about")}
         />
         <Image
@@ -112,7 +95,7 @@ const Nav = () => {
           height={168}
           className={`${styles.events} ${
             active === "events" ? styles.active : ""
-          } ${active === "about" ? styles.aboutevents : ""}`}
+          } ${active === "about" ? styles.aboutevents : ""} ${active === "contact" ? styles.contactevents : ""}`}
           onClick={() => handleImageClick("events")}
         />
         <Image

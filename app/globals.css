@@ -66,10 +66,6 @@ body {
   }
 }
 
-.ant-select-selection-overflow-item-suffix {
-  width: 0px !important;
-}
-
 .ant-select-multiple .ant-select-selection-placeholder {
   transform: translateX(-11px) translateY(-50%) !important;
 }

@@ -954,23 +954,23 @@ export default function Landing() {
 
   return (
     <>
-      {renderMobile ? (
+      <SlotMachineExitCross iframeClick={iframeClick} />
+      <LandingScene
+        ref={slotMachine}
+        setIs3dLoaded={setIs3dLoaded}
+        iframeClick={iframeClick}
+        isLanding={isLanding}
+        isVideoFocused={isVideoFocused}
+        isXS={isXS}
+        isMobile={isMobile}
+        setCamera={setCamera}
+      />
+      {/* {renderMobile ? (
         <MobileSlotMachine ref={slotMachine2D} />
       ) : (
         <>
-          <SlotMachineExitCross iframeClick={iframeClick} />
-          <LandingScene
-            ref={slotMachine}
-            setIs3dLoaded={setIs3dLoaded}
-            iframeClick={iframeClick}
-            isLanding={isLanding}
-            isVideoFocused={isVideoFocused}
-            isXS={isXS}
-            isMobile={isMobile}
-            setCamera={setCamera}
-          />
         </>
-      )}
+      )} */}
     </>
   );
 }

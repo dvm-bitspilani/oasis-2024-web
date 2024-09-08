@@ -4,12 +4,12 @@
   position: relative;
   // pointer-events: auto;
   transform: rotateZ(-15deg);
-  transition: all 0.3s ease-out;
+  transition: all 0.5s ease-out;
 
   &:hover{
-    transform: rotateZ(0deg);
+    transform: rotateZ(0deg) !important;
     .home{
-        transform: rotateZ(15deg) translateX(-50px);
+        transform: rotateZ(15deg) translateX(-50px) !important;
     }
     .about{
         transform: rotateZ(5deg) translateX(-75px);
@@ -26,7 +26,7 @@
     position: relative;
     top: 200px;
     transform: rotateZ(15deg) translateX(15px);
-    transition: all 0.3s ease-out;
+    transition: all 0.5s ease-out;
     pointer-events: auto;
     &.active {
       transform: rotateZ(15deg) translateX(-60px);
@@ -36,7 +36,7 @@
     position: relative;
     top: 130px;
     transform: rotateZ(5deg) translateX(-30px);
-    transition: all 0.3s ease-out;
+    transition: all 0.5s ease-out;
     pointer-events: auto;
     // &.active {
     //   transform: rotateZ(10deg) translateX(-60px);
@@ -46,7 +46,7 @@
     position: relative;
     top: 50px;
     transform: rotateZ(-10deg) translateX(-15px);
-    transition: all 0.3s ease-out;
+    transition: all 0.5s ease-out;
     pointer-events: auto;
     // &.active {
     //   transform: rotateZ(-10deg) translateX(-60px);
@@ -56,7 +56,7 @@
     position: relative;
     top: 0px;
     transform: rotateZ(-15deg) translateX(20px);
-    transition: all 0.3s ease-out;
+    transition: all 0.5s ease-out;
     pointer-events: auto;
     // &.active {
     //   transform: rotateZ(-15deg) translateX(-50px);

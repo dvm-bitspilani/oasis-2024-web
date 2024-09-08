@@ -45,9 +45,9 @@ export default function Landing() {
     waitForPreload("#preloader").then(() => {
       setTimeout(() => {
         setIsLoaded(true);
-        console.log("hello loaded");
+        // console.log("hello loaded");
       }, 500);
-      console.log("#preloader");
+      // console.log("#preloader");
     });
   }, []);
 
@@ -390,9 +390,19 @@ export default function Landing() {
                 },
                 "<"
               )
+              .to(
+                "#tickets",
+                {
+                  duration: 2,
+                  rotate: 5,
+                  ease: "power1.out",
+                },
+                "<"
+              )
               .to(slotMachine.current.rotation, {
                 y: conditions.isMobile ? 0 : -Math.PI / 6,
               })
+
               .to("#aboutUs", {
                 opacity: 1,
               })
@@ -419,6 +429,15 @@ export default function Landing() {
                   // z: conditions.isMobile ? 0 : -0.5,
                   duration: 3,
                   ease: "power1.in",
+                },
+                "<"
+              )
+              .to(
+                "#tickets",
+                {
+                  duration: 3,
+                  rotate: 15,
+                  ease: "power1.out",
                 },
                 "<"
               )

@@ -24,7 +24,12 @@ export default function LandingOverlay() {
         </div> */}
       </div>
       <div className={styles.cardContainer}>
-        <div></div>
+        <div className={styles.cardsLeftOuterContainer}>
+          <div className={styles.cardsFollowZone}></div>
+        </div>
+        <div className={styles.cardsRightOuterContainer}>
+          <div className={styles.cardsFollowZone}></div>
+        </div>
       </div>
       <AboutUsPage />
       <ContactUs />

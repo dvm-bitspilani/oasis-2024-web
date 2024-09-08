@@ -221,9 +221,14 @@ export default function Landing() {
         //   duration: 1.5,
         //   ease: "sine.inOut",
         // })
-        .to(["#mainwrapper", "#oasisLogo"], {
+        .to("#mainwrapper", {
           autoAlpha: 1,
           duration: 1,
+          ease: "sine.inOut",
+        })
+        .to("#oasisLogo", {
+          autoAlpha: 1,
+          duration: 0.5,
           ease: "sine.inOut",
         });
     }

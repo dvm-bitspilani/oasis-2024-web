@@ -49,22 +49,32 @@ const Nav = () => {
       const check = window.scrollY / totalHeight;
       console.log(check, active);
 
-      switch (check) {
-        case 0:
-          setActive("home");
-          break;
-        case 0.4:
-          setActive("about");
-          break;
-        case 0.6:
-          setActive("events");
-          break;
-        case 1:
-          setActive("contact");
-          break;
-        default:
-          break;
+      if (check < 0.2) {
+        setActive("home");
+      } else if (check >= 0.2 && check <= 0.4) {
+        setActive("about");
+      } else if (check > 0.4 && check <= 0.6) {
+        setActive("events");
+      } else if (check > 0.6) {
+        setActive("contact");
       }
+
+      // switch (check) {
+      //   case 0:
+      //     setActive("home");
+      //     break;
+      //   case 0.4:
+      //     setActive("about");
+      //     break;
+      //   case 0.6:
+      //     setActive("events");
+      //     break;
+      //   case 1:
+      //     setActive("contact");
+      //     break;
+      //   default:
+      //     break;
+      // }
     };
 
     window.addEventListener("scroll", handleState);

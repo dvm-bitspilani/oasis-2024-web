@@ -12,13 +12,13 @@
       transform: rotateZ(15deg) translateX(-50px) !important;
     }
     .about {
-      transform: rotateZ(5deg) translateX(-75px);
+      transform: rotateZ(5deg) translateX(-75px) !important;
     }
     .events {
-      transform: rotateZ(-10deg) translateX(-60px);
+      transform: rotateZ(-10deg) translateX(-60px) !important;
     }
     .contact {
-      transform: rotateZ(-15deg) translateX(-20px);
+      transform: rotateZ(-15deg) translateX(-20px) !important;
     }
   }
 

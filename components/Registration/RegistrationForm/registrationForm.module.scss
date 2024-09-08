@@ -41,6 +41,10 @@
       cursor: not-allowed;
       background-image: unset;
       color: #937958;
+
+      span {
+        color: #937958 !important;
+      }
     }
     .formErrorMessage {
       position: absolute;
@@ -196,6 +200,15 @@
       line-height: 43px; /* 153.571% */
       letter-spacing: 1.68px;
       color: #ffce93;
+    }
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 1000px transparent inset; /* Change background color */
+      box-shadow: 0 0 0 1000px transparent inset;
+      -webkit-text-fill-color: #ffce93; /* Change text color */
+      transition: background-color 5000s ease-in-out 0s; /* Prevents background reset */
     }
     select {
       caret-color: #efd48d;

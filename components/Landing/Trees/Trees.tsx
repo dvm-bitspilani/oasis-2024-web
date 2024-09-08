@@ -9,6 +9,7 @@ export default function Trees() {
     <>
       <div className={styles.treescontainer}>
         <Image
+          id="leftTree"
           src={tree}
           alt="left tree"
           width={430}
@@ -16,6 +17,7 @@ export default function Trees() {
           style={{ transform: "scaleX(-1)" }}
         />
         <Image
+          id="rightTree"
           src={tree}
           alt="right tree"
           width={430}

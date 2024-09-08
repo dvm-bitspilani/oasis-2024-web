@@ -1,7 +1,5 @@
 "use client";
 
-// import styles from "./landing.module.scss";
-
 import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -10,6 +8,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import LandingScene from "../Scene/Scene";
 import styles from "../../ContactUs/contactus.module.scss";
 import SlotMachineExitCross from "@/components/AboutUs/SlotMachineExitCross/SlotMachineExitCross";
+import MobileSlotMachine from "../2DSlotMachine/2DSlotMachine";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,8 +16,42 @@ interface MatchMediaParams {
   isMobile: boolean;
 }
 
+function waitForPreload(querySelector: string) {
+  return new Promise((resolve, reject) => {
+    const preloader = document.querySelector(querySelector);
+    if (preloader) {
+      return resolve("loaded");
+    }
+
+    const observer = new MutationObserver(() => {
+      if (preloader) {
+        observer.disconnect();
+        return resolve("loaded");
+      }
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+  });
+}
+
 export default function Landing() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    waitForPreload("#preloader").then(() => {
+      setTimeout(() => {
+        setIsLoaded(true);
+        console.log("hello loaded");
+      }, 500);
+      console.log("#preloader");
+    });
+  }, []);
+
   const slotMachine: any = useRef();
+  const slotMachine2D: any = useRef();
   const [camera, setCamera] = useState<any>(null);
 
   const [is3dLoaded, setIs3dLoaded] = useState(false);
@@ -131,7 +164,9 @@ export default function Landing() {
       }
       if (window.scrollY === 0 && !isLanding) {
         setIsLanding(true);
-        overlayWrapper.setAttribute("style", "z-index: -2;");
+        if (window.innerWidth > 1000) {
+          overlayWrapper.setAttribute("style", "z-index: -2;");
+        }
       } else if (window.scrollY !== 0 && isLanding) {
         setIsLanding(false);
         overlayWrapper.setAttribute("style", "z-index: 1;");
@@ -149,14 +184,54 @@ export default function Landing() {
         }
         if (window.scrollY === 0 && !isLanding) {
           setIsLanding(true);
-          overlayWrapper.setAttribute("style", "z-index: -2;");
+          if (window.innerWidth > 1000) {
+            overlayWrapper.setAttribute("style", "z-index: -2;");
+          }
         } else if (window.scrollY !== 0 && isLanding) {
           setIsLanding(false);
           overlayWrapper.setAttribute("style", "z-index: 1;");
         }
       });
     };
-  }, [isVideoFocused]);
+  }, [isVideoFocused, isLanding]);
+
+  useGSAP(() => {
+    let timelineConfig;
+    if (isLoaded) {
+      timelineConfig = gsap.timeline();
+      timelineConfig
+        .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state
+        .set("#oasisLogo", { autoAlpha: 0 })
+        .from(
+          "#leftTree",
+          {
+            x: "-100vw",
+            duration: 1.5,
+            ease: "sine.inOut",
+          },
+          0
+        )
+        .from(
+          "#rightTree",
+          {
+            x: "100vw",
+            duration: 1.5,
+            ease: "sine.inOut",
+          },
+          0
+        )
+        // .from(slotMachine.current, {
+        //   y: "100vw", // Start from below the screen
+        //   duration: 1.5,
+        //   ease: "sine.inOut",
+        // })
+        .to(["#mainwrapper", "#oasisLogo"], {
+          autoAlpha: 1,
+          duration: 1,
+          ease: "sine.inOut",
+        });
+    }
+  }, [isLoaded]);
 
   useGSAP(
     () => {
@@ -229,7 +304,7 @@ export default function Landing() {
                 slotMachine.current.position,
                 {
                   x: conditions.isMobile ? 0 : -0.9,
-                  y: conditions.isMobile ? (conditions.isXS ? -0.75 : -0.5) : 0,
+                  y: conditions.isMobile ? (conditions.isXS ? -0.5 : -0.5) : 0,
                   z: conditions.isMobile ? 0 : -0.5,
                   duration: 1,
                 },
@@ -345,7 +420,7 @@ export default function Landing() {
                 {
                   x: conditions.isMobile ? 0 : -5,
                   y: conditions.isMobile ? -2.5 : 0,
-                  // z: conditions.isMobile ? 0 : -0.5,
+                  z: conditions.isMobile ? 0 : -0.5,
                   duration: 3,
                   ease: "power1.in",
                 },
@@ -520,32 +595,6 @@ export default function Landing() {
                 },
                 "<"
               );
-            // .to(
-            //   {},
-            //   {
-            //     onComplete: () => {
-            //       const contactCard = document.querySelector("#contactCard");
-            //       if (contactCard) {
-            //         contactCard.classList.add(styles.active);
-            //         // console.log(document.querySelector('#contactCard'));
-            //       }
-            //     },
-            //   },
-            //   "<"
-            // )
-            // .to(
-            //   {},
-            //   {
-            //     onComplete: () => {
-            //       const contactCard1 =
-            //         document.querySelector("#contactCard1");
-            //       if (contactCard1) {
-            //         contactCard1.classList.add(styles.active1);
-            //       }
-            //     },
-            //   },
-            //   "<"
-            // );
           }
         );
       }
@@ -566,6 +615,7 @@ export default function Landing() {
         isMobile={isMobile}
         setCamera={setCamera}
       />
+      {/* {isMobile ? <MobileSlotMachine ref={slotMachine2D} /> : <></>} */}
     </>
   );
 }

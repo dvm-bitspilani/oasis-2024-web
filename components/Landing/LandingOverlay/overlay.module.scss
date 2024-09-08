@@ -30,11 +30,11 @@
         // border: #fff 1px solid;
       }
       .cardContainer {
+        background-color: #fff;
         position: absolute;
-        height: 500px;
-        right: 10vw;
-        bottom: 10vh;
-        width: 25vw;
+        height: 100vw;
+        right: 0;
+        width: 50vw;
         border: #fff 1px solid;
       }
     }
@@ -51,11 +51,11 @@
         width: 25vw;
       }
       .cardContainer {
+        background-color: blue;
         position: absolute;
-        bottom: 10vh;
-        left: 10vw;
-        height: 500px;
-        width: 25vw;
+        left: 0;
+        height: 100vw;
+        width: 50vw;
         border: #fff 1px solid;
       }
     }

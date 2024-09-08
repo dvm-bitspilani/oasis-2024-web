@@ -99,4 +99,6 @@ const HamPokerChip = forwardRef<SVGSVGElement, HamPokerChipProps>(
   }
 );
 
+HamPokerChip.displayName = "HamPokerChip";
+
 export default HamPokerChip;

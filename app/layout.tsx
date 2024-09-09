@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import "./globals.css";
-import OasisLogo from "../assets/Landing/oasislogo.png";
+// import OasisLogo from "../assets/Landing/oasislogo.png";
 
 const inter = Inter({ subsets: ["latin"] });
 

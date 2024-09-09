@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function RegBtn() {
   return (
-    <Link href="/Registration" className={styles.link} onClick={() => sendGAEvent('event', 'buttonClicked', { value: 1 })}>
+    <Link href="/Registration" className={styles.link} onClick={() => sendGAEvent('event', 'Home-regbutton', { value: 1 })}>
       <div className={styles.btnwrapper}  id="register">
         <div className={styles.glow}></div>
         <div className={styles.btnborder}>

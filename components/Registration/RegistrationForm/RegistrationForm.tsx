@@ -12,6 +12,7 @@ import styles from "./registrationForm.module.scss";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useCookies } from "react-cookie";
+import { sendGAEvent } from '@next/third-parties/google'
 
 const formSchema = z.object({
   name: z.string().min(1, { message: "*Name is required" }),
@@ -877,7 +878,7 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
         type="submit"
       >
         <div className={styles.glow}></div>
-        <div className={styles.btnborder}>
+        <div className={styles.btnborder} onClick={() => sendGAEvent('event', 'Registered', { value: 1 })}>
           <div className={`${styles.circlewrapper} ${styles.top}`}>
             <div className={`${styles.circle} bulb`}></div>
             <div className={`${styles.circle} bulb`}></div>

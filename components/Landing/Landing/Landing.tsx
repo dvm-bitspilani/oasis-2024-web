@@ -16,6 +16,10 @@ interface MatchMediaParams {
   isMobile: boolean;
 }
 
+interface updateTypesScrollTrigger {
+  progress: number;
+}
+
 function waitForPreload(querySelector: string) {
   return new Promise((resolve, reject) => {
     const preloader = document.querySelector(querySelector);
@@ -208,10 +212,14 @@ export default function Landing() {
 
     window.addEventListener("resize", setRenderState);
     window.addEventListener("load", setRenderState);
+    window.addEventListener("loadstart", setRenderState);
+    window.addEventListener("DOMContentLoaded", setRenderState);
 
     return () => {
       window.removeEventListener("resize", setRenderState);
       window.removeEventListener("load", setRenderState);
+      window.removeEventListener("loadstart", setRenderState);
+      window.removeEventListener("DOMContentLoaded", setRenderState);
     };
   }, []);
 
@@ -262,17 +270,12 @@ export default function Landing() {
     () => {
       let timelineConfig;
       const commonConfigs = {
-        onUpdate: (timeLine: any) => {
-          setTlProgress(timeLine.progress);
-          // if (
-          //   timeLine.progress > 0.39 &&
-          //   timeLine.progress <= 0.41 &&
-          //   (tlProgress < 0.39 || tlProgress > 0.41)
-          // ) {
-          //   setTlProgress(timeLine.progress);
-          // } else {
-          //   setTlProgress(0);
-          // }
+        onUpdate: ({ progress }: updateTypesScrollTrigger) => {
+          if (progress > 0.39 && progress < 0.4) {
+            setTlProgress(progress);
+          } else if (tlProgress) {
+            setTlProgress(0);
+          }
         },
         trigger: 'img[alt="right tree"]',
         markers: false,
@@ -284,33 +287,32 @@ export default function Landing() {
           }`,
         end: "+=200%",
         scrub: 1,
-        snap: {
-          snapTo: [0, 0.39, 0.4, 1],
-          // snapTo: (value: number) => {
-          //   const snapPoints = [0, 0.4, 1];
-          //   return snapPoints.reduce((prev, curr) =>
-          //     Math.abs(curr - value) < Math.abs(prev - value) ? curr : prev
-          //   );
-          // },
-          ease: "sine.inOut",
-          duration: 1,
-        },
       };
-      if (window.innerWidth < 800) {
+      if (window.innerWidth <= 1000) {
         timelineConfig = {
           scrollTrigger: {
             ...commonConfigs,
+            snap: {
+              snapTo: [0, 0.24, 0.25, 0.71],
+              ease: "sine.inOut",
+              duration: 1,
+            },
           },
         };
       } else {
         timelineConfig = {
           scrollTrigger: {
             ...commonConfigs,
+            snap: {
+              snapTo: [0, 0.39, 0.4, 1],
+              ease: "sine.inOut",
+              duration: 1,
+            },
           },
         };
       }
 
-      if (renderMobile) {
+      if (window.innerWidth <= 1000) {
         const timeline = gsap.timeline(timelineConfig);
 
         const mm = gsap.matchMedia();
@@ -450,170 +452,17 @@ export default function Landing() {
                   "#contactUs",
                   {
                     opacity: 1,
-                    duration: 0,
-                    pointerEvents: "auto",
-                    onComplete: () => {
-                      const container = document.querySelector(
-                        "#contactCard"
-                      ) as HTMLElement;
-                      const cards = container?.querySelectorAll(
-                        ".card"
-                      ) as NodeListOf<HTMLElement>;
-                      if (cards) {
-                        const cardCount = cards.length;
-                        const containerWidth = container.offsetWidth;
-                        const cardWidth = cards[1]?.offsetWidth || 0;
-
-                        const X1 = (containerWidth - 5 * cardWidth - 215) / 2;
-                        const X2 = X1 + cardWidth + 50;
-                        const X3 = X2 + cardWidth + 50;
-                        const X4 = X3 + cardWidth + 50;
-                        const X5 = X4 + cardWidth + 50;
-
-                        const translations = [
-                          { x: X1, y: 50, rotation: -18 },
-                          { x: X2, y: -10, rotation: -10 },
-                          { x: X3, y: -35, rotation: 0 },
-                          { x: X4, y: -10, rotation: 10 },
-                          { x: X5, y: 50, rotation: 18 },
-                        ];
-
-                        gsap.set(cards, {
-                          x: X1,
-                          y: 50,
-                          rotation: -18,
-                          zIndex: (index) => index,
-                          duration: 0,
-                        });
-
-                        const tl = gsap.timeline({ delay: 1 });
-
-                        for (let i = 1; i < cardCount; i++) {
-                          tl.to(cards[i], {
-                            x: translations[i].x,
-                            y: translations[i].y,
-                            rotation: translations[i].rotation,
-                            zIndex: cardCount - i,
-                            transformOrigin: "center center",
-                            duration: 0.2,
-                            ease: "power1.inOut",
-                            onStart: () => {
-                              for (let j = i + 1; j < cardCount; j++) {
-                                gsap.to(cards[j], {
-                                  x: translations[i].x,
-                                  y: translations[i].y,
-                                  rotation: translations[i].rotation,
-                                  transformOrigin: "center center",
-                                  duration: 0.2,
-                                  ease: "power1.inOut",
-                                  zIndex: j,
-                                });
-                              }
-                            },
-                          });
-                        }
-
-                        const container1 = document.querySelector(
-                          "#contactCard1"
-                        ) as HTMLElement;
-                        const cards1 = container1?.querySelectorAll(
-                          ".card"
-                        ) as NodeListOf<HTMLElement>;
-                        if (cards1) {
-                          const cardCount1 = cards1.length;
-                          const cardHeight = cards[0]?.offsetHeight || 0;
-
-                          const X6 = (containerWidth - 3 * cardWidth - 114) / 2;
-                          const X7 = X6 + cardWidth + 50;
-                          const X8 = X7 + cardWidth + 50;
-
-                          const Y6 = cardHeight - 10;
-                          const Y7 = cardHeight - 40;
-                          const Y8 = cardHeight - 10;
-
-                          const translations1 = [
-                            { x: X6, y: Y6, rotation: -12 },
-                            { x: X7, y: Y7, rotation: 0 },
-                            { x: X8, y: Y8, rotation: 12 },
-                          ];
-
-                          gsap.set(cards1, {
-                            opacity: 0,
-                            x: X6,
-                            y: Y6,
-                            rotation: -12,
-                            zIndex: (index) => index,
-                            duration: 0,
-                          });
-
-                          const tl1 = gsap.timeline({
-                            paused: true,
-                            onStart: () => {
-                              gsap.to(cards1, { opacity: 1, duration: 0.5 });
-                            },
-                          });
-
-                          for (let i = 0; i < cardCount1; i++) {
-                            tl1.to(cards1[i], {
-                              x: translations1[i].x,
-                              y: translations1[i].y,
-                              rotation: translations1[i].rotation,
-                              zIndex: cardCount1 - i,
-                              transformOrigin: "center center",
-                              duration: 0.2,
-                              ease: "power1.out",
-                              onStart: () => {
-                                for (let j = i + 1; j < cardCount1; j++) {
-                                  gsap.to(cards1[j], {
-                                    x: translations1[i].x,
-                                    y: translations1[i].y,
-                                    rotation: translations1[i].rotation,
-                                    transformOrigin: "center center",
-                                    duration: 0.2,
-                                    ease: "power1.out",
-                                    zIndex: j,
-                                  });
-                                }
-                              },
-                            });
-                          }
-
-                          const masterTimeline = gsap.timeline();
-                          masterTimeline.add(tl);
-                          masterTimeline.add(() => {
-                            tl1.play();
-                            return null;
-                          });
-                        }
-                      }
-                    },
-                  },
-                  "-=1.5"
-                )
-                .from(
-                  "#contactUs",
-                  {
-                    y: 75,
                     duration: 1,
                   },
-                  "<"
+                  "-=1.5"
                 )
                 .to(
-                  "#contactBottom",
+                  "#contact-us-inner-scroll",
                   {
-                    opacity: 1,
-                    duration: 0,
-                    pointerEvents: "auto",
+                    yPercent: -120,
+                    duration: 2,
                   },
-                  "-=1.5"
-                )
-                .from(
-                  "#contactBottom",
-                  {
-                    y: 75,
-                    duration: 1,
-                  },
-                  "<"
+                  "-=0.5"
                 );
             }
           );
@@ -925,23 +774,23 @@ export default function Landing() {
                   },
                   "<"
                 )
-                // .to(
-                //   "#contactBottom",
-                //   {
-                //     opacity: 1,
-                //     duration: 0,
-                //     pointerEvents: "auto",
-                //   },
-                //   "-=1.5"
-                // )
-                // .from(
-                //   "#contactBottom",
-                //   {
-                //     y: 75,
-                //     duration: 1,
-                //   },
-                //   "<"
-                // );
+                .to(
+                  "#contactBottom",
+                  {
+                    opacity: 1,
+                    duration: 0,
+                    pointerEvents: "auto",
+                  },
+                  "-=1.5"
+                )
+                .from(
+                  "#contactBottom",
+                  {
+                    y: 75,
+                    duration: 1,
+                  },
+                  "<"
+                );
             }
           );
         }

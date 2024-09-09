@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import "./globals.css";
-// import OasisLogo from "../assets/Landing/oasislogo.png";
+import OasisLogo from "../public/oglogo.png";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,13 +25,10 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Oasis '24",
+    images: [
+      OasisLogo.src,
+    ],
   },
-  // openGraph: {
-  //   images: [
-  //     OasisLogo.src,
-  //   ],
-  // },
 };
 
 export const viewport: Viewport = {

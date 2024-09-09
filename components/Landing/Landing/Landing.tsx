@@ -286,7 +286,6 @@ export default function Landing() {
               .querySelector('img[alt="right tree"]')
               ?.getBoundingClientRect().top
           }`,
-        end: "+=200%",
         scrub: 1,
       };
       if (window.innerWidth <= 1000) {
@@ -294,10 +293,11 @@ export default function Landing() {
           scrollTrigger: {
             ...commonConfigs,
             snap: {
-              snapTo: [0, 0.24, 0.25, 0.77],
+              snapTo: [0, 0.24, 0.25, 0.76],
               ease: "sine.inOut",
               duration: 1,
             },
+            end: "+=300%",
           },
         };
       } else {
@@ -309,6 +309,7 @@ export default function Landing() {
               ease: "sine.inOut",
               duration: 1,
             },
+            end: "+=200%",
           },
         };
       }

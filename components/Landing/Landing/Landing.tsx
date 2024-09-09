@@ -201,70 +201,70 @@ export default function Landing() {
     };
   }, [isVideoFocused, isLanding]);
 
-  useEffect(() => {
-    function setRenderState() {
-      if (window.innerWidth <= 1000 && !renderMobile) {
-        setRenderMobile(true);
-      } else if (window.innerWidth > 1000 && renderMobile) {
-        setRenderMobile(false);
-      }
-    }
+  // useEffect(() => {
+  //   function setRenderState() {
+  //     if (window.innerWidth <= 1000 && !renderMobile) {
+  //       setRenderMobile(true);
+  //     } else if (window.innerWidth > 1000 && renderMobile) {
+  //       setRenderMobile(false);
+  //     }
+  //   }
 
-    window.addEventListener("resize", setRenderState);
-    window.addEventListener("load", setRenderState);
-    window.addEventListener("loadstart", setRenderState);
-    window.addEventListener("DOMContentLoaded", setRenderState);
+  //   window.addEventListener("resize", setRenderState);
+  //   window.addEventListener("load", setRenderState);
+  //   window.addEventListener("loadstart", setRenderState);
+  //   window.addEventListener("DOMContentLoaded", setRenderState);
 
-    return () => {
-      window.removeEventListener("resize", setRenderState);
-      window.removeEventListener("load", setRenderState);
-      window.removeEventListener("loadstart", setRenderState);
-      window.removeEventListener("DOMContentLoaded", setRenderState);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("resize", setRenderState);
+  //     window.removeEventListener("load", setRenderState);
+  //     window.removeEventListener("loadstart", setRenderState);
+  //     window.removeEventListener("DOMContentLoaded", setRenderState);
+  //   };
+  // }, []);
 
-  useGSAP(() => {
-    let timelineConfig;
-    if (isLoaded) {
-      timelineConfig = gsap.timeline();
-      timelineConfig
-        .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state
-        .set("#oasisLogo", { autoAlpha: 0 })
-        .from(
-          "#leftTree",
-          {
-            x: "-100vw",
-            duration: 1.5,
-            ease: "sine.inOut",
-          },
-          0
-        )
-        .from(
-          "#rightTree",
-          {
-            x: "100vw",
-            duration: 1.5,
-            ease: "sine.inOut",
-          },
-          0
-        )
-        // .from(slotMachine.current, {
-        //   y: "100vw", // Start from below the screen
-        //   duration: 1.5,
-        //   ease: "sine.inOut",
-        // })
-        .to("#mainwrapper", {
-          autoAlpha: 1,
-          duration: 1,
-          ease: "sine.inOut",
-        })
-        .to("#oasisLogo", {
-          autoAlpha: 1,
-          duration: 0.5,
-          ease: "sine.inOut",
-        });
-    }
-  }, [isLoaded]);
+  // useGSAP(() => {
+  //   let timelineConfig;
+  //   if (isLoaded) {
+  //     timelineConfig = gsap.timeline();
+  //     timelineConfig
+  //       .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state
+  //       .set("#oasisLogo", { autoAlpha: 0 })
+  //       .from(
+  //         "#leftTree",
+  //         {
+  //           x: "-100vw",
+  //           duration: 1.5,
+  //           ease: "sine.inOut",
+  //         },
+  //         0
+  //       )
+  //       .from(
+  //         "#rightTree",
+  //         {
+  //           x: "100vw",
+  //           duration: 1.5,
+  //           ease: "sine.inOut",
+  //         },
+  //         0
+  //       )
+  //       // .from(slotMachine.current, {
+  //       //   y: "100vw", // Start from below the screen
+  //       //   duration: 1.5,
+  //       //   ease: "sine.inOut",
+  //       // })
+  //       .to("#mainwrapper", {
+  //         autoAlpha: 1,
+  //         duration: 1,
+  //         ease: "sine.inOut",
+  //       })
+  //       .to("#oasisLogo", {
+  //         autoAlpha: 1,
+  //         duration: 0.5,
+  //         ease: "sine.inOut",
+  //       });
+  //   }
+  // }, [isLoaded]);
 
   useGSAP(
     () => {
@@ -647,6 +647,13 @@ export default function Landing() {
                   "#contactUs",
                   {
                     opacity: 1,
+                    duration: 1,
+                  },
+                  "-=1.5"
+                )
+                .to(
+                  "#contactUs",
+                  {
                     duration: 0,
                     pointerEvents: "auto",
                     onComplete: () => {
@@ -785,7 +792,7 @@ export default function Landing() {
                       }
                     },
                   },
-                  "-=1.5"
+                  "<"
                 )
                 .from(
                   "#contactUs",

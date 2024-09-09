@@ -317,7 +317,7 @@ export default function Landing() {
 
         const mm = gsap.matchMedia();
 
-        if (slotMachine2D.current) {
+        if (is3dLoaded && slotMachine.current) {
           mm.add(
             {
               isMobile: "(max-width: 1000px)",
@@ -333,10 +333,28 @@ export default function Landing() {
                 setIsMobile(true);
               }
               timeline
-                .to(slotMachine2D.current, {
-                  yPercent: 35,
+                // .to(slotMachine2D.current, {
+                //   yPercent: 35,
+                //   duration: 1,
+                // })
+                .to(slotMachine.current.rotation, {
+                  y: conditions.isMobile ? 0 : -Math.PI / 9,
                   duration: 1,
                 })
+                .to(
+                  slotMachine.current.position,
+                  {
+                    x: conditions.isMobile ? 0 : -0.9,
+                    y: conditions.isMobile
+                      ? conditions.isXS
+                        ? -0.5
+                        : -0.5
+                      : 0,
+                    z: conditions.isMobile ? 0 : -0.5,
+                    duration: 1,
+                  },
+                  "<"
+                )
                 .to(
                   'img[alt="oasis logo landing"]',
                   {
@@ -421,6 +439,9 @@ export default function Landing() {
                   },
                   "<"
                 )
+                .to(slotMachine.current.rotation, {
+                  y: conditions.isMobile ? 0 : -Math.PI / 6,
+                })
                 .to("#aboutUs", {
                   opacity: 1,
                 })
@@ -440,22 +461,20 @@ export default function Landing() {
                   "+=1"
                 )
                 .to(
-                  slotMachine2D.current,
+                  slotMachine.current.position,
                   {
-                    yPercent: 100,
+                    x: conditions.isMobile ? 0 : -5,
+                    y: conditions.isMobile ? -2.5 : 0,
+                    z: conditions.isMobile ? 0 : -0.5,
                     duration: 3,
                     ease: "power1.in",
                   },
                   "<"
                 )
-                .to(
-                  "#contactUs",
-                  {
-                    opacity: 1,
-                    duration: 1,
-                  },
-                  "-=1.5"
-                )
+                .to("#contactUs", {
+                  opacity: 1,
+                  duration: 1,
+                })
                 .to(
                   "#contact-us-inner-scroll",
                   {
@@ -808,23 +827,23 @@ export default function Landing() {
 
   return (
     <>
-      {renderMobile ? (
+      <SlotMachineExitCross iframeClick={iframeClick} />
+      <LandingScene
+        ref={slotMachine}
+        setIs3dLoaded={setIs3dLoaded}
+        iframeClick={iframeClick}
+        isLanding={isLanding}
+        isVideoFocused={isVideoFocused}
+        isXS={isXS}
+        isMobile={isMobile}
+        setCamera={setCamera}
+      />
+      {/* {renderMobile ? (
         <MobileSlotMachine ref={slotMachine2D} />
       ) : (
         <>
-          <SlotMachineExitCross iframeClick={iframeClick} />
-          <LandingScene
-            ref={slotMachine}
-            setIs3dLoaded={setIs3dLoaded}
-            iframeClick={iframeClick}
-            isLanding={isLanding}
-            isVideoFocused={isVideoFocused}
-            isXS={isXS}
-            isMobile={isMobile}
-            setCamera={setCamera}
-          />
         </>
-      )}
+      )} */}
     </>
   );
 }

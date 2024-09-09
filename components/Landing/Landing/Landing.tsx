@@ -271,6 +271,7 @@ export default function Landing() {
       let timelineConfig;
       const commonConfigs = {
         onUpdate: ({ progress }: updateTypesScrollTrigger) => {
+          // console.log(progress);
           if (progress > 0.39 && progress < 0.4) {
             setTlProgress(progress);
           } else if (tlProgress) {
@@ -293,7 +294,7 @@ export default function Landing() {
           scrollTrigger: {
             ...commonConfigs,
             snap: {
-              snapTo: [0, 0.24, 0.25, 0.71],
+              snapTo: [0, 0.24, 0.25, 0.77],
               ease: "sine.inOut",
               duration: 1,
             },
@@ -478,7 +479,7 @@ export default function Landing() {
                 .to(
                   "#contact-us-inner-scroll",
                   {
-                    yPercent: -120,
+                    yPercent: -110,
                     duration: 2,
                   },
                   "-=0.5"

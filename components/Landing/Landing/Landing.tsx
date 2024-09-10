@@ -48,9 +48,9 @@ export default function Landing() {
     waitForPreload("#preloader").then(() => {
       setTimeout(() => {
         setIsLoaded(true);
-        console.log("hello loaded");
+        // console.log("hello loaded");
       }, 500);
-      console.log("#preloader");
+      // console.log("#preloader");
     });
   }, []);
 
@@ -271,7 +271,7 @@ export default function Landing() {
       let timelineConfig;
       const commonConfigs = {
         onUpdate: ({ progress }: updateTypesScrollTrigger) => {
-          // console.log(progress);
+          console.log(progress);
           if (progress > 0.39 && progress < 0.4) {
             setTlProgress(progress);
           } else if (tlProgress) {
@@ -305,7 +305,7 @@ export default function Landing() {
           scrollTrigger: {
             ...commonConfigs,
             snap: {
-              snapTo: [0, 0.39, 0.4, 1],
+              snapTo: [0, 0.45, 0.46, 1],
               ease: "sine.inOut",
               duration: 1,
             },
@@ -611,9 +611,19 @@ export default function Landing() {
                   },
                   "<"
                 )
+                .to(
+                  "#tickets",
+                  {
+                    duration: 2,
+                    rotate: 5,
+                    ease: "power1.out",
+                  },
+                  "<"
+                )
                 .to(slotMachine.current.rotation, {
                   y: conditions.isMobile ? 0 : -Math.PI / 6,
                 })
+
                 .to("#aboutUs", {
                   opacity: 1,
                 })
@@ -640,6 +650,15 @@ export default function Landing() {
                     z: conditions.isMobile ? 0 : -0.5,
                     duration: 3,
                     ease: "power1.in",
+                  },
+                  "<"
+                )
+                .to(
+                  "#tickets",
+                  {
+                    duration: 3,
+                    rotate: 15,
+                    ease: "power1.out",
                   },
                   "<"
                 )

@@ -1,0 +1,84 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  // pointer-events: auto;
+  transform: rotateZ(-15deg);
+  transition: all 0.5s ease-out;
+
+  &:hover {
+    transform: rotateZ(0deg) !important;
+    .home {
+      transform: rotateZ(15deg) translateX(-50px) !important;
+    }
+    .about {
+      transform: rotateZ(5deg) translateX(-75px) !important;
+      top: 130px !important;
+    }
+    .events {
+      transform: rotateZ(-10deg) translateX(-60px) !important;
+      top: 50px !important;
+    }
+    .contact {
+      transform: rotateZ(-15deg) translateX(-20px) !important;
+    }
+  }
+
+  .home {
+    position: relative;
+    top: 200px;
+    transform: rotateZ(15deg) translateX(15px);
+    transition: all 0.5s ease-out;
+    pointer-events: auto;
+    &.active {
+      transform: rotateZ(15deg) translateX(-60px);
+    }
+  }
+  .contacthome{
+    transform: rotateZ(20deg) translateX(15px);
+  }
+  .about {
+    position: relative;
+    top: 130px;
+    transform: rotateZ(5deg) translateX(-30px);
+    transition: all 0.5s ease-out;
+    pointer-events: auto;
+    &.active {
+      transform: rotateZ(5deg) translateX(-60px);
+    }
+  }
+  .contactabout {
+    top: 110px !important;
+    transform: rotateZ(0deg) translateX(0px) !important;
+  }
+  .events {
+    position: relative;
+    top: 50px;
+    transform: rotateZ(-10deg) translateX(-15px);
+    transition: all 0.5s ease-out;
+    pointer-events: auto;
+    // &.active {
+    //   transform: rotateZ(-10deg) translateX(-60px);
+    // }
+  }
+  .aboutevents {
+    transform: rotateZ(-15deg) translateX(10px) translateY(-5px)!important;
+  }
+  .contactevents {
+    top: 45px !important;
+    transform: rotateZ(-10deg) translateX(5px) !important;
+  }
+  .contact {
+    position: relative;
+    top: 0px;
+    transform: rotateZ(-15deg) translateX(20px);
+    transition: all 0.5s ease-out;
+    pointer-events: auto;
+    &.active {
+      transform: rotateZ(-15deg) translateX(5px);
+    }
+  }
+  .aboutcontact {
+    transform: rotateZ(-30deg) translateX(50px) !important;
+  }
+}

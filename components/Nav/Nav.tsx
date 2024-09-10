@@ -21,7 +21,7 @@ const Nav = () => {
     });
   };
 
-  const handleImageClick = (name) => {
+  const handleImageClick = (name: string) => {
     setActive(name);
 
     switch (name) {

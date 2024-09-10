@@ -29,7 +29,7 @@ const Nav = () => {
         handleScroll(0);
         break;
       case "about":
-        handleScroll(0.45);
+        handleScroll(0.43);
         break;
       case "events":
         handleScroll(0.8);
@@ -75,7 +75,9 @@ const Nav = () => {
           alt="home"
           width={347}
           height={168}
-          className={`${styles.home} ${active === "home" ? styles.active : ""}`}
+          className={`${styles.home} ${
+            active === "home" ? styles.active : ""
+          } ${active === "contact" ? styles.contacthome : ""}`}
           onClick={() => handleImageClick("home")}
         />
         <Image
@@ -95,7 +97,9 @@ const Nav = () => {
           height={168}
           className={`${styles.events} ${
             active === "events" ? styles.active : ""
-          } ${active === "about" ? styles.aboutevents : ""} ${active === "contact" ? styles.contactevents : ""}`}
+          } ${active === "about" ? styles.aboutevents : ""} ${
+            active === "contact" ? styles.contactevents : ""
+          }`}
           onClick={() => handleImageClick("events")}
         />
         <Image

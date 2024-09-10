@@ -34,6 +34,9 @@
       transform: rotateZ(15deg) translateX(-60px);
     }
   }
+  .contacthome{
+    transform: rotateZ(20deg) translateX(15px);
+  }
   .about {
     position: relative;
     top: 130px;
@@ -46,7 +49,7 @@
   }
   .contactabout {
     top: 110px !important;
-    transform: rotateZ(-5deg) translateX(0px) !important;
+    transform: rotateZ(0deg) translateX(0px) !important;
   }
   .events {
     position: relative;
@@ -59,11 +62,11 @@
     // }
   }
   .aboutevents {
-    transform: rotateZ(-15deg) translateX(5px) !important;
+    transform: rotateZ(-15deg) translateX(10px) translateY(-5px)!important;
   }
   .contactevents {
     top: 45px !important;
-    transform: rotateZ(-20deg) translateX(20px) !important;
+    transform: rotateZ(-10deg) translateX(5px) !important;
   }
   .contact {
     position: relative;

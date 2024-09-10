@@ -293,7 +293,7 @@ export default function Landing() {
           scrollTrigger: {
             ...commonConfigs,
             snap: {
-              snapTo: [0, 0.24, 0.25, 0.76],
+              snapTo: [0, 0.24, 0.25, 0.765],
               ease: "sine.inOut",
               duration: 1,
             },

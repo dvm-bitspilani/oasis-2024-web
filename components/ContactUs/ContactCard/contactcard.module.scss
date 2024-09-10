@@ -95,6 +95,11 @@
 
       p {
         font-size: 14px;
+
+        @media (width <= 335px) {
+          display: inline;
+          font-size: 12px;
+        }
       }
 
       // display: -webkit-box;

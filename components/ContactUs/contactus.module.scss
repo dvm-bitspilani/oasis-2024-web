@@ -6,6 +6,7 @@
   opacity: 0;
   pointer-events: none;
   overflow: hidden;
+  z-index: 100000;
 
   .heading {
     margin-top: 3rem;

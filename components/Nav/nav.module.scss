@@ -6,6 +6,10 @@
   transform: rotateZ(-15deg);
   transition: all 0.5s ease-out;
 
+  @media (width<=1300px) {
+    display: none;
+  }
+
   &:hover {
     transform: rotateZ(0deg) !important;
     .home {
@@ -34,7 +38,7 @@
       transform: rotateZ(15deg) translateX(-60px);
     }
   }
-  .contacthome{
+  .contacthome {
     transform: rotateZ(20deg) translateX(15px);
   }
   .about {
@@ -62,7 +66,7 @@
     // }
   }
   .aboutevents {
-    transform: rotateZ(-15deg) translateX(10px) translateY(-5px)!important;
+    transform: rotateZ(-15deg) translateX(10px) translateY(-5px) !important;
   }
   .contactevents {
     top: 45px !important;

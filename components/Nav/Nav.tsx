@@ -12,7 +12,7 @@ const Nav = () => {
   const [active, setActive] = useState("home");
   const ticketRef = useRef(null);
 
-  const handleScroll = (position) => {
+  const handleScroll = (position: any) => {
     const totalHeight =
       document.documentElement.scrollHeight - window.innerHeight;
     window.scrollTo({

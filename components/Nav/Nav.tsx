@@ -29,10 +29,10 @@ const Nav = () => {
         handleScroll(0);
         break;
       case "about":
-        handleScroll(0.4);
+        handleScroll(0.45);
         break;
       case "events":
-        handleScroll(0.6);
+        handleScroll(0.8);
         break;
       case "contact":
         handleScroll(1);
@@ -51,9 +51,9 @@ const Nav = () => {
 
       if (check < 0.2) {
         setActive("home");
-      } else if (check >= 0.2 && check <= 0.4) {
+      } else if (check >= 0.2 && check <= 0.6) {
         setActive("about");
-      } else if (check > 0.4 && check <= 0.6) {
+      } else if (check > 0.6 && check <= 0.8) {
         setActive("events");
       } else if (check > 0.6) {
         setActive("contact");

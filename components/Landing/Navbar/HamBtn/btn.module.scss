@@ -1,69 +1,97 @@
 .btn {
-    aspect-ratio: 1 / 1;
-    width: 100px;
-    z-index: 10;
-    cursor: pointer;
-    pointer-events: all;
-    position: relative;
+  aspect-ratio: 1 / 1;
+  width: 100px;
+  z-index: 200;
+  cursor: pointer;
+  pointer-events: all;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .hamOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vh;
+    height: 100vw;
+    transform: translateY(-10%);
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(0, 0, 0, 0.855) 0%,
+      rgba(0, 0, 0, 0.95) 100%
+    );
+    z-index: 110;
+    cursor: initial;
+  }
+  .hamMenuLines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    // scale: 0.1;
+    z-index: 111;
+    // top: 50%;
+    right: -45%;
+  }
+
+  .pokerChip {
+    // transition: all 300ms ease-in-out;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 50%;
+    z-index: 120;
+
+    @media (width <= 585px) {
+      display: none;
+    }
+  }
+
+  //   &:hover {
+  //     .pokerChip {
+  //       //   transform: rotateZ(60deg);
+  //     }
+  //   }
+
+  .hamIcon {
+    position: absolute;
+    aspect-ratio: 340 / 240;
+    width: calc(18 / 74 * 100%);
     display: flex;
+    align-items: flex-start;
     justify-content: center;
-    align-items: center;
+    gap: 5px;
+    z-index: 130;
+    flex-direction: column;
 
-    .pokerChip {
-        transition: all 300ms ease-in-out;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-
-        @media (width <= 585px) {
-            display: none;
-        }
+    .menuLines {
+      aspect-ratio: 340 / 240;
+      width: 100%;
     }
 
-    &:hover {
-        .pokerChip {
-            transform: rotateZ(60deg);
-        }
-    }
+    // .iconLine {
+    //     aspect-ratio: 295 / 30;
+    //     width: 100%;
+    //     height: auto;
+    //     background-color: #EDCF89;
+    //     border-radius: 10px;
 
-    .hamIcon {
-        position: absolute;
-        aspect-ratio: 340 / 240;
-        width: calc(18 / 74 * 100%);
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        gap: 5px;
-        flex-direction: column;
+    //     &:last-of-type {
+    //         aspect-ratio: 200 / 30;
+    //         width: calc(20000 / 295 * 1%);
+    //     }
+    // }
+  }
 
-        .menuLines {
-            aspect-ratio: 340 / 240;
-            width: 100%;
-        }
+  @media (width <= 1050px) {
+    transform: scale(0.8);
+  }
 
-        // .iconLine {
-        //     aspect-ratio: 295 / 30;
-        //     width: 100%;
-        //     height: auto;
-        //     background-color: #EDCF89;
-        //     border-radius: 10px;
+  @media (width <= 900px) {
+    transform: scale(0.65);
+  }
 
-        //     &:last-of-type {
-        //         aspect-ratio: 200 / 30;
-        //         width: calc(20000 / 295 * 1%);
-        //     }
-        // }
-    }
-
-    @media (width <= 1050px){
-        transform: scale(0.8);
-    }
-    
-    @media (width <= 900px){
-        transform: scale(0.65);
-    }
-
-    @media (width <= 585px){
-        transform: scale(1);
-    }
+  @media (width <= 585px) {
+    transform: scale(1);
+  }
 }

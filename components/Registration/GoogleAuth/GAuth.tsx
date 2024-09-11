@@ -150,7 +150,7 @@ export default function GoogleAuthPage({ gSignIn }: Props) {
                   r="17.1281"
                   fill="#170F22"
                   stroke="#F5E3AE"
-                  stroke-width="1.74375"
+                  strokeWidth="1.74375"
                 />
               </svg>
               <svg

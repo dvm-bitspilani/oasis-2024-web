@@ -1,6 +1,6 @@
 .card {
   height: auto;
-  width: 200px;
+  width: 175px;
   background: linear-gradient(
     154.77deg,
     #0d0d0d 0.23%,
@@ -15,9 +15,15 @@
   border-radius: 5px;
   position: relative;
   transform: scale(0.9);
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(0.95);
+    box-shadow: 0px 4px 4px 0px #e3c041af;
+  }
 
   .center {
-    margin-top: 42px;
+    margin-top: 32px;
     margin-bottom: 24px;
     display: flex;
     flex-direction: column;
@@ -27,15 +33,15 @@
 
     .name {
       font-family: "Playfair Display";
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 500;
       letter-spacing: -0.04em;
       // color: #ccae57;
       text-align: center;
       background: linear-gradient(
-        112deg,
+        112.17deg,
         #d4a753 25.95%,
-        #aa8237 44.71%,
+        #d2a146 44.71%,
         #d4a753 72.61%
       );
       -webkit-background-clip: text;
@@ -57,7 +63,7 @@
       // }
 
       .profileImg {
-        width: 155px;
+        width: 125px;
         height: 100%;
         // position: relative;
         // z-index: 2;
@@ -72,17 +78,29 @@
       font-weight: 400;
       text-align: center;
       // color: #ccae57;
-      width: 70%;
+      width: 100%;
       line-height: 20px;
       min-height: 42px;
       background: linear-gradient(
-        112deg,
+        112.17deg,
         #d4a753 25.95%,
-        #aa8237 44.71%,
+        #d2a146 44.71%,
         #d4a753 72.61%
       );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+
+      p {
+        font-size: 14px;
+
+        @media (width <= 335px) {
+          display: inline;
+          font-size: 12px;
+        }
+      }
 
       // display: -webkit-box;
       // -webkit-line-clamp: 2;
@@ -113,10 +131,10 @@
   }
 }
 
-@media (max-width: 2100px) and (min-width: 1500px) {
+@media (max-width: 2100px) and (min-width: 1600px) {
   .card {
     height: auto;
-    width: 250px;
+    width: 230px;
     display: flex;
     flex-direction: column;
     border: 1px solid #e3c041;
@@ -128,7 +146,7 @@
     .center {
       margin-top: 45px;
       margin-bottom: 25px;
-      gap: 10px;
+      gap: 0px;
 
       .name {
         font-size: 22px;
@@ -136,7 +154,7 @@
 
       .imgContainer {
         .profileImg {
-          width: 175px;
+          width: 155px;
           height: 100%;
         }
       }
@@ -144,6 +162,12 @@
       .desc {
         font-size: 17px;
         line-height: 23px;
+        width: 100%;
+        min-height: 46px;
+        
+        p {
+          font-size: 17px;
+        }
       }
 
       .buttons {
@@ -244,9 +268,13 @@
 
       .desc {
         font-size: 12.5px;
-        width: 85%;
+        width: 100%;
         line-height: 18px;
         min-height: 35.8px;
+
+        p {
+          font-size: 12.5px;
+        }
       }
 
       .buttons {
@@ -292,7 +320,7 @@
 
     .center {
       .desc {
-        width: 89%;
+        width: 100%;
       }
     }
   }

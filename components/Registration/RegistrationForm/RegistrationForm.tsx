@@ -12,6 +12,7 @@ import styles from "./registrationForm.module.scss";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useCookies } from "react-cookie";
+import { sendGAEvent } from '@next/third-parties/google'
 
 const formSchema = z.object({
   name: z.string().min(1, { message: "*Name is required" }),
@@ -275,7 +276,6 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
       <form
         onSubmit={handleSubmit(onSubmit)}
         className={styles.registrationForm}
-        autoComplete="off"
       >
         <div className={styles.formField}>
           <label htmlFor="name" className={styles.formFieldHeader}>
@@ -747,9 +747,9 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
               </label>
             </div>
           </div>
-          {errors.choreographer && (
+          {errors.head_of_society && (
             <span className={`${styles.formErrorMessage} ${styles.radioError}`}>
-              {errors.choreographer.message}
+              {errors.head_of_society.message}
             </span>
           )}
         </div>
@@ -835,6 +835,7 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
                   color: "#F5E3AE",
                 }}
                 options={cityOptions}
+                className={selectedState ? "" : styles.disabledInput}
               />
             )}
           />
@@ -877,7 +878,7 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
         type="submit"
       >
         <div className={styles.glow}></div>
-        <div className={styles.btnborder}>
+        <div className={styles.btnborder} onClick={() => sendGAEvent('event', 'Registered', { value: 1 })}>
           <div className={`${styles.circlewrapper} ${styles.top}`}>
             <div className={`${styles.circle} bulb`}></div>
             <div className={`${styles.circle} bulb`}></div>

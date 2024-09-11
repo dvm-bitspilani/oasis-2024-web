@@ -1,0 +1,15 @@
+.cross{
+    opacity: 0;
+    left: 80px;
+    top: 60px;
+    color: white;
+    position: absolute;
+    cursor: pointer;
+    z-index: 100;
+
+    svg{
+        aspect-ratio: 1 / 1;
+        width: 36px;
+        height: auto;
+    }
+}

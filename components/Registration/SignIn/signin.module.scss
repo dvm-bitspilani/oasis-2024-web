@@ -6,6 +6,9 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    @media(width <= 500px){
+      transform: scale(0.8);
+    }
     .title {
       background: linear-gradient(
         0deg,
@@ -31,6 +34,7 @@
       @media (width <= 650px) {
         font-size: 28px;
       }
+      
     }
   }
   .contentcontainer {
@@ -41,7 +45,19 @@
     top: 50px;
     height: 55vh;
     // height: 50%;
-    overflow-y: scroll;
+    // overflow-y: scroll;
+    overflow-x: hidden;
+
+    .two {
+      position: relative;
+      left: -10px;
+      div {
+        gap: 5px;
+      }
+      @media (width <= 1150px) {
+        left: 0;
+      }
+    }
 
     .mobilecontent {
       flex-direction: column;
@@ -55,7 +71,7 @@
     .contact {
       position: relative;
       top: -20px;
-      left: 50px;
+      left: 40px;
 
       @media (width <= 1150px) {
         left: 0;
@@ -98,12 +114,12 @@
       @media (width <= 1250px) {
         gap: 6px;
       }
-      @media (width <= 1150px) {
-        display: none;
-      }
-      // @media (width <= 650px) {
-      //   gap: 0;
+      // @media (width <= 1150px) {
+      //   display: none;
       // }
+      @media (width <= 650px) {
+        gap: 0;
+      }
       .modalbtn {
         color: #ffe3ad;
         text-shadow: 0px 0px 8px rgba(229, 195, 132, 0.24);
@@ -127,10 +143,10 @@
           height: 1.5px;
           background-color: #ffe3ad;
 
-          // @media (width <= 650px) {
-          //   bottom: 4px;
-          //   height: 1px;
-          // }
+          @media (width <= 650px) {
+            bottom: 4px;
+            height: 1px;
+          }
         }
 
         @media (width <= 1500px) {
@@ -140,10 +156,10 @@
         @media (width <= 1250px) {
           font-size: 16px;
         }
-        // @media (width <= 650px) {
-        //   font-size: 11px;
-        //   left: -15px;
-        // }
+        @media (width <= 650px) {
+          font-size: 11px;
+          left: -15px;
+        }
       }
     }
 
@@ -156,10 +172,12 @@
       gap: 20px;
     }
 
+    @media (width <= 1150px) {
+      // overflow-y: scroll;
+    }
+
     @media (width <= 650px) {
       gap: 15px;
-    }
-    @media (width <= 650px) {
       top: 10px;
     }
   }
@@ -177,8 +195,8 @@
   }
 }
 
-.modal {
-  @media (width <= 1150px) {
-    display: none;
-  }
-}
+// .modal {
+//   @media (width <= 1150px) {
+//     display: none;
+//   }
+// }

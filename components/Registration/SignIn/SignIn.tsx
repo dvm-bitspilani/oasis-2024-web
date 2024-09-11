@@ -74,7 +74,9 @@ const Signin = () => {
         </div>
         <div className={styles.contentcontainer}>
           <Instruction text="Complete the registration form with all required details. You'll be able to login through your registered email id when required." />
-          <Instruction text="All team members are required to register separately." />
+          <div className={styles.two}>
+            <Instruction text="All team members are required to register separately." />
+          </div>
           <Instruction text="A College Representative (CR) will be appointed for each college who'll be responsible for allotting heads for all the societies the college will be participating for." />
           <Instruction text="All prof shows are free." />
           <div className={styles.mobilecontent}>
@@ -84,7 +86,6 @@ const Signin = () => {
           <Instruction text="⁠Upon successful payment, a confirmation email will be sent." />
             
           </div>
-          <Instruction text="For further details contact:" />
           <div className={styles.contact}>
             <div className={styles.content}>
               <div className={styles.text}>Parimal: 8638304074</div>
@@ -93,7 +94,6 @@ const Signin = () => {
               <div className={styles.text}>Ishita: 7804051996</div>
             </div>
           </div>
-          
           <div className={styles.details}>
             <Instruction text="For detailed instructions" />
             <div className={styles.modalbtn} onClick={toggleModal}>

@@ -7,7 +7,8 @@ import { StaticImageData } from "next/image";
 
 interface ContactCardProps {
   name: string;
-  dept: string;
+  dept1: string;
+  dept2: string;
   contact: string | null;
   mail: string | null;
   img: StaticImageData;
@@ -15,7 +16,8 @@ interface ContactCardProps {
 
 const ContactCard: React.FC<ContactCardProps> = ({
   name,
-  dept,
+  dept1,
+  dept2,
   contact,
   mail,
   img,
@@ -82,7 +84,10 @@ const ContactCard: React.FC<ContactCardProps> = ({
             draggable={false}
           />
         </div>
-        <div className={styles.desc}>{dept}</div>
+        <div className={styles.desc}>
+          <p>{dept1}</p>
+          <p>{dept2}</p>
+        </div>
         <div className={styles.buttons}>
           
             <a

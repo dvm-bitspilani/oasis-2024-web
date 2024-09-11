@@ -30,6 +30,7 @@
     align-items: center;
     // padding: 0 50px 40px 50px;
     position: relative;
+    transform: scale(0.9);
 
     @media (width <= 900px) {
       padding: 0 35px 40px 35px;
@@ -44,36 +45,58 @@
     }
 
     .middle {
-      ::before {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        border-radius: 42px;
-        opacity: 0.6;
-        background: #170d26;
-        filter: blur(15px);
+      @media screen and (width >= 1000px) {
+        ::before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          border-radius: 42px;
+          opacity: 0.6;
+          background: #170d26;
+          filter: blur(15px);
+        }
       }
 
       position: relative;
       margin-top: 60px;
-      padding: 30px;
+      // padding: 30px;
       padding: 70px 40px;
+
+      @media (width <= 1350px) {
+        margin-top: 35px;
+      }
+
+      @media screen and (width <= 1000px) {
+        margin-top: 0px;
+        padding-top: 10px;
+        padding: 0;
+      }
+      
       @media (width <= 1000px) {
         display: flex;
         justify-content: center;
         align-items: center;
       }
+      .middleFrame {
+        @media screen and (width <= 1000px) {
+          display: none;
+        }
+      }
       .borderTop {
         width: calc(100% - 48px);
-        overflow: hidden;
+        // overflow: hidden;
+
         position: absolute;
+        top: -0px;
         left: 23px;
-        top: -15px;
+        width: calc(100% - 48px);
+        height: 2px;
+        background-color: #b9a46a;
       }
       .borderRight {
         height: calc(100% - 54px);
@@ -147,8 +170,16 @@
         font-size: 21.5px;
       }
 
-      @media (width <= 1000px) {
+      @media (width <= 1350px) {
+        font-size: 18px;
+      }
+
+      @media (width <= 1050px) {
         font-size: 16px;
+      }
+
+      @media (width <= 1000px) {
+        // font-size: 16px;
         width: 70%;
       }
 
@@ -159,19 +190,34 @@
     }
 
     .top {
-      ::before {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        border-radius: 42px;
-        opacity: 0.6;
-        background: #170d26;
-        filter: blur(15px);
+      @media screen and (width >= 1000px) {
+        ::before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          border-radius: 42px;
+          opacity: 0.6;
+          background: #170d26;
+          filter: blur(15px);
+        }
+      }
+
+      @media screen and (width <= 1000px) {
+        .borderTop,
+        .borderLeft,
+        .borderBottom,
+        .borderRight,
+        .topRightCurve,
+        .bottomRightCurve,
+        .topLeftCurve,
+        .bottomLeftCurve {
+          display: none;
+        }
       }
 
       position: relative;
@@ -287,6 +333,14 @@
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+
+        @media (width <= 1350px) {
+          font-size: 42px;
+        }
+
+        @media (width <= 1350px) {
+          font-size: 38px;
+        }
 
         @media (width <= 1000px) {
           font-size: 50px;

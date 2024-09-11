@@ -1,5 +1,9 @@
 .scrollWrapper {
     height: 300lvh;
+
+    @media (width <= 1000px) {
+        height: 400lvh;
+    }
 }
 
 .page {

@@ -5,11 +5,13 @@ import CardsGroup from "../CardsGroup/CardsGroup";
 import AboutUsPage from "@/components/AboutUs/AboutUsPage";
 import ContactUs from "@/components/ContactUs/ContactUs";
 import Social from "../Social/Social";
+import Countdown from "../Countdown/Countdown";
 
 export default function LandingOverlay() {
   return (
     <div className={styles.mainwrapper} id="mainwrapper">
       <Social />
+      <Countdown dateString="October 23, 2024 19:00:00" />
       <div className={styles.headerContainer}>
         <Navbar />
       </div>

@@ -1,0 +1,26 @@
+name: Oasis CD
+
+on:
+  push:
+    branches: [prod]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy using ssh
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: 22
+          script: |
+            cd /srv/static/oasis/2024/oasis-2024-web
+            eval "$(ssh-agent -s)"
+            ssh-add ~/.ssh/id_rsa
+            echo "${{ secrets.PASSWORD }}" | sudo -S SSH_AUTH_SOCK=$(echo $SSH_AUTH_SOCK) git pull origin prod
+            echo "${{ secrets.PASSWORD }}" | sudo -S npm install
+            echo "${{ secrets.PASSWORD }}" | sudo -S npm run build
+            echo "${{ secrets.PASSWORD }}" | sudo -S pm2 restart 2

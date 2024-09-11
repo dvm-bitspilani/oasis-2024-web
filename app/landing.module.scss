@@ -29,3 +29,11 @@
         color: yellow;
     }
 }
+
+.navTickets{
+    position: fixed;
+    right: -14%;
+    top: 45%;
+    transform: translateY(-50%);
+    z-index: 5000;
+}

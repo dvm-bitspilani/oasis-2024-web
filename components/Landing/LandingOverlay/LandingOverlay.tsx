@@ -6,6 +6,7 @@ import AboutUsPage from "@/components/AboutUs/AboutUsPage";
 import ContactUs from "@/components/ContactUs/ContactUs";
 import Social from "../Social/Social";
 import Countdown from "../Countdown/Countdown";
+import Nav from "@/components/Nav/Nav";
 
 export default function LandingOverlay() {
   return (
@@ -15,6 +16,9 @@ export default function LandingOverlay() {
       <div className={styles.headerContainer}>
         <Navbar />
       </div>
+      {/* <div className={styles.navcontainer}>
+        <Nav />
+      </div> */}
       <div className={styles.machinecontainer}>
         <div className={styles.cards} id="leftcards">
           <CardsGroup group={1} />

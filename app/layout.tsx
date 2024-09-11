@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import "./globals.css";
-import OasisLogo from "../public/oglogo.png";
+// import OasisLogo from "../public/oglogo.png";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,9 +25,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    images: [
-      OasisLogo.src,
-    ],
+    images: [{
+      url: "https://www.bits-oasis.org/_next/static/media/oglogo.9fac8004.png",
+    }],
   },
 };
 

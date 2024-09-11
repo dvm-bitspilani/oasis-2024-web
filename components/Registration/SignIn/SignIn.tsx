@@ -78,13 +78,17 @@ const Signin = () => {
             <Instruction text="All team members are required to register separately." />
           </div>
           <Instruction text="A College Representative (CR) will be appointed for each college who'll be responsible for allotting heads for all the societies the college will be participating for." />
-          <Instruction text="All prof shows are free." />
+          <div className={styles.two}>
+            <Instruction text="All prof shows are free." />
+          </div>
           <div className={styles.mobilecontent}>
-          <Instruction text="⁠The heads and CR will be responsible for approving the other participating members." />
-          <Instruction text=" ⁠After this, an approval email will be sent from the Department of Publication and Correspondence." />
-          <Instruction text=" ⁠Make the required payment as instructed." />
-          <Instruction text="⁠Upon successful payment, a confirmation email will be sent." />
-            
+            <Instruction text="⁠The heads and CR will be responsible for approving the other participating members." />
+            <Instruction text=" ⁠After this, an approval email will be sent from the Department of Publication and Correspondence." />
+            <Instruction text=" ⁠Make the required payment as instructed." />
+            <Instruction text="⁠Upon successful payment, a confirmation email will be sent." />
+          </div>
+          <div className={styles.two}>
+            <Instruction text="For further details contact:" />
           </div>
           <div className={styles.contact}>
             <div className={styles.content}>

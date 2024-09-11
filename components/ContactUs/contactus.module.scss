@@ -5,7 +5,8 @@
   width: 100vw;
   opacity: 0;
   pointer-events: none;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
   // z-index: 100000;
 
   .heading {

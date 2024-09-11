@@ -34,14 +34,14 @@ const Modal = ({ closeModal }) => {
         <div className={styles.title}>detailed instructions</div>
         <div className={styles.content}>
           <div className={styles.two}>
-            <Instruction text="Complete the registration form with all required details. You'll be able to login through your registered email id when required. All team members are required to register separately." />
+            <Instruction text="⁠Complete the registration form with all required details. You'll be able to login through your registered email id when required. All team members are required to register separately." />
           </div>
           <div className={styles.two}>
-            <Instruction text="⁠A College Representative (CR) will be appointed for each college who'll be responsible for allotting heads for all the societies the college will be participating for." />
+            <Instruction text="A College Representative (CR) will be appointed for each college who'll be responsible for allotting heads for all the societies the college will be participating for." />
           </div>
-          <Instruction text="Heads will then have to form the team and lock it." />
+          <Instruction text="⁠The heads and CR will be responsible for approving the other participating members." />
           <div className={styles.three}>
-            <Instruction text="After the teams are locked, an approval email will be sent from the Department of Publication and Correspondence." />
+            <Instruction text="After this, an approval email will be sent from the Department of Publication and Correspondence." />
           </div>
           <Instruction text="Make the required payment as instructed." />
           <Instruction text="Upon successful payment, a confirmation email will be sent." />

@@ -225,7 +225,7 @@ export default function Landing() {
 
   useGSAP(() => {
     let timelineConfig;
-    if (isLoaded) {
+    if (isLoaded && camera) {
       timelineConfig = gsap.timeline();
       timelineConfig
         .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state
@@ -248,11 +248,33 @@ export default function Landing() {
           },
           0
         )
-        .from(slotMachine.current.position, {
-          y: -2.25, // Start from below the screen
-          duration: 1.5,
-          ease: "sine.inOut",
-        })
+        .from(
+          camera.position,
+          {
+            z: 2.65,
+            duration: 4,
+            ease: "sine.inOut",
+          },
+          "<"
+        )
+        .from(
+          camera.rotation,
+          {
+            x: -0.2,
+            duration: 4,
+            ease: "sine.inOut",
+          },
+          "<"
+        )
+        // .from(
+        //   slotMachine.current.position,
+        //   {
+        //     y: -0.5, // Start from below the screen
+        //     duration: 1.25,
+        //     ease: "power2.out",
+        //   },
+        //   "<"
+        // )
         .to("#mainwrapper", {
           autoAlpha: 1,
           duration: 1,
@@ -264,7 +286,7 @@ export default function Landing() {
           ease: "sine.inOut",
         });
     }
-  }, [isLoaded]);
+  }, [isLoaded, camera]);
 
   useGSAP(
     () => {
@@ -353,6 +375,14 @@ export default function Landing() {
                         : -0.5
                       : 0,
                     z: conditions.isMobile ? 0 : -0.5,
+                    duration: 1,
+                  },
+                  "<"
+                )
+                .to(
+                  "#iframe-overlay",
+                  {
+                    opacity: 0,
                     duration: 1,
                   },
                   "<"

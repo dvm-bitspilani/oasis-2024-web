@@ -27,7 +27,12 @@ body {
 
 #iframe-overlay {
   z-index: 1;
-  background-color: transparent;
+  opacity: 1;
+  background: url('/Videos/preloaderCoinVideo.gif');
+  background-color: black;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   cursor: pointer;
 }
 

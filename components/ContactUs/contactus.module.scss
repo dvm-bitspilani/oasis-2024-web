@@ -508,7 +508,6 @@
 @media (max-width: 600px) {
   .contactPage {
     height: fit-content;
-    overflow-y: hidden;
 
     .heading {
       margin-top: 2rem;
@@ -528,7 +527,10 @@
       margin-top: 1.5rem;
       margin-bottom: 0rem;
       height: 70lvh;
-      pointer-events: none;
+
+      .scrollWrapper {
+        pointer-events: none;
+      }
     }
 
     // .cardContainer {
@@ -603,7 +605,6 @@
 @media (max-width: 400px) {
   .contactPage {
     .mobileContainer {
-      
       .scrollWrapper {
         gap: 0.8rem 0.9rem;
       }

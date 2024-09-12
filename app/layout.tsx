@@ -26,8 +26,11 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
+    url: "https://www.bits-oasis.org",
+    title: "Oasis '24",
+    description: "The official website of Oasis 2024 - Asia's Largest Student-Run College Cultural Festival returns for its 53rd edition in 2024! Est. 1971",
     images: [{
-      url: "https://www.bits-oasis.org/_next/static/media/oglogo.9fac8004.png",
+      url: "https://www.bits-oasis.org/oglogo.png",
     }],
   },
 };

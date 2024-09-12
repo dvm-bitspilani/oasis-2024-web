@@ -291,9 +291,7 @@
 }
 
 @media (max-width: 2100px) and (min-width: 1700px) {
-
   .bottom {
-    
     .bottomAnimation {
       width: 300px;
       height: 280px;
@@ -395,7 +393,7 @@
       }
     }
 
-    .cardContainer, 
+    .cardContainer,
     .cardContainer1 {
       opacity: 0;
       margin-top: 0;
@@ -405,8 +403,8 @@
     .mobileContainer {
       margin-top: 3rem;
       display: block;
-      
-      .scrollWrapper{
+
+      .scrollWrapper {
         width: 100%;
         height: 100%;
         display: flex;
@@ -488,7 +486,7 @@
   }
 
   .bottom {
-    display: none
+    display: none;
   }
 }
 
@@ -529,7 +527,10 @@
       margin-top: 1.5rem;
       margin-bottom: 0rem;
       height: 70lvh;
-      overflow-y: hidden;
+
+      .scrollWrapper {
+        pointer-events: none;
+      }
     }
 
     // .cardContainer {
@@ -584,10 +585,8 @@
 //   }
 // }
 
-@media(max-width: 450px) {
-
+@media (max-width: 450px) {
   .contactPage {
-
     .heading {
       margin-top: 1rem;
     }
@@ -595,19 +594,20 @@
     .mobileContainer {
       margin-top: 1rem;
       margin-bottom: 0rem;
-      gap: 1rem;
+
+      .scrollWrapper {
+        gap: 1rem;
+      }
     }
   }
 }
 
-@media(max-width: 400px) {
-
+@media (max-width: 400px) {
   .contactPage {
-
     .mobileContainer {
-      gap: 0.8rem 0.9rem;
+      .scrollWrapper {
+        gap: 0.8rem 0.9rem;
+      }
     }
   }
 }
-
-

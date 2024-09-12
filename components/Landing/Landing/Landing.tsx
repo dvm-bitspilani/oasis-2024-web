@@ -512,6 +512,7 @@ export default function Landing() {
                   {
                     yPercent: -110,
                     duration: 2,
+                    pointerEvents: "auto",
                   },
                   "-=0.5"
                 );

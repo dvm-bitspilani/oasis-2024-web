@@ -510,6 +510,7 @@
 @media (max-width: 600px) {
   .contactPage {
     height: fit-content;
+    overflow-y: hidden;
 
     .heading {
       margin-top: 2rem;
@@ -529,7 +530,8 @@
       margin-top: 1.5rem;
       margin-bottom: 0rem;
       height: 70lvh;
-      overflow-y: hidden;
+      overflow-y: scroll;
+      pointer-events: none;
     }
 
     // .cardContainer {

@@ -251,7 +251,7 @@ export default function Landing() {
         .from(
           camera.position,
           {
-            z: 2.65,
+            z: 2.48,
             duration: 4,
             ease: "sine.inOut",
           },
@@ -260,31 +260,39 @@ export default function Landing() {
         .from(
           camera.rotation,
           {
-            x: -0.2,
+            x: -0.3,
             duration: 4,
             ease: "sine.inOut",
           },
           "<"
         )
-        // .from(
-        //   slotMachine.current.position,
-        //   {
-        //     y: -0.5, // Start from below the screen
-        //     duration: 1.25,
-        //     ease: "power2.out",
-        //   },
-        //   "<"
-        // )
-        .to("#mainwrapper", {
-          autoAlpha: 1,
-          duration: 1,
-          ease: "sine.inOut",
-        })
-        .to("#oasisLogo", {
-          autoAlpha: 1,
-          duration: 0.5,
-          ease: "sine.inOut",
-        });
+        .to(
+          "#mainwrapper",
+          {
+            autoAlpha: 1,
+            duration: 1,
+            ease: "sine.inOut",
+          },
+          "-=1"
+        )
+        .to(
+          "#oasisLogo",
+          {
+            autoAlpha: 1,
+            duration: 0.5,
+            ease: "sine.inOut",
+          },
+          "-=1"
+        )
+        .to(
+          "#iframe-overlay",
+          {
+            opacity: 0,
+            ease: "none",
+            duration: 0.5,
+          },
+          "-=0.5"
+        );
     }
   }, [isLoaded, camera]);
 
@@ -375,14 +383,6 @@ export default function Landing() {
                         : -0.5
                       : 0,
                     z: conditions.isMobile ? 0 : -0.5,
-                    duration: 1,
-                  },
-                  "<"
-                )
-                .to(
-                  "#iframe-overlay",
-                  {
-                    opacity: 0,
                     duration: 1,
                   },
                   "<"

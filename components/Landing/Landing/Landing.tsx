@@ -480,8 +480,8 @@ export default function Landing() {
                 .to(
                   "#contact-us-inner-scroll",
                   {
-                    yPercent: -0,
-                    duration: 10,
+                    yPercent: -110,
+                    duration: 1,
                     pointerEvents: "auto",
                   },
                   "-=0.5"

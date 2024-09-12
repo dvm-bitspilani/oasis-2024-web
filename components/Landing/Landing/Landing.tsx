@@ -223,48 +223,48 @@ export default function Landing() {
   //   };
   // }, []);
 
-  // useGSAP(() => {
-  //   let timelineConfig;
-  //   if (isLoaded) {
-  //     timelineConfig = gsap.timeline();
-  //     timelineConfig
-  //       .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state
-  //       .set("#oasisLogo", { autoAlpha: 0 })
-  //       .from(
-  //         "#leftTree",
-  //         {
-  //           x: "-100vw",
-  //           duration: 1.5,
-  //           ease: "sine.inOut",
-  //         },
-  //         0
-  //       )
-  //       .from(
-  //         "#rightTree",
-  //         {
-  //           x: "100vw",
-  //           duration: 1.5,
-  //           ease: "sine.inOut",
-  //         },
-  //         0
-  //       )
-  //       // .from(slotMachine.current, {
-  //       //   y: "100vw", // Start from below the screen
-  //       //   duration: 1.5,
-  //       //   ease: "sine.inOut",
-  //       // })
-  //       .to("#mainwrapper", {
-  //         autoAlpha: 1,
-  //         duration: 1,
-  //         ease: "sine.inOut",
-  //       })
-  //       .to("#oasisLogo", {
-  //         autoAlpha: 1,
-  //         duration: 0.5,
-  //         ease: "sine.inOut",
-  //       });
-  //   }
-  // }, [isLoaded]);
+  useGSAP(() => {
+    let timelineConfig;
+    if (isLoaded) {
+      timelineConfig = gsap.timeline();
+      timelineConfig
+        .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state
+        .set("#oasisLogo", { autoAlpha: 0 })
+        .from(
+          "#leftTree",
+          {
+            x: "-100vw",
+            duration: 1.5,
+            ease: "sine.inOut",
+          },
+          0
+        )
+        .from(
+          "#rightTree",
+          {
+            x: "100vw",
+            duration: 1.5,
+            ease: "sine.inOut",
+          },
+          0
+        )
+        .from(slotMachine.current.position, {
+          y: -2.25, // Start from below the screen
+          duration: 1.5,
+          ease: "sine.inOut",
+        })
+        .to("#mainwrapper", {
+          autoAlpha: 1,
+          duration: 1,
+          ease: "sine.inOut",
+        })
+        .to("#oasisLogo", {
+          autoAlpha: 1,
+          duration: 0.5,
+          ease: "sine.inOut",
+        });
+    }
+  }, [isLoaded]);
 
   useGSAP(
     () => {

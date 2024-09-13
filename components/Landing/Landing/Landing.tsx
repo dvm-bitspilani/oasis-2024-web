@@ -224,84 +224,134 @@ export default function Landing() {
   // }, []);
 
   useGSAP(() => {
-    let timelineConfig;
     if (isLoaded && camera) {
-      timelineConfig = gsap.timeline();
-      timelineConfig
-        .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state
-        .set("#oasisLogo", { autoAlpha: 0 })
-        .from(
-          "#leftTree",
-          {
-            x: "-100vw",
-            duration: 1.5,
-            ease: "sine.inOut",
-          },
-          0
-        )
-        .from(
-          "#rightTree",
-          {
-            x: "100vw",
-            duration: 1.5,
-            ease: "sine.inOut",
-          },
-          0
-        )
-        .from(
-          camera.position,
-          {
-            z: 2.48,
-            duration: 4,
-            ease: "sine.inOut",
-          },
-          "<"
-        )
-        .from(
-          camera.rotation,
-          {
-            x: -0.3,
-            duration: 4,
-            ease: "sine.inOut",
-          },
-          "<"
-        )
-        .to(
-          "#mainwrapper",
-          {
-            autoAlpha: 1,
-            duration: 1,
-            ease: "sine.inOut",
-          },
-          "-=1"
-        )
-        .to(
-          "#oasisLogo",
-          {
-            autoAlpha: 1,
-            duration: 0.5,
-            ease: "sine.inOut",
-          },
-          "-=1"
-        )
-        .from(
-          "#tickets-container",
-          {
-            duration: 0.5,
-            xPercent: 100,
-            ease: "sine.out",
-          },
-          "<"
-        )
-        .to(
-          "#iframe-overlay",
-          {
-            opacity: 0,
-            ease: "none",
-            duration: 0.5,
-          },
-          "-=0.5"
-        );
+      const timeline = gsap.timeline();
+      if (window.innerWidth > 1000) {
+        timeline
+          .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state
+          .set("#oasisLogo", { autoAlpha: 0 })
+          .from(
+            "#leftTree",
+            {
+              x: "-100vw",
+              duration: 1.5,
+              ease: "sine.inOut",
+            },
+            0
+          )
+          .from(
+            "#rightTree",
+            {
+              x: "100vw",
+              duration: 1.5,
+              ease: "sine.inOut",
+            },
+            0
+          )
+          .from(
+            camera.position,
+            {
+              z: 2.48,
+              duration: 4,
+              ease: "sine.inOut",
+            },
+            "<"
+          )
+          .from(
+            camera.rotation,
+            {
+              x: -0.3,
+              duration: 4,
+              ease: "sine.inOut",
+            },
+            "<"
+          )
+          .to(
+            "#mainwrapper",
+            {
+              autoAlpha: 1,
+              duration: 1,
+              ease: "sine.inOut",
+            },
+            "-=1"
+          )
+          .to(
+            "#oasisLogo",
+            {
+              autoAlpha: 1,
+              duration: 0.5,
+              ease: "sine.inOut",
+            },
+            "-=1"
+          )
+          .from(
+            "#tickets-container",
+            {
+              duration: 0.5,
+              xPercent: 100,
+              ease: "sine.out",
+            },
+            "<"
+          )
+          .to(
+            "#iframe-overlay",
+            {
+              opacity: 0,
+              ease: "none",
+              duration: 0.5,
+            },
+            "-=0.5"
+          );
+      } else {
+        timeline
+          .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state
+          .set("#oasisLogo", { autoAlpha: 0 })
+          .from(
+            "#leftTree",
+            {
+              x: "-100vw",
+              duration: 1.5,
+              ease: "sine.inOut",
+            },
+            0
+          )
+          .from(
+            "#rightTree",
+            {
+              x: "100vw",
+              duration: 1.5,
+              ease: "sine.inOut",
+            },
+            0
+          )
+          .to(
+            "#mainwrapper",
+            {
+              autoAlpha: 1,
+              duration: 1,
+              ease: "sine.inOut",
+            },
+            "-=1"
+          )
+          .to(
+            "#oasisLogo",
+            {
+              autoAlpha: 1,
+              duration: 0.5,
+              ease: "sine.inOut",
+            },
+            "-=1"
+          )
+          .to(
+            "#iframe-overlay",
+            {
+              opacity: 0,
+              ease: "none",
+              duration: 0.5,
+            },
+            "-=0.5"
+          );
+      }
     }
   }, [isLoaded, camera]);
 

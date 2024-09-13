@@ -284,6 +284,15 @@ export default function Landing() {
           },
           "-=1"
         )
+        .from(
+          "#tickets-container",
+          {
+            duration: 0.5,
+            xPercent: 100,
+            ease: "sine.out",
+          },
+          "<"
+        )
         .to(
           "#iframe-overlay",
           {

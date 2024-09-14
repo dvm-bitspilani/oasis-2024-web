@@ -9,6 +9,7 @@ import Grid from "@/components/Landing/Grid/Grid";
 import OasisLogo from "@/components/Landing/Navbar/Logo/Logo";
 import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
 import Nav from "@/components/Nav/Nav";
+import SuitBackground from "@/components/Landing/Backdrop/Backdrop";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
           <Glow />
           <Trees />
           <Grunge />
+          <SuitBackground />
         </main>
       </main>
     </>

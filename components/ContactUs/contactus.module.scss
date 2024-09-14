@@ -508,6 +508,7 @@
 @media (max-width: 600px) {
   .contactPage {
     height: fit-content;
+    overflow-y: hidden;
 
     .heading {
       margin-top: 2rem;

@@ -255,7 +255,7 @@ export default function Landing() {
               duration: 4,
               ease: "sine.inOut",
             },
-            "<"
+            0
           )
           .from(
             camera.rotation,
@@ -264,7 +264,7 @@ export default function Landing() {
               duration: 4,
               ease: "sine.inOut",
             },
-            "<"
+            0
           )
           .to(
             "#mainwrapper",

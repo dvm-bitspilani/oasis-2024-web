@@ -50,7 +50,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Oasis '24</title>
+        <title>Oasis &#39;24</title>
         <meta name="description" content="The official website of Oasis 2024 - Asia's Largest Student-Run College Cultural Festival returns for its 53rd edition in 2024! Est. 1971" />
         <meta name="google-site-verification" content="GKxgBVi8dPgOPEBsP-lgb_ZM201NN8NE5ZbVEhrhpDw" />
       </head>

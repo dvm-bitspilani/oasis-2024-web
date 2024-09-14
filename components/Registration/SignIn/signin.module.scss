@@ -6,6 +6,9 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    @media(width <= 500px){
+      transform: scale(0.8);
+    }
     .title {
       background: linear-gradient(
         0deg,
@@ -31,6 +34,7 @@
       @media (width <= 650px) {
         font-size: 28px;
       }
+      
     }
   }
   .contentcontainer {

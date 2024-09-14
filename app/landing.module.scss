@@ -1,5 +1,9 @@
 .scrollWrapper {
     height: 300lvh;
+
+    @media (width <= 1000px) {
+        height: 400lvh;
+    }
 }
 
 .page {
@@ -24,4 +28,12 @@
     &:hover {
         color: yellow;
     }
+}
+
+.navTickets{
+    position: fixed;
+    right: -14%;
+    top: 45%;
+    transform: translateY(-50%);
+    z-index: 5000;
 }

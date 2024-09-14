@@ -7,5 +7,12 @@
   align-items: center;
   color: white;
   position: fixed;
-  z-index: 10000;
+  z-index: 9999999;
+
+  @media (width > 1000px) {
+    img{
+      height: 125%;
+    } 
+  }
+
 }

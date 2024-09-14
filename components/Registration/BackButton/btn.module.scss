@@ -15,7 +15,7 @@
     height: 100%;
     position: absolute;
 
-    @media (width <= 585px) {
+    @media (width <= 1150px) {
       display: none;
     }
   }
@@ -63,7 +63,4 @@
     transform: scale(0.65);
   }
 
-  @media (width <= 585px) {
-    transform: scale(1);
-  }
 }

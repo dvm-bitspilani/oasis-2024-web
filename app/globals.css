@@ -14,7 +14,8 @@ body {
   cursor: url("../assets/Global/Cursor.svg"), default;
 }
 
-.htmlScreen iframe, #iframe-overlay {
+.htmlScreen iframe,
+#iframe-overlay {
   width: 1000px;
   height: 750px;
   transform: rotateY(180deg);
@@ -24,18 +25,30 @@ body {
   position: absolute;
 }
 
-#iframe-overlay{
+#iframe-overlay {
   z-index: 1;
-  background-color: transparent;
+  opacity: 0;
   cursor: pointer;
 }
 
-#iframe-overlay + div{
+@media (width > 1000px) {
+  #iframe-overlay{
+    opacity: 1;
+    background: url('/Videos/preloaderCoinVideo.gif');
+    background-color: black;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+}
+
+#iframe-overlay + div {
   width: 1000px !important;
   height: 750px !important;
 }
 
-#iframe-container{
+#iframe-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,29 +60,12 @@ body {
 .ant-select-selector {
   width: 90% !important;
   background-color: transparent !important;
-  color: linear-gradient(
-    0deg,
-    #fffee5 -27.5%,
-    #efd48d -1.13%,
-    #ffce93 48.36%,
-    #f9e6a2 100%
-  ) !important;
   padding: 0 !important;
-  /* background: linear-gradient(
-    0deg,
-    #fffee5 -27.5%,
-    #efd48d -1.13%,
-    #ffce93 48.36%,
-    #f9e6a2 100%
-  ) !important; */
-  /* background-clip: text !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important; */
   border: none !important;
-  /* color: #efd48d !important; */
   font-family: Vidaloka !important;
   font-size: 28px !important;
   line-height: 43px !important;
+  padding-left: 2px !important;
 }
 
 .ant-select-selection-placeholder {
@@ -82,8 +78,8 @@ body {
   }
 }
 
-.ant-select-selection-overflow-item-suffix {
-  width: 0px !important;
+.ant-select-selection-overflow-item-suffix .ant-select-selection-search-input {
+  transform: translate(-10px, -2px) !important;
 }
 
 .ant-select-multiple .ant-select-selection-placeholder {
@@ -172,7 +168,7 @@ body {
   background-clip: unset !important;
   -webkit-background-clip: unset !important;
   -webkit-text-fill-color: unset !important;
-  transform: translateX(-8px) !important;
+  transform: translate(-10px, -6px) !important;
 }
 
 .ant-select-clear {

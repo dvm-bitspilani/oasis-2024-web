@@ -224,47 +224,136 @@ export default function Landing() {
   // }, []);
 
   useGSAP(() => {
-    let timelineConfig;
-    if (isLoaded) {
-      timelineConfig = gsap.timeline();
-      timelineConfig
-        .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state
-        .set("#oasisLogo", { autoAlpha: 0 })
-        .from(
-          "#leftTree",
-          {
-            x: "-100vw",
-            duration: 1.5,
-            ease: "sine.inOut",
-          },
-          0
-        )
-        .from(
-          "#rightTree",
-          {
-            x: "100vw",
-            duration: 1.5,
-            ease: "sine.inOut",
-          },
-          0
-        )
-        .from(slotMachine.current.position, {
-          y: -2.25, // Start from below the screen
-          duration: 1.5,
-          ease: "sine.inOut",
-        })
-        .to("#mainwrapper", {
-          autoAlpha: 1,
-          duration: 1,
-          ease: "sine.inOut",
-        })
-        .to("#oasisLogo", {
-          autoAlpha: 1,
-          duration: 0.5,
-          ease: "sine.inOut",
-        });
+    if (isLoaded && camera) {
+      const timeline = gsap.timeline();
+      if (window.innerWidth > 1000) {
+        timeline
+          .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state
+          .set("#oasisLogo", { autoAlpha: 0 })
+          .from(
+            "#leftTree",
+            {
+              x: "-100vw",
+              duration: 1.5,
+              ease: "sine.inOut",
+            },
+            0
+          )
+          .from(
+            "#rightTree",
+            {
+              x: "100vw",
+              duration: 1.5,
+              ease: "sine.inOut",
+            },
+            0
+          )
+          .from(
+            camera.position,
+            {
+              z: 2.48,
+              duration: 4,
+              ease: "sine.inOut",
+            },
+            "<"
+          )
+          .from(
+            camera.rotation,
+            {
+              x: -0.3,
+              duration: 4,
+              ease: "sine.inOut",
+            },
+            "<"
+          )
+          .to(
+            "#mainwrapper",
+            {
+              autoAlpha: 1,
+              duration: 1,
+              ease: "sine.inOut",
+            },
+            "-=1"
+          )
+          .to(
+            "#oasisLogo",
+            {
+              autoAlpha: 1,
+              duration: 0.5,
+              ease: "sine.inOut",
+            },
+            "-=1"
+          )
+          .from(
+            "#tickets-container",
+            {
+              duration: 0.5,
+              xPercent: 100,
+              ease: "sine.out",
+            },
+            "<"
+          )
+          .to(
+            "#iframe-overlay",
+            {
+              opacity: 0,
+              ease: "none",
+              duration: 0.5,
+            },
+            "-=0.5"
+          );
+      } else {
+        timeline
+          .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state
+          .set("#oasisLogo", { autoAlpha: 0 })
+          .from(
+            "#leftTree",
+            {
+              x: "-100vw",
+              duration: 1.5,
+              ease: "sine.inOut",
+            },
+            0
+          )
+          .from(
+            "#rightTree",
+            {
+              x: "100vw",
+              duration: 1.5,
+              ease: "sine.inOut",
+            },
+            0
+          )
+          .to(
+            "#mainwrapper",
+            {
+              autoAlpha: 1,
+              duration: 1,
+              ease: "sine.inOut",
+            },
+            "-=1"
+          )
+          .to(
+            "#oasisLogo",
+            {
+              autoAlpha: 1,
+              duration: 0.5,
+              ease: "sine.inOut",
+            },
+            "-=1"
+          )
+          .to(
+            "#iframe-overlay",
+            {
+              opacity: 0,
+              ease: "none",
+              duration: 0.5,
+            },
+            "-=0.5"
+          );
+      }
     }
-  }, [isLoaded]);
+  }, [isLoaded, camera]);
 
   useGSAP(
     () => {
@@ -482,6 +571,7 @@ export default function Landing() {
                   {
                     yPercent: -110,
                     duration: 2,
+                    pointerEvents: "auto",
                   },
                   "-=0.5"
                 );
@@ -718,7 +808,7 @@ export default function Landing() {
                             rotation: translations[i].rotation,
                             zIndex: cardCount - i,
                             transformOrigin: "center center",
-                            duration: 0.2,
+                            duration: 0.25,
                             ease: "power1.inOut",
                             onStart: () => {
                               for (let j = i + 1; j < cardCount; j++) {
@@ -727,7 +817,7 @@ export default function Landing() {
                                   y: translations[i].y,
                                   rotation: translations[i].rotation,
                                   transformOrigin: "center center",
-                                  duration: 0.2,
+                                  duration: 0.25,
                                   ease: "power1.inOut",
                                   zIndex: j,
                                 });
@@ -783,7 +873,7 @@ export default function Landing() {
                               rotation: translations1[i].rotation,
                               zIndex: cardCount1 - i,
                               transformOrigin: "center center",
-                              duration: 0.2,
+                              duration: 0.25,
                               ease: "power1.out",
                               onStart: () => {
                                 for (let j = i + 1; j < cardCount1; j++) {
@@ -792,7 +882,7 @@ export default function Landing() {
                                     y: translations1[i].y,
                                     rotation: translations1[i].rotation,
                                     transformOrigin: "center center",
-                                    duration: 0.2,
+                                    duration: 0.25,
                                     ease: "power1.out",
                                     zIndex: j,
                                   });

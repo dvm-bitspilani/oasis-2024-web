@@ -13,7 +13,7 @@ import Nav from "@/components/Nav/Nav";
 export default function Home() {
   return (
     <>
-      <div className={styles.navTickets}>
+      <div className={styles.navTickets} id="tickets-container">
         <Nav />
       </div>
       <PrePreloader />

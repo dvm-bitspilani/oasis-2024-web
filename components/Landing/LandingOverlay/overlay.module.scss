@@ -60,6 +60,8 @@
       width: 50vw;
       height: 100lvh;
       .cardsFollowZone {
+        pointer-events: auto;
+
         position: absolute;
         bottom: 10vh;
         left: 10vw;

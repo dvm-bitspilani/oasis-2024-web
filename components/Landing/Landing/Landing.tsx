@@ -808,7 +808,7 @@ export default function Landing() {
                             rotation: translations[i].rotation,
                             zIndex: cardCount - i,
                             transformOrigin: "center center",
-                            duration: 0.2,
+                            duration: 0.25,
                             ease: "power1.inOut",
                             onStart: () => {
                               for (let j = i + 1; j < cardCount; j++) {
@@ -817,7 +817,7 @@ export default function Landing() {
                                   y: translations[i].y,
                                   rotation: translations[i].rotation,
                                   transformOrigin: "center center",
-                                  duration: 0.2,
+                                  duration: 0.25,
                                   ease: "power1.inOut",
                                   zIndex: j,
                                 });
@@ -873,7 +873,7 @@ export default function Landing() {
                               rotation: translations1[i].rotation,
                               zIndex: cardCount1 - i,
                               transformOrigin: "center center",
-                              duration: 0.2,
+                              duration: 0.25,
                               ease: "power1.out",
                               onStart: () => {
                                 for (let j = i + 1; j < cardCount1; j++) {
@@ -882,7 +882,7 @@ export default function Landing() {
                                     y: translations1[i].y,
                                     rotation: translations1[i].rotation,
                                     transformOrigin: "center center",
-                                    duration: 0.2,
+                                    duration: 0.25,
                                     ease: "power1.out",
                                     zIndex: j,
                                   });

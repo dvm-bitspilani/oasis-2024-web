@@ -248,24 +248,24 @@ export default function Landing() {
             },
             0
           )
-          .from(
-            camera.position,
-            {
-              z: 2.48,
-              duration: 4,
-              ease: "sine.inOut",
-            },
-            "<"
-          )
-          .from(
-            camera.rotation,
-            {
-              x: -0.3,
-              duration: 4,
-              ease: "sine.inOut",
-            },
-            "<"
-          )
+          // .from(
+          //   camera.position,
+          //   {
+          //     z: 2.48,
+          //     duration: 4,
+          //     ease: "sine.inOut",
+          //   },
+          //   "<"
+          // )
+          // .from(
+          //   camera.rotation,
+          //   {
+          //     x: -0.3,
+          //     duration: 4,
+          //     ease: "sine.inOut",
+          //   },
+          //   "<"
+          // )
           .to(
             "#mainwrapper",
             {
@@ -292,16 +292,16 @@ export default function Landing() {
               ease: "sine.out",
             },
             "<"
-          )
-          .to(
-            "#iframe-overlay",
-            {
-              opacity: 0,
-              ease: "none",
-              duration: 0.5,
-            },
-            "-=0.5"
           );
+        // .to(
+        //   "#iframe-overlay",
+        //   {
+        //     opacity: 0,
+        //     ease: "none",
+        //     duration: 0.5,
+        //   },
+        //   "-=0.5"
+        // );
       } else {
         timeline
           .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state

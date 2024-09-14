@@ -526,15 +526,17 @@
   .contactPage {
     height: fit-content;
     overflow-y: hidden;
+    margin-top: 0;
 
     .heading {
+      margin-top: 0;
       display: none;
     }
 
     .mobileContainer {
       margin-top: 0rem;
       margin-bottom: 0rem;
-      height: 80lvh;
+      height: 70lvh;
 
       .scrollWrapper {
         margin-top: 0rem;
@@ -543,6 +545,7 @@
         flex-direction: column;
 
         h2 {
+          margin-top: 0;
           margin-bottom: 1rem;
           display: block;
         }

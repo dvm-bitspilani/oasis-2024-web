@@ -32,7 +32,7 @@ export default function PrePreloader() {
       setTimeout(() => {
         setIsLoaded(true);
       }, 500);
-      console.log("#preloader");
+      // console.log("#preloader");
     });
   }, []);
 

@@ -49,6 +49,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <title>Oasis '24</title>
+        <meta name="description" content="The official website of Oasis 2024 - Asia's Largest Student-Run College Cultural Festival returns for its 53rd edition in 2024! Est. 1971" />
+        <meta name="google-site-verification" content="GKxgBVi8dPgOPEBsP-lgb_ZM201NN8NE5ZbVEhrhpDw" />
+      </head>
       <body className={inter.className}>
         <GoogleAnalytics gaId="G-P6H0V5H4L7" />
         <GoogleOAuthProvider clientId="1003752349264-5u6j9a2thpcj84kj05bsah2u46q7jegt.apps.googleusercontent.com">

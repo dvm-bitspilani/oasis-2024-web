@@ -39,10 +39,18 @@ interface Props {
   iframeClick: () => void;
   setCamera: (value: any) => void;
   isVideoFocused: boolean;
+  isEvents: boolean;
 }
 
 export const SlotMachine2 = forwardRef(function SlotMachine2(
-  { setIs3dLoaded, iframeClick, setCamera, isVideoFocused, ...props }: Props,
+  {
+    setIs3dLoaded,
+    iframeClick,
+    setCamera,
+    isVideoFocused,
+    isEvents,
+    ...props
+  }: Props,
   ref: any
 ) {
   const { nodes, materials } = useGLTF("/Models/uSlotM.glb") as GLTFResult;
@@ -54,21 +62,25 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
   const handleRef: any = useRef();
 
   const nextVideoIframe = () => {
-    setIframeIndex((prev) => {
-      if (prev === 2) {
-        return 0;
-      }
-      return prev + 1;
-    });
+    if (!isEvents) {
+      setIframeIndex((prev) => {
+        if (prev === 2) {
+          return 0;
+        }
+        return prev + 1;
+      });
+    }
   };
 
   const prevVideoIframe = () => {
-    setIframeIndex((prev) => {
-      if (prev === 0) {
-        return 2;
-      }
-      return prev - 1;
-    });
+    if (!isEvents) {
+      setIframeIndex((prev) => {
+        if (prev === 0) {
+          return 2;
+        }
+        return prev - 1;
+      });
+    }
   };
 
   useGSAP(
@@ -177,11 +189,20 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
               rotation={[0.4510000000000003, 0, 0]}
             >
               <div id="iframe-container">
-                <div id="iframe-overlay" onClick={iframeClick}></div>
+                <div
+                  id="iframe-overlay"
+                  onClick={iframeClick}
+                  style={isEvents ? { display: "none" } : { zIndex: 2 }}
+                ></div>
                 <ReactPlayer
                   url={`https://www.youtube.com/embed/${videoUrlArrayIframe[iframeIndex]}`}
+                  style={isEvents ? { display: "none" } : { zIndex: 1 }}
                   playing={isVideoFocused}
                   loop
+                />
+                <iframe
+                  src="http://localhost:3000/events"
+                  style={{ zIndex: 0 }}
                 />
               </div>
             </Html>

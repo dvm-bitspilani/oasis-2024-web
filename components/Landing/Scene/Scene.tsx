@@ -30,6 +30,7 @@ interface Props {
   setCamera: (value: any) => void;
   isVideoFocused: boolean;
   isLanding: boolean;
+  isEvents: boolean;
 }
 
 const LandingScene = forwardRef(function LandingScene(
@@ -41,6 +42,7 @@ const LandingScene = forwardRef(function LandingScene(
     isVideoFocused,
     setCamera,
     isLanding,
+    isEvents,
   }: Props,
   ref
 ) {
@@ -82,6 +84,7 @@ const LandingScene = forwardRef(function LandingScene(
               iframeClick={iframeClick}
               setCamera={setCamera}
               isVideoFocused={isVideoFocused}
+              isEvents={isEvents}
             />
           )}
         </group>

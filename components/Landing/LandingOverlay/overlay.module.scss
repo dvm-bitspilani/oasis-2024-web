@@ -48,9 +48,10 @@
         width: 50vw;
         .card {
           position: absolute;
-          background-color: red;
-          height: 110px;
-          width: 80px;
+          background-color: transparent;
+          height: 100px;
+          width: 70px;
+          border: 1px solid #ffd700;
         }
       }
     }

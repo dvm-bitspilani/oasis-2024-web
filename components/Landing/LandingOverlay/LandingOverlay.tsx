@@ -9,43 +9,46 @@ import Countdown from "../Countdown/Countdown";
 import Nav from "@/components/Nav/Nav";
 import Card from "../Card/Card";
 import { useEffect, useRef, useState } from "react";
-import { useSpring, animated } from "@react-spring/web";
+import { useSpring, animated, config } from "@react-spring/web";
 
 export default function LandingOverlay() {
-  const [mouse, setMouse] = useState({
-    x: 0,
-    y: 0,
-  });
+  const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const [isMouseOverLeft, setIsMouseOverLeft] = useState(false);
   const [isMouseMoving, setIsMouseMoving] = useState(true);
   const [angle, setAngle] = useState([0, (2 * Math.PI) / 3, (4 * Math.PI) / 3]);
   const radius = 100;
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
 
-  // New state for vertical offsets
   const [verticalOffsets, setVerticalOffsets] = useState([0, 0, 0]);
   const [verticalOffsetRandomiser, setVerticalOffsetRandomiser] = useState(
     Array.from({ length: 3 }, () => Math.floor(Math.random() * 1000) + 1)
   );
 
+  // Custom spring configuration for bounciness
+  const bouncyConfig = {
+    tension: 300,
+    friction: 10,
+    mass: 2,
+  };
+
   // Springs for smooth animation for 3 cards
   const [styles1, api1] = useSpring(() => ({
     x: mouse.x,
     y: mouse.y,
-    config: { tension: 200, friction: 20 },
+    config: bouncyConfig,
   }));
   const [styles2, api2] = useSpring(() => ({
     x: mouse.x,
     y: mouse.y,
-    config: { tension: 200, friction: 20 },
+    config: bouncyConfig,
   }));
   const [styles3, api3] = useSpring(() => ({
     x: mouse.x,
     y: mouse.y,
-    config: { tension: 200, friction: 20 },
+    config: bouncyConfig,
   }));
 
-  // Update the cards' positions based on mouse movement or hovering when the mouse is not over left
+  // Update the cards' positions based on mouse movement or hovering
   useEffect(() => {
     if (isMouseOverLeft) {
       if (!isMouseMoving) {
@@ -58,19 +61,10 @@ export default function LandingOverlay() {
         const cardX3 = mouse.x + radius * Math.cos(angle[2]);
         const cardY3 = mouse.y + radius * Math.sin(angle[2]);
 
-        // Update all three cards' positions
-        api1.start({
-          x: cardX1,
-          y: cardY1,
-        });
-        api2.start({
-          x: cardX2,
-          y: cardY2,
-        });
-        api3.start({
-          x: cardX3,
-          y: cardY3,
-        });
+        // Update all three cards' positions with delay
+        api1.start({ x: cardX1, y: cardY1, delay: 50 });
+        api2.start({ x: cardX2, y: cardY2, delay: 100 });
+        api3.start({ x: cardX3, y: cardY3, delay: 150 });
 
         // Increment the angles for the next frame
         setAngle((prevAngle) => [
@@ -79,10 +73,10 @@ export default function LandingOverlay() {
           (prevAngle[2] + 0.01) % (2 * Math.PI),
         ]);
       } else {
-        // When the mouse is moving, all cards follow the cursor
-        api1.start({ x: mouse.x, y: mouse.y });
-        api2.start({ x: mouse.x, y: mouse.y });
-        api3.start({ x: mouse.x, y: mouse.y });
+        // When the mouse is moving, all cards follow the cursor with different delays
+        api1.start({ x: mouse.x, y: mouse.y, delay: 50 });
+        api2.start({ x: mouse.x, y: mouse.y, delay: 100 });
+        api3.start({ x: mouse.x, y: mouse.y, delay: 150 });
       }
     } else {
       const centerX = window.innerWidth / 2 - 400;
@@ -120,7 +114,7 @@ export default function LandingOverlay() {
 
       return () => clearInterval(interval);
     }
-  }, [isMouseOverLeft]);
+  }, [isMouseOverLeft, verticalOffsetRandomiser]);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     // Update mouse position
@@ -143,7 +137,6 @@ export default function LandingOverlay() {
   };
 
   const leftCardContainerRef = useRef(null);
-  const rightCardContainerRef = useRef(null);
 
   return (
     <div

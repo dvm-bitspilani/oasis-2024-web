@@ -14,14 +14,14 @@ import { useSpring, animated, config } from "@react-spring/web";
 export default function LandingOverlay() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const [isMouseOverLeft, setIsMouseOverLeft] = useState(false);
+  const [isMouseOverRight, setIsMouseOverRight] = useState(false);
   const [isMouseMoving, setIsMouseMoving] = useState(true);
   const [angle, setAngle] = useState([0, (2 * Math.PI) / 3, (4 * Math.PI) / 3]);
   const radius = 100;
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
-
   const [verticalOffsets, setVerticalOffsets] = useState([0, 0, 0]);
   const [verticalOffsetRandomiser, setVerticalOffsetRandomiser] = useState(
-    Array.from({ length: 3 }, () => Math.floor(Math.random() * 1000) + 1)
+    Array.from({ length: 6 }, () => Math.floor(Math.random() * 1000) + 1)
   );
 
   // Custom spring configuration for bounciness
@@ -43,6 +43,21 @@ export default function LandingOverlay() {
     config: bouncyConfig,
   }));
   const [styles3, api3] = useSpring(() => ({
+    x: mouse.x,
+    y: mouse.y,
+    config: bouncyConfig,
+  }));
+  const [styles4, api4] = useSpring(() => ({
+    x: mouse.x,
+    y: mouse.y,
+    config: bouncyConfig,
+  }));
+  const [styles5, api5] = useSpring(() => ({
+    x: mouse.x,
+    y: mouse.y,
+    config: bouncyConfig,
+  }));
+  const [styles6, api6] = useSpring(() => ({
     x: mouse.x,
     y: mouse.y,
     config: bouncyConfig,
@@ -137,6 +152,7 @@ export default function LandingOverlay() {
   };
 
   const leftCardContainerRef = useRef(null);
+  const rightCardContainerRef = useRef(null);
 
   return (
     <div
@@ -193,8 +209,45 @@ export default function LandingOverlay() {
           </div>
         </div>
         <div className={styles.cardsRightOuterContainer}>
-          <div className={styles.cardsFollowZone}></div>
-          <div className={styles.cardContainer}></div>
+          <div
+            className={styles.cardsFollowZone}
+            ref={rightCardContainerRef}
+            onMouseEnter={() => {
+              setIsMouseOverRight(true);
+            }}
+            onMouseLeave={() => {
+              setIsMouseOverRight(false);
+            }}
+          ></div>
+          <div className={styles.cardContainer}>
+            <animated.div
+              className={styles.card}
+              style={{
+                position: "absolute",
+                left: styles4.x,
+                top: styles4.y,
+                transform: "translate(-50%, -50%)",
+              }}
+            ></animated.div>
+            <animated.div
+              className={styles.card}
+              style={{
+                position: "absolute",
+                left: styles5.x,
+                top: styles5.y,
+                transform: "translate(-50%, -50%)",
+              }}
+            ></animated.div>
+            <animated.div
+              className={styles.card}
+              style={{
+                position: "absolute",
+                left: styles6.x,
+                top: styles6.y,
+                transform: "translate(-50%, -50%)",
+              }}
+            ></animated.div>
+          </div>
         </div>
       </div>
       <AboutUsPage />

@@ -16,7 +16,16 @@ export default function LandingOverlay() {
   const [isMouseOverLeft, setIsMouseOverLeft] = useState(false);
   const [isMouseOverRight, setIsMouseOverRight] = useState(false);
   const [isMouseMoving, setIsMouseMoving] = useState(true);
-  const [angle, setAngle] = useState([0, (2 * Math.PI) / 3, (4 * Math.PI) / 3]);
+  const [angleRight, setAngleRight] = useState([
+    0,
+    (2 * Math.PI) / 3,
+    (4 * Math.PI) / 3,
+  ]);
+  const [angleLeft, setAngleLeft] = useState([
+    0,
+    (2 * Math.PI) / 3,
+    (4 * Math.PI) / 3,
+  ]);
   const radius = 100;
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
   const [verticalOffsets, setVerticalOffsets] = useState([0, 0, 0]);
@@ -67,14 +76,14 @@ export default function LandingOverlay() {
   useEffect(() => {
     if (isMouseOverLeft) {
       if (!isMouseMoving) {
-        const cardX1 = mouse.x + radius * Math.cos(angle[0]);
-        const cardY1 = mouse.y + radius * Math.sin(angle[0]);
+        const cardX1 = mouse.x + radius * Math.cos(angleLeft[0]);
+        const cardY1 = mouse.y + radius * Math.sin(angleLeft[0]);
 
-        const cardX2 = mouse.x + radius * Math.cos(angle[1]);
-        const cardY2 = mouse.y + radius * Math.sin(angle[1]);
+        const cardX2 = mouse.x + radius * Math.cos(angleLeft[1]);
+        const cardY2 = mouse.y + radius * Math.sin(angleLeft[1]);
 
-        const cardX3 = mouse.x + radius * Math.cos(angle[2]);
-        const cardY3 = mouse.y + radius * Math.sin(angle[2]);
+        const cardX3 = mouse.x + radius * Math.cos(angleLeft[2]);
+        const cardY3 = mouse.y + radius * Math.sin(angleLeft[2]);
 
         // Update all three cards' positions with delay
         api1.start({ x: cardX1, y: cardY1, delay: 50 });
@@ -82,7 +91,7 @@ export default function LandingOverlay() {
         api3.start({ x: cardX3, y: cardY3, delay: 150 });
 
         // Increment the angles for the next frame
-        setAngle((prevAngle) => [
+        setAngleLeft((prevAngle) => [
           (prevAngle[0] + 0.01) % (2 * Math.PI),
           (prevAngle[1] + 0.01) % (2 * Math.PI),
           (prevAngle[2] + 0.01) % (2 * Math.PI),
@@ -104,13 +113,62 @@ export default function LandingOverlay() {
     }
   }, [
     mouse,
-    angle,
+    angleLeft,
     isMouseMoving,
     verticalOffsets,
     isMouseOverLeft,
     api1,
     api2,
     api3,
+  ]);
+
+  useEffect(() => {
+    if (isMouseOverRight) {
+      if (!isMouseMoving) {
+        const cardX1 = mouse.x + radius * Math.cos(angleRight[0]);
+        const cardY1 = mouse.y + radius * Math.sin(angleRight[0]);
+
+        const cardX2 = mouse.x + radius * Math.cos(angleRight[1]);
+        const cardY2 = mouse.y + radius * Math.sin(angleRight[1]);
+
+        const cardX3 = mouse.x + radius * Math.cos(angleRight[2]);
+        const cardY3 = mouse.y + radius * Math.sin(angleRight[2]);
+
+        // Update all three cards' positions with delay
+        api4.start({ x: cardX1, y: cardY1, delay: 50 });
+        api5.start({ x: cardX2, y: cardY2, delay: 100 });
+        api6.start({ x: cardX3, y: cardY3, delay: 150 });
+
+        // Increment the angles for the next frame
+        setAngleRight((prevAngle) => [
+          (prevAngle[0] + 0.01) % (2 * Math.PI),
+          (prevAngle[1] + 0.01) % (2 * Math.PI),
+          (prevAngle[2] + 0.01) % (2 * Math.PI),
+        ]);
+      } else {
+        // When the mouse is moving, all cards follow the cursor with different delays
+        api4.start({ x: mouse.x, y: mouse.y, delay: 50 });
+        api5.start({ x: mouse.x, y: mouse.y, delay: 100 });
+        api6.start({ x: mouse.x, y: mouse.y, delay: 150 });
+      }
+    } else {
+      const centerX = window.innerWidth / 2 - 400;
+      const centerY = window.innerHeight / 2 + 150;
+
+      // Apply sine wave hovering effect
+      api4.start({ x: centerX - 100, y: centerY + verticalOffsets[0] });
+      api5.start({ x: centerX, y: centerY + 130 + verticalOffsets[1] });
+      api6.start({ x: centerX + 100, y: centerY + verticalOffsets[2] });
+    }
+  }, [
+    mouse,
+    angleRight,
+    isMouseMoving,
+    verticalOffsets,
+    isMouseOverLeft,
+    api4,
+    api5,
+    api6,
   ]);
 
   // Effect for updating vertical offsets

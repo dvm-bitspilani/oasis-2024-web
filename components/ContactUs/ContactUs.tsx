@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./contactus.module.scss";
 import ContactCard from "./ContactCard/ContactCard";
+import Image from "next/image";
 
 import prateek from "../../assets/Landing/contactUs/prateek.png";
 import aryan from "../../assets/Landing/contactUs/aryan.png";
@@ -12,6 +13,9 @@ import rijul from "../../assets/Landing/contactUs/rijul.png";
 import shreyansh from "../../assets/Landing/contactUs/shreyansh.png";
 import sarthak from "../../assets/Landing/contactUs/sarthak.png";
 import abhinav from "../../assets/Landing/contactUs/abhinav.png";
+
+import left from "../../assets/Landing/contactUs/left.png";
+import right from "../../assets/Landing/contactUs/right.png";
 
 import ContactUsBottomIcons from "./ContactUsBottomIcons/ContactUsBottomIcons";
 
@@ -545,9 +549,20 @@ export default function ContactUs() {
           </div>
         </div>
       </div>
-      {/* <div className={styles.bottom} id="contactBottom">
-        <ContactUsBottomIcons />
-      </div> */}
+      <div className={styles.bottom} id="contactBottom">
+        <Image
+          src={left}
+          alt="left"
+          className={styles.bottomAnimation}
+          draggable={false}
+        />
+        <Image
+          src={right}
+          alt="right"
+          className={styles.bottomAnimation}
+          draggable={false}
+        />
+      </div>
     </>
   );
 }

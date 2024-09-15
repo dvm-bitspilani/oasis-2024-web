@@ -8,7 +8,10 @@
         font-size: 39.6px;
         font-weight: 600;
         text-align: center;
-      }
+        color: #FFD600;
+        line-height: 70px;
+        border-bottom: 1.63px solid #FFD600;
+    }
 }
 
 .folderContainer {
@@ -18,5 +21,30 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 4rem 5rem;
+    gap: 4rem 4rem;
+}
+
+.category {
+    margin-top: 3rem;
+
+    p {
+        font-family: Pixelify Sans;
+        font-size: 28.97px;
+        font-weight: 500;
+        line-height: 34.76px;
+        text-align: center;
+        color: #FFD600;
+    }
+}
+
+.categoryContainer {
+    position: static;
+}
+
+.fixedCategoryContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
 }

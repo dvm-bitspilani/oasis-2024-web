@@ -1,0 +1,23 @@
+.mainContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #190D2C;
+
+    button {
+        background-color: transparent;
+        color: #fff;
+        position: relative;
+        margin-right: 4rem;
+        float: right;
+        top: 4rem;
+        height: 6rem;
+        width: 6rem;
+        font-size: 50px;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+    }
+}

@@ -18,9 +18,15 @@ export default function LandingOverlay() {
   });
   const [isMouseOverLeft, setIsMouseOverLeft] = useState(false);
   const [isMouseMoving, setIsMouseMoving] = useState(true);
-  const [angle, setAngle] = useState([0, (2 * Math.PI) / 3, (4 * Math.PI) / 3]); // Start at different angles for 3 cards
-  const radius = 100; // Distance from the cursor to the card
+  const [angle, setAngle] = useState([0, (2 * Math.PI) / 3, (4 * Math.PI) / 3]);
+  const radius = 100;
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
+
+  // New state for vertical offsets
+  const [verticalOffsets, setVerticalOffsets] = useState([0, 0, 0]);
+  const [verticalOffsetRandomiser, setVerticalOffsetRandomiser] = useState(
+    Array.from({ length: 3 }, () => Math.floor(Math.random() * 1000) + 1)
+  );
 
   // Springs for smooth animation for 3 cards
   const [styles1, api1] = useSpring(() => ({
@@ -39,7 +45,7 @@ export default function LandingOverlay() {
     config: { tension: 200, friction: 20 },
   }));
 
-  // Update the cards' positions based on mouse movement or revolving when the mouse is stationary
+  // Update the cards' positions based on mouse movement or hovering when the mouse is not over left
   useEffect(() => {
     if (isMouseOverLeft) {
       if (!isMouseMoving) {
@@ -80,21 +86,41 @@ export default function LandingOverlay() {
       }
     } else {
       const centerX = window.innerWidth / 2 - 400;
-      const centerY = window.innerHeight / 2 + 200;
-      const cardX1 = centerX + radius * Math.cos(angle[0]);
-      const cardY1 = centerY + radius * Math.sin(angle[0]);
+      const centerY = window.innerHeight / 2 + 150;
 
-      const cardX2 = centerX + radius * Math.cos(angle[1]);
-      const cardY2 = centerY + radius * Math.sin(angle[1]);
-
-      const cardX3 = centerX + radius * Math.cos(angle[2]);
-      const cardY3 = centerY + radius * Math.sin(angle[2]);
-
-      api1.start({ x: cardX1, y: cardY1 });
-      api2.start({ x: cardX2, y: cardY2 });
-      api3.start({ x: cardX3, y: cardY3 });
+      // Apply sine wave hovering effect
+      api1.start({ x: centerX - 100, y: centerY + verticalOffsets[0] });
+      api2.start({ x: centerX, y: centerY + 130 + verticalOffsets[1] });
+      api3.start({ x: centerX + 100, y: centerY + verticalOffsets[2] });
     }
-  }, [mouse, angle, isMouseMoving, api1, api2, api3]);
+  }, [
+    mouse,
+    angle,
+    isMouseMoving,
+    verticalOffsets,
+    isMouseOverLeft,
+    api1,
+    api2,
+    api3,
+  ]);
+
+  // Effect for updating vertical offsets
+  useEffect(() => {
+    if (!isMouseOverLeft) {
+      const interval = setInterval(() => {
+        setVerticalOffsets((prevOffsets) =>
+          prevOffsets.map(
+            (_, index) =>
+              Math.sin(
+                (Date.now() * 2) / 1000 + verticalOffsetRandomiser[index] * 2
+              ) * 15
+          )
+        );
+      }, 16); // Run approx. 60 times per second
+
+      return () => clearInterval(interval);
+    }
+  }, [isMouseOverLeft]);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     // Update mouse position
@@ -150,7 +176,6 @@ export default function LandingOverlay() {
                 position: "absolute",
                 left: styles1.x,
                 top: styles1.y,
-
                 transform: "translate(-50%, -50%)",
               }}
             ></animated.div>
@@ -160,7 +185,6 @@ export default function LandingOverlay() {
                 position: "absolute",
                 left: styles2.x,
                 top: styles2.y,
-
                 transform: "translate(-50%, -50%)",
               }}
             ></animated.div>
@@ -170,7 +194,6 @@ export default function LandingOverlay() {
                 position: "absolute",
                 left: styles3.x,
                 top: styles3.y,
-
                 transform: "translate(-50%, -50%)",
               }}
             ></animated.div>

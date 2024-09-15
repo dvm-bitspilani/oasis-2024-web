@@ -28,10 +28,16 @@ export default function LandingOverlay() {
   ]);
   const radius = 100;
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
-  const [verticalOffsets, setVerticalOffsets] = useState([0, 0, 0]);
-  const [verticalOffsetRandomiser, setVerticalOffsetRandomiser] = useState(
-    Array.from({ length: 6 }, () => Math.floor(Math.random() * 1000) + 1)
-  );
+  const [verticalOffsetsLeft, setVerticalOffsetsLeft] = useState([0, 0, 0]);
+  const [verticalOffsetsRight, setVerticalOffsetsRight] = useState([0, 0, 0]);
+  const [verticalOffsetRandomiserLeft, setVerticalOffsetRandomiserLeft] =
+    useState(
+      Array.from({ length: 3 }, () => Math.floor(Math.random() * 1000) + 1)
+    );
+  const [verticalOffsetRandomiserRight, setVerticalOffsetRandomiserRight] =
+    useState(
+      Array.from({ length: 3 }, () => Math.floor(Math.random() * 1000) + 1)
+    );
 
   // Custom spring configuration for bounciness
   const bouncyConfig = {
@@ -107,15 +113,15 @@ export default function LandingOverlay() {
       const centerY = window.innerHeight / 2 + 150;
 
       // Apply sine wave hovering effect
-      api1.start({ x: centerX - 100, y: centerY + verticalOffsets[0] });
-      api2.start({ x: centerX, y: centerY + 130 + verticalOffsets[1] });
-      api3.start({ x: centerX + 100, y: centerY + verticalOffsets[2] });
+      api1.start({ x: centerX - 100, y: centerY + verticalOffsetsLeft[0] });
+      api2.start({ x: centerX, y: centerY + 130 + verticalOffsetsLeft[1] });
+      api3.start({ x: centerX + 100, y: centerY + verticalOffsetsLeft[2] });
     }
   }, [
     mouse,
     angleLeft,
     isMouseMoving,
-    verticalOffsets,
+    verticalOffsetsLeft,
     isMouseOverLeft,
     api1,
     api2,
@@ -134,10 +140,11 @@ export default function LandingOverlay() {
         const cardX3 = mouse.x + radius * Math.cos(angleRight[2]);
         const cardY3 = mouse.y + radius * Math.sin(angleRight[2]);
 
-        // Update all three cards' positions with delay
-        api4.start({ x: cardX1, y: cardY1, delay: 50 });
-        api5.start({ x: cardX2, y: cardY2, delay: 100 });
-        api6.start({ x: cardX3, y: cardY3, delay: 150 });
+        // Subtract half the screen width from the x position
+        const halfScreenWidth = window.innerWidth / 2;
+        api4.start({ x: cardX1 - halfScreenWidth, y: cardY1, delay: 50 });
+        api5.start({ x: cardX2 - halfScreenWidth, y: cardY2, delay: 100 });
+        api6.start({ x: cardX3 - halfScreenWidth, y: cardY3, delay: 150 });
 
         // Increment the angles for the next frame
         setAngleRight((prevAngle) => [
@@ -147,25 +154,27 @@ export default function LandingOverlay() {
         ]);
       } else {
         // When the mouse is moving, all cards follow the cursor with different delays
-        api4.start({ x: mouse.x, y: mouse.y, delay: 50 });
-        api5.start({ x: mouse.x, y: mouse.y, delay: 100 });
-        api6.start({ x: mouse.x, y: mouse.y, delay: 150 });
+        // Subtract half the screen width from the x position
+        const halfScreenWidth = window.innerWidth / 2;
+        api4.start({ x: mouse.x - halfScreenWidth, y: mouse.y, delay: 50 });
+        api5.start({ x: mouse.x - halfScreenWidth, y: mouse.y, delay: 100 });
+        api6.start({ x: mouse.x - halfScreenWidth, y: mouse.y, delay: 150 });
       }
     } else {
-      const centerX = window.innerWidth / 2 - 400;
-      const centerY = window.innerHeight / 2 + 150;
+      const centerX =  400;
+      const centerY = window.innerHeight / 2 + 120;
 
       // Apply sine wave hovering effect
-      api4.start({ x: centerX - 100, y: centerY + verticalOffsets[0] });
-      api5.start({ x: centerX, y: centerY + 130 + verticalOffsets[1] });
-      api6.start({ x: centerX + 100, y: centerY + verticalOffsets[2] });
+      api4.start({ x: centerX - 100, y: centerY + verticalOffsetsRight[0] });
+      api5.start({ x: centerX, y: centerY + 130 + verticalOffsetsRight[1] });
+      api6.start({ x: centerX + 100, y: centerY + verticalOffsetsRight[2] });
     }
   }, [
     mouse,
     angleRight,
     isMouseMoving,
-    verticalOffsets,
-    isMouseOverLeft,
+    verticalOffsetsRight,
+    isMouseOverRight,
     api4,
     api5,
     api6,
@@ -175,11 +184,12 @@ export default function LandingOverlay() {
   useEffect(() => {
     if (!isMouseOverLeft) {
       const interval = setInterval(() => {
-        setVerticalOffsets((prevOffsets) =>
+        setVerticalOffsetsLeft((prevOffsets) =>
           prevOffsets.map(
             (_, index) =>
               Math.sin(
-                (Date.now() * 2) / 1000 + verticalOffsetRandomiser[index] * 2
+                (Date.now() * 2) / 1000 +
+                  verticalOffsetRandomiserLeft[index] * 2
               ) * 15
           )
         );
@@ -187,7 +197,25 @@ export default function LandingOverlay() {
 
       return () => clearInterval(interval);
     }
-  }, [isMouseOverLeft, verticalOffsetRandomiser]);
+  }, [isMouseOverLeft, verticalOffsetRandomiserLeft]);
+
+  useEffect(() => {
+    if (!isMouseOverRight) {
+      const interval = setInterval(() => {
+        setVerticalOffsetsRight((prevOffsets) =>
+          prevOffsets.map(
+            (_, index) =>
+              Math.sin(
+                (Date.now() * 2) / 1000 +
+                  verticalOffsetRandomiserRight[index] * 2
+              ) * 15
+          )
+        );
+      }, 16); // Run approx. 60 times per second
+
+      return () => clearInterval(interval);
+    }
+  }, [isMouseOverRight, verticalOffsetRandomiserRight]);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     // Update mouse position

@@ -41,41 +41,58 @@ export default function LandingOverlay() {
 
   // Update the cards' positions based on mouse movement or revolving when the mouse is stationary
   useEffect(() => {
-    if (!isMouseMoving) {
-      const cardX1 = mouse.x + radius * Math.cos(angle[0]);
-      const cardY1 = mouse.y + radius * Math.sin(angle[0]);
+    if (isMouseOverLeft) {
+      if (!isMouseMoving) {
+        const cardX1 = mouse.x + radius * Math.cos(angle[0]);
+        const cardY1 = mouse.y + radius * Math.sin(angle[0]);
 
-      const cardX2 = mouse.x + radius * Math.cos(angle[1]);
-      const cardY2 = mouse.y + radius * Math.sin(angle[1]);
+        const cardX2 = mouse.x + radius * Math.cos(angle[1]);
+        const cardY2 = mouse.y + radius * Math.sin(angle[1]);
 
-      const cardX3 = mouse.x + radius * Math.cos(angle[2]);
-      const cardY3 = mouse.y + radius * Math.sin(angle[2]);
+        const cardX3 = mouse.x + radius * Math.cos(angle[2]);
+        const cardY3 = mouse.y + radius * Math.sin(angle[2]);
 
-      // Update all three cards' positions
-      api1.start({
-        x: cardX1,
-        y: cardY1,
-      });
-      api2.start({
-        x: cardX2,
-        y: cardY2,
-      });
-      api3.start({
-        x: cardX3,
-        y: cardY3,
-      });
+        // Update all three cards' positions
+        api1.start({
+          x: cardX1,
+          y: cardY1,
+        });
+        api2.start({
+          x: cardX2,
+          y: cardY2,
+        });
+        api3.start({
+          x: cardX3,
+          y: cardY3,
+        });
 
-      // Increment the angles for the next frame
-      setAngle((prevAngle) => [
-        (prevAngle[0] + 0.01) % (2 * Math.PI),
-        (prevAngle[1] + 0.01) % (2 * Math.PI),
-        (prevAngle[2] + 0.01) % (2 * Math.PI),
-      ]);
+        // Increment the angles for the next frame
+        setAngle((prevAngle) => [
+          (prevAngle[0] + 0.01) % (2 * Math.PI),
+          (prevAngle[1] + 0.01) % (2 * Math.PI),
+          (prevAngle[2] + 0.01) % (2 * Math.PI),
+        ]);
+      } else {
+        // When the mouse is moving, all cards follow the cursor
+        api1.start({ x: mouse.x, y: mouse.y });
+        api2.start({ x: mouse.x, y: mouse.y });
+        api3.start({ x: mouse.x, y: mouse.y });
+      }
     } else {
-      // When the mouse is moving, all cards follow the cursor
-      api1.start({ x: mouse.x, y: mouse.y });
-      api2.start({ x: mouse.x, y: mouse.y });
-      api3.start({ x: mouse.x, y: mouse.y });
+      const centerX = window.innerWidth / 2 - 400;
+      const centerY = window.innerHeight / 2 + 200;
+      const cardX1 = centerX + radius * Math.cos(angle[0]);
+      const cardY1 = centerY + radius * Math.sin(angle[0]);
+
+      const cardX2 = centerX + radius * Math.cos(angle[1]);
+      const cardY2 = centerY + radius * Math.sin(angle[1]);
+
+      const cardX3 = centerX + radius * Math.cos(angle[2]);
+      const cardY3 = centerY + radius * Math.sin(angle[2]);
+
+      api1.start({ x: cardX1, y: cardY1 });
+      api2.start({ x: cardX2, y: cardY2 });
+      api3.start({ x: cardX3, y: cardY3 });
     }
   }, [mouse, angle, isMouseMoving, api1, api2, api3]);
 
@@ -133,7 +150,7 @@ export default function LandingOverlay() {
                 position: "absolute",
                 left: styles1.x,
                 top: styles1.y,
-             
+
                 transform: "translate(-50%, -50%)",
               }}
             ></animated.div>
@@ -143,7 +160,7 @@ export default function LandingOverlay() {
                 position: "absolute",
                 left: styles2.x,
                 top: styles2.y,
-               
+
                 transform: "translate(-50%, -50%)",
               }}
             ></animated.div>
@@ -153,7 +170,7 @@ export default function LandingOverlay() {
                 position: "absolute",
                 left: styles3.x,
                 top: styles3.y,
-               
+
                 transform: "translate(-50%, -50%)",
               }}
             ></animated.div>

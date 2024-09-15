@@ -1,0 +1,20 @@
+.folder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 144px;
+
+    svg {
+        height: 150px;
+        width: 170px;
+    }
+
+    p {
+        font-family: Pixelify Sans;
+        font-size: 22.12px;
+        font-weight: 400;
+        line-height: 26.55px;
+        text-align: center;
+        color: #fff;
+      }
+}

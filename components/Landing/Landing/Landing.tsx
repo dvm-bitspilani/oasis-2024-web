@@ -61,7 +61,8 @@ export default function Landing() {
   const [is3dLoaded, setIs3dLoaded] = useState(false);
   const [isXS, setIsXS] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [renderMobile, setRenderMobile] = useState(false);
+  const [isEvents, setIsEvents] = useState(false);
+  // const [renderMobile, setRenderMobile] = useState(false);
   const [isVideoFocused, setIsVideoFocused] = useState(false);
   const [isLanding, setIsLanding] = useState(true);
   const [tlProgress, setTlProgress] = useState(0);
@@ -151,7 +152,9 @@ export default function Landing() {
   );
 
   function iframeClick() {
-    if (tlProgress >= 0.3 && tlProgress <= 0.4) {
+    console.log("iframe click");
+    console.log(tlProgress, "Iframe click recorded");
+    if (tlProgress >= 0.23 && tlProgress <= 0.24) {
       console.log(tlProgress, "Iframe click recorded");
       setIsVideoFocused((prev) => !prev);
     }
@@ -224,7 +227,8 @@ export default function Landing() {
   // }, []);
 
   useGSAP(() => {
-    if (isLoaded && camera) {
+    // these are the entry animations
+    if (isLoaded && slotMachine.current) {
       const timeline = gsap.timeline();
       if (window.innerWidth > 1000) {
         timeline
@@ -249,22 +253,23 @@ export default function Landing() {
             0
           )
           .from(
-            camera.position,
+            slotMachine.current.position,
             {
-              z: 2.48,
+              z: -2.28,
+              y: 0.18,
               duration: 4,
               ease: "sine.inOut",
             },
-            "<"
+            0
           )
           .from(
-            camera.rotation,
+            slotMachine.current.rotation,
             {
-              x: -0.3,
+              x: -0.4,
               duration: 4,
               ease: "sine.inOut",
             },
-            "<"
+            0
           )
           .to(
             "#mainwrapper",
@@ -353,7 +358,7 @@ export default function Landing() {
           );
       }
     }
-  }, [isLoaded, camera]);
+  }, [isLoaded, camera, slotMachine.current]);
 
   useGSAP(
     () => {
@@ -361,11 +366,12 @@ export default function Landing() {
       const commonConfigs = {
         onUpdate: ({ progress }: updateTypesScrollTrigger) => {
           console.log(progress);
-          if (progress > 0.39 && progress < 0.4) {
-            setTlProgress(progress);
-          } else if (tlProgress) {
-            setTlProgress(0);
-          }
+          setTlProgress(progress);
+          // if (progress >= 0.225 && progress <= 0.245) {
+          //   setTlProgress(progress);
+          // } else if (tlProgress) {
+          //   setTlProgress(0);
+          // }
         },
         trigger: 'img[alt="right tree"]',
         markers: false,
@@ -382,11 +388,11 @@ export default function Landing() {
           scrollTrigger: {
             ...commonConfigs,
             snap: {
-              snapTo: [0, 0.24, 0.25, 0.765],
+              snapTo: [0, 0.17, 0.18, 0.5, 0.51, 0.85],
               ease: "sine.inOut",
               duration: 1,
             },
-            end: "+=300%",
+            end: "+=400%",
           },
         };
       } else {
@@ -394,11 +400,11 @@ export default function Landing() {
           scrollTrigger: {
             ...commonConfigs,
             snap: {
-              snapTo: [0, 0.45, 0.46, 1],
+              snapTo: [0, 0.23, 0.24, 0.64, 0.65, 1],
               ease: "sine.inOut",
               duration: 1,
             },
-            end: "+=200%",
+            end: "+=300%",
           },
         };
       }
@@ -551,6 +557,16 @@ export default function Landing() {
                   },
                   "+=1"
                 )
+                .call(() => {
+                  setIsEvents((prev) => !prev);
+                }, [])
+                .to(slotMachine.current.position, {
+                  x: 0,
+                  y: 0.5,
+                  z: -1.25,
+                  duration: 3,
+                  ease: "power1.inOut",
+                })
                 .to(
                   slotMachine.current.position,
                   {
@@ -560,7 +576,7 @@ export default function Landing() {
                     duration: 3,
                     ease: "power1.in",
                   },
-                  "<"
+                  "+=1"
                 )
                 .to("#contactUs", {
                   opacity: 1,
@@ -570,7 +586,7 @@ export default function Landing() {
                   "#contact-us-inner-scroll",
                   {
                     yPercent: -110,
-                    duration: 2,
+                    duration: 1,
                     pointerEvents: "auto",
                   },
                   "-=0.5"
@@ -710,10 +726,13 @@ export default function Landing() {
                   },
                   "<"
                 )
-                .to(slotMachine.current.rotation, {
-                  y: conditions.isMobile ? 0 : -Math.PI / 6,
-                })
-
+                .to(
+                  slotMachine.current.rotation,
+                  {
+                    y: conditions.isMobile ? 0 : -Math.PI / 6,
+                  },
+                  "-=0.5"
+                )
                 .to("#aboutUs", {
                   opacity: 1,
                 })
@@ -732,6 +751,25 @@ export default function Landing() {
                   },
                   "+=1"
                 )
+                .call(() => {
+                  setIsEvents((prev) => !prev);
+                }, [])
+                .to(slotMachine.current.position, {
+                  x: 0,
+                  y: 0,
+                  z: -1.25,
+                  duration: 3,
+                  ease: "power1.inOut",
+                })
+                .to(
+                  slotMachine.current.rotation,
+                  {
+                    y: 0,
+                    duration: 3,
+                    ease: "power1.inOut",
+                  },
+                  "<"
+                )
                 .to(
                   slotMachine.current.position,
                   {
@@ -741,7 +779,7 @@ export default function Landing() {
                     duration: 3,
                     ease: "power1.in",
                   },
-                  "<"
+                  "+=1"
                 )
                 .to(
                   "#tickets",
@@ -938,7 +976,7 @@ export default function Landing() {
         is3dLoaded,
         slotMachine2D.current,
         slotMachine.current,
-        renderMobile,
+        // renderMobile,
       ],
     }
   );
@@ -955,6 +993,7 @@ export default function Landing() {
         isXS={isXS}
         isMobile={isMobile}
         setCamera={setCamera}
+        isEvents={isEvents}
       />
       {/* {renderMobile ? (
         <MobileSlotMachine ref={slotMachine2D} />

@@ -47,7 +47,7 @@ const Nav = () => {
       const totalHeight =
         document.documentElement.scrollHeight - window.innerHeight;
       const check = window.scrollY / totalHeight;
-      console.log(check, active);
+      // console.log(check, active);
 
       if (check < 0.2) {
         setActive("home");

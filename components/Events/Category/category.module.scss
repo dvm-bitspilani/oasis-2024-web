@@ -1,0 +1,33 @@
+.mainContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #110611;
+
+    .heading {
+        width: 100%;
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+    
+        h2 {
+            font-family: Pixelify Sans;
+            font-size: 39.6px;
+            font-weight: 600;
+            text-align: center;
+            color: #FFD600;
+            line-height: 100px;
+            border-bottom: 2.63px solid #FFD600;
+        }
+    }
+
+    button {
+        background-color: transparent;
+        position: fixed;
+        top: calc(2rem + 40px);
+        right: 2rem;
+        border: none;
+        cursor: pointer;
+    }
+}

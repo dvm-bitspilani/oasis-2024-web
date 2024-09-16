@@ -227,7 +227,8 @@ export default function Landing() {
   // }, []);
 
   useGSAP(() => {
-    if (isLoaded && camera) {
+    // these are the entry animations
+    if (isLoaded && slotMachine.current) {
       const timeline = gsap.timeline();
       if (window.innerWidth > 1000) {
         timeline
@@ -252,18 +253,19 @@ export default function Landing() {
             0
           )
           .from(
-            camera.position,
+            slotMachine.current.position,
             {
-              z: 2.48,
+              z: -2.3,
+              y: 0.19,
               duration: 4,
               ease: "sine.inOut",
             },
             0
           )
           .from(
-            camera.rotation,
+            slotMachine.current.rotation,
             {
-              x: -0.3,
+              x: -0.42,
               duration: 4,
               ease: "sine.inOut",
             },
@@ -303,7 +305,7 @@ export default function Landing() {
               ease: "none",
               duration: 0.5,
             },
-            "-=0.5"
+            "<"
           );
       } else {
         timeline
@@ -356,7 +358,7 @@ export default function Landing() {
           );
       }
     }
-  }, [isLoaded, camera]);
+  }, [isLoaded, camera, slotMachine.current]);
 
   useGSAP(
     () => {

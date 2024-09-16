@@ -9,8 +9,8 @@ const MenuLines: React.FC<MenuLinesProps> = ({ svgClass, isHamOpen }) => {
       {isHamOpen ? (
         <svg
           className={svgClass}
-          width="463"
-          height="519"
+          height="463"
+          width="519"
           viewBox="0 0 463 519"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

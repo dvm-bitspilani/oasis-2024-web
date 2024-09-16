@@ -1,7 +1,7 @@
 .btn {
   aspect-ratio: 1 / 1;
   width: 100px;
-  z-index: 200;
+  z-index: 5200;
   cursor: pointer;
   pointer-events: all;
   position: relative;
@@ -21,17 +21,8 @@
       rgba(0, 0, 0, 0.855) 0%,
       rgba(0, 0, 0, 0.95) 100%
     );
-    z-index: 110;
+    z-index: 5110;
     cursor: initial;
-  }
-  .hamMenuLines {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    // scale: 0.1;
-    z-index: 111;
-    // top: 50%;
-    right: -45%;
   }
 
   .pokerChip {
@@ -40,7 +31,7 @@
     height: 100%;
     position: absolute;
     border-radius: 50%;
-    z-index: 120;
+    z-index: 5120;
 
     @media (width <= 585px) {
       display: none;
@@ -61,7 +52,7 @@
     align-items: flex-start;
     justify-content: center;
     gap: 5px;
-    z-index: 130;
+    z-index: 5130;
     flex-direction: column;
 
     .menuLines {
@@ -93,5 +84,30 @@
 
   @media (width <= 585px) {
     transform: scale(1);
+  }
+}
+
+.googleMaps {
+  position: fixed;
+  z-index: 5200;
+
+  right: 10vw;
+  top: 50%;
+  scale: unset;
+  transform: translate(0, -50%);
+
+  iframe {
+    border-radius: 25px;
+    border: 3px solid #8d6916;
+  }
+
+  h1 {
+    color: #edcf89;
+    text-align: center;
+    padding-top: 2rem;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
   }
 }

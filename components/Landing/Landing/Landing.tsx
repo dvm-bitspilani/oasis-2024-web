@@ -255,8 +255,8 @@ export default function Landing() {
           .from(
             slotMachine.current.position,
             {
-              z: -2.28,
-              y: 0.18,
+              z: -2.3,
+              y: 0.19,
               duration: 4,
               ease: "sine.inOut",
             },
@@ -265,7 +265,7 @@ export default function Landing() {
           .from(
             slotMachine.current.rotation,
             {
-              x: -0.4,
+              x: -0.42,
               duration: 4,
               ease: "sine.inOut",
             },
@@ -305,7 +305,7 @@ export default function Landing() {
               ease: "none",
               duration: 0.5,
             },
-            "-=0.5"
+            "<"
           );
       } else {
         timeline

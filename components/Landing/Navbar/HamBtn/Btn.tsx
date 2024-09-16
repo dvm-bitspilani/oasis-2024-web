@@ -121,13 +121,25 @@ export default function HamBtn() {
         <div className={styles.googleMaps}>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11944.469102073399!2d75.59370839386403!3d28.35653200720568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39131964f43e4575%3A0x1fbad30854cf884d!2sBirla%20Institute%20of%20Technology%20And%20Science%20-%20Pilani!5e0!3m2!1sen!2sin!4v1726307515319!5m2!1sen!2sin"
-            width="600"
-            height="450"
+            width={
+              window.innerWidth > 1400
+                ? "600"
+                : window.innerWidth > 1000
+                ? "300"
+                : "150"
+            }
+            height={
+              window.innerWidth > 1400
+                ? "450"
+                : window.innerWidth > 1000
+                ? "225"
+                : "113"
+            }
             loading="lazy"
           ></iframe>
           <h1 className={styles.journeyText}>
             <Link href="https://maps.app.goo.gl/b7LvciNHgtCRcWes6">
-              How to reach Pilani ?
+              HOW TO REACH PILANI?
             </Link>
           </h1>
         </div>

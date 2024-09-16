@@ -33,7 +33,7 @@ body {
 
 @media (width > 1000px) {
   #iframe-overlay{
-    opacity: 0;
+    opacity: 1;
     background: url('/Videos/preloaderCoinVideo.gif');
     background-color: black;
     background-size: contain;

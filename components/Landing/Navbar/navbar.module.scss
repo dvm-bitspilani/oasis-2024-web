@@ -6,13 +6,14 @@
   top: 30px;
   padding: 0 20px;
   z-index: 10;
+  height: 100px;
 
-  .logo{
+  .logo {
     display: none;
     position: absolute;
     right: 35px;
     top: 50%;
-    transform: translateY(-50%) scale(-1,1);
+    transform: translateY(-50%) scale(-1, 1);
 
     @media (width <= 585px) {
       display: inline;
@@ -24,6 +25,6 @@
   }
 
   @media (width <= 585px) {
-    transform: scale(-1,1);
+    transform: scale(-1, 1);
   }
 }

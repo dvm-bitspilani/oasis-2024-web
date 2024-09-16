@@ -9,15 +9,19 @@ import Grid from "@/components/Landing/Grid/Grid";
 import OasisLogo from "@/components/Landing/Navbar/Logo/Logo";
 import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
 import Nav from "@/components/Nav/Nav";
+import HamBtn from "@/components/Landing/Navbar/HamBtn/Btn";
 import SuitBackground from "@/components/Landing/Backdrop/Backdrop";
 
 export default function Home() {
   return (
     <>
+      <PrePreloader />
+      <div className={styles.hamBtn}>
+        <HamBtn />
+      </div>
       <div className={styles.navTickets} id="tickets-container">
         <Nav />
       </div>
-      <PrePreloader />
       <main className={styles.scrollWrapper} id="scrollWrapper">
         <main className={styles.page}>
           <OasisLogo />
@@ -27,7 +31,7 @@ export default function Home() {
           <Glow />
           <Trees />
           <Grunge />
-          <SuitBackground />
+          {/* <SuitBackground /> */}
         </main>
       </main>
     </>

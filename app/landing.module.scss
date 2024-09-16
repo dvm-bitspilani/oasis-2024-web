@@ -1,39 +1,45 @@
 .scrollWrapper {
-    height: 400lvh;
+  height: 400lvh;
 
-    @media (width <= 1000px) {
-        height: 500lvh;
-    }
+  @media (width <= 1000px) {
+    height: 500lvh;
+  }
 }
 
 .page {
-    position: fixed;
-    width: 100vw;
-    height: 100lvh;
+  position: fixed;
+  width: 100vw;
+  height: 100lvh;
 }
 
 .overlay {
-    pointer-events: none;
-    position: absolute;
-    width: 100vw;
-    min-height: 100lvh;
-    top: 0;
-    // backdrop-filter: blur(10px);
+  pointer-events: none;
+  position: absolute;
+  width: 100vw;
+  min-height: 100lvh;
+  top: 0;
+  // backdrop-filter: blur(10px);
 }
 
 .mainTitle {
-    color: white;
-    pointer-events: auto;
+  color: white;
+  pointer-events: auto;
 
-    &:hover {
-        color: yellow;
-    }
+  &:hover {
+    color: yellow;
+  }
 }
 
-.navTickets{
-    position: fixed;
-    right: -14%;
-    top: 45%;
-    transform: translateY(-50%);
-    z-index: 5000;
+.hamBtn {
+  position: fixed;
+  top: 30px;
+  left: 20px;
+  z-index: 5200;
+}
+.navTickets {
+  position: fixed;
+  right: -14%;
+  top: 45%;
+  transform: translateY(-50%);
+  z-index: 5000;
 }

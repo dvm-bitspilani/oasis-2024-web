@@ -1,5 +1,6 @@
+import styles from "./notfound.module.scss";
+
 import React from "react";
-import styles from "./ComingSoon.module.scss";
 import Link from "next/link";
 import BackButton from "@/components/Registration/BackButton/BackButton";
 import Trees from "@/components/ComingSoon/Trees";

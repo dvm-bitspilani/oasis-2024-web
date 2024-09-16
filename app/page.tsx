@@ -31,7 +31,7 @@ export default function Home() {
           <Glow />
           <Trees />
           <Grunge />
-          <SuitBackground />
+          {/* <SuitBackground /> */}
         </main>
       </main>
     </>

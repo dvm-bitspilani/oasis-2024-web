@@ -4,19 +4,29 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: #190D2C;
+    background-color: #110611;
+
+    .heading {
+        width: 100%;
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+    
+        h2 {
+            font-family: Pixelify Sans;
+            font-size: 39.6px;
+            font-weight: 600;
+            text-align: center;
+            color: #FFD600;
+            line-height: 100px;
+            border-bottom: 2.63px solid #FFD600;
+        }
+    }
 
     button {
         background-color: transparent;
-        color: #fff;
-        position: relative;
-        margin-right: 4rem;
-        float: right;
-        top: 4rem;
-        height: 6rem;
-        width: 6rem;
-        font-size: 50px;
-        font-weight: 700;
+        position: fixed;
+        top: calc(2rem + 40px);
+        right: 2rem;
         border: none;
         cursor: pointer;
     }

@@ -1,8 +1,8 @@
 .scrollWrapper {
-  height: 300lvh;
+  height: 400lvh;
 
   @media (width <= 1000px) {
-    height: 400lvh;
+    height: 500lvh;
   }
 }
 
@@ -30,17 +30,16 @@
   }
 }
 
-.navTickets {
-  position: fixed;
-  right: -16%;
-  top: 45%;
-  transform: translateY(-50%);
-  z-index: 5000;
-}
-
 .hamBtn {
   position: fixed;
   top: 30px;
   left: 20px;
   z-index: 5200;
+}
+.navTickets {
+  position: fixed;
+  right: -14%;
+  top: 45%;
+  transform: translateY(-50%);
+  z-index: 5000;
 }

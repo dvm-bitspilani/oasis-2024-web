@@ -37,6 +37,10 @@
     &.active {
       transform: rotateZ(15deg) translateX(-60px);
     }
+
+    &:hover{
+      transform: rotateZ(15deg) translateX(-100px) !important;
+    }
   }
   .contacthome {
     transform: rotateZ(20deg) translateX(15px);
@@ -50,6 +54,9 @@
     &.active {
       transform: rotateZ(5deg) translateX(-60px);
     }
+    &:hover{
+      transform: rotateZ(5deg) translateX(-125px) !important;
+    }
   }
   .contactabout {
     top: 110px !important;
@@ -61,6 +68,10 @@
     transform: rotateZ(-10deg) translateX(-15px);
     transition: all 0.5s ease-out;
     pointer-events: auto;
+
+    &:hover{
+      transform: rotateZ(-10deg) translateX(-110px) !important;
+    }
     // &.active {
     //   transform: rotateZ(-10deg) translateX(-60px);
     // }
@@ -80,6 +91,9 @@
     pointer-events: auto;
     &.active {
       transform: rotateZ(-15deg) translateX(5px);
+    }
+    &:hover{
+      transform: rotateZ(-15deg) translateX(-70px) !important;
     }
   }
   .aboutcontact {

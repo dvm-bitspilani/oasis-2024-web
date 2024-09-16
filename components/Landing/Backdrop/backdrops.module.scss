@@ -1,0 +1,12 @@
+$number-of-particles-horizontal: 12;
+
+$screen-aspect-ratio: calc(1vw / 1vh);
+
+.backdrop{
+    position: fixed;
+    width: 100vw;
+    height: 100lvh;
+    display: grid;
+    grid-template-columns: repeat($number-of-particles-horizontal, 1fr);
+    grid-template-rows: repeat($number-of-particles-horizontal, 1fr);
+}

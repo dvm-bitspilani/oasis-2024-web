@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./contactus.module.scss";
 import ContactCard from "./ContactCard/ContactCard";
+import Image from "next/image";
 
 import prateek from "../../assets/Landing/contactUs/prateek.png";
 import aryan from "../../assets/Landing/contactUs/aryan.png";
@@ -12,6 +13,9 @@ import rijul from "../../assets/Landing/contactUs/rijul.png";
 import shreyansh from "../../assets/Landing/contactUs/shreyansh.png";
 import sarthak from "../../assets/Landing/contactUs/sarthak.png";
 import abhinav from "../../assets/Landing/contactUs/abhinav.png";
+
+import left from "../../assets/Landing/contactUs/left.png";
+import right from "../../assets/Landing/contactUs/right.png";
 
 import ContactUsBottomIcons from "./ContactUsBottomIcons/ContactUsBottomIcons";
 
@@ -468,83 +472,97 @@ export default function ContactUs() {
 
         <div className={styles.mobileContainer}>
           <div className={styles.scrollWrapper} id="contact-us-inner-scroll">
-            <ContactCard
-              name="Aryan Wadhwa"
-              img={aryan}
-              dept1="Registration, Events &"
-              dept2="Approval Queries"
-              contact="tel:+919810297034"
-              mail="mailto:pcr@bits-oasis.org"
-            />
+            <h2>CONTACT US</h2>
+            <div className={styles.mobileCards}>
+              <ContactCard
+                name="Aryan Wadhwa"
+                img={aryan}
+                dept1="Registration, Events &"
+                dept2="Approval Queries"
+                contact="tel:+919810297034"
+                mail="mailto:pcr@bits-oasis.org"
+              />
 
-            <ContactCard
-              name="Prateek Kashyap"
-              img={prateek}
-              dept1="Website, App &"
-              dept2="Online Payments"
-              contact="tel:+918700225449"
-              mail="mailto:webmaster@bits-oasis.org"
-            />
+              <ContactCard
+                name="Prateek Kashyap"
+                img={prateek}
+                dept1="Website, App &"
+                dept2="Online Payments"
+                contact="tel:+918700225449"
+                mail="mailto:webmaster@bits-oasis.org"
+              />
 
-            <ContactCard
-              name="Shreeram Verma"
-              img={shreeram}
-              dept1="Sponsorship and"
-              dept2="Marketing"
-              contact="tel:+918889588288"
-              mail="mailto:shreeram@bits-oasis.org"
-            />
+              <ContactCard
+                name="Shreeram Verma"
+                img={shreeram}
+                dept1="Sponsorship and"
+                dept2="Marketing"
+                contact="tel:+918889588288"
+                mail="mailto:shreeram@bits-oasis.org"
+              />
 
-            <ContactCard
-              name="Jaiditya Singh"
-              img={jaiditya}
-              dept1="Logistics and"
-              dept2="Operations"
-              contact={null}
-              mail={null}
-            />
+              <ContactCard
+                name="Jaiditya Singh"
+                img={jaiditya}
+                dept1="Logistics and"
+                dept2="Operations"
+                contact={null}
+                mail={null}
+              />
 
-            <ContactCard
-              name="Rijul Bassamboo"
-              img={rijul}
-              dept1="Reception and"
-              dept2="Accommodation"
-              contact={null}
-              mail={null}
-            />
+              <ContactCard
+                name="Rijul Bassamboo"
+                img={rijul}
+                dept1="Reception and"
+                dept2="Accommodation"
+                contact={null}
+                mail={null}
+              />
 
-            <ContactCard
-              name="Shreyansh Vanjani"
-              img={shreyansh}
-              dept1="Publicity and"
-              dept2="Collaborations"
-              contact={null}
-              mail={null}
-            />
+              <ContactCard
+                name="Shreyansh Vanjani"
+                img={shreyansh}
+                dept1="Publicity and"
+                dept2="Collaborations"
+                contact={null}
+                mail={null}
+              />
 
-            <ContactCard
-              name="Sarthak Aggarwal"
-              img={sarthak}
-              dept1="President, "
-              dept2="Students' Union"
-              contact={null}
-              mail={null}
-            />
+              <ContactCard
+                name="Sarthak Aggarwal"
+                img={sarthak}
+                dept1="President, "
+                dept2="Students' Union"
+                contact={null}
+                mail={null}
+              />
 
-            <ContactCard
-              name="Abhinav Lamba"
-              img={abhinav}
-              dept1="General Secretary,"
-              dept2="Students' Union"
-              contact={null}
-              mail={null}
-            />
+              <ContactCard
+                name="Abhinav Lamba"
+                img={abhinav}
+                dept1="General Secretary,"
+                dept2="Students' Union"
+                contact={null}
+                mail={null}
+              />
+            </div>
           </div>
         </div>
       </div>
-      {/* <div className={styles.bottom} id="contactBottom">
-        <ContactUsBottomIcons />
-      </div> */}
+      <div className={styles.bottom} id="contactBottom">
+        <Image
+          src={left}
+          alt="left"
+          className={styles.bottomAnimation}
+          draggable={false}
+        />
+        <Image
+          src={right}
+          alt="right"
+          className={styles.bottomAnimation}
+          draggable={false}
+        />
+      </div>
     </>
   );
 }

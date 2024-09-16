@@ -8,4 +8,11 @@
   color: white;
   position: fixed;
   z-index: 9999999;
+
+  @media (width > 1000px) {
+    img{
+      height: 125%;
+    } 
+  }
+
 }

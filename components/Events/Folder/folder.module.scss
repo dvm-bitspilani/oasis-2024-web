@@ -1,0 +1,23 @@
+.folder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 164px;
+    background: #190D2C;
+    border: none;
+    cursor: pointer;
+
+    svg {
+        height: 150px;
+        width: 170px;
+    }
+
+    p {
+        font-family: Pixelify Sans;
+        font-size: 22.12px;
+        font-weight: 400;
+        line-height: 26.55px;
+        color: #fff;
+      }
+}

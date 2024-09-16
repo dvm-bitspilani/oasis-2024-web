@@ -10,6 +10,7 @@ import OasisLogo from "@/components/Landing/Navbar/Logo/Logo";
 import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
 import Nav from "@/components/Nav/Nav";
 import HamBtn from "@/components/Landing/Navbar/HamBtn/Btn";
+import SuitBackground from "@/components/Landing/Backdrop/Backdrop";
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
       <div className={styles.hamBtn}>
         <HamBtn />
       </div>
-      <div className={styles.navTickets}>
+      <div className={styles.navTickets} id="tickets-container">
         <Nav />
       </div>
       <main className={styles.scrollWrapper} id="scrollWrapper">
@@ -30,6 +31,7 @@ export default function Home() {
           <Glow />
           <Trees />
           <Grunge />
+          <SuitBackground />
         </main>
       </main>
     </>

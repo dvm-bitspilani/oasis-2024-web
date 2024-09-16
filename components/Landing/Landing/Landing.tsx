@@ -61,7 +61,8 @@ export default function Landing() {
   const [is3dLoaded, setIs3dLoaded] = useState(false);
   const [isXS, setIsXS] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [renderMobile, setRenderMobile] = useState(false);
+  const [isEvents, setIsEvents] = useState(false);
+  // const [renderMobile, setRenderMobile] = useState(false);
   const [isVideoFocused, setIsVideoFocused] = useState(false);
   const [isLanding, setIsLanding] = useState(true);
   const [tlProgress, setTlProgress] = useState(0);
@@ -151,7 +152,9 @@ export default function Landing() {
   );
 
   function iframeClick() {
-    if (tlProgress >= 0.3 && tlProgress <= 0.4) {
+    console.log("iframe click");
+    console.log(tlProgress, "Iframe click recorded");
+    if (tlProgress >= 0.23 && tlProgress <= 0.24) {
       console.log(tlProgress, "Iframe click recorded");
       setIsVideoFocused((prev) => !prev);
     }
@@ -223,48 +226,137 @@ export default function Landing() {
   //   };
   // }, []);
 
-  // useGSAP(() => {
-  //   let timelineConfig;
-  //   if (isLoaded) {
-  //     timelineConfig = gsap.timeline();
-  //     timelineConfig
-  //       .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state
-  //       .set("#oasisLogo", { autoAlpha: 0 })
-  //       .from(
-  //         "#leftTree",
-  //         {
-  //           x: "-100vw",
-  //           duration: 1.5,
-  //           ease: "sine.inOut",
-  //         },
-  //         0
-  //       )
-  //       .from(
-  //         "#rightTree",
-  //         {
-  //           x: "100vw",
-  //           duration: 1.5,
-  //           ease: "sine.inOut",
-  //         },
-  //         0
-  //       )
-  //       // .from(slotMachine.current, {
-  //       //   y: "100vw", // Start from below the screen
-  //       //   duration: 1.5,
-  //       //   ease: "sine.inOut",
-  //       // })
-  //       .to("#mainwrapper", {
-  //         autoAlpha: 1,
-  //         duration: 1,
-  //         ease: "sine.inOut",
-  //       })
-  //       .to("#oasisLogo", {
-  //         autoAlpha: 1,
-  //         duration: 0.5,
-  //         ease: "sine.inOut",
-  //       });
-  //   }
-  // }, [isLoaded]);
+  useGSAP(() => {
+    if (isLoaded && camera) {
+      const timeline = gsap.timeline();
+      if (window.innerWidth > 1000) {
+        timeline
+          .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state
+          .set("#oasisLogo", { autoAlpha: 0 })
+          .from(
+            "#leftTree",
+            {
+              x: "-100vw",
+              duration: 1.5,
+              ease: "sine.inOut",
+            },
+            0
+          )
+          .from(
+            "#rightTree",
+            {
+              x: "100vw",
+              duration: 1.5,
+              ease: "sine.inOut",
+            },
+            0
+          )
+          .from(
+            camera.position,
+            {
+              z: 2.48,
+              duration: 4,
+              ease: "sine.inOut",
+            },
+            0
+          )
+          .from(
+            camera.rotation,
+            {
+              x: -0.3,
+              duration: 4,
+              ease: "sine.inOut",
+            },
+            0
+          )
+          .to(
+            "#mainwrapper",
+            {
+              autoAlpha: 1,
+              duration: 1,
+              ease: "sine.inOut",
+            },
+            "-=1"
+          )
+          .to(
+            "#oasisLogo",
+            {
+              autoAlpha: 1,
+              duration: 0.5,
+              ease: "sine.inOut",
+            },
+            "-=1"
+          )
+          .from(
+            "#tickets-container",
+            {
+              duration: 0.5,
+              xPercent: 100,
+              ease: "sine.out",
+            },
+            "<"
+          )
+          .to(
+            "#iframe-overlay",
+            {
+              opacity: 0,
+              ease: "none",
+              duration: 0.5,
+            },
+            "-=0.5"
+          );
+      } else {
+        timeline
+          .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state
+          .set("#oasisLogo", { autoAlpha: 0 })
+          .from(
+            "#leftTree",
+            {
+              x: "-100vw",
+              duration: 1.5,
+              ease: "sine.inOut",
+            },
+            0
+          )
+          .from(
+            "#rightTree",
+            {
+              x: "100vw",
+              duration: 1.5,
+              ease: "sine.inOut",
+            },
+            0
+          )
+          .to(
+            "#mainwrapper",
+            {
+              autoAlpha: 1,
+              duration: 1,
+              ease: "sine.inOut",
+            },
+            "-=1"
+          )
+          .to(
+            "#oasisLogo",
+            {
+              autoAlpha: 1,
+              duration: 0.5,
+              ease: "sine.inOut",
+            },
+            "-=1"
+          )
+          .to(
+            "#iframe-overlay",
+            {
+              opacity: 0,
+              ease: "none",
+              duration: 0.5,
+            },
+            "-=0.5"
+          );
+      }
+    }
+  }, [isLoaded, camera]);
 
   useGSAP(
     () => {
@@ -272,11 +364,12 @@ export default function Landing() {
       const commonConfigs = {
         onUpdate: ({ progress }: updateTypesScrollTrigger) => {
           console.log(progress);
-          if (progress > 0.39 && progress < 0.4) {
-            setTlProgress(progress);
-          } else if (tlProgress) {
-            setTlProgress(0);
-          }
+          setTlProgress(progress);
+          // if (progress >= 0.225 && progress <= 0.245) {
+          //   setTlProgress(progress);
+          // } else if (tlProgress) {
+          //   setTlProgress(0);
+          // }
         },
         trigger: 'img[alt="right tree"]',
         markers: false,
@@ -293,11 +386,11 @@ export default function Landing() {
           scrollTrigger: {
             ...commonConfigs,
             snap: {
-              snapTo: [0, 0.24, 0.25, 0.765],
+              snapTo: [0, 0.17, 0.18, 0.5, 0.51, 0.85],
               ease: "sine.inOut",
               duration: 1,
             },
-            end: "+=300%",
+            end: "+=400%",
           },
         };
       } else {
@@ -305,11 +398,11 @@ export default function Landing() {
           scrollTrigger: {
             ...commonConfigs,
             snap: {
-              snapTo: [0, 0.45, 0.46, 1],
+              snapTo: [0, 0.23, 0.24, 0.64, 0.65, 1],
               ease: "sine.inOut",
               duration: 1,
             },
-            end: "+=200%",
+            end: "+=300%",
           },
         };
       }
@@ -462,6 +555,16 @@ export default function Landing() {
                   },
                   "+=1"
                 )
+                .call(() => {
+                  setIsEvents((prev) => !prev);
+                }, [])
+                .to(slotMachine.current.position, {
+                  x: 0,
+                  y: 0.5,
+                  z: -1.25,
+                  duration: 3,
+                  ease: "power1.inOut",
+                })
                 .to(
                   slotMachine.current.position,
                   {
@@ -471,7 +574,7 @@ export default function Landing() {
                     duration: 3,
                     ease: "power1.in",
                   },
-                  "<"
+                  "+=1"
                 )
                 .to("#contactUs", {
                   opacity: 1,
@@ -481,7 +584,8 @@ export default function Landing() {
                   "#contact-us-inner-scroll",
                   {
                     yPercent: -110,
-                    duration: 2,
+                    duration: 1,
+                    pointerEvents: "auto",
                   },
                   "-=0.5"
                 );
@@ -620,10 +724,13 @@ export default function Landing() {
                   },
                   "<"
                 )
-                .to(slotMachine.current.rotation, {
-                  y: conditions.isMobile ? 0 : -Math.PI / 6,
-                })
-
+                .to(
+                  slotMachine.current.rotation,
+                  {
+                    y: conditions.isMobile ? 0 : -Math.PI / 6,
+                  },
+                  "-=0.5"
+                )
                 .to("#aboutUs", {
                   opacity: 1,
                 })
@@ -642,6 +749,25 @@ export default function Landing() {
                   },
                   "+=1"
                 )
+                .call(() => {
+                  setIsEvents((prev) => !prev);
+                }, [])
+                .to(slotMachine.current.position, {
+                  x: 0,
+                  y: 0,
+                  z: -1.25,
+                  duration: 3,
+                  ease: "power1.inOut",
+                })
+                .to(
+                  slotMachine.current.rotation,
+                  {
+                    y: 0,
+                    duration: 3,
+                    ease: "power1.inOut",
+                  },
+                  "<"
+                )
                 .to(
                   slotMachine.current.position,
                   {
@@ -651,7 +777,7 @@ export default function Landing() {
                     duration: 3,
                     ease: "power1.in",
                   },
-                  "<"
+                  "+=1"
                 )
                 .to(
                   "#tickets",
@@ -718,7 +844,7 @@ export default function Landing() {
                             rotation: translations[i].rotation,
                             zIndex: cardCount - i,
                             transformOrigin: "center center",
-                            duration: 0.2,
+                            duration: 0.25,
                             ease: "power1.inOut",
                             onStart: () => {
                               for (let j = i + 1; j < cardCount; j++) {
@@ -727,7 +853,7 @@ export default function Landing() {
                                   y: translations[i].y,
                                   rotation: translations[i].rotation,
                                   transformOrigin: "center center",
-                                  duration: 0.2,
+                                  duration: 0.25,
                                   ease: "power1.inOut",
                                   zIndex: j,
                                 });
@@ -783,7 +909,7 @@ export default function Landing() {
                               rotation: translations1[i].rotation,
                               zIndex: cardCount1 - i,
                               transformOrigin: "center center",
-                              duration: 0.2,
+                              duration: 0.25,
                               ease: "power1.out",
                               onStart: () => {
                                 for (let j = i + 1; j < cardCount1; j++) {
@@ -792,7 +918,7 @@ export default function Landing() {
                                     y: translations1[i].y,
                                     rotation: translations1[i].rotation,
                                     transformOrigin: "center center",
-                                    duration: 0.2,
+                                    duration: 0.25,
                                     ease: "power1.out",
                                     zIndex: j,
                                   });
@@ -848,7 +974,7 @@ export default function Landing() {
         is3dLoaded,
         slotMachine2D.current,
         slotMachine.current,
-        renderMobile,
+        // renderMobile,
       ],
     }
   );
@@ -865,6 +991,7 @@ export default function Landing() {
         isXS={isXS}
         isMobile={isMobile}
         setCamera={setCamera}
+        isEvents={isEvents}
       />
       {/* {renderMobile ? (
         <MobileSlotMachine ref={slotMachine2D} />

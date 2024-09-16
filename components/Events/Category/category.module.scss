@@ -9,7 +9,7 @@
     .heading {
         width: 100%;
         margin-top: 2rem;
-        margin-bottom: 4rem;
+        margin-bottom: 2.2rem;
     
         h2 {
             font-family: Pixelify Sans;
@@ -29,5 +29,14 @@
         right: 2rem;
         border: none;
         cursor: pointer;
+    }
+
+    .eventContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 2rem 2rem;
+        justify-content: center;
+        align-items: center;
     }
 }

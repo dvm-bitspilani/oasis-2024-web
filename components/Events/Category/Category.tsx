@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./category.module.scss";
 import EventCard from "../EventCard/EventCard";
 
+import event from "../../../public/event.png";
+
 interface CategoryProps {
   onClose: () => void;
 }
@@ -18,6 +20,36 @@ export default function Category({ onClose }: CategoryProps) {
         </svg>
       </button>
       <div className={styles.eventContainer}>
+        <EventCard
+          name="BIG EVENT NAME"
+          desc="Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod... READ MORE lrem lorem lorem lorem lorem lorem"
+          img={event}
+        />
+        <EventCard
+          name="BIG EVENT NAME"
+          desc="Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod... READ MORE lrem lorem lorem lorem lorem lorem"
+          img={event}
+        />
+        <EventCard
+          name="BIG EVENT NAME"
+          desc="Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod... READ MORE lrem lorem lorem lorem lorem lorem"
+          img={event}
+        />
+        <EventCard
+          name="BIG EVENT NAME"
+          desc="Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod... READ MORE lrem lorem lorem lorem lorem lorem"
+          img={event}
+        />
+        <EventCard
+          name="BIG EVENT NAME"
+          desc="Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod... READ MORE lrem lorem lorem lorem lorem lorem"
+          img={event}
+        />
+        <EventCard
+          name="BIG EVENT NAME"
+          desc="Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod... READ MORE lrem lorem lorem lorem lorem lorem"
+          img={event}
+        />
       </div>
     </div>
   );

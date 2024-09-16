@@ -10,14 +10,10 @@ import HamMenu from "./HamMenu/HamMenu";
 
 export default function HamBtn() {
   const [isHamOpen, setIsHamOpen] = useState(false);
+  const [isHoverDisabled, setIsHoverDisabled] = useState(false);
   const BtnRef = useRef(null);
   const pokerChipRef = useRef(null);
   const hamIconRef = useRef(null);
-
-  const handleClick = () => {
-    setIsHamOpen(!isHamOpen);
-    animation();
-  };
 
   const animation = () => {
     const tl = gsap.timeline();
@@ -95,9 +91,41 @@ export default function HamBtn() {
     }
   };
 
+  const handleClick = () => {
+    setIsHamOpen(!isHamOpen);
+    animation();
+
+    setIsHoverDisabled(true);
+    setTimeout(() => {
+      setIsHoverDisabled(false);
+    }, 1000);
+  };
+
+  const handleMouseEnter = () => {
+    if (!isHamOpen && !isHoverDisabled)
+      gsap.to(pokerChipRef.current, {
+        rotate: 120,
+        duration: 0.5,
+      });
+  };
+
+  const handleMouseLeave = () => {
+    if (!isHamOpen && !isHoverDisabled)
+      gsap.to(pokerChipRef.current, {
+        rotate: 90,
+        duration: 0.5,
+      });
+  };
+
   return (
     <>
-      <div className={styles.btn} onClick={handleClick} ref={BtnRef}>
+      <div
+        className={styles.btn}
+        onClick={handleClick}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        ref={BtnRef}
+      >
         {isHamOpen && (
           <>
             <div className={styles.hamOverlay} />

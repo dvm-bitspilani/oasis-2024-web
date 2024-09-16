@@ -1,0 +1,99 @@
+.galleryBack {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.galleryContainer {
+    position: relative;
+    top: 0;
+    padding-top: 2rem;
+
+    .heading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1.2rem;
+
+        h2 {
+            font-family: "Rye", sans-serif;
+            font-size: 52px;
+            font-weight: 400;
+            line-height: 43px;
+            letter-spacing: 0.05em;
+            text-align: center;
+            color: #ccae57;
+            text-transform: uppercase;
+        }
+    }
+
+    .backBtn {
+        position: fixed;
+        top: 0rem;
+        left: 2rem;
+    }
+
+    .imgContainer {
+        column-count: 3;
+        margin: 2rem;
+        overflow: hidden;
+
+        Image {
+            object-fit: contain;
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+
+@media (max-width: 2100px) and (min-width: 1900px) {
+    .galleryContainer {
+        padding-top: 3rem;
+        .heading {
+            gap: 2rem;
+
+            h2 {
+                font-size: 72px;
+            }
+        }
+
+        .backBtn {
+            top: 1rem;
+        }
+    }
+}
+
+
+@media (max-width: 1900px) and (min-width: 1400px) {
+    .galleryContainer {
+        padding-top: 3rem;
+        .heading {
+
+            h2 {
+                font-size: 65px;
+            }
+        }
+
+        .backBtn {
+            top: 1rem;
+        }
+    }
+}
+
+@media(max-width: 600px) {
+
+    .galleryContainer {
+        .heading {
+            padding-top: 2.5rem;
+            h2 {
+                font-size: 40px;
+            }
+
+            svg {
+                display: none;
+            }
+        }
+    }
+}

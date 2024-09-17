@@ -9,6 +9,21 @@ import BackButton from "@/components/Registration/BackButton/BackButton";
 import Image from "next/image";
 import Link from "next/link";
 
+import one from "../../assets/Gallery/one.webp";
+import two from "../../assets/Gallery/two.webp";
+import three from "../../assets/Gallery/three.webp";
+import four from "../../assets/Gallery/four.webp";
+import five from "../../assets/Gallery/five.webp";
+import six from "../../assets/Gallery/six.webp";
+import seven from "../../assets/Gallery/seven.webp";
+import eight from "../../assets/Gallery/eight.webp";
+import nine from "../../assets/Gallery/nine.webp";
+import ten from "../../assets/Gallery/ten.webp";
+import eleven from "../../assets/Gallery/eleven.webp";
+import twelve from "../../assets/Gallery/twelve.webp";
+import thirteen from "../../assets/Gallery/thirteen.webp";
+import fourteen from "../../assets/Gallery/fourteen.webp";
+
 export default function GalleryPage() {
 
     return (
@@ -86,13 +101,81 @@ export default function GalleryPage() {
                         <BackButton />
                     </Link>
                 </div>
-                {/* <div className={styles.imgContainer}>
-                    <Image src={four} alt="one"/>
-                    <Image src={two} alt="one"/>
-                    <Image src={three} alt="one"/>
-                    <Image src={one} alt="one"/>
-                </div> */}
-            </div>
+                <div className={styles.images}>
+                    <Image
+                        src={one}
+                        alt="one"
+                        className={styles.hStrech}
+                    />
+                    <Image
+                        src={four}
+                        alt="two"
+                        className={styles.pic}
+                    />
+
+                    <Image
+                        src={three}
+                        alt="three"
+                        className={styles.vStrech}
+                    />
+                    <Image
+                        src={five}
+                        alt="fifth"
+                        className={styles.pic}
+                    />
+                    <Image
+                        src={two}
+                        alt="four"
+                        className={styles.hStrech}
+                    />
+                    <Image
+                        src={seven}
+                        alt="seventh"
+                        className={styles.vhStrech}
+                    />
+                    <Image
+                        src={six}
+                        alt="sixth"
+                        className={styles.pic}
+                    />
+                    <Image
+                        src={ten}
+                        alt="ten"
+                        className={styles.vStrech}
+                    />
+
+                    <Image
+                        src={nine}
+                        alt="nine"
+                        className={styles.pic}
+                    />
+                    <Image
+                        src={eight}
+                        alt="eight"
+                        className={styles.vStrech}
+                    />
+                    <Image
+                        src={eleven}
+                        alt="eleven"
+                        className={styles.hStrech}
+                    />
+                    <Image
+                        src={twelve}
+                        alt="twelve"
+                        className={styles.pic}
+                    />
+                    <Image
+                        src={thirteen}
+                        alt="thirteen"
+                        className={styles.hStrech}
+                    />
+                    <Image
+                        src={fourteen}
+                        alt="fourteen"
+                        className={styles.pic}
+                    />
+                </div>
+            </div >
         </>
     )
 }

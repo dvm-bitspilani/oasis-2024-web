@@ -136,7 +136,7 @@ const HamPokerChip = forwardRef<SVGSVGElement | any, HamPokerChipProps>(
                 transform="rotate(11 551.802 551.462)"
                 fill="url(#paint0_linear_3547_622)"
                 stroke="#EDCF89"
-                stroke-width="3.71621"
+                strokeWidth="3.71621"
               />
               <mask
                 id="mask0_3547_622"
@@ -166,7 +166,7 @@ const HamPokerChip = forwardRef<SVGSVGElement | any, HamPokerChipProps>(
                 d="M895.151 617.94C858.341 807.314 674.981 930.992 485.607 894.181C296.232 857.37 172.555 674.011 209.366 484.637C246.176 295.262 429.536 171.585 618.91 208.395C808.285 245.206 931.962 428.565 895.151 617.94Z"
                 fill="url(#paint1_linear_3547_622)"
                 stroke="#EDCF89"
-                stroke-width="3.71621"
+                strokeWidth="3.71621"
               />
               <rect
                 x="301"
@@ -249,9 +249,9 @@ const HamPokerChip = forwardRef<SVGSVGElement | any, HamPokerChipProps>(
                 width="1101.76"
                 height="1101.76"
                 filterUnits="userSpaceOnUse"
-                color-interpolation-filters="sRGB"
+                colorInterpolationFilters="sRGB"
               >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
                 <feColorMatrix
                   in="SourceAlpha"
                   type="matrix"

@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
-import styles from "./events.module.scss"
+import styles from "./events.module.scss";
 import Folder from "@/components/Events/Folder/Folder";
 import Category from "@/components/Events/Category/Category";
+import ComingSoon from "@/components/NotFound/NotFoundPage";
 
 export default function EventsPage() {
-
   const [category, setCategory] = useState<string>("");
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
@@ -16,13 +16,13 @@ export default function EventsPage() {
   }
 
   function handleCloseModal() {
-    setIsModalOpen(false); 
+    setIsModalOpen(false);
     setCategory("");
   }
 
   return (
     <>
-      <div className={styles.heading}>
+      {/* <div className={styles.heading}>
         <h2>EVENTS</h2>
       </div>
       <div className={styles.folderContainer} >
@@ -43,7 +43,8 @@ export default function EventsPage() {
         <div className={styles.fixedCategoryContainer}>
           <Category onClose={handleCloseModal} />
         </div>
-      )}
+      )} */}
+      <ComingSoon />
     </>
   );
 }

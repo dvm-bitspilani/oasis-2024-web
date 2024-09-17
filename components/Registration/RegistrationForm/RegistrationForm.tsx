@@ -12,7 +12,7 @@ import styles from "./registrationForm.module.scss";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useCookies } from "react-cookie";
-import { sendGAEvent } from '@next/third-parties/google'
+import { sendGAEvent } from "@next/third-parties/google";
 
 const formSchema = z.object({
   name: z.string().min(1, { message: "*Name is required" }),
@@ -37,15 +37,15 @@ const formSchema = z.object({
     .refine((value) => value !== undefined && value !== null, {
       message: "*Please select if you are a choreographer",
     }),
-  head_of_society: z
-    .enum(["true", "false"])
-    .nullable()
-    .transform((value) =>
-      value === "true" ? true : value === "false" ? false : null
-    ) // Converts "true" to true, "false" to false
-    .refine((value) => value !== undefined && value !== null, {
-      message: "*Please select if you are a Head Of Society",
-    }),
+  // head_of_society: z
+  //   .enum(["true", "false"])
+  //   .nullable()
+  //   .transform((value) =>
+  //     value === "true" ? true : value === "false" ? false : null
+  //   ) // Converts "true" to true, "false" to false
+  //   .refine((value) => value !== undefined && value !== null, {
+  //     message: "*Please select if you are a Head Of Society",
+  //   }),
   year: z
     .enum(["1", "2", "3", "4", "5"])
     .nullable()
@@ -254,7 +254,11 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
   }, [selectedState, citiesData]);
 
   const onSubmit = (data: FormData) => {
-    const reqData = { ...data, access_token: userState?.access_token };
+    const reqData = {
+      ...data,
+      head_of_society: false,
+      access_token: userState?.access_token,
+    };
     // console.log(reqData);
     axios
       .post("https://bits-oasis.org/2024/main/registrations/register/", reqData)
@@ -460,68 +464,6 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
           )}
         </div>
 
-        {/* <div className={styles.formField}>
-          <label htmlFor="interests" className={styles.formFieldHeader}>
-            INTERESTS
-          </label>
-          <Controller
-            name="interests"
-            control={control}
-            rules={{ required: "*Please select an interest" }}
-            render={({ field, fieldState: { error } }) => (
-              <>
-                <Select
-                  mode="multiple"
-                  {...field}
-                  notFoundContent={null}
-                  allowClear
-                  style={{
-                    width: "100%",
-                  }}
-                  placeholder="Select Interests"
-                  dropdownStyle={{
-                    backgroundImage:
-                      "linear-gradient(180deg, #1B112A 0%, #160B27 49.5%, #1B102A 100%)",
-                    color: "#F5E3AE",
-                  }}
-                  options={interestOptions}
-                />
-                <div className={styles.inputUnderline}>
-                  <svg
-                    width="904"
-                    height="33"
-                    viewBox="0 0 904 33"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M888.293 22.3075C895.265 19.5085 892.004 13.6209 889.118 12.2607C885.66 10.6306 875.637 12.2767 875.834 23.5311C877.338 32.6431 895.434 38.06 902.57 19.5421C905.43 11.2526 898.547 0.107649 882.739 1.05681H0"
-                      stroke="#F5E3AE"
-                      strokeWidth="1.58383"
-                    />
-                    <line
-                      x1="-7.14315e-08"
-                      y1="9.18292"
-                      x2="875"
-                      y2="9.18284"
-                      stroke="#F5E3AE"
-                      strokeWidth="1.63416"
-                      strokeDasharray="1.63 1.63"
-                    />
-                  </svg>
-                </div>
-                {error && (
-                  <span
-                    className={`${styles.formErrorMessage} ${styles.dropDownError}}`}
-                  >
-                    {error.message}
-                  </span>
-                )}
-              </>
-            )}
-          />
-        </div> */}
-
         <div className={styles.formField}>
           <label htmlFor="events" className={styles.formFieldHeader}>
             EVENTS
@@ -715,7 +657,7 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
           )}
         </div>
 
-        <div className={`${styles.formField} ${styles.radioInput}`}>
+        {/* <div className={`${styles.formField} ${styles.radioInput}`}>
           <label className={styles.formFieldHeader}>
             Are you a Head of Society ?
           </label>
@@ -752,7 +694,7 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
               {errors.head_of_society.message}
             </span>
           )}
-        </div>
+        </div> */}
 
         <div className={styles.formField}>
           <label htmlFor="state" className={styles.formFieldHeader}>
@@ -878,7 +820,10 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
         type="submit"
       >
         <div className={styles.glow}></div>
-        <div className={styles.btnborder} onClick={() => sendGAEvent('event', 'Registered', { value: 1 })}>
+        <div
+          className={styles.btnborder}
+          onClick={() => sendGAEvent("event", "Registered", { value: 1 })}
+        >
           <div className={`${styles.circlewrapper} ${styles.top}`}>
             <div className={`${styles.circle} bulb`}></div>
             <div className={`${styles.circle} bulb`}></div>

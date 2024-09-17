@@ -557,6 +557,7 @@ export default function Landing() {
                   },
                   "+=1"
                 )
+                // Events page Mobile
                 .call(() => {
                   setIsEvents((prev) => !prev);
                 }, [])
@@ -751,13 +752,14 @@ export default function Landing() {
                   },
                   "+=1"
                 )
+                // Events page desktop
                 .call(() => {
                   setIsEvents((prev) => !prev);
                 }, [])
                 .to(slotMachine.current.position, {
                   x: 0,
                   y: 0,
-                  z: -1.25,
+                  z: -1.5,
                   duration: 3,
                   ease: "power1.inOut",
                 })

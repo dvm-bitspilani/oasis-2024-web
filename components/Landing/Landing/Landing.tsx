@@ -255,8 +255,8 @@ export default function Landing() {
           .from(
             slotMachine.current.position,
             {
-              z: -2.28,
-              y: 0.18,
+              z: -2.3,
+              y: 0.19,
               duration: 4,
               ease: "sine.inOut",
             },
@@ -265,7 +265,7 @@ export default function Landing() {
           .from(
             slotMachine.current.rotation,
             {
-              x: -0.4,
+              x: -0.42,
               duration: 4,
               ease: "sine.inOut",
             },
@@ -305,7 +305,7 @@ export default function Landing() {
               ease: "none",
               duration: 0.5,
             },
-            "-=0.5"
+            "<"
           );
       } else {
         timeline
@@ -557,6 +557,7 @@ export default function Landing() {
                   },
                   "+=1"
                 )
+                // Events page Mobile
                 .call(() => {
                   setIsEvents((prev) => !prev);
                 }, [])
@@ -751,13 +752,14 @@ export default function Landing() {
                   },
                   "+=1"
                 )
+                // Events page desktop
                 .call(() => {
                   setIsEvents((prev) => !prev);
                 }, [])
                 .to(slotMachine.current.position, {
                   x: 0,
                   y: 0,
-                  z: -1.25,
+                  z: -1.5,
                   duration: 3,
                   ease: "power1.inOut",
                 })

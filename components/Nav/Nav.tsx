@@ -29,10 +29,10 @@ const Nav = () => {
         handleScroll(0);
         break;
       case "about":
-        handleScroll(0.43);
+        handleScroll(0.235);
         break;
       case "events":
-        handleScroll(0.8);
+        handleScroll(0.645);
         break;
       case "contact":
         handleScroll(1);

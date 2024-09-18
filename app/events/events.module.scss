@@ -1,50 +1,50 @@
 .heading {
-    width: 100%;
-    margin-top: 2rem;
-    margin-bottom: 4rem;
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
 
-    h2 {
-        font-family: Pixelify Sans;
-        font-size: 39.6px;
-        font-weight: 600;
-        text-align: center;
-        color: #FFD600;
-        line-height: 100px;
-        border-bottom: 2.63px solid #FFD600;
-    }
+  h2 {
+    font-family: "Pixelify Sans";
+    font-size: 39.6px;
+    font-weight: 600;
+    text-align: center;
+    color: #ffd600;
+    line-height: 100px;
+    border-bottom: 2.63px solid #ffd600;
+  }
 }
 
 .folderContainer {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 4rem 4rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4rem 4rem;
 }
 
 .category {
-    margin-top: 3rem;
+  margin-top: 3rem;
 
-    p {
-        font-family: Pixelify Sans;
-        font-size: 28.97px;
-        font-weight: 500;
-        line-height: 34.76px;
-        text-align: center;
-        color: #FFD600;
-    }
+  p {
+    font-family: "Pixelify Sans";
+    font-size: 28.97px;
+    font-weight: 500;
+    line-height: 34.76px;
+    text-align: center;
+    color: #ffd600;
+  }
 }
 
 .categoryContainer {
-    position: static;
+  position: static;
 }
 
 .fixedCategoryContainer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }

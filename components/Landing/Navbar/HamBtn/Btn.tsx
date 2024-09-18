@@ -54,40 +54,77 @@ export default function HamBtn() {
           "<"
         );
     } else {
-      tl.to(BtnRef.current, {
-        y: `${window.innerHeight / 2 - 50}`,
-        x: "-50%",
-        duration: 0.5,
-        scale: 8.9,
-      })
-        .to(
-          pokerChipRef.current,
-          {
-            rotate: 0,
-            duration: 1,
-            ease: "none",
-          },
-          "<"
-        )
-        .to(
-          hamIconRef.current,
-          {
-            opacity: 0,
-            duration: 0.1,
-            ease: "power2.out",
-          },
-          "<"
-        )
-        .to(
-          hamIconRef.current,
-          {
-            opacity: 1,
-            delay: 0.05,
-            duration: 0.1,
-            ease: "power2.in",
-          },
-          "<"
-        );
+      if (window.innerWidth > 585) {
+        tl.to(BtnRef.current, {
+          y: `${window.innerHeight / 2 - 50}`,
+          x: "-50%",
+          duration: 0.5,
+          scale: 8.9,
+        })
+          .to(
+            pokerChipRef.current,
+            {
+              rotate: 0,
+              duration: 1,
+              ease: "none",
+            },
+            "<"
+          )
+          .to(
+            hamIconRef.current,
+            {
+              opacity: 0,
+              duration: 0.1,
+              ease: "power2.out",
+            },
+            "<"
+          )
+          .to(
+            hamIconRef.current,
+            {
+              opacity: 1,
+              delay: 0.05,
+              duration: 0.1,
+              ease: "power2.in",
+            },
+            "<"
+          );
+      } else {
+        tl.to(BtnRef.current, {
+          y: `${window.innerHeight / 3.5}`,
+          x: `${-window.innerWidth / 3.25}`,
+          duration: 0.5,
+          scale: 2.8,
+        })
+          .to(
+            pokerChipRef.current,
+            {
+              rotate: 0,
+              duration: 1,
+              ease: "none",
+            },
+            "<"
+          )
+          .to(
+            hamIconRef.current,
+            {
+              opacity: 0,
+              duration: 0.1,
+              ease: "power2.out",
+            },
+            "<"
+          )
+          .to(
+            hamIconRef.current,
+            {
+              opacity: 1,
+              delay: 0.05,
+              duration: 0.1,
+              ease: "power2.in",
+            },
+            "<"
+          );
+      }
     }
   };
 
@@ -119,6 +156,7 @@ export default function HamBtn() {
 
   return (
     <>
+      {isHamOpen && <div className={styles.hamOverlay} />}
       <div
         className={styles.btn}
         onClick={handleClick}
@@ -126,11 +164,6 @@ export default function HamBtn() {
         onMouseLeave={handleMouseLeave}
         ref={BtnRef}
       >
-        {isHamOpen && (
-          <>
-            <div className={styles.hamOverlay} />
-          </>
-        )}
         {isHamOpen && <HamMenu isHamOpen={isHamOpen} />}
         <HamPokerChip
           ref={pokerChipRef}

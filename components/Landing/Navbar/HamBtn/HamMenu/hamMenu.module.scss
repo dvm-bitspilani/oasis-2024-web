@@ -87,3 +87,91 @@
     }
   }
 }
+
+.mobileHamMenuLines {
+  position: absolute;
+  scale: 0.35;
+  z-index: 5111;
+  width: 100%;
+  height: 100%;
+
+  font-family: "Source Serif 4";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 43px;
+  text-align: left;
+  color: #edcf89;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .wallMag {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translate(118%, -31%);
+    opacity: 0;
+
+    .magText {
+      position: absolute;
+      top: -12.5%;
+      left: -10%;
+    }
+  }
+
+  .developers {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translate(-47%, -31%);
+    opacity: 0;
+
+    .devText {
+      position: absolute;
+      top: -12.5%;
+      left: -43%;
+    }
+  }
+
+  .mediaPartners {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translate(48%, 100%);
+    opacity: 0;
+
+    .medText {
+      position: absolute;
+      bottom: 32%;
+      left: -55%;
+    }
+  }
+  .sponsors {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translate(162%, 74%);
+    opacity: 0;
+
+    .sponsorsText {
+      position: absolute;
+      bottom: 35%;
+      left: -10%;
+    }
+  }
+  .gallery {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translate(-100%, 74%);
+    opacity: 0;
+
+    .galleryText {
+      position: absolute;
+      bottom: 35%;
+      left: -30%;
+    }
+  }
+}

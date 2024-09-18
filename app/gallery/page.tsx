@@ -23,6 +23,11 @@ import eleven from "../../assets/Gallery/eleven.webp";
 import twelve from "../../assets/Gallery/twelve.webp";
 import thirteen from "../../assets/Gallery/thirteen.webp";
 import fourteen from "../../assets/Gallery/fourteen.webp";
+import sixteen from "../../assets/Gallery/sixteen.webp";
+import seventeen from "../../assets/Gallery/seventeen.webp";
+import eightteen from "../../assets/Gallery/eightteen.webp";
+import nineteen from "../../assets/Gallery/nineteen.webp";
+import twenty from "../../assets/Gallery/twenty.webp";
 
 export default function GalleryPage() {
 
@@ -172,6 +177,31 @@ export default function GalleryPage() {
                     <Image
                         src={fourteen}
                         alt="fourteen"
+                        className={styles.pic}
+                    />
+                    <Image
+                        src={sixteen}
+                        alt="sixteen"
+                        className={styles.vStrech}
+                    />
+                    <Image
+                        src={seventeen}
+                        alt="seventeen"
+                        className={styles.pic}
+                    />
+                    <Image
+                        src={twenty}
+                        alt="twenty"
+                        className={styles.hStrech}
+                    />
+                    <Image
+                        src={nineteen}
+                        alt="nineteen"
+                        className={styles.hStrech}
+                    />
+                    <Image
+                        src={eightteen}
+                        alt="eightteen"
                         className={styles.pic}
                     />
                 </div>

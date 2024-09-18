@@ -1,9 +1,24 @@
+import { useEffect, useState } from "react";
+
 interface MenuLinesProps {
   svgClass: string;
   isHamOpen: boolean;
 }
 
 const MenuLines: React.FC<MenuLinesProps> = ({ svgClass, isHamOpen }) => {
+  const [windowWidth, setWindowWidth] = useState<number | null>(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <>
       {isHamOpen ? (
@@ -42,7 +57,7 @@ const MenuLines: React.FC<MenuLinesProps> = ({ svgClass, isHamOpen }) => {
             />
           </g>
         </svg>
-      ) : window.innerWidth > 585 ? (
+      ) : windowWidth && windowWidth > 585 ? (
         <svg
           className={svgClass}
           viewBox="0 0 19 13"

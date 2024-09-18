@@ -1,7 +1,5 @@
-import Image from "next/image";
-import Chip from "@/public/Chip.png";
-
-import { forwardRef } from "react";
+"use client";
+import { forwardRef, useEffect, useState } from "react";
 
 interface HamPokerChipProps {
   svgClass: string;
@@ -10,6 +8,20 @@ interface HamPokerChipProps {
 
 const HamPokerChip = forwardRef<SVGSVGElement | any, HamPokerChipProps>(
   ({ svgClass, isHamOpen }, ref) => {
+    const [windowWidth, setWindowWidth] = useState<number | null>(null);
+
+    useEffect(() => {
+      const handleResize = () => {
+        setWindowWidth(window.innerWidth);
+      };
+      handleResize();
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }, []);
+
     return (
       <>
         {!isHamOpen ? (
@@ -17,7 +29,7 @@ const HamPokerChip = forwardRef<SVGSVGElement | any, HamPokerChipProps>(
             className={svgClass}
             style={{
               scale: "1",
-              display: window.innerWidth > 585 ? "" : "none",
+              display: windowWidth && windowWidth > 585 ? "" : "none",
             }}
             viewBox="0 0 91 91"
             fill="none"

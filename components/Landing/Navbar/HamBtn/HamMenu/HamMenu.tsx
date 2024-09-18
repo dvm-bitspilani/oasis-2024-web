@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useRef } from "react";
 import styles from "./hamMenu.module.scss";
 import gsap from "gsap";

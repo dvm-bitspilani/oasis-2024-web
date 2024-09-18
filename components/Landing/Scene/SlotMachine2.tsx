@@ -201,8 +201,9 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
                   loop
                 />
                 <iframe
-                  src="https://oasis-24-web.netlify.app/events"
-                  // src="http://localhost:3000/events"
+                  // src="https://oasis-24-web.netlify.app/events"
+                  // src="http://localhost:3000/ComingSoon"
+                  src="https://oasis-24-web.netlify.app/ComingSoon"
                   style={{ zIndex: 0 }}
                 />
               </div>

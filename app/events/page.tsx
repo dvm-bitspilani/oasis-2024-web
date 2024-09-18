@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import styles from "./events.module.scss";
 import Folder from "@/components/Events/Folder/Folder";
 import Category from "@/components/Events/Category/Category";
-import ComingSoon from "@/components/NotFound/NotFoundPage";
 
 export default function EventsPage() {
   const [category, setCategory] = useState<string>("");
@@ -22,7 +21,7 @@ export default function EventsPage() {
 
   return (
     <>
-      {/* <div className={styles.heading}>
+      <div className={styles.heading}>
         <h2>EVENTS</h2>
       </div>
       <div className={styles.folderContainer} >
@@ -43,8 +42,7 @@ export default function EventsPage() {
         <div className={styles.fixedCategoryContainer}>
           <Category onClose={handleCloseModal} />
         </div>
-      )} */}
-      <ComingSoon />
+      )}
     </>
   );
 }

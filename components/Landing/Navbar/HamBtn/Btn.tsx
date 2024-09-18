@@ -22,7 +22,8 @@ export default function HamBtn() {
         y: "0",
         x: "0",
         duration: 0.5,
-        scale: 1,
+        scale:
+          window.innerWidth > 1050 ? 1 : window.innerWidth > 900 ? 0.8 : 0.65,
       })
         .to(
           pokerChipRef.current,
@@ -59,7 +60,7 @@ export default function HamBtn() {
           y: `${window.innerHeight / 2 - 50}`,
           x: "-50%",
           duration: 0.5,
-          scale: 8.9,
+          scale: window.innerWidth > 1200 ? 8.9 : 6,
         })
           .to(
             pokerChipRef.current,
@@ -183,18 +184,18 @@ export default function HamBtn() {
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11944.469102073399!2d75.59370839386403!3d28.35653200720568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39131964f43e4575%3A0x1fbad30854cf884d!2sBirla%20Institute%20of%20Technology%20And%20Science%20-%20Pilani!5e0!3m2!1sen!2sin!4v1726307515319!5m2!1sen!2sin"
             width={
-              window.innerWidth > 1400
+              window.innerWidth > 1640
                 ? "600"
                 : window.innerWidth > 1000
                 ? "300"
-                : "150"
+                : "200"
             }
             height={
-              window.innerWidth > 1400
+              window.innerWidth > 1640
                 ? "450"
                 : window.innerWidth > 1000
                 ? "225"
-                : "113"
+                : "150"
             }
             loading="lazy"
           ></iframe>

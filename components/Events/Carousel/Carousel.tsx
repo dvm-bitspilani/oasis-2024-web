@@ -44,7 +44,7 @@ export default function Carousel({
           className={`${styles.arrow} ${styles.left}`}
           onClick={onPrev}
         />
-        <div className={styles.cardContainer}>
+        <div className={styles.cardContainer} id="card">
           <div
             className={`${styles.carouselCard} ${
               isTransitioning ? styles.closed : ""
@@ -54,7 +54,15 @@ export default function Carousel({
               <h3>{carouselContent?.name}</h3>
               <p>{carouselContent?.club}</p>
             </section>
-            <section className={styles.cardContent}></section>
+            <section className={styles.cardContent}>
+              <Image src={carouselContent?.largeImg} alt="Event image" />
+              <p>{carouselContent?.desc}</p>
+            </section>
+            <section className={styles.cardFooter}>
+              <h3>
+                {activeEvent !== null ? activeEvent + 1 : 0} / {maxIndex + 1}
+              </h3>
+            </section>
           </div>
         </div>
         <Image

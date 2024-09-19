@@ -4,7 +4,7 @@ import { DUMMY_DATA } from "@/data/EventsCarousel";
 
 import { EventDataType } from "@/data/EventsCarousel";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import EventCard from "../EventCard/EventCard";
 import Carousel from "../Carousel/Carousel";

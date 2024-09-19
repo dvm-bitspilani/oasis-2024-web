@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./carousel.module.scss";
 
 import arrow from "@/assets/Events/Carousel/carouselArrow.png";
+import { useState } from "react";
 
 interface CarouselProps {
   activeEvent: number | null;
@@ -18,6 +19,8 @@ export default function Carousel({
   onNext,
   onPrev,
 }: CarouselProps) {
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
   return (
     <div className={styles.container}>
       <div className={styles.heading}>
@@ -36,29 +39,32 @@ export default function Carousel({
           src={arrow}
           alt="left arrow"
           className={`${styles.arrow} ${styles.left}`}
-          onClick={onPrev}
+          onClick={() => {
+            setIsTransitioning(true);
+            setTimeout(() => {
+              setIsTransitioning(false);
+            }, 1000);
+            onPrev();
+          }}
         />
-        <div className={styles.carouselViewPort}>
+        <div className={styles.cardContainer}>
           <div
-            className={styles.slider}
-            style={{
-              gap: "20px",
-              width: `calc(${(maxIndex + 1) * 100}% + 20px)`,
-              //   transform: `translateX(${activeEvent}%)`
-            }}
-          >
-            <div className={styles.carouselCard}></div>
-            <div className={styles.carouselCard}></div>
-            <div className={styles.carouselCard}></div>
-            <div className={styles.carouselCard}></div>
-            <div className={styles.carouselCard}></div>
-          </div>
+            className={`${styles.carouselCard} ${
+              isTransitioning ? styles.closed : ""
+            }`}
+          ></div>
         </div>
         <Image
           src={arrow}
           alt="right arrow"
           className={`${styles.arrow} ${styles.right}`}
-          onClick={onNext}
+          onClick={() => {
+            setIsTransitioning(true);
+            setTimeout(() => {
+              setIsTransitioning(false);
+            }, 1000);
+            onNext();
+          }}
         />
       </div>
     </div>

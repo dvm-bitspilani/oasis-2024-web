@@ -2,7 +2,7 @@ import styles from "./category.module.scss";
 
 import { DUMMY_DATA } from "@/data/EventsCarousel";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import EventCard from "../EventCard/EventCard";
 import Carousel from "../Carousel/Carousel";
@@ -62,6 +62,10 @@ export default function Category({ onClose }: CategoryProps) {
     });
   };
 
+  useEffect(() => {
+    console.log(activeEvent);
+  }, [activeEvent]);
+
   return (
     <>
       <div className={styles.mainContainer}>
@@ -83,7 +87,7 @@ export default function Category({ onClose }: CategoryProps) {
         <div className={styles.eventContainer}>{eventsArr}</div>
       </div>
 
-      {activeEvent && (
+      {activeEvent !== null && (
         <Carousel
           onClose={() => {
             setActiveEvent(null);

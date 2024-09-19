@@ -1,0 +1,43 @@
+$heading-line-height: 6.25rem;
+$cross-btn-width: 1.875rem;
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100lvh;
+  width: 100vw;
+  background-color: #110611;
+
+  .heading {
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2.2rem;
+
+    h2 {
+      font-family: "Pixelify Sans";
+      font-size: 39.6px;
+      font-weight: 600;
+      text-align: center;
+      color: #ffd600;
+      line-height: $heading-line-height;
+      border-bottom: 2.63px solid #ffd600;
+    }
+  }
+
+  button {
+    background-color: transparent;
+    position: fixed;
+    top: calc(
+      2rem + ($heading-line-height + 0.156rem) / 2 - $cross-btn-width / 2
+    );
+    right: 2rem;
+    border: none;
+    cursor: pointer;
+
+    svg {
+      aspect-ratio: 1 / 1;
+      width: $cross-btn-width;
+    }
+  }
+}

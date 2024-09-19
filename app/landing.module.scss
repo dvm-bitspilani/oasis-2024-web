@@ -35,7 +35,14 @@
   top: 30px;
   left: 20px;
   z-index: 5200;
+
+  @media screen and (max-width: 585px) {
+    right: 20px;
+    top: 15px;
+    left: unset;
+  }
 }
+
 .navTickets {
   position: fixed;
   right: -14%;

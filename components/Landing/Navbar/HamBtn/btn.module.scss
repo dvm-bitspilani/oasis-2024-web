@@ -1,3 +1,18 @@
+.hamOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(0, 0, 0, 0.855) 0%,
+    rgba(0, 0, 0, 0.95) 100%
+  );
+  z-index: 5110;
+  cursor: initial;
+}
+
 .btn {
   aspect-ratio: 1 / 1;
   width: 100px;
@@ -11,22 +26,6 @@
   visibility: hidden;
   cursor: initial;
 
-  .hamOverlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vh;
-    height: 100vw;
-    transform: translateY(-10%);
-    background: radial-gradient(
-      50% 50% at 50% 50%,
-      rgba(0, 0, 0, 0.855) 0%,
-      rgba(0, 0, 0, 0.95) 100%
-    );
-    z-index: 5110;
-    cursor: initial;
-  }
-
   .pokerChip {
     // transition: all 300ms ease-in-out;
     width: 100%;
@@ -34,10 +33,6 @@
     position: absolute;
     border-radius: 50%;
     z-index: 5120;
-
-    @media (width <= 585px) {
-      display: none;
-    }
   }
 
   //   &:hover {
@@ -103,6 +98,10 @@
   iframe {
     border-radius: 25px;
     border: 3px solid #8d6916;
+
+    @media screen and (max-width: 868px) {
+      display: none;
+    }
   }
 
   h1 {
@@ -121,10 +120,14 @@
     }
   }
 
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
   @media screen and (max-width: 1440px) {
     top: 75%;
+  }
+  @media screen and (max-width: 868px) {
+    right: 50%;
+    top: unset;
+    bottom: 40px;
+    width: 100%;
+    transform: translate(50%, 0);
   }
 }

@@ -1,3 +1,5 @@
+$heading-marg-top: 2rem;
+$heading-marg-bot: 2.2rem;
 $heading-line-height: 6.25rem;
 $cross-btn-width: 1.875rem;
 
@@ -11,8 +13,8 @@ $cross-btn-width: 1.875rem;
 
   .heading {
     width: 100%;
-    margin-top: 2rem;
-    margin-bottom: 2.2rem;
+    margin-top: $heading-marg-top;
+    margin-bottom: $heading-marg-bot;
 
     h2 {
       font-family: "Pixelify Sans";
@@ -38,6 +40,45 @@ $cross-btn-width: 1.875rem;
     svg {
       aspect-ratio: 1 / 1;
       width: $cross-btn-width;
+    }
+  }
+
+  .carouselContainer {
+    height: calc(
+      95% -
+        ($heading-marg-top + $heading-marg-bot + $heading-line-height + 2.5px)
+    );
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .carouselCard {
+      aspect-ratio: 853.69 / 509.008;
+      width: 85%;
+      height: auto;
+      border: 4.094px solid #ffd600;
+      background: rgba(101, 85, 0, 0.25);
+      box-shadow: 0px 0px 8.597px 1.365px rgba(255, 214, 0, 0.56);
+    }
+
+    .arrow {
+      aspect-ratio: 25.61 / 41.37;
+      transition: transform 200ms ease-in-out;
+      cursor: pointer;
+
+      &.right {
+        transform: rotateZ(180deg);
+
+        &:hover {
+          transform: rotateZ(180deg) translateX(-5px);
+        }
+      }
+
+      &.left {
+        &:hover {
+          transform: translateX(-5px);
+        }
+      }
     }
   }
 }

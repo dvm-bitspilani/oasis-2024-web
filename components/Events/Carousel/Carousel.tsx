@@ -1,4 +1,7 @@
+import Image from "next/image";
 import styles from "./carousel.module.scss";
+
+import arrow from "@/assets/Events/Carousel/carouselArrow.png";
 
 interface CarouselProps {
   onClose: () => void;
@@ -18,6 +21,19 @@ export default function Carousel({ onClose }: CarouselProps) {
           />
         </svg>
       </button>
+      <div className={styles.carouselContainer}>
+        <Image
+          src={arrow}
+          alt="left arrow"
+          className={`${styles.arrow} ${styles.left}`}
+        />
+        <div className={styles.carouselCard}></div>
+        <Image
+          src={arrow}
+          alt="right arrow"
+          className={`${styles.arrow} ${styles.right}`}
+        />
+      </div>
     </div>
   );
 }

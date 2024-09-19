@@ -1,8 +1,10 @@
-import React, { useState } from "react";
 import styles from "./category.module.scss";
-import EventCard from "../EventCard/EventCard";
 
-import event from "../../../public/event.png";
+import { DUMMY_DATA } from "@/data/EventsCarousel";
+
+import React, { useState } from "react";
+
+import EventCard from "../EventCard/EventCard";
 import Carousel from "../Carousel/Carousel";
 
 interface CategoryProps {
@@ -13,8 +15,28 @@ export default function Category({ onClose }: CategoryProps) {
   const [activeEvent, setActiveEvent] = useState<number | null>(null);
 
   const eventClickHandler = (index: number) => {
+    console.log(index);
     setActiveEvent(index);
   };
+
+  const nextEvent = () => {
+    setActiveEvent;
+  };
+
+  const eventsArr = DUMMY_DATA.map((event, index) => {
+    const { name, desc, img } = event;
+    return (
+      <EventCard
+        key={index}
+        name={name}
+        desc={desc}
+        img={img}
+        onClick={() => {
+          eventClickHandler(index);
+        }}
+      />
+    );
+  });
 
   return (
     <>
@@ -34,56 +56,7 @@ export default function Category({ onClose }: CategoryProps) {
             />
           </svg>
         </button>
-        <div className={styles.eventContainer}>
-          <EventCard
-            name="BIG EVENT NAME"
-            desc="Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod... READ MORE lrem lorem lorem lorem lorem lorem"
-            img={event}
-            onClick={() => {
-              eventClickHandler(0);
-            }}
-          />
-          <EventCard
-            name="BIG EVENT NAME"
-            desc="Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod... READ MORE lrem lorem lorem lorem lorem lorem"
-            img={event}
-            onClick={() => {
-              eventClickHandler(1);
-            }}
-          />
-          <EventCard
-            name="BIG EVENT NAME"
-            desc="Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod... READ MORE lrem lorem lorem lorem lorem lorem"
-            img={event}
-            onClick={() => {
-              eventClickHandler(2);
-            }}
-          />
-          <EventCard
-            name="BIG EVENT NAME"
-            desc="Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod... READ MORE lrem lorem lorem lorem lorem lorem"
-            img={event}
-            onClick={() => {
-              eventClickHandler(3);
-            }}
-          />
-          <EventCard
-            name="BIG EVENT NAME"
-            desc="Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod... READ MORE lrem lorem lorem lorem lorem lorem"
-            img={event}
-            onClick={() => {
-              eventClickHandler(4);
-            }}
-          />
-          <EventCard
-            name="BIG EVENT NAME"
-            desc="Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod... READ MORE lrem lorem lorem lorem lorem lorem"
-            img={event}
-            onClick={() => {
-              eventClickHandler(5);
-            }}
-          />
-        </div>
+        <div className={styles.eventContainer}>{eventsArr}</div>
       </div>
 
       {activeEvent && (

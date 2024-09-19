@@ -19,10 +19,6 @@ export default function Category({ onClose }: CategoryProps) {
     setActiveEvent(index);
   };
 
-  const nextEvent = () => {
-    setActiveEvent;
-  };
-
   const eventsArr = DUMMY_DATA.map((event, index) => {
     const { name, desc, img } = event;
     return (
@@ -37,6 +33,34 @@ export default function Category({ onClose }: CategoryProps) {
       />
     );
   });
+
+  const nextEvent = () => {
+    setActiveEvent((prev) => {
+      if (prev !== null) {
+        if (prev === eventsArr.length - 1) {
+          return 0;
+        } else {
+          return prev + 1;
+        }
+      } else {
+        return null;
+      }
+    });
+  };
+
+  const prevEvent = () => {
+    setActiveEvent((prev) => {
+      if (prev !== null) {
+        if (prev === 0) {
+          return eventsArr.length - 1;
+        } else {
+          return prev - 1;
+        }
+      } else {
+        return null;
+      }
+    });
+  };
 
   return (
     <>
@@ -64,6 +88,10 @@ export default function Category({ onClose }: CategoryProps) {
           onClose={() => {
             setActiveEvent(null);
           }}
+          onNext={nextEvent}
+          onPrev={prevEvent}
+          activeEvent={activeEvent}
+          maxIndex={eventsArr.length - 1}
         />
       )}
     </>

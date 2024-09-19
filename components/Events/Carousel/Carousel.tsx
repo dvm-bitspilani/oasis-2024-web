@@ -4,10 +4,20 @@ import styles from "./carousel.module.scss";
 import arrow from "@/assets/Events/Carousel/carouselArrow.png";
 
 interface CarouselProps {
+  activeEvent: number | null;
+  maxIndex: number;
   onClose: () => void;
+  onNext: () => void;
+  onPrev: () => void;
 }
 
-export default function Carousel({ onClose }: CarouselProps) {
+export default function Carousel({
+  activeEvent,
+  maxIndex,
+  onClose,
+  onNext,
+  onPrev,
+}: CarouselProps) {
   return (
     <div className={styles.container}>
       <div className={styles.heading}>
@@ -26,12 +36,29 @@ export default function Carousel({ onClose }: CarouselProps) {
           src={arrow}
           alt="left arrow"
           className={`${styles.arrow} ${styles.left}`}
+          onClick={onPrev}
         />
-        <div className={styles.carouselCard}></div>
+        <div className={styles.carouselViewPort}>
+          <div
+            className={styles.slider}
+            style={{
+              gap: "20px",
+              width: `calc(${(maxIndex + 1) * 100}% + 20px)`,
+              //   transform: `translateX(${activeEvent}%)`
+            }}
+          >
+            <div className={styles.carouselCard}></div>
+            <div className={styles.carouselCard}></div>
+            <div className={styles.carouselCard}></div>
+            <div className={styles.carouselCard}></div>
+            <div className={styles.carouselCard}></div>
+          </div>
+        </div>
         <Image
           src={arrow}
           alt="right arrow"
           className={`${styles.arrow} ${styles.right}`}
+          onClick={onNext}
         />
       </div>
     </div>

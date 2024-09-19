@@ -52,13 +52,29 @@ $cross-btn-width: 1.875rem;
     justify-content: space-evenly;
     align-items: center;
 
-    .carouselCard {
+    .carouselViewPort {
       aspect-ratio: 853.69 / 509.008;
       width: 85%;
       height: auto;
-      border: 4.094px solid #ffd600;
-      background: rgba(101, 85, 0, 0.25);
-      box-shadow: 0px 0px 8.597px 1.365px rgba(255, 214, 0, 0.56);
+      overflow: hidden;
+
+      .slider {
+        display: flex;
+        height: calc(100% - 20px);
+        padding: 10px 12.5px;
+        justify-content: flex-start;
+        align-items: center;
+        transition: transform 800ms ease-in-out;
+
+        .carouselCard {
+          aspect-ratio: 853.69 / 509.008;
+          width: auto;
+          height: 100%;
+          border: 4.094px solid #ffd600;
+          background: rgba(101, 85, 0, 0.25);
+          box-shadow: 0px 0px 8.597px 1.365px rgba(255, 214, 0, 0.56);
+        }
+      }
     }
 
     .arrow {

@@ -1,12 +1,5 @@
 "use client";
 
-import music from "@/assets/Events/Folders/music_folder.svg";
-import art from "@/assets/Events/Folders/art_folder.svg";
-import camera from "@/assets/Events/Folders/camera_folder.svg";
-import dance from "@/assets/Events/Folders/dance_folder.svg";
-import fashion from "@/assets/Events/Folders/fashion_folder.svg";
-import singing from "@/assets/Events/Folders/singing_folder.svg";
-
 import React, { useState } from "react";
 import styles from "./events.module.scss";
 import Folder from "@/components/Events/Folder/Folder";

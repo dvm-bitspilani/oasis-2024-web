@@ -9,25 +9,25 @@ import BackButton from "@/components/Registration/BackButton/BackButton";
 import Image from "next/image";
 import Link from "next/link";
 
-import one from "../../assets/Gallery/one.webp";
-import two from "../../assets/Gallery/two.webp";
-import three from "../../assets/Gallery/three.webp";
-import four from "../../assets/Gallery/four.webp";
-import five from "../../assets/Gallery/five.webp";
-import six from "../../assets/Gallery/six.webp";
-import seven from "../../assets/Gallery/seven.webp";
-import eight from "../../assets/Gallery/eight.webp";
-import nine from "../../assets/Gallery/nine.webp";
-import ten from "../../assets/Gallery/ten.webp";
-import eleven from "../../assets/Gallery/eleven.webp";
-import twelve from "../../assets/Gallery/twelve.webp";
-import thirteen from "../../assets/Gallery/thirteen.webp";
-import fourteen from "../../assets/Gallery/fourteen.webp";
-import sixteen from "../../assets/Gallery/sixteen.webp";
-import seventeen from "../../assets/Gallery/seventeen.webp";
-import eightteen from "../../assets/Gallery/eightteen.webp";
-import nineteen from "../../assets/Gallery/nineteen.webp";
-import twenty from "../../assets/Gallery/twenty.webp";
+import one from "../../assets/Gallery/one.jpg";
+import two from "../../assets/Gallery/two.jpg";
+import three from "../../assets/Gallery/three.jpg";
+import four from "../../assets/Gallery/four.jpg";
+import five from "../../assets/Gallery/five.jpg";
+import six from "../../assets/Gallery/six.jpg";
+import seven from "../../assets/Gallery/seven.jpg";
+import eight from "../../assets/Gallery/eight.jpg";
+import nine from "../../assets/Gallery/nine.jpg";
+import ten from "../../assets/Gallery/ten.jpg";
+import eleven from "../../assets/Gallery/eleven.jpg";
+import twelve from "../../assets/Gallery/twelve.jpg";
+import thirteen from "../../assets/Gallery/thirteen.jpg";
+import fourteen from "../../assets/Gallery/fourteen.jpg";
+import sixteen from "../../assets/Gallery/sixteen.jpg";
+import seventeen from "../../assets/Gallery/seventeen.jpg";
+import eightteen from "../../assets/Gallery/eightteen.jpg";
+import nineteen from "../../assets/Gallery/nineteen.jpg";
+import twenty from "../../assets/Gallery/twenty.jpg";
 
 export default function GalleryPage() {
 

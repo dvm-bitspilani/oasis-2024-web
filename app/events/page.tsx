@@ -24,15 +24,63 @@ export default function EventsPage() {
       <div className={styles.heading}>
         <h2>EVENTS</h2>
       </div>
-      <div className={styles.folderContainer} >
-        <Folder isSelected={category === 'dance'} onSelect={() => handleSelect('dance')}>Dance</Folder>
-        <Folder isSelected={category === 'music'} onSelect={() => handleSelect('music')}>Music</Folder>
-        <Folder isSelected={category === 'art'} onSelect={() => handleSelect('art')}>Art</Folder>
-        <Folder isSelected={category === 'photography'} onSelect={() => handleSelect('photography')}>Photography</Folder>
-        <Folder isSelected={category === 'kernel'} onSelect={() => handleSelect('kernel')}>Kernel</Folder>
-        <Folder isSelected={category === 'fashion'} onSelect={() => handleSelect('fashion')}>Fashion</Folder>
-        <Folder isSelected={category === 'profshow'} onSelect={() => handleSelect('profshow')}>ProfShow</Folder>
-        <Folder isSelected={category === 'lorem'} onSelect={() => handleSelect('lorem')}>Lorem</Folder>
+      <div className={styles.folderContainer}>
+        <Folder
+          folderIcon={dance}
+          isSelected={category === "dance"}
+          onSelect={() => handleSelect("dance")}
+        >
+          Dance
+        </Folder>
+        <Folder
+          folderIcon={music}
+          isSelected={category === "music"}
+          onSelect={() => handleSelect("music")}
+        >
+          Music
+        </Folder>
+        <Folder
+          folderIcon={art}
+          isSelected={category === "art"}
+          onSelect={() => handleSelect("art")}
+        >
+          Art
+        </Folder>
+        <Folder
+          folderIcon={camera}
+          isSelected={category === "photography"}
+          onSelect={() => handleSelect("photography")}
+        >
+          Photography
+        </Folder>
+        <Folder
+          folderIcon={music}
+          isSelected={category === "kernel"}
+          onSelect={() => handleSelect("kernel")}
+        >
+          Kernel
+        </Folder>
+        <Folder
+          folderIcon={fashion}
+          isSelected={category === "fashion"}
+          onSelect={() => handleSelect("fashion")}
+        >
+          Fashion
+        </Folder>
+        <Folder
+          folderIcon={singing}
+          isSelected={category === "profshow"}
+          onSelect={() => handleSelect("profshow")}
+        >
+          ProfShow
+        </Folder>
+        <Folder
+          folderIcon={music}
+          isSelected={category === "lorem"}
+          onSelect={() => handleSelect("lorem")}
+        >
+          Lorem
+        </Folder>
       </div>
       <div className={styles.category}>
         <p>Please select a category</p>

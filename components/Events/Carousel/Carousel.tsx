@@ -2,11 +2,14 @@ import Image from "next/image";
 import styles from "./carousel.module.scss";
 
 import arrow from "@/assets/Events/Carousel/carouselArrow.png";
-import { useState } from "react";
+
+import { EventDataType } from "@/data/EventsCarousel";
 
 interface CarouselProps {
   activeEvent: number | null;
   maxIndex: number;
+  isTransitioning: boolean;
+  carouselContent: EventDataType | null;
   onClose: () => void;
   onNext: () => void;
   onPrev: () => void;
@@ -15,12 +18,12 @@ interface CarouselProps {
 export default function Carousel({
   activeEvent,
   maxIndex,
+  isTransitioning,
+  carouselContent,
   onClose,
   onNext,
   onPrev,
 }: CarouselProps) {
-  const [isTransitioning, setIsTransitioning] = useState(false);
-
   return (
     <div className={styles.container}>
       <div className={styles.heading}>
@@ -39,32 +42,26 @@ export default function Carousel({
           src={arrow}
           alt="left arrow"
           className={`${styles.arrow} ${styles.left}`}
-          onClick={() => {
-            setIsTransitioning(true);
-            setTimeout(() => {
-              setIsTransitioning(false);
-            }, 1000);
-            onPrev();
-          }}
+          onClick={onPrev}
         />
         <div className={styles.cardContainer}>
           <div
             className={`${styles.carouselCard} ${
               isTransitioning ? styles.closed : ""
             }`}
-          ></div>
+          >
+            <section className={styles.cardHeading}>
+              <h3>{carouselContent?.name}</h3>
+              <p>{carouselContent?.club}</p>
+            </section>
+            <section className={styles.cardContent}></section>
+          </div>
         </div>
         <Image
           src={arrow}
           alt="right arrow"
           className={`${styles.arrow} ${styles.right}`}
-          onClick={() => {
-            setIsTransitioning(true);
-            setTimeout(() => {
-              setIsTransitioning(false);
-            }, 1000);
-            onNext();
-          }}
+          onClick={onNext}
         />
       </div>
     </div>

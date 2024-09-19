@@ -2,6 +2,8 @@ import styles from "./category.module.scss";
 
 import { DUMMY_DATA } from "@/data/EventsCarousel";
 
+import { EventDataType } from "@/data/EventsCarousel";
+
 import React, { useEffect, useState } from "react";
 
 import EventCard from "../EventCard/EventCard";
@@ -13,10 +15,14 @@ interface CategoryProps {
 
 export default function Category({ onClose }: CategoryProps) {
   const [activeEvent, setActiveEvent] = useState<number | null>(null);
+  const [carouselContent, setCarouselContent] = useState<EventDataType | null>(
+    null
+  );
+  const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
 
   const eventClickHandler = (index: number) => {
-    console.log(index);
     setActiveEvent(index);
+    setCarouselContent(DUMMY_DATA[index]);
   };
 
   const eventsArr = DUMMY_DATA.map((event, index) => {
@@ -34,12 +40,25 @@ export default function Category({ onClose }: CategoryProps) {
     );
   });
 
+  const transitionHelper = (dataIndex: number) => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      if (activeEvent !== null) {
+        setCarouselContent(DUMMY_DATA[dataIndex]);
+      }
+      setIsTransitioning(false);
+    }, 1000);
+  };
+
   const nextEvent = () => {
     setActiveEvent((prev) => {
       if (prev !== null) {
+        console.log(prev);
         if (prev === eventsArr.length - 1) {
+          transitionHelper(0);
           return 0;
         } else {
+          transitionHelper(prev + 1);
           return prev + 1;
         }
       } else {
@@ -52,8 +71,10 @@ export default function Category({ onClose }: CategoryProps) {
     setActiveEvent((prev) => {
       if (prev !== null) {
         if (prev === 0) {
+          transitionHelper(eventsArr.length - 1);
           return eventsArr.length - 1;
         } else {
+          transitionHelper(prev - 1);
           return prev - 1;
         }
       } else {
@@ -61,10 +82,6 @@ export default function Category({ onClose }: CategoryProps) {
       }
     });
   };
-
-  useEffect(() => {
-    console.log(activeEvent);
-  }, [activeEvent]);
 
   return (
     <>
@@ -96,6 +113,8 @@ export default function Category({ onClose }: CategoryProps) {
           onPrev={prevEvent}
           activeEvent={activeEvent}
           maxIndex={eventsArr.length - 1}
+          carouselContent={carouselContent}
+          isTransitioning={isTransitioning}
         />
       )}
     </>

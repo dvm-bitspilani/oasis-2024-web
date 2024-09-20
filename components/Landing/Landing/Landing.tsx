@@ -5,6 +5,8 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
+import { waitForPreload } from "@/helper/waitForPreload";
+
 import LandingScene from "../Scene/Scene";
 import styles from "../../ContactUs/contactus.module.scss";
 import SlotMachineExitCross from "@/components/AboutUs/SlotMachineExitCross/SlotMachineExitCross";
@@ -18,27 +20,6 @@ interface MatchMediaParams {
 
 interface updateTypesScrollTrigger {
   progress: number;
-}
-
-function waitForPreload(querySelector: string) {
-  return new Promise((resolve, reject) => {
-    const preloader = document.querySelector(querySelector);
-    if (preloader) {
-      return resolve("loaded");
-    }
-
-    const observer = new MutationObserver(() => {
-      if (preloader) {
-        observer.disconnect();
-        return resolve("loaded");
-      }
-    });
-
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
-  });
 }
 
 export default function Landing() {

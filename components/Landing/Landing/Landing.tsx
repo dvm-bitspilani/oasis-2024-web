@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
@@ -46,7 +46,7 @@ export default function Landing() {
   // const [renderMobile, setRenderMobile] = useState(false);
   const [isVideoFocused, setIsVideoFocused] = useState(false);
   const [isLanding, setIsLanding] = useState(true);
-  const [tlProgress, setTlProgress] = useState(0);
+  const [isAboutUs, setIsAboutUs] = useState(false);
 
   useGSAP(
     () => {
@@ -132,14 +132,14 @@ export default function Landing() {
     { dependencies: [isVideoFocused, camera] }
   );
 
-  function iframeClick() {
-    console.log("iframe click");
-    console.log(tlProgress, "Iframe click recorded");
-    if (tlProgress >= 0.23 && tlProgress <= 0.24) {
-      console.log(tlProgress, "Iframe click recorded");
-      setIsVideoFocused((prev) => !prev);
-    }
-  }
+  const iframeClick = useCallback(
+    function iframeClick() {
+      if (isAboutUs && !isEvents) {
+        setIsVideoFocused((prev) => !prev);
+      }
+    },
+    [isAboutUs, isEvents]
+  );
 
   useEffect(() => {
     let overlayWrapper: any = document.querySelector("#mainwrapper");
@@ -345,15 +345,6 @@ export default function Landing() {
     () => {
       let timelineConfig;
       const commonConfigs = {
-        onUpdate: ({ progress }: updateTypesScrollTrigger) => {
-          console.log(progress);
-          setTlProgress(progress);
-          // if (progress >= 0.225 && progress <= 0.245) {
-          //   setTlProgress(progress);
-          // } else if (tlProgress) {
-          //   setTlProgress(0);
-          // }
-        },
         trigger: 'img[alt="right tree"]',
         markers: false,
         start: () =>
@@ -519,6 +510,9 @@ export default function Landing() {
                 )
                 .to(slotMachine.current.rotation, {
                   y: conditions.isMobile ? 0 : -Math.PI / 6,
+                })
+                .call(() => {
+                  setIsAboutUs((prev) => !prev);
                 })
                 .to("#aboutUs", {
                   opacity: 1,
@@ -715,6 +709,9 @@ export default function Landing() {
                   },
                   "-=0.5"
                 )
+                .call(() => {
+                  setIsAboutUs((prev) => !prev);
+                })
                 .to("#aboutUs", {
                   opacity: 1,
                 })

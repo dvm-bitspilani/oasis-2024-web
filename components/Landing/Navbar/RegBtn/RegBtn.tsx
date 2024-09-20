@@ -1,12 +1,17 @@
 import styles from "./regbtn.module.scss";
-import { sendGAEvent } from '@next/third-parties/google'
+import { sendGAEvent } from "@next/third-parties/google";
+import { memo } from "react";
 
 import Link from "next/link";
 
-export default function RegBtn() {
+const RegBtn = memo(function RegBtn() {
   return (
-    <Link href="/Registration" className={styles.link} onClick={() => sendGAEvent('event', 'Home-regbutton', { value: 1 })}>
-      <div className={styles.btnwrapper}  id="register">
+    <Link
+      href="/Registration"
+      className={styles.link}
+      onClick={() => sendGAEvent("event", "Home-regbutton", { value: 1 })}
+    >
+      <div className={styles.btnwrapper} id="register">
         <div className={styles.glow}></div>
         <div className={styles.btnborder}>
           <div className={`${styles.circlewrapper} ${styles.top}`}>
@@ -83,4 +88,6 @@ export default function RegBtn() {
       </div>
     </Link>
   );
-}
+});
+
+export default RegBtn;

@@ -8,7 +8,7 @@ import React, { useEffect, forwardRef, useState, useRef } from "react";
 import { Html, useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 import * as THREE from "three";
-import { useThree } from "@react-three/fiber";
+import { Euler, useThree } from "@react-three/fiber";
 import ReactPlayer from "react-player/youtube";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -41,6 +41,8 @@ interface Props {
   isVideoFocused: boolean;
   isEvents: boolean;
 }
+
+const rotationPropArray: Euler | undefined = [0.4510000000000003, 0, 0];
 
 export const SlotMachine2 = forwardRef(function SlotMachine2(
   {
@@ -184,9 +186,7 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
               transform
               wrapperClass="htmlScreen"
               distanceFactor={0.31000000000000005}
-              // position={position}
-              position={[0, 0, 0]}
-              rotation={[0.4510000000000003, 0, 0]}
+              rotation={rotationPropArray}
             >
               <div id="iframe-container">
                 <div

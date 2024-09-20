@@ -9,9 +9,9 @@ export default function ComingSoon() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.backgroundImage} />
-      <Link href="/" className={styles.backButton}>
+      {/* <Link href="/" className={styles.backButton}>
         <BackButton />
-      </Link>
+      </Link> */}
       <div className={styles.comingSoon}>COMING SOON...</div>
       <svg
         style={{ position: "absolute", width: "100%", height: "100%" }}

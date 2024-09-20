@@ -278,16 +278,16 @@ export default function Landing() {
               ease: "sine.out",
             },
             "<"
-          )
-          .to(
-            "#iframe-overlay",
-            {
-              opacity: 0,
-              ease: "none",
-              duration: 0.5,
-            },
-            "<"
           );
+        // .to(
+        //   "#iframe-overlay",
+        //   {
+        //     opacity: 0,
+        //     ease: "none",
+        //     duration: 0.5,
+        //   },
+        //   "<"
+        // );
       } else {
         timeline
           .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state
@@ -327,16 +327,16 @@ export default function Landing() {
               ease: "sine.inOut",
             },
             "-=1"
-          )
-          .to(
-            "#iframe-overlay",
-            {
-              opacity: 0,
-              ease: "none",
-              duration: 0.5,
-            },
-            "-=0.5"
           );
+        // .to(
+        //   "#iframe-overlay",
+        //   {
+        //     opacity: 0,
+        //     ease: "none",
+        //     duration: 0.5,
+        //   },
+        //   "-=0.5"
+        // );
       }
     }
   }, [isLoaded, camera, slotMachine.current]);
@@ -974,6 +974,7 @@ export default function Landing() {
         isMobile={isMobile}
         setCamera={setCamera}
         isEvents={isEvents}
+        isAboutUs={isAboutUs}
       />
       {/* {renderMobile ? (
         <MobileSlotMachine ref={slotMachine2D} />

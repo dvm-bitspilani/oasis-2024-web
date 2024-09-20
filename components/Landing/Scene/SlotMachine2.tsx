@@ -40,6 +40,7 @@ interface Props {
   setCamera: (value: any) => void;
   isVideoFocused: boolean;
   isEvents: boolean;
+  isAboutUs: boolean;
 }
 
 const rotationPropArray: Euler | undefined = [0.4510000000000003, 0, 0];
@@ -51,6 +52,7 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
     setCamera,
     isVideoFocused,
     isEvents,
+    isAboutUs,
     ...props
   }: Props,
   ref: any
@@ -192,7 +194,13 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
                 <div
                   id="iframe-overlay"
                   onClick={iframeClick}
-                  style={isEvents ? { display: "none" } : { zIndex: 2 }}
+                  style={
+                    isEvents
+                      ? { display: "none" }
+                      : isAboutUs
+                      ? { zIndex: 2, opacity: 0 }
+                      : { zIndex: 2, opacity: 1 }
+                  }
                 ></div>
                 <ReactPlayer
                   url={`https://www.youtube.com/embed/${videoUrlArrayIframe[iframeIndex]}`}

@@ -24,6 +24,7 @@ function detectAppleDevice() {
 
 interface Props {
   setIs3dLoaded: (value: boolean) => void;
+  isAboutUs: boolean;
   isXS: boolean;
   isMobile: boolean;
   iframeClick: () => void;
@@ -36,6 +37,7 @@ interface Props {
 const LandingScene = forwardRef(function LandingScene(
   {
     setIs3dLoaded,
+    isAboutUs,
     isXS,
     isMobile,
     iframeClick,
@@ -85,6 +87,7 @@ const LandingScene = forwardRef(function LandingScene(
               setCamera={setCamera}
               isVideoFocused={isVideoFocused}
               isEvents={isEvents}
+              isAboutUs={isAboutUs}
             />
           )}
         </group>

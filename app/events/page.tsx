@@ -5,6 +5,13 @@ import styles from "./events.module.scss";
 import Folder from "@/components/Events/Folder/Folder";
 import Category from "@/components/Events/Category/Category";
 
+import music from "../../assets/Events/Folders/music_folder.png";
+import dance from "../../assets/Events/Folders/dance_folder.png";
+import art from "../../assets/Events/Folders/art_folder.png";
+import camera from "../../assets/Events/Folders/camera_folder.png";
+import singing from "../../assets/Events/Folders//singing_folder.png";
+import fashion from "../../assets/Events/Folders/fashion_folder.png";
+
 export default function EventsPage() {
   const [category, setCategory] = useState<string>("");
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);

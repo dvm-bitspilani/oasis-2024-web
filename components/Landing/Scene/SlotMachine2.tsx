@@ -8,7 +8,7 @@ import React, { useEffect, forwardRef, useState, useRef } from "react";
 import { Html, useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 import * as THREE from "three";
-import { useThree } from "@react-three/fiber";
+import { Euler, useThree } from "@react-three/fiber";
 import ReactPlayer from "react-player/youtube";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -40,7 +40,10 @@ interface Props {
   setCamera: (value: any) => void;
   isVideoFocused: boolean;
   isEvents: boolean;
+  isAboutUs: boolean;
 }
+
+const rotationPropArray: Euler | undefined = [0.4510000000000003, 0, 0];
 
 export const SlotMachine2 = forwardRef(function SlotMachine2(
   {
@@ -49,6 +52,7 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
     setCamera,
     isVideoFocused,
     isEvents,
+    isAboutUs,
     ...props
   }: Props,
   ref: any
@@ -184,15 +188,19 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
               transform
               wrapperClass="htmlScreen"
               distanceFactor={0.31000000000000005}
-              // position={position}
-              position={[0, 0, 0]}
-              rotation={[0.4510000000000003, 0, 0]}
+              rotation={rotationPropArray}
             >
               <div id="iframe-container">
                 <div
                   id="iframe-overlay"
                   onClick={iframeClick}
-                  style={isEvents ? { display: "none" } : { zIndex: 2 }}
+                  style={
+                    isEvents
+                      ? { display: "none" }
+                      : isAboutUs
+                      ? { zIndex: 2, opacity: 0 }
+                      : { zIndex: 2, opacity: 1 }
+                  }
                 ></div>
                 <ReactPlayer
                   url={`https://www.youtube.com/embed/${videoUrlArrayIframe[iframeIndex]}`}

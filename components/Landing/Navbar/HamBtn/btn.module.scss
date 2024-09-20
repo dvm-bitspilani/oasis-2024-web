@@ -23,8 +23,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  visibility: hidden;
-  cursor: initial;
 
   .pokerChip {
     // transition: all 300ms ease-in-out;
@@ -49,7 +47,6 @@
     align-items: flex-start;
     justify-content: center;
     align-items: center;
-    visibility: hidden;
     gap: 5px;
     z-index: 5130;
     flex-direction: column;

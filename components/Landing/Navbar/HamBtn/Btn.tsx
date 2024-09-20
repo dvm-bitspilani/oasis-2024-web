@@ -130,28 +130,28 @@ export default function HamBtn() {
   };
 
   const handleClick = () => {
-    // setIsHamOpen(!isHamOpen);
-    // animation();
-    // setIsHoverDisabled(true);
-    // setTimeout(() => {
-    //   setIsHoverDisabled(false);
-    // }, 1000);
+    setIsHamOpen(!isHamOpen);
+    animation();
+    setIsHoverDisabled(true);
+    setTimeout(() => {
+      setIsHoverDisabled(false);
+    }, 1000);
   };
 
   const handleMouseEnter = () => {
-    // if (!isHamOpen && !isHoverDisabled)
-    //   gsap.to(pokerChipRef.current, {
-    //     rotate: 120,
-    //     duration: 0.5,
-    //   });
+    if (!isHamOpen && !isHoverDisabled)
+      gsap.to(pokerChipRef.current, {
+        rotate: 120,
+        duration: 0.5,
+      });
   };
 
   const handleMouseLeave = () => {
-    // if (!isHamOpen && !isHoverDisabled)
-    //   gsap.to(pokerChipRef.current, {
-    //     rotate: 90,
-    //     duration: 0.5,
-    //   });
+    if (!isHamOpen && !isHoverDisabled)
+      gsap.to(pokerChipRef.current, {
+        rotate: 90,
+        duration: 0.5,
+      });
   };
 
   return (

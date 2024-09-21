@@ -122,8 +122,8 @@
   }
   @media screen and (max-width: 868px) {
     right: 50%;
-    top: unset;
-    bottom: 40px;
+    top: 40px;
+    // bottom: 40px;
     width: 100%;
     transform: translate(50%, 0);
   }

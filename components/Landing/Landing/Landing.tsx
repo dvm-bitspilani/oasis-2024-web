@@ -561,7 +561,7 @@ export default function Landing() {
                 .to(
                   "#contact-us-inner-scroll",
                   {
-                    yPercent: -95,
+                    yPercent: -91,
                     duration: 2,
                     pointerEvents: "auto",
                   },

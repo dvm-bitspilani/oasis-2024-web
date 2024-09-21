@@ -111,9 +111,19 @@
       font-size: 24px;
       padding-top: 0.5rem;
     }
+    @media screen and (max-width: 868px) {
+      font-size: 14px;
+    }
     a {
       color: inherit;
       text-decoration: none;
+
+      span {
+        padding-right: 4px;
+      }
+      .arrow {
+        transform: translateY(22%);
+      }
     }
   }
 
@@ -122,8 +132,8 @@
   }
   @media screen and (max-width: 868px) {
     right: 50%;
-    top: unset;
-    bottom: 40px;
+    top: 40px;
+    // bottom: 40px;
     width: 100%;
     transform: translate(50%, 0);
   }

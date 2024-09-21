@@ -88,9 +88,6 @@ const Signin = () => {
             <Instruction text="⁠Upon successful payment, a confirmation email will be sent." />
           </div>
           <div className={styles.two}>
-            <Instruction text="All prof shows are free." />
-          </div>
-          <div className={styles.two}>
             <Instruction text="For further details contact:" />
           </div>
           <div className={styles.contact}>

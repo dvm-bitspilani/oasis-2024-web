@@ -556,16 +556,16 @@ export default function Landing() {
                 )
                 .to("#contactUs", {
                   opacity: 1,
-                  duration: 1,
+                  duration: 0.5,
                 })
                 .to(
                   "#contact-us-inner-scroll",
                   {
-                    yPercent: -110,
-                    duration: 1,
+                    yPercent: -91,
+                    duration: 2,
                     pointerEvents: "auto",
                   },
-                  "-=0.5"
+                  "+=2.0"
                 );
             }
           );

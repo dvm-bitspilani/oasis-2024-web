@@ -19,9 +19,11 @@ $cross-btn-width: 1.875rem;
       font-size: 39.6px;
       font-weight: 600;
       text-align: center;
-      color: #ffd600;
+      background: linear-gradient(180deg, #FFCFF3 -38.31%, #997C92 174.55%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       line-height: $heading-line-height;
-      border-bottom: 2.63px solid #ffd600;
+      border-bottom: 2.63px solid #FFCFF3;
     }
   }
 

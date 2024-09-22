@@ -21,9 +21,11 @@ $cross-btn-width: 1.875rem;
       font-size: 39.6px;
       font-weight: 600;
       text-align: center;
-      color: #ffd600;
+      background: linear-gradient(180deg, #ffcff3 -38.31%, #997c92 174.55%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       line-height: $heading-line-height;
-      border-bottom: 2.63px solid #ffd600;
+      border-bottom: 2.63px solid #ffcff3;
     }
   }
 
@@ -65,9 +67,9 @@ $cross-btn-width: 1.875rem;
       .carouselCard {
         width: 100%;
         height: 100%;
-        border: 4.094px solid #ffd600;
-        background: rgba(101, 85, 0, 0.25);
-        box-shadow: 0px 0px 8.597px 1.365px rgba(255, 214, 0, 0.56);
+        border: 4.094px solid rgba(209, 180, 226, 1);
+        background: rgba(25, 0, 39, 0.25);
+        box-shadow: 0px 0px 8.6px 1.36px rgba(255, 31, 255, 0.56);
         transition: all 1s ease-in-out;
         overflow: hidden;
         text-wrap: nowrap;
@@ -87,8 +89,7 @@ $cross-btn-width: 1.875rem;
           align-items: center;
           flex-direction: column;
           padding: 10px 0;
-          border-bottom: 4.094px solid #ffd600;
-
+          border-bottom: 4.094px solid rgba(209, 180, 226, 1);
           h3 {
             font-weight: 700;
             font-size: 40px;
@@ -108,6 +109,8 @@ $cross-btn-width: 1.875rem;
           justify-content: center;
           align-items: center;
           gap: 5px;
+          background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+          mix-blend-mode: Luminosity;
 
           img {
             width: 50%;

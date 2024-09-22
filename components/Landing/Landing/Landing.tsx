@@ -556,7 +556,7 @@ export default function Landing() {
                 )
                 .to("#contactUs", {
                   opacity: 1,
-                  duration: 1,
+                  duration: 0.5,
                 })
                 .to(
                   "#contact-us-inner-scroll",

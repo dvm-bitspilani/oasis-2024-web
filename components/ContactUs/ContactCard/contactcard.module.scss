@@ -131,6 +131,78 @@
   }
 }
 
+@media (max-width: 3100px) and (min-width: 2100px) {
+  .card {
+    height: auto;
+    width: 260px;
+    border: 2px solid #e3c041;
+    transform: scale(1);
+
+    .center {
+      margin-top: 45px;
+      margin-bottom: 25px;
+      gap: 0px;
+
+      .name {
+        font-size: 26px;
+      }
+
+      .imgContainer {
+        .profileImg {
+          width: 185px;
+          height: 100%;
+        }
+      }
+
+      .desc {
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        gap: 7px;
+        
+        p {
+          font-size: 19px;
+        }
+      }
+
+      .buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        padding-top: 7px;
+        min-height: 35px;
+
+        svg {
+          height: 30px;
+          width: 34px;
+        }
+      }
+    }
+
+    .top {
+      position: absolute;
+      top: 8px;
+      left: 12px;
+
+      svg {
+        width: 29px;
+        height: 45px;
+      }
+    }
+
+    .bottom {
+      position: absolute;
+      right: 12px;
+      bottom: 8px;
+
+      svg {
+        width: 29px;
+        height: 45px;
+      }
+    }
+  }
+}
+
 @media (max-width: 2100px) and (min-width: 1600px) {
   .card {
     height: auto;
@@ -207,40 +279,6 @@
     }
   }
 }
-
-// @media(max-width: 1300px) {
-
-//   .card {
-//     transform: scale(0.9);
-//   }
-// }
-
-// @media(max-width: 1200px) {
-//   .card {
-//     transform: scale(0.85);
-//   }
-// }
-
-// @media(max-width: 1000px) {
-
-//   .card {
-//     transform: scale(1);
-//   }
-// }
-
-// @media(max-width: 900px) {
-
-//   .card {
-//     transform: scale(0.9);
-//   }
-// }
-
-// @media(max-width: 450px) {
-
-//   .card {
-//     transform: scale(0.9);
-//   }
-// }
 
 @media (max-width: 500px) {
   .card {

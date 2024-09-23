@@ -526,7 +526,7 @@ export default function Landing() {
                   "#contact-us-inner-scroll",
                   {
                     yPercent: -91,
-                    duration: 2,
+                    duration: 0.2,
                     pointerEvents: "auto",
                     ease: "power1.inOut",
                   },

@@ -6,6 +6,10 @@
   right: 60px;
   bottom: 45px;
   pointer-events: auto;
+
+  @media(width > 1920px){
+    transform: scale(1.5) translateX(-10px);
+  }
   svg{
     cursor: pointer;
   }

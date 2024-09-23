@@ -29,10 +29,10 @@ const Nav = () => {
         handleScroll(0);
         break;
       case "about":
-        handleScroll(0.43);
+        handleScroll(0.235);
         break;
       case "events":
-        handleScroll(0.8);
+        handleScroll(0.645);
         break;
       case "contact":
         handleScroll(1);
@@ -47,7 +47,7 @@ const Nav = () => {
       const totalHeight =
         document.documentElement.scrollHeight - window.innerHeight;
       const check = window.scrollY / totalHeight;
-      console.log(check, active);
+      // console.log(check, active);
 
       if (check < 0.2) {
         setActive("home");
@@ -87,7 +87,9 @@ const Nav = () => {
           height={168}
           className={`${styles.about} ${
             active === "about" ? styles.active : ""
-          } ${active === "contact" ? styles.contactabout : ""}`}
+          } ${active === "contact" ? styles.contactabout : ""} ${
+            active === "events" ? styles.eventsabout : ""
+          }`}
           onClick={() => handleImageClick("about")}
         />
         <Image
@@ -109,7 +111,9 @@ const Nav = () => {
           height={168}
           className={`${styles.contact} ${
             active === "contact" ? styles.active : ""
-          } ${active === "about" ? styles.aboutcontact : ""}`}
+          } ${active === "about" ? styles.aboutcontact : ""} ${
+            active === "events" ? styles.eventscontact : ""
+          }`}
           onClick={() => handleImageClick("contact")}
         />
       </div>

@@ -260,6 +260,12 @@
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+
+  .bottomAnimation {
+    height: 200px;
+    width: 250px;
+    object-fit: contain;
+  }
 }
 
 @media (max-width: 2100px) and (min-width: 1400px) {
@@ -408,10 +414,27 @@
         width: 100%;
         height: 100%;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 1rem 2rem;
+
+        h2 {
+          margin-top: 2rem;
+          font-family: "Rye", sans-serif;
+          font-size: 43px;
+          font-weight: 400;
+          line-height: normal;
+          letter-spacing: 0.05em;
+          text-align: center;
+          color: #ccae57;
+          display: none;
+        }
+
+        .mobileCards {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 1rem 2rem;
+        }
       }
     }
 
@@ -508,28 +531,53 @@
 @media (max-width: 600px) {
   .contactPage {
     height: fit-content;
+    overflow-y: hidden;
+    margin-top: 0;
 
     .heading {
-      margin-top: 2rem;
-
-      h2 {
-        font-size: 43px;
-        font-weight: 400;
-        line-height: normal;
-      }
-
-      svg {
-        display: none;
-      }
+      margin-top: 0;
+      display: none;
     }
 
     .mobileContainer {
-      margin-top: 1.5rem;
+      padding-top: 0.5rem;
       margin-bottom: 0rem;
-      height: 70lvh;
+      height: 79lvh;
 
+      -webkit-mask-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0%, rgba(0, 0, 0, 0)),
+        color-stop(15%, rgba(0, 0, 0, 1)),
+        color-stop(85%, rgba(0, 0, 0, 1)),
+        color-stop(100%, rgba(0, 0, 0, 0))  
+      );
+
+      /* For non-webkit browsers */
+      mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%, 
+        rgba(0, 0, 0, 1) 15%, 
+        rgba(0, 0, 0, 1) 85%, 
+        rgba(0, 0, 0, 0) 100%
+      );
+      
       .scrollWrapper {
-        pointer-events: none;
+        margin-top: 0rem;
+        pointer-events: all;
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+          margin-top: 0;
+          margin-bottom: 1rem;
+          display: block;
+        }
+
+        .mobileCards {
+          gap: 0.5rem 1rem;
+        }
       }
     }
 
@@ -596,18 +644,21 @@
       margin-bottom: 0rem;
 
       .scrollWrapper {
-        gap: 1rem;
+
+        .mobileCards {
+          gap: 0.4rem 0.9rem
+        }
       }
     }
   }
 }
 
-@media (max-width: 400px) {
-  .contactPage {
-    .mobileContainer {
-      .scrollWrapper {
-        gap: 0.8rem 0.9rem;
-      }
-    }
-  }
-}
+// @media (max-width: 400px) {
+//   .contactPage {
+//     .mobileContainer {
+//       .scrollWrapper {
+//         gap: 0.8rem 0.9rem;
+//       }
+//     }
+//   }
+// }

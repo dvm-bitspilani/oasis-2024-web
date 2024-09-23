@@ -1,0 +1,179 @@
+.hamMenuLines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  scale: 0.1;
+  z-index: 5111;
+  top: -8%;
+  right: -40%;
+
+  font-family: "Source Serif 4";
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 43px;
+  text-align: left;
+  color: #edcf89;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    z-index: 50000;
+  }
+
+  .wallMag {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translate(-75%, -230%);
+    opacity: 0;
+
+    .magText {
+      position: absolute;
+      top: -20%;
+      right: -450%;
+    }
+  }
+
+  .developers {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translate(5%, -47%);
+    opacity: 0;
+
+    .devText {
+      position: absolute;
+      top: -10%;
+      right: -475%;
+    }
+  }
+
+  .mediaPartners {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translate(23%, 110%);
+    opacity: 0;
+
+    .medText {
+      position: absolute;
+      top: 5%;
+      right: -550%;
+    }
+  }
+  .sponsors {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translate(0%, 278%);
+    opacity: 0;
+
+    .sponsorsText {
+      position: absolute;
+      top: 5%;
+      right: -435%;
+    }
+  }
+  .gallery {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translate(-105%, 390%);
+    opacity: 0;
+
+    .galleryText {
+      position: absolute;
+      top: 82%;
+      right: -460%;
+    }
+  }
+}
+
+.mobileHamMenuLines {
+  position: absolute;
+  scale: 0.35;
+  z-index: 5111;
+  width: 100%;
+  height: 100%;
+
+  font-family: "Source Serif 4";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 43px;
+  text-align: left;
+  color: #edcf89;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    z-index: 50000;
+  }
+
+  .wallMag {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translate(118%, -31%);
+    opacity: 0;
+
+    .magText {
+      position: absolute;
+      top: -12.5%;
+      left: -10%;
+    }
+  }
+
+  .developers {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translate(-47%, -31%);
+    opacity: 0;
+
+    .devText {
+      position: absolute;
+      top: -12.5%;
+      left: -43%;
+    }
+  }
+
+  .mediaPartners {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translate(48%, 100%);
+    opacity: 0;
+
+    .medText {
+      position: absolute;
+      bottom: 32%;
+      left: -55%;
+    }
+  }
+  .sponsors {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translate(162%, 74%);
+    opacity: 0;
+
+    .sponsorsText {
+      position: absolute;
+      bottom: 35%;
+      left: -10%;
+    }
+  }
+  .gallery {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translate(-100%, 74%);
+    opacity: 0;
+
+    .galleryText {
+      position: absolute;
+      bottom: 35%;
+      left: -30%;
+    }
+  }
+}

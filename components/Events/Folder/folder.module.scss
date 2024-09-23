@@ -1,0 +1,32 @@
+.folder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 164px;
+  background: #190d2c;
+  border: none;
+  cursor: pointer;
+
+  svg {
+    height: 150px;
+    width: 170px;
+  }
+
+  p {
+    font-family: "Pixelify Sans";
+    font-size: 22.12px;
+    font-weight: 400;
+    line-height: 26.55px;
+    background: linear-gradient(180deg, #ffcff3 -38.31%, #997c92 174.55%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .icon {
+    aspect-ratio: 99.98 / 95.35;
+    width: 70%;
+    height: auto;
+    margin-bottom: 0.5rem;
+  }
+}

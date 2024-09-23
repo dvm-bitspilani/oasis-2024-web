@@ -1,0 +1,15 @@
+.treescontainer {
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  z-index: -10;
+  pointer-events: none;
+
+  .righttree {
+    position: absolute;
+    right: 0;
+  }
+  @media (width <= 690px) {
+    display: none;
+  }
+}

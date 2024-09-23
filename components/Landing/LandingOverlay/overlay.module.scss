@@ -5,7 +5,20 @@
   position: fixed;
   z-index: -1;
   pointer-events: none;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
 
+  .navcontainer {
+    position: absolute;
+    right: -14%;
+    top: 45%;
+    transform: translateY(-50%);
+    z-index: 5000;
+  }
   .navcontainer {
     position: absolute;
     right: -14%;
@@ -107,6 +120,9 @@
     bottom: 0;
     z-index: 10;
 
+    @media (width <= 1000px) {
+      display: none;
+    }
     @media (width <= 1000px) {
       display: none;
     }

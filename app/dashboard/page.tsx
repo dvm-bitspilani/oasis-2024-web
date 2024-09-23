@@ -9,7 +9,7 @@ export default function DashboardPage() {
   const [email, setEmail] = useState(null);
 
   useEffect(() => {
-    console.log(cookies["user-auth"]);
+    // console.log(cookies["user-auth"]);
     setEmail(cookies["user-auth"].email);
   }, []);
   return (

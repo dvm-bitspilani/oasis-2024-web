@@ -8,7 +8,7 @@ import React, { useEffect, forwardRef, useState, useRef } from "react";
 import { Html, useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 import * as THREE from "three";
-import { useThree } from "@react-three/fiber";
+import { Euler, useThree } from "@react-three/fiber";
 import ReactPlayer from "react-player/youtube";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -39,10 +39,22 @@ interface Props {
   iframeClick: () => void;
   setCamera: (value: any) => void;
   isVideoFocused: boolean;
+  isEvents: boolean;
+  isAboutUs: boolean;
 }
 
+const rotationPropArray: Euler | undefined = [0.4510000000000003, 0, 0];
+
 export const SlotMachine2 = forwardRef(function SlotMachine2(
-  { setIs3dLoaded, iframeClick, setCamera, isVideoFocused, ...props }: Props,
+  {
+    setIs3dLoaded,
+    iframeClick,
+    setCamera,
+    isVideoFocused,
+    isEvents,
+    isAboutUs,
+    ...props
+  }: Props,
   ref: any
 ) {
   const { nodes, materials } = useGLTF("/Models/uSlotM.glb") as GLTFResult;
@@ -54,21 +66,25 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
   const handleRef: any = useRef();
 
   const nextVideoIframe = () => {
-    setIframeIndex((prev) => {
-      if (prev === 2) {
-        return 0;
-      }
-      return prev + 1;
-    });
+    if (!isEvents) {
+      setIframeIndex((prev) => {
+        if (prev === 2) {
+          return 0;
+        }
+        return prev + 1;
+      });
+    }
   };
 
   const prevVideoIframe = () => {
-    setIframeIndex((prev) => {
-      if (prev === 0) {
-        return 2;
-      }
-      return prev - 1;
-    });
+    if (!isEvents) {
+      setIframeIndex((prev) => {
+        if (prev === 0) {
+          return 2;
+        }
+        return prev - 1;
+      });
+    }
   };
 
   useGSAP(
@@ -172,16 +188,31 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
               transform
               wrapperClass="htmlScreen"
               distanceFactor={0.31000000000000005}
-              // position={position}
-              position={[0, 0, 0]}
-              rotation={[0.4510000000000003, 0, 0]}
+              rotation={rotationPropArray}
             >
               <div id="iframe-container">
-                <div id="iframe-overlay" onClick={iframeClick}></div>
+                <div
+                  id="iframe-overlay"
+                  onClick={iframeClick}
+                  style={
+                    isEvents
+                      ? { display: "none" }
+                      : isAboutUs
+                      ? { zIndex: 2, opacity: 0 }
+                      : { zIndex: 2, opacity: 1 }
+                  }
+                ></div>
                 <ReactPlayer
                   url={`https://www.youtube.com/embed/${videoUrlArrayIframe[iframeIndex]}`}
+                  style={isEvents ? { display: "none" } : { zIndex: 1 }}
                   playing={isVideoFocused}
                   loop
+                />
+                <iframe
+                  // src="https://oasis-24-web.netlify.app/events"
+                  // src="http://localhost:3000/events"
+                  src="https://www.bits-oasis.org/ComingSoon"
+                  style={{ zIndex: 0 }}
                 />
               </div>
             </Html>

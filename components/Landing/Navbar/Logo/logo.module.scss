@@ -6,6 +6,10 @@
     transform: translateY(-3.5rem);
     z-index: -10;
     position: absolute;
+
+    @media(width > 1920px){
+      transform: scale(1.5);
+    }
   
     @media (width <= 1150px){
       transform: scale(0.9) translateY(-4.5rem);

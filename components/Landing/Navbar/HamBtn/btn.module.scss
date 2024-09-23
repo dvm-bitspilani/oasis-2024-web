@@ -1,7 +1,22 @@
+.hamOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(0, 0, 0, 0.855) 0%,
+    rgba(0, 0, 0, 0.95) 100%
+  );
+  z-index: 5110;
+  cursor: initial;
+}
+
 .btn {
   aspect-ratio: 1 / 1;
   width: 100px;
-  z-index: 200;
+  z-index: 5200;
   cursor: pointer;
   pointer-events: all;
   position: relative;
@@ -9,29 +24,8 @@
   justify-content: center;
   align-items: center;
 
-  .hamOverlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vh;
-    height: 100vw;
-    transform: translateY(-10%);
-    background: radial-gradient(
-      50% 50% at 50% 50%,
-      rgba(0, 0, 0, 0.855) 0%,
-      rgba(0, 0, 0, 0.95) 100%
-    );
-    z-index: 110;
-    cursor: initial;
-  }
-  .hamMenuLines {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    // scale: 0.1;
-    z-index: 111;
-    // top: 50%;
-    right: -45%;
+  @media(width > 1920px){
+    transform: scale(1.3);
   }
 
   .pokerChip {
@@ -40,11 +34,7 @@
     height: 100%;
     position: absolute;
     border-radius: 50%;
-    z-index: 120;
-
-    @media (width <= 585px) {
-      display: none;
-    }
+    z-index: 5120;
   }
 
   //   &:hover {
@@ -60,8 +50,9 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    align-items: center;
     gap: 5px;
-    z-index: 130;
+    z-index: 5130;
     flex-direction: column;
 
     .menuLines {
@@ -93,5 +84,61 @@
 
   @media (width <= 585px) {
     transform: scale(1);
+  }
+}
+
+.googleMaps {
+  position: fixed;
+  z-index: 5200;
+
+  right: 5%;
+  top: 50%;
+  scale: unset;
+  transform: translate(0, -50%);
+
+  iframe {
+    border-radius: 25px;
+    border: 3px solid #8d6916;
+
+    @media screen and (max-width: 868px) {
+      display: none;
+    }
+  }
+
+  h1 {
+    font-family: "Source Serif 4";
+    color: #edcf89;
+    text-align: center;
+    padding-top: 2rem;
+
+    @media screen and (max-width: 1440px) {
+      font-size: 24px;
+      padding-top: 0.5rem;
+    }
+    @media screen and (max-width: 868px) {
+      font-size: 14px;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      span {
+        padding-right: 4px;
+      }
+      .arrow {
+        transform: translateY(22%);
+      }
+    }
+  }
+
+  @media screen and (max-width: 1440px) {
+    top: 75%;
+  }
+  @media screen and (max-width: 868px) {
+    right: 50%;
+    top: 40px;
+    // bottom: 40px;
+    width: 100%;
+    transform: translate(50%, 0);
   }
 }

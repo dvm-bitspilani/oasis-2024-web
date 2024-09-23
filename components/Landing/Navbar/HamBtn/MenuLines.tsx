@@ -1,16 +1,31 @@
+import { useEffect, useState } from "react";
+
 interface MenuLinesProps {
   svgClass: string;
   isHamOpen: boolean;
 }
 
 const MenuLines: React.FC<MenuLinesProps> = ({ svgClass, isHamOpen }) => {
+  const [windowWidth, setWindowWidth] = useState<number | null>(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <>
       {isHamOpen ? (
         <svg
           className={svgClass}
-          width="463"
-          height="519"
+          height="463"
+          width="519"
           viewBox="0 0 463 519"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +57,7 @@ const MenuLines: React.FC<MenuLinesProps> = ({ svgClass, isHamOpen }) => {
             />
           </g>
         </svg>
-      ) : (
+      ) : windowWidth && windowWidth > 585 ? (
         <svg
           className={svgClass}
           viewBox="0 0 19 13"
@@ -53,6 +68,36 @@ const MenuLines: React.FC<MenuLinesProps> = ({ svgClass, isHamOpen }) => {
             d="M1 6.4803H17.4409M1 1H17.4409M1 11.9606H11.9606"
             stroke="#EDCF89"
             strokeWidth="1.82699"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ) : (
+        <svg
+          width="30"
+          height="30"
+          viewBox="0 0 30 30"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 15H26.25"
+            stroke="#EDCF89"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M3.75 7.5H26.25"
+            stroke="#EDCF89"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M15.625 22.5H26.25"
+            stroke="#EDCF89"
+            strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
           />

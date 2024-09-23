@@ -142,6 +142,14 @@ export default function Landing() {
   );
 
   useEffect(() => {
+    console.log(isVideoFocused);
+    gsap.set("#hamBtn", {
+      duration: 1,
+      autoAlpha: isVideoFocused ? 0 : 1,
+    });
+  }, [isVideoFocused]);
+
+  useEffect(() => {
     let overlayWrapper: any = document.querySelector("#mainwrapper");
 
     window.addEventListener("beforeunload", () => {

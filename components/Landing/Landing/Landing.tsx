@@ -215,6 +215,7 @@ export default function Landing() {
         timeline
           .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state
           .set("#oasisLogo", { autoAlpha: 0 })
+          .set("#hamBtn", { autoAlpha: 0 })
           .from(
             "#leftTree",
             {
@@ -262,6 +263,15 @@ export default function Landing() {
             "-=1"
           )
           .to(
+            "#hamBtn",
+            {
+              autoAlpha: 1,
+              duration: 1,
+              ease: "sine.inOut",
+            },
+            "-=1"
+          )
+          .to(
             "#oasisLogo",
             {
               autoAlpha: 1,
@@ -292,6 +302,7 @@ export default function Landing() {
         timeline
           .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state
           .set("#oasisLogo", { autoAlpha: 0 })
+          .set("#hamBtn", { autoAlpha: 0 })
           .from(
             "#leftTree",
             {
@@ -324,6 +335,15 @@ export default function Landing() {
             {
               autoAlpha: 1,
               duration: 0.5,
+              ease: "sine.inOut",
+            },
+            "-=1"
+          )
+          .to(
+            "#hamBtn",
+            {
+              autoAlpha: 1,
+              duration: 1,
               ease: "sine.inOut",
             },
             "-=1"

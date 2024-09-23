@@ -543,6 +543,15 @@
       margin-top: 0rem;
       margin-bottom: 0rem;
       height: 79lvh;
+      -webkit-mask-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(85%, rgba(0, 0, 0, 1)),
+        /* Keep 70% of the element fully opaque */
+          color-stop(100%, rgba(0, 0, 0, 0))
+          /* Fade out at the bottom 30% */
+      );
 
       .scrollWrapper {
         margin-top: 0rem;

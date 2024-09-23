@@ -18,42 +18,81 @@ export default function HamBtn() {
   const animation = () => {
     const tl = gsap.timeline();
     if (isHamOpen) {
-      tl.to(BtnRef.current, {
-        y: "0",
-        x: "0",
-        duration: 0.5,
-        scale:
-          window.innerWidth > 1050 ? 1 : window.innerWidth > 900 ? 0.8 : 0.65,
-      })
-        .to(
-          pokerChipRef.current,
-          {
-            rotate: 90,
-            duration: 0.75,
-            scale: 1,
-            ease: "none",
-          },
-          "<"
-        )
-        .to(
-          hamIconRef.current,
-          {
-            opacity: 0,
-            duration: 0.1,
-            ease: "power2.out",
-          },
-          "<"
-        )
-        .to(
-          hamIconRef.current,
-          {
-            opacity: 1,
-            delay: 0.05,
-            duration: 0.1,
-            ease: "power2.in",
-          },
-          "<"
-        );
+      if (window.innerWidth > 585) {
+        tl.to(BtnRef.current, {
+          y: "0",
+          x: "0",
+          duration: 0.5,
+          scale:
+            window.innerWidth > 1050 ? 1 : window.innerWidth > 900 ? 0.8 : 0.65,
+        })
+          .to(
+            pokerChipRef.current,
+            {
+              rotate: 90,
+              duration: 0.75,
+              scale: 1,
+              ease: "none",
+            },
+            "<"
+          )
+          .to(
+            hamIconRef.current,
+            {
+              opacity: 0,
+              duration: 0.1,
+              ease: "power2.out",
+            },
+            "<"
+          )
+          .to(
+            hamIconRef.current,
+            {
+              opacity: 1,
+              delay: 0.05,
+              duration: 0.1,
+              ease: "power2.in",
+            },
+            "<"
+          );
+      } else {
+        tl.to(BtnRef.current, {
+          y: "0",
+          x: "0",
+          duration: 0.5,
+          scale: 1,
+        })
+          .to(
+            pokerChipRef.current,
+            {
+              rotate: 90,
+              duration: 0.75,
+              opacity: 0,
+              scale: 1,
+              ease: "none",
+            },
+            "<"
+          )
+          .to(
+            hamIconRef.current,
+            {
+              opacity: 0,
+              duration: 0.1,
+              ease: "power2.out",
+            },
+            "<"
+          )
+          .to(
+            hamIconRef.current,
+            {
+              opacity: 1,
+              delay: 0.05,
+              duration: 0.1,
+              ease: "power2.in",
+            },
+            "<"
+          );
+      }
     } else {
       if (window.innerWidth > 585) {
         tl.to(BtnRef.current, {
@@ -102,6 +141,7 @@ export default function HamBtn() {
             {
               rotate: 0,
               duration: 1,
+              opacity: 1,
               ease: "none",
             },
             "<"
@@ -137,14 +177,16 @@ export default function HamBtn() {
       setTimeout(() => {
         setIsHoverDisabled(false);
       }, 1000);
-    } else {
-      setIsHamOpen(false);
-      animation();
-      setIsHoverDisabled(true);
-      setTimeout(() => {
-        setIsHoverDisabled(false);
-      }, 1000);
     }
+  };
+
+  const handleClose = () => {
+    setIsHamOpen(false);
+    animation();
+    setIsHoverDisabled(true);
+    setTimeout(() => {
+      setIsHoverDisabled(false);
+    }, 1000);
   };
 
   const handleMouseEnter = () => {
@@ -235,7 +277,7 @@ export default function HamBtn() {
               </Link>
             </h1>
           </div>
-          <div className={styles.closeBtn} onClick={handleClick}>
+          <div className={styles.closeBtn} onClick={handleClose}>
             <svg
               viewBox="0 0 40 40"
               fill="none"

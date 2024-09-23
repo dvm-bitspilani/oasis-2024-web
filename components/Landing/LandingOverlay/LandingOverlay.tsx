@@ -250,7 +250,7 @@ export default function LandingOverlay() {
         <Navbar />
       </div>
       <div className={styles.machinecontainer}></div>
-      <div className={styles.cardContainer}>
+      <div className={styles.cardContainer} id="cardContainer">
         <div className={styles.cardsLeftOuterContainer}>
           <div
             className={styles.cardsFollowZone}

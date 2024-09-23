@@ -359,11 +359,11 @@ export default function Landing() {
         timelineConfig = {
           scrollTrigger: {
             ...commonConfigs,
-            snap: {
-              snapTo: [0, 0.17, 0.18, 0.5, 0.51, 0.85],
-              ease: "sine.inOut",
-              duration: 1,
-            },
+            // snap: {
+            //   snapTo: [0, 0.17, 0.18, 0.5, 0.51, 0.85],
+            //   ease: "sine.inOut",
+            //   duration: 1,
+            // },
             end: "+=400%",
           },
         };

@@ -16,6 +16,7 @@
     "@react-oauth/google": "^0.12.1",
     "@react-three/drei": "^9.109.5",
     "@react-three/fiber": "^8.16.8",
+    "@rooks/use-window-size": "^4.11.2",
     "antd": "^5.20.2",
     "axios": "^1.7.2",
     "gsap": "^3.12.5",

@@ -32,16 +32,16 @@ body {
   opacity: 0;
   cursor: pointer;
   transition: opacity 0.5s linear;
+  background: url("/Videos/preloaderCoinVideo.gif");
+  background-color: black;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 @media (width > 1000px) {
   #iframe-overlay {
     opacity: 1;
-    background: url("/Videos/preloaderCoinVideo.gif");
-    background-color: black;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
   }
 }
 

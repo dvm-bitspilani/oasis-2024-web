@@ -1,19 +1,45 @@
-.slotMachine{
+.slotMachine {
+  aspect-ratio: 316 / 534;
+  position: absolute;
+  bottom: 0px;
+  height: 400px;
+  width: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+
+  img {
     aspect-ratio: 316 / 534;
     position: absolute;
-    bottom: 0px;
-    height: 400px;
+    height: 100%;
     width: auto;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: -1;
+    padding: 0;
+    margin: 0;
+  }
 
-    img{
-        aspect-ratio: 316 / 534;
-        position: absolute;
-        height: 100%;
-        width: auto;
-        padding: 0;
-        margin: 0;
+  .ytEmbed {
+    aspect-ratio: 234 / 155;
+    border: none;
+    position: absolute;
+    z-index: 10;
+    width: 75%;
+    height: auto;
+    left: 12.5%;
+    top: 29%;
+    background-color: black;
+  }
+
+  .arrow {
+    width: 20px;
+    height: auto;
+    top: 40%;
+    z-index: 12;
+    opacity: 0;
+    cursor: pointer;
+
+    &:last-of-type {
+      right: 0;
+      transform: rotateZ(180deg);
     }
+  }
 }

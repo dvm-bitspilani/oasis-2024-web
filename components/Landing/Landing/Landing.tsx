@@ -143,7 +143,7 @@ export default function Landing() {
   );
 
   useEffect(() => {
-    console.log(isVideoFocused);
+    // console.log(isVideoFocused);
     gsap.set("#hamBtn", {
       duration: 1,
       autoAlpha: isVideoFocused ? 0 : 1,
@@ -373,12 +373,10 @@ export default function Landing() {
       if (window.innerWidth <= 1000) {
         // Mobile scroll animations
         const timeline = gsap.timeline(timelineConfig);
-        console.log("mobile");
 
         const mm = gsap.matchMedia();
 
         if (slotMachine2D.current) {
-          console.log("2d");
           mm.add(
             {
               isMobile: "(max-width: 1000px)",
@@ -386,7 +384,6 @@ export default function Landing() {
               isXS: "(max-width: 585px)",
             },
             ({ conditions }: any) => {
-              // console.log(conditions);
               if (conditions.isXS !== isXS) {
                 setIsXS(conditions.isXS);
               }
@@ -395,7 +392,7 @@ export default function Landing() {
               }
               timeline
                 .to(slotMachine2D.current, {
-                  yPercent: 40,
+                  yPercent: 30,
                   duration: 1,
                 })
                 .to(
@@ -482,9 +479,13 @@ export default function Landing() {
                   },
                   "<"
                 )
-                .call(() => {
-                  setIsAboutUs((prev) => !prev);
-                })
+                .to(
+                  slotMachine2D.current,
+                  {
+                    zIndex: 10,
+                  },
+                  "-=0.25"
+                )
                 .to("#aboutUs", {
                   opacity: 1,
                 })
@@ -492,6 +493,20 @@ export default function Landing() {
                   "#aboutUs",
                   {
                     y: 75,
+                  },
+                  "<"
+                )
+                .to(
+                  slotMachine2D.current.children[0],
+                  {
+                    opacity: 1,
+                  },
+                  "<"
+                )
+                .to(
+                  slotMachine2D.current.children[3],
+                  {
+                    opacity: 1,
                   },
                   "<"
                 )
@@ -929,7 +944,7 @@ export default function Landing() {
   return (
     <>
       {WindowSize.innerWidth <= 1000 ? (
-        <MobileSlotMachine ref={slotMachine2D} />
+        <MobileSlotMachine ref={slotMachine2D} isAboutUs={isAboutUs} />
       ) : (
         <>
           <SlotMachineExitCross iframeClick={iframeClick} />

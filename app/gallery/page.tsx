@@ -8,6 +8,7 @@ import SuitBackground from "@/components/Landing/Backdrop/Backdrop";
 import BackButton from "@/components/Registration/BackButton/BackButton";
 import Image from "next/image";
 import Link from "next/link";
+import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
 
 import one from "../../assets/Gallery/one.jpg";
 import two from "../../assets/Gallery/two.jpg";
@@ -33,6 +34,7 @@ export default function GalleryPage() {
 
     return (
         <>
+            <PrePreloader />
             <div className={styles.galleryBack}>
                 <Glow />
                 <Grunge />

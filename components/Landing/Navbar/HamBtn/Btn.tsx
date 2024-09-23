@@ -24,7 +24,13 @@ export default function HamBtn() {
           x: "0",
           duration: 0.5,
           scale:
-            window.innerWidth > 1050 ? 1 : window.innerWidth > 900 ? 0.8 : 0.65,
+            window.innerWidth > 1920
+              ? 1.5
+              : window.innerWidth > 1050
+              ? 1
+              : window.innerWidth > 900
+              ? 0.8
+              : 0.65,
         })
           .to(
             pokerChipRef.current,

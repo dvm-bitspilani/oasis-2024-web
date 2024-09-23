@@ -541,8 +541,9 @@ export default function Landing() {
                   "#contact-us-inner-scroll",
                   {
                     yPercent: -91,
-                    duration: 2,
+                    duration: 1,
                     pointerEvents: "auto",
+                    ease: "linear",
                   },
                   "+=2.0"
                 );
@@ -570,6 +571,7 @@ export default function Landing() {
               if (conditions.isMobile !== isMobile) {
                 setIsMobile(true);
               }
+              // desktop scroll fadeout animations
               timeline
                 .to(slotMachine.current.rotation, {
                   y: conditions.isMobile ? 0 : -Math.PI / 9,
@@ -631,6 +633,16 @@ export default function Landing() {
                   {
                     y: 100,
                     opacity: 0,
+                    duration: 0.75,
+                  },
+                  "<"
+                )
+                .to(
+                  "#cardContainer",
+                  {
+                    y: -150,
+                    opacity: 0,
+                    pointerEvents: "none",
                     duration: 0.75,
                   },
                   "<"
@@ -774,24 +786,53 @@ export default function Landing() {
                         const cardCount = cards.length;
                         const containerWidth = container.offsetWidth;
                         const cardWidth = cards[1]?.offsetWidth || 0;
+                        const cardHeight = cards[0]?.offsetHeight || 0;
 
-                        const X1 = (containerWidth - 5 * cardWidth - 215) / 2;
-                        const X2 = X1 + cardWidth + 50;
-                        const X3 = X2 + cardWidth + 50;
-                        const X4 = X3 + cardWidth + 50;
-                        const X5 = X4 + cardWidth + 50;
+                        let X1, X2, X3, X4, X5, X6, X7, X8, Y1, Y2, Y3, Y6, Y7, Y8;
+
+                        if (innerWidth >= 2100 && innerWidth <= 3100) {
+                          X1 = (containerWidth - 5 * cardWidth - 300) / 2;
+                          X2 = X1 + cardWidth + 100;
+                          X3 = X2 + cardWidth + 100;
+                          X4 = X3 + cardWidth + 100;
+                          X5 = X4 + cardWidth + 100;
+                          Y1 = 70;
+                          Y2 = -10;
+                          Y3 = -35;
+                          X6 = (containerWidth - 3 * cardWidth - 144) / 2;
+                          X7 = X6 + cardWidth + 100;
+                          X8 = X7 + cardWidth + 100;
+                          Y6 = cardHeight - 15;
+                          Y7 = cardHeight - 45;
+                          Y8 = cardHeight - 15;
+                      } else {
+                          X1 = (containerWidth - 5 * cardWidth - 215) / 2;
+                          X2 = X1 + cardWidth + 50;
+                          X3 = X2 + cardWidth + 50;
+                          X4 = X3 + cardWidth + 50;
+                          X5 = X4 + cardWidth + 50;
+                          Y1 = 50;
+                          Y2 = -10;
+                          Y3 = -35;
+                          X6 = (containerWidth - 3 * cardWidth - 114) / 2;
+                          X7 = X6 + cardWidth + 50;
+                          X8 = X7 + cardWidth + 50;
+                          Y6 = cardHeight - 10;
+                          Y7 = cardHeight - 40;
+                          Y8 = cardHeight - 10;
+                      }
 
                         const translations = [
-                          { x: X1, y: 50, rotation: -18 },
-                          { x: X2, y: -10, rotation: -10 },
-                          { x: X3, y: -35, rotation: 0 },
-                          { x: X4, y: -10, rotation: 10 },
-                          { x: X5, y: 50, rotation: 18 },
+                          { x: X1, y: Y1, rotation: -18 },
+                          { x: X2, y: Y2, rotation: -10 },
+                          { x: X3, y: Y3, rotation: 0 },
+                          { x: X4, y: Y2, rotation: 10 },
+                          { x: X5, y: Y1, rotation: 18 },
                         ];
 
                         gsap.set(cards, {
                           x: X1,
-                          y: 50,
+                          y: Y1,
                           rotation: -18,
                           zIndex: (index) => index,
                           duration: 0,
@@ -831,16 +872,7 @@ export default function Landing() {
                           ".card"
                         ) as NodeListOf<HTMLElement>;
                         if (cards1) {
-                          const cardCount1 = cards1.length;
-                          const cardHeight = cards[0]?.offsetHeight || 0;
-
-                          const X6 = (containerWidth - 3 * cardWidth - 114) / 2;
-                          const X7 = X6 + cardWidth + 50;
-                          const X8 = X7 + cardWidth + 50;
-
-                          const Y6 = cardHeight - 10;
-                          const Y7 = cardHeight - 40;
-                          const Y8 = cardHeight - 10;
+                          const cardCount1 = cards1.length;           
 
                           const translations1 = [
                             { x: X6, y: Y6, rotation: -12 },

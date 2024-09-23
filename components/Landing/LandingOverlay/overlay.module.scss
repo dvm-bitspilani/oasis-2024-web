@@ -46,9 +46,13 @@
         .card {
           position: absolute;
           background-color: transparent;
-          height: 100px;
-          width: 70px;
-          border: 1px solid #ffd700;
+          height: 120px;
+          width: 90px;
+          // border: 1px solid #ffd700;
+          background-image: url("/Background/cardlanding.png");
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
         }
       }
     }
@@ -75,9 +79,13 @@
         .card {
           position: absolute;
           background-color: transparent;
-          height: 100px;
-          width: 70px;
-          border: 1px solid #ffd700;
+          height: 120px;
+          width: 90px;
+          // border: 1px solid #ffd700;
+          background-image: url("/Background/cardlanding.png");
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
         }
       }
     }

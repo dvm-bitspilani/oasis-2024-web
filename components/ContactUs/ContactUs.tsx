@@ -11,8 +11,7 @@ import shreeram from "../../assets/Landing/contactUs/shreeram.png";
 import jaiditya from "../../assets/Landing/contactUs/jaiditya.png";
 import rijul from "../../assets/Landing/contactUs/rijul.png";
 import shreyansh from "../../assets/Landing/contactUs/shreyansh.png";
-import sarthak from "../../assets/Landing/contactUs/sarthak.png";
-import abhinav from "../../assets/Landing/contactUs/abhinav.png";
+import ahan from "../../assets/Landing/contactUs/ahan.png";
 
 import left from "../../assets/Landing/contactUs/left.png";
 import right from "../../assets/Landing/contactUs/right.png";
@@ -445,8 +444,8 @@ export default function ContactUs() {
 
           <div className={`${styles.second} card`}>
             <ContactCard
-              name="Sarthak Aggarwal"
-              img={sarthak}
+              name="Ahan Bansal"
+              img={ahan}
               dept1="President,"
               dept2="Students' Union"
               // contact="tel:+9180050 00213"
@@ -458,8 +457,8 @@ export default function ContactUs() {
 
           <div className={`${styles.third} card`}>
             <ContactCard
-              name="Abhinav Lamba"
-              img={abhinav}
+              name="Aryan Khorana"
+              img={ahan}
               dept1="General Secretary,"
               dept2="Students' Union"
               // contact="tel:+917078879443"
@@ -529,8 +528,8 @@ export default function ContactUs() {
               />
 
               <ContactCard
-                name="Sarthak Aggarwal"
-                img={sarthak}
+                name="Ahan Bansal"
+                img={ahan}
                 dept1="President, "
                 dept2="Students' Union"
                 contact={null}
@@ -538,8 +537,8 @@ export default function ContactUs() {
               />
 
               <ContactCard
-                name="Abhinav Lamba"
-                img={abhinav}
+                name="Aryan Khorana"
+                img={ahan}
                 dept1="General Secretary,"
                 dept2="Students' Union"
                 contact={null}

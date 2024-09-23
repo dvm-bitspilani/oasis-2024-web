@@ -247,6 +247,11 @@
     height: auto;
     width: 40vw;
 
+    &:hover {
+      transform: scale(0.9);
+      box-shadow: none;
+    }
+
     .center {
       margin-top: 30px;
       margin-bottom: 20px;

@@ -29,7 +29,6 @@ const HamPokerChip = forwardRef<SVGSVGElement | any, HamPokerChipProps>(
             className={svgClass}
             style={{
               scale: "1",
-              display: windowWidth && windowWidth > 585 ? "" : "none",
             }}
             viewBox="0 0 91 91"
             fill="none"

@@ -536,11 +536,22 @@
 
     .heading {
       margin-top: 0;
-      display: none;
+      margin-bottom: 0;
+
+      h2 {
+        font-size: 43px;
+        margin-top: 0;
+        margin-bottom: 0rem;
+      }
+
+      svg {
+        display: none;
+      }
     }
 
     .mobileContainer {
-      padding-top: 0.5rem;
+      padding-top: 1rem;
+      margin-top: 0.5rem;
       margin-bottom: 0rem;
       height: 79lvh;
 
@@ -571,8 +582,8 @@
 
         h2 {
           margin-top: 0;
-          margin-bottom: 1rem;
-          display: block;
+          margin-bottom: 0rem;
+          display: hidden;
         }
 
         .mobileCards {
@@ -640,7 +651,8 @@
     }
 
     .mobileContainer {
-      margin-top: 1rem;
+      padding-top: 1.5rem;
+      margin-top: 0.5rem;
       margin-bottom: 0rem;
 
       .scrollWrapper {

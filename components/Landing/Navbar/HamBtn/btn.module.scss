@@ -138,3 +138,45 @@
     transform: translate(50%, 0);
   }
 }
+
+.closeBtn {
+  position: fixed;
+  right: 138px;
+  top: 54px;
+  z-index: 1000000;
+  cursor: pointer;
+  svg {
+    width: 40px;
+    height: 40px;
+
+    @media screen and (max-width: 1440px) {
+      width: 30px;
+      height: 30px;
+    }
+
+    @media screen and (max-width: 868px) {
+      width: 20px;
+      height: 20px;
+    }
+
+    @media screen and (max-width: 585px) {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  @media screen and (max-width: 1440px) {
+    right: 80px;
+    top: 40px;
+  }
+
+  @media screen and (max-width: 868px) {
+    right: 60px;
+    top: 40px;
+  }
+
+  @media screen and (max-width: 585px) {
+    right: 63px;
+    top: 63px;
+  }
+}

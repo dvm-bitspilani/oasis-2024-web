@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas, useThree } from "@react-three/fiber";
-import { Perf } from "r3f-perf";
+// import { Perf } from "r3f-perf";
 
 import { SlotMachine2 } from "./SlotMachine2";
 import { SlotMachine } from "./SlotMachine";
@@ -64,7 +64,6 @@ const LandingScene = forwardRef(function LandingScene(
           fov: 50,
         }}
       >
-        <Perf />
         <ambientLight intensity={1.3} />
         <group
           position={

@@ -4,7 +4,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import useWindowSize from "@rooks/use-window-size";
 
 import { waitForPreload } from "@/helper/waitForPreload";
 
@@ -25,8 +24,6 @@ interface updateTypesScrollTrigger {
 
 export default function Landing() {
   const [isLoaded, setIsLoaded] = useState(false);
-  const { innerWidth } = useWindowSize();
-  const screenWidth: any = innerWidth;
 
   useEffect(() => {
     waitForPreload("#preloader").then(() => {
@@ -186,7 +183,29 @@ export default function Landing() {
         }
       });
     };
-  }, []);
+  }, [isVideoFocused, isLanding]);
+
+  // useEffect(() => {
+  //   function setRenderState() {
+  //     if (window.innerWidth <= 1000 && !renderMobile) {
+  //       setRenderMobile(true);
+  //     } else if (window.innerWidth > 1000 && renderMobile) {
+  //       setRenderMobile(false);
+  //     }
+  //   }
+
+  //   window.addEventListener("resize", setRenderState);
+  //   window.addEventListener("load", setRenderState);
+  //   window.addEventListener("loadstart", setRenderState);
+  //   window.addEventListener("DOMContentLoaded", setRenderState);
+
+  //   return () => {
+  //     window.removeEventListener("resize", setRenderState);
+  //     window.removeEventListener("load", setRenderState);
+  //     window.removeEventListener("loadstart", setRenderState);
+  //     window.removeEventListener("DOMContentLoaded", setRenderState);
+  //   };
+  // }, []);
 
   useGSAP(() => {
     // these are the entry animations
@@ -251,9 +270,6 @@ export default function Landing() {
             },
             "-=1"
           )
-          .call(() => {
-            setIsAboutUs((prev) => !prev);
-          })
           .from(
             "#tickets-container",
             {
@@ -495,9 +511,9 @@ export default function Landing() {
                 .to(slotMachine.current.rotation, {
                   y: conditions.isMobile ? 0 : -Math.PI / 6,
                 })
-                // .call(() => {
-                //   setIsAboutUs((prev) => !prev);
-                // })
+                .call(() => {
+                  setIsAboutUs((prev) => !prev);
+                })
                 .to("#aboutUs", {
                   opacity: 1,
                 })
@@ -693,6 +709,9 @@ export default function Landing() {
                   },
                   "-=0.5"
                 )
+                .call(() => {
+                  setIsAboutUs((prev) => !prev);
+                })
                 .to("#aboutUs", {
                   opacity: 1,
                 })
@@ -941,27 +960,28 @@ export default function Landing() {
       ],
     }
   );
+
   return (
     <>
-      {screenWidth <= 1000 ? (
+      <SlotMachineExitCross iframeClick={iframeClick} />
+      <LandingScene
+        ref={slotMachine}
+        setIs3dLoaded={setIs3dLoaded}
+        iframeClick={iframeClick}
+        isLanding={isLanding}
+        isVideoFocused={isVideoFocused}
+        isXS={isXS}
+        isMobile={isMobile}
+        setCamera={setCamera}
+        isEvents={isEvents}
+        isAboutUs={isAboutUs}
+      />
+      {/* {renderMobile ? (
         <MobileSlotMachine ref={slotMachine2D} />
       ) : (
         <>
-          <SlotMachineExitCross iframeClick={iframeClick} />
-          <LandingScene
-            ref={slotMachine}
-            setIs3dLoaded={setIs3dLoaded}
-            iframeClick={iframeClick}
-            isLanding={isLanding}
-            isVideoFocused={isVideoFocused}
-            isXS={isXS}
-            isMobile={isMobile}
-            setCamera={setCamera}
-            isEvents={isEvents}
-            isAboutUs={isAboutUs}
-          />
         </>
-      )}
+      )} */}
     </>
   );
 }

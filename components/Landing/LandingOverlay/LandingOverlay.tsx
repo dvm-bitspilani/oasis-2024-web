@@ -6,8 +6,6 @@ import AboutUsPage from "@/components/AboutUs/AboutUsPage";
 import ContactUs from "@/components/ContactUs/ContactUs";
 import Social from "../Social/Social";
 import Countdown from "../Countdown/Countdown";
-import Nav from "@/components/Nav/Nav";
-import Card from "../Card/Card";
 import { useEffect, useRef, useState } from "react";
 import { useSpring, animated, config } from "@react-spring/web";
 

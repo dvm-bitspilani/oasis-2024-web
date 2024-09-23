@@ -556,6 +556,7 @@ export default function Landing() {
               if (conditions.isMobile !== isMobile) {
                 setIsMobile(true);
               }
+              // desktop scroll fadeout animations
               timeline
                 .to(slotMachine.current.rotation, {
                   y: conditions.isMobile ? 0 : -Math.PI / 9,
@@ -617,6 +618,16 @@ export default function Landing() {
                   {
                     y: 100,
                     opacity: 0,
+                    duration: 0.75,
+                  },
+                  "<"
+                )
+                .to(
+                  "#cardContainer",
+                  {
+                    y: -150,
+                    opacity: 0,
+                    pointerEvents: "none",
                     duration: 0.75,
                   },
                   "<"

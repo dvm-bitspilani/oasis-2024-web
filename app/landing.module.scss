@@ -49,4 +49,8 @@
   top: 45%;
   transform: translateY(-50%);
   z-index: 5000;
+
+  @media (width > 1920px) {
+    transform: translateY(-50%) scale(1.4) translateX(-8%)!important;
+  }
 }

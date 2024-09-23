@@ -142,6 +142,14 @@ export default function Landing() {
   );
 
   useEffect(() => {
+    console.log(isVideoFocused);
+    gsap.set("#hamBtn", {
+      duration: 1,
+      autoAlpha: isVideoFocused ? 0 : 1,
+    });
+  }, [isVideoFocused]);
+
+  useEffect(() => {
     let overlayWrapper: any = document.querySelector("#mainwrapper");
 
     window.addEventListener("beforeunload", () => {
@@ -215,6 +223,7 @@ export default function Landing() {
         timeline
           .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state
           .set("#oasisLogo", { autoAlpha: 0 })
+          .set("#hamBtn", { autoAlpha: 0 })
           .from(
             "#leftTree",
             {
@@ -262,6 +271,15 @@ export default function Landing() {
             "-=1"
           )
           .to(
+            "#hamBtn",
+            {
+              autoAlpha: 1,
+              duration: 1,
+              ease: "sine.inOut",
+            },
+            "-=1"
+          )
+          .to(
             "#oasisLogo",
             {
               autoAlpha: 1,
@@ -292,6 +310,7 @@ export default function Landing() {
         timeline
           .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state
           .set("#oasisLogo", { autoAlpha: 0 })
+          .set("#hamBtn", { autoAlpha: 0 })
           .from(
             "#leftTree",
             {
@@ -324,6 +343,15 @@ export default function Landing() {
             {
               autoAlpha: 1,
               duration: 0.5,
+              ease: "sine.inOut",
+            },
+            "-=1"
+          )
+          .to(
+            "#hamBtn",
+            {
+              autoAlpha: 1,
+              duration: 1,
               ease: "sine.inOut",
             },
             "-=1"

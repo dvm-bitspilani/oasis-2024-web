@@ -394,10 +394,6 @@ export default function Landing() {
                 setIsMobile(true);
               }
               timeline
-                // .to(slotMachine2D.current, {
-                //   yPercent: 35,
-                //   duration: 1,
-                // })
                 .to(slotMachine2D.current, {
                   yPercent: 40,
                   duration: 1,
@@ -508,9 +504,6 @@ export default function Landing() {
                   "+=1"
                 )
                 // Events page Mobile
-                .call(() => {
-                  setIsEvents((prev) => !prev);
-                }, [])
                 .to(slotMachine2D.current, {
                   yPercent: 0,
                   height: 600,

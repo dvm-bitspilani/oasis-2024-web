@@ -309,56 +309,6 @@ export default function Landing() {
         //   },
         //   "<"
         // );
-      } else {
-        timeline
-          .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state
-          .set("#oasisLogo", { autoAlpha: 0 })
-          .set("#hamBtn", { autoAlpha: 0 })
-          .from(
-            "#leftTree",
-            {
-              x: "-100vw",
-              duration: 1.5,
-              ease: "sine.inOut",
-            },
-            0
-          )
-          .from(
-            "#rightTree",
-            {
-              x: "100vw",
-              duration: 1.5,
-              ease: "sine.inOut",
-            },
-            0
-          )
-          .to(
-            "#mainwrapper",
-            {
-              autoAlpha: 1,
-              duration: 1,
-              ease: "sine.inOut",
-            },
-            "-=1"
-          )
-          .to(
-            "#oasisLogo",
-            {
-              autoAlpha: 1,
-              duration: 0.5,
-              ease: "sine.inOut",
-            },
-            "-=1"
-          )
-          .to(
-            "#hamBtn",
-            {
-              autoAlpha: 1,
-              duration: 1,
-              ease: "sine.inOut",
-            },
-            "-=1"
-          );
       }
     }
   }, [isLoaded, camera, slotMachine.current]);

@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <>
       <PrePreloader />
-      <div className={styles.hamBtn}>
+      <div className={styles.hamBtn} id="hamBtn">
         <HamBtn />
       </div>
       <div className={styles.navTickets} id="tickets-container">
@@ -24,7 +24,7 @@ export default function Home() {
       </div>
       <main className={styles.scrollWrapper} id="scrollWrapper">
         <main className={styles.page}>
-          <OasisLogo />
+          {/* <OasisLogo /> */}
           <Landing />
           <LandingOverlay />
           <Grid />

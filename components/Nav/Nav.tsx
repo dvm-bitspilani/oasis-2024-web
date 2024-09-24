@@ -87,7 +87,9 @@ const Nav = () => {
           height={168}
           className={`${styles.about} ${
             active === "about" ? styles.active : ""
-          } ${active === "contact" ? styles.contactabout : ""}`}
+          } ${active === "contact" ? styles.contactabout : ""} ${
+            active === "events" ? styles.eventsabout : ""
+          }`}
           onClick={() => handleImageClick("about")}
         />
         <Image
@@ -109,7 +111,9 @@ const Nav = () => {
           height={168}
           className={`${styles.contact} ${
             active === "contact" ? styles.active : ""
-          } ${active === "about" ? styles.aboutcontact : ""}`}
+          } ${active === "about" ? styles.aboutcontact : ""} ${
+            active === "events" ? styles.eventscontact : ""
+          }`}
           onClick={() => handleImageClick("contact")}
         />
       </div>

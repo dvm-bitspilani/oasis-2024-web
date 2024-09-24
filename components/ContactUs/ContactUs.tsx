@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import styles from "./contactus.module.scss";
 import ContactCard from "./ContactCard/ContactCard";
 import Image from "next/image";
@@ -11,298 +9,15 @@ import shreeram from "../../assets/Landing/contactUs/shreeram.png";
 import jaiditya from "../../assets/Landing/contactUs/jaiditya.png";
 import rijul from "../../assets/Landing/contactUs/rijul.png";
 import shreyansh from "../../assets/Landing/contactUs/shreyansh.png";
-import sarthak from "../../assets/Landing/contactUs/sarthak.png";
-import abhinav from "../../assets/Landing/contactUs/abhinav.png";
+import ahan from "../../assets/Landing/contactUs/ahan.png";
 
 import left from "../../assets/Landing/contactUs/left.png";
 import right from "../../assets/Landing/contactUs/right.png";
 
-import ContactUsBottomIcons from "./ContactUsBottomIcons/ContactUsBottomIcons";
+// import ContactUsBottomIcons from "./ContactUsBottomIcons/ContactUsBottomIcons";
 
 export default function ContactUs() {
-  // const containerRef = useRef(null);
-
-  // useEffect(() => {
-  //   const container = containerRef.current;
-
-  //   // GSAP animation with ScrollTrigger
-  //   gsap.to(container, {
-  //     scrollTrigger: {
-  //       trigger: container,
-  //       start: 'top 8%', // Adjust as needed
-  //       onEnter: () => {
-  //         gsap.to(container, { delay: 1, onComplete: () => container.classList.add(styles.active) });
-  //       },
-  //     },
-  //   });
-
-  //   return () => {
-  //     // Cleanup if necessary
-  //     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-  //   };
-  // }, []);
-
-  // const handleScroll = () => {
-  //   const scrollY = window.scrollY || window.pageYOffset;
-  //   console.log(`Current scroll Y position: ${scrollY}px`);
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener('scroll', handleScroll);
-
-  //   // Cleanup the event listener on component unmount
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, []);
-
-  // const containerRef1 = useRef(null);
-  // const containerRef2 = useRef(null);
-
-  // const handleScroll = () => {
-  //   const scrollY = window.scrollY || window.pageYOffset;
-  //   // console.log(`Current scroll Y position: ${scrollY}px`);
-
-  //   if (scrollY >= 2000) {
-  //     let container1: any
-  //     container1 = containerRef1.current;
-  //     if (container1 && !container1.classList.contains(styles.active)) {
-  //       container1.classList.add(styles.active);
-  //     }
-
-  //     let container2: any
-  //     container2 = containerRef2.current;
-  //     if (container2 && !container2.classList.contains(styles.active1)) {
-  //       container2.classList.add(styles.active1);
-  //     }
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener('scroll', handleScroll);
-
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, []);
-
-  // const containerRef1 = useRef(null);
-  // const containerRef2 = useRef(null);
-
-  // useEffect(() => {
-  //   const container1 = containerRef1.current;
-  //   const container2 = containerRef2.current;
-  //   const container = containerRef.current;
-
-  //   // Delay the animation setup by 11 seconds
-  //   const timeoutId = setTimeout(() => {
-  //     // Create a timeline for the animations
-  //     const tl = gsap.timeline({
-  //       scrollTrigger: {
-  //         trigger: container, // Use container1 as the trigger element
-  //         start: 'top center+=400', // Adjust start point as needed
-  //         end: 'bottom center', // Adjust end point as needed
-  //         scrub: true, // Smooth scrubbing
-  //         markers: true, // Remove this line in production
-  //       },
-  //     });
-
-  //     // Add animations to the timeline
-  //     tl.to(container1, {
-  //       duration: 1,
-  //       onStart: () => container1.classList.add(styles.active), // Add the active class
-  //     });
-
-  //     tl.to(container2, {
-  //       duration: 1,
-  //       onStart: () => container2.classList.add(styles.active1), // Add the active1 class
-  //     }, '-=0.5'); // Overlap the second animation slightly
-  //   }, 1000); // 11000 milliseconds = 11 seconds
-
-  //   return () => {
-  //     // Clear the timeout if the component unmounts before the delay completes
-  //     clearTimeout(timeoutId);
-
-  //     // Clean up the ScrollTrigger instance
-  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  //   };
-  // }, []);
-
-  // const cardContainerRef = useRef(null);
-
-  // useEffect(() => {
-  //   const container = cardContainerRef.current;
-  //   const cards = container.querySelectorAll('.card');
-  //   const cardCount = cards.length;
-  //   const cardSpacing = 10;
-
-  //   // Define custom x and y translations and rotations for each card
-  //   const translations = [
-  //     { x: 0, y: 70, rotation: -18 },
-  //     { x: 0, y: -10, rotation: -10 },
-  //     { x: 0, y: -30, rotation: 0 },
-  //     { x: 0, y: -10, rotation: 10 },
-  //     { x: 0, y: 70, rotation: 18 }
-  //   ];
-
-  //   // Set the initial state of all cards
-  //   gsap.set(cards, {
-  //     x: 0, // Initial x position for all cards
-  //     y: 70, // Initial y position for all cards
-  //     rotation: -18, // Initial rotation for all cards
-  //     zIndex: (index) => cardCount - index, // Ensure proper stacking order
-  //     duration: 0
-  //   });
-
-  //   // Animation after 10 seconds
-  //   gsap.to(cards, {
-  //     x: (index) => {
-  //       const { x: tx } = translations[index % translations.length];
-  //       return (index % 5) * (cards[0].offsetWidth + cardSpacing) + tx; // Apply custom x translation
-  //     },
-  //     y: (index) => {
-  //       const { y: ty } = translations[index % translations.length];
-  //       return Math.floor(index / 5) * (cards[0].offsetHeight + cardSpacing) + ty; // Apply custom y translation
-  //     },
-  //     rotation: (index) => translations[index % translations.length].rotation, // Apply custom rotation
-  //     transformOrigin: 'center center', // Ensures rotation is around the center
-  //     duration: 5, // Duration of animation
-  //     stagger: 1, // Stagger animation
-  //     delay: 10, // Delay before animation starts
-  //     ease: "power1.out"
-  //   });
-  // }, []);
-
-  // useEffect(() => {
-  //   const container = cardContainerRef.current;
-  //   const cards = container.querySelectorAll('.card');
-  //   const cardCount = cards.length;
-  //   const containerWidth = container.offsetWidth;
-  //   const cardWidth = cards[1]?.offsetWidth || 0;
-
-  //   const X1 = (containerWidth - 5 * cardWidth - 215) / 2;
-  //   const X2 = X1 + cardWidth + 50;
-  //   const X3 = X2 + cardWidth + 50;
-  //   const X4 = X3 + cardWidth + 50;
-  //   const X5 = X4 + cardWidth + 50;
-
-  //   const translations = [
-  //     { x: X1, y: 60, rotation: -18 },
-  //     { x: X2, y: -10, rotation: -10 },
-  //     { x: X3, y: -30, rotation: 0 },
-  //     { x: X4, y: -10, rotation: 10 },
-  //     { x: X5, y: 60, rotation: 18 }
-  //   ];
-
-  //   gsap.set(cards, {
-  //     x: X1,
-  //     y: 50,
-  //     rotation: -18,
-  //     zIndex: (index) => index,
-  //     duration: 0
-  //   });
-
-  //   const tl = gsap.timeline({ delay: 5 });
-
-  //   for (let i = 1; i < cardCount; i++) {
-  //     tl.to(cards[i], {
-  //       x: translations[i].x,
-  //       y: translations[i].y,
-  //       rotation: translations[i].rotation,
-  //       zIndex: cardCount - i,
-  //       transformOrigin: 'center center',
-  //       duration: 0.2,
-  //       ease: "power1.inOut",
-  //       onStart: () => {
-  //         for (let j = i + 1; j < cardCount; j++) {
-  //           gsap.to(cards[j], {
-  //             x: translations[i].x,
-  //             y: translations[i].y,
-  //             rotation: translations[i].rotation,
-  //             transformOrigin: 'center center',
-  //             duration: 0.2,
-  //             ease: "power1.inOut",
-  //             zIndex: j,
-  //           });
-  //         }
-  //       }
-  //     });
-  //   }
-
-  //   // Second set of cards
-  //   const container1 = cardContainer1Ref.current;
-  //   const cards1 = container1.querySelectorAll('.card');
-  //   const cardCount1 = cards1.length;
-  //   const cardHeight = cards[0]?.offsetHeight || 0;
-
-  //   const X6 = (containerWidth - 3 * cardWidth - 105) / 2;
-  //   const X7 = X6 + cardWidth + 50;
-  //   const X8 = X7 + cardWidth + 50;
-
-  //   const Y6 = cardHeight + 10;
-  //   const Y7 = cardHeight - 10;
-  //   const Y8 = cardHeight + 10;
-
-  //   const translations1 = [
-  //     { x: X6, y: Y6, rotation: -12 },
-  //     { x: X7, y: Y7, rotation: 0 },
-  //     { x: X8, y: Y8, rotation: 12 }
-  //   ];
-
-  //   gsap.set(cards1, {
-  //     opacity: 0,
-  //     x: X6,
-  //     y: Y6,
-  //     rotation: -12,
-  //     zIndex: (index) => index,
-  //     duration: 0
-  //   });
-
-  //   const tl1 = gsap.timeline({
-  //     paused: true,
-  //     onStart: () => {
-  //       gsap.to(cards1, { opacity: 1, duration: 0.5 });
-  //     }
-  //   });
-
-  //   for (let i = 0; i < cardCount1; i++) {
-  //     tl1.to(cards1[i], {
-  //       x: translations1[i].x,
-  //       y: translations1[i].y,
-  //       rotation: translations1[i].rotation,
-  //       zIndex: cardCount1 - i,
-  //       transformOrigin: 'center center',
-  //       duration: 0.2,
-  //       ease: "power1.out",
-  //       onStart: () => {
-  //         for (let j = i + 1; j < cardCount1; j++) {
-  //           gsap.to(cards1[j], {
-  //             x: translations1[i].x,
-  //             y: translations1[i].y,
-  //             rotation: translations1[i].rotation,
-  //             transformOrigin: 'center center',
-  //             duration: 0.2,
-  //             ease: "power1.out",
-  //             zIndex: j,
-  //           });
-  //         }
-  //       }
-  //     });
-  //   }
-
-  //   const masterTimeline = gsap.timeline();
-  //   masterTimeline.add(tl);
-  //   masterTimeline.add(() => {
-  //     tl1.play();
-  //     return null;
-  //   });
-
-  //   // Cleanup
-  //   return () => {
-  //     masterTimeline.kill();
-  //   };
-  // }, []);
-
+  
   return (
     <>
       <div className={styles.contactPage} id="contactUs">
@@ -445,8 +160,8 @@ export default function ContactUs() {
 
           <div className={`${styles.second} card`}>
             <ContactCard
-              name="Sarthak Aggarwal"
-              img={sarthak}
+              name="Ahan Bansal"
+              img={ahan}
               dept1="President,"
               dept2="Students' Union"
               // contact="tel:+9180050 00213"
@@ -458,8 +173,8 @@ export default function ContactUs() {
 
           <div className={`${styles.third} card`}>
             <ContactCard
-              name="Abhinav Lamba"
-              img={abhinav}
+              name="Aryan Khorana"
+              img={ahan}
               dept1="General Secretary,"
               dept2="Students' Union"
               // contact="tel:+917078879443"
@@ -529,8 +244,8 @@ export default function ContactUs() {
               />
 
               <ContactCard
-                name="Sarthak Aggarwal"
-                img={sarthak}
+                name="Ahan Bansal"
+                img={ahan}
                 dept1="President, "
                 dept2="Students' Union"
                 contact={null}
@@ -538,8 +253,8 @@ export default function ContactUs() {
               />
 
               <ContactCard
-                name="Abhinav Lamba"
-                img={abhinav}
+                name="Aryan Khorana"
+                img={ahan}
                 dept1="General Secretary,"
                 dept2="Students' Union"
                 contact={null}

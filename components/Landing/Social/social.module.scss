@@ -6,7 +6,11 @@
   right: 60px;
   bottom: 45px;
   pointer-events: auto;
-  svg{
+
+  @media (width > 1920px) {
+    transform: scale(1.5) translateX(-10px);
+  }
+  svg {
     cursor: pointer;
   }
 
@@ -15,7 +19,7 @@
     right: 0px;
   }
 
-  @media (width <= 760px) {
+  @media (width <= 1000px) {
     display: none;
   }
 }

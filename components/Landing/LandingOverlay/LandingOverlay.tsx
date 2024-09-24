@@ -7,12 +7,16 @@ import ContactUs from "@/components/ContactUs/ContactUs";
 import Social from "../Social/Social";
 import Countdown from "../Countdown/Countdown";
 import Nav from "@/components/Nav/Nav";
+import OasisLogo from "../Navbar/Logo/Logo";
 
 export default function LandingOverlay() {
   return (
     <div className={styles.mainwrapper} id="mainwrapper">
       <Social />
-      <Countdown dateString="October 23, 2024 19:00:00" />
+      <div className={styles.countdownContainer} id="logo-container">
+        <OasisLogo />
+        <Countdown dateString="October 23, 2024 19:00:00" />
+      </div>
       <div className={styles.headerContainer}>
         <Navbar />
       </div>

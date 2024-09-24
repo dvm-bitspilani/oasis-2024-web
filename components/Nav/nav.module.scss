@@ -62,6 +62,9 @@
     top: 110px !important;
     transform: rotateZ(0deg) translateX(0px) !important;
   }
+  .eventsabout{
+    transform: rotateZ(0deg) translateX(5px) !important;
+  }
   .events {
     position: relative;
     top: 50px;
@@ -72,9 +75,10 @@
     &:hover{
       transform: rotateZ(-10deg) translateX(-110px) !important;
     }
-    // &.active {
-    //   transform: rotateZ(-10deg) translateX(-60px);
-    // }
+
+    &.active{
+      transform: rotateZ(-10deg) translateX(-60px) !important;
+    }
   }
   .aboutevents {
     transform: rotateZ(-15deg) translateX(10px) translateY(-5px) !important;
@@ -98,5 +102,9 @@
   }
   .aboutcontact {
     transform: rotateZ(-30deg) translateX(50px) !important;
+  }
+  .eventscontact{
+    top: -5px !important;
+    transform: rotateZ(-30deg) translateX(60px) !important;
   }
 }

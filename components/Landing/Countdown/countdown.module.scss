@@ -11,6 +11,10 @@
   position: fixed;
   gap: 3px;
 
+  @media (width > 1920px) {
+    transform: scale(1.5) translateX(50px);
+  }
+
   @media (width > 760px) {
     bottom: 40px;
     left: 25px;
@@ -23,7 +27,16 @@
   }
 
   p {
-    background: var(--gold-title, linear-gradient(180deg, #876D24 -18.6%, #F3D57B 18.4%, #B69637 68.61%, #DCBF69 113.54%));
+    background: var(
+      --gold-title,
+      linear-gradient(
+        180deg,
+        #876d24 -18.6%,
+        #f3d57b 18.4%,
+        #b69637 68.61%,
+        #dcbf69 113.54%
+      )
+    );
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -33,13 +46,14 @@
     font-size: 20px;
   }
 
-  @media (width <= 760px) {
+  @media (width <= 1000px) {
     left: 50%;
     transform: translateX(-50%);
     top: 200px;
   }
 
   @media (width <= 585px) {
+    position: absolute;
     top: 275px;
   }
 }

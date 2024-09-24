@@ -30,7 +30,7 @@ export default function Countdown({ dateString, ...args }: Props) {
     if (oasis > curr) {
       timeout = setInterval(() => {
         setCurr(new Date().getTime());
-      }, 1000);
+      }, 60000);
     }
 
     return () => {

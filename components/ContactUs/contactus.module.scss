@@ -110,7 +110,7 @@
 @media (max-width: 2100px) and (min-width: 1400px) {
   .contactPage {
     .heading {
-      margin-top: 5rem;
+      margin-top: 5.5rem;
 
       h2 {
         font-size: 72px;
@@ -124,6 +124,16 @@
 }
 
 @media (max-width: 2100px) and (min-width: 1700px) {
+
+  .contactPage {
+    .cardContainer {
+      margin-top: 12vh;
+    }
+
+    .cardContainer1 {
+      margin-top: 7vh;
+    }
+  }
   .bottom {
     .bottomAnimation {
       width: 300px;

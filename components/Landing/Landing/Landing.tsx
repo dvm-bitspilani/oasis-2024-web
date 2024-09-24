@@ -491,8 +491,9 @@ export default function Landing() {
                   {
                     yPercent: -91,
                     pointerEvents: "auto",
-                    duration: 1.25,
-                    ease: "sine.inOut",
+                    duration: 1,
+                    // duration: 1.25,
+                    // ease: "sine.inOut",
                   },
                   "+=2.0"
                 );

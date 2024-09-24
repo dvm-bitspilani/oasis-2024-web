@@ -11,7 +11,6 @@ import LandingScene from "../Scene/Scene";
 import styles from "../../ContactUs/contactus.module.scss";
 import SlotMachineExitCross from "@/components/AboutUs/SlotMachineExitCross/SlotMachineExitCross";
 import MobileSlotMachine from "../2DSlotMachine/2DSlotMachine";
-import useWindowSize from "@rooks/use-window-size";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,7 +24,6 @@ interface updateTypesScrollTrigger {
 
 export default function Landing() {
   const [isLoaded, setIsLoaded] = useState(false);
-  const WindowSize: any = useWindowSize();
 
   useEffect(() => {
     waitForPreload("#preloader").then(() => {
@@ -45,6 +43,7 @@ export default function Landing() {
   const [isXS, setIsXS] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isEvents, setIsEvents] = useState(false);
+  // const [renderMobile, setRenderMobile] = useState(false);
   const [isVideoFocused, setIsVideoFocused] = useState(false);
   const [isLanding, setIsLanding] = useState(true);
   const [isAboutUs, setIsAboutUs] = useState(false);
@@ -194,6 +193,28 @@ export default function Landing() {
     };
   }, [isVideoFocused, isLanding]);
 
+  // useEffect(() => {
+  //   function setRenderState() {
+  //     if (window.innerWidth <= 1000 && !renderMobile) {
+  //       setRenderMobile(true);
+  //     } else if (window.innerWidth > 1000 && renderMobile) {
+  //       setRenderMobile(false);
+  //     }
+  //   }
+
+  //   window.addEventListener("resize", setRenderState);
+  //   window.addEventListener("load", setRenderState);
+  //   window.addEventListener("loadstart", setRenderState);
+  //   window.addEventListener("DOMContentLoaded", setRenderState);
+
+  //   return () => {
+  //     window.removeEventListener("resize", setRenderState);
+  //     window.removeEventListener("load", setRenderState);
+  //     window.removeEventListener("loadstart", setRenderState);
+  //     window.removeEventListener("DOMContentLoaded", setRenderState);
+  //   };
+  // }, []);
+
   useGSAP(() => {
     // these are the entry animations
     if (isLoaded && slotMachine.current) {
@@ -279,56 +300,15 @@ export default function Landing() {
             },
             "<"
           );
-      } else {
-        timeline
-          .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state
-          .set("#oasisLogo", { autoAlpha: 0 })
-          .set("#hamBtn", { autoAlpha: 0 })
-          .from(
-            "#leftTree",
-            {
-              x: "-100vw",
-              duration: 1.5,
-              ease: "sine.inOut",
-            },
-            0
-          )
-          .from(
-            "#rightTree",
-            {
-              x: "100vw",
-              duration: 1.5,
-              ease: "sine.inOut",
-            },
-            0
-          )
-          .to(
-            "#mainwrapper",
-            {
-              autoAlpha: 1,
-              duration: 1,
-              ease: "sine.inOut",
-            },
-            "-=1"
-          )
-          .to(
-            "#oasisLogo",
-            {
-              autoAlpha: 1,
-              duration: 0.5,
-              ease: "sine.inOut",
-            },
-            "-=1"
-          )
-          .to(
-            "#hamBtn",
-            {
-              autoAlpha: 1,
-              duration: 1,
-              ease: "sine.inOut",
-            },
-            "-=1"
-          );
+        // .to(
+        //   "#iframe-overlay",
+        //   {
+        //     opacity: 0,
+        //     ease: "none",
+        //     duration: 0.5,
+        //   },
+        //   "<"
+        // );
       }
     }
   }, [isLoaded, camera, slotMachine.current]);
@@ -374,12 +354,12 @@ export default function Landing() {
       }
 
       if (window.innerWidth <= 1000) {
-        // Mobile scroll animations
         const timeline = gsap.timeline(timelineConfig);
 
         const mm = gsap.matchMedia();
 
-        if (slotMachine2D.current) {
+        if (is3dLoaded && slotMachine.current) {
+          // mobile scroll animations
           mm.add(
             {
               isMobile: "(max-width: 1000px)",
@@ -394,70 +374,31 @@ export default function Landing() {
                 setIsMobile(true);
               }
               timeline
-                .to(slotMachine2D.current, {
-                  yPercent: 30,
+                // .to(slotMachine2D.current, {
+                //   yPercent: 35,
+                //   duration: 1,
+                // })
+                .to(slotMachine.current.rotation, {
+                  y: conditions.isMobile ? 0 : -Math.PI / 9,
                   duration: 1,
                 })
                 .to(
-                  'img[alt="oasis logo landing"]',
+                  slotMachine.current.position,
                   {
-                    y: -150,
-                    opacity: 0,
-                    duration: 0.75,
-                    pointerEvents: "none",
+                    x: conditions.isMobile ? 0 : -0.9,
+                    y: conditions.isMobile
+                      ? conditions.isXS
+                        ? -0.5
+                        : -0.5
+                      : 0,
+                    z: conditions.isMobile ? 0 : -0.5,
+                    duration: 1,
                   },
                   "<"
                 )
                 .to(
-                  'img[alt="left tree"]',
+                  "#logo-container",
                   {
-                    x: -150,
-                    opacity: 0,
-                    duration: 0.75,
-                  },
-                  "<"
-                )
-                .to(
-                  'img[alt="right tree"]',
-                  {
-                    x: 150,
-                    opacity: 0,
-                    duration: 0.75,
-                  },
-                  "<"
-                )
-                .to(
-                  "#countdownTimer",
-                  {
-                    y: 100,
-                    opacity: 0,
-                    duration: 0.75,
-                  },
-                  "<"
-                )
-                .to(
-                  "#social",
-                  {
-                    y: 100,
-                    opacity: 0,
-                    duration: 0.75,
-                  },
-                  "<"
-                )
-                .to(
-                  "#leftcards",
-                  {
-                    y: -150,
-                    opacity: 0,
-                    pointerEvents: "none",
-                    duration: 0.75,
-                  },
-                  "<"
-                )
-                .to(
-                  "#rightcards",
-                  {
-                    y: -150,
                     opacity: 0,
                     pointerEvents: "none",
                     duration: 0.75,
@@ -467,7 +408,6 @@ export default function Landing() {
                 .to(
                   "#gradient",
                   {
-                    y: 100,
                     opacity: 0,
                     duration: 0.75,
                   },
@@ -482,13 +422,12 @@ export default function Landing() {
                   },
                   "<"
                 )
-                .to(
-                  slotMachine2D.current,
-                  {
-                    zIndex: 10,
-                  },
-                  "-=0.25"
-                )
+                .to(slotMachine.current.rotation, {
+                  y: conditions.isMobile ? 0 : -Math.PI / 6,
+                })
+                .call(() => {
+                  setIsAboutUs((prev) => !prev);
+                })
                 .to("#aboutUs", {
                   opacity: 1,
                 })
@@ -499,20 +438,20 @@ export default function Landing() {
                   },
                   "<"
                 )
-                .to(
-                  slotMachine2D.current.children[0],
-                  {
-                    opacity: 1,
-                  },
-                  "<"
-                )
-                .to(
-                  slotMachine2D.current.children[3],
-                  {
-                    opacity: 1,
-                  },
-                  "<"
-                )
+                // .to(
+                //   slotMachine2D.current.children[0],
+                //   {
+                //     opacity: 1,
+                //   },
+                //   "<"
+                // )
+                // .to(
+                //   slotMachine2D.current.children[3],
+                //   {
+                //     opacity: 1,
+                //   },
+                //   "<"
+                // )
                 .to(
                   "#aboutUs",
                   {
@@ -522,17 +461,24 @@ export default function Landing() {
                   "+=1"
                 )
                 // Events page Mobile
-                .to(slotMachine2D.current, {
-                  yPercent: 0,
-                  height: 600,
-                  x: -175,
+                .call(() => {
+                  setIsEvents((prev) => !prev);
+                }, [])
+                .to(slotMachine.current.position, {
+                  x: 0,
+                  y: 0.5,
+                  z: -1.25,
                   duration: 3,
+                  ease: "power1.inOut",
                 })
                 .to(
-                  slotMachine2D.current,
+                  slotMachine.current.position,
                   {
-                    x: "50vw",
+                    x: conditions.isMobile ? 0 : -5,
+                    y: conditions.isMobile ? -2.5 : 0,
+                    z: conditions.isMobile ? 0 : -0.5,
                     duration: 3,
+                    ease: "power1.in",
                   },
                   "+=1"
                 )
@@ -988,25 +934,25 @@ export default function Landing() {
 
   return (
     <>
-      {WindowSize.innerWidth <= 1000 ? (
-        <MobileSlotMachine ref={slotMachine2D} isAboutUs={isAboutUs} />
+      <SlotMachineExitCross iframeClick={iframeClick} />
+      <LandingScene
+        ref={slotMachine}
+        setIs3dLoaded={setIs3dLoaded}
+        iframeClick={iframeClick}
+        isLanding={isLanding}
+        isVideoFocused={isVideoFocused}
+        isXS={isXS}
+        isMobile={isMobile}
+        setCamera={setCamera}
+        isEvents={isEvents}
+        isAboutUs={isAboutUs}
+      />
+      {/* {renderMobile ? (
+        <MobileSlotMachine ref={slotMachine2D} />
       ) : (
         <>
-          <SlotMachineExitCross iframeClick={iframeClick} />
-          <LandingScene
-            ref={slotMachine}
-            setIs3dLoaded={setIs3dLoaded}
-            iframeClick={iframeClick}
-            isLanding={isLanding}
-            isVideoFocused={isVideoFocused}
-            isXS={isXS}
-            isMobile={isMobile}
-            setCamera={setCamera}
-            isEvents={isEvents}
-            isAboutUs={isAboutUs}
-          />
         </>
-      )}
+      )} */}
     </>
   );
 }

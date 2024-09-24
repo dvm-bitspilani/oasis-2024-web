@@ -9,7 +9,7 @@
     position: absolute;
     right: 0;
   }
-  @media (width <= 430px) {
+  @media (width <= 585px) {
     display: none;
   }
 }
@@ -18,7 +18,8 @@
   position: absolute;
   bottom: -20px;
   display: none;
-  z-index: -2;
+  width: 100vw;
+  z-index: 0;
   @media (width <= 585px) {
     display: block;
   }

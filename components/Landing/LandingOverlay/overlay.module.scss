@@ -12,6 +12,12 @@
   z-index: -1;
   pointer-events: none;
 
+  .countdownContainer {
+    @media (585px < width <= 1000px) {
+      transform: translateY(20px);
+    }
+  }
+
   .navcontainer {
     position: absolute;
     right: -14%;
@@ -35,7 +41,6 @@
   .cardContainer {
     @media screen and (width <= 1150px) {
       display: none;
-      
     }
     position: absolute;
     width: 100vw;

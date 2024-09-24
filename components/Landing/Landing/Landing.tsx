@@ -267,6 +267,9 @@ export default function Landing() {
             },
             "-=1"
           )
+          .call(() => {
+            setIsAboutUs((prev) => !prev);
+          })
           .from(
             "#tickets-container",
             {
@@ -701,9 +704,6 @@ export default function Landing() {
                   },
                   "-=0.5"
                 )
-                .call(() => {
-                  setIsAboutUs((prev) => !prev);
-                })
                 .to("#aboutUs", {
                   opacity: 1,
                 })
@@ -788,7 +788,20 @@ export default function Landing() {
                         const cardWidth = cards[1]?.offsetWidth || 0;
                         const cardHeight = cards[0]?.offsetHeight || 0;
 
-                        let X1, X2, X3, X4, X5, X6, X7, X8, Y1, Y2, Y3, Y6, Y7, Y8;
+                        let X1,
+                          X2,
+                          X3,
+                          X4,
+                          X5,
+                          X6,
+                          X7,
+                          X8,
+                          Y1,
+                          Y2,
+                          Y3,
+                          Y6,
+                          Y7,
+                          Y8;
 
                         if (innerWidth >= 2100 && innerWidth <= 3100) {
                           X1 = (containerWidth - 5 * cardWidth - 300) / 2;
@@ -805,7 +818,7 @@ export default function Landing() {
                           Y6 = cardHeight - 15;
                           Y7 = cardHeight - 45;
                           Y8 = cardHeight - 15;
-                      } else {
+                        } else {
                           X1 = (containerWidth - 5 * cardWidth - 215) / 2;
                           X2 = X1 + cardWidth + 50;
                           X3 = X2 + cardWidth + 50;
@@ -820,7 +833,7 @@ export default function Landing() {
                           Y6 = cardHeight - 10;
                           Y7 = cardHeight - 40;
                           Y8 = cardHeight - 10;
-                      }
+                        }
 
                         const translations = [
                           { x: X1, y: Y1, rotation: -18 },
@@ -872,7 +885,7 @@ export default function Landing() {
                           ".card"
                         ) as NodeListOf<HTMLElement>;
                         if (cards1) {
-                          const cardCount1 = cards1.length;           
+                          const cardCount1 = cards1.length;
 
                           const translations1 = [
                             { x: X6, y: Y6, rotation: -12 },

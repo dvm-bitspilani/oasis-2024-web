@@ -856,7 +856,7 @@ export default function Landing() {
                           Y8;
 
                         if (innerWidth >= 2100 && innerWidth <= 3100) {
-                          X1 = (containerWidth - 5 * cardWidth - 300) / 2;
+                          X1 = (containerWidth - 5 * cardWidth - 415) / 2;
                           X2 = X1 + cardWidth + 100;
                           X3 = X2 + cardWidth + 100;
                           X4 = X3 + cardWidth + 100;
@@ -864,7 +864,7 @@ export default function Landing() {
                           Y1 = 70;
                           Y2 = -10;
                           Y3 = -35;
-                          X6 = (containerWidth - 3 * cardWidth - 144) / 2;
+                          X6 = (containerWidth - 3 * cardWidth - 215) / 2;
                           X7 = X6 + cardWidth + 100;
                           X8 = X7 + cardWidth + 100;
                           Y6 = cardHeight - 15;

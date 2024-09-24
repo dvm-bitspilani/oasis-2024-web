@@ -107,214 +107,224 @@
   }
 }
 
-@media (max-width: 2100px) and (min-width: 1400px) {
+// @media (max-width: 2100px) and (min-width: 1400px) {
+//   .contactPage {
+//     .heading {
+//       margin-top: 5.5rem;
+
+//       h2 {
+//         font-size: 72px;
+//       }
+//     }
+
+//     .cardContainer {
+//       margin-top: 5rem;
+//     }
+//   }
+// }
+
+@media (max-width: 2100px) and (min-width: 1800px) {
+
   .contactPage {
+    
     .heading {
       margin-top: 5.5rem;
 
       h2 {
         font-size: 72px;
       }
-    }
+    }  
 
-    .cardContainer {
-      margin-top: 5rem;
-    }
-  }
-}
+      .cardContainer {
+        margin-top: calc((100vh - 720px)/3)
+      }
 
-@media (max-width: 2100px) and (min-width: 1700px) {
-
-  .contactPage {
-    .cardContainer {
-      margin-top: 12vh;
-    }
-
-    .cardContainer1 {
-      margin-top: 7vh;
-    }
-  }
-  .bottom {
-    .bottomAnimation {
-      width: 300px;
-      height: 280px;
-      object-fit: contain;
-    }
-  }
-}
-
-@media (max-width: 1900px) and (min-width: 1400px) {
-  .contactPage {
-    .heading {
-      margin-top: 4rem;
-
-      h2 {
-        font-size: 65px;
+      .cardContainer1 {
+        margin-top: calc((100vh - 890px)/3)
       }
     }
 
-    .cardContainer {
-      margin-top: 5rem;
-    }
-
-    .cardContainer1 {
-      margin-top: 1rem;
-    }
-  }
-}
-
-@media (max-width: 1400px) {
-  .contactPage {
-    .cardContainer {
-      margin-top: 7vh;
-    }
-  }
-}
-
-@media (max-width: 1100px) {
-  .contactPage {
-    top: 6rem;
-  }
-}
-
-@media (max-width: 1000px) {
-  .contactPage {
-    .heading {
-      h2 {
-        font-size: 62px;
-        font-weight: 400;
-        line-height: 43px;
-        box-shadow: none;
+    .bottom {
+      .bottomAnimation {
+        width: 300px;
+        height: 280px;
+        object-fit: contain;
       }
     }
+  }
 
-    .cardContainer,
-    .cardContainer1 {
-      opacity: 0;
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-
-    .mobileContainer {
-      margin-top: 3rem;
-      display: block;
-
-      .scrollWrapper {
-        width: 100%;
-        height: 100%;
-        display: flex;
+  @media (max-width: 1800px) and (min-width: 1400px) {
+    .contactPage {
+      .heading {
+        margin-top: 4rem;
 
         h2 {
-          margin-top: 2rem;
-          font-family: "Rye", sans-serif;
-          font-size: 43px;
+          font-size: 65px;
+        }
+      }
+
+      .cardContainer {
+        margin-top: 5rem;
+      }
+
+      .cardContainer1 {
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  @media (max-width: 1400px) {
+    .contactPage {
+      .cardContainer {
+        margin-top: 7vh;
+      }
+    }
+  }
+
+  @media (max-width: 1100px) {
+    .contactPage {
+      top: 6rem;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .contactPage {
+      .heading {
+        h2 {
+          font-size: 62px;
           font-weight: 400;
-          line-height: normal;
-          letter-spacing: 0.05em;
-          text-align: center;
-          color: #ccae57;
-          display: none;
-        }
-
-        .mobileCards {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: row;
-          flex-wrap: wrap;
-          gap: 1rem 2rem;
+          line-height: 43px;
+          box-shadow: none;
         }
       }
-    }
-  }
 
-  .bottom {
-    display: none;
-  }
-}
-
-
-@media (max-width: 600px) {
-  .contactPage {
-    height: fit-content;
-    overflow-y: hidden;
-    margin-top: 0;
-
-    .heading {
-      margin-top: 0;
-      margin-bottom: 0;
-
-      h2 {
-        font-size: 43px;
+      .cardContainer,
+      .cardContainer1 {
+        opacity: 0;
         margin-top: 0;
-        margin-bottom: 0rem;
+        margin-bottom: 0;
       }
 
-      svg {
-        display: none;
+      .mobileContainer {
+        margin-top: 3rem;
+        display: block;
+
+        .scrollWrapper {
+          width: 100%;
+          height: 100%;
+          display: flex;
+
+          h2 {
+            margin-top: 2rem;
+            font-family: "Rye", sans-serif;
+            font-size: 43px;
+            font-weight: 400;
+            line-height: normal;
+            letter-spacing: 0.05em;
+            text-align: center;
+            color: #ccae57;
+            display: none;
+          }
+
+          .mobileCards {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 1rem 2rem;
+          }
+        }
       }
     }
 
-    .mobileContainer {
-      padding-top: 1rem;
-      margin-top: 0.5rem;
-      margin-bottom: 0rem;
-      height: 79lvh;
-      // height: 79lvh;
-      // overflow-y: scroll;
+    .bottom {
+      display: none;
+    }
+  }
 
-      -webkit-mask-image: -webkit-gradient(linear,
-          left top,
-          left bottom,
-          color-stop(0%, rgba(0, 0, 0, 0)),
-          color-stop(15%, rgba(0, 0, 0, 1)),
-          color-stop(85%, rgba(0, 0, 0, 1)),
-          color-stop(100%, rgba(0, 0, 0, 0)));
 
-      /* For non-webkit browsers */
-      mask-image: linear-gradient(to bottom,
-          rgba(0, 0, 0, 0) 0%,
-          rgba(0, 0, 0, 1) 15%,
-          rgba(0, 0, 0, 1) 85%,
-          rgba(0, 0, 0, 0) 100%);
+  @media (max-width: 600px) {
+    .contactPage {
+      height: fit-content;
+      overflow-y: hidden;
+      margin-top: 0;
 
-      .scrollWrapper {
-        margin-top: 0rem;
-        pointer-events: all;
-        display: flex;
-        flex-direction: column;
+      .heading {
+        margin-top: 0;
+        margin-bottom: 0;
 
         h2 {
+          font-size: 43px;
           margin-top: 0;
           margin-bottom: 0rem;
-          display: hidden;
         }
 
-        .mobileCards {
-          gap: 0.5rem 1rem;
+        svg {
+          display: none;
+        }
+      }
+
+      .mobileContainer {
+        padding-top: 1rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0rem;
+        height: 79lvh;
+        // height: 79lvh;
+        // overflow-y: scroll;
+
+        -webkit-mask-image: -webkit-gradient(linear,
+            left top,
+            left bottom,
+            color-stop(0%, rgba(0, 0, 0, 0)),
+            color-stop(15%, rgba(0, 0, 0, 1)),
+            color-stop(85%, rgba(0, 0, 0, 1)),
+            color-stop(100%, rgba(0, 0, 0, 0)));
+
+        /* For non-webkit browsers */
+        mask-image: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 1) 15%,
+            rgba(0, 0, 0, 1) 85%,
+            rgba(0, 0, 0, 0) 100%);
+
+        .scrollWrapper {
+          margin-top: 0rem;
+          pointer-events: all;
+          display: flex;
+          flex-direction: column;
+
+          h2 {
+            margin-top: 0;
+            margin-bottom: 0rem;
+            display: hidden;
+          }
+
+          .mobileCards {
+            gap: 0.5rem 1rem;
+          }
         }
       }
     }
   }
-}
 
-@media (max-width: 450px) {
-  .contactPage {
-    .heading {
-      margin-top: 1rem;
-    }
+  @media (max-width: 450px) {
+    .contactPage {
+      .heading {
+        margin-top: 1rem;
+      }
 
-    .mobileContainer {
-      padding-top: 1.5rem;
-      margin-top: 0.5rem;
-      margin-bottom: 0rem;
+      .mobileContainer {
+        padding-top: 1.5rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0rem;
 
-      .scrollWrapper {
+        .scrollWrapper {
 
-        .mobileCards {
-          gap: 0.4rem 0.9rem
+          .mobileCards {
+            gap: 0.4rem 0.9rem
+          }
         }
       }
     }
   }
-}

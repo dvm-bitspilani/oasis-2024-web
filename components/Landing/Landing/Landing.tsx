@@ -546,7 +546,7 @@ export default function Landing() {
                     yPercent: -91,
                     duration: 1.0,
                     pointerEvents: "auto",
-                    ease: "power1.inOut",
+                    ease: "power2.inOut",
                   },
                   "+=2.0"
                 );

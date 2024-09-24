@@ -72,11 +72,6 @@ const ContactCard: React.FC<ContactCardProps> = ({
       <div className={styles.center}>
         <div className={styles.name}>{name}</div>
         <div className={styles.imgContainer}>
-          {/* <Image
-            src={background}
-            alt="profile pic"
-            className={styles.backgroundImg}
-          /> */}
           <Image
             src={img}
             alt="profile-pic"

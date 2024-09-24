@@ -140,6 +140,8 @@
             grid-template-columns:  repeat(auto-fit, minmax(200px, 1fr));
             grid-auto-rows: 200px;
             grid-gap: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
         }
     }
 }
@@ -149,13 +151,30 @@
     .galleryContainer {
 
         .heading {
-            padding-top: 2rem;
+            padding-top: 0rem;
+        }
+
+        .backBtn {
+            left: 0rem;
+            transform: translateX(-1rem);
         }
         
         .images {
             grid-template-columns:  repeat(auto-fit, minmax(40vw, 1fr));
             grid-auto-rows: 140px;
             grid-gap: 0.5rem;
+            margin-top: 1.7rem;
+        }
+    }
+}
+
+@media(max-width: 350px) {
+
+    .galleryContainer {
+        .heading {
+            h2 {
+                font-size: 35px;
+            }
         }
     }
 }

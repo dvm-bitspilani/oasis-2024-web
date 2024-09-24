@@ -1,51 +1,140 @@
 .mainwrapper {
-    height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
+
+  .navcontainer {
+    position: absolute;
+    right: -14%;
+    top: 45%;
+    transform: translateY(-50%);
+    z-index: 5000;
+  }
+  .navcontainer {
+    position: absolute;
+    right: -14%;
+    top: 45%;
+    transform: translateY(-50%);
+    z-index: 5000;
+  }
+
+  .headerContainer {
+    position: absolute;
     width: 100vw;
-    overflow: hidden;
-    position: fixed;
-    z-index: -1;
+  }
+
+  .cardContainer {
+    @media screen and (width <= 1150px) {
+      display: none;
+      
+    }
+    position: absolute;
+    width: 100vw;
+    height: 100lvh;
+    z-index: -10;
     pointer-events: none;
-
-
-    .navcontainer{
+    .cardsLeftOuterContainer {
+      position: absolute;
+      width: 50vw;
+      height: 100lvh;
+      .cardsFollowZone {
+        pointer-events: auto;
         position: absolute;
-        right: -14%;
-        top: 45%;
-        transform: translateY(-50%);
-        z-index: 5000;
+        height: 500px;
+        right: 10vw;
+        bottom: 10vh;
+        width: 25vw;
+        // border: #fff 1px solid;
+      }
+      .cardContainer {
+        position: absolute;
+        height: 100vw;
+        right: 0;
+        width: 50vw;
+        .card {
+          position: absolute;
+          background-color: transparent;
+          height: 120px;
+          width: 90px;
+          // border: 1px solid #ffd700;
+          background-image: url("/Background/cardlanding.png");
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+    }
+    .cardsRightOuterContainer {
+      position: absolute;
+      left: 50vw;
+      width: 50vw;
+      height: 100lvh;
+      .cardsFollowZone {
+        pointer-events: auto;
+
+        position: absolute;
+        bottom: 10vh;
+        left: 10vw;
+        height: 500px;
+        width: 25vw;
+        // border: #fff 1px solid;
+      }
+      .cardContainer {
+        position: absolute;
+        left: 0;
+        height: 100vw;
+        width: 50vw;
+        .card {
+          position: absolute;
+          background-color: transparent;
+          height: 120px;
+          width: 90px;
+          // border: 1px solid #ffd700;
+          background-image: url("/Background/cardlanding.png");
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+    }
+  }
+
+  .machinecontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    z-index: 10;
+
+    @media (width <= 1000px) {
+      display: none;
+    }
+    @media (width <= 1000px) {
+      display: none;
     }
 
-
-
-    .headerContainer {
-        position: absolute;
-        width: 100vw;
+    .cards {
+      position: relative;
+      top: -4rem;
+      pointer-events: auto;
     }
 
-    .machinecontainer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 32rem;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translateX(-50%);
-        bottom: 0;
-        z-index: 10;
-
-        @media (width <= 1000px) {
-            display: none;
-        }
-
-        .cards {
-            position: relative;
-            top: -4rem;
-            pointer-events: auto;
-        }
-
-        .cards:nth-of-type(2) {
-            transform: scaleX(-1);
-        }
+    .cards:nth-of-type(2) {
+      transform: scaleX(-1);
     }
+  }
 }

@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    @media(width <= 500px){
+    @media (width <= 500px) {
       transform: scale(0.8);
     }
     .title {
@@ -34,7 +34,6 @@
       @media (width <= 650px) {
         font-size: 28px;
       }
-      
     }
   }
   .contentcontainer {
@@ -44,9 +43,29 @@
     position: relative;
     top: 50px;
     height: 55vh;
-    // height: 50%;
-    // overflow-y: scroll;
+    padding-bottom: 20px;
     overflow-x: hidden;
+    -webkit-mask-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      color-stop(85%, rgba(0, 0, 0, 1)),
+      /* Keep 70% of the element fully opaque */
+        color-stop(100%, rgba(0, 0, 0, 0)) /* Fade out at the bottom 30% */
+    );
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    // .fade{
+    //   width: 100%;
+    //   height: 20%;
+    //   background-color: black;
+    //   opacity: 0.5;
+    //   z-index: 10;
+    //   position: absolute;
+    //   bottom: 0;
+    // }
 
     .two {
       position: relative;

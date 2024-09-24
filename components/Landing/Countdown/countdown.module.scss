@@ -11,6 +11,10 @@
   position: fixed;
   gap: 3px;
 
+  @media(width > 1920px){
+    transform: scale(1.5) translateX(50px);
+  }
+
   @media (width > 760px) {
     bottom: 40px;
     left: 25px;

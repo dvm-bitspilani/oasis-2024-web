@@ -73,6 +73,7 @@ const Signin = () => {
           </svg>
         </div>
         <div className={styles.contentcontainer}>
+          <div className={styles.fade}></div>
           <Instruction text="Complete the registration form with all required details. You'll be able to login through your registered email id when required." />
           <div className={styles.two}>
             <Instruction text="All team members are required to register separately." />

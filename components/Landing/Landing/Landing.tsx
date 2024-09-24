@@ -409,6 +409,7 @@ export default function Landing() {
         const mm = gsap.matchMedia();
 
         if (is3dLoaded && slotMachine.current) {
+          // mobile scroll animations
           mm.add(
             {
               isMobile: "(max-width: 1000px)",
@@ -446,65 +447,8 @@ export default function Landing() {
                   "<"
                 )
                 .to(
-                  'img[alt="oasis logo landing"]',
+                  "#logo-container",
                   {
-                    y: -150,
-                    opacity: 0,
-                    duration: 0.75,
-                    pointerEvents: "none",
-                  },
-                  "<"
-                )
-                .to(
-                  'img[alt="left tree"]',
-                  {
-                    x: -150,
-                    opacity: 0,
-                    duration: 0.75,
-                  },
-                  "<"
-                )
-                .to(
-                  'img[alt="right tree"]',
-                  {
-                    x: 150,
-                    opacity: 0,
-                    duration: 0.75,
-                  },
-                  "<"
-                )
-                .to(
-                  "#countdownTimer",
-                  {
-                    y: 100,
-                    opacity: 0,
-                    duration: 0.75,
-                  },
-                  "<"
-                )
-                .to(
-                  "#social",
-                  {
-                    y: 100,
-                    opacity: 0,
-                    duration: 0.75,
-                  },
-                  "<"
-                )
-                .to(
-                  "#leftcards",
-                  {
-                    y: -150,
-                    opacity: 0,
-                    pointerEvents: "none",
-                    duration: 0.75,
-                  },
-                  "<"
-                )
-                .to(
-                  "#rightcards",
-                  {
-                    y: -150,
                     opacity: 0,
                     pointerEvents: "none",
                     duration: 0.75,
@@ -514,7 +458,6 @@ export default function Landing() {
                 .to(
                   "#gradient",
                   {
-                    y: 100,
                     opacity: 0,
                     duration: 0.75,
                   },
@@ -607,6 +550,7 @@ export default function Landing() {
           );
         }
       } else {
+        // desktop scroll animations
         const timeline = gsap.timeline(timelineConfig);
 
         const mm = gsap.matchMedia();

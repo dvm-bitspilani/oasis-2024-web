@@ -24,7 +24,7 @@ export default function Home() {
       </div>
       <main className={styles.scrollWrapper} id="scrollWrapper">
         <main className={styles.page}>
-          <OasisLogo />
+          {/* <OasisLogo /> */}
           <Landing />
           <LandingOverlay />
           <Grid />

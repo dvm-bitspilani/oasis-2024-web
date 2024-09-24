@@ -1,24 +1,25 @@
 .treescontainer {
-    width: 100vw;
-    position: absolute;
-    bottom: 0;
-    z-index: -10;
-    pointer-events: none;
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  z-index: -10;
+  pointer-events: none;
 
-    .righttree {
-        position: absolute;
-        right: 0;
-    }
-    @media(width <= 430px) {
-        display: none;
-    }
+  .righttree {
+    position: absolute;
+    right: 0;
+  }
+  @media (width <= 430px) {
+    display: none;
+  }
 }
 
-.gradient{
-    position: absolute;
-    bottom: -20px;
-    display: none;
-    @media(width <= 430px) {
-        display: block;
-    }
+.gradient {
+  position: absolute;
+  bottom: -20px;
+  display: none;
+  z-index: -2;
+  @media (width <= 585px) {
+    display: block;
+  }
 }

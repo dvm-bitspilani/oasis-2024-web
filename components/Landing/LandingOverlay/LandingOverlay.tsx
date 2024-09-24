@@ -159,7 +159,7 @@ export default function LandingOverlay() {
         api6.start({ x: mouse.x - halfScreenWidth, y: mouse.y, delay: 150 });
       }
     } else {
-      const centerX =  400;
+      const centerX = 400;
       const centerY = window.innerHeight / 2 + 120;
 
       // Apply sine wave hovering effect

@@ -490,9 +490,9 @@ export default function Landing() {
                   "#contact-us-inner-scroll",
                   {
                     yPercent: -91,
-                    duration: 1.0,
                     pointerEvents: "auto",
-                    ease: "power2.inOut",
+                    duration: 0.5,
+                    ease: "sine.inOut",
                   },
                   "+=2.0"
                 );

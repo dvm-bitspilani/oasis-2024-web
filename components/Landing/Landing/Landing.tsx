@@ -522,16 +522,16 @@ export default function Landing() {
                   opacity: 1,
                   duration: 0.5,
                 })
-                .to(
-                  "#contact-us-inner-scroll",
-                  {
-                    yPercent: -91,
-                    duration: 1,
-                    pointerEvents: "auto",
-                    ease: "linear",
-                  },
-                  "+=2.0"
-                );
+                // .to(
+                //   "#contact-us-inner-scroll",
+                //   {
+                //     yPercent: -91,
+                //     duration: 1,
+                //     pointerEvents: "auto",
+                //     ease: "linear",
+                //   },
+                //   "+=2.0"
+                // );
             }
           );
         }

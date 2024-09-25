@@ -299,16 +299,12 @@ export default function Landing() {
               ease: "sine.out",
             },
             "<"
-          );
-        // .to(
-        //   "#iframe-overlay",
-        //   {
-        //     opacity: 0,
-        //     ease: "none",
-        //     duration: 0.5,
-        //   },
-        //   "<"
-        // );
+          )
+          .call(() => {
+            document
+              .querySelector("body")
+              ?.setAttribute("style", "overflow-y: scroll;");
+          });
       }
     }
   }, [isLoaded, camera, slotMachine.current]);
@@ -484,7 +480,7 @@ export default function Landing() {
                 )
                 .to("#contactUs", {
                   opacity: 1,
-                  duration: 0.1,
+                  duration: 0.4,
                   ease: "sine.inOut",
                 })
                 .to(
@@ -492,11 +488,10 @@ export default function Landing() {
                   {
                     yPercent: -87,
                     pointerEvents: "auto",
-                    duration: 0.50,
-                    // duration: 1.25,
-                    ease: "sine.inOut",
+                    duration: 1.25,
+                    // ease: "sine.inOut",
                   },
-                  "+=0.0"
+                  "+=0.15"
                 );
             }
           );
@@ -676,8 +671,8 @@ export default function Landing() {
                 }, [])
                 .to(slotMachine.current.position, {
                   x: 0,
-                  y: 0,
-                  z: -1.5,
+                  y: 0.1,
+                  z: -1.9,
                   duration: 3,
                   ease: "power1.inOut",
                 })

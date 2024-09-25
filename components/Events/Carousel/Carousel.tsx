@@ -4,6 +4,7 @@ import styles from "./carousel.module.scss";
 import arrow from "@/assets/Events/Carousel/carouselArrow.png";
 
 import { EventDataType } from "@/data/EventsCarousel";
+import largeImage from '@/assets/Events/Carousel/eventLarge.png';
 
 interface CarouselProps {
   activeEvent: number | null;
@@ -55,8 +56,8 @@ export default function Carousel({
               <p>{carouselContent?.club}</p>
             </section>
             <section className={styles.cardContent}>
-              <Image src={carouselContent?.largeImg} alt="Event image" />
-              <p>{carouselContent?.desc}</p>
+              <Image src={largeImage} alt="Event image" />
+              <p>{carouselContent?.about}</p>
             </section>
             <section className={styles.cardFooter}>
               <h3>

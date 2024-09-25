@@ -3,18 +3,20 @@ import styles from "./eventcard.module.scss";
 
 import { StaticImageData } from "next/image";
 import Image from "next/image";
+import image from '@/assets/Events/Carousel/event.png';
+import largeImage from '@/assets/Events/Carousel/eventLarge.png';
 
 interface EventCardProps {
   name: string;
-  desc: string;
-  img: StaticImageData;
+  about?: string;
+  img?: StaticImageData;
   onClick: () => void;
 }
 
 export default function EventCard({
   name,
-  desc,
-  img,
+  about,
+  img=largeImage,
   onClick,
 }: EventCardProps) {
   return (
@@ -30,7 +32,7 @@ export default function EventCard({
             className={styles.eventImg}
             draggable={false}
           />
-          <p>{desc}</p>
+          <p>{about}</p>
         </div>
       </div>
     </>

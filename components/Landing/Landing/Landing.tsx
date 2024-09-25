@@ -484,17 +484,19 @@ export default function Landing() {
                 )
                 .to("#contactUs", {
                   opacity: 1,
-                  duration: 0.5,
+                  duration: 0.1,
+                  ease: "sine.inOut",
                 })
                 .to(
                   "#contact-us-inner-scroll",
                   {
-                    yPercent: -91,
-                    duration: 1.0,
+                    yPercent: -87,
                     pointerEvents: "auto",
-                    ease: "power2.inOut",
+                    duration: 0.50,
+                    // duration: 1.25,
+                    ease: "sine.inOut",
                   },
-                  "+=2.0"
+                  "+=0.0"
                 );
             }
           );

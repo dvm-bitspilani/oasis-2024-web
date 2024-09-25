@@ -17,12 +17,16 @@ export default function PrePreloader() {
   }, []);
 
   return (
-    <div
-      style={{
-        display: isLoaded ? "none" : "flex",
-      }}
-    >
-      <Preloader />
-    </div>
+    <>
+      {isLoaded ? null : (
+        <div
+          style={{
+            display: isLoaded ? "none" : "flex",
+          }}
+        >
+          <Preloader />
+        </div>
+      )}
+    </>
   );
 }

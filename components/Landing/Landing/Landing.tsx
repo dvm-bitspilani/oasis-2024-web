@@ -485,11 +485,12 @@ export default function Landing() {
                 .to("#contactUs", {
                   opacity: 1,
                   duration: 0.5,
+                  ease: "sine.inOut",
                 })
                 .to(
                   "#contact-us-inner-scroll",
                   {
-                    yPercent: -91,
+                    yPercent: -85,
                     pointerEvents: "auto",
                     duration: 1,
                     // duration: 1.25,

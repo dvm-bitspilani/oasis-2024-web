@@ -490,13 +490,13 @@ export default function Landing() {
                 .to(
                   "#contact-us-inner-scroll",
                   {
-                    yPercent: -85,
+                    yPercent: -87,
                     pointerEvents: "auto",
-                    duration: 1,
+                    duration: 1.25,
                     // duration: 1.25,
                     // ease: "sine.inOut",
                   },
-                  "+=2.0"
+                  "+=0.0"
                 );
             }
           );

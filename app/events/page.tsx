@@ -27,11 +27,17 @@ export default function EventsPage() {
   }
 
   return (
-    <>
+    <main
+      style={{
+        width: "100vw",
+        height: "100dvh",
+        transform: "rotateY(180deg)",
+      }}
+    >
       <div className={styles.heading}>
         <h2>EVENTS</h2>
       </div>
-      <div className={styles.folderContainer}>
+      {/* <div className={styles.folderContainer}>
         <Folder
           folderIcon={dance}
           isSelected={category === "dance"}
@@ -91,13 +97,16 @@ export default function EventsPage() {
       </div>
       <div className={styles.category}>
         <p>Please select a category</p>
+      </div> */}
+      <div className={styles.fixedCategoryContainer}>
+        <Category onClose={handleCloseModal} />
       </div>
 
-      {isModalOpen && (
+      {/* {isModalOpen && (
         <div className={styles.fixedCategoryContainer}>
           <Category onClose={handleCloseModal} />
         </div>
-      )}
-    </>
+      )} */}
+    </main>
   );
 }

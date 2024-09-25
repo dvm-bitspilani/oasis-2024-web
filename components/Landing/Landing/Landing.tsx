@@ -675,8 +675,8 @@ export default function Landing() {
                 }, [])
                 .to(slotMachine.current.position, {
                   x: 0,
-                  y: 0,
-                  z: -1.5,
+                  y: 0.1,
+                  z: -1.9,
                   duration: 3,
                   ease: "power1.inOut",
                 })

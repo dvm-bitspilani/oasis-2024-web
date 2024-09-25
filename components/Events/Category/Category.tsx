@@ -1,13 +1,15 @@
 import styles from "./category.module.scss";
 
-import { DUMMY_DATA } from "@/data/EventsCarousel";
+// import { DUMMY_DATA } from "@/data/EventsCarousel";
 
 import { EventDataType } from "@/data/EventsCarousel";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import EventCard from "../EventCard/EventCard";
 import Carousel from "../Carousel/Carousel";
+import axios from "axios";
+import largeImage from '@/assets/Events/Carousel/eventLarge.png'
 
 interface CategoryProps {
   onClose: () => void;
@@ -18,21 +20,33 @@ export default function Category({ onClose }: CategoryProps) {
   const [carouselContent, setCarouselContent] = useState<EventDataType | null>(
     null
   );
+  const [eventsList, seteventsList] = useState([]);
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
+
+  useEffect(() => {
+    axios
+      .get("https://bits-oasis.org/2024/main/registrations/events_details/")
+      .then((res) => {
+        const events = res.data;
+        // console.log(events);
+        seteventsList(events);
+      });
+  }, []);
 
   const eventClickHandler = (index: number) => {
     setActiveEvent(index);
-    setCarouselContent(DUMMY_DATA[index]);
+    setCarouselContent(eventsList[index]);
+    console.log(carouselContent);
   };
 
-  const eventsArr = DUMMY_DATA.map((event, index) => {
-    const { name, desc, img } = event;
+  const eventsArr = eventsList.map((event, index) => {
+    const { name, about, img } = event;
     return (
       <EventCard
         key={index}
         name={name}
-        desc={desc}
-        img={img}
+        // about={about}
+        img={largeImage}
         onClick={() => {
           eventClickHandler(index);
         }}
@@ -40,11 +54,13 @@ export default function Category({ onClose }: CategoryProps) {
     );
   });
 
+  // console.log(eventsList[0]);
+
   const transitionHelper = (dataIndex: number) => {
     setIsTransitioning(true);
     setTimeout(() => {
       if (activeEvent !== null) {
-        setCarouselContent(DUMMY_DATA[dataIndex]);
+        setCarouselContent(eventsList[dataIndex]);
       }
       setIsTransitioning(false);
     }, 1000);
@@ -89,7 +105,7 @@ export default function Category({ onClose }: CategoryProps) {
         <div className={styles.heading}>
           <h2>EVENTS</h2>
         </div>
-        <button onClick={onClose}>
+        {/* <button onClick={onClose}>
           <svg
             viewBox="0 0 13 13"
             fill="none"
@@ -100,7 +116,7 @@ export default function Category({ onClose }: CategoryProps) {
               fill="#ffcff3"
             />
           </svg>
-        </button>
+        </button> */}
         <div className={styles.eventContainer}>{eventsArr}</div>
       </div>
 

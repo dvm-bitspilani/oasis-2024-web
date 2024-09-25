@@ -484,7 +484,7 @@ export default function Landing() {
                 )
                 .to("#contactUs", {
                   opacity: 1,
-                  duration: 0.5,
+                  duration: 0.4,
                   ease: "sine.inOut",
                 })
                 .to(
@@ -495,7 +495,7 @@ export default function Landing() {
                     duration: 1.25,
                     // ease: "sine.inOut",
                   },
-                  "+=0.75"
+                  "+=0.15"
                 );
             }
           );

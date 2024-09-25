@@ -31,7 +31,7 @@ export default function EventsPage() {
       <div className={styles.heading}>
         <h2>EVENTS</h2>
       </div>
-      <div className={styles.folderContainer}>
+      {/* <div className={styles.folderContainer}>
         <Folder
           folderIcon={dance}
           isSelected={category === "dance"}
@@ -91,6 +91,9 @@ export default function EventsPage() {
       </div>
       <div className={styles.category}>
         <p>Please select a category</p>
+      </div> */}
+      <div className={styles.fixedCategoryContainer}>
+        <Category onClose={handleCloseModal} />
       </div>
 
       {isModalOpen && (

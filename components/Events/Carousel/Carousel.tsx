@@ -55,8 +55,8 @@ export default function Carousel({
               <p>{carouselContent?.club}</p>
             </section>
             <section className={styles.cardContent}>
-              <Image src={carouselContent?.largeImg} alt="Event image" />
-              <p>{carouselContent?.desc}</p>
+              <Image src={carouselContent?.img} alt="Event image" />
+              <p>{carouselContent?.about}</p>
             </section>
             <section className={styles.cardFooter}>
               <h3>

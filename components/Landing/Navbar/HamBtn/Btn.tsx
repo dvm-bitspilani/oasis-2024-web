@@ -14,6 +14,7 @@ export default function HamBtn() {
   const BtnRef = useRef(null);
   const pokerChipRef = useRef(null);
   const hamIconRef = useRef(null);
+  const overlayRef = useRef(null);
 
   const animation = () => {
     const tl = gsap.timeline();
@@ -60,6 +61,16 @@ export default function HamBtn() {
               ease: "power2.in",
             },
             "<"
+          )
+          .to(
+            overlayRef.current,
+            {
+              x: "-100%",
+              y: "0%",
+              duration: 0.25,
+              ease: "power2.out",
+            },
+            "<"
           );
       } else {
         tl.to(BtnRef.current, {
@@ -95,6 +106,16 @@ export default function HamBtn() {
               delay: 0.05,
               duration: 0.1,
               ease: "power2.in",
+            },
+            "<"
+          )
+          .to(
+            overlayRef.current,
+            {
+              x: "100%",
+              y: "0%",
+              duration: 0.5,
+              ease: "power2.out",
             },
             "<"
           );
@@ -134,6 +155,16 @@ export default function HamBtn() {
               ease: "power2.in",
             },
             "<"
+          )
+          .to(
+            overlayRef.current,
+            {
+              x: "0%",
+              y: "0%",
+              duration: 0.5,
+              ease: "power2.out",
+            },
+            "<"
           );
       } else {
         tl.to(BtnRef.current, {
@@ -168,6 +199,16 @@ export default function HamBtn() {
               delay: 0.05,
               duration: 0.1,
               ease: "power2.in",
+            },
+            "<"
+          )
+          .to(
+            overlayRef.current,
+            {
+              x: "0%",
+              y: "0%",
+              duration: 0.5,
+              ease: "power2.out",
             },
             "<"
           );
@@ -213,7 +254,7 @@ export default function HamBtn() {
 
   return (
     <>
-      {isHamOpen && <div className={styles.hamOverlay} />}
+      <div className={styles.hamOverlay} ref={overlayRef} />
       <div
         className={styles.btn}
         onClick={handleClick}

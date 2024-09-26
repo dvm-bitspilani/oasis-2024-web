@@ -299,16 +299,12 @@ export default function Landing() {
               ease: "sine.out",
             },
             "<"
-          );
-        // .to(
-        //   "#iframe-overlay",
-        //   {
-        //     opacity: 0,
-        //     ease: "none",
-        //     duration: 0.5,
-        //   },
-        //   "<"
-        // );
+          )
+          .call(() => {
+            document
+              .querySelector("body")
+              ?.setAttribute("style", "overflow-y: scroll;");
+          });
       }
     }
   }, [isLoaded, camera, slotMachine.current]);

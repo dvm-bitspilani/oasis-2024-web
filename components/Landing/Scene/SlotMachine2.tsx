@@ -209,8 +209,8 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
                   loop
                 />
                 <embed
-                  // src="https://oasis-24-web.netlify.app/events"
-                  src="http://localhost:3000/events"
+                  src="https://oasis-24-web.netlify.app/events"
+                  // src="http://localhost:3000/events"
                   height={700}
                   width={1000}
                   // src="https://www.bits-oasis.org/comingsoon"

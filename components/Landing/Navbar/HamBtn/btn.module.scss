@@ -11,6 +11,12 @@
   );
   z-index: 5110;
   cursor: initial;
+
+  transform: translate(-100%, 0);
+
+  @media screen and (max-width: 585px) {
+    transform: translate(100%, 0);
+  }
 }
 
 .btn {

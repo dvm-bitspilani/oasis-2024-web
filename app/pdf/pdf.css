@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  background-color: #190D2C;
+}
+
+.Example__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.Example__container__load {
+  margin-top: 1em;
+  color: white;
+}
+
+.Example__container__document {
+  width: 55vw;
+  max-width: calc(100% - 2em);
+  margin: 1em 0;
+  height: 80vh;
+  overflow-y: scroll;
+}
+
+.Example__container__document .react-pdf__Document {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Example__container__document .react-pdf__Page {
+  margin: 0.2em 0;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+.Example__container__document .react-pdf__message {
+  padding: 20px;
+  color: white;
+}

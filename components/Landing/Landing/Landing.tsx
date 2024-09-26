@@ -305,6 +305,10 @@ export default function Landing() {
               .querySelector("body")
               ?.setAttribute("style", "overflow-y: scroll;");
           });
+      } else {
+        document
+          .querySelector("body")
+          ?.setAttribute("style", "overflow-y: scroll;");
       }
     }
   }, [isLoaded, camera, slotMachine.current]);

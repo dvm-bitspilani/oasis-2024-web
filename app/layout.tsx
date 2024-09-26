@@ -28,6 +28,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
+    type: "website",
     url: "https://www.bits-oasis.org",
     title: "Oasis '24",
     description:
@@ -55,6 +56,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <title>Oasis '24</title>
         <meta
           name="google-site-verification"
           content="GKxgBVi8dPgOPEBsP-lgb_ZM201NN8NE5ZbVEhrhpDw"

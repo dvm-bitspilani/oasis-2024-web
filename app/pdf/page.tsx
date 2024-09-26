@@ -7,8 +7,8 @@ import "react-pdf/dist/esm/Page/TextLayer.css";
 
 import { Document, Page, pdfjs } from "react-pdf";
 import "./pdf.css";
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.mjs`;
-
+//pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.mjs`;
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 type PDFFile = string | File | null;
 
 export default function Sample() {

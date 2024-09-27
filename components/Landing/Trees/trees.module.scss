@@ -16,6 +16,7 @@
 
 .gradient {
   position: absolute;
+  pointer-events: none;
   bottom: -20px;
   display: none;
   width: 100vw;

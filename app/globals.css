@@ -15,10 +15,10 @@
 body {
   background-color: #190d2c;
   cursor: url("../assets/Global/Cursor.svg"), default;
+  overflow-y: hidden;
 }
 
-.htmlScreen iframe,
-#iframe-overlay {
+.htmlScreen iframe {
   width: 1000px;
   height: 750px;
   transform: rotateY(180deg);
@@ -29,19 +29,25 @@ body {
 }
 
 #iframe-overlay {
+  width: 1000px;
+  height: 750px;
+  transform: rotateY(180deg);
+  border: none;
+  border-radius: 20px;
   z-index: 1;
   opacity: 0;
   cursor: pointer;
   transition: opacity 0.5s linear;
-  background: url("/Videos/preloaderCoinVideo.gif");
-  background-color: black;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  position: absolute;
 }
 
 @media (width > 1000px) {
   #iframe-overlay {
+    background: url("/Videos/preloaderCoinVideo.gif");
+    background-color: black;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     opacity: 1;
   }
 }

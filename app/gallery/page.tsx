@@ -185,6 +185,12 @@ export default function GalleryPage() {
                         src={sixteen}
                         alt="sixteen"
                         className={styles.vStrech}
+                        id={styles.largeScreen}
+                    />
+                    <Image
+                        src={sixteen}
+                        alt="sixteen"
+                        className={styles.largeScreen}
                     />
                     <Image
                         src={seventeen}
@@ -200,6 +206,7 @@ export default function GalleryPage() {
                         src={nineteen}
                         alt="nineteen"
                         className={styles.hStrech}
+                        id={styles.largeScreen1}
                     />
                     <Image
                         src={eightteen}

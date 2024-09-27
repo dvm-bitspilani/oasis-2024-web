@@ -19,6 +19,7 @@ const MenuLines: React.FC<MenuLinesProps> = ({ svgClass, isHamOpen }) => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
   return (
     <>
       {isHamOpen ? (

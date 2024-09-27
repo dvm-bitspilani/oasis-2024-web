@@ -82,8 +82,8 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
                 stroke-dasharray="4.63 4.63"
               />
             </svg>
-            <Link href="/comingsoon" className={styles.magText}>
-              WALL MAG
+            <Link href="/rocktaves" className={styles.magText}>
+              ROCKTAVES
             </Link>
           </div>
           <div className={styles.developers} ref={developersRef}>
@@ -106,8 +106,8 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
                 stroke-dasharray="4.63 4.63"
               />
             </svg>
-            <Link href="/comingsoon" className={styles.devText}>
-              DEVELOPERS
+            <Link href="/preregistrations" className={styles.devText}>
+              PRELIMS
             </Link>
           </div>
           <div className={styles.mediaPartners} ref={mediaPartnersRef}>
@@ -130,8 +130,8 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
                 stroke-dasharray="4.63 4.63"
               />
             </svg>
-            <Link href="/comingsoon" className={styles.medText}>
-              MEDIA PARTNERS
+            <Link href="/gallery" className={styles.medText}>
+              GALLERY
             </Link>
           </div>
           <div className={styles.sponsors} ref={sponsorsRef}>
@@ -178,8 +178,8 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
                 stroke-dasharray="4.63 4.63"
               />
             </svg>
-            <Link href="/gallery" className={styles.galleryText}>
-              GALLERY
+            <Link href="/comingsoon" className={styles.galleryText}>
+              MEDIA PARTNERS
             </Link>
           </div>
         </div>
@@ -199,8 +199,8 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
                 strokeWidth="3"
               />
             </svg>
-            <Link href="/comingsoon" className={styles.magText}>
-              WALL MAG
+            <Link href="/rocktaves" className={styles.magText}>
+              ROCKATVES
             </Link>
           </div>
           <div className={styles.developers} ref={developersRef}>
@@ -217,8 +217,8 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
                 strokeWidth="3"
               />
             </svg>
-            <Link href="/comingsoon" className={styles.devText}>
-              DEVELOPERS
+            <Link href="/preregistrations" className={styles.devText}>
+              PRELIMS
             </Link>
           </div>
           <div className={styles.mediaPartners} ref={mediaPartnersRef}>
@@ -231,8 +231,8 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
             >
               <path d="M2 0V153" stroke="#EDCF89" stroke-width="3" />
             </svg>
-            <Link href="/comingsoon" className={styles.medText}>
-              MEDIA PARTNERS
+            <Link href="/gallery" className={styles.medText}>
+              GALLERY
             </Link>
           </div>
           <div className={styles.sponsors} ref={sponsorsRef}>
@@ -267,9 +267,8 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
                 strokeWidth="3"
               />
             </svg>
-
-            <Link href="/gallery" className={styles.galleryText}>
-              GALLERY
+            <Link href="/comingsoon" className={styles.galleryText}>
+              MEDIA PARTNERS
             </Link>
           </div>
         </div>

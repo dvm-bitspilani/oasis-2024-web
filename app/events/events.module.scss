@@ -1,3 +1,42 @@
+.scrollbar {
+  position: relative;
+  height: 35%;
+  width: 3px;
+  z-index: 1;
+  left: 98.5vw;
+  margin-top: 50px;
+  bottom: -15vh;
+  .rect {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+  }
+  .rightrect{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    right: 19px;
+  }
+  .topicon {
+    position: absolute;
+    top: -9px;
+    right: 4px;
+    transform: scale(1.2);
+  }
+  .bottomicon {
+    position: absolute;
+    bottom: -9px;
+    right: 4px;
+    transform: scale(1.2) rotateZ(180deg);
+  }
+  .mainicon {
+    position: absolute;
+    right: 6.5px;
+    top: 4px;
+  }
+}
 .heading {
   width: 100%;
   margin-top: 2rem;

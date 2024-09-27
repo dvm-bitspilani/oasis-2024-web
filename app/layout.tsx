@@ -56,7 +56,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Oasis '24</title>
+        <title>Oasis `&apos;`24</title>
         <meta
           name="google-site-verification"
           content="GKxgBVi8dPgOPEBsP-lgb_ZM201NN8NE5ZbVEhrhpDw"

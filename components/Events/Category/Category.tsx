@@ -4,12 +4,12 @@ import styles from "./category.module.scss";
 
 import { EventDataType } from "@/data/EventsCarousel";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import EventCard from "../EventCard/EventCard";
 import Carousel from "../Carousel/Carousel";
 import axios from "axios";
-import largeImage from '@/assets/Events/Carousel/eventLarge.png'
+import largeImage from "@/assets/Events/Carousel/eventLarge.png";
 
 interface CategoryProps {
   onClose: () => void;
@@ -99,11 +99,187 @@ export default function Category({ onClose }: CategoryProps) {
     });
   };
 
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const scrollbarRef = useRef<HTMLDivElement | null>(null);
+
+  const handleScroll = () => {
+    console.log("scrolling");
+    // if (containerRef.current && scrollbarRef.current) {
+    //   const { scrollHeight, clientHeight, scrollTop } = containerRef.current;
+
+    //   if (scrollHeight > clientHeight) {
+    //     const maxScrollTopValue = scrollHeight - clientHeight;
+    //     const percentage = (scrollTop / maxScrollTopValue) * 100;
+    //     scrollbarRef.current.style.top = `${Math.min(percentage, 100)}%`;
+    //   }
+    // }
+  };
+
   return (
     <>
-      <div className={styles.mainContainer}>
+      <div className={styles.mainContainer} onScroll={handleScroll}>
         <div className={styles.heading}>
           <h2>EVENTS</h2>
+        </div>
+        <div className={styles.scrollbar}>
+          <div className={styles.rect}></div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="9"
+            viewBox="0 0 14 9"
+            fill="none"
+            className={styles.topicon}
+          >
+            <rect
+              x="13.1367"
+              y="4.56055"
+              width="4.28076"
+              height="4.28076"
+              transform="rotate(90 13.1367 4.56055)"
+              fill="white"
+            />
+            <rect
+              x="8.85938"
+              y="0.279297"
+              width="4.28076"
+              height="4.28076"
+              transform="rotate(90 8.85938 0.279297)"
+              fill="white"
+            />
+            <rect
+              x="4.57422"
+              y="4.56055"
+              width="4.28076"
+              height="4.28076"
+              transform="rotate(90 4.57422 4.56055)"
+              fill="white"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="9"
+            viewBox="0 0 14 9"
+            fill="none"
+            className={styles.bottomicon}
+          >
+            <rect
+              x="13.1367"
+              y="4.56055"
+              width="4.28076"
+              height="4.28076"
+              transform="rotate(90 13.1367 4.56055)"
+              fill="white"
+            />
+            <rect
+              x="8.85938"
+              y="0.279297"
+              width="4.28076"
+              height="4.28076"
+              transform="rotate(90 8.85938 0.279297)"
+              fill="white"
+            />
+            <rect
+              x="4.57422"
+              y="4.56055"
+              width="4.28076"
+              height="4.28076"
+              transform="rotate(90 4.57422 4.56055)"
+              fill="white"
+            />
+          </svg>
+          <div className={styles.mainicon} ref={scrollbarRef} onScroll={handleScroll}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="9"
+              height="103"
+              viewBox="0 0 9 103"
+              fill="none"
+            >
+              <rect
+                x="8.84766"
+                y="0.408203"
+                width="7.06956"
+                height="8.58447"
+                transform="rotate(90 8.84766 0.408203)"
+                fill="white"
+              />
+              <rect
+                x="8.84766"
+                y="11.0117"
+                width="7.06956"
+                height="8.58447"
+                transform="rotate(90 8.84766 11.0117)"
+                fill="white"
+              />
+              <rect
+                x="8.84766"
+                y="21.6172"
+                width="7.06956"
+                height="8.58447"
+                transform="rotate(90 8.84766 21.6172)"
+                fill="white"
+              />
+              <rect
+                x="8.84766"
+                y="32.2227"
+                width="7.06956"
+                height="8.58447"
+                transform="rotate(90 8.84766 32.2227)"
+                fill="white"
+              />
+              <rect
+                x="8.84766"
+                y="42.8262"
+                width="7.06956"
+                height="8.58447"
+                transform="rotate(90 8.84766 42.8262)"
+                fill="white"
+              />
+              <rect
+                x="8.84766"
+                y="53.4297"
+                width="7.06956"
+                height="8.58447"
+                transform="rotate(90 8.84766 53.4297)"
+                fill="white"
+              />
+              <rect
+                x="8.84766"
+                y="64.0352"
+                width="7.06956"
+                height="8.58447"
+                transform="rotate(90 8.84766 64.0352)"
+                fill="white"
+              />
+              {/* <rect
+            x="8.84766"
+            y="74.6387"
+            width="7.06956"
+            height="8.58447"
+            transform="rotate(90 8.84766 74.6387)"
+            fill="white"
+          />
+          <rect
+            x="8.84766"
+            y="85.2422"
+            width="7.06956"
+            height="8.58447"
+            transform="rotate(90 8.84766 85.2422)"
+            fill="white"
+          />
+          <rect
+            x="8.84766"
+            y="95.8457"
+            width="7.06956"
+            height="8.58447"
+            transform="rotate(90 8.84766 95.8457)"
+            fill="white"
+          /> */}
+            </svg>
+          </div>
+          <div className={styles.rightrect}></div>
         </div>
         {/* <button onClick={onClose}>
           <svg

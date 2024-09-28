@@ -18,6 +18,15 @@ type PDFFile = string | File | null;
 export default function PDF() {
     const [file, setFile] = useState<PDFFile>("./sample.pdf");
     const [numPages, setNumPages] = useState<number>();
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
+    if (!isClient) {
+        return null;
+    }
 
     const onDocumentLoadSuccess = useCallback(
         ({ numPages }: { numPages: number }) => {
@@ -30,18 +39,18 @@ export default function PDF() {
         <div className="Example">
             <div className="Example__container">
                 <div className="Example__container__document">
-                    <Document 
-                    file={file} 
-                    loading={"Please wait i am loading"}
-                    onLoadSuccess={onDocumentLoadSuccess}
-                    onLoadError={(error) => console.log(error)}
+                    <Document
+                        file={file}
+                        loading={"Please wait i am loading"}
+                        onLoadSuccess={onDocumentLoadSuccess}
+                        onLoadError={(error) => console.log(error)}
                     >
                         {Array.from(new Array(numPages), (_el, index) => (
                             <Page
                                 key={`page_${index + 1}`}
                                 pageNumber={index + 1}
                                 renderTextLayer={false}
-                                // renderInteractiveForms={false}
+                            // renderInteractiveForms={false}
                             />
                         ))}
                     </Document>

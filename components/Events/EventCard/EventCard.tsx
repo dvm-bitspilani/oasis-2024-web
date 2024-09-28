@@ -5,6 +5,7 @@ import { StaticImageData } from "next/image";
 import Image from "next/image";
 import image from '@/assets/Events/Carousel/event.png';
 import largeImage from '@/assets/Events/Carousel/eventLarge.png';
+import eventcard from "../../../assets/Events/Carousel/eventcard.png";
 
 interface EventCardProps {
   name: string;
@@ -16,7 +17,7 @@ interface EventCardProps {
 export default function EventCard({
   name,
   about,
-  img=largeImage,
+  img=eventcard,
   onClick,
 }: EventCardProps) {
   return (

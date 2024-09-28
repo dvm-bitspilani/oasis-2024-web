@@ -10,6 +10,7 @@ import EventCard from "../EventCard/EventCard";
 import Carousel from "../Carousel/Carousel";
 import axios from "axios";
 import largeImage from "@/assets/Events/Carousel/eventLarge.png";
+import eventcard from "../../../assets/Events/Carousel/eventcard.png";
 
 interface CategoryProps {
   onClose: () => void;
@@ -46,7 +47,7 @@ export default function Category({ onClose }: CategoryProps) {
         key={index}
         name={name}
         // about={about}
-        img={largeImage}
+        img={eventcard}
         onClick={() => {
           eventClickHandler(index);
         }}

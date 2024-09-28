@@ -105,10 +105,13 @@
   top: 50%;
   scale: unset;
   transform: translate(0, -50%);
+  opacity: 0;
 
   iframe {
     border-radius: 25px;
-    border: 3px solid #8d6916;
+    // border: 8px solid #edcf89;
+
+    box-shadow: 0px 0px 40px 10px #edcf89;
 
     @media screen and (max-width: 868px) {
       display: none;

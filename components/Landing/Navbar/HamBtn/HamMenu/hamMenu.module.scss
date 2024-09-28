@@ -3,7 +3,7 @@
   width: 100%;
   height: 100%;
   scale: 0.1;
-  z-index: 51210;
+  z-index: 5111;
   top: -8%;
   right: -40%;
 
@@ -18,6 +18,28 @@
     color: inherit;
     text-decoration: none;
     z-index: 50000;
+    opacity: 0;
+
+    position: relative;
+    display: inline-block;
+
+    &:after {
+      display: block;
+      content: "";
+      border-bottom: solid 3px #edcf89;
+      transform: scaleX(0);
+      transition: transform 250ms ease-in-out;
+      transform-origin: 100% 50%;
+    }
+
+    &:hover:after {
+      transform: scaleX(1);
+      transform-origin: 0 50%;
+    }
+  }
+
+  .svgUnderline {
+    opacity: 0;
   }
 
   .wallMag {
@@ -25,12 +47,18 @@
     width: 100%;
     height: 100%;
     transform: translate(-75%, -230%);
-    opacity: 0;
+    // opacity: 0;
 
     .magText {
       position: absolute;
       top: -20%;
       right: -450%;
+    }
+
+    .svgPath {
+      stroke-dasharray: 365;
+      stroke-dashoffset: 365;
+      animation: 0.4s linear 0.75s forwards connector;
     }
   }
 
@@ -39,12 +67,18 @@
     width: 100%;
     height: 100%;
     transform: translate(5%, -47%);
-    opacity: 0;
+    // opacity: 0;
 
     .devText {
       position: absolute;
       top: -10%;
       right: -400%;
+    }
+
+    .svgPath {
+      stroke-dasharray: 365;
+      stroke-dashoffset: 365;
+      animation: 0.4s linear 1.15s forwards connector;
     }
   }
 
@@ -53,12 +87,18 @@
     width: 100%;
     height: 100%;
     transform: translate(23%, 110%);
-    opacity: 0;
+    // opacity: 0;
 
     .medText {
       position: absolute;
       top: 5%;
       right: -400%;
+    }
+
+    .svgPath {
+      stroke-dasharray: 365;
+      stroke-dashoffset: 365;
+      animation: 0.4s linear 1.55s forwards connector;
     }
   }
   .sponsors {
@@ -66,12 +106,18 @@
     width: 100%;
     height: 100%;
     transform: translate(0%, 278%);
-    opacity: 0;
+    // opacity: 0;
 
     .sponsorsText {
       position: absolute;
       top: 5%;
       right: -435%;
+    }
+
+    .svgPath {
+      stroke-dasharray: 365;
+      stroke-dashoffset: 365;
+      animation: 0.4s linear 1.95s forwards connector;
     }
   }
   .gallery {
@@ -79,12 +125,24 @@
     width: 100%;
     height: 100%;
     transform: translate(-105%, 390%);
-    opacity: 0;
+    // opacity: 0;
 
     .galleryText {
       position: absolute;
       top: 82%;
       right: -600%;
+    }
+
+    .svgPath {
+      stroke-dasharray: 415;
+      stroke-dashoffset: 415;
+      animation: 0.4s linear 2.2s forwards connector;
+    }
+  }
+
+  @keyframes connector {
+    100% {
+      stroke-dashoffset: unset;
     }
   }
 }
@@ -107,6 +165,7 @@
     color: inherit;
     text-decoration: none;
     z-index: 50000;
+    opacity: 0;
   }
 
   .wallMag {
@@ -114,12 +173,18 @@
     width: 100%;
     height: 100%;
     transform: translate(118%, -31%);
-    opacity: 0;
+    // opacity: 0;
 
     .magText {
       position: absolute;
       top: -12.5%;
       left: -10%;
+    }
+
+    .svgPath {
+      stroke-dasharray: 365;
+      stroke-dashoffset: 365;
+      animation: 0.4s linear 0.75s forwards connector;
     }
   }
 
@@ -128,12 +193,18 @@
     width: 100%;
     height: 100%;
     transform: translate(-47%, -31%);
-    opacity: 0;
+    // opacity: 0;
 
     .devText {
       position: absolute;
       top: -12.5%;
       left: -28%;
+    }
+
+    .svgPath {
+      stroke-dasharray: 365;
+      stroke-dashoffset: 365;
+      animation: 0.4s linear 2.2s forwards connector;
     }
   }
 
@@ -142,12 +213,18 @@
     width: 100%;
     height: 100%;
     transform: translate(48%, 100%);
-    opacity: 0;
+    // opacity: 0;
 
     .medText {
       position: absolute;
       bottom: 32%;
       left: -28%;
+    }
+
+    .svgPath {
+      stroke-dasharray: 365;
+      stroke-dashoffset: 365;
+      animation: 0.4s linear 1.55s forwards connector;
     }
   }
   .sponsors {
@@ -155,12 +232,18 @@
     width: 100%;
     height: 100%;
     transform: translate(162%, 74%);
-    opacity: 0;
+    // opacity: 0;
 
     .sponsorsText {
       position: absolute;
       bottom: 35%;
       left: -10%;
+    }
+
+    .svgPath {
+      stroke-dasharray: 365;
+      stroke-dashoffset: 365;
+      animation: 0.4s linear 1.15s forwards connector;
     }
   }
   .gallery {
@@ -168,12 +251,24 @@
     width: 100%;
     height: 100%;
     transform: translate(-100%, 74%);
-    opacity: 0;
+    // opacity: 0;
 
     .galleryText {
       position: absolute;
       bottom: 35%;
       left: -40%;
+    }
+
+    .svgPath {
+      stroke-dasharray: 415;
+      stroke-dashoffset: 415;
+      animation: 0.4s linear 1.8s forwards connector;
+    }
+  }
+
+  @keyframes connector {
+    100% {
+      stroke-dashoffset: unset;
     }
   }
 }

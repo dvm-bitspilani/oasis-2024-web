@@ -231,7 +231,7 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
             >
               <path d="M2 0V153" stroke="#EDCF89" stroke-width="3" />
             </svg>
-            <Link href="/comingsoon" className={styles.medText}>
+            <Link href="/gallery" className={styles.medText}>
               GALLERY
             </Link>
           </div>

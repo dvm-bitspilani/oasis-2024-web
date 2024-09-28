@@ -50,50 +50,62 @@ export default function Landing() {
 
   useGSAP(
     () => {
+      // focus video when iframe clicked
       if (camera) {
         if (isVideoFocused) {
           const camTl = gsap.timeline();
 
-          camTl
-            .to(camera.position, {
-              z: 4,
-              x: 0,
-              duration: 0.5,
-              ease: "sine.inOut",
-            })
-            .to(
-              camera.rotation,
-              {
-                y: slotMachine.current.rotation.y,
-                duration: 0.5,
-                ease: "sine.inOut",
-              },
-              "<"
-            )
-            .to(
-              "#exit-cross",
-              {
-                opacity: 1,
-                zIndex: 100,
-                duration: 0.25,
-              },
-              "<"
-            )
-            .to(
-              "#mainwrapper",
-              {
-                opacity: 0,
-                zIndex: -1,
-                duration: 0.25,
-              },
-              "<"
-            );
+          const mm = gsap.matchMedia();
+
+          mm.add(
+            {
+              mobile: "(max-width: 1000px)",
+            },
+            ({ conditions }: any) => {
+              camTl
+                .to(camera.position, {
+                  x: 0,
+                  y: conditions.mobile ? -1 : 0,
+                  z: 4,
+                  duration: 0.5,
+                  ease: "sine.inOut",
+                })
+                .to(
+                  camera.rotation,
+                  {
+                    y: slotMachine.current.rotation.y,
+                    duration: 0.5,
+                    ease: "sine.inOut",
+                  },
+                  "<"
+                )
+                .to(
+                  "#exit-cross",
+                  {
+                    opacity: 1,
+                    zIndex: 100,
+                    duration: 0.25,
+                  },
+                  "<"
+                )
+                .to(
+                  "#mainwrapper",
+                  {
+                    opacity: 0,
+                    zIndex: -1,
+                    duration: 0.25,
+                  },
+                  "<"
+                );
+            }
+          );
         } else {
           const resetTl = gsap.timeline();
           resetTl
             .to(camera.position, {
-              z: 5,
               x: 0,
+              y: 0,
+              z: 5,
               duration: 0.5,
               ease: "sine.inOut",
             })

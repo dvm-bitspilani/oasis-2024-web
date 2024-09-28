@@ -30,6 +30,7 @@
   "include": [
     "next-env.d.ts",
     "glsl.d.ts",
+    "pdf.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",

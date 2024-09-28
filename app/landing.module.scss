@@ -36,7 +36,7 @@
   left: 20px;
   z-index: 5200;
 
-  @media (width >= 1920px) {
+  @media (width > 1920px) {
     top: 60px;
     left: 60px;
   }
@@ -56,6 +56,6 @@
   z-index: 5000;
 
   @media (width > 1920px) {
-    transform: translateY(-50%) scale(1.4) translateX(-8%)!important;
+    transform: translateY(-50%) scale(1.4) translateX(-8%) !important;
   }
 }

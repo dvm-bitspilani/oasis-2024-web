@@ -4,7 +4,35 @@ const nextConfig = {
       test: /\.(glsl|vs|fs|vert|frag)$/,
       use: ["raw-loader"],
     });
+
+    config.module.rules.unshift({
+      test: /pdf\.worker\.(min\.)?js/,
+      use: [
+        {
+          loader: "file-loader",
+          options: {
+            name: "[contenthash].[ext]",
+            publicPath: "_next/static/worker",
+            outputPath: "static/worker",
+          },
+        },
+      ],
+    });
+
+    config.module.rules.push({
+      test: /\.pdf$/,
+      use: {
+        loader: 'file-loader',
+        options: {
+          publicPath: '/_next',
+          name: 'static/media/[name].[ext]',
+        },
+      },
+    });
+
     return config;
   },
 };
+
 export default nextConfig;
+

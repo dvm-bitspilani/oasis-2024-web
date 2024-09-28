@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styles from "./events.module.scss";
 import Folder from "@/components/Events/Folder/Folder";
 import Category from "@/components/Events/Category/Category";
@@ -37,6 +37,7 @@ export default function EventsPage() {
       <div className={styles.heading}>
         <h2>EVENTS</h2>
       </div>
+      
       {/* <div className={styles.folderContainer}>
         <Folder
           folderIcon={dance}

@@ -1,0 +1,43 @@
+.pdfDoc {
+    height: 400px;
+    width: 750px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+@media(max-width: 1000px) {
+
+    .pdfDoc {
+        height: 400px;
+        width: 600px;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+    
+}
+
+@media(max-width: 600px) {
+
+    .pdfDoc {
+        height: 70vh;
+        width: 400px;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+    
+}
+
+@media(max-width: 500px) {
+
+    .pdfDoc {
+        height: 70vh;
+        width: 85vw;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+    
+}

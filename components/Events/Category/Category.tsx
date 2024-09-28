@@ -146,7 +146,7 @@ export default function Category({ onClose }: CategoryProps) {
               width="4.28076"
               height="4.28076"
               transform="rotate(90 13.1367 4.56055)"
-              fill="white"
+              fill="#ECC6FF"
             />
             <rect
               x="8.85938"
@@ -154,7 +154,7 @@ export default function Category({ onClose }: CategoryProps) {
               width="4.28076"
               height="4.28076"
               transform="rotate(90 8.85938 0.279297)"
-              fill="white"
+              fill="#ECC6FF"
             />
             <rect
               x="4.57422"
@@ -162,7 +162,7 @@ export default function Category({ onClose }: CategoryProps) {
               width="4.28076"
               height="4.28076"
               transform="rotate(90 4.57422 4.56055)"
-              fill="white"
+              fill="#ECC6FF"
             />
           </svg>
           <svg
@@ -179,7 +179,7 @@ export default function Category({ onClose }: CategoryProps) {
               width="4.28076"
               height="4.28076"
               transform="rotate(90 13.1367 4.56055)"
-              fill="white"
+              fill="#ECC6FF"
             />
             <rect
               x="8.85938"
@@ -187,7 +187,7 @@ export default function Category({ onClose }: CategoryProps) {
               width="4.28076"
               height="4.28076"
               transform="rotate(90 8.85938 0.279297)"
-              fill="white"
+              fill="#ECC6FF"
             />
             <rect
               x="4.57422"
@@ -195,7 +195,7 @@ export default function Category({ onClose }: CategoryProps) {
               width="4.28076"
               height="4.28076"
               transform="rotate(90 4.57422 4.56055)"
-              fill="white"
+              fill="#ECC6FF"
             />
           </svg>
           <div
@@ -216,7 +216,7 @@ export default function Category({ onClose }: CategoryProps) {
                 width="7.06956"
                 height="8.58447"
                 transform="rotate(90 8.84766 0.408203)"
-                fill="white"
+                fill="#ECC6FF"
               />
               <rect
                 x="8.84766"
@@ -224,7 +224,7 @@ export default function Category({ onClose }: CategoryProps) {
                 width="7.06956"
                 height="8.58447"
                 transform="rotate(90 8.84766 11.0117)"
-                fill="white"
+                fill="#ECC6FF"
               />
               <rect
                 x="8.84766"
@@ -232,7 +232,7 @@ export default function Category({ onClose }: CategoryProps) {
                 width="7.06956"
                 height="8.58447"
                 transform="rotate(90 8.84766 21.6172)"
-                fill="white"
+                fill="#ECC6FF"
               />
               <rect
                 x="8.84766"
@@ -240,7 +240,7 @@ export default function Category({ onClose }: CategoryProps) {
                 width="7.06956"
                 height="8.58447"
                 transform="rotate(90 8.84766 32.2227)"
-                fill="white"
+                fill="#ECC6FF"
               />
               <rect
                 x="8.84766"
@@ -248,7 +248,7 @@ export default function Category({ onClose }: CategoryProps) {
                 width="7.06956"
                 height="8.58447"
                 transform="rotate(90 8.84766 42.8262)"
-                fill="white"
+                fill="#ECC6FF"
               />
               <rect
                 x="8.84766"
@@ -256,7 +256,7 @@ export default function Category({ onClose }: CategoryProps) {
                 width="7.06956"
                 height="8.58447"
                 transform="rotate(90 8.84766 53.4297)"
-                fill="white"
+                fill="#ECC6FF"
               />
               <rect
                 x="8.84766"
@@ -264,7 +264,7 @@ export default function Category({ onClose }: CategoryProps) {
                 width="7.06956"
                 height="8.58447"
                 transform="rotate(90 8.84766 64.0352)"
-                fill="white"
+                fill="#ECC6FF"
               />
               {/* <rect
             x="8.84766"

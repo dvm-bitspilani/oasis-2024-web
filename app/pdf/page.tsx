@@ -56,6 +56,17 @@ export default function Pdf() {
                         ))}
                     </Document>
                 </div>
+                {/* <iframe
+                    src="sample.pdf#toolbar=0&navpanes=0&scrollbar=0"
+                    // width="100%"
+                    title="Embedded PDF Viewer, non-downloadable PDF"
+                    className="view"
+                ></iframe> */}
+                {/* <iframe
+                    src="https://drive.google.com/file/d/1epMPX3r90rrt6Sa0TEsWfDEG8XO5WCz4/preview"
+                    allow="autoplay"
+                ></iframe> */}
+          
             </div>
         </div>
     );

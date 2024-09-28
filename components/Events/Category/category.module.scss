@@ -10,6 +10,17 @@ $cross-btn-width: 1.875rem;
   background-color: #110611;
   overflow-y: scroll;
 
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  // /* Hide scrollbar for IE, Edge and Firefox */
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  // // border: 2px solid red;
+
   .scrollbar {
     position: fixed;
     height: 35%;
@@ -24,7 +35,7 @@ $cross-btn-width: 1.875rem;
       width: 100%;
       background-color: white;
     }
-    .rightrect{
+    .rightrect {
       position: absolute;
       height: 100%;
       width: 100%;
@@ -60,11 +71,11 @@ $cross-btn-width: 1.875rem;
       font-size: 39.6px;
       font-weight: 600;
       text-align: center;
-      background: linear-gradient(180deg, #FFCFF3 -38.31%, #997C92 174.55%);
+      background: linear-gradient(180deg, #ffcff3 -38.31%, #997c92 174.55%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       line-height: $heading-line-height;
-      border-bottom: 2.63px solid #FFCFF3;
+      border-bottom: 2.63px solid #ffcff3;
     }
   }
 

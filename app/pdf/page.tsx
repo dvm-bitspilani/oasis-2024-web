@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 import { pdfjs, Document, Page } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
@@ -13,14 +13,12 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/l
 // pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.mjs`;
 
 
-const maxWidth = 800;
-
 type PDFFile = string | File | null;
 
 export default function Sample() {
     const [file, setFile] = useState<PDFFile>("./sample.pdf");
     const [numPages, setNumPages] = useState<number>();
-
+    const [isClient, setIsClient] = useState(false);
 
     const onDocumentLoadSuccess = useCallback(
         ({ numPages }: { numPages: number }) => {
@@ -29,14 +27,22 @@ export default function Sample() {
         []
     );
 
+    // Ensure the component renders only on the client side
+    useEffect(() => {
+        setIsClient(true); // This ensures we are now in the client-side rendering
+    }, []);
+
+    // Only render PDF viewer on the client
+    if (!isClient) {
+        // During server-side rendering, return a loading fallback
+        return <div>Loading PDF...</div>;
+    }
+
     return (
         <div className="Example">
             <div className="Example__container">
                 <div className="Example__container__document">
-                    <Document
-                        file={file}
-                        onLoadSuccess={onDocumentLoadSuccess}
-                    >
+                    <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
                         {Array.from(new Array(numPages), (_el, index) => (
                             <Page
                                 key={`page_${index + 1}`}
@@ -44,19 +50,10 @@ export default function Sample() {
                             />
                         ))}
                     </Document>
-                    {/* <iframe
-                    src="sample.pdf#toolbar=0&navpanes=0&scrollbar=0"
-                    // width="100%"
-                    title="Embedded PDF Viewer, non-downloadable PDF"
-                    className="view"
-                ></iframe> */}
-                    {/* <iframe
-                    src="https://drive.google.com/file/d/1epMPX3r90rrt6Sa0TEsWfDEG8XO5WCz4/preview"
-                    allow="autoplay"
-                ></iframe> */}
                 </div>
             </div>
         </div>
     );
 }
+
 

@@ -96,7 +96,7 @@ const EPC: React.FC = () => {
                     </Link>
                 </div>
                 <div className={styles.pdfContainer}>
-                    <PDFDocument pdfFile="sample.pdf#toolbar=0&navpanes=0&scrollbar=0" />
+                    <PDFDocument pdfFile="https://drive.google.com/file/d/1epMPX3r90rrt6Sa0TEsWfDEG8XO5WCz4/preview"/>
                 </div>
             </div>
         </>

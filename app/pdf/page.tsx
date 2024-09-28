@@ -20,6 +20,13 @@ export default function PDF() {
     const [numPages, setNumPages] = useState<number>();
     const [isClient, setIsClient] = useState(false);
 
+    const onDocumentLoadSuccess = useCallback(
+        ({ numPages }: { numPages: number }) => {
+            setNumPages(numPages);
+        },
+        []
+    );
+
     useEffect(() => {
         setIsClient(true);
     }, []);
@@ -27,13 +34,6 @@ export default function PDF() {
     if (!isClient) {
         return null;
     }
-
-    const onDocumentLoadSuccess = useCallback(
-        ({ numPages }: { numPages: number }) => {
-            setNumPages(numPages);
-        },
-        []
-    );
 
     return (
         <div className="Example">

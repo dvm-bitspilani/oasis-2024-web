@@ -26,22 +26,6 @@ export default function EventsPage() {
     setCategory("");
   }
 
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const scrollbarRef = useRef<HTMLDivElement | null>(null);
-
-  const handleScroll = () => {
-    console.log("scrolling");
-    if (containerRef.current && scrollbarRef.current) {
-      const { scrollHeight, clientHeight, scrollTop } = containerRef.current;
-
-      if (scrollHeight > clientHeight) {
-        const maxScrollTopValue = scrollHeight - clientHeight;
-        const percentage = (scrollTop / maxScrollTopValue) * 100;
-        scrollbarRef.current.style.top = `${Math.min(percentage, 100)}%`;
-      }
-    }
-  };
-
   return (
     <main
       style={{

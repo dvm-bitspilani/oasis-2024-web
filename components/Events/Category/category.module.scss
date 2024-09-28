@@ -11,13 +11,13 @@ $cross-btn-width: 1.875rem;
   overflow-y: scroll;
 
   .scrollbar {
-    position: relative;
+    position: fixed;
     height: 35%;
     width: 3px;
     z-index: 1;
     left: 98.5vw;
     margin-top: 50px;
-    bottom: -15vh;
+    top: 32vh;
     .rect {
       position: absolute;
       height: 100%;
@@ -46,7 +46,7 @@ $cross-btn-width: 1.875rem;
     .mainicon {
       position: absolute;
       right: 6.5px;
-      top: 4px;
+      top: 2%;
     }
   }
 

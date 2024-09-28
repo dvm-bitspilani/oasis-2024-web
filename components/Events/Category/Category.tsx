@@ -103,21 +103,30 @@ export default function Category({ onClose }: CategoryProps) {
   const scrollbarRef = useRef<HTMLDivElement | null>(null);
 
   const handleScroll = () => {
-    console.log("scrolling");
-    // if (containerRef.current && scrollbarRef.current) {
-    //   const { scrollHeight, clientHeight, scrollTop } = containerRef.current;
+    if (containerRef.current && scrollbarRef.current) {
+      const { scrollHeight, clientHeight, scrollTop } = containerRef.current;
 
-    //   if (scrollHeight > clientHeight) {
-    //     const maxScrollTopValue = scrollHeight - clientHeight;
-    //     const percentage = (scrollTop / maxScrollTopValue) * 100;
-    //     scrollbarRef.current.style.top = `${Math.min(percentage, 100)}%`;
-    //   }
-    // }
+      if (scrollHeight > clientHeight) {
+        const maxScrollTopValue = scrollHeight - clientHeight;
+        const percentage = (scrollTop / maxScrollTopValue) * 100;
+
+        const mappedPercentage = 2 + (percentage * (70 - 2)) / 100;
+
+        const clampedPercentage = Math.max(2, Math.min(mappedPercentage, 70));
+        
+        scrollbarRef.current.style.top = `${clampedPercentage}%`;
+        console.log(scrollbarRef.current.style.top);
+      }
+    }
   };
 
   return (
     <>
-      <div className={styles.mainContainer} onScroll={handleScroll}>
+      <div
+        className={styles.mainContainer}
+        onScroll={handleScroll}
+        ref={containerRef}
+      >
         <div className={styles.heading}>
           <h2>EVENTS</h2>
         </div>
@@ -189,7 +198,11 @@ export default function Category({ onClose }: CategoryProps) {
               fill="white"
             />
           </svg>
-          <div className={styles.mainicon} ref={scrollbarRef} onScroll={handleScroll}>
+          <div
+            className={styles.mainicon}
+            ref={scrollbarRef}
+            onScroll={handleScroll}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="9"

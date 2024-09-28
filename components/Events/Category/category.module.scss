@@ -33,13 +33,13 @@ $cross-btn-width: 1.875rem;
       position: absolute;
       height: 100%;
       width: 100%;
-      background-color: #ECC6FF;
+      background-color: #ecc6ff;
     }
     .rightrect {
       position: absolute;
       height: 100%;
       width: 100%;
-      background-color: #ECC6FF;
+      background-color: #ecc6ff;
       right: 19px;
     }
     .topicon {
@@ -76,6 +76,7 @@ $cross-btn-width: 1.875rem;
       -webkit-text-fill-color: transparent;
       line-height: $heading-line-height;
       border-bottom: 2.63px solid #ffcff3;
+      box-shadow: 0 5px 10px #ffcff3;
     }
   }
 

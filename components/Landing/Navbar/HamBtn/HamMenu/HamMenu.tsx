@@ -205,8 +205,8 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
                 stroke-dasharray="4.63 4.63"
               />
             </svg>
-            <Link href="/comingsoon" className={styles.galleryText}>
-              MEDIA PARTNERS
+            <Link href="/articles" className={styles.galleryText}>
+              ARTICLES
             </Link>
           </div>
         </div>
@@ -303,8 +303,8 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
                 strokeWidth="3"
               />
             </svg>
-            <Link href="/comingsoon" className={styles.galleryText}>
-              MEDIA PARTNERS
+            <Link href="/articles" className={styles.galleryText}>
+              ARTICLES
             </Link>
           </div>
         </div>

@@ -5,9 +5,6 @@ const nextConfig = {
       use: ["raw-loader"],
     });
 
-    // Prevent canvas from being resolved
-    // config.resolve.alias.canvas = false;
-
     config.module.rules.unshift({
       test: /pdf\.worker\.(min\.)?js/,
       use: [

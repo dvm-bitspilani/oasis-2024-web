@@ -10,6 +10,7 @@ import jaiditya from "../../assets/Landing/contactUs/jaiditya.png";
 import rijul from "../../assets/Landing/contactUs/rijul.png";
 import shreyansh from "../../assets/Landing/contactUs/shreyansh.png";
 import ahan from "../../assets/Landing/contactUs/ahan.png";
+import aryankhorana from "../../assets/Landing/contactUs/aryankhorana.png";
 
 import left from "../../assets/Landing/contactUs/left.png";
 import right from "../../assets/Landing/contactUs/right.png";
@@ -174,7 +175,7 @@ export default function ContactUs() {
           <div className={`${styles.third} card`}>
             <ContactCard
               name="Aryan Khorana"
-              img={ahan}
+              img={aryankhorana}
               dept1="General Secretary,"
               dept2="Students' Union"
               // contact="tel:+917078879443"
@@ -254,7 +255,7 @@ export default function ContactUs() {
 
               <ContactCard
                 name="Aryan Khorana"
-                img={ahan}
+                img={aryankhorana}
                 dept1="General Secretary,"
                 dept2="Students' Union"
                 contact={null}

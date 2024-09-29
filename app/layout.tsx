@@ -9,7 +9,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Oasis '24",
+  title: "Oasis '24 | Regal Roulette",
   description:
     "The official website of Oasis 2024 - Regal Roulette. Asia's Largest Student-Run College Cultural Festival returns for its 52nd edition in 2024! Est. 1971",
   keywords:
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://www.bits-oasis.org",
-    title: "Oasis '24",
+    title: "Oasis '24 | Regal Roulette",
     description:
       "The official website of Oasis 2024 - Regal Roulette. Asia's Largest Student-Run College Cultural Festival returns for its 52nd edition in 2024! Est. 1971",
     images: [
@@ -56,7 +56,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Oasis &apos;24</title>
+        <title>Oasis &apos;24 | Regal Roulette</title>
         <meta
           name="google-site-verification"
           content="GKxgBVi8dPgOPEBsP-lgb_ZM201NN8NE5ZbVEhrhpDw"

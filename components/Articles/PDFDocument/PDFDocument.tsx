@@ -11,8 +11,9 @@ export default function PDFDocument({pdfFile}: PDFDocumentProps) {
         <iframe
             // src="sample.pdf#toolbar=0&navpanes=0&scrollbar=0"
             src={pdfFile}
-            title="Embedded PDF Viewer, non-downloadable PDF"
+            // title="Embedded PDF Viewer, non-downloadable PDF"
             className={styles.pdfDoc}
+            allow="autoplay"
         ></iframe>
     )
 }

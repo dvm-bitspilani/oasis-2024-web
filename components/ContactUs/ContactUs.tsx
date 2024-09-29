@@ -247,7 +247,7 @@ export default function ContactUs() {
               <ContactCard
                 name="Ahan Bansal"
                 img={ahan}
-                dept1="President, "
+                dept1="President,"
                 dept2="Students' Union"
                 contact={null}
                 mail={null}

@@ -130,7 +130,7 @@
     .galleryText {
       position: absolute;
       top: 82%;
-      right: -600%;
+      right: -460%;  // earlier it was -600%
     }
 
     .svgPath {
@@ -256,7 +256,7 @@
     .galleryText {
       position: absolute;
       bottom: 35%;
-      left: -40%;
+      left: -28%;  // earlier it was -40%
     }
 
     .svgPath {

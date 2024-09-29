@@ -1,14 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import styles from "./epc.module.scss";
+import styles from "./articles.module.scss";
 
 import Grid from "@/components/Landing/Grid/Grid";
 import Grunge from "@/components/Landing/Backdrop/Grunge";
 import Glow from "@/components/Landing/Glow/Glow";
 import SuitBackground from "@/components/Landing/Backdrop/Backdrop";
 import BackButton from "@/components/Registration/BackButton/BackButton";
-import Image from "next/image";
 import Link from "next/link";
 import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
 
@@ -22,10 +21,8 @@ const pdfs = [
   "https://drive.google.com/file/d/1N4Po9uNEnzGVxep_G285IDhPlMiQlAoc/preview",
 ];
 
-// import Forward from "../../../public/static/images/forwardArrow.svg"
-// import Backward from "../../../public/static/images/backArrow.svg"
 
-const EPC: React.FC = () => {
+const Articles: React.FC = () => {
   const [pdfIndex, setPdfIndex] = useState(0);
 
   const handleClick = (direction: string) => {
@@ -271,4 +268,4 @@ const EPC: React.FC = () => {
   );
 };
 
-export default EPC;
+export default Articles;

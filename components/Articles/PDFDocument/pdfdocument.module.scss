@@ -1,53 +1,114 @@
-.pdfDoc {
-  height: 70vh;
-  width: 820px;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  border: 2px solid #ccae57
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .pdfDoc {
+    height: 68vh;
+    width: 820px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border: 2px solid #ccae57
+  }
+
+  h4 {
+    margin: 1rem 0;
+    font-family: "Rye", sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-align: center;
+    color: #ccae57;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
 }
 
+
+
 @media (max-width: 1300px) {
-  .pdfDoc {
-    height: 400px;
-    width: 750px;
+
+  .container {
+    .pdfDoc {
+      height: 400px;
+      width: 750px;
+    }
   }
 }
 
 
 @media (max-width: 1000px) {
-  .pdfDoc {
-    height: 400px;
-    width: 600px;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
+
+  .container {
+    .pdfDoc {
+      height: 400px;
+      width: 600px;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
   }
 }
 
 @media (max-width: 600px) {
-  .pdfDoc {
-    height: 70vh;
-    width: 400px;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
+
+  .container {
+    .pdfDoc {
+      height: 66vh;
+      width: 400px;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    h4 {
+      font-size: 18px;
+      position: fixed;
+      top: 87%;
+      margin-left: 6rem;
+      margin-right: 6rem;
+    }
   }
 }
 
 @media (max-width: 500px) {
-  .pdfDoc {
-    height: 70vh;
-    width: 85vw;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
+
+  .container {
+    .pdfDoc {
+      height: 66vh;
+      width: 85vw;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
   }
 }
 
 @media (max-width: 400px) {
-  .pdfDoc {
-    height: 65vh;
-    width: 85vw;
+
+  .container {
+    .pdfDoc {
+      height: 63vh;
+      width: 85vw;
+    }
+    h4 {
+      top: 87%;
+      margin-left: 5rem;
+      margin-right: 5rem;
+    }
+  }
+}
+
+
+@media (max-width: 360px) {
+
+  .container {
+    h4 {
+      font-size: 16px;
+      margin-left: 4rem;
+      margin-right: 4rem;
+    }
   }
 }

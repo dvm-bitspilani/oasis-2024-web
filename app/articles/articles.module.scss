@@ -168,6 +168,19 @@
     .pdfContainer {
       margin-top: 2rem;
     }
+
+    .carouselButtons {
+      .carouselLeft {
+        top: 87%;
+        padding-left: 1rem;
+        transform: scale(0.8);
+      }
+      .carouselRight {
+        top: 87%;
+        padding-right: 1rem;
+        transform: scale(0.8);
+      }
+    }
   }
 }
 

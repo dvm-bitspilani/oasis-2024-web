@@ -21,6 +21,13 @@ const pdfs = [
   "https://drive.google.com/file/d/1N4Po9uNEnzGVxep_G285IDhPlMiQlAoc/preview",
 ];
 
+const titles = [
+  "Smriti by Hindi Press Club",
+  "Smriti by Hindi Press Club",
+  "Smriti by Hindi Press Club",
+  "Smriti by Hindi Press Club",
+  "Arcanum Arcanorum by English Press Club",
+];
 
 const Articles: React.FC = () => {
   const [pdfIndex, setPdfIndex] = useState(0);
@@ -261,7 +268,7 @@ const Articles: React.FC = () => {
           </div>
         </div>
         <div className={styles.pdfContainer}>
-          <PDFDocument pdfFile={pdfs[pdfIndex]} />
+          <PDFDocument pdfFile={pdfs[pdfIndex]} title={titles[pdfIndex]}/>
         </div>
       </div>
     </>

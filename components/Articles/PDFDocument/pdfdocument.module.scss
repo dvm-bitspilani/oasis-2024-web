@@ -1,10 +1,19 @@
 .pdfDoc {
   height: 70vh;
-  width: 750px;
+  width: 820px;
   overflow: hidden;
   margin: 0;
   padding: 0;
+  border: 2px solid #ccae57
 }
+
+@media (max-width: 1300px) {
+  .pdfDoc {
+    height: 400px;
+    width: 750px;
+  }
+}
+
 
 @media (max-width: 1000px) {
   .pdfDoc {
@@ -33,5 +42,12 @@
     overflow: hidden;
     margin: 0;
     padding: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .pdfDoc {
+    height: 65vh;
+    width: 85vw;
   }
 }

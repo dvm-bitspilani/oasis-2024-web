@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
@@ -54,51 +54,79 @@ export default function Landing() {
       if (camera) {
         if (isVideoFocused) {
           const camTl = gsap.timeline();
-
-          const mm = gsap.matchMedia();
-
-          mm.add(
-            {
-              mobile: "(max-width: 1000px)",
-            },
-            ({ conditions }: any) => {
-              camTl
-                .to(camera.position, {
-                  x: 0,
-                  y: conditions.mobile ? -1 : 0,
-                  z: 4,
+          if (window.innerWidth > 1000) {
+            camTl
+              .to(camera.position, {
+                x: 0,
+                y: 0,
+                z: 4,
+                duration: 0.5,
+                ease: "sine.inOut",
+              })
+              .to(
+                camera.rotation,
+                {
+                  y: slotMachine.current.rotation.y,
                   duration: 0.5,
                   ease: "sine.inOut",
-                })
-                .to(
-                  camera.rotation,
-                  {
-                    y: slotMachine.current.rotation.y,
-                    duration: 0.5,
-                    ease: "sine.inOut",
-                  },
-                  "<"
-                )
-                .to(
-                  "#exit-cross",
-                  {
-                    opacity: 1,
-                    zIndex: 100,
-                    duration: 0.25,
-                  },
-                  "<"
-                )
-                .to(
-                  "#mainwrapper",
-                  {
-                    opacity: 0,
-                    zIndex: -1,
-                    duration: 0.25,
-                  },
-                  "<"
-                );
-            }
-          );
+                },
+                "<"
+              )
+              .to(
+                "#exit-cross",
+                {
+                  opacity: 1,
+                  zIndex: 100,
+                  duration: 0.25,
+                },
+                "<"
+              )
+              .to(
+                "#mainwrapper",
+                {
+                  opacity: 0,
+                  zIndex: -1,
+                  duration: 0.25,
+                },
+                "<"
+              );
+          } else {
+            camTl
+              .to(camera.position, {
+                x: 0,
+                y: -1,
+                z: 4,
+                duration: 0.5,
+                ease: "sine.inOut",
+              })
+              .to(
+                camera.rotation,
+                {
+                  y: slotMachine.current.rotation.y,
+                  duration: 0.5,
+                  ease: "sine.inOut",
+                },
+                "<"
+              )
+              .to(
+                "#exit-cross",
+                {
+                  opacity: 1,
+                  zIndex: 100,
+                  duration: 0.25,
+                },
+                "<"
+              )
+              .to(
+                "#mainwrapper",
+                {
+                  opacity: 0,
+                  zIndex: -1,
+                  duration: 0.25,
+                },
+                "<"
+              );
+          }
         } else {
           const resetTl = gsap.timeline();
           resetTl
@@ -960,12 +988,6 @@ export default function Landing() {
         isEvents={isEvents}
         isAboutUs={isAboutUs}
       />
-      {/* {renderMobile ? (
-        <MobileSlotMachine ref={slotMachine2D} />
-      ) : (
-        <>
-        </>
-      )} */}
     </>
   );
 }

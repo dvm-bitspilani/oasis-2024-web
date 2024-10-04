@@ -5,7 +5,7 @@ import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import gsap from "gsap";
-import { Select, Space } from "antd";
+import { Select } from "antd";
 import type { SelectProps } from "antd";
 
 import styles from "./registrationForm.module.scss";
@@ -271,7 +271,7 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
       })
       .catch((err) => {
         console.log(err);
-        alert(err);
+        alert(err.response.data.message);
       });
   };
 

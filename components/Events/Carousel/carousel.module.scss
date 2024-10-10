@@ -109,7 +109,11 @@ $cross-btn-width: 1.875rem;
           justify-content: center;
           align-items: center;
           gap: 5px;
-          background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+          background: radial-gradient(
+            50% 50% at 50% 50%,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.5) 100%
+          );
           mix-blend-mode: Luminosity;
 
           img {
@@ -120,6 +124,7 @@ $cross-btn-width: 1.875rem;
             text-wrap: wrap;
             width: 50%;
             text-align: center;
+            font-size: 20px;
           }
         }
 

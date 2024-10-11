@@ -50,9 +50,9 @@ const LandingScene = forwardRef(function LandingScene(
 ) {
   const [isAppleDevice, setIsAppleDevice] = useState<any>(null);
 
-  useEffect(() => {
-    setIsAppleDevice(detectAppleDevice());
-  }, []);
+  // useEffect(() => {
+  //   setIsAppleDevice(detectAppleDevice());
+  // }, []);
   return (
     <>
       <Canvas
@@ -71,25 +71,34 @@ const LandingScene = forwardRef(function LandingScene(
           }
           rotation={[0, Math.PI, 0]}
         >
-          {isAppleDevice ? (
-            <SlotMachineiOS
-              ref={ref}
-              setIs3dLoaded={setIs3dLoaded}
-              iframeClick={iframeClick}
-              setCamera={setCamera}
-              isVideoFocused={isVideoFocused}
-            />
-          ) : (
             <SlotMachine2
-              ref={ref}
-              setIs3dLoaded={setIs3dLoaded}
-              iframeClick={iframeClick}
-              setCamera={setCamera}
-              isVideoFocused={isVideoFocused}
-              isEvents={isEvents}
-              isAboutUs={isAboutUs}
+                ref={ref}
+                setIs3dLoaded={setIs3dLoaded}
+                iframeClick={iframeClick}
+                setCamera={setCamera}
+                isVideoFocused={isVideoFocused}
+                isEvents={isEvents}
+                isAboutUs={isAboutUs}
             />
-          )}
+          {/*{isAppleDevice ? (*/}
+          {/*  <SlotMachineiOS*/}
+          {/*    ref={ref}*/}
+          {/*    setIs3dLoaded={setIs3dLoaded}*/}
+          {/*    iframeClick={iframeClick}*/}
+          {/*    setCamera={setCamera}*/}
+          {/*    isVideoFocused={isVideoFocused}*/}
+          {/*  />*/}
+          {/*) : (*/}
+          {/*  <SlotMachine2*/}
+          {/*    ref={ref}*/}
+          {/*    setIs3dLoaded={setIs3dLoaded}*/}
+          {/*    iframeClick={iframeClick}*/}
+          {/*    setCamera={setCamera}*/}
+          {/*    isVideoFocused={isVideoFocused}*/}
+          {/*    isEvents={isEvents}*/}
+          {/*    isAboutUs={isAboutUs}*/}
+          {/*  />*/}
+          {/*)}*/}
         </group>
       </Canvas>
     </>

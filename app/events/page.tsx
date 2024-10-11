@@ -34,10 +34,10 @@ export default function EventsPage() {
         transform: "rotateY(180deg)",
       }}
     >
-      <div className={styles.heading}>
+      {/* <div className={styles.heading}>
         <h2>EVENTS</h2>
-      </div>
-      
+      </div> */}
+
       {/* <div className={styles.folderContainer}>
         <Folder
           folderIcon={dance}

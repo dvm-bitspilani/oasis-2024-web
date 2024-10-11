@@ -41,6 +41,7 @@ interface Props {
   isVideoFocused: boolean;
   isEvents: boolean;
   isAboutUs: boolean;
+  isIos: boolean;
 }
 
 const rotationPropArray: Euler | undefined = [0.4510000000000003, 0, 0];
@@ -53,6 +54,7 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
     isVideoFocused,
     isEvents,
     isAboutUs,
+      isIos,
     ...props
   }: Props,
   ref: any
@@ -186,7 +188,7 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
           >
             <Html
               transform
-              wrapperClass="htmlScreen"
+              wrapperClass={isIos ? "htmlScreenIos" : "htmlScreen"}
               distanceFactor={0.31000000000000005}
               rotation={rotationPropArray}
             >

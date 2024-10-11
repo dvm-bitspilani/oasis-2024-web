@@ -278,7 +278,7 @@ export default function Landing() {
             {
               x: "100vw",
               duration: 1.5,
-              ease: "sine.inOut",
+              ease: "power1.inOut",
             },
             0
           )
@@ -287,8 +287,8 @@ export default function Landing() {
             {
               z: -2.3,
               y: 0.19,
-              duration: 4,
-              ease: "sine.inOut",
+              duration: 2.5,
+              ease: "power1.inOut",
             },
             0
           )
@@ -296,7 +296,7 @@ export default function Landing() {
             slotMachine.current.rotation,
             {
               x: -0.42,
-              duration: 4,
+              duration: 2.5,
               ease: "sine.inOut",
             },
             0
@@ -715,8 +715,8 @@ export default function Landing() {
                 }, [])
                 .to(slotMachine.current.position, {
                   x: 0,
-                  y: 0,
-                  z: -1.9,
+                  y: 0.125,
+                  z: -2,
                   duration: 3,
                   ease: "power1.inOut",
                 })

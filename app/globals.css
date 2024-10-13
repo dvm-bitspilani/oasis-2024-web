@@ -30,6 +30,7 @@ body {
 
 .htmlScreenIos{
   transform: translateY(-100px);
+  overflow: visible;
 }
 
 #iframe-overlay {

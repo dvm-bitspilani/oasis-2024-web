@@ -225,7 +225,7 @@ export default function Landing() {
 
     useGSAP(() => {
         // these are the entry animations
-        if (isLoaded && slotMachine.current) {
+        if (isLoaded && slotMachine.current && is3dLoaded) {
             const timeline = gsap.timeline();
             if (window.innerWidth > 1000) {
                 timeline
@@ -319,7 +319,7 @@ export default function Landing() {
                     ?.setAttribute("style", "overflow-y: scroll;");
             }
         }
-    }, [isLoaded, camera, slotMachine.current, slotMachine]);
+    }, [isLoaded, camera, slotMachine.current, slotMachine, is3dLoaded]);
 
     useGSAP(
         () => {

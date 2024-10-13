@@ -12,14 +12,6 @@ import SlotMachineExitCross from "@/components/AboutUs/SlotMachineExitCross/Slot
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface MatchMediaParams {
-    isMobile: boolean;
-}
-
-interface updateTypesScrollTrigger {
-    progress: number;
-}
-
 export default function Landing() {
     const [isLoaded, setIsLoaded] = useState(false);
 
@@ -230,28 +222,6 @@ export default function Landing() {
             });
         };
     }, [isVideoFocused, isLanding]);
-
-    // useEffect(() => {
-    //   function setRenderState() {
-    //     if (window.innerWidth <= 1000 && !renderMobile) {
-    //       setRenderMobile(true);
-    //     } else if (window.innerWidth > 1000 && renderMobile) {
-    //       setRenderMobile(false);
-    //     }
-    //   }
-
-    //   window.addEventListener("resize", setRenderState);
-    //   window.addEventListener("load", setRenderState);
-    //   window.addEventListener("loadstart", setRenderState);
-    //   window.addEventListener("DOMContentLoaded", setRenderState);
-
-    //   return () => {
-    //     window.removeEventListener("resize", setRenderState);
-    //     window.removeEventListener("load", setRenderState);
-    //     window.removeEventListener("loadstart", setRenderState);
-    //     window.removeEventListener("DOMContentLoaded", setRenderState);
-    //   };
-    // }, []);
 
     useGSAP(() => {
         // these are the entry animations

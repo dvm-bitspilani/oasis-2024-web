@@ -149,9 +149,11 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
     const {camera} = useThree();
 
     useEffect(() => {
-        setIs3dLoaded(true);
-        setCamera(camera);
-    }, [camera, setCamera, setIs3dLoaded]);
+        if (camera && ref.current) {
+            setIs3dLoaded(true);
+            setCamera(camera);
+        }
+    }, [camera, setIs3dLoaded, ref, ref.current]);
 
     return (
         <>

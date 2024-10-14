@@ -7,10 +7,30 @@
   }
 }
 
-.page {
+.desktopPage {
   position: fixed;
   width: 100vw;
   height: 100lvh;
+  display: block;
+
+  @media (width <= 1000px) {
+    display: none;
+  }
+}
+
+.mobilePage {
+  display: none;
+
+  @media (width < 1000px) {
+    display: block;
+  }
+
+  .mobileBackdrop {
+    position: fixed;
+    width: 100vw;
+    height: 100lvh;
+    top: 0;
+  }
 }
 
 .overlay {

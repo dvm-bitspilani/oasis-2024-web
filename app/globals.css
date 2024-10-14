@@ -7,185 +7,194 @@
 @import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap");
 
 * {
-  margin: 0;
-  padding: 0;
-  -webkit-tap-highlight-color: transparent;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  background-color: #190d2c;
-  cursor: url("../assets/Global/Cursor.svg"), default;
-  overflow-y: hidden;
+    background-color: #190d2c;
+    cursor: url("../assets/Global/Cursor.svg"), default;
+    overflow-y: hidden;
+}
+
+@media (width <= 1000px) {
+    body {
+        overflow-y: scroll;
+    }
 }
 
 .htmlScreen iframe, .htmlScreenIos iframe {
-  width: 1000px;
-  height: 750px;
-  transform: rotateY(180deg);
-  border: none;
-  border-radius: 20px;
-  background-color: black;
-  position: absolute;
+    width: 1000px;
+    height: 750px;
+    transform: rotateY(180deg);
+    border: none;
+    border-radius: 20px;
+    background-color: black;
+    position: absolute;
 }
 
-.htmlScreenIos{
-  transform: translateY(-100px);
-  overflow: visible;
+.htmlScreenIos {
+    transform: translateY(-100px);
+    overflow: visible;
 }
 
 #iframe-overlay {
-  width: 1000px;
-  height: 750px;
-  transform: rotateY(180deg);
-  border: none;
-  border-radius: 20px;
-  z-index: 1;
-  opacity: 0;
-  cursor: pointer;
-  transition: opacity 0.5s linear;
-  position: absolute;
+    width: 1000px;
+    height: 750px;
+    transform: rotateY(180deg);
+    border: none;
+    border-radius: 20px;
+    z-index: 1;
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 0.5s linear;
+    position: absolute;
 }
 
 @media (width > 1000px) {
-  #iframe-overlay {
-    background: url("/Videos/preloaderCoinVideo.gif");
-    background-color: black;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 1;
-  }
+    #iframe-overlay {
+        background: url("/Videos/preloaderCoinVideo.gif");
+        background-color: black;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 1;
+    }
 }
 
 #iframe-overlay + div {
-  width: 1000px !important;
-  height: 750px !important;
+    width: 1000px !important;
+    height: 750px !important;
 }
 
 #iframe-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 1000px;
-  height: 750px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 1000px;
+    height: 750px;
 }
 
 .ant-select-selector {
-  width: 90% !important;
-  background-color: transparent !important;
-  padding: 0 !important;
-  border: none !important;
-  font-family: Vidaloka, sans-serif !important;
-  font-size: 28px !important;
-  line-height: 43px !important;
-  padding-left: 2px !important;
+    width: 90% !important;
+    background-color: transparent !important;
+    padding: 0 !important;
+    border: none !important;
+    font-family: Vidaloka, sans-serif !important;
+    font-size: 28px !important;
+    line-height: 43px !important;
+    padding-left: 2px !important;
 }
 
 .ant-select-selection-placeholder {
-  color: #efd48d !important;
+    color: #efd48d !important;
 }
+
 @media screen and (max-width: 768px) {
-  .ant-select-selection-placeholder,
-  .ant-select-selection-item {
-    font-size: 20px !important;
-  }
+    .ant-select-selection-placeholder,
+    .ant-select-selection-item {
+        font-size: 20px !important;
+    }
 }
 
 .ant-select-selection-overflow-item-suffix .ant-select-selection-search-input {
-  transform: translate(-10px, -2px) !important;
+    transform: translate(-10px, -2px) !important;
 }
 
 .ant-select-multiple .ant-select-selection-placeholder {
-  transform: translateX(-11px) translateY(-50%) !important;
+    transform: translateX(-11px) translateY(-50%) !important;
 }
+
 .ant-select-dropdown {
-  background-color: transparent;
-  border-radius: 15px;
-  border: 1px solid #daac6a;
+    background-color: transparent;
+    border-radius: 15px;
+    border: 1px solid #daac6a;
 }
 
 .ant-select-item {
-  padding: 0 !important;
-  color: unset !important;
+    padding: 0 !important;
+    color: unset !important;
 }
 
 .ant-select-item:hover {
-  background-image: linear-gradient(
-    180deg,
-    #deb372 0%,
-    #d5a261 48.5%,
-    #ecce88 100%
-  ) !important;
-  color: #1b112a !important;
+    background-image: linear-gradient(
+            180deg,
+            #deb372 0%,
+            #d5a261 48.5%,
+            #ecce88 100%
+    ) !important;
+    color: #1b112a !important;
 }
 
 .ant-select-item-option-selected {
-  background-color: transparent !important;
+    background-color: transparent !important;
 }
 
 .ant-select-multiple .ant-select-selection-item {
-  color: #efd48d !important;
-  padding-inline-start: 0 !important;
-  border: 1px solid !important;
-  height: 40px !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    color: #efd48d !important;
+    padding-inline-start: 0 !important;
+    border: 1px solid !important;
+    height: 40px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .ant-select-multiple
-  .ant-select-selection-item
-  .ant-select-selection-item-content {
-  padding-inline-start: 8px !important;
-  line-height: 43px !important;
+.ant-select-selection-item
+.ant-select-selection-item-content {
+    padding-inline-start: 8px !important;
+    line-height: 43px !important;
 }
 
 .ant-select-selection-item {
-  color: #efd48d !important;
-  padding-inline-start: 0 !important;
+    color: #efd48d !important;
+    padding-inline-start: 0 !important;
 }
 
 .anticon {
-  svg {
-    fill: #efd48d !important;
-  }
+    svg {
+        fill: #efd48d !important;
+    }
 }
 
 .ant-select-item-option-content {
-  text-align: center;
-  font-family: Vidaloka, sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 43px;
-  letter-spacing: 0.06em;
+    text-align: center;
+    font-family: Vidaloka, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 43px;
+    letter-spacing: 0.06em;
 }
+
 .ant-select-item-option-active {
-  background-image: linear-gradient(
-    180deg,
-    #deb372 0%,
-    #d5a261 48.5%,
-    #ecce88 100%
-  ) !important;
-  color: #1b112a !important;
+    background-image: linear-gradient(
+            180deg,
+            #deb372 0%,
+            #d5a261 48.5%,
+            #ecce88 100%
+    ) !important;
+    color: #1b112a !important;
 }
 
 @media screen and (max-width: 768px) {
-  .ant-select-item-option-content {
-    font-size: 16px;
-  }
+    .ant-select-item-option-content {
+        font-size: 16px;
+    }
 }
 
 .ant-select-selection-search-input {
-  color: #efd48d !important;
-  background: unset !important;
-  background-clip: unset !important;
-  -webkit-background-clip: unset !important;
-  -webkit-text-fill-color: unset !important;
-  transform: translate(-10px, -6px) !important;
+    color: #efd48d !important;
+    background: unset !important;
+    background-clip: unset !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+    transform: translate(-10px, -6px) !important;
 }
 
 .ant-select-clear {
-  color: #efd48d !important;
-  background: transparent !important;
+    color: #efd48d !important;
+    background: transparent !important;
 }

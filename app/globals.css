@@ -18,7 +18,7 @@ body {
   overflow-y: hidden;
 }
 
-.htmlScreen iframe {
+.htmlScreen iframe, .htmlScreenIos iframe {
   width: 1000px;
   height: 750px;
   transform: rotateY(180deg);
@@ -26,6 +26,11 @@ body {
   border-radius: 20px;
   background-color: black;
   position: absolute;
+}
+
+.htmlScreenIos{
+  transform: translateY(-100px);
+  overflow: visible;
 }
 
 #iframe-overlay {
@@ -71,7 +76,7 @@ body {
   background-color: transparent !important;
   padding: 0 !important;
   border: none !important;
-  font-family: Vidaloka !important;
+  font-family: Vidaloka, sans-serif !important;
   font-size: 28px !important;
   line-height: 43px !important;
   padding-left: 2px !important;
@@ -149,7 +154,7 @@ body {
 
 .ant-select-item-option-content {
   text-align: center;
-  font-family: Vidaloka;
+  font-family: Vidaloka, sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 43px;

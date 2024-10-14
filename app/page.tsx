@@ -11,11 +11,13 @@ import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
 import Nav from "@/components/Nav/Nav";
 import HamBtn from "@/components/Landing/Navbar/HamBtn/Btn";
 import SuitBackground from "@/components/Landing/Backdrop/Backdrop";
+import CursorEffect from "@/components/CursorEffect/CursorEffect";
 
 export default function Home() {
   return (
     <>
       <PrePreloader />
+      <CursorEffect />
       <div className={styles.hamBtn} id="hamBtn">
         <HamBtn />
       </div>

@@ -32,7 +32,7 @@ const Nav = () => {
         handleScroll(0.235);
         break;
       case "events":
-        handleScroll(0.645);
+        handleScroll(0.62);
         break;
       case "contact":
         handleScroll(1);

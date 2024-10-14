@@ -7,6 +7,22 @@
   align-items: center;
 
   .mainContainer {
+
+    .backButton {
+        position: absolute;
+        top: 5px;
+        left: 10px;
+        z-index: 100;
+
+        @media(width <= 500px) {
+          left: -10px;
+        }
+        // @media(width <= 450px) {
+        //   left: 50%;
+        //   transform: translateX(-50%);
+        // }
+      }
+
     .title {
       position: absolute;
       top: 12px;

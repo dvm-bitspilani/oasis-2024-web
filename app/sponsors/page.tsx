@@ -13,10 +13,11 @@ export default function Sponsors() {
         <BackButton />
       </Link> */}
       <div className={styles.mainContainer}>
+        <Link href="/" className={styles.backButton}>
+          <BackButton />
+        </Link>
         <div className={styles.title}>Sponsors</div>
-        <div className={styles.sponsorsContainer}>
-            
-        </div>
+        <div className={styles.sponsorsContainer}></div>
       </div>
       <svg
         style={{ position: "absolute", width: "100%", height: "100%" }}

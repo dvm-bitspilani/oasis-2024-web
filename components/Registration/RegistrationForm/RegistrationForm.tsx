@@ -264,7 +264,6 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
       .post("https://bits-oasis.org/2024/main/registrations/register/", reqData)
       .then((res) => {
         setCookies("Authorization", res.data.tokens.access);
-        alert("Registration Successful");
         router.push("https://bits-oasis.org/2024/main/registrations");
         // localStorage.setItem("tokens", JSON.stringify(res.data.tokens));
         // console.log(res);

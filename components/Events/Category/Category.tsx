@@ -37,7 +37,6 @@ export default function Category({ onClose }: CategoryProps) {
   const eventClickHandler = (index: number) => {
     setActiveEvent(index);
     setCarouselContent(eventsList[index]);
-    console.log(carouselContent);
   };
 
   const eventsArr = eventsList.map((event, index) => {
@@ -116,7 +115,7 @@ export default function Category({ onClose }: CategoryProps) {
         const clampedPercentage = Math.max(2, Math.min(mappedPercentage, 70));
         
         scrollbarRef.current.style.top = `${clampedPercentage}%`;
-        console.log(scrollbarRef.current.style.top);
+        // console.log(scrollbarRef.current.style.top);
       }
     }
   };

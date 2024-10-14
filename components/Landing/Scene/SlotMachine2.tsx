@@ -129,8 +129,8 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
     );
 
     useGSAP(() => {
-        console.log(buttonsRef.current)
-        console.dir(buttonsRef.current)
+        // console.log(buttonsRef.current)
+        // console.dir(buttonsRef.current)
         for (const button of buttonsRef.current.children) {
             if (machineHovered) {
                 gsap.to(button.position, {

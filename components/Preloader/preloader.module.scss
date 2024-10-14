@@ -9,10 +9,12 @@
   position: fixed;
   z-index: 9999999;
 
-  @media (width > 1000px) {
-    img{
+  video {
+    @media (width < 700px) {
+      width: 200%;
+    }
+    @media (width > 1000px) {
       height: 125%;
-    } 
+    }
   }
-
 }

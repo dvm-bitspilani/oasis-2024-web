@@ -53,6 +53,11 @@
       height: 100%;
       width: 100%;
       object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        border: 2px solid #e3c041;
+      }
     }
 
     .vStrech {
@@ -60,6 +65,11 @@
       height: 100%;
       width: 100%;
       object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        border: 2px solid #e3c041;
+      }
     }
 
     .hStrech {
@@ -67,6 +77,11 @@
       height: 100%;
       width: 100%;
       object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        border: 2px solid #e3c041;
+      }
     }
 
     .vhStrech {
@@ -75,6 +90,11 @@
       height: 100%;
       width: 100%;
       object-fit: cover;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        border: 2px solid #e3c041;
+      }
     }
   }
 }

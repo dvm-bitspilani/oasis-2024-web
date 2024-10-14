@@ -23,8 +23,15 @@
     width: 100vw;
   }
 
-  @media (width < 380px) {
-    bottom: 5px;
+  @media (width < 585px) {
+    bottom: 40px;
+  }
+
+  @media (width < 585px) and (height < 805px) {
+    bottom: 30px;
+  }
+  @media (width < 585px) and (height < 765px) {
+    bottom: 15px;
   }
 
   .scrollCont {
@@ -35,7 +42,7 @@
 
     p {
       text-align: center;
-      font-family: Poppins;
+      font-family: Poppins, sans-serif;
       font-size: 18px;
       font-style: normal;
       font-weight: 600;

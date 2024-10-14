@@ -12,7 +12,6 @@ import {Euler, useThree} from "@react-three/fiber";
 import ReactPlayer from "react-player/youtube";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
-// import { useControls } from "leva";
 
 type GLTFResult = GLTF & {
     nodes: {

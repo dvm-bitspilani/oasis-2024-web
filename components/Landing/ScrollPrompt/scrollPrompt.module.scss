@@ -1,6 +1,6 @@
 .scrollPrompt {
   position: absolute;
-  bottom: 30px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -13,14 +13,13 @@
     }
   }
 
-  @media (width > 1000px) {
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
-    padding: 10px;
-  }
+  //@media (width > 1000px) {
+  //  background-color: rgba(0, 0, 0, 0.8);
+  //  border-radius: 10px;
+  //  padding: 10px;
+  //}
 
   @media (width < 760px) {
-    bottom: 18px;
     width: 100vw;
   }
 
@@ -37,7 +36,7 @@
     p {
       text-align: center;
       font-family: Poppins;
-      font-size: 22px;
+      font-size: 18px;
       font-style: normal;
       font-weight: 600;
       line-height: normal;
@@ -53,7 +52,7 @@
       }
 
       @media (width < 760px) {
-        font-size: 18px;
+        font-size: 16px;
       }
     }
   }

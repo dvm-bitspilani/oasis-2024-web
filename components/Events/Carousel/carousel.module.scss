@@ -53,16 +53,32 @@ $cross-btn-width: 1.875rem;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    position: relative;
+
+    @media(width<=1700px){
+      top: -50px;
+    }
 
     .cardContainer {
       // aspect-ratio: 853.69 / 509.008;
       width: 75%;
-      padding: 2.5%;
+      // padding: 2.5%;
       // height: auto;
       display: flex;
       justify-content: center;
       align-items: center;
       font-family: "Pixelify Sans";
+      position: relative;
+
+      @media(width<=1700px){
+        transform: scale(0.8);
+
+      }
+
+      @media(width<=1200px){
+        transform: scale(0.6);
+
+      }
 
       .carouselCard {
         width: 100%;
@@ -161,6 +177,10 @@ $cross-btn-width: 1.875rem;
             font-weight: 700;
             pointer-events: none;
             transition: all 0.3s ease-out;
+
+            @media(width<=1700px){
+              width: 60%;
+            }
           }
         }
 

@@ -252,6 +252,9 @@ export default function HamBtn() {
     if (!isHamOpen) {
       setIsHamOpen(true);
       animation();
+      document
+        .querySelector("body")
+        ?.setAttribute("style", "overflow-y: hidden;");
       setIsHoverDisabled(true);
       setTimeout(() => {
         setIsHoverDisabled(false);
@@ -263,6 +266,9 @@ export default function HamBtn() {
   const handleClose = () => {
     setIsHamOpen(false);
     animation();
+    document
+      .querySelector("body")
+      ?.setAttribute("style", "overflow-y: scroll;");
     setIsHoverDisabled(true);
     setTimeout(() => {
       setIsHoverDisabled(false);

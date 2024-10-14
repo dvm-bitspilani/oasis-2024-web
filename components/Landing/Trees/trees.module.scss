@@ -9,6 +9,7 @@
     position: absolute;
     right: 0;
   }
+
   @media (width <= 585px) {
     display: none;
   }
@@ -22,5 +23,16 @@
   z-index: 0;
   @media (width <= 585px) {
     display: block;
+  }
+}
+
+.desktopGradient {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 40vh;
+  z-index: 0;
+  @media (width < 1000px) {
+    display: none;
   }
 }

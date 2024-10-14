@@ -33,7 +33,6 @@ export default function Landing() {
     const [isXS, setIsXS] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const [isEvents, setIsEvents] = useState(false);
-    // const [renderMobile, setRenderMobile] = useState(false);
     const [isVideoFocused, setIsVideoFocused] = useState(false);
     const [isLanding, setIsLanding] = useState(true);
     const [isAboutUs, setIsAboutUs] = useState(false);
@@ -382,24 +381,16 @@ export default function Landing() {
                                 setIsMobile(true);
                             }
                             timeline
-                                // .to(slotMachine2D.current, {
-                                //   yPercent: 35,
-                                //   duration: 1,
-                                // })
                                 .to(slotMachine.current.rotation, {
-                                    y: conditions.isMobile ? 0 : -Math.PI / 9,
+                                    y: 0,
                                     duration: 1,
                                 })
                                 .to(
                                     slotMachine.current.position,
                                     {
-                                        x: conditions.isMobile ? 0 : -0.9,
-                                        y: conditions.isMobile
-                                            ? conditions.isXS
-                                                ? -0.5
-                                                : -0.5
-                                            : 0,
-                                        z: conditions.isMobile ? 0 : -0.5,
+                                        x: 0,
+                                        y: -0.5,
+                                        z: 0,
                                         duration: 1,
                                     },
                                     "<"
@@ -424,17 +415,14 @@ export default function Landing() {
                                 .to(
                                     "#register",
                                     {
-                                        y: conditions.isXS ? 100 : 0,
-                                        opacity: conditions.isXS ? 0 : 1,
-                                        duration: conditions.isXS ? 0.75 : 0,
+                                        y: 100,
+                                        opacity: 0,
+                                        duration: 0.75,
                                     },
                                     "<"
                                 )
                                 .to(slotMachine.current.rotation, {
-                                    y: conditions.isMobile ? 0 : -Math.PI / 6,
-                                })
-                                .call(() => {
-                                    setIsAboutUs((prev) => !prev);
+                                    y: 0,
                                 })
                                 .to("#aboutUs", {
                                     opacity: 1,
@@ -446,20 +434,6 @@ export default function Landing() {
                                     },
                                     "<"
                                 )
-                                // .to(
-                                //   slotMachine2D.current.children[0],
-                                //   {
-                                //     opacity: 1,
-                                //   },
-                                //   "<"
-                                // )
-                                // .to(
-                                //   slotMachine2D.current.children[3],
-                                //   {
-                                //     opacity: 1,
-                                //   },
-                                //   "<"
-                                // )
                                 .to(
                                     "#aboutUs",
                                     {
@@ -482,9 +456,9 @@ export default function Landing() {
                                 .to(
                                     slotMachine.current.position,
                                     {
-                                        x: conditions.isMobile ? 0 : -5,
-                                        y: conditions.isMobile ? -2.5 : 0,
-                                        z: conditions.isMobile ? 0 : -0.5,
+                                        x: 0,
+                                        y: -2.5,
+                                        z: 0,
                                         duration: 3,
                                         ease: "power1.in",
                                     },
@@ -532,19 +506,15 @@ export default function Landing() {
                             // desktop scroll fadeout animations
                             timeline
                                 .to(slotMachine.current.rotation, {
-                                    y: conditions.isMobile ? 0 : -Math.PI / 9,
+                                    y: -Math.PI / 9,
                                     duration: 1,
                                 })
                                 .to(
                                     slotMachine.current.position,
                                     {
-                                        x: conditions.isMobile ? 0 : -0.9,
-                                        y: conditions.isMobile
-                                            ? conditions.isXS
-                                                ? -0.5
-                                                : -0.5
-                                            : 0,
-                                        z: conditions.isMobile ? 0 : -0.5,
+                                        x: -0.9,
+                                        y: 0,
+                                        z: -0.5,
                                         duration: 1,
                                     },
                                     "<"
@@ -578,16 +548,7 @@ export default function Landing() {
                                     "<"
                                 )
                                 .to(
-                                    "#countdownTimer",
-                                    {
-                                        y: 100,
-                                        opacity: 0,
-                                        duration: 0.75,
-                                    },
-                                    "<"
-                                )
-                                .to(
-                                    "#social",
+                                    ".desktopBottomScroll",
                                     {
                                         y: 100,
                                         opacity: 0,
@@ -637,9 +598,9 @@ export default function Landing() {
                                 .to(
                                     "#register",
                                     {
-                                        y: conditions.isXS ? 100 : 0,
-                                        opacity: conditions.isXS ? 0 : 1,
-                                        duration: conditions.isXS ? 0.75 : 0,
+                                        y: 0,
+                                        opacity: 1,
+                                        duration: 0,
                                     },
                                     "<"
                                 )
@@ -655,7 +616,7 @@ export default function Landing() {
                                 .to(
                                     slotMachine.current.rotation,
                                     {
-                                        y: conditions.isMobile ? 0 : -Math.PI / 6,
+                                        y: -Math.PI / 6,
                                     },
                                     "-=0.5"
                                 )
@@ -700,9 +661,9 @@ export default function Landing() {
                                 .to(
                                     slotMachine.current.position,
                                     {
-                                        x: conditions.isMobile ? 0 : -5,
-                                        y: conditions.isMobile ? -2.5 : 0,
-                                        z: conditions.isMobile ? 0 : -0.5,
+                                        x: -5,
+                                        y: 0,
+                                        z: -0.5,
                                         duration: 3,
                                         ease: "power1.in",
                                     },

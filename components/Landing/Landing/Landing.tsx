@@ -433,9 +433,9 @@ export default function Landing() {
                                 .to(slotMachine.current.rotation, {
                                     y: conditions.isMobile ? 0 : -Math.PI / 6,
                                 })
-                                .call(() => {
-                                    setIsAboutUs((prev) => !prev);
-                                })
+                                // .call(() => {
+                                //     setIsAboutUs((prev) => !prev);
+                                // })
                                 .to("#aboutUs", {
                                     opacity: 1,
                                 })
@@ -446,20 +446,6 @@ export default function Landing() {
                                     },
                                     "<"
                                 )
-                                // .to(
-                                //   slotMachine2D.current.children[0],
-                                //   {
-                                //     opacity: 1,
-                                //   },
-                                //   "<"
-                                // )
-                                // .to(
-                                //   slotMachine2D.current.children[3],
-                                //   {
-                                //     opacity: 1,
-                                //   },
-                                //   "<"
-                                // )
                                 .to(
                                     "#aboutUs",
                                     {
@@ -578,16 +564,7 @@ export default function Landing() {
                                     "<"
                                 )
                                 .to(
-                                    "#countdownTimer",
-                                    {
-                                        y: 100,
-                                        opacity: 0,
-                                        duration: 0.75,
-                                    },
-                                    "<"
-                                )
-                                .to(
-                                    "#social",
+                                    ".desktopBottomScroll",
                                     {
                                         y: 100,
                                         opacity: 0,

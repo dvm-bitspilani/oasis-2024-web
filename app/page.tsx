@@ -10,7 +10,6 @@ import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
 import Nav from "@/components/Nav/Nav";
 import HamBtn from "@/components/Landing/Navbar/HamBtn/Btn";
 import CursorEffect from "@/components/CursorEffect/CursorEffect";
-import AmbientMusic from "@/components/Music/AmbientMusic";
 
 export default function Home() {
     return (
@@ -35,7 +34,7 @@ export default function Home() {
                     {/* <SuitBackground /> */}
                 </main>
             </main>
-            <AmbientMusic/>
+            {/*<AmbientMusic/>*/}
         </>
     );
 }

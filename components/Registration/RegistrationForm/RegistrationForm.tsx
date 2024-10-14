@@ -253,6 +253,9 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
     }
   }, [selectedState, citiesData]);
 
+  const [modalData, setModalData] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
+
   const onSubmit = (data: FormData) => {
     const reqData = {
       ...data,
@@ -269,13 +272,19 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
         // console.log(res);
       })
       .catch((err) => {
-        console.log(err);
+
+        // console.log(err);
+        setModalData(err.response.data.message);
+        setModalOpen(true);
         alert(err.response.data.message);
       });
   };
 
   return (
     <>
+      <div className={styles.errorModal}>
+        {modalData}
+      </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className={styles.registrationForm}

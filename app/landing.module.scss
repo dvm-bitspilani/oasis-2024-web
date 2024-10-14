@@ -1,6 +1,7 @@
 .scrollWrapper {
   height: 400lvh;
   pointer-events: none;
+  overflow-x: hidden;
 
   @media (width <= 1000px) {
     height: 500lvh;
@@ -30,6 +31,7 @@
     width: 100vw;
     height: 100lvh;
     top: 0;
+    z-index: 0;
   }
 }
 

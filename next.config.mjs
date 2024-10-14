@@ -1,12 +1,12 @@
 const nextConfig = {
-  webpack: (config, options) => {
-    config.module.rules.push({
-      test: /\.(glsl|vs|fs|vert|frag)$/,
-      use: ["raw-loader"],
-    });
+    webpack: (config) => {
+        config.module.rules.push({
+            test: /\.(glsl|vs|fs|vert|frag)$/,
+            // use: ["raw-loader"],
+        });
 
-    return config;
-  },
+        return config;
+    },
 };
 
 export default nextConfig;

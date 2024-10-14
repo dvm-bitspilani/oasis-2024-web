@@ -6,7 +6,7 @@
   left: 0;
   height: 100lvh;
   width: 100vw;
-  background-color: rgba(25, 13, 44, 0.75);
+  background-color: rgba(25, 13, 44, 0.85);
 
   button {
     background-color: transparent;
@@ -148,7 +148,8 @@
         .cardContent {
   
             img {
-              width: 70%;
+              transform: translateY(-2rem);
+              width: 75%;
             }
           }
   
@@ -191,7 +192,7 @@
         .cardContent {
   
             img {
-              width: 70%;
+              width: 75%;
             }
           }
   
@@ -199,7 +200,7 @@
   
       .left {
         position: fixed;
-        top: 82%;
+        top: 81%;
         left: 3rem;
         transform: scale(0.8);
         padding-left: 0rem;
@@ -211,7 +212,7 @@
   
       .right {
         position: fixed;
-        top: 82%;
+        top: 81%;
         right: 3rem;
         transform: scale(0.8);
         padding-right: 0rem;

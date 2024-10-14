@@ -1,0 +1,59 @@
+.scrollPrompt {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    @media (width < 760px) {
+      scale: 0.8;
+    }
+  }
+
+  //@media (width > 1000px) {
+  //  background-color: rgba(0, 0, 0, 0.8);
+  //  border-radius: 10px;
+  //  padding: 10px;
+  //}
+
+  @media (width < 760px) {
+    width: 100vw;
+  }
+
+  @media (width < 380px) {
+    bottom: 5px;
+  }
+
+  .scrollCont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    p {
+      text-align: center;
+      font-family: Poppins;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      background: var(--gold-title, linear-gradient(180deg, #876D24 -18.6%, #F3D57B 18.4%, #B69637 68.61%, #DCBF69 113.54%));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      span {
+        @media (width <= 1000px) {
+          display: none;
+        }
+      }
+
+      @media (width < 760px) {
+        font-size: 16px;
+      }
+    }
+  }
+}

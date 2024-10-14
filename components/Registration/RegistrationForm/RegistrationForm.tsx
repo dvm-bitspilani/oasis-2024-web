@@ -253,6 +253,9 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
     }
   }, [selectedState, citiesData]);
 
+  const [modalData, setModalData] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
+
   const onSubmit = (data: FormData) => {
     const reqData = {
       ...data,
@@ -264,19 +267,24 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
       .post("https://bits-oasis.org/2024/main/registrations/register/", reqData)
       .then((res) => {
         setCookies("Authorization", res.data.tokens.access);
-        alert("Registration Successful");
         router.push("https://bits-oasis.org/2024/main/registrations");
         // localStorage.setItem("tokens", JSON.stringify(res.data.tokens));
         // console.log(res);
       })
       .catch((err) => {
-        console.log(err);
+
+        // console.log(err);
+        setModalData(err.response.data.message);
+        setModalOpen(true);
         alert(err.response.data.message);
       });
   };
 
   return (
     <>
+      <div className={styles.errorModal}>
+        {modalData}
+      </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className={styles.registrationForm}

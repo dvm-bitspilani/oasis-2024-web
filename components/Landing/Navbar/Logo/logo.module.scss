@@ -1,32 +1,32 @@
 .logo {
-    width: 100vw;
-    top: 90px;
-    display: flex;
-    justify-content: center;
-    transform: translateY(-3.5rem);
-    z-index: -10;
-    position: absolute;
+  width: 100vw;
+  top: 60px;
+  display: flex;
+  justify-content: center;
+  transform: translateY(-3.5rem);
+  z-index: -10;
+  position: absolute;
 
-    @media(width > 1920px){
-      transform: scale(1.5);
-    }
-  
-    @media (width <= 1150px){
-      transform: scale(0.9) translateY(-4.5rem);
-    }
-    
-    @media (width <= 900px) {
-      transform: scale(0.6) translateY(-8rem);
-    }
-    
-    @media (width <= 585px) {
-      transform:  scale(0.8);
-    }
-
-    @media (width <= 460px) {
-      transform:  scale(0.6);
-    }
-    @media (width <= 350px) {
-      transform:  scale(0.5);
-    }
+  @media(width > 1920px) {
+    transform: scale(1.5);
   }
+
+  @media (width <= 1150px) {
+    transform: scale(0.9) translateY(-4.5rem);
+  }
+
+  @media (width <= 900px) {
+    transform: scale(0.6) translateY(-8rem);
+  }
+
+  @media (width <= 585px) {
+    transform: scale(0.8);
+  }
+
+  @media (width <= 460px) {
+    transform: scale(0.6);
+  }
+  @media (width <= 350px) {
+    transform: scale(0.5);
+  }
+}

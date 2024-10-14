@@ -421,26 +421,16 @@ export default function Landing() {
                                     },
                                     "<"
                                 )
-                                .to(slotMachine.current.rotation, {
-                                    y: 0,
-                                })
                                 .to("#aboutUs", {
                                     opacity: 1,
-                                })
-                                .from(
-                                    "#aboutUs",
-                                    {
-                                        y: 75,
-                                    },
-                                    "<"
-                                )
+                                }, "-=0.5")
                                 .to(
                                     "#aboutUs",
                                     {
                                         opacity: 0,
-                                        y: -75,
+                                        y: 75,
                                     },
-                                    "+=1"
+                                    "+=0.25"
                                 )
                                 // Events page Mobile
                                 .call(() => {
@@ -450,9 +440,9 @@ export default function Landing() {
                                     x: 0,
                                     y: 0.5,
                                     z: -1.25,
-                                    duration: 3,
+                                    duration: 2,
                                     ease: "power1.inOut",
-                                })
+                                }, "-=0.75")
                                 .to(
                                     slotMachine.current.position,
                                     {
@@ -468,11 +458,11 @@ export default function Landing() {
                                     opacity: 1,
                                     duration: 0.4,
                                     ease: "sine.inOut",
-                                })
+                                }, "-=1")
                                 .to(
                                     "#contact-us-inner-scroll",
                                     {
-                                        yPercent: -87,
+                                        yPercent: -110,
                                         pointerEvents: "auto",
                                         duration: 1.25,
                                         // ease: "sine.inOut",

@@ -274,6 +274,7 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
       .catch((err) => {
         // console.log(err);
         setModalData(err.response.data.message);
+        (document.querySelector("#formContent") as HTMLElement).style.overflow = "hidden";        
         setModalOpen(true);
         // alert(err.response.data.message);
       });
@@ -285,7 +286,13 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
         className={styles.errorModal}
         style={{ display: modalOpen ? "flex" : "none" }}
       >
-        <div className={styles.cross} onClick={() => setModalOpen(false)}>
+        <div
+          className={styles.cross}
+          onClick={() => {
+            setModalOpen(false);
+            (document.querySelector("#formContent") as HTMLElement).style.overflow = "auto";        
+          }}
+        >
           &#10006;
         </div>
         <div className={styles.errorMessage}>{modalData}</div>

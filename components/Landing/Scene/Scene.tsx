@@ -58,7 +58,7 @@ const LandingScene = forwardRef(function LandingScene(
                 <ambientLight intensity={1.3}/>
                 <group
                     position={
-                        isXS ? [0, -1.1, 1.5] : isMobile ? [0, -1, 2] : [0, -0.6, 2]
+                        isXS ? [0, -1.1, 1.5] : isMobile ? [0, -1, 2] : [0, -0.8, 2]
                     }
                     rotation={[0, Math.PI, 0]}
                 >

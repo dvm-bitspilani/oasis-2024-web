@@ -253,7 +253,7 @@ export default function Landing() {
                         slotMachine.current.position,
                         {
                             z: -2.3,
-                            y: 0.19,
+                            y: 0.395,
                             duration: 2.5,
                             ease: "power1.inOut",
                         },
@@ -503,7 +503,7 @@ export default function Landing() {
                                     slotMachine.current.position,
                                     {
                                         x: -0.9,
-                                        y: 0,
+                                        y: 0.2,
                                         z: -0.5,
                                         duration: 1,
                                     },
@@ -634,7 +634,7 @@ export default function Landing() {
                                 }, [])
                                 .to(slotMachine.current.position, {
                                     x: 0,
-                                    y: 0.125,
+                                    y: 0.25,
                                     z: -2,
                                     duration: 3,
                                     ease: "power1.inOut",

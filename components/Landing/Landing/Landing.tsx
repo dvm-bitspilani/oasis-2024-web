@@ -9,11 +9,14 @@ import {waitForPreload} from "@/helper/waitForPreload";
 
 import LandingScene from "../Scene/Scene";
 import SlotMachineExitCross from "@/components/AboutUs/SlotMachineExitCross/SlotMachineExitCross";
+import useWindowSize from "@rooks/use-window-size";
+import SlotMachine2D from "@/components/Landing/Scene/SlotMachine2D";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Landing() {
     const [isLoaded, setIsLoaded] = useState(false);
+    const WindowSize: any = useWindowSize()
 
     useEffect(() => {
         waitForPreload("#preloader").then(() => {
@@ -894,19 +897,29 @@ export default function Landing() {
 
     return (
         <>
-            <SlotMachineExitCross iframeClick={iframeClick}/>
-            <LandingScene
-                ref={slotMachine}
-                setIs3dLoaded={setIs3dLoaded}
-                iframeClick={iframeClick}
-                isLanding={isLanding}
-                isVideoFocused={isVideoFocused}
-                isXS={isXS}
-                isMobile={isMobile}
-                setCamera={setCamera}
-                isEvents={isEvents}
-                isAboutUs={isAboutUs}
-            />
+            {WindowSize.innerWidth <= 1000 ?
+                (
+                    <SlotMachine2D/>
+                )
+                :
+                (
+                    <>
+                        <SlotMachineExitCross iframeClick={iframeClick}/>
+                        <LandingScene
+                            ref={slotMachine}
+                            setIs3dLoaded={setIs3dLoaded}
+                            iframeClick={iframeClick}
+                            isLanding={isLanding}
+                            isVideoFocused={isVideoFocused}
+                            isXS={isXS}
+                            isMobile={isMobile}
+                            setCamera={setCamera}
+                            isEvents={isEvents}
+                            isAboutUs={isAboutUs}
+                        />
+                    </>
+                )
+            }
         </>
     );
 }

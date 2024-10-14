@@ -1,0 +1,83 @@
+.container {
+  position: fixed;
+  overflow-y: hidden;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  height: 100lvh;
+  width: 100vw;
+  background-color: rgba(25, 13, 44, 0.75);
+
+  button {
+    background-color: transparent;
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    border: none;
+    cursor: pointer;
+
+    svg {
+      aspect-ratio: 1 / 1;
+      width: 1.875rem;
+    }
+  }
+
+  .carouselContainer {
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .cardContainer {
+      // padding: 2.5%;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      .cardContent {
+          margin-top: 30px;
+          width: 842px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 5px;
+
+          img {
+            width: 50%;
+            height: auto;
+            -webkit-user-select: none; 
+            -moz-user-select: none; 
+            -ms-user-select: none;
+            user-select: none;
+            pointer-events: none; 
+          }
+        }
+
+    }
+
+    .left {
+      cursor: pointer;
+      padding-left: 4rem;
+      transition: transform 200ms ease-in-out;
+
+      &:hover {
+        transform: translateX(-10px);
+      }
+    }
+
+    .right {
+      cursor: pointer;
+      padding-right: 4rem;
+      transition: transform 200ms ease-in-out;
+
+      &:hover {
+        transform: translateX(10px);
+      }
+    }
+  }
+}
+
+
+
+

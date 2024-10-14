@@ -34,11 +34,11 @@ export default function EventsPage() {
         transform: "rotateY(180deg)",
       }}
     >
-      {/* <div className={styles.heading}>
+      <div className={styles.heading}>
         <h2>EVENTS</h2>
-      </div> */}
+      </div>
 
-      {/* <div className={styles.folderContainer}>
+      <div className={styles.folderContainer}>
         <Folder
           folderIcon={dance}
           isSelected={category === "dance"}
@@ -55,10 +55,10 @@ export default function EventsPage() {
         </Folder>
         <Folder
           folderIcon={art}
-          isSelected={category === "art"}
-          onSelect={() => handleSelect("art")}
+          isSelected={category === "quizzes"}
+          onSelect={() => handleSelect("quizzes")}
         >
-          Art
+          Quizzes
         </Folder>
         <Folder
           folderIcon={camera}
@@ -69,10 +69,10 @@ export default function EventsPage() {
         </Folder>
         <Folder
           folderIcon={music}
-          isSelected={category === "kernel"}
-          onSelect={() => handleSelect("kernel")}
+          isSelected={category === "drama"}
+          onSelect={() => handleSelect("drama")}
         >
-          Kernel
+          Drama
         </Folder>
         <Folder
           folderIcon={fashion}
@@ -81,33 +81,27 @@ export default function EventsPage() {
         >
           Fashion
         </Folder>
-        <Folder
+        {/* <Folder
           folderIcon={singing}
           isSelected={category === "profshow"}
           onSelect={() => handleSelect("profshow")}
         >
           ProfShow
-        </Folder>
-        <Folder
-          folderIcon={music}
-          isSelected={category === "lorem"}
-          onSelect={() => handleSelect("lorem")}
-        >
-          Lorem
-        </Folder>
+        </Folder> */}
       </div>
       <div className={styles.category}>
         <p>Please select a category</p>
-      </div> */}
-      <div className={styles.fixedCategoryContainer}>
-        <Category onClose={handleCloseModal} />
       </div>
 
-      {/* {isModalOpen && (
+      {/* <div className={styles.fixedCategoryContainer}>
+        <Category onClose={handleCloseModal} />
+      </div> */}
+
+      {isModalOpen && (
         <div className={styles.fixedCategoryContainer}>
-          <Category onClose={handleCloseModal} />
+          <Category onClose={handleCloseModal} currentCategory={category}/>
         </div>
-      )} */}
+      )}
     </main>
   );
 }

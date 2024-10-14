@@ -7,8 +7,19 @@
   flex-direction: column;
   align-items: center;
 
+  img {
+    @media (width < 760px) {
+      scale: 0.8;
+    }
+  }
+
   @media (width < 760px) {
     bottom: 18px;
+    width: 100vw;
+  }
+
+  @media (width < 380px) {
+    bottom: 5px;
   }
 
   span {

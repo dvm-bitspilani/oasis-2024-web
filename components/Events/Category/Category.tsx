@@ -33,40 +33,35 @@ export default function Category({ currentCategory, onClose }: CategoryProps) {
       });
   }, []);
 
+  const filteredEvents = eventsList.filter((event: any) =>
+    event.categories.some(
+      (cat: any) => cat.toLowerCase() === currentCategory.toLowerCase()
+    )
+  );
+
+  const eventsArr = filteredEvents.map((event: any, index) => {
+    return (
+      <EventCard
+        key={index}
+        name={event.name}
+        img={eventcard}
+        onClick={() => {
+          eventClickHandler(index); 
+        }}
+      />
+    );
+  });
+
   const eventClickHandler = (index: number) => {
     setActiveEvent(index);
-    setCarouselContent(eventsList[index]);
+    setCarouselContent(filteredEvents[index]); 
   };
-
-  const eventsArr = eventsList
-    // .filter((event) => event.categories.includes(currentCategory))
-    .filter((event: any) =>
-      event.categories.some(
-        (cat: any) => cat.toLowerCase() === currentCategory.toLowerCase()
-      )
-    )
-    .map((event: any, index) => {
-      // const { name, about, img } = event;
-      // console.log(name)
-      return (
-        <EventCard
-          key={index}
-          name={event.name}
-          img={eventcard}
-          onClick={() => {
-            eventClickHandler(index);
-          }}
-        />
-      );
-    });
-
-  // console.log(eventsList[0]);
 
   const transitionHelper = (dataIndex: number) => {
     setIsTransitioning(true);
     setTimeout(() => {
       if (activeEvent !== null) {
-        setCarouselContent(eventsList[dataIndex]);
+        setCarouselContent(filteredEvents[dataIndex]);
       }
       setIsTransitioning(false);
     }, 1000);
@@ -75,7 +70,7 @@ export default function Category({ currentCategory, onClose }: CategoryProps) {
   const nextEvent = () => {
     setActiveEvent((prev) => {
       if (prev !== null) {
-        console.log(prev);
+        // console.log(prev);
         if (prev === eventsArr.length - 1) {
           transitionHelper(0);
           return 0;

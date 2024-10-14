@@ -21,6 +21,10 @@
     background: linear-gradient(180deg, #ffcff3 -38.31%, #997c92 174.55%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    position: relative;
+    @media(width<=700px){
+      top: -15px;
+    }
   }
 
   .icon {
@@ -28,5 +32,9 @@
     width: 70%;
     height: auto;
     margin-bottom: 0.5rem;
+
+    @media(width <= 700px){
+      transform: scale(0.7);
+    }
   }
 }

@@ -13,10 +13,11 @@ import largeImage from "@/assets/Events/Carousel/eventLarge.png";
 import eventcard from "../../../assets/Events/Carousel/eventcard.png";
 
 interface CategoryProps {
+  currentCategory: string;
   onClose: () => void;
 }
 
-export default function Category({ onClose }: CategoryProps) {
+export default function Category({ currentCategory, onClose }: CategoryProps) {
   const [activeEvent, setActiveEvent] = useState<number | null>(null);
   const [carouselContent, setCarouselContent] = useState<EventDataType | null>(
     null
@@ -39,20 +40,27 @@ export default function Category({ onClose }: CategoryProps) {
     setCarouselContent(eventsList[index]);
   };
 
-  const eventsArr = eventsList.map((event, index) => {
-    const { name, about, img } = event;
-    return (
-      <EventCard
-        key={index}
-        name={name}
-        // about={about}
-        img={eventcard}
-        onClick={() => {
-          eventClickHandler(index);
-        }}
-      />
-    );
-  });
+  const eventsArr = eventsList
+    // .filter((event) => event.categories.includes(currentCategory))
+    .filter((event) =>
+      event.categories.some(
+        (cat) => cat.toLowerCase() === currentCategory.toLowerCase()
+      )
+    )
+    .map((event, index) => {
+      // const { name, about, img } = event;
+      // console.log(name)
+      return (
+        <EventCard
+          key={index}
+          name={event.name}
+          img={eventcard}
+          onClick={() => {
+            eventClickHandler(index);
+          }}
+        />
+      );
+    });
 
   // console.log(eventsList[0]);
 
@@ -113,7 +121,7 @@ export default function Category({ onClose }: CategoryProps) {
         const mappedPercentage = 2 + (percentage * (70 - 2)) / 100;
 
         const clampedPercentage = Math.max(2, Math.min(mappedPercentage, 70));
-        
+
         scrollbarRef.current.style.top = `${clampedPercentage}%`;
         // console.log(scrollbarRef.current.style.top);
       }
@@ -294,7 +302,7 @@ export default function Category({ onClose }: CategoryProps) {
           </div>
           <div className={styles.rightrect}></div>
         </div>
-        {/* <button onClick={onClose}>
+        <button onClick={onClose}>
           <svg
             viewBox="0 0 13 13"
             fill="none"
@@ -305,7 +313,7 @@ export default function Category({ onClose }: CategoryProps) {
               fill="#ffcff3"
             />
           </svg>
-        </button> */}
+        </button>
         <div className={styles.eventContainer}>{eventsArr}</div>
       </div>
 

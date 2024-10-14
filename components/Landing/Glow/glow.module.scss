@@ -1,6 +1,7 @@
 .glow {
-    position: absolute;
-    width: 100vw;
-    height: 100lvh;
-    z-index: -11;
+  position: absolute;
+  width: 100vw;
+  height: 100lvh;
+  z-index: -11;
+  pointer-events: none;
 }

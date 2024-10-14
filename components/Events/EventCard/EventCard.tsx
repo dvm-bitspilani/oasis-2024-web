@@ -10,7 +10,7 @@ import eventcard from "../../../assets/Events/Carousel/eventcard.png";
 interface EventCardProps {
   name: string;
   about?: string;
-  img?: StaticImageData;
+  img?: string;
   onClick: () => void;
 }
 

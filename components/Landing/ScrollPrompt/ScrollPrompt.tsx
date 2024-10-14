@@ -7,9 +7,9 @@ import downArrow from '@/assets/Landing/down-arrows.svg'
 export default function ScrollPrompt() {
     return (
         <div className={`${styles.scrollPrompt} desktopBottomScroll`}>
-            <span>
+            <span className={styles.scrollCont}>
                 <Image src={mouseIcon} alt='scroll prompt mouse icon'/>
-                <p>Scroll to See More</p>
+                <p>Scroll<span> to See More</span></p>
             </span>
             <Image src={downArrow} alt='scroll prompt arrows icon'/>
         </div>

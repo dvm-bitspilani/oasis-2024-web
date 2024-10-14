@@ -28,7 +28,7 @@
     bottom: 5px;
   }
 
-  span {
+  .scrollCont {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,6 +45,12 @@
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+
+      span {
+        @media (width <= 1000px) {
+          display: none;
+        }
+      }
 
       @media (width < 760px) {
         font-size: 18px;

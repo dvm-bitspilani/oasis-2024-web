@@ -82,7 +82,8 @@ $cross-btn-width: 1.875rem;
 
   button {
     background-color: transparent;
-    position: fixed;
+    // position: fixed;
+    position: absolute;
     top: calc(
       2rem + ($heading-line-height + 0.156rem) / 2 - $cross-btn-width / 2
     );
@@ -106,5 +107,6 @@ $cross-btn-width: 1.875rem;
     position: absolute;
     top: 25vh;
     padding-bottom: 7vh;
+    margin: 0 4rem;
   }
 }

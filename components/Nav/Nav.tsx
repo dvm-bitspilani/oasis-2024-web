@@ -11,6 +11,7 @@ import gsap from "gsap";
 const Nav = () => {
   const [active, setActive] = useState("home");
   const ticketRef = useRef(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   const handleScroll = (position: any) => {
     const totalHeight =
@@ -29,10 +30,23 @@ const Nav = () => {
         handleScroll(0);
         break;
       case "about":
-        handleScroll(0.235);
+        // handleScroll(0.22);
+        // console.log(scrollPosition)
+        if (scrollPosition > 0.6) {
+          // console.log("hello")
+          handleScroll(0.5); 
+        } else {
+          handleScroll(0.15);
+        }
         break;
       case "events":
-        handleScroll(0.62);
+        // handleScroll(0.5);
+        if (scrollPosition > 0.8) {
+          // console.log("hello")
+          handleScroll(0.9); 
+        } else {
+          handleScroll(0.4);
+        }
         break;
       case "contact":
         handleScroll(1);
@@ -48,6 +62,7 @@ const Nav = () => {
         document.documentElement.scrollHeight - window.innerHeight;
       const check = window.scrollY / totalHeight;
       // console.log(check, active);
+      setScrollPosition(check);
 
       if (check < 0.2) {
         setActive("home");
@@ -66,6 +81,31 @@ const Nav = () => {
       window.removeEventListener("scroll", handleState);
     };
   });
+
+  // useEffect(() => {
+  //   const handleState = () => {
+  //     const totalHeight =
+  //       document.documentElement.scrollHeight - window.innerHeight;
+  //     const currentScroll = window.scrollY / totalHeight;
+  //     setScrollPosition(currentScroll); // Update scroll position
+
+  //     if (currentScroll < 0.2) {
+  //       setActive("home");
+  //     } else if (currentScroll >= 0.2 && currentScroll <= 0.6) {
+  //       setActive("about");
+  //     } else if (currentScroll > 0.6 && currentScroll <= 0.8) {
+  //       setActive("events");
+  //     } else if (currentScroll > 0.8) {
+  //       setActive("contact");
+  //     }
+  //   };
+
+  //   window.addEventListener("scroll", handleState);
+
+  //   return () => {
+  //     window.removeEventListener("scroll", handleState);
+  //   };
+  // }, [active]);
 
   return (
     <>

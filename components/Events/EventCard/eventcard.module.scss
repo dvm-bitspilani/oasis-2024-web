@@ -29,11 +29,22 @@
       position: absolute;
       top: 60%;
       left: 50%;
-      transform: translate(-50%,-50%);
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      transform: translate(-50%, -40%);
+      filter: brightness(200%);
       // float: left;
       // margin-right: 0.7rem;
-      height: auto;
       // opacity: 0.5;
+    }
+
+    .default {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: auto;
     }
 
     p {

@@ -1,14 +1,15 @@
-import image from '@/assets/Events/Carousel/event.png'
-import largeImage from '@/assets/Events/Carousel/eventLarge.png'
-import { StaticImageData } from 'next/image'
+import image from "@/assets/Events/Carousel/event.png";
+import largeImage from "@/assets/Events/Carousel/eventLarge.png";
+import { StaticImageData } from "next/image";
 
 export type EventDataType = {
-    name: string,
-    about: string,
-    club: string,
-    img: StaticImageData
-    largeImg: any
-}
+  name: string;
+  about: string;
+  club: string;
+  img: StaticImageData;
+  largeImg: any;
+  img_url: string;
+};
 
 // export const DUMMY_DATA: EventDataType[] = [
 //     {

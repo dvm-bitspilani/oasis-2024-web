@@ -25,6 +25,7 @@ export default function Carousel({
   onNext,
   onPrev,
 }: CarouselProps) {
+  console.log(carouselContent);
   return (
     <div className={styles.container}>
       <div className={styles.heading}>
@@ -57,9 +58,14 @@ export default function Carousel({
             </section>
             <section className={styles.cardContent}>
               <div className={styles.image}>
-                <Image src={largeImage} alt="Event image" />
+                {carouselContent?.img_url === "Nill" ? (
+                  <Image src={largeImage} alt="Event image" />
+                ) : (
+                  <img src={carouselContent?.img_url} alt="event image" />
+                )}{" "}
                 <div className={styles.overlay}></div>
               </div>
+
               <p>{carouselContent?.about}</p>
             </section>
             <section className={styles.cardFooter}>

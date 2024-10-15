@@ -47,10 +47,17 @@
 
   .profShows {
     width: 100vw;
+    height: calc(3 * 400px);
+    position: relative;
     background: #190D2C;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
+
+    @media (width < 400px) {
+      height: calc(3 * 350px);
+    }
 
     .profShowsBackground {
       width: 100vw;
@@ -65,8 +72,8 @@
 
     .artistContainer {
       position: absolute;
-      width: 100%;
       z-index: 2;
+      width: 100%;
     }
   }
 }

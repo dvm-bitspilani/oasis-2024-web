@@ -1,11 +1,8 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
 import styles from "./profshow.module.scss";
-import Glow from "@/components/Landing/Glow/Glow";
-import Grunge from "@/components/Landing/Backdrop/Grunge";
-import Grid from "@/components/Landing/Grid/Grid";
 import Link from "next/link";
-import BackButton from "@/components/Registration/BackButton/BackButton";
 import Image from "next/image";
 import grunge from "@/assets/Landing/Grunge.png";
 import sm from "@/public/ProfShow/goat.png";
@@ -38,24 +35,86 @@ const page = () => {
   const [eventID, setEventID] = useState(0);
   const [progressKey, setProgressKey] = useState(0);
 
+  const eventNameRef = useRef(null);
+  const eventDateRef = useRef(null);
+  const eventImageRef = useRef(null);
+  const eventTitleRef = useRef(null);
+
+  const animate = () => {
+    const tl = gsap.timeline();
+    tl.to(
+      [
+        eventNameRef.current,
+        eventDateRef.current,
+        eventImageRef.current,
+        eventTitleRef.current,
+      ],
+      {
+        opacity: 0,
+        duration: 0.5,
+        onComplete: () => {
+          setEventID((prevID) => (prevID + 1) % eventDetails.length);
+          setProgressKey((prevKey) => prevKey + 1);
+          gsap.to(
+            [
+              eventNameRef.current,
+              eventDateRef.current,
+              eventImageRef.current,
+              eventTitleRef.current,
+            ],
+            {
+              opacity: 1,
+              duration: 0.5,
+            }
+          );
+        },
+      }
+    );
+  };
+
   useEffect(() => {
     const timer = setTimeout(() => {
-      setEventID((prevID) => (prevID + 1) % eventDetails.length);
-      setProgressKey((prevKey) => prevKey + 1);
+      animate();
     }, 10000);
 
     return () => clearTimeout(timer);
   }, [eventID, progressKey]);
 
   const handleArrowClick = (direction: string) => {
-    setEventID((prevID) => {
-      const newID =
-        direction === "left"
-          ? (prevID - 1 + eventDetails.length) % eventDetails.length
-          : (prevID + 1) % eventDetails.length;
-      return newID;
-    });
-    setProgressKey((prevKey) => prevKey + 1); // Reset the progress bar
+    gsap.to(
+      [
+        eventNameRef.current,
+        eventDateRef.current,
+        eventImageRef.current,
+        eventTitleRef.current,
+      ],
+      {
+        opacity: 0,
+        duration: 0.5,
+        onComplete: () => {
+          setEventID((prevID) => {
+            const newID =
+              direction === "left"
+                ? (prevID - 1 + eventDetails.length) % eventDetails.length
+                : (prevID + 1) % eventDetails.length;
+            return newID;
+          });
+          setProgressKey((prevKey) => prevKey + 1);
+          gsap.to(
+            [
+              eventNameRef.current,
+              eventDateRef.current,
+              eventImageRef.current,
+              eventTitleRef.current,
+            ],
+            {
+              opacity: 1,
+              duration: 0.5,
+            }
+          );
+        },
+      }
+    );
   };
 
   return (
@@ -92,14 +151,22 @@ const page = () => {
       <Image src={gif1} alt="gif" className={styles.backgroundGif} />
       <div className={styles.darkScreen} />
       <div className={styles.pageContent}>
-        <div className={styles.eventName}>{eventDetails[eventID].name}</div>
-        <div className={`${styles.eventDate} ${styles[`eventDate${eventID}`]}`}>
-          {eventDetails[eventID].date}
+        <div className={styles.eventName} ref={eventNameRef}>
+          {eventDetails[eventID].name.split(" ").slice(0, -1).join(" ")}
+          <br />
+          {eventDetails[eventID].name.split(" ").slice(-1)}
+          <div
+            className={`${styles.eventDate} ${styles[`eventDate${eventID}`]}`}
+            ref={eventDateRef}
+          >
+            {eventDetails[eventID].date}
+          </div>
         </div>
         <Image
           src={eventDetails[eventID].image}
           alt="event image"
           className={`${styles.eventImage} ${styles[`eventImage${eventID}`]}`}
+          ref={eventImageRef}
         ></Image>
         <div className={styles.eventSelector}>
           <svg
@@ -124,7 +191,9 @@ const page = () => {
               />
             </g>
           </svg>
-          <div className={styles.eventTitle}>{eventDetails[eventID].title}</div>
+          <div className={styles.eventTitle} ref={eventTitleRef}>
+            {eventDetails[eventID].title}
+          </div>
           <svg
             width="42"
             height="68"

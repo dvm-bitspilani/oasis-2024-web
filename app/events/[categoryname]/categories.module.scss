@@ -16,7 +16,17 @@
   overflow: hidden;
   background-color: #0d0816;
   z-index: -3;
+
+  @media screen and (max-width: 1148px) {
+    background-color: unset;
+  }
 }
+
+// .grunge {
+//   @media screen and (max-width: 1148px) {
+//     display: none;
+//   }
+// }
 
 .pageContainer {
   background-color: transparent;
@@ -42,6 +52,10 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+
+    @media screen and (max-width: 1148px) {
+      display: none;
+    }
     .categoryTitle1,
     .categoryTitle2 {
       height: 350px;
@@ -89,12 +103,20 @@
 
     @media screen and (max-width: 1148px) {
       flex-direction: column;
+      padding: 2rem;
+      width: calc(100vw - 4rem);
+      height: calc(100vh - 4rem);
     }
 
     .leftContent {
       position: relative;
       width: 50%;
       height: 100%;
+
+      @media screen and (max-width: 1148px) {
+        width: 100%;
+        height: 30%;
+      }
 
       .eventTitle {
         width: 100%;
@@ -106,6 +128,14 @@
         text-align: left;
 
         margin-top: 9.625rem;
+
+        @media screen and (max-width: 1148px) {
+          margin-top: 73px;
+          font-size: 55px;
+          line-height: 70px;
+
+          text-align: center;
+        }
       }
       .eventSubTitle {
         margin: 20px 0;
@@ -114,12 +144,22 @@
         width: 100%;
         justify-content: space-between;
 
+        @media screen and (max-width: 1148px) {
+          margin: 0;
+          flex-direction: column;
+          justify-content: center;
+        }
+
         .clubName {
           font-family: Thedus Condensed Light;
           font-size: 30px;
           font-weight: 900;
           line-height: 36px;
           text-align: center;
+
+          @media screen and (max-width: 1148px) {
+            font-size: 16px;
+          }
         }
 
         .location {
@@ -129,6 +169,12 @@
           line-height: 43px;
           letter-spacing: 0.06em;
           text-align: left;
+
+          @media screen and (max-width: 1148px) {
+            display: flex;
+            justify-content: center;
+            font-size: 16px;
+          }
           svg {
             margin-right: 10px;
             transform: translateY(5px);
@@ -152,6 +198,11 @@
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+
+        @media screen and (max-width: 1148px) {
+          font-size: 16px;
+          text-align: center;
+        }
       }
       .carouselControl {
         position: absolute;
@@ -160,6 +211,14 @@
         width: 50%;
         justify-content: space-between;
         align-items: flex-end;
+        z-index: 10;
+
+        @media screen and (max-width: 1148px) {
+          position: fixed;
+          left: 50%;
+          bottom: 5rem;
+          transform: translateX(-50%);
+        }
         .leftButton,
         .rightButton {
           cursor: pointer;
@@ -173,12 +232,23 @@
             rgba(255, 232, 135, 0.1) 0%,
             rgba(255, 232, 135, 0.02) 100%
           );
+          z-index: 10;
+
+          @media screen and (max-width: 1148px) {
+            height: 58px;
+            width: 58px;
+          }
 
           svg {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+
+            @media screen and (max-width: 1148px) {
+              width: 30px;
+              height: 30px;
+            }
           }
         }
       }
@@ -188,12 +258,24 @@
       width: 50%;
       height: 100%;
 
+      @media screen and (max-width: 1148px) {
+        width: 100%;
+        margin-top: 2rem;
+        height: 70%;
+      }
+
       .eventImageContainer {
         padding: 0 5% 0 15%;
         width: 80%;
         height: 50%;
         display: flex;
         justify-content: center;
+
+        @media screen and (max-width: 1148px) {
+          padding: 0;
+          width: 100%;
+          height: 30%;
+        }
 
         .eventImage {
           width: 100%;
@@ -219,6 +301,15 @@
         font-weight: 400;
         line-height: 45px; /* 160.714% */
         letter-spacing: 0.56px;
+
+        @media screen and (max-width: 1148px) {
+          font-family: Source Serif 4;
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 18px;
+          letter-spacing: 0.02em;
+          text-align: center;
+        }
       }
     }
   }

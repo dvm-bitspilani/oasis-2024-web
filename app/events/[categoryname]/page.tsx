@@ -59,6 +59,7 @@ export default function Page({ params }: { params: { categoryname: string } }) {
           src={grunge}
           alt="grunge effect"
           draggable={false}
+          className={styles.grunge}
           style={{
             height: "100lvh",
             width: "100vw",
@@ -106,9 +107,9 @@ export default function Page({ params }: { params: { categoryname: string } }) {
               {eventsList[eventID]?.name || "name"}
             </div>
             <div className={styles.eventSubTitle}>
-              <div className={styles.clubName}>
+              {/* <div className={styles.clubName}>
                 Organizer: {eventsList[eventID]?.organizer || ""}
-              </div>
+              </div> */}
               <div className={styles.location}>
                 <svg
                   width="18"

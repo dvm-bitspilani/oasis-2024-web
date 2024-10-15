@@ -12,9 +12,7 @@
   }
 
   @media (width <= 460px) {
-    transform: scale(0.9);
-  }
-  @media (width <= 380px) {
     transform: scale(0.7);
+    top: 50px;
   }
 }

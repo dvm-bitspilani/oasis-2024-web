@@ -15,6 +15,11 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
   const sponsorsRef = useRef<HTMLDivElement | null>(null);
   const galleryRef = useRef<HTMLDivElement | null>(null);
 
+  const handleClick = () => {
+    document
+      .querySelector("body")
+      ?.setAttribute("style", "overflow-y: scroll;");
+  };
   const animate = () => {
     if (isHamOpen) {
       const tl = gsap.timeline();
@@ -101,7 +106,11 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
                 stroke-dasharray="4.63 4.63"
               />
             </svg>
-            <Link href="/rocktaves" className={styles.magText}>
+            <Link
+              onClick={() => handleClick()}
+              href="/rocktaves"
+              className={styles.magText}
+            >
               ROCKTAVES
             </Link>
           </div>
@@ -127,7 +136,11 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
                 stroke-dasharray="4.63 4.63"
               />
             </svg>
-            <Link href="/preregistrations" className={styles.devText}>
+            <Link
+              onClick={() => handleClick()}
+              href="/preregistrations"
+              className={styles.devText}
+            >
               PRELIMS
             </Link>
           </div>
@@ -153,7 +166,11 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
                 stroke-dasharray="4.63 4.63"
               />
             </svg>
-            <Link href="/gallery" className={styles.medText}>
+            <Link
+              onClick={() => handleClick()}
+              href="/gallery"
+              className={styles.medText}
+            >
               GALLERY
             </Link>
           </div>
@@ -179,7 +196,11 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
                 stroke-dasharray="4.63 4.63"
               />
             </svg>
-            <Link href="/brochure" className={styles.sponsorsText}>
+            <Link
+              onClick={() => handleClick()}
+              href="/brochure"
+              className={styles.sponsorsText}
+            >
               BROCHURE
             </Link>
           </div>
@@ -205,7 +226,11 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
                 stroke-dasharray="4.63 4.63"
               />
             </svg>
-            <Link href="/articles" className={styles.galleryText}>
+            <Link
+              onClick={() => handleClick()}
+              href="/articles"
+              className={styles.galleryText}
+            >
               ARTICLES
             </Link>
           </div>
@@ -227,7 +252,11 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
                 strokeWidth="3"
               />
             </svg>
-            <Link href="/rocktaves" className={styles.magText}>
+            <Link
+              onClick={() => handleClick()}
+              href="/rocktaves"
+              className={styles.magText}
+            >
               ROCKATVES
             </Link>
           </div>
@@ -246,7 +275,11 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
                 strokeWidth="3"
               />
             </svg>
-            <Link href="/preregistrations" className={styles.devText}>
+            <Link
+              onClick={() => handleClick()}
+              href="/preregistrations"
+              className={styles.devText}
+            >
               PRELIMS
             </Link>
           </div>
@@ -265,7 +298,11 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
                 stroke-width="3"
               />
             </svg>
-            <Link href="/gallery" className={styles.medText}>
+            <Link
+              onClick={() => handleClick()}
+              href="/gallery"
+              className={styles.medText}
+            >
               GALLERY
             </Link>
           </div>
@@ -284,7 +321,11 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
                 strokeWidth="3"
               />
             </svg>
-            <Link href="/brochure" className={styles.sponsorsText}>
+            <Link
+              onClick={() => handleClick()}
+              href="/brochure"
+              className={styles.sponsorsText}
+            >
               BROCHURE
             </Link>
           </div>
@@ -303,7 +344,11 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
                 strokeWidth="3"
               />
             </svg>
-            <Link href="/articles" className={styles.galleryText}>
+            <Link
+              onClick={() => handleClick()}
+              href="/articles"
+              className={styles.galleryText}
+            >
               ARTICLES
             </Link>
           </div>

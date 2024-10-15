@@ -1,6 +1,7 @@
 .scrollWrapper {
-  height: 400lvh;
+  height: 100lvh;
   pointer-events: none;
+  overflow: hidden;
 
   @media (width <= 1000px) {
     height: 500lvh;
@@ -51,8 +52,8 @@
 
 .navTickets {
   position: fixed;
-  right: -14%;
-  top: 45%;
+  right: 2%;
+  top: 49%;
   transform: translateY(-50%);
   z-index: 5000;
 

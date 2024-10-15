@@ -5,6 +5,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Squada+One&display=swap");
 
 * {
   margin: 0;
@@ -18,7 +20,8 @@ body {
   overflow-y: hidden;
 }
 
-.htmlScreen iframe, .htmlScreenIos iframe {
+.htmlScreen iframe,
+.htmlScreenIos iframe {
   width: 1000px;
   height: 750px;
   transform: rotateY(180deg);
@@ -28,7 +31,7 @@ body {
   position: absolute;
 }
 
-.htmlScreenIos{
+.htmlScreenIos {
   transform: translateY(-100px);
   overflow: visible;
 }

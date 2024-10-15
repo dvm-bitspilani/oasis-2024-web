@@ -6,7 +6,7 @@
   left: 0;
   height: 100lvh;
   width: 100vw;
-  background-color: rgba(25, 13, 44, 0.75);
+  background-color: rgba(25, 13, 44, 0.85);
 
   button {
     background-color: transparent;
@@ -36,7 +36,6 @@
       align-items: center;
       
       .cardContent {
-          margin-top: 30px;
           width: 842px;
           display: flex;
           justify-content: center;
@@ -77,6 +76,159 @@
     }
   }
 }
+
+@media(max-width: 1200px) {
+  .container {
+    overflow-x: hidden;
+  
+    .carouselContainer {
+      .cardContainer {
+        
+        .cardContent {
+            width: 100%;
+          }
+  
+      }
+    }
+  }
+}
+
+@media(max-width: 700px) {
+  .container {
+  
+    button {
+  
+      svg {
+        aspect-ratio: 1 / 1;
+        width: 1.275rem;
+      }
+    }
+  
+    .carouselContainer {
+  
+      .cardContainer {
+        
+        .cardContent {
+  
+            img {
+              width: 70%;
+            }
+          }
+  
+      }
+  
+      .left {
+        transform: scale(0.8);
+        padding-left: 2rem;
+  
+        &:hover {
+          transform: scale(0.8);
+        }
+      }
+  
+      .right {
+        transform: scale(0.8);
+        padding-right: 2rem;
+  
+        &:hover {
+          transform: scale(0.8);
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 500px) {
+  .container {
+  
+    .carouselContainer {
+  
+      .cardContainer {
+        
+        .cardContent {
+  
+            img {
+              transform: translateY(-2rem);
+              width: 75%;
+            }
+          }
+  
+      }
+  
+      .left {
+        position: fixed;
+        top: 88%;
+        left: 2rem;
+        transform: scale(0.8);
+        padding-left: 0rem;
+  
+        &:hover {
+          transform: scale(0.8);
+        }
+      }
+  
+      .right {
+        position: fixed;
+        top: 88%;
+        right: 2rem;
+        transform: scale(0.8);
+        padding-right: 0rem;
+  
+        &:hover {
+          transform: scale(0.8);
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 400px) {
+  .container {
+  
+    .carouselContainer {
+  
+      .cardContainer {
+        
+        .cardContent {
+  
+            img {
+              width: 75%;
+            }
+          }
+  
+      }
+  
+      .left {
+        position: fixed;
+        top: 81%;
+        left: 3rem;
+        transform: scale(0.8);
+        padding-left: 0rem;
+  
+        &:hover {
+          transform: scale(0.8);
+        }
+      }
+  
+      .right {
+        position: fixed;
+        top: 81%;
+        right: 3rem;
+        transform: scale(0.8);
+        padding-right: 0rem;
+  
+        &:hover {
+          transform: scale(0.8);
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
 
 
 

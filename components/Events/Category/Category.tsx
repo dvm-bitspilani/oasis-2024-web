@@ -44,7 +44,7 @@ export default function Category({ currentCategory, onClose }: CategoryProps) {
       <EventCard
         key={index}
         name={event.name}
-        img={eventcard}
+        img={event.img_url}
         onClick={() => {
           eventClickHandler(index); 
         }}

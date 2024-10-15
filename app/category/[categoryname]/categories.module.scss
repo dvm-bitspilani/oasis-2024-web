@@ -1,0 +1,74 @@
+@font-face {
+  font-family: "Druk Wide Bold";
+  src: url("../../../assets/Category/fonts/DrukWide-Bold-Trial.otf")
+    format("opentype");
+}
+
+.pageBody {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #0d0816;
+  z-index: -3;
+}
+
+.pageContainer {
+  background-color: transparent;
+  z-index: 2;
+  .backBtn {
+    position: absolute;
+    top: 81px;
+    left: 87px;
+
+    @media screen and (max-width: 960px) {
+      top: 1rem;
+      left: 1rem;
+      scale: 0.5;
+    }
+
+    svg {
+      mix-blend-mode: difference;
+    }
+  }
+
+  .textBackground {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    .categoryTitle1,
+    .categoryTitle2 {
+      width: fit-content;
+      font-family: "Druk Wide Bold";
+      font-size: 352.48px;
+      font-weight: 700;
+      text-align: left;
+      color: #c4c4c41a;
+    }
+    .categoryTitle1 {
+      transform: translateX(-10%);
+      animation: moveLeftToRight 35s linear forwards infinite;
+    }
+    .categoryTitle2 {
+      transform: translateX(0);
+      animation: moveRightToLeft 35s linear forwards infinite;
+    }
+
+    @keyframes moveLeftToRight {
+      0% {
+        transform: translateX(-50%);
+      }
+      100% {
+        transform: translateX(0%);
+      }
+    }
+    @keyframes moveRightToLeft {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+  }
+}

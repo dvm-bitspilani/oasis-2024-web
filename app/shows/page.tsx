@@ -27,7 +27,7 @@ const eventDetails = [
   {
     title: "HIP HOP NITE",
     name: "SEEDHE MAUT",
-    date: "October 26",
+    date: "October 25",
     image: sm,
   },
 ];

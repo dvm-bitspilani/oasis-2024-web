@@ -302,7 +302,7 @@ export default function Landing() {
                         "#tickets-container",
                         {
                             duration: 0.5,
-                            xPercent: 100,
+                            xPercent: 125,
                             ease: "sine.out",
                         },
                         "<"

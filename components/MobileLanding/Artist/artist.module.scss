@@ -1,0 +1,83 @@
+.artist {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  height: 400px;
+  padding: 0 10px;
+
+  &.reverse {
+    flex-direction: row-reverse;
+
+    .description {
+      .name, .date {
+        width: 100px;
+      }
+
+      .date {
+        text-wrap: nowrap;
+      }
+
+      margin-right: auto;
+    }
+
+    .image {
+      right: -60px;
+    }
+  }
+
+  .imgContainer {
+    width: 40%;
+
+    .image {
+      position: absolute;
+    }
+  }
+
+  .description {
+    .name {
+      color: #FFF;
+      text-align: right;
+      font-family: "Thedus Condensed Light", sans-serif;
+      font-size: 57.34px;
+      font-style: normal;
+      font-weight: 900;
+      line-height: 38.43px; /* 67.021% */
+      letter-spacing: 2.867px;
+      mix-blend-mode: difference;
+    }
+
+    .date {
+      color: #FFF;
+      text-align: right;
+      font-family: "Tilt Warp", sans-serif;
+      font-size: 19.52px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 40px; /* 571.875% */
+      letter-spacing: 0.976px;
+      mix-blend-mode: difference;
+    }
+  }
+
+  .vishal {
+    left: -90px;
+    top: -30px;
+  }
+
+  @media (width < 400px) {
+    .image {
+      scale: 0.8;
+    }
+
+    .vishal {
+      left: -120px;
+      top: -60px;
+    }
+
+    .diary {
+      left: -30px;
+    }
+
+    height: 350px;
+  }
+}

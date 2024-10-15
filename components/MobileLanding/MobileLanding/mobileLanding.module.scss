@@ -1,0 +1,80 @@
+.mobileLandingWrapper {
+  margin-top: 360px;
+  z-index: 1;
+  position: relative;
+
+  .landing {
+    height: calc(100vh - 360px);
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    .slotMachine {
+      height: 100%;
+      width: auto;
+      z-index: 1;
+    }
+
+    .gradient {
+      position: absolute;
+      bottom: -60px;
+      z-index: 2;
+      width: 100vw;
+    }
+  }
+
+  .aboutUs {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .aboutUsText {
+      width: 80%;
+      color: #FFE3AD;
+      text-align: center;
+      text-shadow: 0 0 8px rgba(229, 195, 132, 0.48);
+      font-family: "Source Serif 4", sans-serif;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 23px; /* 153.333% */
+      text-transform: capitalize;
+    }
+  }
+
+  .profShows {
+    width: 100vw;
+    height: calc(3 * 400px);
+    position: relative;
+    background: #190D2C;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+
+    @media (width < 400px) {
+      height: calc(3 * 350px);
+    }
+
+    .profShowsBackground {
+      width: 100vw;
+      height: auto;
+      position: absolute;
+      z-index: 1;
+
+      &:last-of-type {
+        height: 100%;
+      }
+    }
+
+    .artistContainer {
+      position: absolute;
+      z-index: 2;
+      width: 100%;
+    }
+  }
+}
+

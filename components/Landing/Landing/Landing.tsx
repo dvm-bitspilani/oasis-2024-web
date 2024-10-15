@@ -301,7 +301,7 @@ export default function Landing() {
                         "#tickets-container",
                         {
                             duration: 0.5,
-                            xPercent: 100,
+                            xPercent: 125,
                             ease: "sine.out",
                         },
                         "<"
@@ -555,215 +555,215 @@ export default function Landing() {
                                     },
                                     "<"
                                 )
-                                .to(
-                                    "#contactUs",
-                                    {
-                                        opacity: 1,
-                                        duration: 1,
-                                    },
-                                    "-=1.5"
-                                )
-                                .to(
-                                    "#contactUs",
-                                    {
-                                        duration: 0,
-                                        pointerEvents: "auto",
-                                        onComplete: () => {
-                                            const container = document.querySelector(
-                                                "#contactCard"
-                                            ) as HTMLElement;
-                                            const cards = container?.querySelectorAll(
-                                                ".card"
-                                            ) as NodeListOf<HTMLElement>;
-                                            if (cards) {
-                                                const cardCount = cards.length;
-                                                const containerWidth = container.offsetWidth;
-                                                const cardWidth = cards[1]?.offsetWidth || 0;
-                                                const cardHeight = cards[0]?.offsetHeight || 0;
+                                // .to(
+                                //     "#contactUs",
+                                //     {
+                                //         opacity: 1,
+                                //         duration: 1,
+                                //     },
+                                //     "-=1.5"
+                                // )
+                                // .to(
+                                //     "#contactUs",
+                                //     {
+                                //         duration: 0,
+                                //         pointerEvents: "auto",
+                                //         onComplete: () => {
+                                //             const container = document.querySelector(
+                                //                 "#contactCard"
+                                //             ) as HTMLElement;
+                                //             const cards = container?.querySelectorAll(
+                                //                 ".card"
+                                //             ) as NodeListOf<HTMLElement>;
+                                //             if (cards) {
+                                //                 const cardCount = cards.length;
+                                //                 const containerWidth = container.offsetWidth;
+                                //                 const cardWidth = cards[1]?.offsetWidth || 0;
+                                //                 const cardHeight = cards[0]?.offsetHeight || 0;
 
-                                                let X1,
-                                                    X2,
-                                                    X3,
-                                                    X4,
-                                                    X5,
-                                                    X6,
-                                                    X7,
-                                                    X8,
-                                                    Y1,
-                                                    Y2,
-                                                    Y3,
-                                                    Y6,
-                                                    Y7,
-                                                    Y8;
+                                //                 let X1,
+                                //                     X2,
+                                //                     X3,
+                                //                     X4,
+                                //                     X5,
+                                //                     X6,
+                                //                     X7,
+                                //                     X8,
+                                //                     Y1,
+                                //                     Y2,
+                                //                     Y3,
+                                //                     Y6,
+                                //                     Y7,
+                                //                     Y8;
 
-                                                if (innerWidth >= 2100 && innerWidth <= 3100) {
-                                                    X1 = (containerWidth - 5 * cardWidth - 415) / 2;
-                                                    X2 = X1 + cardWidth + 100;
-                                                    X3 = X2 + cardWidth + 100;
-                                                    X4 = X3 + cardWidth + 100;
-                                                    X5 = X4 + cardWidth + 100;
-                                                    Y1 = 70;
-                                                    Y2 = -10;
-                                                    Y3 = -35;
-                                                    X6 = (containerWidth - 3 * cardWidth - 215) / 2;
-                                                    X7 = X6 + cardWidth + 100;
-                                                    X8 = X7 + cardWidth + 100;
-                                                    Y6 = cardHeight - 15;
-                                                    Y7 = cardHeight - 45;
-                                                    Y8 = cardHeight - 15;
-                                                } else {
-                                                    X1 = (containerWidth - 5 * cardWidth - 215) / 2;
-                                                    X2 = X1 + cardWidth + 50;
-                                                    X3 = X2 + cardWidth + 50;
-                                                    X4 = X3 + cardWidth + 50;
-                                                    X5 = X4 + cardWidth + 50;
-                                                    Y1 = 50;
-                                                    Y2 = -10;
-                                                    Y3 = -35;
-                                                    X6 = (containerWidth - 3 * cardWidth - 114) / 2;
-                                                    X7 = X6 + cardWidth + 50;
-                                                    X8 = X7 + cardWidth + 50;
-                                                    Y6 = cardHeight - 10;
-                                                    Y7 = cardHeight - 40;
-                                                    Y8 = cardHeight - 10;
-                                                }
+                                //                 if (innerWidth >= 2100 && innerWidth <= 3100) {
+                                //                     X1 = (containerWidth - 5 * cardWidth - 415) / 2;
+                                //                     X2 = X1 + cardWidth + 100;
+                                //                     X3 = X2 + cardWidth + 100;
+                                //                     X4 = X3 + cardWidth + 100;
+                                //                     X5 = X4 + cardWidth + 100;
+                                //                     Y1 = 70;
+                                //                     Y2 = -10;
+                                //                     Y3 = -35;
+                                //                     X6 = (containerWidth - 3 * cardWidth - 215) / 2;
+                                //                     X7 = X6 + cardWidth + 100;
+                                //                     X8 = X7 + cardWidth + 100;
+                                //                     Y6 = cardHeight - 15;
+                                //                     Y7 = cardHeight - 45;
+                                //                     Y8 = cardHeight - 15;
+                                //                 } else {
+                                //                     X1 = (containerWidth - 5 * cardWidth - 215) / 2;
+                                //                     X2 = X1 + cardWidth + 50;
+                                //                     X3 = X2 + cardWidth + 50;
+                                //                     X4 = X3 + cardWidth + 50;
+                                //                     X5 = X4 + cardWidth + 50;
+                                //                     Y1 = 50;
+                                //                     Y2 = -10;
+                                //                     Y3 = -35;
+                                //                     X6 = (containerWidth - 3 * cardWidth - 114) / 2;
+                                //                     X7 = X6 + cardWidth + 50;
+                                //                     X8 = X7 + cardWidth + 50;
+                                //                     Y6 = cardHeight - 10;
+                                //                     Y7 = cardHeight - 40;
+                                //                     Y8 = cardHeight - 10;
+                                //                 }
 
-                                                const translations = [
-                                                    {x: X1, y: Y1, rotation: -18},
-                                                    {x: X2, y: Y2, rotation: -10},
-                                                    {x: X3, y: Y3, rotation: 0},
-                                                    {x: X4, y: Y2, rotation: 10},
-                                                    {x: X5, y: Y1, rotation: 18},
-                                                ];
+                                //                 const translations = [
+                                //                     {x: X1, y: Y1, rotation: -18},
+                                //                     {x: X2, y: Y2, rotation: -10},
+                                //                     {x: X3, y: Y3, rotation: 0},
+                                //                     {x: X4, y: Y2, rotation: 10},
+                                //                     {x: X5, y: Y1, rotation: 18},
+                                //                 ];
 
-                                                gsap.set(cards, {
-                                                    x: X1,
-                                                    y: Y1,
-                                                    rotation: -18,
-                                                    zIndex: (index) => index,
-                                                    duration: 0,
-                                                });
+                                //                 gsap.set(cards, {
+                                //                     x: X1,
+                                //                     y: Y1,
+                                //                     rotation: -18,
+                                //                     zIndex: (index) => index,
+                                //                     duration: 0,
+                                //                 });
 
-                                                const tl = gsap.timeline({delay: 1});
+                                //                 const tl = gsap.timeline({delay: 1});
 
-                                                for (let i = 1; i < cardCount; i++) {
-                                                    tl.to(cards[i], {
-                                                        x: translations[i].x,
-                                                        y: translations[i].y,
-                                                        rotation: translations[i].rotation,
-                                                        zIndex: cardCount - i,
-                                                        transformOrigin: "center center",
-                                                        duration: 0.25,
-                                                        ease: "power1.inOut",
-                                                        onStart: () => {
-                                                            for (let j = i + 1; j < cardCount; j++) {
-                                                                gsap.to(cards[j], {
-                                                                    x: translations[i].x,
-                                                                    y: translations[i].y,
-                                                                    rotation: translations[i].rotation,
-                                                                    transformOrigin: "center center",
-                                                                    duration: 0.25,
-                                                                    ease: "power1.inOut",
-                                                                    zIndex: j,
-                                                                });
-                                                            }
-                                                        },
-                                                    });
-                                                }
+                                //                 for (let i = 1; i < cardCount; i++) {
+                                //                     tl.to(cards[i], {
+                                //                         x: translations[i].x,
+                                //                         y: translations[i].y,
+                                //                         rotation: translations[i].rotation,
+                                //                         zIndex: cardCount - i,
+                                //                         transformOrigin: "center center",
+                                //                         duration: 0.25,
+                                //                         ease: "power1.inOut",
+                                //                         onStart: () => {
+                                //                             for (let j = i + 1; j < cardCount; j++) {
+                                //                                 gsap.to(cards[j], {
+                                //                                     x: translations[i].x,
+                                //                                     y: translations[i].y,
+                                //                                     rotation: translations[i].rotation,
+                                //                                     transformOrigin: "center center",
+                                //                                     duration: 0.25,
+                                //                                     ease: "power1.inOut",
+                                //                                     zIndex: j,
+                                //                                 });
+                                //                             }
+                                //                         },
+                                //                     });
+                                //                 }
 
-                                                const container1 = document.querySelector(
-                                                    "#contactCard1"
-                                                ) as HTMLElement;
-                                                const cards1 = container1?.querySelectorAll(
-                                                    ".card"
-                                                ) as NodeListOf<HTMLElement>;
-                                                if (cards1) {
-                                                    const cardCount1 = cards1.length;
+                                //                 const container1 = document.querySelector(
+                                //                     "#contactCard1"
+                                //                 ) as HTMLElement;
+                                //                 const cards1 = container1?.querySelectorAll(
+                                //                     ".card"
+                                //                 ) as NodeListOf<HTMLElement>;
+                                //                 if (cards1) {
+                                //                     const cardCount1 = cards1.length;
 
-                                                    const translations1 = [
-                                                        {x: X6, y: Y6, rotation: -12},
-                                                        {x: X7, y: Y7, rotation: 0},
-                                                        {x: X8, y: Y8, rotation: 12},
-                                                    ];
+                                //                     const translations1 = [
+                                //                         {x: X6, y: Y6, rotation: -12},
+                                //                         {x: X7, y: Y7, rotation: 0},
+                                //                         {x: X8, y: Y8, rotation: 12},
+                                //                     ];
 
-                                                    gsap.set(cards1, {
-                                                        opacity: 0,
-                                                        x: X6,
-                                                        y: Y6,
-                                                        rotation: -12,
-                                                        zIndex: (index) => index,
-                                                        duration: 0,
-                                                    });
+                                //                     gsap.set(cards1, {
+                                //                         opacity: 0,
+                                //                         x: X6,
+                                //                         y: Y6,
+                                //                         rotation: -12,
+                                //                         zIndex: (index) => index,
+                                //                         duration: 0,
+                                //                     });
 
-                                                    const tl1 = gsap.timeline({
-                                                        paused: true,
-                                                        onStart: () => {
-                                                            gsap.to(cards1, {opacity: 1, duration: 0.5});
-                                                        },
-                                                    });
+                                //                     const tl1 = gsap.timeline({
+                                //                         paused: true,
+                                //                         onStart: () => {
+                                //                             gsap.to(cards1, {opacity: 1, duration: 0.5});
+                                //                         },
+                                //                     });
 
-                                                    for (let i = 0; i < cardCount1; i++) {
-                                                        tl1.to(cards1[i], {
-                                                            x: translations1[i].x,
-                                                            y: translations1[i].y,
-                                                            rotation: translations1[i].rotation,
-                                                            zIndex: cardCount1 - i,
-                                                            transformOrigin: "center center",
-                                                            duration: 0.25,
-                                                            ease: "power1.out",
-                                                            onStart: () => {
-                                                                for (let j = i + 1; j < cardCount1; j++) {
-                                                                    gsap.to(cards1[j], {
-                                                                        x: translations1[i].x,
-                                                                        y: translations1[i].y,
-                                                                        rotation: translations1[i].rotation,
-                                                                        transformOrigin: "center center",
-                                                                        duration: 0.25,
-                                                                        ease: "power1.out",
-                                                                        zIndex: j,
-                                                                    });
-                                                                }
-                                                            },
-                                                        });
-                                                    }
+                                //                     for (let i = 0; i < cardCount1; i++) {
+                                //                         tl1.to(cards1[i], {
+                                //                             x: translations1[i].x,
+                                //                             y: translations1[i].y,
+                                //                             rotation: translations1[i].rotation,
+                                //                             zIndex: cardCount1 - i,
+                                //                             transformOrigin: "center center",
+                                //                             duration: 0.25,
+                                //                             ease: "power1.out",
+                                //                             onStart: () => {
+                                //                                 for (let j = i + 1; j < cardCount1; j++) {
+                                //                                     gsap.to(cards1[j], {
+                                //                                         x: translations1[i].x,
+                                //                                         y: translations1[i].y,
+                                //                                         rotation: translations1[i].rotation,
+                                //                                         transformOrigin: "center center",
+                                //                                         duration: 0.25,
+                                //                                         ease: "power1.out",
+                                //                                         zIndex: j,
+                                //                                     });
+                                //                                 }
+                                //                             },
+                                //                         });
+                                //                     }
 
-                                                    const masterTimeline = gsap.timeline();
-                                                    masterTimeline.add(tl);
-                                                    masterTimeline.add(() => {
-                                                        tl1.play();
-                                                        return null;
-                                                    });
-                                                }
-                                            }
-                                        },
-                                    },
-                                    "<"
-                                )
-                                .from(
-                                    "#contactUs",
-                                    {
-                                        y: 75,
-                                        duration: 1,
-                                    },
-                                    "<"
-                                )
-                                .to(
-                                    "#contactBottom",
-                                    {
-                                        opacity: 1,
-                                        duration: 0,
-                                        pointerEvents: "auto",
-                                    },
-                                    "-=1.5"
-                                )
-                                .from(
-                                    "#contactBottom",
-                                    {
-                                        y: 75,
-                                        duration: 1,
-                                    },
-                                    "<"
-                                );
+                                //                     const masterTimeline = gsap.timeline();
+                                //                     masterTimeline.add(tl);
+                                //                     masterTimeline.add(() => {
+                                //                         tl1.play();
+                                //                         return null;
+                                //                     });
+                                //                 }
+                                //             }
+                                //         },
+                                //     },
+                                //     "<"
+                                // )
+                                // .from(
+                                //     "#contactUs",
+                                //     {
+                                //         y: 75,
+                                //         duration: 1,
+                                //     },
+                                //     "<"
+                                // )
+                                // .to(
+                                //     "#contactBottom",
+                                //     {
+                                //         opacity: 1,
+                                //         duration: 0,
+                                //         pointerEvents: "auto",
+                                //     },
+                                //     "-=1.5"
+                                // )
+                                // .from(
+                                //     "#contactBottom",
+                                //     {
+                                //         y: 75,
+                                //         duration: 1,
+                                //     },
+                                //     "<"
+                                // );
                         }
                     );
                 }

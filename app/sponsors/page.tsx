@@ -10,13 +10,14 @@ import Image from "next/image";
 import axios from "axios";
 
 export default function Sponsors() {
-  const [sponsors, setSponsors] = React.useState([]);
-
+  const [sponsors, setSponsors] = React.useState<any[]>([]);
   React.useEffect(() => {
     axios
       .get("https://www.bits-oasis.org/2024/main/wallet/sponsors/")
       .then((response) => {
-        setSponsors(response.data);
+        const sortedSponsors = response.data.sort((a, b) => a.order - b.order);
+        setSponsors(sortedSponsors);
+        // setSponsors(response.data);
       });
   }, []);
 
@@ -165,7 +166,33 @@ export default function Sponsors() {
           onScroll={() => handleScroll()}
           ref={containerRef}
         >
-            
+
+          {sponsors.map((sponsor, index) => (
+            <Link
+              key={sponsor.id}
+              href={sponsor.web_url}
+              className={styles.sponsorItemContainer}
+              draggable="false"
+              
+            >
+              <div key={index} className={styles.sponsorItem}>
+                <img
+                  src={sponsor.url}
+                  className={styles.sponsorImg}
+                  draggable="false"
+                  alt=""
+                />
+                <div className={styles.sponsorName}>{sponsor.name}</div>
+                <div className={styles.sponsorCategory}>{sponsor.category}</div>
+              </div>
+            </Link>
+
+            // <div
+            //   key={index}
+            //   className={styles.sponsor}
+            //   style={{ backgroundImage: `url(${sponsor.url})` }}
+            // />
+          ))}
         </div>
         <div className={styles.scrollbar} onClick={handleTrackSnap}>
           <div className={styles.scrollbarTrack} />

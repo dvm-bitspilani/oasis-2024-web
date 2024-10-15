@@ -4,7 +4,7 @@ import styles from "./carousel.module.scss";
 import arrow from "@/assets/Events/Carousel/carouselArrow.png";
 
 import { EventDataType } from "@/data/EventsCarousel";
-import largeImage from '@/assets/Events/Carousel/eventLarge.png';
+import largeImage from "@/assets/Events/Carousel/eventLarge.png";
 
 interface CarouselProps {
   activeEvent: number | null;
@@ -25,6 +25,7 @@ export default function Carousel({
   onNext,
   onPrev,
 }: CarouselProps) {
+  console.log(carouselContent);
   return (
     <div className={styles.container}>
       <div className={styles.heading}>
@@ -53,10 +54,18 @@ export default function Carousel({
           >
             <section className={styles.cardHeading}>
               <h3>{carouselContent?.name}</h3>
-              <p>{carouselContent?.club}</p>
+              {/* <p>{carouselContent?.club}</p> */}
             </section>
             <section className={styles.cardContent}>
-              <Image src={largeImage} alt="Event image" />
+              <div className={styles.image}>
+                {carouselContent?.img_url === "Nill" ? (
+                  <Image src={largeImage} alt="Event image" />
+                ) : (
+                  <img src={carouselContent?.img_url} alt="event image" />
+                )}{" "}
+                <div className={styles.overlay}></div>
+              </div>
+
               <p>{carouselContent?.about}</p>
             </section>
             <section className={styles.cardFooter}>

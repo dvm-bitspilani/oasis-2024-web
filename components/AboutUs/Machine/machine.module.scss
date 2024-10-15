@@ -1,0 +1,56 @@
+.slotMachine {
+  aspect-ratio: 316 / 534;
+  position: absolute;
+  bottom: -100px;
+  height: 100%;
+  width: auto;
+  right: 6%;
+  transform: translateX(0%);
+  z-index: 3;
+
+  .machine {
+    // aspect-ratio: 316 / 534;
+    position: absolute;
+    // height: 80%;
+    width: 98%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+  }
+
+  .ytEmbed {
+    aspect-ratio: 234 / 155;
+    border: none;
+    position: absolute;
+    z-index: 10;
+    width: 75%;
+    height: auto;
+    left: 12.5%;
+    top: 29%;
+    background-color: black;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  .buttonContainer {
+    position: absolute;
+    top: 68%;
+    left: 0;
+    width: 100%;
+    z-index: 12;
+    cursor: pointer;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+
+    .arrow {
+      width: 64px;
+      height: auto;
+    }
+
+    .pause {
+      width: 64px;
+      height: auto;
+    }
+  }
+}

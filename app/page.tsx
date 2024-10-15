@@ -13,6 +13,7 @@ import CursorEffect from "@/components/CursorEffect/CursorEffect";
 import OasisLogo from "@/components/Landing/Navbar/Logo/Logo";
 import Countdown from "@/components/Landing/Countdown/Countdown";
 import MobileLanding from "@/components/MobileLanding/MobileLanding/MobileLanding";
+import Sidenav from "@/components/Sidenav/Sidenav";
 
 export default function Home() {
     return (
@@ -23,7 +24,8 @@ export default function Home() {
                 <HamBtn/>
             </div>
             <div className={styles.navTickets} id="tickets-container">
-                <Nav/>
+                {/*<Nav/>*/}
+                <Sidenav />
             </div>
             <main className={styles.scrollWrapper} id="scrollWrapper">
                 <main className={styles.desktopPage}>

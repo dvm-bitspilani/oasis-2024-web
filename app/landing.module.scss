@@ -1,5 +1,5 @@
 .scrollWrapper {
-  height: 400lvh;
+  height: 100lvh;
   pointer-events: none;
   overflow-x: hidden;
 
@@ -73,8 +73,8 @@
 
 .navTickets {
   position: fixed;
-  right: -14%;
-  top: 45%;
+  right: 2%;
+  top: 49%;
   transform: translateY(-50%);
   z-index: 5000;
 

@@ -1,22 +1,21 @@
 import styles from "./category.module.scss";
 
 // import { DUMMY_DATA } from "@/data/EventsCarousel";
-
 import { EventDataType } from "@/data/EventsCarousel";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import EventCard from "../EventCard/EventCard";
 import Carousel from "../Carousel/Carousel";
 import axios from "axios";
-import largeImage from "@/assets/Events/Carousel/eventLarge.png";
 import eventcard from "../../../assets/Events/Carousel/eventcard.png";
 
 interface CategoryProps {
+  currentCategory: string;
   onClose: () => void;
 }
 
-export default function Category({ onClose }: CategoryProps) {
+export default function Category({ currentCategory, onClose }: CategoryProps) {
   const [activeEvent, setActiveEvent] = useState<number | null>(null);
   const [carouselContent, setCarouselContent] = useState<EventDataType | null>(
     null
@@ -34,33 +33,35 @@ export default function Category({ onClose }: CategoryProps) {
       });
   }, []);
 
-  const eventClickHandler = (index: number) => {
-    setActiveEvent(index);
-    setCarouselContent(eventsList[index]);
-  };
+  const filteredEvents = eventsList.filter((event: any) =>
+    event.categories.some(
+      (cat: any) => cat.toLowerCase() === currentCategory.toLowerCase()
+    )
+  );
 
-  const eventsArr = eventsList.map((event, index) => {
-    const { name, about, img } = event;
+  const eventsArr = filteredEvents.map((event: any, index) => {
     return (
       <EventCard
         key={index}
-        name={name}
-        // about={about}
-        img={eventcard}
+        name={event.name}
+        img={event.img_url}
         onClick={() => {
-          eventClickHandler(index);
+          eventClickHandler(index); 
         }}
       />
     );
   });
 
-  // console.log(eventsList[0]);
+  const eventClickHandler = (index: number) => {
+    setActiveEvent(index);
+    setCarouselContent(filteredEvents[index]); 
+  };
 
   const transitionHelper = (dataIndex: number) => {
     setIsTransitioning(true);
     setTimeout(() => {
       if (activeEvent !== null) {
-        setCarouselContent(eventsList[dataIndex]);
+        setCarouselContent(filteredEvents[dataIndex]);
       }
       setIsTransitioning(false);
     }, 1000);
@@ -69,7 +70,7 @@ export default function Category({ onClose }: CategoryProps) {
   const nextEvent = () => {
     setActiveEvent((prev) => {
       if (prev !== null) {
-        console.log(prev);
+        // console.log(prev);
         if (prev === eventsArr.length - 1) {
           transitionHelper(0);
           return 0;
@@ -113,7 +114,7 @@ export default function Category({ onClose }: CategoryProps) {
         const mappedPercentage = 2 + (percentage * (70 - 2)) / 100;
 
         const clampedPercentage = Math.max(2, Math.min(mappedPercentage, 70));
-        
+
         scrollbarRef.current.style.top = `${clampedPercentage}%`;
         // console.log(scrollbarRef.current.style.top);
       }
@@ -266,35 +267,11 @@ export default function Category({ onClose }: CategoryProps) {
                 transform="rotate(90 8.84766 64.0352)"
                 fill="#ECC6FF"
               />
-              {/* <rect
-            x="8.84766"
-            y="74.6387"
-            width="7.06956"
-            height="8.58447"
-            transform="rotate(90 8.84766 74.6387)"
-            fill="white"
-          />
-          <rect
-            x="8.84766"
-            y="85.2422"
-            width="7.06956"
-            height="8.58447"
-            transform="rotate(90 8.84766 85.2422)"
-            fill="white"
-          />
-          <rect
-            x="8.84766"
-            y="95.8457"
-            width="7.06956"
-            height="8.58447"
-            transform="rotate(90 8.84766 95.8457)"
-            fill="white"
-          /> */}
             </svg>
           </div>
           <div className={styles.rightrect}></div>
         </div>
-        {/* <button onClick={onClose}>
+        <button onClick={onClose}>
           <svg
             viewBox="0 0 13 13"
             fill="none"
@@ -305,7 +282,7 @@ export default function Category({ onClose }: CategoryProps) {
               fill="#ffcff3"
             />
           </svg>
-        </button> */}
+        </button>
         <div className={styles.eventContainer}>{eventsArr}</div>
       </div>
 

@@ -12,7 +12,6 @@ import {Euler, useThree} from "@react-three/fiber";
 import ReactPlayer from "react-player/youtube";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
-// import { useControls } from "leva";
 
 type GLTFResult = GLTF & {
     nodes: {
@@ -268,8 +267,6 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
                                     loop
                                 />
                                 <embed
-                                    // src="https://oasis-24-web.netlify.app/events"
-                                    // src="http://localhost:3000/events"
                                     height={750}
                                     width={1000}
                                     src="https://www.bits-oasis.org/events"

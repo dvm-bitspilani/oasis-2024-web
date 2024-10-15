@@ -7,21 +7,56 @@
   align-items: center;
 
   .mainContainer {
+    height: 100vh;
+    width: 100vw;
+    .scrollbar {
+      @media screen and (width <= 1150px) {
+        display: none;
+      }
+      margin: 5% 0;
+      height: 80vh;
+      width: 10vh;
+      position: absolute;
+      right: 0px;
+      top: 5vh;
+      transform: translateX(-2rem);
+      display: flex;
+      justify-content: center;
+
+      .scrollbarTrack {
+        width: 8px;
+        height: 100%;
+        border-radius: 8px;
+        background-image: linear-gradient(
+          90deg,
+          #f9e6a2 -10.51%,
+          #d29e5d 48.78%,
+          #f9e6a2 111.99%
+        );
+      }
+
+      .scrollbarThumb {
+        touch-action: none;
+        position: absolute;
+        transform: translateY(-50%);
+        cursor: pointer;
+      }
+    }
 
     .backButton {
-        position: absolute;
-        top: 5px;
-        left: 10px;
-        z-index: 100;
+      position: absolute;
+      top: 5px;
+      left: 10px;
+      z-index: 100;
 
-        @media(width <= 500px) {
-          left: -10px;
-        }
-        // @media(width <= 450px) {
-        //   left: 50%;
-        //   transform: translateX(-50%);
-        // }
+      @media (width <= 500px) {
+        left: -10px;
       }
+      // @media(width <= 450px) {
+      //   left: 50%;
+      //   transform: translateX(-50%);
+      // }
+    }
 
     .title {
       position: absolute;
@@ -48,19 +83,34 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
+      @media (width <= 450px) {
+        font-size: 32px;
+      }
     }
     .sponsorsContainer {
-        position:absolute;
-        top: 70px;
-        // background-color: #fff;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 80vw;
-        height: calc(100vh - 70px);
-        overflow: hidden;
-        position: relative;
+      z-index: 4;
+      position: absolute;
+      top: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+      // background-color: #fff;
+      width: 80vw;
+      height: calc(100vh - 100px);
+      position: relative;
+      overflow: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+      .content {
+        width: 70vw;
+        background-color: black;
+        height: 100px;
+        margin-bottom: 10px;
+      }
+      
     }
   }
 

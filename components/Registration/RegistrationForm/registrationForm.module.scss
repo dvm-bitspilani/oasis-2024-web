@@ -1,3 +1,46 @@
+.errorModal{
+  position: fixed;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+  height: 40vh;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  border-radius: 15px;
+  padding: 20px;
+  border: 2px solid #ffe3ad;
+  background-color: rgba(26, 16, 41, 255);
+  @media screen and (width <= 1150px) {
+    position: sticky;
+  }
+  .cross {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 10;
+    color: #ffe3ad;
+    
+    
+  }
+  .errorMessage {
+    text-align: center;
+    color: #ffe3ad;
+    text-shadow: 0px 0px 8px rgba(229, 195, 132, 0.48);
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 43px; /* 238.889% */
+    letter-spacing: 1.08px;
+
+    @media (width <= 1500px) {
+      font-size: 28px;
+    }
+  }
+}
 .registrationForm {
   position: relative;
   margin-right: 95.8px;

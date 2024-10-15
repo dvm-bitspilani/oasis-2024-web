@@ -343,6 +343,7 @@ const Registration = () => {
             {userState ? (
               <>
                 <div
+                  id = "formContent"
                   className={styles.formContent}
                   onScroll={() => handleScroll()}
                   ref={formRef}

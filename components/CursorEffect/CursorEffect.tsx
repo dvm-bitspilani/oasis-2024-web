@@ -5,10 +5,6 @@ import clubs2 from "@/public/CursorEffect/clubs2.png";
 import diamonds2 from "@/public/CursorEffect/diamonds2.png";
 import hearts2 from "@/public/CursorEffect/hearts2.png";
 import spades2 from "@/public/CursorEffect/spades2.png";
-import clubs from "@/public/CursorEffect/clubs.png";
-import diamonds from "@/public/CursorEffect/diamonds.png";
-import hearts from "@/public/CursorEffect/hearts.png";
-import spades from "@/public/CursorEffect/spades.png";
 
 interface Spark {
   els: HTMLImageElement[];
@@ -16,22 +12,12 @@ interface Spark {
 
 export default function CursorEffect() {
   const containerRef = useRef<HTMLDivElement>(null);
-  let requestId: number | null = null;
-  let lastMouseMoveEvent: MouseEvent | null = null;
+  const lastParticleTime = useRef<number>(0); // Time of the last particle generation
+  const particleInterval = 37.5; // Fixed time interval in milliseconds for particle generation
+  const sparkCount = 1; // Number of sparks
+  const sparkParticleCount = 1; // Particles per spark
 
-  const sparkCount = 1;
-  const sparkParticleCount = 1;
-
-  const icons = [
-    // clubs.src,
-    // diamonds.src,
-    // hearts.src,
-    // spades.src,
-    clubs2.src,
-    diamonds2.src,
-    hearts2.src,
-    spades2.src,
-  ];
+  const icons = [clubs2.src, diamonds2.src, hearts2.src, spades2.src];
 
   function lerp(p1: number, p2: number, t: number) {
     return p1 + (p2 - p1) * t;
@@ -54,7 +40,7 @@ export default function CursorEffect() {
 
       for (let j = 0; j < sparkParticleCount; j++) {
         const icon = document.createElement("img");
-        icon.src = icons[Math.floor(Math.random() * icons.length)]; // Randomly assign an icon
+        icon.src = icons[Math.floor(Math.random() * icons.length)]; // Random icon
         icon.classList.add(styles.icon);
         container.appendChild(icon);
         spark.els.push(icon);
@@ -93,15 +79,12 @@ export default function CursorEffect() {
   };
 
   const onMouseMove = (e: MouseEvent) => {
-    lastMouseMoveEvent = e;
+    const currentTime = performance.now();
 
-    if (!requestId) {
-      requestId = requestAnimationFrame(() => {
-        if (lastMouseMoveEvent) {
-          createSparks(lastMouseMoveEvent);
-        }
-        requestId = null;
-      });
+    // Throttle particle generation by a fixed interval (e.g., 50ms)
+    if (currentTime - lastParticleTime.current >= particleInterval) {
+      lastParticleTime.current = currentTime;
+      createSparks(e);
     }
   };
 
@@ -110,7 +93,6 @@ export default function CursorEffect() {
 
     return () => {
       window.removeEventListener("mousemove", onMouseMove);
-      if (requestId) cancelAnimationFrame(requestId); // Cleanup requestAnimationFrame
     };
   }, []);
 

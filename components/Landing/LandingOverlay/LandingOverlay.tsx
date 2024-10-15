@@ -2,12 +2,12 @@ import styles from "./overlay.module.scss";
 
 import Navbar from "../Navbar/Navbar";
 import CardsGroup from "../CardsGroup/CardsGroup";
-import AboutUsPage from "@/components/AboutUs/AboutUsPage";
-import ContactUs from "@/components/ContactUs/ContactUs";
+// import AboutUsPage from "@/components/AboutUs/AboutUsPage";
+// import ContactUs from "@/components/ContactUs/ContactUs";
 import Social from "../Social/Social";
 import Countdown from "../Countdown/Countdown";
-import Nav from "@/components/Nav/Nav";
 import OasisLogo from "../Navbar/Logo/Logo";
+import ScrollPrompt from "@/components/Landing/ScrollPrompt/ScrollPrompt";
 
 export default function LandingOverlay() {
   return (
@@ -16,6 +16,7 @@ export default function LandingOverlay() {
       <div className={styles.countdownContainer} id="logo-container">
         <OasisLogo />
         <Countdown dateString="October 23, 2024 19:00:00" />
+        <ScrollPrompt />
       </div>
       <div className={styles.headerContainer}>
         <Navbar />
@@ -31,8 +32,8 @@ export default function LandingOverlay() {
           <CardsGroup group={2} />
         </div>
       </div>
-      <AboutUsPage />
-      <ContactUs />
+      {/* <AboutUsPage /> */}
+      {/* <ContactUs /> */}
     </div>
   );
 }

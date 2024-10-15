@@ -16,13 +16,6 @@
 
 body {
     background-color: #190d2c;
-    overflow-y: hidden;
-}
-
-@media (width <= 1000px) {
-    body {
-        overflow-y: scroll;
-    }
 }
 
 .htmlScreen iframe, .htmlScreenIos iframe {

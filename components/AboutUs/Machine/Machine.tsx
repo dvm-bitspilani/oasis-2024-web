@@ -2,7 +2,9 @@
 
 import styles from "./machine.module.scss";
 
-import arrow from "@/assets/Events/Carousel/carouselArrow.png";
+import prev from "../../../assets/About/prev.png";
+import next from "../../../assets/About/next.png";
+import pause from "../../../assets/About/pause.png";
 
 import slotMachine from "@/assets/Landing/slotMachine2D.svg";
 
@@ -39,23 +41,35 @@ const MobileSlotMachine = forwardRef(function MobileSlotMachine(
 
   return (
     <div className={styles.slotMachine} id="slot-machine-2d" ref={ref}>
-      <Image
-        src={arrow}
-        alt="left arrow"
-        className={styles.arrow}
-        onClick={prevVideoIframe}
-      />
       <iframe
         src={`https://www.youtube.com/embed/${videoUrlArrayIframe[iframeIndex]}`}
         className={styles.ytEmbed}
       />
-      <Image src={slotMachine} alt="slot-machine-2d" id="slot-machine-2d" />
       <Image
-        src={arrow}
-        alt="right arrow"
-        className={styles.arrow}
-        onClick={nextVideoIframe}
+        src={slotMachine}
+        alt="slot-machine-2d"
+        className={styles.machine}
       />
+      <div className={styles.buttonContainer}>
+        <Image
+          src={prev}
+          alt="left arrow"
+          className={styles.arrow}
+          onClick={prevVideoIframe}
+        />
+        <Image
+          src={pause}
+          alt="pause"
+          className={styles.pause}
+          onClick={prevVideoIframe}
+        />
+        <Image
+          src={next}
+          alt="right arrow"
+          className={styles.arrow}
+          onClick={nextVideoIframe}
+        />
+      </div>
     </div>
   );
 });

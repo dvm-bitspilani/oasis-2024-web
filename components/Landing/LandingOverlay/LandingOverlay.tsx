@@ -16,7 +16,7 @@ export default function LandingOverlay() {
       <div className={styles.countdownContainer} id="logo-container">
         <OasisLogo />
         <Countdown dateString="October 23, 2024 19:00:00" />
-        <ScrollPrompt />
+        {/* <ScrollPrompt /> */}
       </div>
       <div className={styles.headerContainer}>
         <Navbar />

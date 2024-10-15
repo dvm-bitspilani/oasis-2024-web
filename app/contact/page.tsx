@@ -27,6 +27,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import HamBtn from "@/components/Landing/Navbar/HamBtn/Btn";
 import RegBtn from "@/components/Landing/Navbar/RegBtn/RegBtn";
+import CursorEffect from "@/components/CursorEffect/CursorEffect";
 
 export default function Brochure() {
   useEffect(() => {
@@ -183,6 +184,7 @@ export default function Brochure() {
   return (
     <>
       <PrePreloader />
+      <CursorEffect />
       <div className={styles.brochureBack}>
         <Glow />
         <Grunge />

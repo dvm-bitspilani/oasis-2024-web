@@ -9,6 +9,7 @@
   .cardContent {
     position: absolute;
     display: flex;
+    max-width: 280.5px;
     flex-direction: column;
     align-items: center;
     gap: 5px;
@@ -22,14 +23,19 @@
 
     .heading {
       text-align: center;
-      text-shadow: 0 0 1px rgba(255, 226, 191, 0.10);
+      text-shadow: 0 0 1px rgba(255, 226, 191, 0.1);
       font-family: "Playfair Display", sans-serif;
       font-size: 14px;
       font-style: normal;
       font-weight: 500;
       line-height: normal;
       letter-spacing: -0.56px;
-      background: linear-gradient(141deg, #D4A753 38.83%, #907440 53.62%, #D4A753 75.62%);
+      background: linear-gradient(
+        141deg,
+        #d4a753 38.83%,
+        #907440 53.62%,
+        #d4a753 75.62%
+      );
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -47,7 +53,12 @@
       font-weight: 400;
       line-height: normal;
       letter-spacing: -0.36px;
-      background: linear-gradient(112deg, #D4A753 25.95%, #AA8237 44.71%, #D4A753 72.61%);
+      background: linear-gradient(
+        112deg,
+        #d4a753 25.95%,
+        #aa8237 44.71%,
+        #d4a753 72.61%
+      );
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;

@@ -1,49 +1,99 @@
 "use client";
 
 import styles from "./machine.module.scss";
-
 import prev from "../../../assets/About/prev.png";
 import next from "../../../assets/About/next.png";
 import pause from "../../../assets/About/pause.png";
-
-import slotMachine from "@/assets/Landing/slotMachine2D.svg";
+import play from "../../../assets/About/play.png"; 
+import slotMachine from "@/assets/Landing/slotMachine2D.png";
 
 import Image from "next/image";
-import { forwardRef, useState } from "react";
+import { forwardRef, useState, useEffect, useRef } from "react";
 
 const MobileSlotMachine = forwardRef(function MobileSlotMachine(
   props,
   ref: any
 ) {
   const [iframeIndex, setIframeIndex] = useState(0);
+  const playerRef = useRef<any>(null);
+  const [isPlaying, setIsPlaying] = useState(true); 
+
+  const videoUrlArrayIframe = ["ZCrClSBM1ns", "0BYgHIMnz50", "krsrGOqnAN0"];
+
+  // Function to initialize the YouTube player
+  useEffect(() => {
+    const loadYouTubeAPI = () => {
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      const firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag?.parentNode?.insertBefore(tag, firstScriptTag);
+    };
+
+    window.onYouTubeIframeAPIReady = () => {
+      playerRef.current = new window.YT.Player("yt-player", {
+        events: {
+          onReady: (event: any) => {
+            event.target.playVideo();
+            setIsPlaying(true); // Video is playing initially
+          },
+          onStateChange: (event: any) => {
+            // Update isPlaying state based on video state (1 = playing, 2 = paused)
+            if (event.data === window.YT.PlayerState.PLAYING) {
+              setIsPlaying(true);
+            } else if (event.data === window.YT.PlayerState.PAUSED) {
+              setIsPlaying(false);
+            }
+          },
+        },
+      });
+    };
+
+    loadYouTubeAPI();
+  }, []);
+
+  // Function to handle switching videos
+  const switchVideoIframe = (index: number) => {
+    setIframeIndex(index);
+    if (playerRef.current) {
+      playerRef.current.loadVideoById(videoUrlArrayIframe[index]);
+      setIsPlaying(true);
+    }
+  };
 
   const nextVideoIframe = () => {
     setIframeIndex((prev) => {
-      console.log(prev);
-      if (prev === 2) {
-        return 0;
-      }
-      return prev + 1;
+      const newIndex = prev === 2 ? 0 : prev + 1;
+      switchVideoIframe(newIndex);
+      return newIndex;
     });
   };
 
   const prevVideoIframe = () => {
     setIframeIndex((prev) => {
-      console.log(prev);
-      if (prev === 0) {
-        return 2;
-      }
-      return prev - 1;
+      const newIndex = prev === 0 ? 2 : prev - 1;
+      switchVideoIframe(newIndex);
+      return newIndex;
     });
   };
 
-  const videoUrlArrayIframe = ["ZCrClSBM1ns", "0BYgHIMnz50", "krsrGOqnAN0"];
+  const togglePlayPause = () => {
+    if (playerRef.current) {
+      if (isPlaying) {
+        playerRef.current.pauseVideo();
+      } else {
+        playerRef.current.playVideo();
+      }
+    }
+  };
 
   return (
     <div className={styles.slotMachine} id="slot-machine-2d" ref={ref}>
       <iframe
-        src={`https://www.youtube.com/embed/${videoUrlArrayIframe[iframeIndex]}`}
+        id="yt-player"
+        src={`https://www.youtube.com/embed/${videoUrlArrayIframe[iframeIndex]}?enablejsapi=1`} // Enable JS API for control
         className={styles.ytEmbed}
+        allow="autoplay; encrypted-media"
+        allowFullScreen
       />
       <Image
         src={slotMachine}
@@ -58,10 +108,10 @@ const MobileSlotMachine = forwardRef(function MobileSlotMachine(
           onClick={prevVideoIframe}
         />
         <Image
-          src={pause}
-          alt="pause"
+          src={isPlaying ? pause : play}
+          alt={isPlaying ? "pause" : "play"}
           className={styles.pause}
-          onClick={prevVideoIframe}
+          onClick={togglePlayPause}
         />
         <Image
           src={next}

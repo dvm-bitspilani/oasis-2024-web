@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import styles from "./gallery.module.scss";
+import styles from "./archive.module.scss";
 
 import Grid from "@/components/Landing/Grid/Grid";
 import Grunge from "@/components/Landing/Backdrop/Grunge";
@@ -11,7 +11,7 @@ import BackButton from "@/components/Registration/BackButton/BackButton";
 import Image from "next/image";
 import Link from "next/link";
 import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
-import Carousel from "@/components/Gallery/Carousel";
+import Carousel from "@/components/Archive/Carousel";
 
 import one from "../../assets/Gallery/one.jpg";
 import two from "../../assets/Gallery/two.jpg";
@@ -32,6 +32,7 @@ import seventeen from "../../assets/Gallery/seventeen.jpg";
 import eightteen from "../../assets/Gallery/eightteen.jpg";
 import nineteen from "../../assets/Gallery/nineteen.jpg";
 import twenty from "../../assets/Gallery/twenty.jpg";
+import twentyone from "../../assets/Gallery/twentyone.jpg";
 
 // const images = [
 //     one,
@@ -83,6 +84,7 @@ const images = [
   twenty,
   nineteen,
   eightteen,
+  twentyone,
 ];
 
 const imageClasses = [
@@ -105,6 +107,7 @@ const imageClasses = [
   styles.pic,
   styles.hStrech,
   styles.hStrech,
+  styles.pic,
   styles.pic,
 ];
 
@@ -183,7 +186,7 @@ export default function GalleryPage() {
             />
           </svg>
 
-          <h2>Gallery</h2>
+          <h2>ARCHIVE</h2>
 
           <svg
             width="42"

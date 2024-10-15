@@ -107,7 +107,7 @@ export default function HamBtn() {
             {
               rotate: 90,
               duration: 0.75,
-              opacity: 0,
+              // opacity: 0,
               scale: 1,
               ease: "none",
             },

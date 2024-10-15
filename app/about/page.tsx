@@ -18,7 +18,7 @@ export default function About() {
   return (
     <>
       <PrePreloader />
-      <div className={styles.brochureBack}>
+      <div className={styles.aboutBack}>
         <Glow />
         <Grunge />
         <Grid />

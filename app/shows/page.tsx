@@ -43,6 +43,7 @@ const Shows = () => {
         router.push("/");
       }
     }
+    document.body.style.overflow = "hidden";
   }, []);
 
   const [eventID, setEventID] = useState(0);

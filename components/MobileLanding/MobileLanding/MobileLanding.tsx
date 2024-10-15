@@ -30,7 +30,12 @@ export default function MobileLanding() {
         <div className={styles.fade}></div>
       </div>
       <div className={styles.aboutUs}>
-        <MobileHeading text="About Us" showArrows={true} style={{}} />
+        <MobileHeading
+          text="About Us"
+          showArrows={true}
+          style={{}}
+          textStyles={{}}
+        />
         <p className={styles.aboutUsText}>
           Oasis, the annual cultural extravaganza of Birla Institute of
           Technology and Science, Pilani, has been a vibrant part of
@@ -55,6 +60,16 @@ export default function MobileLanding() {
             left: "50%",
             transform: "translateX(-50%)",
             width: "100%",
+            pointerEvents: "auto",
+          }}
+          textStyles={{
+            fontFamily: "'Lostar', sans-serif",
+            fontWeight: "normal",
+            textShadow: "0px 0px 5px rgba(255, 193, 114, 0.30)",
+            background:
+              "linear-gradient(180deg, #876D24 -18.6%, #F3D57B 18.4%, #B69637 68.61%, #DCBF69 113.54%)",
+            backgroundClip: "text",
+            fontSize: 44,
           }}
         />
       </div>

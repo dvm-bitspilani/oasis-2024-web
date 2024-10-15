@@ -10,7 +10,7 @@ import eventcard from "../../../assets/Events/Carousel/eventcard.png";
 
 const categories = [
   "music",
-  "quiz",
+  "quizzes",
   "drama",
   "dance",
   "fashion",

@@ -32,7 +32,7 @@ const eventDetails = [
   },
 ];
 
-const page = () => {
+const Shows = () => {
   const [eventID, setEventID] = useState(0);
   const [progressKey, setProgressKey] = useState(0);
 
@@ -229,4 +229,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Shows;

@@ -8,6 +8,13 @@ import MobileRegBtn from "@/components/MobileLanding/RegBtn/RegBtn";
 import AboutUsHeading from "@/components/MobileLanding/AboutUsHeading/AboutUsHeading";
 import VideoCarousel from "@/components/MobileLanding/VideoCarousel/VideoCarousel";
 import AllEventsBtn from "@/components/MobileLanding/AllEventsBtn/AllEventsBtn";
+import Artist from "@/components/MobileLanding/Artist/Artist";
+
+import profShowsBackground from '@/assets/MobileLanding/ProfShowsMobile/profShowsBackgroundMobile.png'
+import grungeBackground from '@/assets/MobileLanding/ProfShowsMobile/GrungeMobile.png'
+import vishal from '@/assets/MobileLanding/ProfShowsMobile/VishalMishra.png'
+import seedheMaut from '@/assets/MobileLanding/ProfShowsMobile/SeedheMaut.png'
+import yellowDiary from '@/assets/MobileLanding/ProfShowsMobile/YellowDiary.png'
 
 export default function MobileLanding() {
     return (
@@ -65,7 +72,23 @@ export default function MobileLanding() {
                 <VideoCarousel videoArray={["ZCrClSBM1ns", "0BYgHIMnz50", "krsrGOqnAN0"]}/>
                 <AllEventsBtn/>
             </div>
-            <div className={styles.profShows}></div>
+            <div className={styles.profShows}>
+                <div className={styles.artistContainer}>
+                    <Artist image={vishal} reverse={false} name='Vishal Mishra' date={26}/>
+                    <Artist image={seedheMaut} reverse={true} name='Seedhe Maut' date={25}/>
+                    <Artist image={yellowDiary} reverse={false} name='The Yellow Diary' date={24}/>
+                </div>
+                <Image
+                    src={profShowsBackground}
+                    alt='Background image for prof shows page'
+                    className={styles.profShowsBackground}
+                />
+                <Image
+                    src={grungeBackground}
+                    alt='grunge texture'
+                    className={styles.profShowsBackground}
+                />
+            </div>
             <div className={styles.contactUs}></div>
         </main>
     )

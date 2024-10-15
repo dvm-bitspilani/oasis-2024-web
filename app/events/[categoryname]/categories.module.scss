@@ -4,18 +4,36 @@
     format("opentype");
 }
 
+@font-face {
+  font-family: "Thedus Condensed Light";
+  src: url("../../../assets/ProfShow/fonts/Thedus-CondensedLight.otf")
+    format("opentype");
+}
+
 .pageBody {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   background-color: #0d0816;
   z-index: -3;
+
+  @media screen and (max-width: 1148px) {
+    background-color: unset;
+  }
 }
+
+// .grunge {
+//   @media screen and (max-width: 1148px) {
+//     display: none;
+//   }
+// }
 
 .pageContainer {
   background-color: transparent;
   z-index: 2;
   .backBtn {
+    cursor: pointer;
+    z-index: 10;
     position: absolute;
     top: 81px;
     left: 87px;
@@ -36,6 +54,10 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+
+    @media screen and (max-width: 1148px) {
+      display: none;
+    }
     .categoryTitle1,
     .categoryTitle2 {
       height: 350px;
@@ -44,6 +66,7 @@
       font-size: 352.48px;
       font-weight: 700;
       color: #c4c4c41a;
+      user-select: none;
     }
     .categoryTitle1 {
       transform: translateX(-10%);
@@ -68,6 +91,270 @@
       }
       100% {
         transform: translateX(-50%);
+      }
+    }
+  }
+
+  .eventDisplay {
+    padding: 5.625rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: calc(100vw - 16rem);
+    height: calc(100vh - 16rem);
+
+    @media screen and (max-width: 1148px) {
+      flex-direction: column;
+      padding: 2rem;
+      width: calc(100vw - 4rem);
+      height: calc(100vh - 4rem);
+    }
+
+    .leftContent {
+      position: relative;
+      width: 50%;
+      height: 100%;
+
+      @media screen and (max-width: 1148px) {
+        width: 100%;
+        height: 30%;
+      }
+
+      .eventTitle {
+        width: 100%;
+
+        font-family: "Thedus Condensed Light";
+        font-size: 150px;
+        font-weight: 900;
+        line-height: 105px;
+        text-align: left;
+
+        margin-top: 9.625rem;
+
+        @media screen and (max-width: 1400px) {
+          font-size: 100px;
+          line-height: 70px;
+        }
+
+        @media screen and (max-width: 1148px) {
+          margin-top: 73px;
+          font-size: 55px;
+          line-height: 70px;
+
+          text-align: center;
+        }
+      }
+      .eventSubTitle {
+        margin: 20px 0;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+
+        @media screen and (max-width: 1148px) {
+          margin: 0;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        .clubName {
+          font-family: Thedus Condensed Light;
+          font-size: 30px;
+          font-weight: 900;
+          line-height: 36px;
+          text-align: center;
+
+          @media screen and (max-width: 1400px) {
+            font-size: 24px;
+            line-height: 30px;
+          }
+
+          @media screen and (max-width: 1148px) {
+            font-size: 16px;
+          }
+        }
+
+        .location {
+          font-family: Thedus Condensed Light;
+          font-size: 30px;
+          font-weight: 900;
+          line-height: 43px;
+          letter-spacing: 0.06em;
+          text-align: left;
+
+          @media screen and (max-width: 1148px) {
+            display: flex;
+            justify-content: center;
+            font-size: 16px;
+          }
+          svg {
+            margin-right: 10px;
+            transform: translateY(5px);
+          }
+        }
+      }
+      .eventContact {
+        font-family: Vidaloka;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 43px; /* 179.167% */
+        letter-spacing: 1.44px;
+        background: linear-gradient(
+          360deg,
+          #fffee5 -27.5%,
+          #efd48d -1.13%,
+          #ffce93 48.36%,
+          #f9e6a2 100%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        @media screen and (max-width: 1400px) {
+          font-size: 24px;
+          line-height: 30px;
+        }
+
+        @media screen and (max-width: 1148px) {
+          font-size: 16px;
+          text-align: center;
+        }
+      }
+      .carouselControl {
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        width: 50%;
+        justify-content: space-between;
+        align-items: flex-end;
+        z-index: 10;
+
+        @media screen and (max-width: 1148px) {
+          position: fixed;
+          left: 50%;
+          bottom: 5rem;
+          transform: translateX(-50%);
+        }
+        .leftButton,
+        .rightButton {
+          cursor: pointer;
+          position: relative;
+          height: 102px;
+          width: 102px;
+          border-radius: 50%;
+          border: 1px solid #ffe3ad80;
+          background: radial-gradient(
+            62.13% 81.58% at 50.28% 100%,
+            rgba(255, 232, 135, 0.1) 0%,
+            rgba(255, 232, 135, 0.02) 100%
+          );
+          z-index: 10;
+
+          @media screen and (max-width: 1400px) {
+            height: 72px;
+            width: 72px;
+          }
+
+          @media screen and (max-width: 1148px) {
+            height: 58px;
+            width: 58px;
+          }
+
+          svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            @media screen and (max-width: 1400px) {
+              width: 40px;
+              height: 40px;
+            }
+
+            @media screen and (max-width: 1148px) {
+              width: 30px;
+              height: 30px;
+            }
+          }
+        }
+      }
+    }
+    .rightContent {
+      position: relative;
+      width: 50%;
+      height: 100%;
+
+      @media screen and (max-width: 1148px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: 2rem;
+        height: 70%;
+      }
+
+      .eventImageContainer {
+        padding: 0 5% 0 15%;
+        width: 80%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+
+        @media screen and (max-width: 1148px) {
+          padding: 0;
+          width: 100%;
+          height: 30%;
+          max-width: 75%;
+        }
+
+        @media screen and (max-width: 600px) {
+          max-width: unset;
+        }
+
+        .eventImage {
+          width: 100%;
+          height: 100%;
+          filter: brightness(200%);
+          user-select: none;
+          box-shadow: 0px 0px 20px 4px #cbae5780;
+          background-color: #110e16;
+        }
+      }
+      .eventDescription {
+        padding-left: 5%;
+        width: 95%;
+        height: 40%;
+        margin-top: 10%;
+
+        color: #ccae57;
+        text-align: center;
+        text-shadow: 0px 0px 20px rgba(229, 195, 132, 0.3);
+        font-family: "Source Serif 4";
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 45px; /* 160.714% */
+        letter-spacing: 0.56px;
+
+        @media screen and (max-width: 1400px) {
+          font-size: 20px;
+          line-height: 30px;
+        }
+
+        @media screen and (max-width: 1148px) {
+          font-family: Source Serif 4;
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 24px;
+          letter-spacing: 0.02em;
+          text-align: center;
+        }
+
+        @media screen and (max-width: 600px) {
+          font-size: 12px;
+          line-height: 16px;
+        }
       }
     }
   }

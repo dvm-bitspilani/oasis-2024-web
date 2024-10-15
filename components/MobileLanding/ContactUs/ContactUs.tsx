@@ -15,7 +15,7 @@ import aryanK from '@/assets/Landing/contactUs/aryankhorana.png'
 export default function ContactUsMobile() {
     return (
         <>
-            <MobileHeading text='Contact Us' showArrows={false}/>
+            <MobileHeading text='Contact Us' showArrows={false} style={{}}/>
             <div className={styles.cardsContainer}>
                 <MobileContactCard
                     name='Aryan Wadhwa'

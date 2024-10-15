@@ -17,11 +17,12 @@
     .contactBlock {
       display: flex;
       gap: 40px;
+      margin-top: 1px;
     }
 
     .heading {
       text-align: center;
-      text-shadow: 0px 0px 1px rgba(255, 226, 191, 0.10);
+      text-shadow: 0 0 1px rgba(255, 226, 191, 0.10);
       font-family: "Playfair Display", sans-serif;
       font-size: 14px;
       font-style: normal;
@@ -65,6 +66,7 @@
   .background {
     position: absolute;
     width: 100%;
+    max-width: 272.5px;
     height: auto;
     z-index: 0;
   }

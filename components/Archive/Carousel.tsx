@@ -22,6 +22,7 @@ import seventeen from "../../assets/Gallery/seventeen.jpg";
 import eightteen from "../../assets/Gallery/eightteen.jpg";
 import nineteen from "../../assets/Gallery/nineteen.jpg";
 import twenty from "../../assets/Gallery/twenty.jpg";
+import twentyone from "../../assets/Gallery/twentyone.jpg";
 
 const images = [
   one,
@@ -44,6 +45,7 @@ const images = [
   twenty,
   nineteen,
   eightteen,
+  twentyone,
 ];
 
 interface CarouselProps {

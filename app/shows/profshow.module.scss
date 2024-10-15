@@ -1,0 +1,509 @@
+@font-face {
+  font-family: "Thedus Condensed Light";
+  src: url("../../assets/ProfShow/fonts/Thedus-CondensedLight.otf")
+    format("opentype");
+}
+
+.profshow {
+  position: relative;
+  top: 0;
+  padding-top: 2rem;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+
+  @media (max-width: 4000px) and (min-width: 2200px) {
+    padding-top: 5rem;
+    overflow-x: hidden;
+  }
+
+  @media (max-width: 2200px) and (min-width: 1850px) {
+    padding-top: 3rem;
+  }
+
+  @media (max-width: 1850px) and (min-width: 1500px) {
+    padding-top: 3rem;
+  }
+
+  .backBtn {
+    position: absolute;
+    top: 3rem;
+    left: 6rem;
+
+    @media screen and (max-width: 960px) {
+      top: 1rem;
+      left: 1rem;
+      scale: 0.5;
+    }
+
+    svg {
+      mix-blend-mode: difference;
+    }
+  }
+
+  .backgroundGif {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+
+    @media (max-width: 960px) {
+      display: none;
+    }
+  }
+  .darkScreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.7);
+
+    @media (max-width: 960px) {
+      display: none;
+    }
+  }
+}
+
+.pageContent {
+  padding: 2rem;
+  .eventName {
+    max-width: 90%;
+    right: 2rem;
+    position: absolute;
+    font-family: Thedus Condensed Light, sans-serif;
+    font-size: 322px;
+    font-weight: 900;
+    line-height: 200px;
+    letter-spacing: 0.02em;
+    text-align: right;
+    mix-blend-mode: difference;
+    user-select: none;
+
+    @media screen and (max-width: 4000px) {
+      font-size: 644px;
+      line-height: 400px;
+    }
+
+    @media screen and (max-width: 3000px) {
+      font-size: 430px;
+      line-height: 300px;
+    }
+
+    @media screen and (max-width: 2000px) {
+      font-size: 322px;
+      line-height: 200px;
+    }
+
+    @media screen and (max-width: 1440px) {
+      font-size: 240px;
+      line-height: 150px;
+    }
+
+    @media screen and (max-width: 960px) {
+      font-size: 120px;
+      line-height: 100px;
+      right: 2rem;
+      top: 3rem;
+      width: 100%;
+    }
+    @media screen and (max-width: 600px) {
+      font-size: 94px;
+      line-height: 80px;
+      right: 1rem;
+    }
+  }
+
+  .eventDate {
+    font-family: Tilt Warp;
+    font-size: 80px;
+    font-weight: 400;
+    line-height: 183px;
+    letter-spacing: 0.05em;
+    text-align: right;
+    mix-blend-mode: difference;
+    user-select: none;
+
+    @media screen and (max-width: 1300px) {
+      font-size: 60px;
+    }
+
+    @media screen and (max-width: 960px) {
+      font-size: 50px;
+      line-height: unset;
+      bottom: unset;
+      top: 25%;
+      right: 1.5rem;
+      width: 100%;
+    }
+    @media screen and (max-width: 600px) {
+      font-size: 32px;
+    }
+  }
+  .eventImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .eventImage0 {
+    scale: 0.8;
+    left: -50%;
+    top: -45%;
+
+    @media screen and (max-width: 4000px) {
+      aspect-ratio: 943;
+      width: 4097px;
+      height: 2700px;
+      transform: translate(-50%, -35%);
+      top: 50%;
+      left: 25%;
+    }
+
+    @media screen and (max-width: 3000px) {
+      aspect-ratio: 943;
+      width: 2726px;
+      height: 1800px;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 12.5%;
+    }
+
+    @media screen and (max-width: 2200px) {
+      aspect-ratio: 943;
+      width: 2097px;
+      height: 1392px;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 12.5%;
+    }
+
+    @media screen and (max-width: 1940px) {
+      aspect-ratio: 943;
+      width: 2097px;
+      height: 1392px;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 12.5%;
+    }
+
+    @media screen and (max-width: 1460px) {
+      aspect-ratio: 943;
+      width: 1886px;
+      height: 1248px;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 12.5%;
+    }
+
+    @media screen and (max-width: 1200px) {
+      scale: 0.6;
+      left: -10%;
+    }
+
+    @media screen and (max-width: 960px) {
+      aspect-ratio: 799/527;
+      width: 1198px;
+      height: 791px;
+      scale: unset;
+      transform: translate(-50%, -25%);
+      top: 50%;
+      left: 50%;
+    }
+
+    @media screen and (max-width: 600px) {
+      width: 799px;
+      height: 527px;
+      transform: translate(-50%, 0%);
+    }
+  }
+
+  .eventImage1 {
+    left: -45%;
+    top: -35%;
+    scale: 0.65;
+
+    @media screen and (max-width: 4000px) {
+      aspect-ratio: 943;
+      scale: unset;
+      width: 4097px;
+      height: 2700px;
+      transform: translate(-50%, -35%);
+      top: 50%;
+      left: 25%;
+    }
+
+    @media screen and (max-width: 3000px) {
+      aspect-ratio: 943;
+      scale: unset;
+      width: 2726px;
+      height: 1800px;
+      transform: translate(-50%, -35%);
+      top: 50%;
+      left: 25%;
+    }
+
+    @media screen and (max-width: 2200px) {
+      aspect-ratio: 943;
+      scale: unset;
+      width: 2097px;
+      height: 1392px;
+      transform: translate(-50%, -35%);
+      top: 50%;
+      left: 25%;
+    }
+
+    @media screen and (max-width: 1940px) {
+      aspect-ratio: 943;
+      scale: unset;
+      width: 2097px;
+      height: 1392px;
+      transform: translate(-50%, -37.5%);
+      top: 50%;
+      left: 25%;
+    }
+
+    @media screen and (max-width: 1460px) {
+      aspect-ratio: 943;
+      scale: unset;
+      width: 1886px;
+      height: 1248px;
+      transform: translate(-50%, -25%);
+      top: 50%;
+      left: 25%;
+    }
+
+    @media screen and (max-width: 960px) {
+      aspect-ratio: 943/624;
+      scale: unset;
+      width: 1414px;
+      height: 936px;
+      transform: translate(-50%, -25%);
+      top: 50%;
+      left: 50%;
+    }
+
+    @media screen and (max-width: 600px) {
+      width: 943px;
+      height: 624px;
+      transform: translate(-45%, -12.5%);
+    }
+  }
+  .eventImage2 {
+    left: -50%;
+    top: -40%;
+    scale: 0.7;
+
+    @media screen and (max-width: 4000px) {
+      aspect-ratio: 943;
+      width: 4097px;
+      height: 2700px;
+      transform: translate(-50%, -35%);
+      top: 50%;
+      left: 12.5%;
+    }
+
+    @media screen and (max-width: 3000px) {
+      aspect-ratio: 943;
+      width: 2726px;
+      height: 1800px;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 12.5%;
+    }
+
+    @media screen and (max-width: 2200px) {
+      aspect-ratio: 943;
+      width: 2097px;
+      height: 1392px;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 12.5%;
+    }
+
+    @media screen and (max-width: 1940px) {
+      aspect-ratio: 943;
+      width: 2097px;
+      height: 1392px;
+      transform: translate(-50%, -62.5%);
+      top: 50%;
+      left: 12.5%;
+    }
+
+    @media screen and (max-width: 1600px) {
+      scale: 0.6;
+      left: 0;
+    }
+
+    @media screen and (max-width: 1460px) {
+      scale: 0.5;
+      aspect-ratio: 943;
+      width: 1886px;
+      height: 1248px;
+      transform: translate(-50%, -62.5%);
+      top: 50%;
+      left: -5%;
+    }
+
+    @media screen and (max-width: 1200px) {
+      scale: 0.4;
+      transform: translate(-50%, -100%);
+      left: -25%;
+    }
+
+    @media screen and (max-width: 960px) {
+      display: none;
+      aspect-ratio: 799/527;
+      width: 1198px;
+      height: 791px;
+      scale: unset;
+      transform: translate(-50%, -25%);
+      top: 50%;
+      left: 50%;
+    }
+
+    @media screen and (max-width: 600px) {
+      width: 799px;
+      height: 527px;
+      transform: translate(-50%, 0%);
+    }
+  }
+
+  .eventSelector {
+    position: absolute;
+    right: 10.6875rem;
+    bottom: 7.5rem;
+    width: 20%;
+
+    @media screen and (max-width: 1440px) {
+      right: 8rem;
+      bottom: 5rem;
+    }
+
+    @media screen and (max-width: 960px) {
+      width: 75%;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+
+    svg {
+      position: absolute;
+      mix-blend-mode: difference;
+
+      @media screen and (max-width: 960px) {
+        mix-blend-mode: unset;
+      }
+
+      @media screen and (max-width: 600px) {
+        scale: 0.6;
+      }
+    }
+    .leftArrow {
+      top: 50%;
+      left: -6rem;
+      transform: translateY(-50%);
+      cursor: pointer;
+
+      @media screen and (max-width: 1440px) {
+        left: -4rem;
+      }
+
+      @media screen and (max-width: 960px) {
+        top: 0;
+        transform: translateY(-25%);
+        left: -1rem;
+      }
+    }
+    .rightArrow {
+      top: 50%;
+      right: -6rem;
+      transform: translateY(-50%);
+      cursor: pointer;
+
+      @media screen and (max-width: 1440px) {
+        right: -4rem;
+      }
+
+      @media screen and (max-width: 960px) {
+        top: 0;
+        transform: translateY(-25%);
+        right: -1rem;
+      }
+    }
+
+    .eventTitle {
+      font-family: Squada One;
+      font-size: 50px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-align: center;
+      mix-blend-mode: difference;
+      user-select: none;
+      white-space: nowrap;
+
+      @media screen and (max-width: 4000px) {
+        font-size: 120px;
+      }
+
+      @media screen and (max-width: 3000px) {
+        font-size: 80px;
+      }
+
+      @media screen and (max-width: 2200px) {
+        font-size: 60px;
+      }
+
+      @media screen and (max-width: 2000px) {
+        font-size: 50px;
+      }
+
+      @media screen and (max-width: 1440px) {
+        font-size: 40px;
+      }
+
+      @media screen and (max-width: 960px) {
+        mix-blend-mode: unset;
+        font-size: 40px;
+      }
+      @media screen and (max-width: 600px) {
+        font-size: 36px;
+      }
+    }
+
+    .progressBarContainer {
+      position: relative;
+      width: 100%;
+      height: 2px;
+      background: grey;
+      overflow: hidden;
+      z-index: 1;
+
+      @media screen and (max-width: 960px) {
+        width: 50%;
+        transform: translate(50%, 8px);
+      }
+    }
+
+    .progressBar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: white;
+      animation: progress 10s ease-in-out forwards;
+      z-index: 2;
+    }
+  }
+}
+
+@keyframes progress {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

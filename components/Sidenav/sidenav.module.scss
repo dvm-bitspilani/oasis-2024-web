@@ -1,0 +1,49 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2.5rem;
+
+  @media (width < 1000px) {
+    display: none;
+  }
+
+  // &:hover p{
+  //   // display: inline !important;
+  //   opacity: 1 !important;
+  // }
+
+  .link {
+    text-decoration: none;
+
+    .container {
+      display: flex;
+      gap: 1.5rem;
+      cursor: pointer;
+      text-decoration: none;
+
+      p {
+        text-decoration: none;
+        color: #ffec8f;
+        text-align: right;
+        text-transform: uppercase;
+        //leading-trim: both;
+        //text-edge: cap;
+        font-family: Poppins, sans-serif;
+        font-size: 20.694px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 38.578px; /* 186.422% */
+        letter-spacing: 0.414px;
+        // display: none;
+        // opacity: 0;
+        // transition: all 0.3s ease-out;
+      }
+
+      // .home{
+      //   // display: inline;
+      //   opacity: 1;
+      // }
+    }
+  }
+}

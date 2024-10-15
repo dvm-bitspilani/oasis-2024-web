@@ -108,10 +108,10 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
             </svg>
             <Link
               onClick={() => handleClick()}
-              href="/rocktaves"
+              href="/sponsors"
               className={styles.magText}
             >
-              ROCKTAVES
+              SPONSORS
             </Link>
           </div>
           <div className={styles.developers} ref={developersRef}>
@@ -168,10 +168,10 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
             </svg>
             <Link
               onClick={() => handleClick()}
-              href="/gallery"
+              href="/archive"
               className={styles.medText}
             >
-              GALLERY
+              ARCHIVE
             </Link>
           </div>
           <div className={styles.sponsors} ref={sponsorsRef}>
@@ -300,10 +300,10 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
             </svg>
             <Link
               onClick={() => handleClick()}
-              href="/gallery"
+              href="/archive"
               className={styles.medText}
             >
-              GALLERY
+              ARCHIVE
             </Link>
           </div>
           <div className={styles.sponsors} ref={sponsorsRef}>

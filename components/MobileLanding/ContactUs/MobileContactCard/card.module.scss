@@ -1,0 +1,71 @@
+.container {
+  position: relative;
+  pointer-events: auto;
+  aspect-ratio: 164/233;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .cardContent {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    z-index: 1;
+
+    .contactBlock {
+      display: flex;
+      gap: 40px;
+    }
+
+    .heading {
+      text-align: center;
+      text-shadow: 0px 0px 1px rgba(255, 226, 191, 0.10);
+      font-family: "Playfair Display", sans-serif;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: -0.56px;
+      background: linear-gradient(141deg, #D4A753 38.83%, #907440 53.62%, #D4A753 75.62%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      @media (width > 400px) {
+        font-size: 18px;
+      }
+    }
+
+    .desc {
+      text-align: center;
+      font-family: "Source Serif Pro", sans-serif;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: -0.36px;
+      background: linear-gradient(112deg, #D4A753 25.95%, #AA8237 44.71%, #D4A753 72.61%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      @media (width > 400px) {
+        font-size: 14px;
+      }
+    }
+
+    .image {
+      width: 60%;
+      height: auto;
+    }
+  }
+
+  .background {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    z-index: 0;
+  }
+}

@@ -1,0 +1,26 @@
+.heading {
+  padding-top: 80px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    background: linear-gradient(180deg, #876D24 -15.62%, #F3D57B 20.54%, #B69637 69.62%, #DCBF69 113.54%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    text-shadow: 0 0 5px rgba(140, 90, 46, 0.50);
+    font-family: Rye, sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 43px; /* 119.444% */
+    letter-spacing: 1.8px;
+  }
+
+  img:last-of-type {
+    transform: rotateY(180deg);
+  }
+}

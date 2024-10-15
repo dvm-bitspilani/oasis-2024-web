@@ -9,7 +9,9 @@
   width: 40%;
   @media screen and (width <= 1200px) {
     width: 90%;
+    transform: translateY(-250px);
   }
+
 
   height: 100lvh;
   margin-left: 8.5%;

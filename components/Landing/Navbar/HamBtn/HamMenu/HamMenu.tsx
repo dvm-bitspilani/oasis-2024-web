@@ -254,10 +254,10 @@ const HamMenu: React.FC<HamMenuProps> = ({ isHamOpen }) => {
             </svg>
             <Link
               onClick={() => handleClick()}
-              href="/rocktaves"
+              href="/sponsors"
               className={styles.magText}
             >
-              ROCKATVES
+              SPONSORS
             </Link>
           </div>
           <div className={styles.developers} ref={developersRef}>

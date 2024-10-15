@@ -6,7 +6,7 @@ const Sidenav = () => {
     <>
       <div className={styles.wrapper}>
         <div className={styles.container}>
-          <p>home</p>
+          <p className={styles.home}>home</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="36"
@@ -73,7 +73,7 @@ const Sidenav = () => {
           </svg>
         </div>
         <div className={styles.container}>
-          <p>about</p>
+          <p className={styles.about}>about</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="36"
@@ -103,7 +103,7 @@ const Sidenav = () => {
           </svg>
         </div>
         <div className={styles.container}>
-          <p>shows</p>
+          <p className={styles.shows}>shows</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="36"
@@ -133,7 +133,7 @@ const Sidenav = () => {
           </svg>
         </div>
         <div className={styles.container}>
-          <p>events</p>
+          <p className={styles.events}>events</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="36"
@@ -163,7 +163,7 @@ const Sidenav = () => {
           </svg>
         </div>
         <div className={styles.container}>
-          <p>contact</p>
+          <p className={styles.contact}>contact</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="36"

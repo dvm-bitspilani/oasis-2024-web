@@ -3,9 +3,17 @@
   flex-direction: column;
   align-items: flex-end;
   gap: 2.5rem;
+
+  // &:hover p{
+  //   // display: inline !important;
+  //   opacity: 1 !important;
+  // }
+
   .container {
     display: flex;
     gap: 1.5rem;
+    cursor: pointer;
+
     p {
       color: #ffec8f;
       text-align: right;
@@ -18,7 +26,15 @@
       font-weight: 500;
       line-height: 38.578px; /* 186.422% */
       letter-spacing: 0.414px;
-      display: none;
+      // display: none;
+      // opacity: 0;
+      // transition: all 0.3s ease-out;
     }
+
+    // .home{
+    //   // display: inline;
+    //   opacity: 1;
+    // }
+
   }
 }

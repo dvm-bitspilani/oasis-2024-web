@@ -15,7 +15,9 @@ export default function Sponsors() {
     axios
       .get("https://www.bits-oasis.org/2024/main/wallet/sponsors/")
       .then((response) => {
-        setSponsors(response.data);
+        const sortedSponsors = response.data.sort((a, b) => a.order - b.order);
+        setSponsors(sortedSponsors);
+        // setSponsors(response.data);
       });
   }, []);
 

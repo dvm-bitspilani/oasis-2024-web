@@ -4,6 +4,10 @@
   align-items: flex-end;
   gap: 2.5rem;
 
+  @media (width < 1000px) {
+    display: none;
+  }
+
   // &:hover p{
   //   // display: inline !important;
   //   opacity: 1 !important;
@@ -23,9 +27,9 @@
         color: #ffec8f;
         text-align: right;
         text-transform: uppercase;
-        leading-trim: both;
-        text-edge: cap;
-        font-family: Poppins;
+        //leading-trim: both;
+        //text-edge: cap;
+        font-family: Poppins, sans-serif;
         font-size: 20.694px;
         font-style: normal;
         font-weight: 500;

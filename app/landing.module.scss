@@ -1,17 +1,38 @@
 .scrollWrapper {
   height: 100lvh;
   pointer-events: none;
-  overflow: hidden;
+  overflow-x: hidden;
 
   @media (width <= 1000px) {
-    height: 500lvh;
+    height: fit-content;
   }
 }
 
-.page {
+.desktopPage {
   position: fixed;
   width: 100vw;
   height: 100lvh;
+  display: block;
+
+  @media (width <= 1000px) {
+    display: none;
+  }
+}
+
+.mobilePage {
+  display: none;
+
+  @media (width < 1000px) {
+    display: block;
+  }
+
+  .mobileBackdrop {
+    position: fixed;
+    width: 100vw;
+    height: 100lvh;
+    top: 0;
+    z-index: 0;
+  }
 }
 
 .overlay {
@@ -56,6 +77,10 @@
   top: 49%;
   transform: translateY(-50%);
   z-index: 5000;
+
+  @media(width<=1405px){
+    transform: scale(0.8) translateY(-50%);
+  }
 
   @media (width > 1920px) {
     transform: translateY(-50%) scale(1.4) translateX(-8%) !important;

@@ -9,7 +9,7 @@ import VideoCarousel from "@/components/MobileLanding/VideoCarousel/VideoCarouse
 import Artist from "@/components/MobileLanding/Artist/Artist";
 import ContactUsMobile from "@/components/MobileLanding/ContactUs/ContactUs";
 
-import slotMachine2D from '@/assets/Landing/slotMachine2D.png'
+import slotMachine2D from '@/assets/Landing/slotMachine2D2.png'
 
 import profShowsBackground from '@/assets/MobileLanding/ProfShowsMobile/profShowsBackgroundMobile.png'
 import grungeBackground from '@/assets/MobileLanding/ProfShowsMobile/GrungeMobile.png'
@@ -35,7 +35,8 @@ export default function MobileLanding() {
                     dreams come alive, laughter fills the air, and creativity knows no bounds. Step into the world of
                     Oasis, where youth&apos;s boundless potential shines.
                 </p>
-                <VideoCarousel videoArray={["ZCrClSBM1ns", "0BYgHIMnz50", "krsrGOqnAN0"]}/>
+                <VideoCarousel videoArray={["ZCrClSBM1ns", "krsrGOqnAN0"]}/>
+                {/*0BYgHIMnz50*/}
                 {/*<AllEventsBtn/>*/}
             </div>
             <div className={styles.profShows}>

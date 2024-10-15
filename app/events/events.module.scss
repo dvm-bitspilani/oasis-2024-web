@@ -72,6 +72,13 @@
       .box {
         display: flex;
         position: relative;
+        .dance {
+          position: absolute;
+          left: 0.5%;
+          bottom: 1%;
+          height: 100%;
+          width: auto;
+        }
         .drama {
           position: absolute;
           right: 0.5%;
@@ -92,6 +99,54 @@
           bottom: 0;
           height: 80%;
           width: auto;
+        }
+        .phototxt{
+          color: #fff;
+          font-family: "Thedus Condensed Light";
+          font-size: 70px;
+          font-style: normal;
+          font-weight: 900;
+          line-height: 70%;
+          position: absolute;
+          left: 47%;
+          top: 45%;
+          transform: translateY(-50%);
+        }
+        .cameratxt{
+          color: #fff;
+          font-family: "Thedus Condensed Light";
+          font-size: 70px;
+          font-style: normal;
+          font-weight: 900;
+          line-height: 70%;
+          position: absolute;
+          left: 47%;
+          top: 65%;
+          transform: translateY(-50%);
+        }
+        .fashiontxt {
+          color: #fff;
+          font-family: "Thedus Condensed Light";
+          font-size: 70px;
+          font-style: normal;
+          font-weight: 900;
+          line-height: 70%;
+          position: absolute;
+          right: 6%;
+          top: 45%;
+          transform: translateY(-50%);
+        }
+        .dancetxt {
+          color: #fff;
+          font-family: "Thedus Condensed Light";
+          font-size: 70px;
+          font-style: normal;
+          font-weight: 900;
+          line-height: 70%;
+          position: absolute;
+          right: 15%;
+          top: 45%;
+          transform: translateY(-50%);
         }
         .dramatxt {
           color: #fff;

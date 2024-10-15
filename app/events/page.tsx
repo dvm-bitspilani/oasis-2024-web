@@ -295,6 +295,8 @@ export default function EventsPage() {
                 </g>
               </svg>
               <div className={styles.fill}></div>
+              <Image src={dance} alt="music" width={200} height={200} className={styles.dance}/>
+              <p className={styles.dancetxt}>DANCE</p>
             </div>
             <div className={styles.box}>
               <svg
@@ -320,6 +322,8 @@ export default function EventsPage() {
                 </g>
               </svg>
               <div className={styles.fill}></div>
+              <Image src={fashion} alt="music" width={200} height={200} className={styles.dance}/>
+              <p className={styles.fashiontxt}>FASHION</p>
             </div>
             <div className={styles.box}>
               <svg
@@ -345,6 +349,9 @@ export default function EventsPage() {
                 </g>
               </svg>
               <div className={styles.fill}></div>
+              <Image src={camera} alt="music" width={200} height={200} className={styles.dance}/>
+              <p className={styles.phototxt}>PHOTO</p>
+              <p className={styles.cameratxt}>GRAPHY</p>
             </div>
           </div>
         </div>

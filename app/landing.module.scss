@@ -26,6 +26,36 @@
     display: block;
   }
 
+  .locationRedirect {
+    pointer-events: auto;
+    position: relative;
+    top: 50px;
+    cursor: pointer;
+
+    @media (width <= 585px) {
+      left: 50px;
+    }
+
+    @media (width > 585px) {
+      left: calc(100vw - 100px);
+      top: 60px;
+    }
+
+    @media (width >= 1000px) {
+      display: none;
+    }
+
+    img {
+      aspect-ratio: 1;
+      height: 28px;
+      width: auto;
+
+      @media (width > 585px) {
+        height: 35px;
+      }
+    }
+  }
+
   .mobileBackdrop {
     position: fixed;
     width: 100vw;
@@ -78,7 +108,7 @@
   transform: translateY(-50%);
   z-index: 5000;
 
-  @media(width<=1405px){
+  @media(width<=1405px) {
     transform: scale(0.8) translateY(-50%);
   }
 

@@ -213,7 +213,6 @@ export default function EventsPage() {
               <Image src={music} alt="music" width={200} height={200} className={styles.music}/>
               <p className={styles.musictxt}>MUSIC</p>
             </div>
-
             <div className={styles.box}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -241,7 +240,6 @@ export default function EventsPage() {
               <Image src={quiz} alt="music" width={200} height={200} className={styles.quiz}/>
               <p className={styles.quiztxt}>QUIZ</p>
             </div>
-
             <div className={styles.box}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -17,7 +17,9 @@ export default function Artist({reverse, image, name, date}: Props) {
                        className={`${styles.image} ${date === 26 ? styles.vishal : date === 25 ? styles.seedhe : styles.diary}`}/>
             </div>
             <div className={styles.description}>
-                <p className={styles.name}>{name}</p>
+                <p className={styles.name} style={name === 'Vishal Mishra' ? {
+                    marginTop: 40
+                } : {}}>{name}</p>
                 <p className={styles.date}>{`October ${date}`}</p>
             </div>
         </div>

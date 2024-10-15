@@ -8,6 +8,19 @@
   transform: translateX(0%);
   z-index: 3;
 
+  @media screen and (width <= 1600px) {
+    scale: 0.8;
+  }
+  @media screen and (width <= 1500px) {
+    transform: translateY(50px);
+  }
+  @media screen and (width <= 1400px) {
+    transform: translateX(100px) translateY(50px);
+  }
+  @media screen and (width <= 1200px) {
+    display: none;
+  }
+
   .machine {
     // aspect-ratio: 316 / 534;
     position: absolute;

@@ -15,7 +15,7 @@ export default function Sponsors() {
     axios
       .get("https://www.bits-oasis.org/2024/main/wallet/sponsors/")
       .then((response) => {
-        const sortedSponsors = response.data.sort((a, b) => a.order - b.order);
+        const sortedSponsors = response.data.sort((a:any, b:any) => a.order - b.order);
         setSponsors(sortedSponsors);
         // setSponsors(response.data);
       });
@@ -183,7 +183,7 @@ export default function Sponsors() {
                   alt=""
                 />
                 <div className={styles.sponsorName}>{sponsor.name}</div>
-                <div className={styles.sponsorCategory}>{sponsor.category}</div>
+                <div className={styles.sponsorDescription}>{sponsor.description}</div>
               </div>
             </Link>
 

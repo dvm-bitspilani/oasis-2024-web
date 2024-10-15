@@ -2,8 +2,8 @@ import styles from "./overlay.module.scss";
 
 import Navbar from "../Navbar/Navbar";
 import CardsGroup from "../CardsGroup/CardsGroup";
-import AboutUsPage from "@/components/AboutUs/AboutUsPage";
-import ContactUs from "@/components/ContactUs/ContactUs";
+// import AboutUsPage from "@/components/AboutUs/AboutUsPage";
+// import ContactUs from "@/components/ContactUs/ContactUs";
 import Social from "../Social/Social";
 import Countdown from "../Countdown/Countdown";
 import OasisLogo from "../Navbar/Logo/Logo";
@@ -32,8 +32,8 @@ export default function LandingOverlay() {
           <CardsGroup group={2} />
         </div>
       </div>
-      <AboutUsPage />
-      <ContactUs />
+      {/* <AboutUsPage /> */}
+      {/* <ContactUs /> */}
     </div>
   );
 }

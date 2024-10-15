@@ -1,11 +1,11 @@
-"use client"; // For Next.js, ensures this code runs on the client-side
+"use client";
 
 import styles from "./machine.module.scss";
 import prev from "../../../assets/About/prev.png";
 import next from "../../../assets/About/next.png";
 import pause from "../../../assets/About/pause.png";
-import play from "../../../assets/About/play.png"; // Add play icon here
-import slotMachine from "@/assets/Landing/slotMachine2D.svg";
+import play from "../../../assets/About/play.png"; 
+import slotMachine from "@/assets/Landing/slotMachine2D.png";
 
 import Image from "next/image";
 import { forwardRef, useState, useEffect, useRef } from "react";
@@ -15,8 +15,8 @@ const MobileSlotMachine = forwardRef(function MobileSlotMachine(
   ref: any
 ) {
   const [iframeIndex, setIframeIndex] = useState(0);
-  const playerRef = useRef<any>(null); // Holds the YouTube Player instance
-  const [isPlaying, setIsPlaying] = useState(true); // Start with playing state (so pause button shows initially)
+  const playerRef = useRef<any>(null);
+  const [isPlaying, setIsPlaying] = useState(true); 
 
   const videoUrlArrayIframe = ["ZCrClSBM1ns", "0BYgHIMnz50", "krsrGOqnAN0"];
 

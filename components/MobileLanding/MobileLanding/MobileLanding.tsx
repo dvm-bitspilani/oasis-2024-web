@@ -26,7 +26,7 @@ export default function MobileLanding() {
                 <div className={styles.fade}></div>
             </div>
             <div className={styles.aboutUs}>
-                <MobileHeading text='About Us' showArrows={true}/>
+                <MobileHeading text='About Us' showArrows={true} style={{}}/>
                 <p className={styles.aboutUsText}>
                     Oasis, the annual cultural extravaganza of Birla Institute of Technology and Science, Pilani, has
                     been a vibrant part of India&apos;s cultural tapestry since 1971. Managed entirely by students,
@@ -38,6 +38,15 @@ export default function MobileLanding() {
                 <VideoCarousel videoArray={["ZCrClSBM1ns", "krsrGOqnAN0"]}/>
                 {/*0BYgHIMnz50*/}
                 {/*<AllEventsBtn/>*/}
+            </div>
+            <div style={{position: "relative"}}>
+                <MobileHeading text='Prof Shows' showArrows={false} style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    width: '100%'
+                }}/>
             </div>
             <div className={styles.profShows}>
                 <div className={styles.artistContainer}>

@@ -9,7 +9,7 @@ import sm from "@/public/ProfShow/goat.png";
 import vm from "@/public/ProfShow/vishalmishra.png";
 import tyd from "@/public/ProfShow/theyellowdiaries.png";
 import gif1 from "@/public/ProfShow/gif1.gif";
-import Preloader from "@/components/Preloader/Preloader";
+import { useRouter } from "next/navigation";
 
 const eventDetails = [
   {
@@ -33,6 +33,18 @@ const eventDetails = [
 ];
 
 const Shows = () => {
+  const router = useRouter();
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const isMobile =
+        /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 960;
+
+      if (isMobile) {
+        router.push("/");
+      }
+    }
+  }, []);
+
   const [eventID, setEventID] = useState(0);
   const [progressKey, setProgressKey] = useState(0);
 

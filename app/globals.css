@@ -198,3 +198,8 @@ body {
     src: url(/Fonts/Thedus_Condensed_Light_Bold_900.otf);
     font-weight: 900;
 }
+@font-face {
+    font-family: "Lostar";
+    src: url(/Fonts/Lostar.ttf);
+    font-weight: normal;
+}

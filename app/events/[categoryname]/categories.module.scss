@@ -4,6 +4,12 @@
     format("opentype");
 }
 
+@font-face {
+  font-family: "Thedus Condensed Light";
+  src: url("../../../assets/ProfShow/fonts/Thedus-CondensedLight.otf")
+    format("opentype");
+}
+
 .pageBody {
   width: 100vw;
   height: 100vh;
@@ -44,6 +50,7 @@
       font-size: 352.48px;
       font-weight: 700;
       color: #c4c4c41a;
+      user-select: none;
     }
     .categoryTitle1 {
       transform: translateX(-10%);
@@ -68,6 +75,150 @@
       }
       100% {
         transform: translateX(-50%);
+      }
+    }
+  }
+
+  .eventDisplay {
+    padding: 5.625rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: calc(100vw - 16rem);
+    height: calc(100vh - 16rem);
+
+    @media screen and (max-width: 1148px) {
+      flex-direction: column;
+    }
+
+    .leftContent {
+      position: relative;
+      width: 50%;
+      height: 100%;
+
+      .eventTitle {
+        width: 100%;
+
+        font-family: "Thedus Condensed Light";
+        font-size: 150px;
+        font-weight: 900;
+        line-height: 105px;
+        text-align: left;
+
+        margin-top: 9.625rem;
+      }
+      .eventSubTitle {
+        margin: 20px 0;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+
+        .clubName {
+          font-family: Thedus Condensed Light;
+          font-size: 30px;
+          font-weight: 900;
+          line-height: 36px;
+          text-align: center;
+        }
+
+        .location {
+          font-family: Thedus Condensed Light;
+          font-size: 30px;
+          font-weight: 900;
+          line-height: 43px;
+          letter-spacing: 0.06em;
+          text-align: left;
+          svg {
+            margin-right: 10px;
+            transform: translateY(5px);
+          }
+        }
+      }
+      .eventContact {
+        font-family: Vidaloka;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 43px; /* 179.167% */
+        letter-spacing: 1.44px;
+        background: linear-gradient(
+          360deg,
+          #fffee5 -27.5%,
+          #efd48d -1.13%,
+          #ffce93 48.36%,
+          #f9e6a2 100%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .carouselControl {
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        width: 50%;
+        justify-content: space-between;
+        align-items: flex-end;
+        .leftButton,
+        .rightButton {
+          cursor: pointer;
+          position: relative;
+          height: 102px;
+          width: 102px;
+          border-radius: 50%;
+          border: 1px solid #ffe3ad80;
+          background: radial-gradient(
+            62.13% 81.58% at 50.28% 100%,
+            rgba(255, 232, 135, 0.1) 0%,
+            rgba(255, 232, 135, 0.02) 100%
+          );
+
+          svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
+    }
+    .rightContent {
+      position: relative;
+      width: 50%;
+      height: 100%;
+
+      .eventImageContainer {
+        padding: 0 5% 0 15%;
+        width: 80%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+
+        .eventImage {
+          width: 100%;
+          height: 100%;
+          filter: brightness(200%);
+          user-select: none;
+          box-shadow: 0px 0px 20px 4px #cbae5780;
+          background-color: #110e16;
+        }
+      }
+      .eventDescription {
+        padding-left: 5%;
+        width: 95%;
+        height: 40%;
+        margin-top: 10%;
+
+        color: #ccae57;
+        text-align: center;
+        text-shadow: 0px 0px 20px rgba(229, 195, 132, 0.3);
+        font-family: "Source Serif 4";
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 45px; /* 160.714% */
+        letter-spacing: 0.56px;
       }
     }
   }

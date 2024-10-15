@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import grunge from "@/assets/Landing/Grunge.png";
 import axios from "axios";
+import eventcard from "../../../assets/Events/Carousel/eventcard.png";
 
 const categories = [
   "music",
@@ -41,6 +42,16 @@ export default function Page({ params }: { params: { categoryname: string } }) {
       window.location.href = "/404";
     }
   }, []);
+
+  const handleCarousel = (direction: string) => {
+    setEventID((prevID) => {
+      const newID =
+        direction === "left"
+          ? (prevID - 1 + eventsList.length) % eventsList.length
+          : (prevID + 1) % eventsList.length;
+      return newID;
+    });
+  };
   return (
     <div className={styles.pageBody}>
       <div className={styles.pageContainer}>
@@ -91,24 +102,97 @@ export default function Page({ params }: { params: { categoryname: string } }) {
 
         <div className={styles.eventDisplay}>
           <div className={styles.leftContent}>
-            <div className={styles.eventTitle}>{eventsList[eventID]?.name}</div>
+            <div className={styles.eventTitle}>
+              {eventsList[eventID]?.name || "name"}
+            </div>
             <div className={styles.eventSubTitle}>
-              <div className={styles.clubName}>{"TBA"}</div>
+              <div className={styles.clubName}>
+                Organizer: {eventsList[eventID]?.organizer || ""}
+              </div>
               <div className={styles.location}>
-                {eventsList[eventID]?.venue_name}
+                <svg
+                  width="18"
+                  height="26"
+                  viewBox="0 0 18 26"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 24.1111C13.4444 17.8889 17 12.5556 17 9C17 6.87827 16.1571 4.84344 14.6569 3.34315C13.1566 1.84285 11.1217 1 9 1C6.87827 1 4.84344 1.84285 3.34315 3.34315C1.84285 4.84344 1 6.87827 1 9C1 12.5556 4.55556 17.8889 9 24.1111Z"
+                    stroke="#FECE93"
+                    strokeWidth="1.77778"
+                  />
+                  <path
+                    d="M12.5555 8.99989C12.5555 9.94288 12.1809 10.8473 11.5141 11.514C10.8473 12.1808 9.94296 12.5554 8.99997 12.5554C8.05698 12.5554 7.15261 12.1808 6.48581 11.514C5.81901 10.8473 5.44441 9.94288 5.44441 8.99989C5.44441 8.0569 5.81901 7.15253 6.48581 6.48573C7.15261 5.81894 8.05698 5.44434 8.99997 5.44434C9.94296 5.44434 10.8473 5.81894 11.5141 6.48573C12.1809 7.15253 12.5555 8.0569 12.5555 8.99989Z"
+                    stroke="#FECE93"
+                    strokeWidth="1.77778"
+                  />
+                </svg>
+
+                {eventsList[eventID]?.venue_name || "TBA"}
               </div>
             </div>
             <div className={styles.eventContact}>
-              Contact: {eventsList[eventID]?.contact}
+              Contact: {eventsList[eventID]?.contact || "N/A"}
             </div>
             <div className={styles.carouselControl}>
-              <div className={styles.leftButton}></div>
-              <div className={styles.rightButton}></div>
+              <div
+                className={styles.leftButton}
+                onClick={() => handleCarousel("left")}
+              >
+                <svg
+                  width="44"
+                  height="44"
+                  viewBox="0 0 44 44"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10.1665 22H40.8332M10.1665 22L21.1665 11M10.1665 22L21.1665 33"
+                    stroke="#FFE887"
+                    strokeWidth="3.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+              <div
+                className={styles.rightButton}
+                onClick={() => handleCarousel("right")}
+              >
+                <svg
+                  width="44"
+                  height="44"
+                  viewBox="0 0 44 44"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M33.8335 22H3.16683M33.8335 22L22.8335 11M33.8335 22L22.8335 33"
+                    stroke="#FFE887"
+                    strokeWidth="3.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
             </div>
           </div>
           <div className={styles.rightContent}>
-            <div className={styles.eventImage}></div>
-            <div className={styles.eventDescription}></div>
+            <div className={styles.eventImageContainer} style={{}}>
+              <div
+                className={styles.eventImage}
+                style={{
+                  backgroundImage: `url(${eventsList[eventID]?.img_url})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                }}
+              ></div>
+            </div>
+            <div className={styles.eventDescription}>
+              {eventsList[eventID]?.about}
+            </div>
           </div>
         </div>
       </div>

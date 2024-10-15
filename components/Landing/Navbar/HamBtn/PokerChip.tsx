@@ -295,8 +295,8 @@ const HamPokerChip = forwardRef<SVGSVGElement | any, HamPokerChipProps>(
                 y2="474.222"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#272017" />
-                <stop offset="1" stop-color="#07050A" />
+                <stop stopColor="#272017" />
+                <stop offset="1" stopColor="#07050A" />
               </linearGradient>
               <linearGradient
                 id="paint1_linear_3547_622"
@@ -306,8 +306,8 @@ const HamPokerChip = forwardRef<SVGSVGElement | any, HamPokerChipProps>(
                 y2="476.136"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#272017" />
-                <stop offset="1" stop-color="#07050A" />
+                <stop stopColor="#272017" />
+                <stop offset="1" stopColor="#07050A" />
               </linearGradient>
               <image
                 id="image0_3547_622"
@@ -430,9 +430,9 @@ const HamPokerChip = forwardRef<SVGSVGElement | any, HamPokerChipProps>(
                 width="281.277"
                 height="281.277"
                 filterUnits="userSpaceOnUse"
-                color-interpolation-filters="sRGB"
+                colorInterpolationFilters="sRGB"
               >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
                 <feColorMatrix
                   in="SourceAlpha"
                   type="matrix"
@@ -466,8 +466,8 @@ const HamPokerChip = forwardRef<SVGSVGElement | any, HamPokerChipProps>(
                 y2="114.436"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#272017" />
-                <stop offset="1" stop-color="#07050A" />
+                <stop stopColor="#272017" />
+                <stop offset="1" stopColor="#07050A" />
               </linearGradient>
               <linearGradient
                 id="paint1_linear_2_4"
@@ -477,8 +477,8 @@ const HamPokerChip = forwardRef<SVGSVGElement | any, HamPokerChipProps>(
                 y2="163.105"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#272017" />
-                <stop offset="1" stop-color="#07050A" />
+                <stop stopColor="#272017" />
+                <stop offset="1" stopColor="#07050A" />
               </linearGradient>
             </defs>
           </svg>

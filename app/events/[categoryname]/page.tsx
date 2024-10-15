@@ -70,7 +70,7 @@ export default function Page({ params }: { params: { categoryname: string } }) {
           }}
         />
         <div className={styles.backBtn}>
-          <Link href="/">
+          <Link href="/events">
             <svg
               width="76"
               height="60"

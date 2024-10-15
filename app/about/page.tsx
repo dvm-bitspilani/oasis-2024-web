@@ -24,8 +24,17 @@ export default function About() {
         <Grid />
         <SuitBackground />
       </div>
+      <div className={styles.ham}>
+        <Link href="/">
+          <BackButton />
+        </Link>
+      </div>
+
+      <div className={styles.reg}>
+        <RegBtn />
+      </div>
       <div className={styles.pageWrapper}>
-        <div className={styles.header}>
+        {/* <div className={styles.header}>
           <div className={styles.backBtn}>
             <Link href="/">
               <BackButton />
@@ -34,7 +43,7 @@ export default function About() {
           <div className={styles.reg}>
             <RegBtn />
           </div>
-        </div>
+        </div> */}
 
         <AboutUsPage />
         <MobileSlotMachine />

@@ -5,24 +5,23 @@
   overflow: hidden;
 }
 
+.ham {
+  position: fixed;
+  top: 30px;
+  left: 20px;
+}
+
+.reg {
+  position: relative;
+  top: 80px;
+  padding: 0 20px;
+  z-index: 10;
+  height: 100px;
+}
+
 .pageWrapper {
   position: relative;
-  top: 0;
-  padding-top: 2rem;
-
-  .backBtn {
-    position: absolute;
-    top: 0rem;
-    left: 2rem;
-  }
-
-  .reg {
-      position: absolute;
-      top: 50px;
-      right: 2rem;
-      z-index: 10;
-      height: 100px;
-  }
+  top: -4rem;
 }
 
 @media (max-width: 4000px) and (min-width: 2200px) {

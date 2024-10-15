@@ -11,11 +11,13 @@ import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
 import AboutUsPage from "@/components/AboutUs/AboutUsPage";
 import RegBtn from "@/components/Landing/Navbar/RegBtn/RegBtn";
 import SlotMachine from "../../components/AboutUs/Machine/Machine";
+import CursorEffect from "@/components/CursorEffect/CursorEffect";
 
 export default function About() {
   return (
     <>
       <PrePreloader />
+      <CursorEffect />
       <div className={styles.brochureBack}>
         <Glow />
         <Grunge />

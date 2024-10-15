@@ -171,7 +171,7 @@ const HamMenu: React.FC<HamMenuProps> = ({isHamOpen}) => {
                             href="/archive"
                             className={styles.medText}
                         >
-                            ARCHIVE
+                            ARCHIVES
                         </Link>
                     </div>
                     <div className={styles.sponsors} ref={sponsorsRef}>
@@ -303,7 +303,7 @@ const HamMenu: React.FC<HamMenuProps> = ({isHamOpen}) => {
                             href="/archive"
                             className={styles.medText}
                         >
-                            ARCHIVE
+                            ARCHIVES
                         </Link>
                     </div>
                     <div className={styles.sponsors} ref={sponsorsRef}>

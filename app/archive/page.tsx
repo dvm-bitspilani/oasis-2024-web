@@ -186,7 +186,7 @@ export default function GalleryPage() {
             />
           </svg>
 
-          <h2>ARCHIVE</h2>
+          <h2>ARCHIVES</h2>
 
           <svg
             width="42"

@@ -18,7 +18,10 @@
     transform: translateX(100px) translateY(50px);
   }
   @media screen and (width <= 1200px) {
-    display: none;
+    // display: none;
+    left: 50%;
+    transform: translateX(-70%) translateY(35%);
+    scale: 0.6;
   }
 
   .machine {

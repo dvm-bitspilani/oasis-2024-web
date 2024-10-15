@@ -491,42 +491,24 @@ export default function EventsPage() {
         </div>
 
         <div className={styles.mobilecontainer}>
-          <Image
-            src={musicmobile}
-            alt="music"
-            width={312}
-            height={132}
-          />
-          <Image
-            src={dancemobile}
-            alt="music"
-            width={312}
-            height={132}
-          />
-          <Image
-            src={quizmobile}
-            alt="music"
-            width={312}
-            height={132}
-          />
-          <Image
-            src={fashionmobile}
-            alt="music"
-            width={312}
-            height={132}
-          />
-          <Image
-            src={dramamobile}
-            alt="music"
-            width={312}
-            height={132}
-          />
-          <Image
-            src={cameramobile}
-            alt="music"
-            width={312}
-            height={132}
-          />
+          <Link href="/events/music">
+            <Image src={musicmobile} alt="music" width={312} height={132} className={styles.mobileimg}/>
+          </Link>
+          <Link href="/events/dance">
+            <Image src={dancemobile} alt="music" width={312} height={132} className={styles.mobileimg}/>
+          </Link>
+          <Link href="/events/quizzes">
+            <Image src={quizmobile} alt="music" width={312} height={132} className={styles.mobileimg}/>
+          </Link>
+          <Link href="/events/fashion">
+            <Image src={fashionmobile} alt="music" width={312} height={132} className={styles.mobileimg}/>
+          </Link>
+          <Link href="/events/drama">
+            <Image src={dramamobile} alt="music" width={312} height={132} className={styles.mobileimg}/>
+          </Link>
+          <Link href="/events/photography">
+            <Image src={cameramobile} alt="music" width={312} height={132} className={styles.mobileimg}/>
+          </Link>
         </div>
       </div>
     </>

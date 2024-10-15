@@ -1,4 +1,4 @@
-.brochureBack {
+.aboutBack {
   position: fixed;
   height: 100vh;
   width: 100%;
@@ -31,10 +31,12 @@
 .pageWrapper {
   position: absolute;
   top: -0rem;
+  height: 100vh;
+  overflow-y: hidden;
 }
 
 @media (max-width: 4000px) and (min-width: 2200px) {
-  .brochureBack {
+  .aboutBack {
     overflow-x: hidden;
   }
 

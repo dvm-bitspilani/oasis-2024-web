@@ -1,17 +1,38 @@
 .scrollWrapper {
   height: 100lvh;
   pointer-events: none;
-  overflow: hidden;
+  overflow-x: hidden;
 
   @media (width <= 1000px) {
-    height: 500lvh;
+    height: fit-content;
   }
 }
 
-.page {
+.desktopPage {
   position: fixed;
   width: 100vw;
   height: 100lvh;
+  display: block;
+
+  @media (width <= 1000px) {
+    display: none;
+  }
+}
+
+.mobilePage {
+  display: none;
+
+  @media (width < 1000px) {
+    display: block;
+  }
+
+  .mobileBackdrop {
+    position: fixed;
+    width: 100vw;
+    height: 100lvh;
+    top: 0;
+    z-index: 0;
+  }
 }
 
 .overlay {

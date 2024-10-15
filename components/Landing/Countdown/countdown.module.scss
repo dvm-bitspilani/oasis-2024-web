@@ -1,5 +1,5 @@
 .countdown {
-  font-family: Poppins;
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -28,14 +28,14 @@
 
   p {
     background: var(
-      --gold-title,
-      linear-gradient(
-        180deg,
-        #876d24 -18.6%,
-        #f3d57b 18.4%,
-        #b69637 68.61%,
-        #dcbf69 113.54%
-      )
+                    --gold-title,
+                    linear-gradient(
+                                    180deg,
+                                    #876d24 -18.6%,
+                                    #f3d57b 18.4%,
+                                    #b69637 68.61%,
+                                    #dcbf69 113.54%
+                    )
     );
     background-clip: text;
     -webkit-background-clip: text;
@@ -49,7 +49,8 @@
   @media (width <= 1000px) {
     left: 50%;
     transform: translateX(-50%);
-    top: 200px;
+    top: 250px;
+    position: absolute;
   }
 
   @media (width <= 585px) {

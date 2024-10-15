@@ -26,10 +26,9 @@ export default function Landing() {
     }, []);
 
     const slotMachine: any = useRef();
-    const slotMachine2D: any = useRef();
     const [camera, setCamera] = useState<any>(null);
 
-    const [is3dLoaded, setIs3dLoaded] = useState(false);
+    const [isSlotMachineLoaded, setIsSlotMachineLoaded] = useState(false);
     const [isXS, setIsXS] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const [isEvents, setIsEvents] = useState(false);
@@ -224,7 +223,7 @@ export default function Landing() {
 
     useGSAP(() => {
         // these are the entry animations
-        if (isLoaded && slotMachine.current && is3dLoaded) {
+        if (isLoaded && slotMachine.current && isSlotMachineLoaded) {
             const timeline = gsap.timeline();
             if (window.innerWidth > 1000) {
                 timeline
@@ -253,7 +252,7 @@ export default function Landing() {
                         slotMachine.current.position,
                         {
                             z: -2.3,
-                            y: 0.19,
+                            y: 0.395,
                             duration: 2.5,
                             ease: "power1.inOut",
                         },
@@ -318,7 +317,7 @@ export default function Landing() {
                     ?.setAttribute("style", "overflow-y: scroll;");
             }
         }
-    }, [isLoaded, camera, slotMachine.current, slotMachine, is3dLoaded]);
+    }, [isLoaded, camera, slotMachine.current, slotMachine, isSlotMachineLoaded]);
 
     useGSAP(
         () => {
@@ -360,125 +359,13 @@ export default function Landing() {
                 };
             }
 
-            if (window.innerWidth <= 1000) {
-                const timeline = gsap.timeline(timelineConfig);
-
-                const mm = gsap.matchMedia();
-
-                if (is3dLoaded && slotMachine.current) {
-                    // mobile scroll animations
-                    mm.add(
-                        {
-                            isMobile: "(max-width: 1000px)",
-                            isDesktop: "(min-width: 1001px)",
-                            isXS: "(max-width: 585px)",
-                        },
-                        ({conditions}: any) => {
-                            if (conditions.isXS !== isXS) {
-                                setIsXS(conditions.isXS);
-                            }
-                            if (conditions.isMobile !== isMobile) {
-                                setIsMobile(true);
-                            }
-                            timeline
-                                .to(slotMachine.current.rotation, {
-                                    y: 0,
-                                    duration: 1,
-                                })
-                                .to(
-                                    slotMachine.current.position,
-                                    {
-                                        x: 0,
-                                        y: -0.5,
-                                        z: 0,
-                                        duration: 1,
-                                    },
-                                    "<"
-                                )
-                                .to(
-                                    "#logo-container",
-                                    {
-                                        opacity: 0,
-                                        pointerEvents: "none",
-                                        duration: 0.75,
-                                    },
-                                    "<"
-                                )
-                                .to(
-                                    "#gradient",
-                                    {
-                                        opacity: 0,
-                                        duration: 0.75,
-                                    },
-                                    "<"
-                                )
-                                .to(
-                                    "#register",
-                                    {
-                                        y: 100,
-                                        opacity: 0,
-                                        duration: 0.75,
-                                    },
-                                    "<"
-                                )
-                                .to("#aboutUs", {
-                                    opacity: 1,
-                                }, "-=0.5")
-                                .to(
-                                    "#aboutUs",
-                                    {
-                                        opacity: 0,
-                                        y: 75,
-                                    },
-                                    "+=0.25"
-                                )
-                                // Events page Mobile
-                                .call(() => {
-                                    setIsEvents((prev) => !prev);
-                                }, [])
-                                .to(slotMachine.current.position, {
-                                    x: 0,
-                                    y: 0.5,
-                                    z: -1.25,
-                                    duration: 2,
-                                    ease: "power1.inOut",
-                                }, "-=0.75")
-                                .to(
-                                    slotMachine.current.position,
-                                    {
-                                        x: 0,
-                                        y: -2.5,
-                                        z: 0,
-                                        duration: 3,
-                                        ease: "power1.in",
-                                    },
-                                    "+=1"
-                                )
-                                .to("#contactUs", {
-                                    opacity: 1,
-                                    duration: 0.4,
-                                    ease: "sine.inOut",
-                                }, "-=1")
-                                .to(
-                                    "#contact-us-inner-scroll",
-                                    {
-                                        yPercent: -110,
-                                        pointerEvents: "auto",
-                                        duration: 1.25,
-                                        // ease: "sine.inOut",
-                                    },
-                                    "+=0.15"
-                                );
-                        }
-                    );
-                }
-            } else {
+            if (window.innerWidth > 1000) {
                 // desktop scroll animations
                 const timeline = gsap.timeline(timelineConfig);
 
                 const mm = gsap.matchMedia();
 
-                if (is3dLoaded && slotMachine.current) {
+                if (isSlotMachineLoaded && slotMachine.current) {
                     mm.add(
                         {
                             isMobile: "(max-width: 1000px)",
@@ -503,7 +390,7 @@ export default function Landing() {
                                     slotMachine.current.position,
                                     {
                                         x: -0.9,
-                                        y: 0,
+                                        y: 0.2,
                                         z: -0.5,
                                         duration: 1,
                                     },
@@ -634,7 +521,7 @@ export default function Landing() {
                                 }, [])
                                 .to(slotMachine.current.position, {
                                     x: 0,
-                                    y: 0.125,
+                                    y: 0.25,
                                     z: -2,
                                     duration: 3,
                                     ease: "power1.inOut",
@@ -884,8 +771,7 @@ export default function Landing() {
         },
         {
             dependencies: [
-                is3dLoaded,
-                slotMachine2D.current,
+                isSlotMachineLoaded,
                 slotMachine.current,
                 // renderMobile,
             ],
@@ -897,7 +783,7 @@ export default function Landing() {
             <SlotMachineExitCross iframeClick={iframeClick}/>
             <LandingScene
                 ref={slotMachine}
-                setIs3dLoaded={setIs3dLoaded}
+                setIs3dLoaded={setIsSlotMachineLoaded}
                 iframeClick={iframeClick}
                 isLanding={isLanding}
                 isVideoFocused={isVideoFocused}
@@ -907,6 +793,7 @@ export default function Landing() {
                 isEvents={isEvents}
                 isAboutUs={isAboutUs}
             />
+
         </>
     );
 }

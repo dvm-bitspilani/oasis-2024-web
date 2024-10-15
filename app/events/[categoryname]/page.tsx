@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styles from "./categories.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import grunge from "@/assets/Landing/Grunge.png";
+import axios from "axios";
 
 const categories = [
   "music",
@@ -16,6 +17,25 @@ const categories = [
 ];
 
 export default function Page({ params }: { params: { categoryname: string } }) {
+  const [eventsList, setEventsList] = useState<any>([]);
+  const [eventID, setEventID] = useState(0);
+
+  useEffect(() => {
+    axios
+      .get("https://bits-oasis.org/2024/main/registrations/events_details/")
+      .then((res) => {
+        const events = res.data;
+        const filteredEvents = events.filter((event: any) => {
+          return event.categories.some(
+            (cat: any) =>
+              cat.toLowerCase() === params.categoryname.toLowerCase()
+          );
+        });
+        console.log(filteredEvents);
+        setEventsList(filteredEvents);
+      });
+  }, []);
+
   useEffect(() => {
     if (!categories.includes(params.categoryname)) {
       window.location.href = "/404";
@@ -67,6 +87,29 @@ export default function Page({ params }: { params: { categoryname: string } }) {
             {params.categoryname.toUpperCase()}
             {params.categoryname.toUpperCase()}
           </h1>
+        </div>
+
+        <div className={styles.eventDisplay}>
+          <div className={styles.leftContent}>
+            <div className={styles.eventTitle}>{eventsList[eventID]?.name}</div>
+            <div className={styles.eventSubTitle}>
+              <div className={styles.clubName}>{"TBA"}</div>
+              <div className={styles.location}>
+                {eventsList[eventID]?.venue_name}
+              </div>
+            </div>
+            <div className={styles.eventContact}>
+              Contact: {eventsList[eventID]?.contact}
+            </div>
+            <div className={styles.carouselControl}>
+              <div className={styles.leftButton}></div>
+              <div className={styles.rightButton}></div>
+            </div>
+          </div>
+          <div className={styles.rightContent}>
+            <div className={styles.eventImage}></div>
+            <div className={styles.eventDescription}></div>
+          </div>
         </div>
       </div>
     </div>

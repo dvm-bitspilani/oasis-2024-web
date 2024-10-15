@@ -6,7 +6,6 @@ import Image from "next/image";
 import MobileRegBtn from "@/components/MobileLanding/RegBtn/RegBtn";
 import MobileHeading from "@/components/MobileLanding/AboutUsHeading/MobileHeading";
 import VideoCarousel from "@/components/MobileLanding/VideoCarousel/VideoCarousel";
-import AllEventsBtn from "@/components/MobileLanding/AllEventsBtn/AllEventsBtn";
 import Artist from "@/components/MobileLanding/Artist/Artist";
 import ContactUsMobile from "@/components/MobileLanding/ContactUs/ContactUs";
 
@@ -37,7 +36,7 @@ export default function MobileLanding() {
                     Oasis, where youth&apos;s boundless potential shines.
                 </p>
                 <VideoCarousel videoArray={["ZCrClSBM1ns", "0BYgHIMnz50", "krsrGOqnAN0"]}/>
-                <AllEventsBtn/>
+                {/*<AllEventsBtn/>*/}
             </div>
             <div className={styles.profShows}>
                 <div className={styles.artistContainer}>

@@ -11,7 +11,7 @@ import Preloader from "@/components/Preloader/Preloader";
 
 const categories = [
   "music",
-  "quiz",
+  "quizzes",
   "drama",
   "dance",
   "fashion",

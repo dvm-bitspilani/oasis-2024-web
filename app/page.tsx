@@ -10,31 +10,33 @@ import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
 import Nav from "@/components/Nav/Nav";
 import HamBtn from "@/components/Landing/Navbar/HamBtn/Btn";
 import CursorEffect from "@/components/CursorEffect/CursorEffect";
+import Sidenav from "@/components/Sidenav/Sidenav";
 
 export default function Home() {
-    return (
-        <>
-            <PrePreloader/>
-            <CursorEffect/>
-            <div className={styles.hamBtn} id="hamBtn">
-                <HamBtn/>
-            </div>
-            <div className={styles.navTickets} id="tickets-container">
-                <Nav/>
-            </div>
-            <main className={styles.scrollWrapper} id="scrollWrapper">
-                <main className={styles.page}>
-                    {/* <OasisLogo /> */}
-                    <Landing/>
-                    <LandingOverlay/>
-                    <Grid/>
-                    <Glow/>
-                    <Trees/>
-                    <Grunge/>
-                    {/* <SuitBackground /> */}
-                </main>
-            </main>
-            {/*<AmbientMusic/>*/}
-        </>
-    );
+  return (
+    <>
+      <PrePreloader />
+      <CursorEffect />
+      <div className={styles.hamBtn} id="hamBtn">
+        <HamBtn />
+      </div>
+      <div className={styles.navTickets} id="tickets-container">
+        {/* <Nav/> */}
+        <Sidenav />
+      </div>
+      <main className={styles.scrollWrapper} id="scrollWrapper">
+        <main className={styles.page}>
+          {/* <OasisLogo /> */}
+          <Landing />
+          <LandingOverlay />
+          <Grid />
+          <Glow />
+          <Trees />
+          <Grunge />
+          {/* <SuitBackground /> */}
+        </main>
+      </main>
+      {/*<AmbientMusic/>*/}
+    </>
+  );
 }

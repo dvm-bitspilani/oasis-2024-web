@@ -5,6 +5,9 @@ import Image from "next/image";
 
 import slotMachine2D from '@/assets/Landing/slotMachine2D.png'
 import MobileRegBtn from "@/components/MobileLanding/RegBtn/RegBtn";
+import AboutUsHeading from "@/components/MobileLanding/AboutUsHeading/AboutUsHeading";
+import VideoCarousel from "@/components/MobileLanding/VideoCarousel/VideoCarousel";
+import AllEventsBtn from "@/components/MobileLanding/AllEventsBtn/AllEventsBtn";
 
 export default function MobileLanding() {
     return (
@@ -49,7 +52,19 @@ export default function MobileLanding() {
                     </defs>
                 </svg>
             </div>
-            <div className={styles.aboutUs}></div>
+            <div className={styles.aboutUs}>
+                <AboutUsHeading/>
+                <p className={styles.aboutUsText}>
+                    Oasis, the annual cultural extravaganza of Birla Institute of Technology and Science, Pilani, has
+                    been a vibrant part of India&apos;s cultural tapestry since 1971. Managed entirely by students,
+                    it&apos;s a
+                    dazzling showcase of talent in Dance, Drama, Literature, Comedy, Fashion, and Music. It&apos;s where
+                    dreams come alive, laughter fills the air, and creativity knows no bounds. Step into the world of
+                    Oasis, where youth&apos;s boundless potential shines.
+                </p>
+                <VideoCarousel videoArray={["ZCrClSBM1ns", "0BYgHIMnz50", "krsrGOqnAN0"]}/>
+                <AllEventsBtn/>
+            </div>
             <div className={styles.profShows}></div>
             <div className={styles.contactUs}></div>
         </main>

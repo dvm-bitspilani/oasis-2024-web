@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  width: 178px;
+  height: 45px;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 227, 173, 0.50);
+  background: radial-gradient(62.13% 81.58% at 50.28% 100%, rgba(255, 232, 135, 0.30) 0%, rgba(255, 232, 135, 0.06) 100%);
+  box-shadow: 0 1px 7px 0 #FFE887 inset;
+  color: #FFE887;
+  text-align: center;
+  font-family: "Source Serif 4", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32.2px; /* 178.889% */
+  text-transform: capitalize;
+  pointer-events: auto;
+  cursor: pointer;
+  text-decoration: none;
+}

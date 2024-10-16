@@ -1,4 +1,4 @@
-.brochureBack {
+.contactBack {
   position: fixed;
   height: 100%;
   width: 100%;
@@ -31,10 +31,10 @@
 .contactPage {
   position: fixed;
   top: 0rem;
-  height: 100lvh;
+  height: 100%;
   width: 100vw;
-  opacity: 1;
-  pointer-events: none;
+  //opacity: 1;
+  //pointer-events: auto;
   overflow-x: hidden;
   overflow-y: scroll;
 
@@ -137,21 +137,6 @@
   }
 }
 
-// @media (max-width: 2100px) and (min-width: 1400px) {
-//   .contactPage {
-//     .heading {
-//       margin-top: 5.5rem;
-
-//       h2 {
-//         font-size: 72px;
-//       }
-//     }
-
-//     .cardContainer {
-//       margin-top: 5rem;
-//     }
-//   }
-// }
 
 @media (max-width: 2100px) and (min-width: 1800px) {
   .contactPage {
@@ -187,7 +172,7 @@
       margin-top: 4rem;
 
       h2 {
-        font-size: 65px;
+        font-size: 58px;
       }
     }
 
@@ -217,11 +202,13 @@
 
 @media (max-width: 1000px) {
   .contactPage {
+    height: fit-content;
+
     .heading {
       h2 {
-        font-size: 62px;
+        font-size: 52px;
         font-weight: 400;
-        line-height: 43px;
+        line-height: normal;
         box-shadow: none;
       }
     }

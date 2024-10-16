@@ -11,7 +11,7 @@
     rgba(0, 0, 0, 0.95) 100%
   );
   z-index: 5110;
-  cursor: initial;
+  pointer-events: none;
 }
 
 .btn {

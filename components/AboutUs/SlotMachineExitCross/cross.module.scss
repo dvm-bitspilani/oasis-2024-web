@@ -5,7 +5,8 @@
   color: white;
   position: absolute;
   cursor: pointer;
-  z-index: 100;
+  z-index: 1000000;
+  pointer-events: auto;
 
   svg {
     aspect-ratio: 1 / 1;

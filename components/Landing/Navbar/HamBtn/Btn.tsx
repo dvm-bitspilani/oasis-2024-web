@@ -299,6 +299,7 @@ export default function HamBtn() {
         onClick={handleClick}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        id="atharvHamBtn"
         ref={BtnRef}
       >
         {isHamOpen && <HamMenu isHamOpen={isHamOpen} />}

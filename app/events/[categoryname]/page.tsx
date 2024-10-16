@@ -24,6 +24,10 @@ export default function Page({ params }: { params: { categoryname: string } }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    document.body.style.overflow = "hidden";
+  }, []);
+
+  useEffect(() => {
     axios
       .get("https://bits-oasis.org/2024/main/registrations/events_details/")
       .then((res) => {

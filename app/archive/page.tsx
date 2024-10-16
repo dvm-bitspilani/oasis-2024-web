@@ -11,6 +11,8 @@ import BackButton from "@/components/Registration/BackButton/BackButton";
 import Image from "next/image";
 import Link from "next/link";
 import Carousel from "@/components/Archive/Carousel";
+import CursorEffect from "@/components/CursorEffect/CursorEffect";
+import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
 
 import one from "../../assets/Gallery/one.jpg";
 import two from "../../assets/Gallery/two.jpg";
@@ -147,6 +149,8 @@ export default function GalleryPage() {
 
   return (
     <>
+      <PrePreloader />
+      <CursorEffect />
       <div className={styles.galleryBack}>
         <Glow />
         <Grunge />

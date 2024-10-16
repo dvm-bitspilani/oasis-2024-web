@@ -25,17 +25,20 @@ import aryankhorana from "../../assets/Landing/contactUs/aryankhorana.png";
 import left from "../../assets/Landing/contactUs/left.png";
 import right from "../../assets/Landing/contactUs/right.png";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import HamBtn from "@/components/Landing/Navbar/HamBtn/Btn";
 import RegBtn from "@/components/Landing/Navbar/RegBtn/RegBtn";
 import CursorEffect from "@/components/CursorEffect/CursorEffect";
 
-export default function Brochure() {
+export default function ContactUs() {
 
   const contactCardRef = useRef<HTMLDivElement>(null);
   const contactCard1Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    
+    if (!localStorage.getItem("firstVisit")) {
+      localStorage.setItem("firstVisit", "true");
+      window.location.reload(); 
+    }
     const container = contactCardRef.current;
     const container1 = contactCard1Ref.current;
 

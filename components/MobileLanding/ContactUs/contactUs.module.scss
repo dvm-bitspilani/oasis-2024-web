@@ -3,6 +3,36 @@
   padding: 15px;
   grid-template-columns: repeat(2, 1fr);
   gap: 8px;
-  margin-top: 50px;
+  margin-top:20px;
   align-items: center;
+}
+
+.madeWith a{
+  pointer-events: all;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-family: "Source Serif Pro", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: normal;
+  background: linear-gradient(
+    112.17deg,
+    #d4a753 25.95%,
+    #d2a146 44.71%,
+    #d4a753 72.61%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  span {
+    padding: 0 7px;
+    height: 25px;
+  }
 }

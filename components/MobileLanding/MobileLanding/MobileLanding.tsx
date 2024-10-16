@@ -2,6 +2,7 @@
 
 import styles from "./mobileLanding.module.scss";
 import Image from "next/image";
+import { useState } from "react";
 
 import MobileRegBtn from "@/components/MobileLanding/RegBtn/RegBtn";
 import MobileHeading from "@/components/MobileLanding/AboutUsHeading/MobileHeading";
@@ -88,18 +89,27 @@ export default function MobileLanding() {
             reverse={false}
             name="Vishal Mishra"
             date={26}
+            artist="vishal"
+            music="/Audio/kaiseHua.mp3"
+            spotifyUrl="https://open.spotify.com/artist/5wJ1H6ud777odtZl5gG507?si=sez0PAMwRJSGuWPbhjodrQ"
           />
           <Artist
             image={seedheMaut}
             reverse={true}
             name="Seedhe Maut"
             date={25}
+            artist="seedhe"
+            music="/Audio/khattaFlow.mp3"
+            spotifyUrl="https://open.spotify.com/artist/2oBG74gAocPMFv6Ij9ykdo?si=UWya2Fu5TQq4BB0XH6txzA"
           />
           <Artist
             image={yellowDiary}
             reverse={false}
             name="The Yellow Diary"
             date={24}
+            artist="yellow"
+            music="/Audio/rozroz.mp3"
+            spotifyUrl="https://open.spotify.com/artist/6xlrAAgxcRlgCXnbg2hcFc?si=DbSoZgHhRjyuWv3ME-H-ow"
           />
         </div>
         <Image

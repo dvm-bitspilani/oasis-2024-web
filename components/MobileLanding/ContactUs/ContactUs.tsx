@@ -95,6 +95,9 @@ export default function ContactUsMobile() {
           email="mailto:gensec@pilani.bits-pilani.ac.in"
         />
       </div>
+      <div className={styles.madeWith}>
+        <a href="https://bits-dvm.org" target="_main">Made with <span> ❤️ </span>by DVM</a>
+      </div>
     </>
   );
 }

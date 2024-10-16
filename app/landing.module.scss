@@ -88,6 +88,16 @@
   top: 30px;
   left: 20px;
   z-index: 5200;
+  @media screen and (max-width: 585px) {
+    .hamIcon {
+      scale: 30;
+    }
+    background-color: #1f152e;
+    scale: 0.7;
+    border-radius: 50%;
+    border: solid 2px #edcf89;
+    opacity: 0.4;
+  }
 
   @media (width > 1920px) {
     top: 60px;
@@ -108,7 +118,7 @@
   transform: translateY(-50%);
   z-index: 5000;
 
-  @media(width<=1405px) {
+  @media (width<=1405px) {
     transform: scale(0.8) translateY(-50%);
   }
 

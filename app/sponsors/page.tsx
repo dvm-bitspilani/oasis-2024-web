@@ -8,6 +8,8 @@ import BackButton from "@/components/Registration/BackButton/BackButton";
 import Trees from "@/components/ComingSoon/Trees";
 import Image from "next/image";
 import axios from "axios";
+import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
+import CursorEffect from "@/components/CursorEffect/CursorEffect";
 
 export default function Sponsors() {
   const [sponsors, setSponsors] = React.useState<any[]>([]);
@@ -15,7 +17,9 @@ export default function Sponsors() {
     axios
       .get("https://www.bits-oasis.org/2024/main/wallet/sponsors/")
       .then((response) => {
-        const sortedSponsors = response.data.sort((a:any, b:any) => a.order - b.order);
+        const sortedSponsors = response.data.sort(
+          (a: any, b: any) => a.order - b.order
+        );
         setSponsors(sortedSponsors);
         // setSponsors(response.data);
       });
@@ -151,63 +155,66 @@ export default function Sponsors() {
     }
   };
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.backgroundImage} />
-      {/* <Link href="/" className={styles.backButton}>
+    <>
+      <PrePreloader />
+      <CursorEffect />
+      <div className={styles.wrapper}>
+        <div className={styles.backgroundImage} />
+        {/* <Link href="/" className={styles.backButton}>
         <BackButton />
       </Link> */}
-      <div className={styles.mainContainer}>
-        <Link href="/" className={styles.backButton}>
-          <BackButton />
-        </Link>
-        <div className={styles.title}>Sponsors</div>
-        <div
-          className={styles.sponsorsContainer}
-          onScroll={() => handleScroll()}
-          ref={containerRef}
-        >
+        <div className={styles.mainContainer}>
+          <Link href="/" className={styles.backButton}>
+            <BackButton />
+          </Link>
+          <div className={styles.title}>Sponsors</div>
+          <div
+            className={styles.sponsorsContainer}
+            onScroll={() => handleScroll()}
+            ref={containerRef}
+          >
+            {sponsors.map((sponsor, index) => (
+              <Link
+                key={sponsor.id}
+                href={sponsor.web_url}
+                className={styles.sponsorItemContainer}
+                draggable="false"
+              >
+                <div key={index} className={styles.sponsorItem}>
+                  <img
+                    src={sponsor.url}
+                    className={styles.sponsorImg}
+                    draggable="false"
+                    alt=""
+                  />
+                  <div className={styles.sponsorName}>{sponsor.name}</div>
+                  <div className={styles.sponsorDescription}>
+                    {sponsor.description}
+                  </div>
+                </div>
+              </Link>
 
-          {sponsors.map((sponsor, index) => (
-            <Link
-              key={sponsor.id}
-              href={sponsor.web_url}
-              className={styles.sponsorItemContainer}
-              draggable="false"
-              
-            >
-              <div key={index} className={styles.sponsorItem}>
-                <img
-                  src={sponsor.url}
-                  className={styles.sponsorImg}
-                  draggable="false"
-                  alt=""
-                />
-                <div className={styles.sponsorName}>{sponsor.name}</div>
-                <div className={styles.sponsorDescription}>{sponsor.description}</div>
-              </div>
-            </Link>
-
-            // <div
-            //   key={index}
-            //   className={styles.sponsor}
-            //   style={{ backgroundImage: `url(${sponsor.url})` }}
-            // />
-          ))}
-        </div>
-        <div className={styles.scrollbar} onClick={handleTrackSnap}>
-          <div className={styles.scrollbarTrack} />
-          <Image
-            draggable={false}
-            src="/Registration/ScrollBarThumb.png"
-            alt="scrollBarThumb"
-            width={85}
-            height={85}
-            className={styles.scrollbarThumb}
-            ref={scrollbarThumbRef}
-            onMouseDown={handleMouseDown}
-            onTouchStart={handleMouseDown}
-          />
-          {/* <svg
+              // <div
+              //   key={index}
+              //   className={styles.sponsor}
+              //   style={{ backgroundImage: `url(${sponsor.url})` }}
+              // />
+            ))}
+          </div>
+          <div className={styles.scrollbar} onClick={handleTrackSnap}>
+            <div className={styles.scrollbarTrack} />
+            <Image
+              draggable={false}
+              src="/Registration/ScrollBarThumb.png"
+              alt="scrollBarThumb"
+              width={85}
+              height={85}
+              className={styles.scrollbarThumb}
+              ref={scrollbarThumbRef}
+              onMouseDown={handleMouseDown}
+              onTouchStart={handleMouseDown}
+            />
+            {/* <svg
               xmlns="http://www.w3.org/2000/svg"
               width="85"
               height="85"
@@ -228,37 +235,38 @@ export default function Sponsors() {
                 />
               </g>
             </svg> */}
+          </div>
         </div>
-      </div>
-      <svg
-        style={{ position: "absolute", width: "100%", height: "100%" }}
-        width="1687"
-        height="1080"
-        viewBox="0 0 1687 1080"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          opacity="0.15"
-          d="M0 1394L0 -293L1687 -293L1687 1394L0 1394Z"
-          fill="url(#paint0_radial_1444_3421)"
-        />
-        <defs>
-          <radialGradient
-            id="paint0_radial_1444_3421"
-            cx="0"
-            cy="0"
-            r="1"
-            gradientUnits="userSpaceOnUse"
-            gradientTransform="translate(843.5 550.5) scale(843.5)"
-          >
-            <stop stopColor="#FADC69" />
-            <stop offset="1" stopColor="#FADC69" stopOpacity="0" />
-          </radialGradient>
-        </defs>
-      </svg>
+        <svg
+          style={{ position: "absolute", width: "100%", height: "100%" }}
+          width="1687"
+          height="1080"
+          viewBox="0 0 1687 1080"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            opacity="0.15"
+            d="M0 1394L0 -293L1687 -293L1687 1394L0 1394Z"
+            fill="url(#paint0_radial_1444_3421)"
+          />
+          <defs>
+            <radialGradient
+              id="paint0_radial_1444_3421"
+              cx="0"
+              cy="0"
+              r="1"
+              gradientUnits="userSpaceOnUse"
+              gradientTransform="translate(843.5 550.5) scale(843.5)"
+            >
+              <stop stopColor="#FADC69" />
+              <stop offset="1" stopColor="#FADC69" stopOpacity="0" />
+            </radialGradient>
+          </defs>
+        </svg>
 
-      <Trees />
-    </div>
+        {/* <Trees /> */}
+      </div>
+    </>
   );
 }

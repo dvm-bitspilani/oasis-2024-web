@@ -241,12 +241,13 @@
         position: absolute;
         bottom: 0;
         display: flex;
-        width: 50%;
+        width: 40%;
         justify-content: space-between;
         align-items: flex-end;
         z-index: 10;
 
         @media screen and (max-width: 1148px) {
+          width: 40%;
           position: fixed;
           left: 50%;
           bottom: 1rem;
@@ -320,12 +321,15 @@
         @media screen and (max-width: 1148px) {
           padding: 0;
           width: 100%;
-          height: 30%;
+          aspect-ratio: 16/9;
+          max-height: 50%;
+          height: unset;
           max-width: 75%;
         }
 
         @media screen and (max-width: 600px) {
           max-width: unset;
+          height: unset;
         }
 
         .eventImage {
@@ -365,7 +369,7 @@
 
         @media screen and (max-width: 1148px) {
           font-family: Source Serif 4;
-          font-size: 20px;
+          font-size: 14px;
           font-weight: 400;
           line-height: 24px;
           letter-spacing: 0.02em;
@@ -376,6 +380,33 @@
         @media screen and (max-width: 600px) {
           font-size: 12px;
           line-height: 16px;
+        }
+      }
+
+      .longDescription {
+        @media screen and (max-height: 900px) {
+          font-size: 1.25rem;
+          line-height: 1.5rem;
+        }
+
+        @media screen and (max-width: 1400px) and (min-height: 900px) {
+          font-size: 14px;
+          line-height: 20px;
+        }
+
+        @media screen and (max-width: 1148px) {
+          font-family: Source Serif 4;
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 16px;
+          letter-spacing: 0.02em;
+          text-align: center;
+          padding-left: 0;
+        }
+
+        @media screen and (max-width: 600px) {
+          font-size: 10px;
+          line-height: 12px;
         }
       }
     }

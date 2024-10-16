@@ -89,6 +89,7 @@ export default function EventsMobile() {
           textStyles={{}}
           text="Events"
         />
+        
         <div className={styles.row}>
           <Link href="/events/music">
             <div className={styles.box}>

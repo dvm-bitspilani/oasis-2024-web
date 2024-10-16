@@ -86,12 +86,12 @@
   }
 
   @media (width <= 900px) {
-    transform: scale(0.65);
+    transform: scale(0.55);
   }
 
-  @media (width <= 585px) {
-    transform: scale(1);
-  }
+  // @media (width <= 585px) {
+  //   transform: scale(1);
+  // }
 }
 
 .googleMaps {
@@ -103,6 +103,10 @@
   scale: unset;
   transform: translate(0, -50%);
   opacity: 0;
+
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
 
   iframe {
     border-radius: 25px;

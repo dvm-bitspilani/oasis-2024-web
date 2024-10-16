@@ -5,18 +5,25 @@ import styles from "./events.module.scss";
 import Folder from "@/components/Events/Folder/Folder";
 import Category from "@/components/Events/Category/Category";
 
-import music from "../../assets/Events/Folders/Comic photo effect 3.png";
-import dance from "../../assets/Events/Folders/Comic photo effect 4.png";
-import quiz from "../../assets/Events/Folders/Comic photo effect 6.png";
-import camera from "../../assets/Events/Folders/Comic photo effect 8.png";
-import drama from "../../assets/Events/Folders/Comic photo effect 7.png";
-import fashion from "../../assets/Events/Folders/Comic photo effect 5.png";
+// import music from "../../assets/Events/Folders/Comic photo effect 3.png";
+// import dance from "../../assets/Events/Folders/Comic photo effect 4.png";
+// import quiz from "../../assets/Events/Folders/Comic photo effect 6.png";
+// import camera from "../../assets/Events/Folders/Comic photo effect 8.png";
+// import drama from "../../assets/Events/Folders/Comic photo effect 7.png";
+// import fashion from "../../assets/Events/Folders/Comic photo effect 5.png";
+import line from "../../assets/Events/Folders/lines.png";
 import musicmobile from "../../assets/Events/Folders/1.png";
 import dancemobile from "../../assets/Events/Folders/2.png";
 import quizmobile from "../../assets/Events/Folders/3.png";
 import dramamobile from "../../assets/Events/Folders/5.png";
 import fashionmobile from "../../assets/Events/Folders/4.png";
 import cameramobile from "../../assets/Events/Folders/6.png";
+import musicbg from "../../assets/Events/Folders/musicbg.png";
+import quizbg from "../../assets/Events/Folders/quizbg.png";
+import dramabg from "../../assets/Events/Folders/dramabg.png";
+import dancebg from "../../assets/Events/Folders/dancebg.png";
+import fashionbg from "../../assets/Events/Folders/fashionbg.png";
+import camerabg from "../../assets/Events/Folders/camerabg.png";
 import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
 import CursorEffect from "@/components/CursorEffect/CursorEffect";
 import SuitBackground from "@/components/Landing/Backdrop/Backdrop";
@@ -117,6 +124,35 @@ export default function EventsPage() {
         <Grunge />
         <Grid />
         <SuitBackground />
+        <svg
+          width="1920"
+          height="1067"
+          viewBox="0 0 1920 1067"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={styles.line}
+        >
+          <path
+            d="M1924.5 98.5004C1924.5 98.5004 1563.69 727.885 1063.69 838.594C1010.5 850.37 925.061 863.945 833 853.5C438.161 808.702 571.566 243.084 112.156 306.851C73.8775 312.164 36.2551 321.241 -0.499156 333.498"
+            stroke="#F8D848"
+            stroke-width="1.5"
+          />
+          <path
+            d="M1938.5 4.73586C1938.5 4.73586 1569.61 665.28 1069.5 776C979.358 795.956 941 808 861.5 787.5C504.475 695.436 641.513 170.288 131.5 251C85.8957 258.217 40.8328 267.997 -2.98607 282.199"
+            stroke="#F8D848"
+            stroke-width="1.5"
+          />
+          <path
+            d="M1921 253.5C1921 253.5 1598.27 759.911 1120.5 944.5C1054.5 970 856 989.795 761.5 970.5C355 887.5 406 279.5 -2.99938 438.5"
+            stroke="#F8D848"
+            stroke-width="1.5"
+          />
+          <path
+            d="M1921.5 179.499C1921.5 179.499 1556.16 768.919 1060.5 897.999C964.5 922.999 880.579 932.741 789.001 922.999C413 882.999 470.501 196.999 0.00129466 375.999"
+            stroke="#F8D848"
+            stroke-width="1.5"
+          />
+        </svg>
       </div>
 
       <div className={styles.ham}>
@@ -128,6 +164,36 @@ export default function EventsPage() {
       <div className={styles.reg}>
         <RegBtn />
       </div>
+      {/* <div className={styles.line}>
+        <svg
+          width="1920"
+          height="1053"
+          viewBox="0 0 1920 1053"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1924.5 94.5004C1924.5 94.5004 1563.69 723.885 1063.68 834.594C973.562 854.549 945.11 851.057 853.339 863.798C417.857 924.26 571.566 239.084 112.155 302.851C73.8767 308.164 36.2542 317.241 -0.500011 329.498"
+            stroke="#F8D848"
+            stroke-width="1.5"
+          />
+          <path
+            d="M1938.49 0.736328C1938.49 0.736328 1567.99 690.571 1067.89 801.29C977.746 821.247 1002.86 793.299 911.065 806.043C475.494 866.517 594.491 196.432 134.986 260.212C89.2527 266.56 44.3188 277.209 0.500007 291.411"
+            stroke="#F8D848"
+            stroke-width="1.5"
+          />
+          <path
+            d="M1921 249.5C1921 249.5 1555.58 794.045 1055.5 904.729C965.358 924.679 839.676 958.612 751.433 946.945C324.785 890.534 370.777 266.976 -3.00001 434.5"
+            stroke="#F8D848"
+            stroke-width="1.5"
+          />
+          <path
+            d="M1921.5 175.5C1921.5 175.5 1574.32 752.821 1074.23 863.485C984.09 883.432 890.497 877.004 798.459 880.242C371.671 895.257 406.305 221.518 -9.9988e-05 372"
+            stroke="#F8D848"
+            stroke-width="1.5"
+          />
+        </svg>
+      </div> */}
 
       <div className={styles.eventsPage} id="contactUs">
         <div className={styles.heading}>
@@ -194,7 +260,9 @@ export default function EventsPage() {
           <div className={styles.row}>
             <Link href="/events/music">
               <div className={styles.box}>
-                <svg
+                <Image src={musicbg} alt="music" width={484} height={300} />
+
+                {/* <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="484"
                   height="300"
@@ -224,12 +292,13 @@ export default function EventsPage() {
                   height={200}
                   className={styles.music}
                 />
-                <p className={styles.musictxt}>MUSIC</p>
+                <p className={styles.musictxt}>MUSIC</p> */}
               </div>
             </Link>
             <Link href="/events/quizzes">
               <div className={styles.box}>
-                <svg
+                <Image src={quizbg} alt="music" width={484} height={300} />
+                {/* <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="484"
                   height="300"
@@ -259,12 +328,13 @@ export default function EventsPage() {
                   height={200}
                   className={styles.quiz}
                 />
-                <p className={styles.quiztxt}>QUIZ</p>
+                <p className={styles.quiztxt}>QUIZ</p> */}
               </div>
             </Link>
             <Link href="/events/drama">
               <div className={styles.box}>
-                <svg
+                <Image src={dramabg} alt="music" width={484} height={300} />
+                {/* <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="484"
                   height="300"
@@ -294,12 +364,13 @@ export default function EventsPage() {
                   height={200}
                   className={styles.drama}
                 />
-                <p className={styles.dramatxt}>DRAMA</p>
+                <p className={styles.dramatxt}>DRAMA</p> */}
               </div>
             </Link>
             <Link href="/events/dance">
               <div className={styles.box}>
-                <svg
+                <Image src={dancebg} alt="music" width={484} height={300} />
+                {/* <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="484"
                   height="300"
@@ -329,12 +400,13 @@ export default function EventsPage() {
                   height={200}
                   className={styles.dance}
                 />
-                <p className={styles.dancetxt}>DANCE</p>
+                <p className={styles.dancetxt}>DANCE</p> */}
               </div>
             </Link>
             <Link href="/events/fashion">
               <div className={styles.box}>
-                <svg
+                <Image src={fashionbg} alt="music" width={484} height={300} />
+                {/* <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="484"
                   height="300"
@@ -364,12 +436,13 @@ export default function EventsPage() {
                   height={200}
                   className={styles.dance}
                 />
-                <p className={styles.fashiontxt}>FASHION</p>
+                <p className={styles.fashiontxt}>FASHION</p> */}
               </div>
             </Link>
             <Link href="/events/photography">
               <div className={styles.box}>
-                <svg
+                <Image src={camerabg} alt="music" width={484} height={300} />
+                {/* <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="484"
                   height="300"
@@ -400,7 +473,7 @@ export default function EventsPage() {
                   className={styles.dance}
                 />
                 <p className={styles.phototxt}>PHOTO</p>
-                <p className={styles.cameratxt}>GRAPHY</p>
+                <p className={styles.cameratxt}>GRAPHY</p> */}
               </div>
             </Link>
           </div>
@@ -492,22 +565,58 @@ export default function EventsPage() {
 
         <div className={styles.mobilecontainer}>
           <Link href="/events/music">
-            <Image src={musicmobile} alt="music" width={312} height={132} className={styles.mobileimg}/>
+            <Image
+              src={musicmobile}
+              alt="music"
+              width={312}
+              height={132}
+              className={styles.mobileimg}
+            />
           </Link>
           <Link href="/events/dance">
-            <Image src={dancemobile} alt="music" width={312} height={132} className={styles.mobileimg}/>
+            <Image
+              src={dancemobile}
+              alt="music"
+              width={312}
+              height={132}
+              className={styles.mobileimg}
+            />
           </Link>
           <Link href="/events/quizzes">
-            <Image src={quizmobile} alt="music" width={312} height={132} className={styles.mobileimg}/>
+            <Image
+              src={quizmobile}
+              alt="music"
+              width={312}
+              height={132}
+              className={styles.mobileimg}
+            />
           </Link>
           <Link href="/events/fashion">
-            <Image src={fashionmobile} alt="music" width={312} height={132} className={styles.mobileimg}/>
+            <Image
+              src={fashionmobile}
+              alt="music"
+              width={312}
+              height={132}
+              className={styles.mobileimg}
+            />
           </Link>
           <Link href="/events/drama">
-            <Image src={dramamobile} alt="music" width={312} height={132} className={styles.mobileimg}/>
+            <Image
+              src={dramamobile}
+              alt="music"
+              width={312}
+              height={132}
+              className={styles.mobileimg}
+            />
           </Link>
           <Link href="/events/photography">
-            <Image src={cameramobile} alt="music" width={312} height={132} className={styles.mobileimg}/>
+            <Image
+              src={cameramobile}
+              alt="music"
+              width={312}
+              height={132}
+              className={styles.mobileimg}
+            />
           </Link>
         </div>
       </div>

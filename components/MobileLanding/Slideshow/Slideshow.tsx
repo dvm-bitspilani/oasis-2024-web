@@ -19,7 +19,11 @@ export default function Slideshow() {
 
   return (
     <div className={styles.slideshow}>
-      <Image src={imageArray[activeImageIndex]} alt="visible image" />
+      <Image
+        src={imageArray[activeImageIndex]}
+        alt="visible image"
+        placeholder="blur"
+      />
       <Image
         src={
           activeImageIndex === imageArray.length - 1
@@ -27,6 +31,7 @@ export default function Slideshow() {
             : imageArray[activeImageIndex + 1]
         }
         alt="next image"
+        placeholder="blur"
       />
     </div>
   );

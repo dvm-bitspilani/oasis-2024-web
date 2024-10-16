@@ -47,7 +47,7 @@ export default function MobileLanding() {
           shines.
         </p>
         <VideoCarousel
-          videoArray={["7MHVWCrJppk", "ZCrClSBM1ns", "krsrGOqnAN0"]}
+          videoArray={["Ogio7ZJSb9g", "ZCrClSBM1ns", "krsrGOqnAN0"]}
         />
         {/*0BYgHIMnz50*/}
         {/*<AllEventsBtn/>*/}

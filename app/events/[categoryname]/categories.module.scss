@@ -100,8 +100,14 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: calc(100vw - 16rem);
-    height: calc(100vh - 16rem);
+    width: calc(100vw - 11.3rem);
+    height: calc(100vh - 11.3rem);
+
+    @media screen and (max-height: 900px) and (min-width: 1149px) {
+      padding: 5.625rem 5.625rem 2rem;
+      width: calc(100vw - 11.3rem);
+      height: calc(100vh - 7.625rem);
+    }
 
     @media screen and (max-width: 1148px) {
       flex-direction: column;
@@ -131,6 +137,10 @@
 
         margin-top: 9.625rem;
 
+        @media screen and (max-height: 900px) and (min-width: 1149px) {
+          margin-top: 5.625rem;
+        }
+
         @media screen and (max-width: 1400px) {
           font-size: 100px;
           line-height: 70px;
@@ -142,6 +152,12 @@
           line-height: 70px;
 
           text-align: center;
+        }
+
+        @media screen and (max-width: 600px) {
+          font-size: 40px;
+          line-height: 50px;
+          margin-top: 50px;
         }
       }
       .eventSubTitle {
@@ -233,7 +249,7 @@
         @media screen and (max-width: 1148px) {
           position: fixed;
           left: 50%;
-          bottom: 5rem;
+          bottom: 1rem;
           transform: translateX(-50%);
         }
         .leftButton,
@@ -337,7 +353,12 @@
         line-height: 45px; /* 160.714% */
         letter-spacing: 0.56px;
 
-        @media screen and (max-width: 1400px) {
+        @media screen and (max-height: 900px) {
+          font-size: 14px;
+          line-height: 16px;
+        }
+
+        @media screen and (max-width: 1400px) and (min-height: 900px) {
           font-size: 20px;
           line-height: 30px;
         }

@@ -16,13 +16,6 @@
 
 body {
     background-color: #190d2c;
-    overflow-y: hidden;
-}
-
-@media (width <= 1000px) {
-    body {
-        overflow-y: scroll;
-    }
 }
 
 .htmlScreen iframe, .htmlScreenIos iframe {
@@ -204,4 +197,9 @@ body {
     font-family: "Thedus Condensed Light";
     src: url(/Fonts/Thedus_Condensed_Light_Bold_900.otf);
     font-weight: 900;
+}
+@font-face {
+    font-family: "Lostar";
+    src: url(/Fonts/Lostar.ttf);
+    font-weight: normal;
 }

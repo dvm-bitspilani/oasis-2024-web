@@ -6,7 +6,8 @@
 }
 
 .ham {
-  position: fixed;
+  // position: fixed;
+  position: absolute;
   top: 30px;
   left: 20px;
   @media (width>1920px) {
@@ -78,7 +79,7 @@
     justify-content: center;
     align-items: center;
 
-    @media (width<500px) {
+    @media (width<550px) {
       width: auto;
     }
 
@@ -90,7 +91,7 @@
       justify-content: center;
       @media (width<550px) {
         gap: 0rem;
-        transform: scale(0.8) translateY(-10%);
+        // transform: scale(0.8) translateY(-10%);
       }
 
       .box {
@@ -108,7 +109,9 @@
           transform: scale(0.8);
         }
         @media (width<550px) {
-          transform: scale(0.65);
+          transform: scale(0.6);
+          display: none;
+          // height: 200px;
         }
         .dance {
           position: absolute;
@@ -232,6 +235,22 @@
           filter: blur(10.449999809265137px);
         }
       }
+    }
+  }
+  .mobilecontainer{
+    position: relative;
+    display: none;
+    @media(width<550px){
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 20%;
+    }
+    @media(width<400px){
+      margin-top: 23%;
+    }
+    .mobileimg{
+      pointer-events: auto;
     }
   }
 }

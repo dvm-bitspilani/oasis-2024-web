@@ -9,7 +9,7 @@ import sm from "@/public/ProfShow/goat.png";
 import vm from "@/public/ProfShow/vishalmishra.png";
 import tyd from "@/public/ProfShow/theyellowdiaries.png";
 import gif1 from "@/public/ProfShow/gif1.gif";
-import Preloader from "@/components/Preloader/Preloader";
+import { useRouter } from "next/navigation";
 
 const eventDetails = [
   {
@@ -33,6 +33,19 @@ const eventDetails = [
 ];
 
 const Shows = () => {
+  const router = useRouter();
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const isMobile =
+        /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 960;
+
+      if (isMobile) {
+        router.push("/");
+      }
+    }
+    document.body.style.overflow = "hidden";
+  }, []);
+
   const [eventID, setEventID] = useState(0);
   const [progressKey, setProgressKey] = useState(0);
 
@@ -41,7 +54,8 @@ const Shows = () => {
   const eventImageRef = useRef(null);
   const eventTitleRef = useRef(null);
 
-  const animate = () => {
+  const animate = async () => {
+    const nextID = (eventID + 1) % eventDetails.length;
     const tl = gsap.timeline();
     tl.to(
       [
@@ -54,8 +68,9 @@ const Shows = () => {
         opacity: 0,
         duration: 0.5,
         onComplete: () => {
-          setEventID((prevID) => (prevID + 1) % eventDetails.length);
+          setEventID(nextID);
           setProgressKey((prevKey) => prevKey + 1);
+
           gsap.to(
             [
               eventNameRef.current,
@@ -165,12 +180,22 @@ const Shows = () => {
               {eventDetails[eventID].date}
             </div>
           </div>
-          <Image
-            src={eventDetails[eventID].image}
-            alt="event image"
-            className={`${styles.eventImage} ${styles[`eventImage${eventID}`]}`}
-            ref={eventImageRef}
-          ></Image>
+          {eventDetails.map((event, index) => (
+            <div
+              key={index}
+              className={styles.eventImageWrapper}
+              style={{ display: index === eventID ? "block" : "none" }}
+            >
+              <Image
+                src={event.image}
+                alt={event.name}
+                className={`${styles.eventImage} ${
+                  styles[`eventImage${eventID}`]
+                }`}
+                ref={index === eventID ? eventImageRef : null}
+              />
+            </div>
+          ))}
           <div className={styles.eventSelector}>
             <svg
               width="42"

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import styles from "./archive.module.scss";
 
 import Grid from "@/components/Landing/Grid/Grid";
@@ -10,7 +10,6 @@ import SuitBackground from "@/components/Landing/Backdrop/Backdrop";
 import BackButton from "@/components/Registration/BackButton/BackButton";
 import Image from "next/image";
 import Link from "next/link";
-import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
 import Carousel from "@/components/Archive/Carousel";
 
 import one from "../../assets/Gallery/one.jpg";
@@ -148,7 +147,6 @@ export default function GalleryPage() {
 
   return (
     <>
-      <PrePreloader />
       <div className={styles.galleryBack}>
         <Glow />
         <Grunge />
@@ -186,7 +184,7 @@ export default function GalleryPage() {
             />
           </svg>
 
-          <h2>ARCHIVE</h2>
+          <h2>ARCHIVES</h2>
 
           <svg
             width="42"
@@ -331,6 +329,7 @@ export default function GalleryPage() {
             <Image
               key={index}
               src={img}
+              placeholder="blur"
               alt={`Image ${index + 1}`}
               className={imageClasses[index]}
               onClick={() => openCarousel(index)}

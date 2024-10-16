@@ -34,11 +34,12 @@ export default function ContactUs() {
   const contactCard1Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    
-    if (!localStorage.getItem("firstVisit")) {
-      localStorage.setItem("firstVisit", "true");
-      window.location.reload(); 
+
+    if (!localStorage.getItem('hasReloaded')) {
+      localStorage.setItem('hasReloaded', 'true');
+      window.location.reload();
     }
+
     const container = contactCardRef.current;
     const container1 = contactCard1Ref.current;
 
@@ -188,6 +189,10 @@ export default function ContactUs() {
       }
     }
   }, []);
+
+  const handleBackButtonClick = () => {
+    localStorage.removeItem('hasReloaded');
+  };
     
   return (
     <>
@@ -201,7 +206,7 @@ export default function ContactUs() {
       </div>
 
       <div className={styles.ham}>
-        <Link href="/">
+        <Link href="/" onClick={handleBackButtonClick}>
           <BackButton />
         </Link>
       </div>

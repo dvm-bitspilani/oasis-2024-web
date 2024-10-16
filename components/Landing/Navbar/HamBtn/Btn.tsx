@@ -46,7 +46,7 @@ export default function HamBtn() {
               ? 1
               : window.innerWidth > 900
               ? 0.8
-              : 0.65,
+              : 0.7,
         })
           .to(
             pokerChipRef.current,
@@ -102,7 +102,7 @@ export default function HamBtn() {
           y: "0",
           x: "0",
           duration: 0.5,
-          scale: 1,
+          scale: 0.7,
         })
           .to(
             pokerChipRef.current,

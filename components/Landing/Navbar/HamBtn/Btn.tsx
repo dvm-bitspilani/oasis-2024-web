@@ -80,8 +80,7 @@ export default function HamBtn() {
           .to(
             overlayRef.current,
             {
-              x: "-100%",
-              y: "0%",
+              opacity: 0,
               duration: 0.25,
               ease: "power2.out",
             },
@@ -135,8 +134,7 @@ export default function HamBtn() {
           .to(
             overlayRef.current,
             {
-              x: "100%",
-              y: "0%",
+              opacity: 0,
               duration: 0.5,
               ease: "power2.out",
             },
@@ -182,8 +180,7 @@ export default function HamBtn() {
           .to(
             overlayRef.current,
             {
-              x: "0%",
-              y: "0%",
+              opacity: 1,
               duration: 0.5,
               ease: "power2.out",
             },
@@ -237,8 +234,7 @@ export default function HamBtn() {
           .to(
             overlayRef.current,
             {
-              x: "0%",
-              y: "0%",
+              opacity: 1,
               duration: 0.5,
               ease: "power2.out",
             },

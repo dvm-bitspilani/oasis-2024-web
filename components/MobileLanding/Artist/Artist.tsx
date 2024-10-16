@@ -47,11 +47,12 @@ export default function Artist({
         xPercent: reverse ? 250 : -250,
         duration: 0.5,
       }).from(
-        artistRef.current.children[1].children,
+        // artistRef.current.children[1].children,
+        artistRef.current.children[1],
         {
           xPercent: reverse ? -250 : 250,
           duration: 0.5,
-          stagger: 0.2,
+          //   stagger: 0.2,
         },
         "-=0.25"
       );

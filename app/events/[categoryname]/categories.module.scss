@@ -247,6 +247,7 @@
         z-index: 10;
 
         @media screen and (max-width: 1148px) {
+          width: 40%;
           position: fixed;
           left: 50%;
           bottom: 1rem;
@@ -319,12 +320,16 @@
 
         @media screen and (max-width: 1148px) {
           padding: 0;
+          width: 100%;
           aspect-ratio: 16/9;
+          max-height: 50%;
+          height: unset;
           max-width: 75%;
         }
 
         @media screen and (max-width: 600px) {
           max-width: unset;
+          height: unset;
         }
 
         .eventImage {

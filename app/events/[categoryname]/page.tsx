@@ -26,6 +26,7 @@ export default function Page({ params }: { params: { categoryname: string } }) {
   const [loading, setLoading] = useState(true);
 
   const handleBack = () => {
+    document.body.style.overflow = "auto";
     if (window.history.length > 1) {
       router.back();
     } else {

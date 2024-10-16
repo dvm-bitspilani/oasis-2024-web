@@ -119,7 +119,7 @@ export default function EventsPage() {
       <PrePreloader />
       <CursorEffect />
       <div className={styles.eventsBack}>
-        <Glow />
+        {/* <Glow /> */}
         <Grunge />
         <Grid />
         <SuitBackground />

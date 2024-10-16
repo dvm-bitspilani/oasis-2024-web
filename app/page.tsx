@@ -15,51 +15,48 @@ import MobileLanding from "@/components/MobileLanding/MobileLanding/MobileLandin
 import Sidenav from "@/components/Sidenav/Sidenav";
 import Image from "next/image";
 
-import locationIcon from '@/assets/MobileLanding/locationIcon.svg'
+import locationIcon from "@/assets/MobileLanding/locationIcon.svg";
 
 export default function Home() {
-    return (
-        <>
-            <PrePreloader/>
-            <CursorEffect/>
-            <div className={styles.hamBtn} id="hamBtn">
-                <HamBtn/>
-            </div>
-            <div className={styles.navTickets} id="tickets-container">
-                {/*<Nav/>*/}
-                <Sidenav/>
-            </div>
-            <main className={styles.scrollWrapper} id="scrollWrapper">
-                <main className={styles.desktopPage}>
-                    <Landing/>
-                    <LandingOverlay/>
-                    <Grid/>
-                    <Glow/>
-                    <Trees/>
-                    <Grunge/>
-                </main>
-                <main className={styles.mobilePage}>
-                    <OasisLogo/>
-                    <a
-                        href="https://maps.app.goo.gl/EMBKXct4V92g8MbPA"
-                        target='_blank'
-                        className={styles.locationRedirect}
-                    >
-                        <Image
-                            src={locationIcon}
-                            alt='location icon'
-                        />
-                    </a>
-                    <Countdown dateString="October 23, 2024 19:00:00"/>
-                    <MobileLanding/>
-                    <div className={styles.mobileBackdrop}>
-                        <Grid/>
-                        <Glow/>
-                        <Grunge/>
-                    </div>
-                </main>
-            </main>
-            {/*<AmbientMusic/>*/}
-        </>
-    );
+  return (
+    <>
+      <PrePreloader />
+      <CursorEffect />
+      <div className={styles.hamBtn} id="hamBtn">
+        <HamBtn />
+      </div>
+      <div className={styles.navTickets} id="tickets-container">
+        {/*<Nav/>*/}
+        <Sidenav />
+      </div>
+      <main className={styles.scrollWrapper} id="scrollWrapper">
+        <main className={styles.desktopPage}>
+          <Landing />
+          <LandingOverlay />
+          <Grid />
+          {/* <Glow /> */}
+          <Trees />
+          <Grunge />
+        </main>
+        <main className={styles.mobilePage}>
+          <OasisLogo />
+          <a
+            href="https://maps.app.goo.gl/EMBKXct4V92g8MbPA"
+            target="_blank"
+            className={styles.locationRedirect}
+          >
+            <Image src={locationIcon} alt="location icon" />
+          </a>
+          <Countdown dateString="October 23, 2024 19:00:00" />
+          <MobileLanding />
+          <div className={styles.mobileBackdrop}>
+            <Grid />
+            {/* <Glow /> */}
+            <Grunge />
+          </div>
+        </main>
+      </main>
+      {/*<AmbientMusic/>*/}
+    </>
+  );
 }

@@ -152,7 +152,7 @@ export default function GalleryPage() {
       <PrePreloader />
       <CursorEffect />
       <div className={styles.galleryBack}>
-        <Glow />
+        {/* <Glow /> */}
         <Grunge />
         <Grid />
         <SuitBackground />

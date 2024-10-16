@@ -31,7 +31,7 @@ const HamPokerChip = forwardRef<SVGSVGElement | any, HamPokerChipProps>(
               scale: "1",
             }}
             viewBox="0 0 91 91"
-            fill="none"
+            fill="#190D2C"
             xmlns="http://www.w3.org/2000/svg"
             ref={ref}
           >

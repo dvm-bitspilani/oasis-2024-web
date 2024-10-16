@@ -72,6 +72,11 @@
     mix-blend-mode: difference;
     user-select: none;
 
+    @media screen and (max-height: 900px) {
+      font-size: 240px !important;
+      line-height: 150px !important;
+    }
+
     @media screen and (max-width: 4000px) {
       font-size: 644px;
       line-height: 400px;

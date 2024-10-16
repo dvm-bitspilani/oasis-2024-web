@@ -15,6 +15,7 @@ import { useCookies } from "react-cookie";
 import { useRouter } from "next/navigation";
 import BackButton from "@/components/Registration/BackButton/BackButton";
 import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
+import CursorEffect from "@/components/CursorEffect/CursorEffect";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -214,6 +215,7 @@ const Registration = () => {
   return (
     <>
       <PrePreloader />
+      <CursorEffect />
       <div className={styles.pageContainer}>
         <div className={styles.pageContent}>
           <div className={styles.phoneBorder}>REGISTRATION</div>

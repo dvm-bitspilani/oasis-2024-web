@@ -8,6 +8,7 @@ import SuitBackground from "@/components/Landing/Backdrop/Backdrop";
 import BackButton from "@/components/Registration/BackButton/BackButton";
 import Link from "next/link";
 import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
+import CursorEffect from "@/components/CursorEffect/CursorEffect";
 
 import PDFDocument from "@/components/Articles/PDFDocument/PDFDocument";
 
@@ -16,6 +17,7 @@ export default function Brochure() {
   return (
     <>
       <PrePreloader />
+      <CursorEffect />
       <div className={styles.brochureBack}>
         <Glow />
         <Grunge />

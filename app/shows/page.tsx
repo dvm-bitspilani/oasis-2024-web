@@ -54,7 +54,32 @@ const Shows = () => {
   const eventImageRef = useRef(null);
   const eventTitleRef = useRef(null);
 
-  const animate = () => {
+  const preloadImage = (src: string) => {
+    return fetch(src)
+      .then((res) => {
+        if (!res.ok) throw new Error(`Failed to load image: ${src}`);
+        return res.blob();
+      })
+      .then(() => {
+        // Image preloaded successfully
+        console.log(`Image preloaded: ${src}`);
+      })
+      .catch((error) => {
+        console.error(`Error preloading image: ${error}`);
+      });
+  };
+
+  const animate = async () => {
+    const nextID = (eventID + 1) % eventDetails.length;
+
+    try {
+      // Preload the next image before animation
+      await preloadImage(eventDetails[nextID].image.src);
+    } catch (error) {
+      console.error("Failed to preload image", error);
+    }
+
+    // After the image is preloaded, run the GSAP animation
     const tl = gsap.timeline();
     tl.to(
       [
@@ -67,8 +92,9 @@ const Shows = () => {
         opacity: 0,
         duration: 0.5,
         onComplete: () => {
-          setEventID((prevID) => (prevID + 1) % eventDetails.length);
+          setEventID(nextID);
           setProgressKey((prevKey) => prevKey + 1);
+
           gsap.to(
             [
               eventNameRef.current,

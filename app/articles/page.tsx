@@ -53,7 +53,7 @@ const Articles: React.FC = () => {
       <PrePreloader />
       <CursorEffect />
       <div className={styles.epcBack}>
-        <Glow />
+        {/* <Glow /> */}
         <Grunge />
         <Grid />
         <SuitBackground />

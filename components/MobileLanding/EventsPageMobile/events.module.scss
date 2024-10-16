@@ -1,0 +1,14 @@
+.mobilecontainer {
+  position: relative;
+  display: none;
+
+  @media (width<550px) {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .mobileimg {
+    pointer-events: auto;
+  }
+}

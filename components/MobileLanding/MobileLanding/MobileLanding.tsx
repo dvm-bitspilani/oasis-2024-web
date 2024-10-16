@@ -13,9 +13,11 @@ import slotMachine2D from "@/assets/Landing/slotMachine2D2.png";
 
 import profShowsBackground from "@/assets/MobileLanding/ProfShowsMobile/profShowsBackgroundMobile.png";
 import grungeBackground from "@/assets/MobileLanding/ProfShowsMobile/GrungeMobile.png";
+import profShowWaves from "@/assets/MobileLanding/ProfShowsMobile/profShowWavyWavy.svg";
 import vishal from "@/assets/MobileLanding/ProfShowsMobile/VishalMishra.png";
 import seedheMaut from "@/assets/MobileLanding/ProfShowsMobile/SeedheMaut.png";
 import yellowDiary from "@/assets/MobileLanding/ProfShowsMobile/YellowDiary.png";
+import EventsMobile from "../EventsPageMobile/EventsPageMobile";
 
 export default function MobileLanding() {
   return (
@@ -106,6 +108,14 @@ export default function MobileLanding() {
           alt="grunge texture"
           className={styles.profShowsBackground}
         />
+        <Image
+          src={profShowWaves}
+          alt="wave background for prof show mobile"
+          className={styles.profShowsBackground}
+        />
+      </div>
+      <div className={styles.landingEventsPage}>
+        <EventsMobile />
       </div>
       <div className={styles.contactUs}>
         <ContactUsMobile />

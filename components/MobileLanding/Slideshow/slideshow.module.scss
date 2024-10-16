@@ -6,13 +6,12 @@
   img {
     aspect-ratio: 187 / 123;
     position: absolute;
-    // top: 8.55rem;
-    // left: 2.75rem;
     top: 29.5%;
     left: 15.9%;
     width: auto;
     height: 26.5%;
     border-radius: 0.5rem;
+    transition: opacity 1s linear;
 
     &:first-of-type {
       z-index: 3;

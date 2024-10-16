@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./contact.module.scss";
 
 import Grid from "@/components/Landing/Grid/Grid";
@@ -29,14 +29,12 @@ import RegBtn from "@/components/Landing/Navbar/RegBtn/RegBtn";
 import CursorEffect from "@/components/CursorEffect/CursorEffect";
 
 export default function ContactUs() {
-
   const contactCardRef = useRef<HTMLDivElement>(null);
   const contactCard1Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-
-    if (!localStorage.getItem('hasReloaded')) {
-      localStorage.setItem('hasReloaded', 'true');
+    if (!localStorage.getItem("hasReloaded")) {
+      localStorage.setItem("hasReloaded", "true");
       window.location.reload();
     }
 
@@ -44,8 +42,12 @@ export default function ContactUs() {
     const container1 = contactCard1Ref.current;
 
     if (container && container1) {
-      const cards = Array.from(container.querySelectorAll(".card")) as HTMLElement[];
-      const cards1 = Array.from(container1.querySelectorAll(".card")) as HTMLElement[];
+      const cards = Array.from(
+        container.querySelectorAll(".card")
+      ) as HTMLElement[];
+      const cards1 = Array.from(
+        container1.querySelectorAll(".card")
+      ) as HTMLElement[];
 
       if (cards.length > 0) {
         const cardCount = cards.length;
@@ -191,9 +193,9 @@ export default function ContactUs() {
   }, []);
 
   const handleBackButtonClick = () => {
-    localStorage.removeItem('hasReloaded');
+    localStorage.removeItem("hasReloaded");
   };
-    
+
   return (
     <>
       <PrePreloader />
@@ -278,17 +280,19 @@ export default function ContactUs() {
           </svg>
         </div>
 
-        <div className={styles.cardContainer} id="contactCard" ref={contactCardRef}>
+        <div
+          className={styles.cardContainer}
+          id="contactCard"
+          ref={contactCardRef}
+        >
           <div className={`${styles.first} card`}>
             <ContactCard
               name="Jaiditya Singh"
               img={jaiditya}
               dept1="Logistics and"
               dept2="Operations"
-              // contact="tel:+919168421199"
-              contact={null}
-              // mail="mailto:controls@bits-oasis.org"
-              mail={null}
+              contact="tel:+919168421199"
+              mail="mailto:controls@bits-oasis.org"
             />
           </div>
 
@@ -331,25 +335,25 @@ export default function ContactUs() {
               img={rijul}
               dept1="Reception and"
               dept2="Accommodation"
-              // contact="tel:+919811529877"
-              contact={null}
-              // mail="mailto:recnacc@bits-oasis.org"
-              mail={null}
+              contact="tel:+919811529877"
+              mail="mailto:recnacc@bits-oasis.org"
             />
           </div>
         </div>
 
-        <div className={styles.cardContainer1} id="contactCard1" ref={contactCard1Ref}>
+        <div
+          className={styles.cardContainer1}
+          id="contactCard1"
+          ref={contactCard1Ref}
+        >
           <div className={`${styles.first} card`}>
             <ContactCard
               name="Shreyansh Vanjani"
               img={shreyansh}
               dept1="Publicity and"
               dept2="Collaborations"
-              //contact="tel:+918000695988"
-              contact={null}
-              // mail="mailto:collaborations@bits-oasis.org"
-              mail={null}
+              contact="tel:+918000695988"
+              mail="mailto:collaborations@bits-oasis.org"
             />
           </div>
 
@@ -359,10 +363,8 @@ export default function ContactUs() {
               img={ahan}
               dept1="President,"
               dept2="Students' Union"
-              // contact="tel:+9180050 00213"
-              contact={null}
-              // mail="mailto:president@pilani.bits-pilani.ac.in"
-              mail={null}
+              contact="tel:+9180050 00213"
+              mail="mailto:president@pilani.bits-pilani.ac.in"
             />
           </div>
 
@@ -372,10 +374,8 @@ export default function ContactUs() {
               img={aryankhorana}
               dept1="General Secretary,"
               dept2="Students' Union"
-              // contact="tel:+917078879443"
-              contact={null}
-              // mail="mailto:gensec@pilani.bits-pilani.ac.in"
-              mail={null}
+              contact="tel:+917078879443"
+              mail="mailto:gensec@pilani.bits-pilani.ac.in"
             />
           </div>
         </div>
@@ -416,8 +416,8 @@ export default function ContactUs() {
                 img={jaiditya}
                 dept1="Logistics and"
                 dept2="Operations"
-                contact={null}
-                mail={null}
+                contact="tel:+919168421199"
+                mail="mailto:controls@bits-oasis.org"
               />
 
               <ContactCard
@@ -425,8 +425,8 @@ export default function ContactUs() {
                 img={rijul}
                 dept1="Reception and"
                 dept2="Accommodation"
-                contact={null}
-                mail={null}
+                contact="tel:+919811529877"
+                mail="mailto:recnacc@bits-oasis.org"
               />
 
               <ContactCard
@@ -434,8 +434,8 @@ export default function ContactUs() {
                 img={shreyansh}
                 dept1="Publicity and"
                 dept2="Collaborations"
-                contact={null}
-                mail={null}
+                contact="tel:+918000695988"
+                mail="mailto:collaborations@bits-oasis.org"
               />
 
               <ContactCard
@@ -443,8 +443,8 @@ export default function ContactUs() {
                 img={ahan}
                 dept1="President,"
                 dept2="Students' Union"
-                contact={null}
-                mail={null}
+                contact="tel:+9180050 00213"
+                mail="mailto:president@pilani.bits-pilani.ac.in"
               />
 
               <ContactCard
@@ -452,8 +452,8 @@ export default function ContactUs() {
                 img={aryankhorana}
                 dept1="General Secretary,"
                 dept2="Students' Union"
-                contact={null}
-                mail={null}
+                contact="tel:+917078879443"
+                mail="mailto:gensec@pilani.bits-pilani.ac.in"
               />
             </div>
           </div>

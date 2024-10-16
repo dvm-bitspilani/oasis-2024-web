@@ -19,10 +19,15 @@
     justify-content: center;
     position: relative;
 
-    .slotMachine {
+    .slotMachineContainer {
       height: 100%;
-      width: auto;
-      z-index: 1;
+      position: relative;
+
+      .slotMachine {
+        height: 100%;
+        width: auto;
+        z-index: 1;
+      }
     }
 
     .fade {

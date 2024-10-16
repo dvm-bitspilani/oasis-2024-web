@@ -175,6 +175,9 @@ export default function Landing() {
       duration: 1,
       autoAlpha: isVideoFocused ? 0 : 1,
     });
+    gsap.set("#atharvHamBtn", {
+      display: isVideoFocused ? "none" : "flex",
+    });
   }, [isVideoFocused]);
 
   useEffect(() => {

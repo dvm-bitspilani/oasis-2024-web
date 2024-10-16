@@ -29,19 +29,34 @@
       position: relative;
       margin: auto;
       pointer-events: auto;
+      transition: all 0.3s ease-out;
+      // @media(width<1700px){
+      //   transform: scale(0.8);
+      // }
+      &:hover {
+        transform: scale(1.1);
+      }
       // @media(width<1700px){
       //   transform: scale(0.8);
       // }
       @media (width<1700px) {
         transform: scale(0.95);
+        &:hover {
+          transform: scale(1.1);
+        }
       }
       @media (width<1110px) {
         transform: scale(0.8);
+        &:hover {
+          transform: scale(0.94);
+        }
       }
       @media (width<550px) {
         transform: scale(0.6);
         display: none;
-        // height: 200px;
+        &:hover {
+          transform: scale(0.8);
+        }
       }
       .dance {
         position: absolute;

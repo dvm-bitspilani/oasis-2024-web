@@ -86,6 +86,9 @@ export default function HamBtn() {
             },
             "<"
           )
+          .set(overlayRef.current, {
+            pointerEvents: "none",
+          })
           .to(
             mapsRef.current,
             {
@@ -139,7 +142,10 @@ export default function HamBtn() {
               ease: "power2.out",
             },
             "<"
-          );
+          )
+          .set(overlayRef.current, {
+            pointerEvents: "none",
+          });
       }
     } else {
       if (window.innerWidth > 585) {
@@ -186,6 +192,9 @@ export default function HamBtn() {
             },
             "<"
           )
+          .set(overlayRef.current, {
+            pointerEvents: "unset",
+          })
           .to(
             mapsRef.current,
             {
@@ -239,7 +248,10 @@ export default function HamBtn() {
               ease: "power2.out",
             },
             "<"
-          );
+          )
+          .set(overlayRef.current, {
+            pointerEvents: "unset",
+          });
       }
     }
   };

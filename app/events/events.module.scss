@@ -47,7 +47,7 @@
   display: flex;
   justify-content: center;
 
-  @media(width<=600px){
+  @media (width<=600px) {
     // margin-top: 6rem;
     position: relative;
   }
@@ -68,8 +68,6 @@
     z-index: 10;
     left: 50%;
     transform: translateX(-50%);
-
-   
 
     h2 {
       font-family: "Rye", sans-serif;
@@ -103,7 +101,7 @@
     .row {
       display: flex;
       flex-wrap: wrap;
-      gap: 2rem;
+      gap: 4rem;
       align-items: center;
       justify-content: center;
       @media (width<550px) {
@@ -116,18 +114,32 @@
         position: relative;
         margin: auto;
         pointer-events: auto;
+        transition: all 0.3s ease-out;
+
+        &:hover {
+          transform: scale(1.1);
+        }
         // @media(width<1700px){
         //   transform: scale(0.8);
         // }
         @media (width<1700px) {
           transform: scale(0.95);
+          &:hover {
+            transform: scale(1.1);
+          }
         }
         @media (width<1110px) {
           transform: scale(0.8);
+          &:hover {
+            transform: scale(1);
+          }
         }
         @media (width<550px) {
           transform: scale(0.6);
           display: none;
+          &:hover {
+            transform: scale(0.8);
+          }
           // height: 200px;
         }
         .dance {

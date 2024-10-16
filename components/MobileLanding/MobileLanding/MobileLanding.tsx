@@ -18,16 +18,20 @@ import vishal from "@/assets/MobileLanding/ProfShowsMobile/VishalMishra.png";
 import seedheMaut from "@/assets/MobileLanding/ProfShowsMobile/SeedheMaut.png";
 import yellowDiary from "@/assets/MobileLanding/ProfShowsMobile/YellowDiary.png";
 import EventsMobile from "../EventsPageMobile/EventsPageMobile";
+import Slideshow from "../Slideshow/Slideshow";
 
 export default function MobileLanding() {
   return (
     <main className={styles.mobileLandingWrapper}>
       <div className={styles.landing}>
-        <Image
-          src={slotMachine2D}
-          alt="2d slot machine"
-          className={styles.slotMachine}
-        />
+        <div className={styles.slotMachineContainer}>
+          <Slideshow />
+          <Image
+            src={slotMachine2D}
+            alt="2d slot machine"
+            className={styles.slotMachine}
+          />
+        </div>
         <MobileRegBtn />
         <div className={styles.fade}></div>
       </div>

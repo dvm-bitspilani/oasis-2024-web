@@ -5,12 +5,13 @@ import styles from "./events.module.scss";
 import Folder from "@/components/Events/Folder/Folder";
 import Category from "@/components/Events/Category/Category";
 
-import music from "../../assets/Events/Folders/Comic photo effect 3.png";
-import dance from "../../assets/Events/Folders/Comic photo effect 4.png";
-import quiz from "../../assets/Events/Folders/Comic photo effect 6.png";
-import camera from "../../assets/Events/Folders/Comic photo effect 8.png";
-import drama from "../../assets/Events/Folders/Comic photo effect 7.png";
-import fashion from "../../assets/Events/Folders/Comic photo effect 5.png";
+// import music from "../../assets/Events/Folders/Comic photo effect 3.png";
+// import dance from "../../assets/Events/Folders/Comic photo effect 4.png";
+// import quiz from "../../assets/Events/Folders/Comic photo effect 6.png";
+// import camera from "../../assets/Events/Folders/Comic photo effect 8.png";
+// import drama from "../../assets/Events/Folders/Comic photo effect 7.png";
+// import fashion from "../../assets/Events/Folders/Comic photo effect 5.png";
+import line from "../../assets/Events/Folders/lines.png";
 import musicmobile from "../../assets/Events/Folders/1.png";
 import dancemobile from "../../assets/Events/Folders/2.png";
 import quizmobile from "../../assets/Events/Folders/3.png";
@@ -123,6 +124,35 @@ export default function EventsPage() {
         <Grunge />
         <Grid />
         <SuitBackground />
+        <svg
+          width="1920"
+          height="1067"
+          viewBox="0 0 1920 1067"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={styles.line}
+        >
+          <path
+            d="M1924.5 98.5004C1924.5 98.5004 1563.69 727.885 1063.69 838.594C1010.5 850.37 925.061 863.945 833 853.5C438.161 808.702 571.566 243.084 112.156 306.851C73.8775 312.164 36.2551 321.241 -0.499156 333.498"
+            stroke="#F8D848"
+            stroke-width="1.5"
+          />
+          <path
+            d="M1938.5 4.73586C1938.5 4.73586 1569.61 665.28 1069.5 776C979.358 795.956 941 808 861.5 787.5C504.475 695.436 641.513 170.288 131.5 251C85.8957 258.217 40.8328 267.997 -2.98607 282.199"
+            stroke="#F8D848"
+            stroke-width="1.5"
+          />
+          <path
+            d="M1921 253.5C1921 253.5 1598.27 759.911 1120.5 944.5C1054.5 970 856 989.795 761.5 970.5C355 887.5 406 279.5 -2.99938 438.5"
+            stroke="#F8D848"
+            stroke-width="1.5"
+          />
+          <path
+            d="M1921.5 179.499C1921.5 179.499 1556.16 768.919 1060.5 897.999C964.5 922.999 880.579 932.741 789.001 922.999C413 882.999 470.501 196.999 0.00129466 375.999"
+            stroke="#F8D848"
+            stroke-width="1.5"
+          />
+        </svg>
       </div>
 
       <div className={styles.ham}>
@@ -134,37 +164,36 @@ export default function EventsPage() {
       <div className={styles.reg}>
         <RegBtn />
       </div>
-      <svg
-        width="1920"
-        height="1064"
-        viewBox="0 0 1920 1064"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className={styles.line}
-      >
-        <g opacity="0.5">
+      {/* <div className={styles.line}>
+        <svg
+          width="1920"
+          height="1053"
+          viewBox="0 0 1920 1053"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
-            d="M1957.77 48.7423C1957.77 48.7423 1563.69 724.886 1063.68 835.594C973.562 855.549 945.11 852.057 853.339 864.799C417.857 925.261 571.566 240.085 112.155 303.851C-377.56 371.824 -759.963 1055.88 -590.089 1133.29C-420.216 1210.7 -791.82 1248.68 -1069.54 1287.24"
+            d="M1924.5 94.5004C1924.5 94.5004 1563.69 723.885 1063.68 834.594C973.562 854.549 945.11 851.057 853.339 863.798C417.857 924.26 571.566 239.084 112.155 302.851C73.8767 308.164 36.2542 317.241 -0.500011 329.498"
             stroke="#F8D848"
             stroke-width="1.5"
           />
           <path
-            d="M1938.49 1.73633C1938.49 1.73633 1567.99 691.571 1067.89 802.29C977.746 822.247 1002.86 794.299 911.065 807.043C475.494 867.517 594.491 197.432 134.986 261.212C-354.829 329.199 -752.929 890.561 -671.785 1026.8C-590.642 1163.05 -1077.25 1231.74 -1077.25 1231.74"
+            d="M1938.49 0.736328C1938.49 0.736328 1567.99 690.571 1067.89 801.29C977.746 821.247 1002.86 793.299 911.065 806.043C475.494 866.517 594.491 196.432 134.986 260.212C89.2527 266.56 44.3188 277.209 0.500007 291.411"
             stroke="#F8D848"
             stroke-width="1.5"
           />
           <path
-            d="M1964.16 186.599C1964.16 186.599 1555.58 795.046 1055.5 905.73C965.358 925.68 839.676 959.613 751.434 947.946C324.785 891.535 431.681 249.725 57.9042 417.249C-374.228 610.927 -620.866 1090.88 -646.052 1211.13C-671.237 1331.39 -1061.9 1365.26 -1061.9 1365.26"
+            d="M1921 249.5C1921 249.5 1555.58 794.045 1055.5 904.729C965.358 924.679 839.676 958.612 751.433 946.945C324.785 890.534 370.777 266.976 -3.00001 434.5"
             stroke="#F8D848"
             stroke-width="1.5"
           />
           <path
-            d="M1967.27 117.219C1967.27 117.219 1574.32 753.821 1074.23 864.485C984.09 884.432 890.497 878.004 798.459 881.242C371.671 896.257 478.802 195.778 72.4968 346.261C-390.202 517.63 -540.192 928.801 -664.347 1084.34"
+            d="M1921.5 175.5C1921.5 175.5 1574.32 752.821 1074.23 863.485C984.09 883.432 890.497 877.004 798.459 880.242C371.671 895.257 406.305 221.518 -9.9988e-05 372"
             stroke="#F8D848"
             stroke-width="1.5"
           />
-        </g>
-      </svg>
+        </svg>
+      </div> */}
 
       <div className={styles.eventsPage} id="contactUs">
         <div className={styles.heading}>

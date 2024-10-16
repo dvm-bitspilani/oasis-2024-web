@@ -10,6 +10,7 @@ import vm from "@/public/ProfShow/vishalmishra.png";
 import tyd from "@/public/ProfShow/theyellowdiaries.png";
 import gif1 from "@/public/ProfShow/gif1.gif";
 import { useRouter } from "next/navigation";
+import CursorEffect from "@/components/CursorEffect/CursorEffect";
 
 const eventDetails = [
   {
@@ -136,6 +137,7 @@ const Shows = () => {
   return (
     <>
       {/* <Preloader /> */}
+      <CursorEffect />
       <div className={styles.profshow}>
         <Image
           src={grunge}

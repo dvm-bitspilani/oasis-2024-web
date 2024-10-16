@@ -80,13 +80,15 @@ export default function HamBtn() {
           .to(
             overlayRef.current,
             {
-              x: "-100%",
-              y: "0%",
+              opacity: 0,
               duration: 0.25,
               ease: "power2.out",
             },
             "<"
           )
+          .set(overlayRef.current, {
+            pointerEvents: "none",
+          })
           .to(
             mapsRef.current,
             {
@@ -135,13 +137,15 @@ export default function HamBtn() {
           .to(
             overlayRef.current,
             {
-              x: "100%",
-              y: "0%",
+              opacity: 0,
               duration: 0.5,
               ease: "power2.out",
             },
             "<"
-          );
+          )
+          .set(overlayRef.current, {
+            pointerEvents: "none",
+          });
       }
     } else {
       if (window.innerWidth > 585) {
@@ -182,13 +186,15 @@ export default function HamBtn() {
           .to(
             overlayRef.current,
             {
-              x: "0%",
-              y: "0%",
+              opacity: 1,
               duration: 0.5,
               ease: "power2.out",
             },
             "<"
           )
+          .set(overlayRef.current, {
+            pointerEvents: "unset",
+          })
           .to(
             mapsRef.current,
             {
@@ -237,13 +243,15 @@ export default function HamBtn() {
           .to(
             overlayRef.current,
             {
-              x: "0%",
-              y: "0%",
+              opacity: 1,
               duration: 0.5,
               ease: "power2.out",
             },
             "<"
-          );
+          )
+          .set(overlayRef.current, {
+            pointerEvents: "unset",
+          });
       }
     }
   };
@@ -299,6 +307,7 @@ export default function HamBtn() {
         onClick={handleClick}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        id="atharvHamBtn"
         ref={BtnRef}
       >
         {isHamOpen && <HamMenu isHamOpen={isHamOpen} />}

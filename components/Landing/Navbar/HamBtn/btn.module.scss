@@ -1,4 +1,5 @@
 .hamOverlay {
+  opacity: 0;
   position: fixed;
   top: 0;
   left: 0;
@@ -10,13 +11,7 @@
     rgba(0, 0, 0, 0.95) 100%
   );
   z-index: 5110;
-  cursor: initial;
-
-  transform: translate(-100%, 0);
-
-  @media screen and (max-width: 585px) {
-    transform: translate(100%, 0);
-  }
+  pointer-events: none;
 }
 
 .btn {
@@ -29,6 +24,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  // background-color: #190D2C;
+  // border-radius: 50%;
 
   .pokerChip {
     // transition: all 300ms ease-in-out;

@@ -13,19 +13,25 @@ import slotMachine2D from "@/assets/Landing/slotMachine2D2.png";
 
 import profShowsBackground from "@/assets/MobileLanding/ProfShowsMobile/profShowsBackgroundMobile.png";
 import grungeBackground from "@/assets/MobileLanding/ProfShowsMobile/GrungeMobile.png";
+import profShowWaves from "@/assets/MobileLanding/ProfShowsMobile/profShowWavyWavy.svg";
 import vishal from "@/assets/MobileLanding/ProfShowsMobile/VishalMishra.png";
 import seedheMaut from "@/assets/MobileLanding/ProfShowsMobile/SeedheMaut.png";
 import yellowDiary from "@/assets/MobileLanding/ProfShowsMobile/YellowDiary.png";
+import EventsMobile from "../EventsPageMobile/EventsPageMobile";
+import Slideshow from "../Slideshow/Slideshow";
 
 export default function MobileLanding() {
   return (
     <main className={styles.mobileLandingWrapper}>
       <div className={styles.landing}>
-        <Image
-          src={slotMachine2D}
-          alt="2d slot machine"
-          className={styles.slotMachine}
-        />
+        <div className={styles.slotMachineContainer}>
+          <Slideshow />
+          <Image
+            src={slotMachine2D}
+            alt="2d slot machine"
+            className={styles.slotMachine}
+          />
+        </div>
         <MobileRegBtn />
         <div className={styles.fade}></div>
       </div>
@@ -47,7 +53,7 @@ export default function MobileLanding() {
           shines.
         </p>
         <VideoCarousel
-          videoArray={["7MHVWCrJppk", "ZCrClSBM1ns", "krsrGOqnAN0"]}
+          videoArray={["Ogio7ZJSb9g", "ZCrClSBM1ns", "krsrGOqnAN0"]}
         />
         {/*0BYgHIMnz50*/}
         {/*<AllEventsBtn/>*/}
@@ -106,6 +112,14 @@ export default function MobileLanding() {
           alt="grunge texture"
           className={styles.profShowsBackground}
         />
+        <Image
+          src={profShowWaves}
+          alt="wave background for prof show mobile"
+          className={styles.profShowsBackground}
+        />
+      </div>
+      <div className={styles.landingEventsPage}>
+        <EventsMobile />
       </div>
       <div className={styles.contactUs}>
         <ContactUsMobile />

@@ -2,7 +2,16 @@
   position: fixed;
   height: 100%;
   width: 100%;
-  // overflow: hidden;
+  overflow-x: hidden;
+  overflow: hidden;
+}
+
+.line{
+  position: absolute;
+  top: 2%;
+  @media(width<1147px){
+    display: none;
+  }
 }
 
 .ham {
@@ -34,9 +43,11 @@
 }
 .eventsPage {
   // position: fixed;
+  position: absolute;
   top: 0rem;
   // height: 100lvh;
-  width: 100vw;
+  // height: 100vh;
+  // width: 100vw;
   opacity: 1;
   pointer-events: none;
   overflow-x: hidden;
@@ -44,8 +55,19 @@
   display: flex;
   justify-content: center;
 
+  @media (width<=600px) {
+    // margin-top: 6rem;
+    position: relative;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
   .heading {
-    // margin-top: 3rem;
+    margin-top: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,6 +92,7 @@
     position: relative;
     // top: 25%;
     padding-top: 13%;
+    padding-bottom: 3rem;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -86,7 +109,7 @@
     .row {
       display: flex;
       flex-wrap: wrap;
-      gap: 2rem;
+      gap: 4rem;
       align-items: center;
       justify-content: center;
       @media (width<550px) {
@@ -99,18 +122,32 @@
         position: relative;
         margin: auto;
         pointer-events: auto;
+        transition: all 0.3s ease-out;
+
+        &:hover {
+          transform: scale(1.1);
+        }
         // @media(width<1700px){
         //   transform: scale(0.8);
         // }
         @media (width<1700px) {
           transform: scale(0.95);
+          &:hover {
+            transform: scale(1.1);
+          }
         }
         @media (width<1110px) {
           transform: scale(0.8);
+          &:hover {
+            transform: scale(1);
+          }
         }
         @media (width<550px) {
           transform: scale(0.6);
           display: none;
+          &:hover {
+            transform: scale(0.8);
+          }
           // height: 200px;
         }
         .dance {
@@ -237,19 +274,20 @@
       }
     }
   }
-  .mobilecontainer{
+  .mobilecontainer {
     position: relative;
     display: none;
-    @media(width<550px){
+    padding-bottom: 2rem;
+    @media (width<550px) {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
       margin-top: 20%;
     }
-    @media(width<400px){
+    @media (width<400px) {
       margin-top: 23%;
     }
-    .mobileimg{
+    .mobileimg {
       pointer-events: auto;
     }
   }

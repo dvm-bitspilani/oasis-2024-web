@@ -18,7 +18,8 @@ const MobileSlotMachine = forwardRef(function MobileSlotMachine(
   const playerRef = useRef<any>(null);
   const [isPlaying, setIsPlaying] = useState(true); 
 
-  const videoUrlArrayIframe = ["ZCrClSBM1ns", "0BYgHIMnz50", "krsrGOqnAN0"];
+  const videoUrlArrayIframe = ["7MHVWCrJppk", "ZCrClSBM1ns", "krsrGOqnAN0"];
+  
 
   // Function to initialize the YouTube player
   useEffect(() => {

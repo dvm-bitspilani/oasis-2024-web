@@ -3,7 +3,7 @@
   height: 100%;
   width: 100%;
   overflow-x: hidden;
-  // overflow: hidden;
+  overflow: hidden;
 }
 
 .ham {
@@ -44,6 +44,12 @@
   overflow-y: scroll;
   display: flex;
   justify-content: center;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 
   .heading {
     // margin-top: 3rem;
@@ -238,20 +244,20 @@
       }
     }
   }
-  .mobilecontainer{
+  .mobilecontainer {
     position: relative;
     display: none;
     padding-bottom: 2rem;
-    @media(width<550px){
+    @media (width<550px) {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
       margin-top: 20%;
     }
-    @media(width<400px){
+    @media (width<400px) {
       margin-top: 23%;
     }
-    .mobileimg{
+    .mobileimg {
       pointer-events: auto;
     }
   }

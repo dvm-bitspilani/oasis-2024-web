@@ -46,7 +46,9 @@ export default function MobileLanding() {
           into the world of Oasis, where youth&apos;s boundless potential
           shines.
         </p>
-        <VideoCarousel videoArray={["ZCrClSBM1ns", "krsrGOqnAN0"]} />
+        <VideoCarousel
+          videoArray={["7MHVWCrJppk", "ZCrClSBM1ns", "krsrGOqnAN0"]}
+        />
         {/*0BYgHIMnz50*/}
         {/*<AllEventsBtn/>*/}
       </div>

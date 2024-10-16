@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useLayoutEffect } from "react";
+import React, {useEffect, useRef } from "react";
 import styles from "./contact.module.scss";
 
 import Grid from "@/components/Landing/Grid/Grid";
@@ -25,106 +25,111 @@ import aryankhorana from "../../assets/Landing/contactUs/aryankhorana.png";
 import left from "../../assets/Landing/contactUs/left.png";
 import right from "../../assets/Landing/contactUs/right.png";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import HamBtn from "@/components/Landing/Navbar/HamBtn/Btn";
 import RegBtn from "@/components/Landing/Navbar/RegBtn/RegBtn";
 import CursorEffect from "@/components/CursorEffect/CursorEffect";
 
-export default function Brochure() {
-  
-  useLayoutEffect(() => {
-    const container = document.querySelector("#contactCard") as HTMLElement;
-    const cards = container?.querySelectorAll(
-      ".card"
-    ) as NodeListOf<HTMLElement>;
-    if (cards) {
-      const cardCount = cards.length;
-      const containerWidth = container.offsetWidth;
-      const cardWidth = cards[1]?.offsetWidth || 0;
-      const cardHeight = cards[0]?.offsetHeight || 0;
+export default function ContactUs() {
 
-      let X1, X2, X3, X4, X5, X6, X7, X8, Y1, Y2, Y3, Y6, Y7, Y8;
+  const contactCardRef = useRef<HTMLDivElement>(null);
+  const contactCard1Ref = useRef<HTMLDivElement>(null);
 
-      if (innerWidth >= 2100 && innerWidth <= 3100) {
-        X1 = (containerWidth - 5 * cardWidth - 415) / 2;
-        X2 = X1 + cardWidth + 100;
-        X3 = X2 + cardWidth + 100;
-        X4 = X3 + cardWidth + 100;
-        X5 = X4 + cardWidth + 100;
-        Y1 = 70;
-        Y2 = -10;
-        Y3 = -35;
-        X6 = (containerWidth - 3 * cardWidth - 215) / 2;
-        X7 = X6 + cardWidth + 100;
-        X8 = X7 + cardWidth + 100;
-        Y6 = cardHeight - 15;
-        Y7 = cardHeight - 45;
-        Y8 = cardHeight - 15;
-      } else {
-        X1 = (containerWidth - 5 * cardWidth - 215) / 2;
-        X2 = X1 + cardWidth + 50;
-        X3 = X2 + cardWidth + 50;
-        X4 = X3 + cardWidth + 50;
-        X5 = X4 + cardWidth + 50;
-        Y1 = 50;
-        Y2 = -10;
-        Y3 = -35;
-        X6 = (containerWidth - 3 * cardWidth - 114) / 2;
-        X7 = X6 + cardWidth + 50;
-        X8 = X7 + cardWidth + 50;
-        Y6 = cardHeight - 10;
-        Y7 = cardHeight - 40;
-        Y8 = cardHeight - 10;
-      }
+  useEffect(() => {
+    
+    if (!localStorage.getItem("firstVisit")) {
+      localStorage.setItem("firstVisit", "true");
+      window.location.reload(); 
+    }
+    const container = contactCardRef.current;
+    const container1 = contactCard1Ref.current;
 
-      const translations = [
-        { x: X1, y: Y1, rotation: -18 },
-        { x: X2, y: Y2, rotation: -10 },
-        { x: X3, y: Y3, rotation: 0 },
-        { x: X4, y: Y2, rotation: 10 },
-        { x: X5, y: Y1, rotation: 18 },
-      ];
+    if (container && container1) {
+      const cards = Array.from(container.querySelectorAll(".card")) as HTMLElement[];
+      const cards1 = Array.from(container1.querySelectorAll(".card")) as HTMLElement[];
 
-      gsap.set(cards, {
-        x: X1,
-        y: Y1,
-        rotation: -18,
-        zIndex: (index) => index,
-        duration: 0,
-      });
+      if (cards.length > 0) {
+        const cardCount = cards.length;
+        const containerWidth = container.offsetWidth;
+        const cardWidth = cards[1]?.offsetWidth || 0;
+        const cardHeight = cards[0]?.offsetHeight || 0;
 
-      const tl = gsap.timeline({ delay: 1 });
+        let X1, X2, X3, X4, X5, Y1, Y2, Y3;
+        let X6, X7, X8, Y6, Y7, Y8;
 
-      for (let i = 1; i < cardCount; i++) {
-        tl.to(cards[i], {
-          x: translations[i].x,
-          y: translations[i].y,
-          rotation: translations[i].rotation,
-          zIndex: cardCount - i,
-          transformOrigin: "center center",
-          duration: 0.25,
-          ease: "power1.inOut",
-          onStart: () => {
-            for (let j = i + 1; j < cardCount; j++) {
-              gsap.to(cards[j], {
-                x: translations[i].x,
-                y: translations[i].y,
-                rotation: translations[i].rotation,
-                transformOrigin: "center center",
-                duration: 0.25,
-                ease: "power1.inOut",
-                zIndex: j,
-              });
-            }
-          },
+        if (innerWidth >= 2100 && innerWidth <= 3100) {
+          X1 = (containerWidth - 5 * cardWidth - 415) / 2;
+          X2 = X1 + cardWidth + 100;
+          X3 = X2 + cardWidth + 100;
+          X4 = X3 + cardWidth + 100;
+          X5 = X4 + cardWidth + 100;
+          Y1 = 70;
+          Y2 = -10;
+          Y3 = -35;
+          X6 = (containerWidth - 3 * cardWidth - 215) / 2;
+          X7 = X6 + cardWidth + 100;
+          X8 = X7 + cardWidth + 100;
+          Y6 = cardHeight - 15;
+          Y7 = cardHeight - 45;
+          Y8 = cardHeight - 15;
+        } else {
+          X1 = (containerWidth - 5 * cardWidth - 215) / 2;
+          X2 = X1 + cardWidth + 50;
+          X3 = X2 + cardWidth + 50;
+          X4 = X3 + cardWidth + 50;
+          X5 = X4 + cardWidth + 50;
+          Y1 = 50;
+          Y2 = -10;
+          Y3 = -35;
+          X6 = (containerWidth - 3 * cardWidth - 114) / 2;
+          X7 = X6 + cardWidth + 50;
+          X8 = X7 + cardWidth + 50;
+          Y6 = cardHeight - 10;
+          Y7 = cardHeight - 40;
+          Y8 = cardHeight - 10;
+        }
+
+        const translations = [
+          { x: X1, y: Y1, rotation: -18 },
+          { x: X2, y: Y2, rotation: -10 },
+          { x: X3, y: Y3, rotation: 0 },
+          { x: X4, y: Y2, rotation: 10 },
+          { x: X5, y: Y1, rotation: 18 },
+        ];
+
+        gsap.set(cards, {
+          x: X1,
+          y: Y1,
+          rotation: -18,
+          zIndex: (index) => index,
+          duration: 0,
         });
-      }
 
-      const container1 = document.querySelector("#contactCard1") as HTMLElement;
-      const cards1 = container1?.querySelectorAll(
-        ".card"
-      ) as NodeListOf<HTMLElement>;
-      if (cards1) {
+        const tl = gsap.timeline({ delay: 1 });
+
+        for (let i = 1; i < cardCount; i++) {
+          tl.to(cards[i], {
+            x: translations[i].x,
+            y: translations[i].y,
+            rotation: translations[i].rotation,
+            zIndex: cardCount - i,
+            transformOrigin: "center center",
+            duration: 0.25,
+            ease: "power1.inOut",
+            onStart: () => {
+              for (let j = i + 1; j < cardCount; j++) {
+                gsap.to(cards[j], {
+                  x: translations[i].x,
+                  y: translations[i].y,
+                  rotation: translations[i].rotation,
+                  transformOrigin: "center center",
+                  duration: 0.25,
+                  ease: "power1.inOut",
+                  zIndex: j,
+                });
+              }
+            },
+          });
+        }
+
         const cardCount1 = cards1.length;
 
         const translations1 = [
@@ -183,7 +188,7 @@ export default function Brochure() {
       }
     }
   }, []);
-
+    
   return (
     <>
       <PrePreloader />
@@ -268,7 +273,7 @@ export default function Brochure() {
           </svg>
         </div>
 
-        <div className={styles.cardContainer} id="contactCard">
+        <div className={styles.cardContainer} id="contactCard" ref={contactCardRef}>
           <div className={`${styles.first} card`}>
             <ContactCard
               name="Jaiditya Singh"
@@ -329,7 +334,7 @@ export default function Brochure() {
           </div>
         </div>
 
-        <div className={styles.cardContainer1} id="contactCard1">
+        <div className={styles.cardContainer1} id="contactCard1" ref={contactCard1Ref}>
           <div className={`${styles.first} card`}>
             <ContactCard
               name="Shreyansh Vanjani"

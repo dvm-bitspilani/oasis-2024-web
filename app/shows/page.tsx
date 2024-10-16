@@ -69,19 +69,22 @@ const Shows = () => {
         onComplete: () => {
           setEventID((prevID) => (prevID + 1) % eventDetails.length);
           setProgressKey((prevKey) => prevKey + 1);
-          gsap.to(
-            [
-              eventNameRef.current,
-              eventDateRef.current,
-              eventImageRef.current,
-              eventTitleRef.current,
-            ],
-            {
-              opacity: 1,
-              duration: 0.5,
-            }
-          );
         },
+      }
+    );
+  };
+
+  const handleImageLoad = () => {
+    gsap.to(
+      [
+        eventNameRef.current,
+        eventDateRef.current,
+        eventImageRef.current,
+        eventTitleRef.current,
+      ],
+      {
+        opacity: 1,
+        duration: 0.5,
       }
     );
   };
@@ -183,6 +186,7 @@ const Shows = () => {
             alt="event image"
             className={`${styles.eventImage} ${styles[`eventImage${eventID}`]}`}
             ref={eventImageRef}
+            onLoadingComplete={handleImageLoad}
           ></Image>
           <div className={styles.eventSelector}>
             <svg

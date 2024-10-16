@@ -21,7 +21,7 @@ export default function About() {
       <PrePreloader />
       <CursorEffect />
       <div className={styles.aboutBack}>
-        <Glow />
+        {/* <Glow /> */}
         <Grunge />
         <Grid />
         <SuitBackground />

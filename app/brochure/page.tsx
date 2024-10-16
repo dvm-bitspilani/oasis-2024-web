@@ -19,7 +19,7 @@ export default function Brochure() {
       <PrePreloader />
       <CursorEffect />
       <div className={styles.brochureBack}>
-        <Glow />
+        {/* <Glow /> */}
         <Grunge />
         <Grid />
         <SuitBackground />

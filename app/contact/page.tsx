@@ -201,7 +201,7 @@ export default function ContactUs() {
       <PrePreloader />
       <CursorEffect />
       <div className={styles.contactBack}>
-        <Glow />
+        {/* <Glow /> */}
         <Grunge />
         <Grid />
         <SuitBackground />

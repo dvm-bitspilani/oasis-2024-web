@@ -2,6 +2,10 @@ import styles from "./artist.module.scss";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import MusicSection from "./MusicButtons/MusicButton";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 interface Props {
   reverse: boolean;
@@ -13,6 +17,8 @@ interface Props {
   spotifyUrl: string;
 }
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Artist({
   reverse,
   image,
@@ -22,9 +28,41 @@ export default function Artist({
   artist,
   spotifyUrl,
 }: Props) {
+  const artistRef: any = useRef(null);
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: artistRef.current,
+          markers: false,
+          toggleActions: "play none none none",
+          start: "top 70%",
+        },
+      });
+
+      console.log(artistRef.current);
+      console.dir(artistRef.current);
+
+      tl.from(artistRef.current.children[0], {
+        xPercent: reverse ? 250 : -250,
+        duration: 0.5,
+      }).from(
+        // artistRef.current.children[1].children,
+        artistRef.current.children[1],
+        {
+          xPercent: reverse ? -250 : 250,
+          duration: 0.5,
+          //   stagger: 0.2,
+        },
+        "-=0.25"
+      );
+    },
+    { dependencies: [] }
+  );
   return (
     <div
       className={reverse ? `${styles.artist} ${styles.reverse}` : styles.artist}
+      ref={artistRef}
     >
       <div className={styles.imgContainer}>
         <Image

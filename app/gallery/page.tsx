@@ -75,7 +75,7 @@ const Gallery: React.FC = () => {
     <>
       <PrePreloader />
       <div className={styles.galleryBack}>
-        <Glow />
+        {/* <Glow /> */}
         <Grunge />
         <Grid />
         <SuitBackground />

@@ -1,6 +1,7 @@
 "use client";
-import React, { useEffect } from "react";
-import styles from "./brochure.module.scss";
+
+import React, { useLayoutEffect } from "react";
+import styles from "./contact.module.scss";
 
 import Grid from "@/components/Landing/Grid/Grid";
 import Grunge from "@/components/Landing/Backdrop/Grunge";
@@ -30,7 +31,8 @@ import RegBtn from "@/components/Landing/Navbar/RegBtn/RegBtn";
 import CursorEffect from "@/components/CursorEffect/CursorEffect";
 
 export default function Brochure() {
-  useEffect(() => {
+  
+  useLayoutEffect(() => {
     const container = document.querySelector("#contactCard") as HTMLElement;
     const cards = container?.querySelectorAll(
       ".card"
@@ -181,11 +183,12 @@ export default function Brochure() {
       }
     }
   }, []);
+
   return (
     <>
       <PrePreloader />
       <CursorEffect />
-      <div className={styles.brochureBack}>
+      <div className={styles.contactBack}>
         <Glow />
         <Grunge />
         <Grid />

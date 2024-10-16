@@ -204,7 +204,11 @@ export default function Page({ params }: { params: { categoryname: string } }) {
                   <div
                     className={styles.eventImage}
                     style={{
-                      backgroundImage: `url(${eventsList[eventID]?.img_url})`,
+                      backgroundImage: `url(${
+                        eventsList[eventID]?.img_url !== "Nill"
+                          ? eventsList[eventID]?.img_url
+                          : "https://bits-oasis.org/media/icons/default_98OZ5vb.png"
+                      })`,
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                       backgroundRepeat: "no-repeat",

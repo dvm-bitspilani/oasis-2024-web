@@ -10,7 +10,7 @@ export default function OasisLogo() {
         <div className={styles.logo}>
             <Image
                 id="oasisLogo"
-                src="/oasislogo.png"
+                src="/oasislogoNew.png"
                 alt="oasis logo landing"
                 width={logoAspectRatio * logoHeight}
                 height={logoHeight}

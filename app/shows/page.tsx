@@ -54,32 +54,8 @@ const Shows = () => {
   const eventImageRef = useRef(null);
   const eventTitleRef = useRef(null);
 
-  const preloadImage = (src: string) => {
-    return fetch(src)
-      .then((res) => {
-        if (!res.ok) throw new Error(`Failed to load image: ${src}`);
-        return res.blob();
-      })
-      .then(() => {
-        // Image preloaded successfully
-        console.log(`Image preloaded: ${src}`);
-      })
-      .catch((error) => {
-        console.error(`Error preloading image: ${error}`);
-      });
-  };
-
   const animate = async () => {
     const nextID = (eventID + 1) % eventDetails.length;
-
-    try {
-      // Preload the next image before animation
-      await preloadImage(eventDetails[nextID].image.src);
-    } catch (error) {
-      console.error("Failed to preload image", error);
-    }
-
-    // After the image is preloaded, run the GSAP animation
     const tl = gsap.timeline();
     tl.to(
       [
@@ -204,12 +180,22 @@ const Shows = () => {
               {eventDetails[eventID].date}
             </div>
           </div>
-          <Image
-            src={eventDetails[eventID].image}
-            alt="event image"
-            className={`${styles.eventImage} ${styles[`eventImage${eventID}`]}`}
-            ref={eventImageRef}
-          ></Image>
+          {eventDetails.map((event, index) => (
+            <div
+              key={index}
+              className={styles.eventImageWrapper}
+              style={{ display: index === eventID ? "block" : "none" }}
+            >
+              <Image
+                src={event.image}
+                alt={event.name}
+                className={`${styles.eventImage} ${
+                  styles[`eventImage${eventID}`]
+                }`}
+                ref={index === eventID ? eventImageRef : null}
+              />
+            </div>
+          ))}
           <div className={styles.eventSelector}>
             <svg
               width="42"

@@ -77,7 +77,7 @@ export default function Carousel({
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <g clip-path="url(#clip0_3432_1022)">
+          <g clipPath="url(#clip0_3432_1022)">
             <path
               d="M37.3337 37.3334L2.66699 2.66675M37.3337 2.66675L2.66699 37.3334"
               stroke="#FFE887"

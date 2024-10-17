@@ -31,6 +31,17 @@ export default function About() {
     document.body.style.overflow = "hidden";
   }, []);
 
+  useEffect(() => {
+    if (!localStorage.getItem("hasAboutReloaded")) {
+      localStorage.setItem("hasAboutReloaded", "true");
+      window.location.reload();
+    }
+  });
+
+  const handleBackButtonClick = () => {
+    localStorage.removeItem("hasAboutReloaded");
+  };
+
   return (
     <>
       <PrePreloader />
@@ -42,7 +53,7 @@ export default function About() {
         <SuitBackground />
       </div>
       <div className={styles.ham}>
-        <Link href="/">
+        <Link href="/" onClick={handleBackButtonClick}>
           <BackButton />
         </Link>
       </div>

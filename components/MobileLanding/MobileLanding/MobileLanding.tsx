@@ -22,6 +22,7 @@ import EventsMobile from "../EventsPageMobile/EventsPageMobile";
 import Slideshow from "../Slideshow/Slideshow";
 
 export default function MobileLanding() {
+  const [playingArtist, setPlayingArtist] = useState(null);
   return (
     <main className={styles.mobileLandingWrapper}>
       <div className={styles.landing}>
@@ -91,7 +92,9 @@ export default function MobileLanding() {
             date={26}
             artist="vishal"
             music="/Audio/kaiseHua.mp3"
-            spotifyUrl="https://open.spotify.com/artist/5wJ1H6ud777odtZl5gG507?si=sez0PAMwRJSGuWPbhjodrQ"
+            spotifyUrl="https://open.spotify.com/playlist/4ynQv4hlWScbngDokGCjjA?si=8x8WBvC6T1mK9o9ztInOAA"
+            playingArtist={playingArtist}
+            setPlayingArtist={setPlayingArtist}
           />
           <Artist
             image={seedheMaut}
@@ -100,7 +103,9 @@ export default function MobileLanding() {
             date={25}
             artist="seedhe"
             music="/Audio/khattaFlow.mp3"
-            spotifyUrl="https://open.spotify.com/artist/2oBG74gAocPMFv6Ij9ykdo?si=UWya2Fu5TQq4BB0XH6txzA"
+            spotifyUrl="https://open.spotify.com/playlist/7cK7NvCBOdSv7f62e5CgAQ?si=DpdIC1uHTki9YJJDjaQZPw"
+            playingArtist={playingArtist}
+            setPlayingArtist={setPlayingArtist}
           />
           <Artist
             image={yellowDiary}
@@ -109,7 +114,9 @@ export default function MobileLanding() {
             date={24}
             artist="yellow"
             music="/Audio/rozroz.mp3"
-            spotifyUrl="https://open.spotify.com/artist/6xlrAAgxcRlgCXnbg2hcFc?si=DbSoZgHhRjyuWv3ME-H-ow"
+            spotifyUrl="https://open.spotify.com/playlist/1DXS4vvkCPMRfKVjAiTeZB?si=bYzlzZHrTziSqQgh37mX6g"
+            playingArtist={playingArtist}
+            setPlayingArtist={setPlayingArtist}
           />
         </div>
         <Image

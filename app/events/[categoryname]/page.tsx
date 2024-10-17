@@ -217,7 +217,7 @@ export default function Page({ params }: { params: { categoryname: string } }) {
                 </div>
                 <div
                   className={`${styles.eventDescription} ${
-                    eventsList[eventID]?.about.length > 500
+                    eventsList[eventID]?.about.length > 350
                       ? `${styles.longDescription}`
                       : ""
                   }`}

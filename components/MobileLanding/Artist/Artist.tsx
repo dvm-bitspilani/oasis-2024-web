@@ -15,6 +15,8 @@ interface Props {
   music: string;
   artist: string;
   spotifyUrl: string;
+  playingArtist: string | null;
+  setPlayingArtist: any;
 }
 
 gsap.registerPlugin(ScrollTrigger);
@@ -27,6 +29,8 @@ export default function Artist({
   music,
   artist,
   spotifyUrl,
+  playingArtist,
+  setPlayingArtist,
 }: Props) {
   const artistRef: any = useRef(null);
   useGSAP(
@@ -96,6 +100,8 @@ export default function Artist({
           music={music}
           spotifyUrl={spotifyUrl}
           reverse={!reverse}
+          playingArtist={playingArtist}
+          setPlayingArtist={setPlayingArtist}
         />
       </div>
     </div>

@@ -22,6 +22,7 @@ import EventsMobile from "../EventsPageMobile/EventsPageMobile";
 import Slideshow from "../Slideshow/Slideshow";
 
 export default function MobileLanding() {
+  const [playingArtist, setPlayingArtist] = useState(null);
   return (
     <main className={styles.mobileLandingWrapper}>
       <div className={styles.landing}>
@@ -92,6 +93,8 @@ export default function MobileLanding() {
             artist="vishal"
             music="/Audio/kaiseHua.mp3"
             spotifyUrl="https://open.spotify.com/artist/5wJ1H6ud777odtZl5gG507?si=sez0PAMwRJSGuWPbhjodrQ"
+            playingArtist={playingArtist}
+            setPlayingArtist={setPlayingArtist}
           />
           <Artist
             image={seedheMaut}
@@ -101,6 +104,8 @@ export default function MobileLanding() {
             artist="seedhe"
             music="/Audio/khattaFlow.mp3"
             spotifyUrl="https://open.spotify.com/artist/2oBG74gAocPMFv6Ij9ykdo?si=UWya2Fu5TQq4BB0XH6txzA"
+            playingArtist={playingArtist}
+            setPlayingArtist={setPlayingArtist}
           />
           <Artist
             image={yellowDiary}
@@ -110,6 +115,8 @@ export default function MobileLanding() {
             artist="yellow"
             music="/Audio/rozroz.mp3"
             spotifyUrl="https://open.spotify.com/artist/6xlrAAgxcRlgCXnbg2hcFc?si=DbSoZgHhRjyuWv3ME-H-ow"
+            playingArtist={playingArtist}
+            setPlayingArtist={setPlayingArtist}
           />
         </div>
         <Image

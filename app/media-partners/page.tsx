@@ -15,7 +15,7 @@ export default function Sponsors() {
   const [sponsors, setSponsors] = React.useState<any[]>([]);
   React.useEffect(() => {
     axios
-      .get("https://www.bits-oasis.org/2024/main/wallet/media-partners/")
+      .get("https://www.bits-oasis.org/2024/main/wallet/sponsors/")
       .then((response) => {
         const sortedSponsors = response.data.sort(
           (a: any, b: any) => a.order - b.order

@@ -31,6 +31,8 @@ export default function MobileLanding() {
           <Image
             src={slotMachine2D}
             alt="2d slot machine"
+            width={331.38}
+            height={560}
             className={styles.slotMachine}
           />
         </div>

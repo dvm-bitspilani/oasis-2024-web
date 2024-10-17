@@ -15,7 +15,7 @@ export default function Sponsors() {
   const [sponsors, setSponsors] = React.useState<any[]>([]);
   React.useEffect(() => {
     axios
-      .get("https://www.bits-oasis.org/2024/main/wallet/media-partners/")
+      .get("https://bits-oasis.org/2024/main/registrations/media_partners/")
       .then((response) => {
         const sortedSponsors = response.data.sort(
           (a: any, b: any) => a.order - b.order
@@ -167,39 +167,64 @@ export default function Sponsors() {
           <Link href="/" className={styles.backButton}>
             <BackButton />
           </Link>
-          <div className={styles.title}>Sponsors</div>
+          <div className={styles.title}>Media Partners</div>
+
           <div
             className={styles.sponsorsContainer}
             onScroll={() => handleScroll()}
             ref={containerRef}
           >
-            {sponsors.map((sponsor, index) => (
-              <Link
-                key={sponsor.id}
-                href={sponsor.web_url}
-                className={styles.sponsorItemContainer}
-                draggable="false"
-              >
-                <div key={index} className={styles.sponsorItem}>
-                  <img
-                    src={sponsor.url}
-                    className={styles.sponsorImg}
-                    draggable="false"
-                    alt=""
-                  />
-                  <div className={styles.sponsorName}>{sponsor.name}</div>
-                  <div className={styles.sponsorDescription}>
-                    {sponsor.description}
+            <div className={styles.sponsorsSubTitle}>Influencers</div>
+            {sponsors
+              .filter((sponsor) => !sponsor.publication)
+              .map((sponsor, index) => (
+                <Link
+                  key={sponsor.id}
+                  href={sponsor.link}
+                  className={styles.sponsorItemContainer}
+                  draggable="false"
+                  target="_blank"
+                >
+                  <div key={index} className={styles.sponsorItem}>
+                    <img
+                      src={sponsor.icon}
+                      className={styles.sponsorImg}
+                      draggable="false"
+                      alt=""
+                    />
+                    <div className={styles.sponsorName}>{sponsor.name}</div>
+                    <div className={styles.sponsorDescription}>
+                      {sponsor.description}
+                    </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              ))}
 
-              // <div
-              //   key={index}
-              //   className={styles.sponsor}
-              //   style={{ backgroundImage: `url(${sponsor.url})` }}
-              // />
-            ))}
+            <div className={styles.sponsorsSubTitle}>Publications</div>
+            {sponsors
+              .filter((sponsor) => sponsor.publication)
+              .map((sponsor, index) => (
+                <Link
+                  key={sponsor.id}
+                  href={sponsor.link}
+                  className={styles.sponsorItemContainer}
+                  draggable="false"
+                  target="_blank"
+                >
+                  <div key={index} className={styles.sponsorItem}>
+                    <img
+                      src={sponsor.icon}
+                      className={styles.sponsorImg}
+                      draggable="false"
+                      alt=""
+                    />
+                    <div className={styles.sponsorName}>{sponsor.name}</div>
+                    <div className={styles.sponsorDescription}>
+                      {sponsor.description}
+                    </div>
+                  </div>
+                </Link>
+              ))}
           </div>
           <div className={styles.scrollbar} onClick={handleTrackSnap}>
             <div className={styles.scrollbarTrack} />

@@ -221,6 +221,7 @@
             @media (width <= 1148px) {
               width: 12px;
               margin-right: 6px;
+              transform: translateY(0px);
             }
           }
         }
@@ -334,6 +335,20 @@
         display: flex;
         justify-content: center;
         position: absolute;
+
+        @media screen and (max-width: 1148px) {
+          padding: 0;
+          width: 100%;
+          aspect-ratio: 16/9;
+          max-height: 50%;
+          height: unset;
+          max-width: 75%;
+        }
+
+        @media screen and (max-width: 600px) {
+          max-width: unset;
+          height: unset;
+        }
 
         .skeleton {
           width: 100%;

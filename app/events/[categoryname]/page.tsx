@@ -3,12 +3,11 @@
 import { useEffect, useState } from "react";
 import styles from "./categories.module.scss";
 import Image from "next/image";
-import Link from "next/link";
 import grunge from "@/assets/Landing/Grunge.png";
 import axios from "axios";
-import eventcard from "../../../assets/Events/Carousel/eventcard.png";
 import Preloader from "@/components/Preloader/Preloader";
 import { useRouter } from "next/navigation";
+import LoaderChip from "@/components/Events/Loader/LoaderChip";
 
 const categories = [
   "music",
@@ -24,6 +23,7 @@ export default function Page({ params }: { params: { categoryname: string } }) {
   const [eventsList, setEventsList] = useState<any>([]);
   const [eventID, setEventID] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const handleBack = () => {
     document.body.style.overflow = "auto";
@@ -69,6 +69,7 @@ export default function Page({ params }: { params: { categoryname: string } }) {
           : (prevID + 1) % eventsList.length;
       return newID;
     });
+    setImageLoaded(false);
   };
   return (
     <>
@@ -132,8 +133,6 @@ export default function Page({ params }: { params: { categoryname: string } }) {
               </div> */}
                   <div className={styles.location}>
                     <svg
-                      width="18"
-                      height="26"
                       viewBox="0 0 18 26"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -200,20 +199,30 @@ export default function Page({ params }: { params: { categoryname: string } }) {
                 </div>
               </div>
               <div className={styles.rightContent}>
-                <div className={styles.eventImageContainer} style={{}}>
-                  <div
+                {!imageLoaded && (
+                  <div className={styles.eventImageSkeleton}>
+                    <div className={styles.skeleton}>
+                      <LoaderChip />
+                    </div>
+                  </div>
+                )}
+                <div className={styles.eventImageContainer}>
+                  <img
                     className={styles.eventImage}
+                    src={
+                      eventsList[eventID]?.img_url !== "Nill"
+                        ? eventsList[eventID]?.img_url
+                        : "https://bits-oasis.org/media/icons/default_98OZ5vb.png"
+                    }
                     style={{
-                      backgroundImage: `url(${
-                        eventsList[eventID]?.img_url !== "Nill"
-                          ? eventsList[eventID]?.img_url
-                          : "https://bits-oasis.org/media/icons/default_98OZ5vb.png"
-                      })`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                      backgroundRepeat: "no-repeat",
+                      display: imageLoaded ? "block" : "none",
+                      opacity: imageLoaded ? 1 : 0,
+                      objectFit: "cover",
+                      objectPosition: "center",
                     }}
-                  ></div>
+                    alt={eventsList[eventID]?.name || "event image"}
+                    onLoad={() => setImageLoaded(true)}
+                  />
                 </div>
                 <div
                   className={`${styles.eventDescription} ${

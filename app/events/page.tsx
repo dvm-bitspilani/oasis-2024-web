@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import styles from "./events.module.scss";
+import { useRouter } from "next/navigation";
 import Folder from "@/components/Events/Folder/Folder";
 import Category from "@/components/Events/Category/Category";
 
@@ -113,6 +114,20 @@ export default function EventsPage() {
     },
     { dependencies: [] }
   );
+
+  const router = useRouter();
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const isMobile =
+        /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 800;
+
+      if (isMobile) {
+        router.push("/");
+      }
+    }
+    document.body.style.overflow = "hidden";
+  }, []);
+  
 
   return (
     <>

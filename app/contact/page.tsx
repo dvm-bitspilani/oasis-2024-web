@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import styles from "./contact.module.scss";
 
 import Grid from "@/components/Landing/Grid/Grid";
@@ -195,6 +196,19 @@ export default function ContactUs() {
   const handleBackButtonClick = () => {
     localStorage.removeItem("hasReloaded");
   };
+
+  const router = useRouter();
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const isMobile =
+        /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 800;
+
+      if (isMobile) {
+        router.push("/");
+      }
+    }
+    document.body.style.overflow = "hidden";
+  }, []);
 
   return (
     <>
@@ -459,19 +473,23 @@ export default function ContactUs() {
           </div>
         </div>
       </div>
-      <div className={styles.bottom} id="contactBottom">
-        <Image
-          src={left}
-          alt="left"
-          className={styles.bottomAnimation}
-          draggable={false}
-        />
-        <Image
-          src={right}
-          alt="right"
-          className={styles.bottomAnimation}
-          draggable={false}
-        />
+      <div className={styles.bottom}>
+        <span className={styles.left}>
+          <Image
+            src={left}
+            alt="left"
+            className={styles.bottomAnimation}
+            draggable={false}
+          />
+        </span>
+        <span className={styles.right}>
+          <Image
+            src={right}
+            alt="right"
+            className={styles.bottomAnimation}
+            draggable={false}
+          />
+        </span>
       </div>
     </>
   );

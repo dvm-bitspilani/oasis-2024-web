@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./categories.module.scss";
 import Image from "next/image";
 import grunge from "@/assets/Landing/Grunge.png";
@@ -8,6 +8,7 @@ import axios from "axios";
 import Preloader from "@/components/Preloader/Preloader";
 import { useRouter } from "next/navigation";
 import LoaderChip from "@/components/Events/Loader/LoaderChip";
+import gsap from "gsap";
 
 const categories = [
   "music",
@@ -24,6 +25,11 @@ export default function Page({ params }: { params: { categoryname: string } }) {
   const [eventID, setEventID] = useState(0);
   const [loading, setLoading] = useState(true);
   const [imageLoaded, setImageLoaded] = useState(false);
+
+  const titleRef = useRef<HTMLDivElement>(null);
+  const subtitleRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+  const descriptionRef = useRef<HTMLDivElement>(null);
 
   const handleBack = () => {
     document.body.style.overflow = "auto";
@@ -61,14 +67,50 @@ export default function Page({ params }: { params: { categoryname: string } }) {
     }
   }, []);
 
+  const animate = (direction: string) => {
+    const tl = gsap.timeline();
+    tl.to([titleRef.current, subtitleRef.current, contactRef.current], {
+      x: -100,
+      opacity: 0,
+      duration: 0.5,
+    })
+      .to(
+        descriptionRef.current,
+        {
+          x: 100,
+          opacity: 0,
+          duration: 0.5,
+          onComplete: () => {
+            setEventID((prevID) => {
+              const newID =
+                direction === "left"
+                  ? (prevID - 1 + eventsList.length) % eventsList.length
+                  : (prevID + 1) % eventsList.length;
+              return newID;
+            });
+          },
+        },
+        "<"
+      )
+      .to([titleRef.current, subtitleRef.current, contactRef.current], {
+        x: 0,
+        opacity: 1,
+        duration: 0.25,
+        delay: 0.2,
+      })
+      .to(
+        descriptionRef.current,
+        {
+          x: 0,
+          opacity: 1,
+          duration: 0.25,
+        },
+        "<"
+      );
+  };
+
   const handleCarousel = (direction: string) => {
-    setEventID((prevID) => {
-      const newID =
-        direction === "left"
-          ? (prevID - 1 + eventsList.length) % eventsList.length
-          : (prevID + 1) % eventsList.length;
-      return newID;
-    });
+    animate(direction);
     setImageLoaded(false);
   };
   return (
@@ -124,10 +166,10 @@ export default function Page({ params }: { params: { categoryname: string } }) {
 
             <div className={styles.eventDisplay}>
               <div className={styles.leftContent}>
-                <div className={styles.eventTitle}>
+                <div className={styles.eventTitle} ref={titleRef}>
                   {eventsList[eventID]?.name || "name"}
                 </div>
-                <div className={styles.eventSubTitle}>
+                <div className={styles.eventSubTitle} ref={subtitleRef}>
                   {/* <div className={styles.clubName}>
                 Organizer: {eventsList[eventID]?.organizer || ""}
               </div> */}
@@ -152,7 +194,7 @@ export default function Page({ params }: { params: { categoryname: string } }) {
                     {eventsList[eventID]?.venue_name || "TBA"}
                   </div>
                 </div>
-                <div className={styles.eventContact}>
+                <div className={styles.eventContact} ref={contactRef}>
                   Contact: {eventsList[eventID]?.contact || "N/A"}
                 </div>
                 <div className={styles.carouselControl}>
@@ -230,6 +272,7 @@ export default function Page({ params }: { params: { categoryname: string } }) {
                       ? `${styles.longDescription}`
                       : ""
                   }`}
+                  ref={descriptionRef}
                 >
                   {eventsList[eventID]?.about}
                 </div>

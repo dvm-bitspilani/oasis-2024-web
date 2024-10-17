@@ -32,29 +32,29 @@ export default function EventsMobile() {
       console.log(children1);
       console.log(children2);
 
-      Array.from(children1).forEach((child: any, index) => {
-        gsap.from(child, {
-          xPercent: index % 2 === 0 ? -250 : 250,
-          duration: 0.5,
-          scrollTrigger: {
-            trigger: child,
-            markers: false,
-            toggleActions: "play none none none",
-            start: "top 90%",
-          },
-        });
+      gsap.from(children1, {
+        yPercent: -110,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: eventRef1.current,
+          markers: false,
+          toggleActions: "play none none none",
+          start: "top 80%",
+        },
+        duration: 0.3,
+        stagger: 0.3,
       });
-      Array.from(children2).forEach((child: any, index) => {
-        gsap.from(child, {
-          xPercent: index % 2 === 0 ? -250 : 250,
-          duration: 0.5,
-          scrollTrigger: {
-            trigger: child,
-            markers: false,
-            toggleActions: "play none none none",
-            start: "top 70%",
-          },
-        });
+      gsap.from(children2, {
+        yPercent: -110,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: eventRef2.current,
+          markers: false,
+          toggleActions: "play none none none",
+          start: "top 80%",
+        },
+        duration: 0.3,
+        stagger: 0.3,
       });
     },
     { dependencies: [] }

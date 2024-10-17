@@ -2,7 +2,7 @@
 
 import styles from "./mobileLanding.module.scss";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import MobileRegBtn from "@/components/MobileLanding/RegBtn/RegBtn";
 import MobileHeading from "@/components/MobileLanding/AboutUsHeading/MobileHeading";
@@ -22,6 +22,16 @@ import EventsMobile from "../EventsPageMobile/EventsPageMobile";
 import Slideshow from "../Slideshow/Slideshow";
 
 export default function MobileLanding() {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const isMobile =
+        /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 960;
+
+      if (isMobile) {
+        document.body.style.overflow = "scroll";
+      }
+    }
+  }, []);
   const [playingArtist, setPlayingArtist] = useState(null);
   return (
     <main className={styles.mobileLandingWrapper}>
@@ -31,6 +41,8 @@ export default function MobileLanding() {
           <Image
             src={slotMachine2D}
             alt="2d slot machine"
+            width={331.38}
+            height={560}
             className={styles.slotMachine}
           />
         </div>

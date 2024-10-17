@@ -11,8 +11,45 @@ import rijul from "@/assets/Landing/contactUs/rijul.png";
 import shreyansh from "@/assets/Landing/contactUs/shreyansh.png";
 import ahan from "@/assets/Landing/contactUs/ahan.png";
 import aryanK from "@/assets/Landing/contactUs/aryankhorana.png";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function ContactUsMobile() {
+  useGSAP(
+    () => {
+      const evenCards = document.querySelectorAll(".contactCardAnimationEven");
+      const oddCards = document.querySelectorAll(".contactCardAnimationOdd");
+
+      if (evenCards.length !== 0 && oddCards.length !== 0) {
+        gsap.from(evenCards, {
+          scrollTrigger: {
+            trigger: evenCards[0],
+            start: "top 70%",
+            markers: false,
+            toggleActions: "play none none none",
+          },
+          xPercent: 120,
+          duration: 0.5,
+          stagger: 0.3,
+        });
+        gsap.from(oddCards, {
+          scrollTrigger: {
+            trigger: oddCards[0],
+            start: "top 70%",
+            markers: false,
+            toggleActions: "play none none none",
+          },
+          xPercent: -120,
+          duration: 0.5,
+          stagger: 0.3,
+        });
+      }
+    },
+    { dependencies: [] }
+  );
   return (
     <>
       <MobileHeading
@@ -23,6 +60,7 @@ export default function ContactUsMobile() {
       />
       <div className={styles.cardsContainer}>
         <MobileContactCard
+          animationIndex={1}
           name="Aryan Wadhwa"
           image={aryan}
           dep1="Registrations, Events &"
@@ -32,6 +70,7 @@ export default function ContactUsMobile() {
           email="mailto:pcr@bits-oasis.org"
         />
         <MobileContactCard
+          animationIndex={2}
           name="Prateek Kashyap"
           image={prateek}
           dep1="Website, App &"
@@ -41,6 +80,7 @@ export default function ContactUsMobile() {
           email="mailto:webmaster@bits-oasis.org"
         />
         <MobileContactCard
+          animationIndex={3}
           name="Shreeram Verma"
           image={shreeram}
           dep1="Sponsorship and"
@@ -50,6 +90,7 @@ export default function ContactUsMobile() {
           email="mailto:shreeram@bits-oasis.org"
         />
         <MobileContactCard
+          animationIndex={4}
           name="Jaiditya Singh"
           image={jaiditya}
           dep1="Logistics and"
@@ -59,6 +100,7 @@ export default function ContactUsMobile() {
           email="mailto:controls@bits-oasis.org"
         />
         <MobileContactCard
+          animationIndex={5}
           name="Rijul Bassamboo"
           image={rijul}
           dep1="Reception and"
@@ -68,6 +110,7 @@ export default function ContactUsMobile() {
           email="mailto:recnacc@bits-oasis.org"
         />
         <MobileContactCard
+          animationIndex={6}
           name="Shreyansh Vanjani"
           image={shreyansh}
           dep1="Publicity and"
@@ -77,6 +120,7 @@ export default function ContactUsMobile() {
           email="mailto:adp@bits-oasis.org"
         />
         <MobileContactCard
+          animationIndex={7}
           name="Ahan Bansal"
           image={ahan}
           dep1="President,"
@@ -86,6 +130,7 @@ export default function ContactUsMobile() {
           email="mailto:president@pilani.bits-pilani.ac.in"
         />
         <MobileContactCard
+          animationIndex={8}
           name="Aryan Khorana"
           image={aryanK}
           dep1="General Secretary,"
@@ -96,7 +141,9 @@ export default function ContactUsMobile() {
         />
       </div>
       <div className={styles.madeWith}>
-        <a href="https://bits-dvm.org" target="_main">Made with <span> ❤️ </span>by DVM</a>
+        <a href="https://bits-dvm.org" target="_main">
+          Made with <span> ❤️ </span>by DVM
+        </a>
       </div>
     </>
   );

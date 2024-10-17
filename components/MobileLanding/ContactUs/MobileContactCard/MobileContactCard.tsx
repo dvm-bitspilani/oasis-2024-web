@@ -5,6 +5,10 @@ import background from "@/assets/MobileLanding/ContactUs/CardBackground.svg";
 import phoneIcon from "@/assets/MobileLanding/ContactUs/PhoneIcon.svg";
 import mailIcon from "@/assets/MobileLanding/ContactUs/MailIcon.svg";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
 
 interface Props {
   name: string;
@@ -14,12 +18,15 @@ interface Props {
   contactDetails: boolean;
   phone: string | null;
   email: string | null;
+  animationIndex: number;
 }
 
 interface ContactProps {
   phone: string | null;
   email: string | null;
 }
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function ContactBlock({ phone, email }: ContactProps) {
   return (
@@ -52,9 +59,36 @@ export default function MobileContactCard({
   contactDetails,
   phone,
   email,
+  animationIndex,
 }: Props) {
+  const cardContainer: any = useRef();
+
+  // useGSAP(
+  //   () => {
+  //     if (cardContainer.current) {
+  //       gsap.from(cardContainer.current, {
+  //         scrollTrigger: {
+  //           trigger: cardContainer.current,
+  //           start: "top 70%",
+  //           markers: false,
+  //           toggleActions: "play none none none",
+  //         },
+  //         xPercent: animationIndex % 2 ? -120 : 120,
+  //         duration: 0.3,
+  //       });
+  //     }
+  //   },
+  //   { dependencies: [] }
+  // );
+
   return (
-    <div className={styles.container}>
+    <div
+      className={`${styles.container} ${
+        animationIndex % 2
+          ? "contactCardAnimationOdd"
+          : "contactCardAnimationEven"
+      }`}
+    >
       <div className={styles.cardContent}>
         <p className={styles.heading}>{name}</p>
         <Image src={image} alt={name} className={styles.image} />

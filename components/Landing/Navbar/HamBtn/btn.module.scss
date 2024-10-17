@@ -1,3 +1,46 @@
+.madeWith {
+  position: fixed;
+  z-index: 500000;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  left: 50%;
+
+  a {
+    text-align: center;
+    transform: translate( -50%, 0%);
+    pointer-events: all;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: "Source Serif 4", sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.04em;
+    line-height: normal;
+
+    span {
+      padding: 0 7px;
+      height: 25px;
+      background: linear-gradient(
+        112.17deg,
+        #EDCF89 25.95%,
+        #EDCF89 44.71%,
+        #EDCF89 72.61%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
+
+@media(max-width: 800px) {
+  .madeWith {
+    display: none;
+  }
+}
+
 .hamOverlay {
   opacity: 0;
   position: fixed;

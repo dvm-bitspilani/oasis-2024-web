@@ -150,10 +150,10 @@ export default function HamBtn() {
     } else {
       if (window.innerWidth > 585) {
         tl.to(BtnRef.current, {
-          y: `${window.innerHeight / 2 - 50}`,
+          y: `${window.innerHeight / 2 - 100}`, // earlier it was -50
           x: "-50%",
           duration: 0.5,
-          scale: window.innerWidth > 1200 ? 8.9 : 6,
+          scale: window.innerWidth > 1200 ? 8 : 6, // earlier it was 8.9
         })
           .to(
             pokerChipRef.current,
@@ -301,6 +301,14 @@ export default function HamBtn() {
 
   return (
     <>
+      {isHamOpen && (
+        <div className={styles.madeWith} >
+          <a href="https://bits-dvm.org" target="_main">
+            Made with <span> ❤️ </span>by DVM
+          </a>
+        </div>
+      )}
+
       <div className={styles.hamOverlay} ref={overlayRef} />
       <div
         className={styles.btn}

@@ -70,14 +70,16 @@ export default function Page({ params }: { params: { categoryname: string } }) {
   const animate = (direction: string) => {
     const tl = gsap.timeline();
     tl.to([titleRef.current, subtitleRef.current, contactRef.current], {
-      x: -100,
+      x: window.innerWidth > 1148 ? -100 : 0,
+      y: window.innerWidth < 1148 ? -100 : 0,
       opacity: 0,
       duration: 0.5,
     })
       .to(
         descriptionRef.current,
         {
-          x: 100,
+          x: window.innerWidth > 1148 ? 100 : 0,
+          y: window.innerWidth < 1148 ? 100 : 0,
           opacity: 0,
           duration: 0.5,
           onComplete: () => {
@@ -94,6 +96,7 @@ export default function Page({ params }: { params: { categoryname: string } }) {
       )
       .to([titleRef.current, subtitleRef.current, contactRef.current], {
         x: 0,
+        y: 0,
         opacity: 1,
         duration: 0.25,
         delay: 0.2,
@@ -102,6 +105,7 @@ export default function Page({ params }: { params: { categoryname: string } }) {
         descriptionRef.current,
         {
           x: 0,
+          y: 0,
           opacity: 1,
           duration: 0.25,
         },

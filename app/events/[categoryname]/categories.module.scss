@@ -44,6 +44,12 @@
       scale: 0.5;
     }
 
+    @media screen and (max-width: 600px) {
+      top: 1rem;
+      left: 1rem;
+      scale: 0.3;
+    }
+
     svg {
       mix-blend-mode: difference;
     }
@@ -150,7 +156,6 @@
           margin-top: 73px;
           font-size: 55px;
           line-height: 70px;
-
           text-align: center;
         }
 
@@ -158,6 +163,10 @@
           font-size: 40px;
           line-height: 50px;
           margin-top: 50px;
+        }
+
+        @media screen and (max-height: 700px) and (max-width: 600px) {
+          margin-top: 2rem;
         }
       }
       .eventSubTitle {
@@ -383,6 +392,8 @@
       }
 
       .longDescription {
+        font-size: 1.75rem;
+        line-height: 40px;
         @media screen and (max-height: 900px) {
           font-size: 1.25rem;
           line-height: 1.5rem;

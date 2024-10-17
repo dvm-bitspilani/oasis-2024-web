@@ -473,19 +473,23 @@ export default function ContactUs() {
           </div>
         </div>
       </div>
-      <div className={styles.bottom} id="contactBottom">
-        <Image
-          src={left}
-          alt="left"
-          className={styles.bottomAnimation}
-          draggable={false}
-        />
-        <Image
-          src={right}
-          alt="right"
-          className={styles.bottomAnimation}
-          draggable={false}
-        />
+      <div className={styles.bottom}>
+        <span className={styles.left}>
+          <Image
+            src={left}
+            alt="left"
+            className={styles.bottomAnimation}
+            draggable={false}
+          />
+        </span>
+        <span className={styles.right}>
+          <Image
+            src={right}
+            alt="right"
+            className={styles.bottomAnimation}
+            draggable={false}
+          />
+        </span>
       </div>
     </>
   );

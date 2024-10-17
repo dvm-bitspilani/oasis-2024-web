@@ -1,6 +1,7 @@
 "use client";
 
-import React from "react";
+import React, {useEffect} from "react";
+import { useRouter } from "next/navigation";
 import styles from "./about.module.scss";
 
 import Grid from "@/components/Landing/Grid/Grid";
@@ -16,6 +17,20 @@ import MobileSlotMachine from "@/components/AboutUs/Machine/Machine";
 import CursorEffect from "@/components/CursorEffect/CursorEffect";
 
 export default function About() {
+
+  const router = useRouter();
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const isMobile =
+        /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 800;
+
+      if (isMobile) {
+        router.push("/");
+      }
+    }
+    document.body.style.overflow = "hidden";
+  }, []);
+
   return (
     <>
       <PrePreloader />

@@ -16,17 +16,59 @@ import quiz from "../../../assets/Events/Folders/Comic photo effect 6.png";
 import camera from "../../../assets/Events/Folders/Comic photo effect 8.png";
 import drama from "../../../assets/Events/Folders/Comic photo effect 7.png";
 import fashion from "../../../assets/Events/Folders/Comic photo effect 5.png";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function EventsMobile() {
+  const eventRef1: any = useRef(null);
+  const eventRef2: any = useRef(null);
+  useGSAP(
+    () => {
+      const children1 = eventRef1.current.children;
+      const children2 = eventRef2.current.children;
+
+      console.log(children1);
+      console.log(children2);
+
+      Array.from(children1).forEach((child: any, index) => {
+        gsap.from(child, {
+          xPercent: index % 2 === 0 ? -250 : 250,
+          duration: 0.5,
+          scrollTrigger: {
+            trigger: child,
+            markers: false,
+            toggleActions: "play none none none",
+            start: "top 90%",
+          },
+        });
+      });
+      Array.from(children2).forEach((child: any, index) => {
+        gsap.from(child, {
+          xPercent: index % 2 === 0 ? -250 : 250,
+          duration: 0.5,
+          scrollTrigger: {
+            trigger: child,
+            markers: false,
+            toggleActions: "play none none none",
+            start: "top 70%",
+          },
+        });
+      });
+    },
+    { dependencies: [] }
+  );
+
   return (
     <>
-      <div className={styles.mobilecontainer}>
-        <MobileHeading
-          showArrows={false}
-          style={{}}
-          textStyles={{}}
-          text="Events"
-        />
+      <MobileHeading
+        showArrows={false}
+        style={{}}
+        textStyles={{}}
+        text="Events"
+      />
+      <div className={styles.mobilecontainer} ref={eventRef1}>
         <Link href="/events/music">
           <Image
             src={musicmobile}
@@ -83,14 +125,14 @@ export default function EventsMobile() {
         </Link>
       </div>
       <div className={styles.gridcontainer}>
-        <MobileHeading
+        {/* <MobileHeading
           showArrows={false}
           style={{}}
           textStyles={{}}
           text="Events"
-        />
-        
-        <div className={styles.row}>
+        /> */}
+
+        <div className={styles.row} ref={eventRef2}>
           <Link href="/events/music">
             <div className={styles.box}>
               <svg

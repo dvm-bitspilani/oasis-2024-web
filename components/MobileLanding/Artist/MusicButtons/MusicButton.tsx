@@ -11,6 +11,8 @@ interface Props {
   artist: string;
   spotifyUrl: string;
   reverse: boolean;
+  playingArtist: string | null;
+  setPlayingArtist: any;
 }
 
 export default function MusicSection({
@@ -18,30 +20,37 @@ export default function MusicSection({
   artist,
   spotifyUrl,
   reverse,
+  playingArtist,
+  setPlayingArtist,
 }: Props) {
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
 
   function playClickHandler() {
-    const allAudios = document.querySelectorAll(".music");
     const thisAudio: HTMLMediaElement = document.querySelector(`#${artist}`)!;
-    allAudios.forEach((elem: any) => {
-      if (!elem.paused) {
-        elem.pause();
-      }
-    });
-    if (!isMusicPlaying) {
+    if (playingArtist !== artist) {
       thisAudio
         .play()
         .then(() => {
+          setPlayingArtist(artist);
           setIsMusicPlaying(true);
         })
         .catch((err) => {
           console.log(err);
         });
-    } else {
+    } else if (playingArtist === artist) {
+      thisAudio.pause();
+      setPlayingArtist(null);
       setIsMusicPlaying(false);
     }
   }
+
+  useEffect(() => {
+    const thisAudio: HTMLMediaElement = document.querySelector(`#${artist}`)!;
+    if (playingArtist !== artist && !thisAudio.paused) {
+      thisAudio.pause();
+      setIsMusicPlaying(false);
+    }
+  }, [playingArtist]);
 
   return (
     <>

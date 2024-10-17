@@ -100,7 +100,7 @@
         text-decoration: none;
         .sponsorItem {
           margin-bottom: 50px;
-          height: 300px;
+          // height: 300px;
           // background-color: rebeccapurple;
           display: flex;
           gap: 5px;
@@ -133,16 +133,53 @@
             text-align: center;
             color: white;
             text-decoration: none;
-            font-size: 17px;
+            font-size: 22px;
           }
         }
         &:nth-child(1) {
           grid-column-start: 1;
           grid-column-end: 7;
+          .sponsorImg {
+            padding-top: 50px;
+            display: block;
+            max-height: 350px;
+            max-width: 100%;
+            padding-bottom: 5px;
+          }
+          .sponsorName {
+            text-decoration: none;
+            color: #ffe3ad;
+            text-shadow: 0px 0px 8px rgba(229, 195, 132, 0.48);
+            font-family: "Source Serif 4";
+            font-size: 60px;
+            font-style: normal;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-align: center;
+          }
+          
         }
         &:nth-child(2) {
           grid-column-start: 1;
           grid-column-end: 4;
+          .sponsorImg {
+            padding-top: 50px;
+            display: block;
+            max-height: 350px;
+            max-width: 100%;
+            padding-bottom: 5px;
+          }
+          .sponsorName {
+            text-decoration: none;
+            color: #ffe3ad;
+            text-shadow: 0px 0px 8px rgba(229, 195, 132, 0.48);
+            font-family: "Source Serif 4";
+            font-size: 60px;
+            font-style: normal;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-align: center;
+          }
 
           @media (width <= 800px) {
             grid-column: span 6;
@@ -151,6 +188,24 @@
         &:nth-child(3) {
           grid-column-start: 4;
           grid-column-end: 7;
+          .sponsorImg {
+            padding-top: 50px;
+            display: block;
+            max-height: 350px;
+            max-width: 100%;
+            padding-bottom: 5px;
+          }
+          .sponsorName {
+            text-decoration: none;
+            color: #ffe3ad;
+            text-shadow: 0px 0px 8px rgba(229, 195, 132, 0.48);
+            font-family: "Source Serif 4";
+            font-size: 60px;
+            font-style: normal;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-align: center;
+          }
 
           @media (width <= 800px) {
             grid-column: span 6;

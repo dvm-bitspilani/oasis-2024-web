@@ -57,8 +57,10 @@ export default function MobileLanding() {
           trigger: "#oasisLogo",
           markers: false,
           toggleActions: "play none reverse none",
-          start: "40px top",
-          end: "340px top",
+          start: "60px top",
+          end: "320px top",
+          scrub: true,
+          // end: "340px top",
         },
       });
 
@@ -66,14 +68,12 @@ export default function MobileLanding() {
         y: -75,
         opacity: 0,
         ease: "power1.inOut",
-        duration: 0.6,
       }).to(
         "#countdownTimer",
         {
           y: 75,
           opacity: 0,
           ease: "power1.inOut",
-          duration: 0.6,
         },
         "<"
       );

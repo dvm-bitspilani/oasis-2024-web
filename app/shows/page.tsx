@@ -8,6 +8,7 @@ import grunge from "@/assets/Landing/Grunge.png";
 import sm from "@/public/ProfShow/goat.png";
 import vm from "@/public/ProfShow/vishalmishra.png";
 import tyd from "@/public/ProfShow/theyellowdiaries.png";
+import n2o from "@/public/ProfShow/n2o.png";
 import gif1 from "@/public/ProfShow/gif1.gif";
 import { useRouter } from "next/navigation";
 import CursorEffect from "@/components/CursorEffect/CursorEffect";
@@ -32,6 +33,12 @@ const eventDetails = [
     date: "October 26",
     image: vm,
   },
+  {
+    title: "N2O",
+    name: "N2O",
+    date: "October 27",
+    image: n2o,
+  },
 ];
 
 const Shows = () => {
@@ -48,7 +55,7 @@ const Shows = () => {
     document.body.style.overflow = "hidden";
   }, []);
 
-  const [eventID, setEventID] = useState(0);
+  const [eventID, setEventID] = useState(3);
   const [progressKey, setProgressKey] = useState(0);
   const [loading, setLoading] = useState(true);
 
@@ -114,13 +121,13 @@ const Shows = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      animate();
-    }, 10000);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     animate();
+  //   }, 10000);
 
-    return () => clearTimeout(timer);
-  }, [eventID, progressKey]);
+  //   return () => clearTimeout(timer);
+  // }, [eventID, progressKey]);
 
   const handleArrowClick = (direction: string) => {
     gsap.to(
@@ -200,9 +207,19 @@ const Shows = () => {
             <div className={styles.darkScreen} />
             <div className={styles.pageContent}>
               <div className={styles.eventName} ref={eventNameRef}>
-                {eventDetails[eventID].name.split(" ").slice(0, -1).join(" ")}
-                <br />
-                {eventDetails[eventID].name.split(" ").slice(-1)}
+                {eventDetails[eventID].name.split(" ").length > 1 ? (
+                  <>
+                    {eventDetails[eventID].name
+                      .split(" ")
+                      .slice(0, -1)
+                      .join(" ")}
+                    <br />
+                    {eventDetails[eventID].name.split(" ").slice(-1)}
+                  </>
+                ) : (
+                  eventDetails[eventID].name
+                )}
+
                 <div
                   className={`${styles.eventDate} ${
                     styles[`eventDate${eventID}`]

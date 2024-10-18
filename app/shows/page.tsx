@@ -21,16 +21,16 @@ const eventDetails = [
     image: tyd,
   },
   {
-    title: "BOLLYWOOD NITE",
-    name: "VISHAL MISHRA",
-    date: "October 26",
-    image: vm,
-  },
-  {
     title: "HIP HOP NITE",
     name: "SEEDHE MAUT",
     date: "October 25",
     image: sm,
+  },
+  {
+    title: "BOLLYWOOD NITE",
+    name: "VISHAL MISHRA",
+    date: "October 26",
+    image: vm,
   },
 ];
 

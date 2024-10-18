@@ -284,6 +284,11 @@
             rgba(255, 232, 135, 0.02) 100%
           );
           z-index: 10;
+          transition: transform 0.3s ease-out;
+
+          &:hover{
+            transform: scale(1.15);
+          }
 
           @media screen and (max-width: 1400px) {
             height: 72px;

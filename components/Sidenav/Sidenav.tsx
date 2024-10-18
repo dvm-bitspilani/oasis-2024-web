@@ -30,9 +30,9 @@ const Sidenav = () => {
                   width="35.6002"
                   height="32.9824"
                   filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feColorMatrix
                     in="SourceAlpha"
                     type="matrix"
@@ -66,10 +66,10 @@ const Sidenav = () => {
                   y2="33.3831"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#876D24" />
-                  <stop offset="0.28" stop-color="#F3D57B" />
-                  <stop offset="0.66" stop-color="#B69637" />
-                  <stop offset="1" stop-color="#DCBF69" />
+                  <stop stopColor="#876D24" />
+                  <stop offset="0.28" stopColor="#F3D57B" />
+                  <stop offset="0.66" stopColor="#B69637" />
+                  <stop offset="1" stopColor="#DCBF69" />
                 </linearGradient>
               </defs>
             </svg>
@@ -98,10 +98,10 @@ const Sidenav = () => {
                   y2="35.1562"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#876D24" />
-                  <stop offset="0.28" stop-color="#F3D57B" />
-                  <stop offset="0.66" stop-color="#B69637" />
-                  <stop offset="1" stop-color="#DCBF69" />
+                  <stop stopColor="#876D24" />
+                  <stop offset="0.28" stopColor="#F3D57B" />
+                  <stop offset="0.66" stopColor="#B69637" />
+                  <stop offset="1" stopColor="#DCBF69" />
                 </linearGradient>
               </defs>
             </svg>
@@ -130,10 +130,10 @@ const Sidenav = () => {
                   y2="37.2976"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#876D24" />
-                  <stop offset="0.28" stop-color="#F3D57B" />
-                  <stop offset="0.66" stop-color="#B69637" />
-                  <stop offset="1" stop-color="#DCBF69" />
+                  <stop stopColor="#876D24" />
+                  <stop offset="0.28" stopColor="#F3D57B" />
+                  <stop offset="0.66" stopColor="#B69637" />
+                  <stop offset="1" stopColor="#DCBF69" />
                 </linearGradient>
               </defs>
             </svg>
@@ -162,10 +162,10 @@ const Sidenav = () => {
                   y2="33.6563"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#876D24" />
-                  <stop offset="0.28" stop-color="#F3D57B" />
-                  <stop offset="0.66" stop-color="#B69637" />
-                  <stop offset="1" stop-color="#DCBF69" />
+                  <stop stopColor="#876D24" />
+                  <stop offset="0.28" stopColor="#F3D57B" />
+                  <stop offset="0.66" stopColor="#B69637" />
+                  <stop offset="1" stopColor="#DCBF69" />
                 </linearGradient>
               </defs>
             </svg>
@@ -194,10 +194,10 @@ const Sidenav = () => {
                   y2="35.1563"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#876D24" />
-                  <stop offset="0.28" stop-color="#F3D57B" />
-                  <stop offset="0.66" stop-color="#B69637" />
-                  <stop offset="1" stop-color="#DCBF69" />
+                  <stop stopColor="#876D24" />
+                  <stop offset="0.28" stopColor="#F3D57B" />
+                  <stop offset="0.66" stopColor="#B69637" />
+                  <stop offset="1" stopColor="#DCBF69" />
                 </linearGradient>
               </defs>
             </svg>

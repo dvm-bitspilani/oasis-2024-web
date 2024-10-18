@@ -64,7 +64,6 @@ export default function Carousel({
   onNext,
   onPrev,
 }: CarouselProps) {
-
   const currentImage = activeEvent !== null ? images[activeEvent] : images[0];
 
   return (
@@ -77,7 +76,7 @@ export default function Carousel({
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <g clip-path="url(#clip0_3432_1022)">
+          <g clipPath="url(#clip0_3432_1022)">
             <path
               d="M37.3337 37.3334L2.66699 2.66675M37.3337 2.66675L2.66699 37.3334"
               stroke="#FFE887"
@@ -162,9 +161,14 @@ export default function Carousel({
           </svg>
         </div>
         <div className={styles.cardContainer} id="card">
-            <section className={styles.cardContent}>
-              <Image src={currentImage} alt={`Event image ${activeEvent}`} className="styles.image"  draggable="false" />
-            </section>
+          <section className={styles.cardContent}>
+            <Image
+              src={currentImage}
+              alt={`Event image ${activeEvent}`}
+              className="styles.image"
+              draggable="false"
+            />
+          </section>
         </div>
         <div onClick={onNext} className={styles.right}>
           <svg

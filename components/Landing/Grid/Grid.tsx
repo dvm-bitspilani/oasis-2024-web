@@ -10,7 +10,7 @@ export default function Grid() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clip-path="url(#clip0_4391_467)">
+        <g clipPath="url(#clip0_4391_467)">
           <rect width="1920" height="1080" fill="#190D2C" />
           <path
             opacity="0.1"
@@ -161,8 +161,8 @@ export default function Grid() {
             gradientUnits="userSpaceOnUse"
             gradientTransform="translate(960.5 650.5) scale(1391.5)"
           >
-            <stop stop-color="#FADC69" />
-            <stop offset="1" stop-color="#FADC69" stop-opacity="0" />
+            <stop stopColor="#FADC69" />
+            <stop offset="1" stopColor="#FADC69" stopOpacity="0" />
           </radialGradient>
           <clipPath id="clip0_4391_467">
             <rect width="1920" height="1080" fill="white" />

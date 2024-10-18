@@ -10,15 +10,6 @@ import { useRouter } from "next/navigation";
 import LoaderChip from "@/components/Events/Loader/LoaderChip";
 import gsap from "gsap";
 
-const categories = [
-  "music",
-  "quizzes",
-  "drama",
-  "dance",
-  "fashion",
-  "photography",
-];
-
 export default function Page({ params }: { params: { categoryname: string } }) {
   const router = useRouter();
   const [eventsList, setEventsList] = useState<any>([]);
@@ -58,13 +49,10 @@ export default function Page({ params }: { params: { categoryname: string } }) {
         // console.log(filteredEvents);
         setEventsList(filteredEvents);
         setLoading(false);
+        if (filteredEvents.length === 0) {
+          router.push("/404");
+        }
       });
-  }, []);
-
-  useEffect(() => {
-    if (!categories.includes(params.categoryname)) {
-      window.location.href = "/404";
-    }
   }, []);
 
   const animate = (direction: string) => {

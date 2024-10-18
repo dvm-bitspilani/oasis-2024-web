@@ -142,7 +142,8 @@ export default function ContactUsMobile() {
       </div>
       <div className={styles.madeWith}>
         <a href="https://bits-dvm.org" target="_main">
-          Made with <span> ❤️ </span>by DVM
+          <span className={styles.madewithText}>Made with</span> <span>❤️</span>{" "}
+          <span className={styles.madewithText}>by DVM</span>
         </a>
       </div>
     </>

@@ -100,9 +100,13 @@
     width: 90%;
     justify-content: center;
     align-items: center;
-    overflow-y: scroll;
+    // overflow-y: scroll;
 
-    @media (width<550px) {
+    // @media (width<550px) {
+    //   width: auto;
+    // }
+
+    @media(width<1650px) {
       width: auto;
     }
 
@@ -112,6 +116,7 @@
       gap: 4rem;
       align-items: center;
       justify-content: center;
+      position: relative;
       @media(width<1760px){
         gap: 0;
       }
@@ -139,8 +144,8 @@
             transform: scale(1);
           }
         }
-        @media (width<1610px) {
-          transform: scale(0.9);
+        @media (width<1650px) {
+          transform: scale(0.8);
           &:hover {
             transform: scale(1);
           }

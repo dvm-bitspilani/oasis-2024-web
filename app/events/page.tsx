@@ -23,7 +23,7 @@ import musicbg from "../../assets/Events/Folders/musicbg.png";
 import quizbg from "../../assets/Events/Folders/quizbg.png";
 import dramabg from "../../assets/Events/Folders/dramabg.png";
 import dancebg from "../../assets/Events/Folders/dancebg.png";
-import fashionbg from "../../assets/Events/Folders/fashionbg.png";
+import miscbg from "../../assets/Events/Folders/miscbg.png";
 import camerabg from "../../assets/Events/Folders/camerabg.png";
 import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
 import CursorEffect from "@/components/CursorEffect/CursorEffect";
@@ -127,7 +127,6 @@ export default function EventsPage() {
     }
     document.body.style.overflow = "scroll";
   }, []);
-  
 
   return (
     <>
@@ -262,14 +261,14 @@ export default function EventsPage() {
                 <Image src={dancebg} alt="music" width={484} height={300} />
               </div>
             </Link>
-            <Link href="/events/fashion">
-              <div className={styles.box}>
-                <Image src={fashionbg} alt="music" width={484} height={300} />
-              </div>
-            </Link>
             <Link href="/events/photography">
               <div className={styles.box}>
                 <Image src={camerabg} alt="music" width={484} height={300} />
+              </div>
+            </Link>
+            <Link href="/events/misc">
+              <div className={styles.box}>
+                <Image src={miscbg} alt="music" width={484} height={300} />
               </div>
             </Link>
           </div>
@@ -303,9 +302,9 @@ export default function EventsPage() {
               className={styles.mobileimg}
             />
           </Link>
-          <Link href="/events/fashion">
+          <Link href="/events/photography">
             <Image
-              src={fashionmobile}
+              src={cameramobile}
               alt="music"
               width={312}
               height={132}
@@ -321,9 +320,9 @@ export default function EventsPage() {
               className={styles.mobileimg}
             />
           </Link>
-          <Link href="/events/photography">
+          <Link href="/events/misc">
             <Image
-              src={cameramobile}
+              src={fashionmobile}
               alt="music"
               width={312}
               height={132}

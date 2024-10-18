@@ -96,9 +96,9 @@ export default function EventsMobile() {
             className={styles.mobileimg}
           />
         </Link>
-        <Link href="/events/fashion">
+        <Link href="/events/photography">
           <Image
-            src={fashionmobile}
+            src={cameramobile}
             alt="music"
             width={312}
             height={132}
@@ -114,9 +114,9 @@ export default function EventsMobile() {
             className={styles.mobileimg}
           />
         </Link>
-        <Link href="/events/photography">
+        <Link href="/events/misc">
           <Image
-            src={cameramobile}
+            src={fashionmobile}
             alt="music"
             width={312}
             height={132}
@@ -273,7 +273,7 @@ export default function EventsMobile() {
               <p className={styles.dancetxt}>DANCE</p>
             </div>
           </Link>
-          <Link href="/events/fashion">
+          <Link href="/events/misc">
             <div className={styles.box}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

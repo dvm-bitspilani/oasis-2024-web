@@ -58,6 +58,7 @@ export default function MobileLanding() {
           markers: false,
           toggleActions: "play none reverse none",
           start: "40px top",
+          end: "340px top",
         },
       });
 

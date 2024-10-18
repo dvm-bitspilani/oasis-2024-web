@@ -1,6 +1,14 @@
 .btn {
   position: absolute;
   z-index: 10000;
-  bottom: 50px;
+  bottom: 8dvh;
   pointer-events: auto;
+
+  @media (height <= 745px) {
+    bottom: 4dvh;
+  }
+
+  @media (height >= 855px) {
+    bottom: 5dvh;
+  }
 }

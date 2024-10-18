@@ -267,12 +267,6 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
                   playing={isVideoFocused}
                   loop
                 />
-                <embed
-                  height={750}
-                  width={1000}
-                  src="https://www.bits-oasis.org/events"
-                  style={{ zIndex: 0 }}
-                />
               </div>
             </Html>
           </mesh>

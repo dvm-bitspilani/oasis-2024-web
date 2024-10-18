@@ -44,9 +44,6 @@ export default function Artist({
         },
       });
 
-      console.log(artistRef.current);
-      console.dir(artistRef.current);
-
       tl.from(artistRef.current.children[0], {
         xPercent: reverse ? 250 : -250,
         duration: 0.5,

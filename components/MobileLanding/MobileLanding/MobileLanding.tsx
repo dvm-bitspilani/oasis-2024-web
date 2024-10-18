@@ -3,6 +3,7 @@
 import styles from "./mobileLanding.module.scss";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { useGSAP } from "@gsap/react";
 
 import MobileRegBtn from "@/components/MobileLanding/RegBtn/RegBtn";
 import MobileHeading from "@/components/MobileLanding/AboutUsHeading/MobileHeading";
@@ -20,8 +21,16 @@ import seedheMaut from "@/assets/MobileLanding/ProfShowsMobile/SeedheMaut.png";
 import yellowDiary from "@/assets/MobileLanding/ProfShowsMobile/YellowDiary.png";
 import EventsMobile from "../EventsPageMobile/EventsPageMobile";
 import Slideshow from "../Slideshow/Slideshow";
+import { waitForPreload } from "@/helper/waitForPreload";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function MobileLanding() {
+  const [playingArtist, setPlayingArtist] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       const isMobile =
@@ -31,8 +40,46 @@ export default function MobileLanding() {
         document.body.style.overflow = "scroll";
       }
     }
+
+    waitForPreload("#oasisLogo")
+      .then(() => {
+        setIsLoaded(true);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
-  const [playingArtist, setPlayingArtist] = useState(null);
+
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#oasisLogo",
+          markers: false,
+          toggleActions: "play none reverse none",
+          start: "40px top",
+        },
+      });
+
+      tl.to("#oasisLogo", {
+        y: -75,
+        opacity: 0,
+        ease: "power1.inOut",
+        duration: 0.6,
+      }).to(
+        "#countdownTimer",
+        {
+          y: 75,
+          opacity: 0,
+          ease: "power1.inOut",
+          duration: 0.6,
+        },
+        "<"
+      );
+    },
+    { dependencies: [] }
+  );
+
   return (
     <main className={styles.mobileLandingWrapper}>
       <div className={styles.landing}>

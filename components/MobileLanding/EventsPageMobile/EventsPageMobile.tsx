@@ -29,8 +29,8 @@ export default function EventsMobile() {
       const children1 = eventRef1.current.children;
       const children2 = eventRef2.current.children;
 
-      console.log(children1);
-      console.log(children2);
+      // console.log(children1);
+      // console.log(children2);
 
       gsap.from(children1, {
         yPercent: -110,

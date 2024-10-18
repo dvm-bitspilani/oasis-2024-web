@@ -125,7 +125,7 @@ export default function EventsPage() {
         router.push("/");
       }
     }
-    document.body.style.overflow = "scroll";
+    document.body.style.overflowY = "scroll";
   }, []);
   
 

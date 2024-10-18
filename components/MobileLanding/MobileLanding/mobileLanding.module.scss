@@ -20,7 +20,8 @@
     position: relative;
 
     .slotMachineContainer {
-      height: 100%;
+      height: 90%;
+      margin-bottom: 10%;
       position: relative;
 
       .slotMachine {
@@ -33,7 +34,7 @@
     .fade {
       position: absolute;
       width: 100vw;
-      bottom: -60px;
+      bottom: 20px;
       height: 250px;
       z-index: 2;
       background-image: linear-gradient(

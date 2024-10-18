@@ -40,6 +40,7 @@
       display: flex;
       flex-direction: column;
       gap: 0.7rem;
+      pointer-events: all;
 
       a {
         display: flex;
@@ -60,7 +61,7 @@
         }
 
         p {
-          font-family: Thedus Condensed Light,sans-serif;
+          font-family: "Thedus Condensed Light" ,sans-serif;
           font-size: 14px;
           font-weight: 900;
           line-height: 111.63px;

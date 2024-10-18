@@ -9,6 +9,7 @@ import MobileRegBtn from "@/components/MobileLanding/RegBtn/RegBtn";
 import MobileHeading from "@/components/MobileLanding/AboutUsHeading/MobileHeading";
 import VideoCarousel from "@/components/MobileLanding/VideoCarousel/VideoCarousel";
 import Artist from "@/components/MobileLanding/Artist/Artist";
+import ArtistN2O from "../Artist/ArtistN2O/artistn2o";
 import ContactUsMobile from "@/components/MobileLanding/ContactUs/ContactUs";
 
 import slotMachine2D from "@/assets/Landing/slotMachine2D2.png";
@@ -178,6 +179,7 @@ export default function MobileLanding() {
             playingArtist={playingArtist}
             setPlayingArtist={setPlayingArtist}
           />
+          <ArtistN2O />
         </div>
         <Image
           src={profShowsBackground}

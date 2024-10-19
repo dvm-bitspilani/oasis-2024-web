@@ -1,3 +1,7 @@
+#media-partners-mobile {
+  transform: translateX(-500px);
+}
+
 .hamMenuLines {
   position: absolute;
   width: 100%;
@@ -62,6 +66,7 @@
     }
   }
 
+
   .developers {
     position: absolute;
     width: 100%;
@@ -69,10 +74,12 @@
     transform: translate(5%, -47%);
     // opacity: 0;
 
+  
+
     .devText {
       position: absolute;
       top: -10%;
-      right: -400%;
+      right: -550%;
     }
 
     .svgPath {

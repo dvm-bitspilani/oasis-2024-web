@@ -126,6 +126,7 @@ export default function EventsPage() {
       }
     }
     document.body.style.overflowY = "scroll";
+    document.body.style.overflowX = "hidden";
   }, []);
 
   return (

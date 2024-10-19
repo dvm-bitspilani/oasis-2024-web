@@ -120,10 +120,6 @@
       @media(width<1760px){
         gap: 0;
       }
-      @media (width<550px) {
-        gap: 0rem;
-        // transform: scale(0.8) translateY(-10%);
-      }
 
       .box {
         display: flex;

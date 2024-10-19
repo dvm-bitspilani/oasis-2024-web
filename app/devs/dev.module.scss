@@ -1,0 +1,148 @@
+.devBack {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.ham {
+  position: fixed;
+  z-index: 100;
+  top: 30px;
+  left: 20px;
+  z-index: 15;
+  @media (width>1920px) {
+    transform: scale(1.3);
+    left: 40px;
+    top: 50px;
+  }
+}
+
+.reg {
+  position: relative;
+  top: 80px;
+  padding: 0 20px;
+  z-index: 10;
+  height: 100px;
+
+  @media (width>1920px) {
+    top: 20px;
+  }
+}
+
+.eventwrapper {
+  position: fixed;
+  top: 0rem;
+  height: 100%;
+  width: 100vw;
+  //opacity: 1;
+  //pointer-events: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  .heading {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+
+    h2 {
+      font-family: "Rye", sans-serif;
+      font-size: 52px;
+      font-weight: 400;
+      line-height: 43px;
+      letter-spacing: 0.05em;
+      text-align: center;
+      color: #ccae57;
+    }
+  }
+}
+
+@media (max-width: 3100px) and (min-width: 2100px) {
+  .eventwrapper {
+    .heading {
+      margin-top: 5rem;
+
+      h2 {
+        font-size: 92px;
+      }
+    }
+  }
+}
+
+@media (max-width: 2100px) and (min-width: 1800px) {
+  .eventwrapper {
+    .heading {
+      margin-top: 5.5rem;
+
+      h2 {
+        font-size: 72px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1800px) and (min-width: 1400px) {
+  .eventwrapper {
+    .heading {
+      margin-top: 4rem;
+
+      h2 {
+        font-size: 58px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .eventwrapper {
+    top: 6rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .eventwrapper {
+    height: fit-content;
+
+    .heading {
+      h2 {
+        font-size: 52px;
+        font-weight: 400;
+        line-height: normal;
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .eventwrapper {
+    height: fit-content;
+    overflow-y: hidden;
+    margin-top: 0;
+
+    .heading {
+      margin-top: 0;
+      margin-bottom: 0;
+
+      h2 {
+        font-size: 43px;
+        margin-top: 0;
+        margin-bottom: 0rem;
+      }
+
+      svg {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .eventwrapper {
+    .heading {
+      margin-top: 1rem;
+    }
+  }
+}

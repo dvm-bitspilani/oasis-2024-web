@@ -9,6 +9,7 @@ import MobileRegBtn from "@/components/MobileLanding/RegBtn/RegBtn";
 import MobileHeading from "@/components/MobileLanding/AboutUsHeading/MobileHeading";
 import VideoCarousel from "@/components/MobileLanding/VideoCarousel/VideoCarousel";
 import Artist from "@/components/MobileLanding/Artist/Artist";
+import ArtistN2O from "../Artist/ArtistN2O/artistn2o";
 import ContactUsMobile from "@/components/MobileLanding/ContactUs/ContactUs";
 
 import slotMachine2D from "@/assets/Landing/slotMachine2D2.png";
@@ -57,8 +58,10 @@ export default function MobileLanding() {
           trigger: "#oasisLogo",
           markers: false,
           toggleActions: "play none reverse none",
-          start: "40px top",
-          end: "340px top",
+          start: "60px top",
+          end: "320px top",
+          scrub: true,
+          // end: "340px top",
         },
       });
 
@@ -66,14 +69,12 @@ export default function MobileLanding() {
         y: -75,
         opacity: 0,
         ease: "power1.inOut",
-        duration: 0.6,
       }).to(
         "#countdownTimer",
         {
           y: 75,
           opacity: 0,
           ease: "power1.inOut",
-          duration: 0.6,
         },
         "<"
       );
@@ -178,6 +179,7 @@ export default function MobileLanding() {
             playingArtist={playingArtist}
             setPlayingArtist={setPlayingArtist}
           />
+          <ArtistN2O />
         </div>
         <Image
           src={profShowsBackground}

@@ -14,7 +14,7 @@
   position: relative;
 
   .landing {
-    height: calc(100vh - 360px);
+    height: calc(100dvh - 360px);
     display: flex;
     justify-content: center;
     position: relative;
@@ -24,8 +24,8 @@
       position: relative;
 
       .slotMachine {
-        height: 100%;
-        width: auto;
+        height: 100% !important;
+        width: auto !important;
         z-index: 1;
       }
     }
@@ -73,7 +73,7 @@
 
   .profShows {
     width: 100vw;
-    height: calc(3 * 400px);
+    height: calc(4 * 400px);
     position: relative;
     background: #190d2c;
     display: flex;
@@ -83,7 +83,7 @@
     @include fadeProfShowBackdrop();
 
     @media (width < 400px) {
-      height: calc(3 * 350px);
+      height: calc(4 * 350px);
     }
 
     .profShowsBackground {

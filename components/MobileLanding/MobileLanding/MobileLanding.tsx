@@ -2,12 +2,14 @@
 
 import styles from "./mobileLanding.module.scss";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useGSAP } from "@gsap/react";
 
 import MobileRegBtn from "@/components/MobileLanding/RegBtn/RegBtn";
 import MobileHeading from "@/components/MobileLanding/AboutUsHeading/MobileHeading";
 import VideoCarousel from "@/components/MobileLanding/VideoCarousel/VideoCarousel";
 import Artist from "@/components/MobileLanding/Artist/Artist";
+import ArtistN2O from "../Artist/ArtistN2O/artistn2o";
 import ContactUsMobile from "@/components/MobileLanding/ContactUs/ContactUs";
 
 import slotMachine2D from "@/assets/Landing/slotMachine2D2.png";
@@ -20,9 +22,66 @@ import seedheMaut from "@/assets/MobileLanding/ProfShowsMobile/SeedheMaut.png";
 import yellowDiary from "@/assets/MobileLanding/ProfShowsMobile/YellowDiary.png";
 import EventsMobile from "../EventsPageMobile/EventsPageMobile";
 import Slideshow from "../Slideshow/Slideshow";
+import { waitForPreload } from "@/helper/waitForPreload";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function MobileLanding() {
   const [playingArtist, setPlayingArtist] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const isMobile =
+        /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 960;
+
+      if (isMobile) {
+        document.body.style.overflow = "scroll";
+      }
+    }
+
+    waitForPreload("#oasisLogo")
+      .then(() => {
+        setIsLoaded(true);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#oasisLogo",
+          markers: false,
+          toggleActions: "play none reverse none",
+          start: "60px top",
+          end: "320px top",
+          scrub: true,
+          // end: "340px top",
+        },
+      });
+
+      tl.to("#oasisLogo", {
+        y: -75,
+        opacity: 0,
+        ease: "power1.inOut",
+      }).to(
+        "#countdownTimer",
+        {
+          y: 75,
+          opacity: 0,
+          ease: "power1.inOut",
+        },
+        "<"
+      );
+    },
+    { dependencies: [] }
+  );
+
   return (
     <main className={styles.mobileLandingWrapper}>
       <div className={styles.landing}>
@@ -31,6 +90,8 @@ export default function MobileLanding() {
           <Image
             src={slotMachine2D}
             alt="2d slot machine"
+            width={331.38}
+            height={560}
             className={styles.slotMachine}
           />
         </div>
@@ -118,6 +179,7 @@ export default function MobileLanding() {
             playingArtist={playingArtist}
             setPlayingArtist={setPlayingArtist}
           />
+          <ArtistN2O />
         </div>
         <Image
           src={profShowsBackground}

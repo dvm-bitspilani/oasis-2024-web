@@ -38,7 +38,7 @@
   //opacity: 1;
   //pointer-events: auto;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 
   .heading {
     margin-top: 3rem;
@@ -113,7 +113,7 @@
   .left {
     position: fixed;
     bottom: 0;
-    left: 0;
+    left: -15px;
 
     .bottomAnimation {
       height: 200px;
@@ -125,7 +125,7 @@
   .right {
     position: fixed;
     bottom: 0;
-    right: 0;
+    right: -15px;
 
     .bottomAnimation {
       height: 200px;

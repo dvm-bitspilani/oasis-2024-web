@@ -1,13 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap");
+
 .cardsContainer {
   display: grid;
   padding: 15px;
   grid-template-columns: repeat(2, 1fr);
   gap: 8px;
-  margin-top:20px;
+  margin-top: 20px;
   align-items: center;
 }
 
-.madeWith a{
+.madeWith a {
   pointer-events: all;
   cursor: pointer;
   text-decoration: none;
@@ -16,23 +18,26 @@
   align-items: center;
   margin-top: 20px;
   margin-bottom: 30px;
-  font-family: "Source Serif Pro", sans-serif;
   font-size: 20px;
-  font-style: normal;
-  font-weight: 600;
   letter-spacing: 0.04em;
   line-height: normal;
-  background: linear-gradient(
-    112.17deg,
-    #d4a753 25.95%,
-    #d2a146 44.71%,
-    #d4a753 72.61%
-  );
+  background: red;
+  font-family: "Playfair Display", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  gap: 5px;
+  align-items: center;
 
-  span {
-    padding: 0 7px;
-    height: 25px;
+  .madewithText {
+    background: linear-gradient(
+      112.17deg,
+      #d4a753 25.95%,
+      #d2a146 44.71%,
+      #d4a753 72.61%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }

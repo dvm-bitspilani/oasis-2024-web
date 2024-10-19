@@ -1,0 +1,20 @@
+.preloader {
+  width: 100vw;
+  height: 100lvh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: fixed;
+  z-index: 9999999;
+
+  video {
+    @media (width < 700px) {
+      width: 200%;
+    }
+    @media (width > 1000px) {
+      height: 125%;
+    }
+  }
+}

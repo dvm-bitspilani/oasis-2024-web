@@ -5,15 +5,7 @@ import { Canvas } from "@react-three/fiber";
 import { SlotMachine2 } from "./SlotMachine2";
 import { forwardRef, useEffect, useState } from "react";
 
-function detectAppleDevice() {
-  const userAgent = navigator.userAgent.toLowerCase();
-
-  return (
-    userAgent.includes("iphone") ||
-    userAgent.includes("ipad") ||
-    userAgent.includes("ipod")
-  );
-}
+import { detectAppleDevice } from "@/helper/detectAppleDevice";
 
 interface Props {
   setIs3dLoaded: (value: boolean) => void;
@@ -41,11 +33,6 @@ const LandingScene = forwardRef(function LandingScene(
   }: Props,
   ref
 ) {
-  const [isAppleDevice, setIsAppleDevice] = useState<any>(false);
-
-  useEffect(() => {
-    setIsAppleDevice(detectAppleDevice());
-  }, []);
   return (
     <>
       <Canvas
@@ -72,7 +59,6 @@ const LandingScene = forwardRef(function LandingScene(
             isVideoFocused={isVideoFocused}
             isEvents={isEvents}
             isAboutUs={isAboutUs}
-            isIos={isAppleDevice}
           />
         </group>
       </Canvas>

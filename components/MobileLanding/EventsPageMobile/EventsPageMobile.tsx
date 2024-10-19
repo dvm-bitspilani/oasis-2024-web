@@ -29,32 +29,32 @@ export default function EventsMobile() {
       const children1 = eventRef1.current.children;
       const children2 = eventRef2.current.children;
 
-      console.log(children1);
-      console.log(children2);
+      // console.log(children1);
+      // console.log(children2);
 
-      Array.from(children1).forEach((child: any, index) => {
-        gsap.from(child, {
-          xPercent: index % 2 === 0 ? -250 : 250,
-          duration: 0.5,
-          scrollTrigger: {
-            trigger: child,
-            markers: false,
-            toggleActions: "play none none none",
-            start: "top 90%",
-          },
-        });
+      gsap.from(children1, {
+        yPercent: -110,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: eventRef1.current,
+          markers: false,
+          toggleActions: "play none none none",
+          start: "top 80%",
+        },
+        duration: 0.3,
+        stagger: 0.3,
       });
-      Array.from(children2).forEach((child: any, index) => {
-        gsap.from(child, {
-          xPercent: index % 2 === 0 ? -250 : 250,
-          duration: 0.5,
-          scrollTrigger: {
-            trigger: child,
-            markers: false,
-            toggleActions: "play none none none",
-            start: "top 70%",
-          },
-        });
+      gsap.from(children2, {
+        yPercent: -110,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: eventRef2.current,
+          markers: false,
+          toggleActions: "play none none none",
+          start: "top 80%",
+        },
+        duration: 0.3,
+        stagger: 0.3,
       });
     },
     { dependencies: [] }
@@ -96,9 +96,9 @@ export default function EventsMobile() {
             className={styles.mobileimg}
           />
         </Link>
-        <Link href="/events/fashion">
+        <Link href="/events/photography">
           <Image
-            src={fashionmobile}
+            src={cameramobile}
             alt="music"
             width={312}
             height={132}
@@ -114,9 +114,9 @@ export default function EventsMobile() {
             className={styles.mobileimg}
           />
         </Link>
-        <Link href="/events/photography">
+        <Link href="/events/misc">
           <Image
-            src={cameramobile}
+            src={fashionmobile}
             alt="music"
             width={312}
             height={132}
@@ -145,8 +145,8 @@ export default function EventsMobile() {
                 <g opacity="0.6">
                   <mask id="path-1-inside-1_4440_1109" fill="white">
                     <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
                       d="M22 0.5C22 12.3741 12.3741 22 0.5 22C0.332881 22 0.166208 21.9981 0 21.9943V278.006C0.166208 278.002 0.332881 278 0.5 278C12.3741 278 22 287.626 22 299.5C22 299.667 21.9981 299.834 21.9943 300H462.006C462.002 299.834 462 299.667 462 299.5C462 287.626 471.626 278 483.5 278C483.667 278 483.834 278.002 484 278.006V21.9943C483.834 21.9981 483.667 22 483.5 22C471.626 22 462 12.3741 462 0.5C462 0.332881 462.002 0.166208 462.006 0H21.9943C21.9981 0.166208 22 0.332881 22 0.5Z"
                     />
                   </mask>
@@ -180,8 +180,8 @@ export default function EventsMobile() {
                 <g opacity="0.6">
                   <mask id="path-1-inside-1_4440_1109" fill="white">
                     <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
                       d="M22 0.5C22 12.3741 12.3741 22 0.5 22C0.332881 22 0.166208 21.9981 0 21.9943V278.006C0.166208 278.002 0.332881 278 0.5 278C12.3741 278 22 287.626 22 299.5C22 299.667 21.9981 299.834 21.9943 300H462.006C462.002 299.834 462 299.667 462 299.5C462 287.626 471.626 278 483.5 278C483.667 278 483.834 278.002 484 278.006V21.9943C483.834 21.9981 483.667 22 483.5 22C471.626 22 462 12.3741 462 0.5C462 0.332881 462.002 0.166208 462.006 0H21.9943C21.9981 0.166208 22 0.332881 22 0.5Z"
                     />
                   </mask>
@@ -215,8 +215,8 @@ export default function EventsMobile() {
                 <g opacity="0.6">
                   <mask id="path-1-inside-1_4440_1109" fill="white">
                     <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
                       d="M22 0.5C22 12.3741 12.3741 22 0.5 22C0.332881 22 0.166208 21.9981 0 21.9943V278.006C0.166208 278.002 0.332881 278 0.5 278C12.3741 278 22 287.626 22 299.5C22 299.667 21.9981 299.834 21.9943 300H462.006C462.002 299.834 462 299.667 462 299.5C462 287.626 471.626 278 483.5 278C483.667 278 483.834 278.002 484 278.006V21.9943C483.834 21.9981 483.667 22 483.5 22C471.626 22 462 12.3741 462 0.5C462 0.332881 462.002 0.166208 462.006 0H21.9943C21.9981 0.166208 22 0.332881 22 0.5Z"
                     />
                   </mask>
@@ -250,8 +250,8 @@ export default function EventsMobile() {
                 <g opacity="0.6">
                   <mask id="path-1-inside-1_4440_1109" fill="white">
                     <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
                       d="M22 0.5C22 12.3741 12.3741 22 0.5 22C0.332881 22 0.166208 21.9981 0 21.9943V278.006C0.166208 278.002 0.332881 278 0.5 278C12.3741 278 22 287.626 22 299.5C22 299.667 21.9981 299.834 21.9943 300H462.006C462.002 299.834 462 299.667 462 299.5C462 287.626 471.626 278 483.5 278C483.667 278 483.834 278.002 484 278.006V21.9943C483.834 21.9981 483.667 22 483.5 22C471.626 22 462 12.3741 462 0.5C462 0.332881 462.002 0.166208 462.006 0H21.9943C21.9981 0.166208 22 0.332881 22 0.5Z"
                     />
                   </mask>
@@ -273,7 +273,7 @@ export default function EventsMobile() {
               <p className={styles.dancetxt}>DANCE</p>
             </div>
           </Link>
-          <Link href="/events/fashion">
+          <Link href="/events/misc">
             <div className={styles.box}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -285,8 +285,8 @@ export default function EventsMobile() {
                 <g opacity="0.6">
                   <mask id="path-1-inside-1_4440_1109" fill="white">
                     <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
                       d="M22 0.5C22 12.3741 12.3741 22 0.5 22C0.332881 22 0.166208 21.9981 0 21.9943V278.006C0.166208 278.002 0.332881 278 0.5 278C12.3741 278 22 287.626 22 299.5C22 299.667 21.9981 299.834 21.9943 300H462.006C462.002 299.834 462 299.667 462 299.5C462 287.626 471.626 278 483.5 278C483.667 278 483.834 278.002 484 278.006V21.9943C483.834 21.9981 483.667 22 483.5 22C471.626 22 462 12.3741 462 0.5C462 0.332881 462.002 0.166208 462.006 0H21.9943C21.9981 0.166208 22 0.332881 22 0.5Z"
                     />
                   </mask>
@@ -320,8 +320,8 @@ export default function EventsMobile() {
                 <g opacity="0.6">
                   <mask id="path-1-inside-1_4440_1109" fill="white">
                     <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
                       d="M22 0.5C22 12.3741 12.3741 22 0.5 22C0.332881 22 0.166208 21.9981 0 21.9943V278.006C0.166208 278.002 0.332881 278 0.5 278C12.3741 278 22 287.626 22 299.5C22 299.667 21.9981 299.834 21.9943 300H462.006C462.002 299.834 462 299.667 462 299.5C462 287.626 471.626 278 483.5 278C483.667 278 483.834 278.002 484 278.006V21.9943C483.834 21.9981 483.667 22 483.5 22C471.626 22 462 12.3741 462 0.5C462 0.332881 462.002 0.166208 462.006 0H21.9943C21.9981 0.166208 22 0.332881 22 0.5Z"
                     />
                   </mask>
@@ -357,8 +357,8 @@ export default function EventsMobile() {
                 <g opacity="0.6">
                   <mask id="path-1-inside-1_4440_1109" fill="white">
                     <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
                       d="M22 0.5C22 12.3741 12.3741 22 0.5 22C0.332881 22 0.166208 21.9981 0 21.9943V278.006C0.166208 278.002 0.332881 278 0.5 278C12.3741 278 22 287.626 22 299.5C22 299.667 21.9981 299.834 21.9943 300H462.006C462.002 299.834 462 299.667 462 299.5C462 287.626 471.626 278 483.5 278C483.667 278 483.834 278.002 484 278.006V21.9943C483.834 21.9981 483.667 22 483.5 22C471.626 22 462 12.3741 462 0.5C462 0.332881 462.002 0.166208 462.006 0H21.9943C21.9981 0.166208 22 0.332881 22 0.5Z"
                     />
                   </mask>
@@ -384,8 +384,8 @@ export default function EventsMobile() {
                 <g opacity="0.6">
                   <mask id="path-1-inside-1_4440_1109" fill="white">
                     <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
                       d="M22 0.5C22 12.3741 12.3741 22 0.5 22C0.332881 22 0.166208 21.9981 0 21.9943V278.006C0.166208 278.002 0.332881 278 0.5 278C12.3741 278 22 287.626 22 299.5C22 299.667 21.9981 299.834 21.9943 300H462.006C462.002 299.834 462 299.667 462 299.5C462 287.626 471.626 278 483.5 278C483.667 278 483.834 278.002 484 278.006V21.9943C483.834 21.9981 483.667 22 483.5 22C471.626 22 462 12.3741 462 0.5C462 0.332881 462.002 0.166208 462.006 0H21.9943C21.9981 0.166208 22 0.332881 22 0.5Z"
                     />
                   </mask>
@@ -411,8 +411,8 @@ export default function EventsMobile() {
                 <g opacity="0.6">
                   <mask id="path-1-inside-1_4440_1109" fill="white">
                     <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
                       d="M22 0.5C22 12.3741 12.3741 22 0.5 22C0.332881 22 0.166208 21.9981 0 21.9943V278.006C0.166208 278.002 0.332881 278 0.5 278C12.3741 278 22 287.626 22 299.5C22 299.667 21.9981 299.834 21.9943 300H462.006C462.002 299.834 462 299.667 462 299.5C462 287.626 471.626 278 483.5 278C483.667 278 483.834 278.002 484 278.006V21.9943C483.834 21.9981 483.667 22 483.5 22C471.626 22 462 12.3741 462 0.5C462 0.332881 462.002 0.166208 462.006 0H21.9943C21.9981 0.166208 22 0.332881 22 0.5Z"
                     />
                   </mask>

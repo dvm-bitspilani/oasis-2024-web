@@ -30,7 +30,7 @@
   }
 }
 
-.eventwrapper {
+.devwrapper {
   position: fixed;
   top: 0rem;
   height: 100%;
@@ -57,10 +57,63 @@
       color: #ccae57;
     }
   }
+
+  .verticalContainer {
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // gap: 5rem;
+    width: 90vw;
+    // margin: 0 5%;
+    position: relative;
+    // background-color: yellow;
+    height: 50%;
+    .verticalCard {
+      width: 300px;
+      height: auto;
+      transform-origin: center;
+      position: absolute;
+      left: 0;
+
+      &:nth-child(1) {
+        // left: calc(90vw/8);
+        left:calc((90vw - 67.5vw - 300px)/2);
+        z-index: 0;
+        // transform: rotate(-15deg);
+      }
+
+      &:nth-child(2) {
+        left: calc(((90vw - 67.5vw - 300px)/2) + (90vw/4));
+        z-index: 1;
+        // transform: rotate(-5deg) translateY(-5rem);
+      }
+
+      &:nth-child(3) {
+        left: calc(((90vw - 67.5vw - 300px)/2) + 2 * (90vw/4));
+        z-index: 2;
+        // transform: rotate(5deg) translateY(-5rem);
+      }
+
+      &:nth-child(4) {
+        left: calc(((90vw - 67.5vw - 300px)/2) + 3 * (90vw/4));
+        z-index: 3;
+        // transform: rotate(15deg);
+      }
+      .cardImg {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
 }
 
 @media (max-width: 3100px) and (min-width: 2100px) {
-  .eventwrapper {
+  .devwrapper {
     .heading {
       margin-top: 5rem;
 
@@ -72,7 +125,7 @@
 }
 
 @media (max-width: 2100px) and (min-width: 1800px) {
-  .eventwrapper {
+  .devwrapper {
     .heading {
       margin-top: 5.5rem;
 
@@ -84,7 +137,7 @@
 }
 
 @media (max-width: 1800px) and (min-width: 1400px) {
-  .eventwrapper {
+  .devwrapper {
     .heading {
       margin-top: 4rem;
 
@@ -96,13 +149,13 @@
 }
 
 @media (max-width: 1100px) {
-  .eventwrapper {
+  .devwrapper {
     top: 6rem;
   }
 }
 
 @media (max-width: 1000px) {
-  .eventwrapper {
+  .devwrapper {
     height: fit-content;
 
     .heading {
@@ -117,7 +170,7 @@
 }
 
 @media (max-width: 600px) {
-  .eventwrapper {
+  .devwrapper {
     height: fit-content;
     overflow-y: hidden;
     margin-top: 0;
@@ -140,7 +193,7 @@
 }
 
 @media (max-width: 450px) {
-  .eventwrapper {
+  .devwrapper {
     .heading {
       margin-top: 1rem;
     }

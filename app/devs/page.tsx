@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useRef } from "react";
 import styles from "./dev.module.scss";
 
 import Grid from "@/components/Landing/Grid/Grid";
@@ -10,11 +11,66 @@ import CursorEffect from "@/components/CursorEffect/CursorEffect";
 import SuitBackground from "@/components/Landing/Backdrop/Backdrop";
 import BackButton from "@/components/Registration/BackButton/BackButton";
 import Link from "next/link";
+import card from "../../assets/Devs/devcard.png";
+import Image from "next/image";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export default function DevPage() {
   const handleBackButtonClick = () => {
     localStorage.removeItem("hasReloaded");
   };
+
+  const verticalRef: any = useRef(null);
+
+  // const leftValue = (window.innerWidth * 0.9 - window.innerWidth * 0.675 - 300) / 2;
+
+  useGSAP(
+    () => {
+      const leftValue = (window.innerWidth * 0.9 - window.innerWidth * 0.675 - 300) / 2;
+      const tl = gsap.timeline();
+
+      tl.from(verticalRef.current.children[0], {
+        // scale: 0,
+        duration: 0.5,
+        ease: "power2.out",
+        delay: 0.5,
+        left: leftValue,
+      })
+        .from(
+          verticalRef.current.children[1],
+          {
+            // scale: 0,
+            duration: 0.5,
+            ease: "power2.out",
+            left: leftValue,
+          },
+          "-=0.25"
+        )
+        .from(
+          verticalRef.current.children[2],
+          {
+            // scale: 0,
+            duration: 0.5,
+            ease: "power2.out",
+            left: leftValue,
+          },
+          "-=0.25"
+        )
+        .from(
+          verticalRef.current.children[3],
+          {
+            // scale: 0,
+            duration: 0.5,
+            ease: "exposcale(0.5,7,none)",
+            left: leftValue,
+          },
+          "-=0.25"
+        );
+    },
+    { dependencies: [] }
+  );
+
   return (
     <>
       <PrePreloader />
@@ -36,7 +92,7 @@ export default function DevPage() {
         <RegBtn />
       </div>
 
-      <div className={styles.eventwrapper} id="contactUs">
+      <div className={styles.devwrapper}>
         <div className={styles.heading}>
           <svg
             width="42"
@@ -95,6 +151,41 @@ export default function DevPage() {
               fill="#E5C66C"
             />
           </svg>
+        </div>
+
+        <div className={styles.verticalContainer} ref={verticalRef}>
+          <div className={styles.verticalCard}>
+            <Image
+              src={card}
+              alt="dev"
+              className={styles.cardImg}
+              draggable={false}
+            />
+          </div>
+          <div className={styles.verticalCard}>
+            <Image
+              src={card}
+              alt="dev"
+              className={styles.cardImg}
+              draggable={false}
+            />
+          </div>
+          <div className={styles.verticalCard}>
+            <Image
+              src={card}
+              alt="dev"
+              className={styles.cardImg}
+              draggable={false}
+            />
+          </div>
+          <div className={styles.verticalCard}>
+            <Image
+              src={card}
+              alt="dev"
+              className={styles.cardImg}
+              draggable={false}
+            />
+          </div>
         </div>
       </div>
     </>

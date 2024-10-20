@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import styles from "./dev.module.scss";
 
 import Grid from "@/components/Landing/Grid/Grid";
@@ -22,12 +22,15 @@ export default function DevPage() {
   };
 
   const verticalRef: any = useRef(null);
+  const backBtn: any = useRef(null);
+  const [currIndex, setIndex] = useState<number>(0);
 
   // const leftValue = (window.innerWidth * 0.9 - window.innerWidth * 0.675 - 300) / 2;
 
   useGSAP(
     () => {
-      const leftValue = (window.innerWidth * 0.9 - window.innerWidth * 0.675 - 300) / 2;
+      const leftValue =
+        (window.innerWidth * 0.9 - window.innerWidth * 0.675 - 300) / 2;
       const tl = gsap.timeline();
 
       tl.from(verticalRef.current.children[0], {
@@ -71,6 +74,66 @@ export default function DevPage() {
     { dependencies: [] }
   );
 
+  const showCards = (index: number) => {
+    setIndex(index);
+    animate(index);
+  };
+
+  const animate = (index: number) => {
+    const leftValue =
+      (window.innerWidth * 0.9 - window.innerWidth * 0.675 - 300) / 2;
+    const tl = gsap.timeline();
+
+    for (let i = 0; i < verticalRef.current.children.length; i++) {
+      if (i !== index) {
+        tl.set(verticalRef.current.children[i], { display: "none" });
+      }
+    }
+
+    tl.set(backBtn.current, { display: "block" });
+
+    tl.set(verticalRef.current.children[index], { display: "block" }).to(
+      verticalRef.current.children[index],
+      {
+        scale: 1.5,
+        duration: 0.5,
+        ease: "power2.out",
+        left: leftValue,
+      }
+    );
+  };
+
+  const handleCardAnimation = () => {
+    const leftValue =
+      (window.innerWidth * 0.9 - window.innerWidth * 0.675 - 300) / 2 +
+      currIndex * ((window.innerWidth * 0.9) / 4);
+    const tl = gsap.timeline();
+
+    tl.to(verticalRef.current.children[currIndex], {
+      scale: 1,
+      duration: 0.5,
+      ease: "power2.out",
+      left: leftValue,
+    });
+
+    for (let i = 0; i < verticalRef.current.children.length; i++) {
+      if (i !== currIndex) {
+        // tl.set(verticalRef.current.children[i], { display: "block" });
+        tl.to(
+          verticalRef.current.children[i],
+          {
+            display: "block",
+            duration: 0.5,
+            ease: "power2.inOut",
+          },
+          "-=0.5"
+        );
+      }
+    }
+
+    tl.set(backBtn.current, { display: "none" });
+  };
+
   return (
     <>
       <PrePreloader />
@@ -86,6 +149,10 @@ export default function DevPage() {
         <Link href="/" onClick={handleBackButtonClick}>
           <BackButton />
         </Link>
+      </div>
+
+      <div className={styles.back} ref={backBtn} onClick={handleCardAnimation}>
+        <BackButton />
       </div>
 
       <div className={styles.reg}>
@@ -154,7 +221,7 @@ export default function DevPage() {
         </div>
 
         <div className={styles.verticalContainer} ref={verticalRef}>
-          <div className={styles.verticalCard}>
+          <div className={styles.verticalCard} onClick={() => showCards(0)}>
             <Image
               src={card}
               alt="dev"
@@ -162,7 +229,7 @@ export default function DevPage() {
               draggable={false}
             />
           </div>
-          <div className={styles.verticalCard}>
+          <div className={styles.verticalCard} onClick={() => showCards(1)}>
             <Image
               src={card}
               alt="dev"
@@ -170,7 +237,7 @@ export default function DevPage() {
               draggable={false}
             />
           </div>
-          <div className={styles.verticalCard}>
+          <div className={styles.verticalCard} onClick={() => showCards(2)}>
             <Image
               src={card}
               alt="dev"
@@ -178,7 +245,7 @@ export default function DevPage() {
               draggable={false}
             />
           </div>
-          <div className={styles.verticalCard}>
+          <div className={styles.verticalCard} onClick={() => showCards(3)}>
             <Image
               src={card}
               alt="dev"

@@ -38,44 +38,43 @@ export default function DevPage() {
         (window.innerWidth * 0.9 - window.innerWidth * 0.675 - 300) / 2;
       const tl = gsap.timeline();
 
-      tl.from(
-        verticalRef.current.children[0],
-        {
-          // scale: 0,
-        duration: 0.5,
-        ease: "power2.out",
-        delay: 0.5,
-          left: leftValue,
-      })
+      tl
+        // .from(verticalRef.current.children[0], {
+        //   // scale: 0,
+        //   duration: 0.5,
+        //   ease: "linear",
+        //   left: leftValue,
+        // })
         .from(
           verticalRef.current.children[1],
           {
             // scale: 0,
-            duration: 0.5,
-            ease: "power2.out",
+            duration: 0.3,
+            ease: "linear",
+            delay: 0.5,
             left: leftValue,
           },
-          "-=0.25"
+          "<"
         )
         .from(
           verticalRef.current.children[2],
           {
             // scale: 0,
-            duration: 0.5,
-            ease: "power2.out",
+            duration: 0.6,
+            ease: "linear",
             left: leftValue,
           },
-          "-=0.25"
+          "<"
         )
         .from(
           verticalRef.current.children[3],
           {
             // scale: 0,
-            duration: 0.5,
-            ease: "power2.out",
+            duration: 0.9,
+            ease: "linear",
             left: leftValue,
           },
-          "-=0.25"
+          "<"
         );
     },
     { dependencies: [] }

@@ -78,7 +78,7 @@
     align-items: center;
     justify-content: space-around;
     position: absolute;
-    top: 40%;
+    top: 44%;
     left: 50%;
     transform: translate(-50%, -50%);
     // gap: 5rem;
@@ -86,7 +86,8 @@
     // margin: 0 5%;
     position: relative;
     // background-color: yellow;
-    height: 50%;
+    // height: 50%;
+    z-index: 6;
     .verticalCard {
       width: 300px;
       height: auto;
@@ -121,6 +122,38 @@
       .cardImg {
         height: 100%;
         width: 100%;
+      }
+    }
+  }
+
+  .cardsContainer {
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    // transform: translate(-50%, 50%);
+    // gap: 5rem;
+    // height: 50%;
+    top: 20%;
+    right: -10%;
+    width: 70vw;
+    // z-index: 5;
+    .groupContainer {
+      display: none;
+      flex-wrap: wrap;
+      height: 100%;
+      width: 100%;
+      gap: 2rem;
+      .individualCard {
+        height: 350px;
+        width: auto;
+        // display: none;
+        opacity: 0;
+        .cardImg {
+          height: 100%;
+          width: 100%;
+        }
       }
     }
   }

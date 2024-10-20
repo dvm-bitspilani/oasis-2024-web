@@ -23,6 +23,7 @@ export default function DevPage() {
 
   const verticalRef: any = useRef(null);
   const backBtn: any = useRef(null);
+  const groupRef: any = useRef(null);
   const [currIndex, setIndex] = useState<number>(0);
 
   // const leftValue = (window.innerWidth * 0.9 - window.innerWidth * 0.675 - 300) / 2;
@@ -101,6 +102,17 @@ export default function DevPage() {
         left: leftValue,
       }
     );
+
+    const groupContainer = groupRef.current.children[index];
+    // console.log(groupContainer);
+    tl.set(groupContainer, { display: "flex" });
+    tl.to(groupContainer.children, {
+      opacity: 1,
+      // display: "block",
+      duration: 0.5,
+      stagger: 0.2,
+      ease: "power2.out",
+    });
   };
 
   const handleCardAnimation = () => {
@@ -108,6 +120,17 @@ export default function DevPage() {
       (window.innerWidth * 0.9 - window.innerWidth * 0.675 - 300) / 2 +
       currIndex * ((window.innerWidth * 0.9) / 4);
     const tl = gsap.timeline();
+
+    const groupContainer = groupRef.current.children[currIndex];
+
+    tl.to(groupContainer.children, {
+      opacity: 0,
+      duration: 0.2,
+      stagger: 0.2,
+      ease: "power2.out",
+    });
+
+    tl.set(groupContainer, { display: "none" });
 
     tl.to(verticalRef.current.children[currIndex], {
       scale: 1,
@@ -252,6 +275,272 @@ export default function DevPage() {
               className={styles.cardImg}
               draggable={false}
             />
+          </div>
+        </div>
+        <div className={styles.cardsContainer} ref={groupRef}>
+          <div className={styles.groupContainer}>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+          </div>
+          <div className={styles.groupContainer}>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+          </div>
+          <div className={styles.groupContainer}>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+          </div>
+          <div className={styles.groupContainer}>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
+            <div className={styles.individualCard}>
+              <Image
+                src={card}
+                alt="dev"
+                className={styles.cardImg}
+                draggable={false}
+              />
+            </div>
           </div>
         </div>
       </div>

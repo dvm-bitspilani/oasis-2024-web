@@ -89,7 +89,7 @@
     // height: 50%;
     z-index: 6;
     .verticalCard {
-      width: 300px;
+      width: 350px;
       height: auto;
       transform-origin: center;
       position: absolute;
@@ -104,7 +104,7 @@
 
       &:nth-child(2) {
         left: calc(((90vw - 67.5vw - 300px) / 2) + (90vw / 4));
-        z-index: 1;
+        z-index: 3;
         // transform: rotate(-5deg) translateY(-5rem);
       }
 
@@ -116,7 +116,7 @@
 
       &:nth-child(4) {
         left: calc(((90vw - 67.5vw - 300px) / 2) + 3 * (90vw / 4));
-        z-index: 3;
+        z-index: 1;
         // transform: rotate(15deg);
       }
       .cardImg {
@@ -145,6 +145,8 @@
       height: 100%;
       width: 100%;
       gap: 2rem;
+      align-items: center;
+      // justify-content: center;
       .individualCard {
         height: 350px;
         width: auto;

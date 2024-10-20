@@ -15,6 +15,10 @@ import card from "../../assets/Devs/devcard.png";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import front from "../../assets/Devs/front.png";
+import back from "../../assets/Devs/back.png";
+import design from "../../assets/Devs/design.png";
+import video from "../../assets/Devs/video.png";
 
 export default function DevPage() {
   const handleBackButtonClick = () => {
@@ -34,12 +38,14 @@ export default function DevPage() {
         (window.innerWidth * 0.9 - window.innerWidth * 0.675 - 300) / 2;
       const tl = gsap.timeline();
 
-      tl.from(verticalRef.current.children[0], {
-        // scale: 0,
+      tl.from(
+        verticalRef.current.children[0],
+        {
+          // scale: 0,
         duration: 0.5,
         ease: "power2.out",
         delay: 0.5,
-        left: leftValue,
+          left: leftValue,
       })
         .from(
           verticalRef.current.children[1],
@@ -66,7 +72,7 @@ export default function DevPage() {
           {
             // scale: 0,
             duration: 0.5,
-            ease: "exposcale(0.5,7,none)",
+            ease: "power2.out",
             left: leftValue,
           },
           "-=0.25"
@@ -96,7 +102,7 @@ export default function DevPage() {
     tl.set(verticalRef.current.children[index], { display: "block" }).to(
       verticalRef.current.children[index],
       {
-        scale: 1.5,
+        scale: 1.3,
         duration: 0.5,
         ease: "power2.out",
         left: leftValue,
@@ -246,7 +252,7 @@ export default function DevPage() {
         <div className={styles.verticalContainer} ref={verticalRef}>
           <div className={styles.verticalCard} onClick={() => showCards(0)}>
             <Image
-              src={card}
+              src={front}
               alt="dev"
               className={styles.cardImg}
               draggable={false}
@@ -254,7 +260,7 @@ export default function DevPage() {
           </div>
           <div className={styles.verticalCard} onClick={() => showCards(1)}>
             <Image
-              src={card}
+              src={design}
               alt="dev"
               className={styles.cardImg}
               draggable={false}
@@ -262,7 +268,7 @@ export default function DevPage() {
           </div>
           <div className={styles.verticalCard} onClick={() => showCards(2)}>
             <Image
-              src={card}
+              src={back}
               alt="dev"
               className={styles.cardImg}
               draggable={false}
@@ -270,7 +276,7 @@ export default function DevPage() {
           </div>
           <div className={styles.verticalCard} onClick={() => showCards(3)}>
             <Image
-              src={card}
+              src={video}
               alt="dev"
               className={styles.cardImg}
               draggable={false}
@@ -279,30 +285,6 @@ export default function DevPage() {
         </div>
         <div className={styles.cardsContainer} ref={groupRef}>
           <div className={styles.groupContainer}>
-            <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
-              />
-            </div>
-            <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
-              />
-            </div>
-            <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
-              />
-            </div>
             <div className={styles.individualCard}>
               <Image
                 src={card}

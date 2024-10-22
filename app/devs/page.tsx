@@ -49,7 +49,7 @@ export default function DevPage() {
           verticalRef.current.children[1],
           {
             // scale: 0,
-            duration: 0.3,
+            duration: 0.4,
             ease: "linear",
             delay: 0.5,
             left: leftValue,
@@ -60,7 +60,7 @@ export default function DevPage() {
           verticalRef.current.children[2],
           {
             // scale: 0,
-            duration: 0.6,
+            duration: 0.8,
             ease: "linear",
             left: leftValue,
           },
@@ -70,7 +70,7 @@ export default function DevPage() {
           verticalRef.current.children[3],
           {
             // scale: 0,
-            duration: 0.9,
+            duration: 1.2,
             ease: "linear",
             left: leftValue,
           },

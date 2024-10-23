@@ -349,7 +349,7 @@ export default function ContactUs() {
               img={rijul}
               dept1="Reception and"
               dept2="Accommodation"
-              contact="tel:+919811529877"
+              contact=""
               mail="mailto:recnacc@bits-oasis.org"
             />
           </div>

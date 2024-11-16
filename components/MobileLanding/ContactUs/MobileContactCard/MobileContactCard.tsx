@@ -35,6 +35,11 @@ export function ContactBlock({ phone, email }: ContactProps) {
         target="_blank"
         rel="noopener noreferrer"
         href={phone ?? "#"}
+        onClick={(e) => {
+          if (!phone) {
+            e.preventDefault();
+          }
+        }}
         style={{ visibility: phone === null ? "hidden" : "visible" }}
       >
         <Image src={phoneIcon} alt="phone icon" />

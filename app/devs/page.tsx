@@ -20,6 +20,32 @@ import back from "../../assets/Devs/back.png";
 import design from "../../assets/Devs/design.png";
 import video from "../../assets/Devs/video.png";
 
+import DevCardFront from "@/components/Devs/DevCardFront";
+
+import askshaya from "../../assets/Devs/DevMembers/akshaya.png";
+import animesh from "../../assets/Devs/DevMembers/animesh.png";
+import ankit from "../../assets/Devs/DevMembers/ankit.png";
+import anurag from "../../assets/Devs/DevMembers/anurag.png";
+import ashutosh from "../../assets/Devs/DevMembers/ashutosh.png";
+import atharv from "../../assets/Devs/DevMembers/atharv.png";
+import avi_image from "../../assets/Devs/DevMembers/avi_image.png";
+import ayush from "../../assets/Devs/DevMembers/ayush.png";
+import bhavesh from "../../assets/Devs/DevMembers/bhavesh.png";
+import chaitanya from "../../assets/Devs/DevMembers/chaitanya.png";
+import daksh from "../../assets/Devs/DevMembers/daksh.png";
+import dhayanidhi from "../../assets/Devs/DevMembers/dhayanidhi.png";
+import madhur from "../../assets/Devs/DevMembers/madhur.png";
+import manas from "../../assets/Devs/DevMembers/manas.png";
+import manasM from "../../assets/Devs/DevMembers/manasmehta.png";
+import prathmesh from "../../assets/Devs/DevMembers/prathmesh.png";
+import priyanshu from "../../assets/Devs/DevMembers/priyanshu.png";
+import raza from "../../assets/Devs/DevMembers/raza.png";
+import samyak from "../../assets/Devs/DevMembers/samyak.png";
+import satyasheel from "../../assets/Devs/DevMembers/satyasheel.png";
+import siddharth from "../../assets/Devs/DevMembers/siddharth.png";
+import sitaram from "../../assets/Devs/DevMembers/sitaram.png";
+import surya from "../../assets/Devs/DevMembers/surya.png";
+
 export default function DevPage() {
   const handleBackButtonClick = () => {
     localStorage.removeItem("hasReloaded");
@@ -87,7 +113,8 @@ export default function DevPage() {
 
   const animate = (index: number) => {
     const leftValue =
-      (window.innerWidth * 0.9 - window.innerWidth * 0.675 - 300) / 2;
+      window.innerWidth * 0.22 <= 350 ? window.innerWidth * 0.22 : 350;
+    const leftValueUsed = (500 - leftValue * 1.3) / 2;
     const tl = gsap.timeline();
 
     for (let i = 0; i < verticalRef.current.children.length; i++) {
@@ -98,15 +125,20 @@ export default function DevPage() {
 
     tl.set(backBtn.current, { display: "block" });
 
-    tl.set(verticalRef.current.children[index], { display: "block" }).to(
-      verticalRef.current.children[index],
-      {
-        scale: 1.3,
-        duration: 0.5,
-        ease: "power2.out",
-        left: leftValue,
-      }
-    );
+    if (window.innerWidth <= 1100) {
+      tl.set(verticalRef.current.children[index], { display: "none" });
+      tl.set(verticalRef.current, { display: "none" });
+    } else {
+      tl.set(verticalRef.current.children[index], { display: "block" }).to(
+        verticalRef.current.children[index],
+        {
+          scale: 1.3,
+          duration: 0.5,
+          ease: "power2.out",
+          left: leftValueUsed,
+        }
+      );
+    }
 
     const groupContainer = groupRef.current.children[index];
     // console.log(groupContainer);
@@ -121,10 +153,18 @@ export default function DevPage() {
   };
 
   const handleCardAnimation = () => {
-    const leftValue =
+    let leftValue =
       (window.innerWidth * 0.9 - window.innerWidth * 0.675 - 300) / 2 +
       currIndex * ((window.innerWidth * 0.9) / 4);
+
+    if (window.innerWidth <= 1400) {
+      leftValue = 22.5 * currIndex;
+    }
     const tl = gsap.timeline();
+
+    if (window.innerWidth <= 1100) {
+      tl.set(verticalRef.current, { display: "grid" });
+    }
 
     const groupContainer = groupRef.current.children[currIndex];
 
@@ -137,26 +177,32 @@ export default function DevPage() {
 
     tl.set(groupContainer, { display: "none" });
 
-    tl.to(verticalRef.current.children[currIndex], {
-      scale: 1,
-      duration: 0.5,
-      ease: "power2.out",
-      left: leftValue,
-    });
+    if (window.innerWidth <= 1400) {
+      tl.to(verticalRef.current.children[currIndex], {
+        scale: 1,
+        duration: 0.5,
+        ease: "power2.out",
+        left: `${leftValue}vw`,
+      });
+    } else {
+      tl.to(verticalRef.current.children[currIndex], {
+        scale: 1,
+        duration: 0.5,
+        ease: "power2.out",
+        left: leftValue,
+      });
+    }
 
     for (let i = 0; i < verticalRef.current.children.length; i++) {
-      if (i !== currIndex) {
-        // tl.set(verticalRef.current.children[i], { display: "block" });
-        tl.to(
-          verticalRef.current.children[i],
-          {
-            display: "block",
-            duration: 0.5,
-            ease: "power2.inOut",
-          },
-          "-=0.5"
-        );
-      }
+      tl.to(
+        verticalRef.current.children[i],
+        {
+          display: "block",
+          duration: 0.5,
+          ease: "power2.inOut",
+        },
+        "-=0.5"
+      );
     }
 
     tl.set(backBtn.current, { display: "none" });
@@ -283,243 +329,324 @@ export default function DevPage() {
           </div>
         </div>
         <div className={styles.cardsContainer} ref={groupRef}>
-          <div className={styles.groupContainer}>
+          <div
+            className={`${styles.groupContainer} ${styles.containerWith5Cards}`}
+          >
             <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
+              <DevCardFront
+                name={"Samyak Jain"}
+                image={samyak}
+                hasInsta={true}
+                hasBehance={false}
+                hasGithub={true}
+                hasLinkden={true}
+                linkden={"https://www.linkedin.com/in/samyak-jain-bab61730b/"}
+                github={"https://github.com/samyak-jain-12"}
+                insta={"https://www.instagram.com/jain_samyak_12/"}
               />
             </div>
             <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
+              <DevCardFront
+                name={"Animesh Datta Jaiswal"}
+                image={animesh}
+                hasInsta={true}
+                hasBehance={false}
+                hasGithub={true}
+                hasLinkden={true}
+                linkden={
+                  "https://www.linkedin.com/in/animesh-datta-jaiswal-a3b15729a/"
+                }
+                github={"https://github.com/Animeshdj"}
+                insta={"https://www.instagram.com/animeshani1/"}
               />
             </div>
             <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
+              <DevCardFront
+                name={"Atharv Agarwal"}
+                image={atharv}
+                hasInsta={true}
+                hasBehance={false}
+                hasGithub={true}
+                hasLinkden={true}
+                linkden={"https://www.linkedin.com/in/atharv-amit-agarwal/"}
+                github={"https://github.com/AtharvAgarwal20"}
+                insta={"https://www.instagram.com/abe_par_tu_hai_kaun/"}
               />
             </div>
             <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
+              <DevCardFront
+                name={"Chaitanya Jain"}
+                image={chaitanya}
+                hasInsta={false}
+                hasBehance={false}
+                hasGithub={true}
+                hasLinkden={true}
+                linkden={"https://www.linkedin.com/in/chaitanya-rahul-jain/"}
+                github={"https://github.com/chaitanya-rahul-jain"}
               />
             </div>
             <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
-              />
-            </div>
-          </div>
-          <div className={styles.groupContainer}>
-            <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
-              />
-            </div>
-            <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
-              />
-            </div>
-            <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
-              />
-            </div>
-            <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
-              />
-            </div>
-            <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
-              />
-            </div>
-            <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
-              />
-            </div>
-            <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
-              />
-            </div>
-            <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
+              <DevCardFront
+                name={"Manas Choudhary"}
+                image={manas}
+                hasInsta={true}
+                hasBehance={false}
+                hasGithub={true}
+                hasLinkden={true}
+                linkden={
+                  "https://www.linkedin.com/in/manas-choudhary-56374028b"
+                }
+                github={"https://github.com/ManasChoudhary-01"}
+                insta={
+                  "https://www.instagram.com/manaschoudhary_?igsh=YTQwZjQ0NmI0OA=="
+                }
               />
             </div>
           </div>
           <div className={styles.groupContainer}>
             <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
+              <DevCardFront
+                name={"Ankit Khatua"}
+                image={ankit}
+                hasInsta={true}
+                hasBehance={true}
+                hasGithub={false}
+                hasLinkden={true}
+                linkden={"https://www.linkedin.com/in/ankit-khatua-409976283/"}
+                behance={"https://www.behance.net/ankitkhatua/	"}
+                insta={"https://www.instagram.com/oxyboron._/	"}
               />
             </div>
             <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
+              <DevCardFront
+                name={"Bhavesh Jangir"}
+                image={bhavesh}
+                hasInsta={false}
+                hasBehance={false}
+                hasGithub={false}
+                hasLinkden={true}
+                linkden={"https://www.linkedin.com/in/madhur-jain-a03260211?"}
               />
             </div>
             <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
+              <DevCardFront
+                name={"Madhur Jain"}
+                image={madhur}
+                hasInsta={false}
+                hasBehance={false}
+                hasGithub={false}
+                hasLinkden={true}
+                linkden={"https://www.linkedin.com/in/madhur-jain-a03260211?"}
               />
             </div>
             <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
+              <DevCardFront
+                name={"Satyasheel Singh"}
+                image={satyasheel}
+                hasInsta={false}
+                hasBehance={false}
+                hasGithub={false}
+                hasLinkden={true}
+                linkden={"www.linkedin.com/in/satyasheel-singh-a82106290"}
+              />
+            </div>
+          </div>
+          <div
+            className={`${styles.groupContainer} ${styles.containerWith5Cards}`}
+          >
+            <div className={styles.individualCard}>
+              <DevCardFront
+                name={"Ashutosh Desai"}
+                image={ashutosh}
+                hasInsta={true}
+                hasBehance={false}
+                hasGithub={true}
+                hasLinkden={true}
+                linkden={
+                  "https://www.linkedin.com/in/ashutosh-desai-676820278?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                }
+                github={"https://github.com/Ashutosh1910/"}
+                insta={
+                  "https://www.instagram.com/ashutosh____1910?igsh=czNya244Mnp2MzVv"
+                }
               />
             </div>
             <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
+              <DevCardFront
+                name={"Avyakt Verma"}
+                image={avi_image}
+                hasInsta={true}
+                hasBehance={false}
+                hasGithub={true}
+                hasLinkden={true}
+                linkden={
+                  "https://www.linkedin.com/in/avyakt-verma-89264727b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                }
+                github={"https://github.com/Avyakt-ai"}
+                insta={
+                  "https://www.instagram.com/avyakt_1729?igsh=NnNocWd1Nmh5cmU1"
+                }
               />
             </div>
             <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
+              <DevCardFront
+                name={"Ayush Gupta"}
+                image={ayush}
+                hasInsta={true}
+                hasBehance={false}
+                hasGithub={true}
+                hasLinkden={true}
+                linkden={"https://www.linkedin.com/in/ayush-gupta-dev/"}
+                github={"https://github.com/Ayush-gupta-dev"}
+                insta={"https://www.instagram.com/madme.ig/"}
               />
             </div>
             <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
+              <DevCardFront
+                name={"Daksh Jain"}
+                image={daksh}
+                hasInsta={true}
+                hasBehance={false}
+                hasGithub={true}
+                hasLinkden={true}
+                linkden={"https://www.linkedin.com/in/daksh-jain-996b541b4/"}
+                github={"https://github.com/Daksh-Jain08/"}
+                insta={"https://www.instagram.com/daksh__jain08/"}
               />
             </div>
             <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
+              <DevCardFront
+                name={"Dhayanidhi Purushothaman"}
+                image={dhayanidhi}
+                hasInsta={true}
+                hasBehance={false}
+                hasGithub={true}
+                hasLinkden={true}
+                linkden={
+                  "https://www.linkedin.com/in/dhayanidhi-purushothaman-410b511b4/"
+                }
+                github={"https://github.com/Dhayanidhi2005"}
+                insta={"https://www.instagram.com/dhayanidhi_10/"}
               />
             </div>
           </div>
           <div className={styles.groupContainer}>
             <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
+              <DevCardFront
+                name={"Akshaya Shubh Agarwal"}
+                image={askshaya}
+                hasInsta={true}
+                hasBehance={false}
+                hasGithub={true}
+                hasLinkden={true}
+                linkden={
+                  "https://www.linkedin.com/in/akshaya-shubh-2b6a44288?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                }
+                github={"https://github.com/Akshaya1501"}
+                insta={"https://www.instagram.com/akshaya.kyu/"}
               />
             </div>
             <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
+              <DevCardFront
+                name={"Anurag"}
+                image={anurag}
+                hasInsta={true}
+                hasBehance={false}
+                hasGithub={false}
+                hasLinkden={true}
+                linkden={
+                  "https://www.linkedin.com/in/anurag-malhotra-772969287?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                }
+                insta={
+                  "https://www.instagram.com/_anurag.malhotra_?igsh=MWltNWJveWxnaXAwbQ=="
+                }
               />
             </div>
             <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
+              <DevCardFront
+                name={"Prathmesh Chandra"}
+                image={prathmesh}
+                hasInsta={true}
+                hasBehance={false}
+                hasGithub={false}
+                hasLinkden={true}
+                linkden={
+                  "https://www.linkedin.com/in/prathmesh-chandra-b6b38a2b5/"
+                }
+                insta={"https://www.instagram.com/_prathmesh_chandra"}
               />
             </div>
             <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
+              <DevCardFront
+                name={"Priyanshu Narayan"}
+                image={priyanshu}
+                hasInsta={false}
+                hasBehance={false}
+                hasGithub={false}
+                hasLinkden={true}
+                linkden={
+                  "https://www.linkedin.com/in/priyanshu-narayan-559412275?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                }
               />
             </div>
             <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
+              <DevCardFront
+                name={"Raza Hasnain"}
+                image={raza}
+                hasInsta={true}
+                hasBehance={false}
+                hasGithub={false}
+                hasLinkden={true}
+                linkden={"https://www.linkedin.com/in/razahasnain22/	"}
+                insta={
+                  "https://www.instagram.com/praja_pat3293?igsh=MTIxaDlrMGd0OWFtbQ=="
+                }
               />
             </div>
             <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
+              <DevCardFront
+                name={"Sai Surya Vujuri"}
+                image={surya}
+                hasInsta={true}
+                hasBehance={false}
+                hasGithub={false}
+                hasLinkden={true}
+                linkden={
+                  "https://www.linkedin.com/in/sai-surya-vujuri-826a452b1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                }
+                insta={
+                  "https://www.instagram.com/surya_ijk/profilecard/?igsh=Zm1ybTV0ZW9sdmlw"
+                }
               />
             </div>
             <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
+              <DevCardFront
+                name={"Siddharth Kakar"}
+                image={siddharth}
+                hasInsta={true}
+                hasBehance={false}
+                hasGithub={false}
+                hasLinkden={true}
+                linkden={"https://www.linkedin.com/in/siddharth-kakar-a62881"}
+                insta={
+                  "https://www.instagram.com/siddharthkakar?igsh=MXRpNzBudDA4bnM3cQ=="
+                }
               />
             </div>
             <div className={styles.individualCard}>
-              <Image
-                src={card}
-                alt="dev"
-                className={styles.cardImg}
-                draggable={false}
+              <DevCardFront
+                name={"Sitaram prajapat"}
+                image={sitaram}
+                hasInsta={true}
+                hasBehance={false}
+                hasGithub={false}
+                hasLinkden={true}
+                linkden={
+                  "https://www.linkedin.com/in/sitaram-prajapat-208147294?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                }
+                insta={
+                  "https://www.instagram.com/praja_pat3293?igsh=MTIxaDlrMGd0OWFtbQ=="
+                }
               />
             </div>
           </div>

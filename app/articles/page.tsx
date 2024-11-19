@@ -15,6 +15,7 @@ import CursorEffect from "@/components/CursorEffect/CursorEffect";
 import PDFDocument from "@/components/Articles/PDFDocument/PDFDocument";
 
 const pdfs = [
+  "https://drive.google.com/file/d/1rdPGgyWLfZNxdHNcHDJGZHc2EJUzXs_6/preview",
   "https://drive.google.com/file/d/1fvW_6-t1eB3YPA2P4_ziUHVObUl746LN/preview",
   "https://drive.google.com/file/d/1v_O3luxfxz2qymd8F1iCbWN9HgUiVLG-/preview",
   "https://drive.google.com/file/d/1LlmyDNsLjId_NFDq6_5owTwxvTF5vjaK/preview",
@@ -24,6 +25,7 @@ const pdfs = [
 ];
 
 const titles = [
+  "Oasis Brochure",
   "Smriti: Day-1 by HPC",
   "Smriti: Day-2 by HPC",
   "Smriti: Day-3 by HPC",

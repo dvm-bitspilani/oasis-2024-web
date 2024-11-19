@@ -15,19 +15,21 @@ import CursorEffect from "@/components/CursorEffect/CursorEffect";
 import PDFDocument from "@/components/Articles/PDFDocument/PDFDocument";
 
 const pdfs = [
-  "https://drive.google.com/file/d/1Plwf1op2aMalQlFELtzp2zkljkwh3cBJ/preview",
-  "https://drive.google.com/file/d/1BTxvD-BTXrhr1OYut04SJ8DfHHa9z63N/preview",
-  "https://drive.google.com/file/d/14Ucp8czgaKyCh4E_McsmNno5e9l3ky0U/preview",
-  "https://drive.google.com/file/d/1ZTWX_ovctrP1LEV2YdCCqhLjmmwuQeDW/preview",
-  "https://drive.google.com/file/d/1N4Po9uNEnzGVxep_G285IDhPlMiQlAoc/preview",
+  "https://drive.google.com/file/d/1fvW_6-t1eB3YPA2P4_ziUHVObUl746LN/preview",
+  "https://drive.google.com/file/d/1v_O3luxfxz2qymd8F1iCbWN9HgUiVLG-/preview",
+  "https://drive.google.com/file/d/1LlmyDNsLjId_NFDq6_5owTwxvTF5vjaK/preview",
+  "https://drive.google.com/file/d/1hQg2_-QmQcUsmvn-LCLhdyDwZbCcCHCO/preview",
+  "https://drive.google.com/file/d/1MncInnskmIJfEEpGzx8bRdMM5AgA7hbl/preview",
+  "https://drive.google.com/file/d/1V_uH5Q4egYprZH6NXZnkat_LbpYQ9-4G/preview",
 ];
 
 const titles = [
-  "Smriti by Hindi Press Club",
-  "Smriti by Hindi Press Club",
-  "Smriti by Hindi Press Club",
-  "Smriti by Hindi Press Club",
-  "Arcanum Arcanorum by English Press Club",
+  "Smriti: Day-1 by HPC",
+  "Smriti: Day-2 by HPC",
+  "Smriti: Day-3 by HPC",
+  "The Seafarer's Scrolls: Issue-1 by EPC",
+  "The Seafarer's Scrolls: Issue-2 by EPC",
+  "The Seafarer's Scrolls: Issue-3 by EPC",
 ];
 
 const Articles: React.FC = () => {

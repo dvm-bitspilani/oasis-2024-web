@@ -138,10 +138,10 @@ const HamMenu: React.FC<HamMenuProps> = ({isHamOpen}) => {
                         </svg>
                         <Link
                             onClick={() => handleClick()}
-                            href="/devs"
+                            href="/media-partners"
                             className={styles.devText}
                         >
-                            DEVELOPERS
+                            MEDIA PARTNERS
                         </Link>
                     </div>
                     <div className={styles.mediaPartners} ref={mediaPartnersRef}>
@@ -198,10 +198,10 @@ const HamMenu: React.FC<HamMenuProps> = ({isHamOpen}) => {
                         </svg>
                         <Link
                             onClick={() => handleClick()}
-                            href="/brochure"
+                            href="/devs"
                             className={styles.sponsorsText}
                         >
-                            BROCHURE
+                            DEVELOPERS
                         </Link>
                     </div>
                     <div className={styles.gallery} ref={galleryRef}>
@@ -277,11 +277,11 @@ const HamMenu: React.FC<HamMenuProps> = ({isHamOpen}) => {
                         </svg>
                         <Link
                             onClick={() => handleClick()}
-                            href="/devs"
+                            href="/media-partners"
                             className={styles.devText}
                             id="media-partners-mobile"
                         >
-                            DEVELOPERS
+                            MEDIA PARTNERS
                         </Link>
                     </div>
                     <div className={styles.mediaPartners} ref={mediaPartnersRef}>
@@ -324,10 +324,10 @@ const HamMenu: React.FC<HamMenuProps> = ({isHamOpen}) => {
                         </svg>
                         <Link
                             onClick={() => handleClick()}
-                            href="/brochure"
+                            href="/devs"
                             className={styles.sponsorsText}
                         >
-                            BROCHURE
+                            DEVELOPERS
                         </Link>
                     </div>
                     <div className={styles.gallery} ref={galleryRef}>

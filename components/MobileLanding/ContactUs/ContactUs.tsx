@@ -106,7 +106,7 @@ export default function ContactUsMobile() {
           dep1="Reception and"
           dep2="Accomodation"
           contactDetails={true}
-          phone=""
+          phone="tel:+919811529877"
           email="mailto:recnacc@bits-oasis.org"
         />
         <MobileContactCard

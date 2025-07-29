@@ -18,7 +18,7 @@ Next.js, TypeScript, SCSS, GSAP, React-Three-Fiber, React-Three-Drei
 Clone the project
 
 ```bash
-git clone hhttps://github.com/dvm-bitspilani/oasis-2024-web.git
+git clone https://github.com/dvm-bitspilani/oasis-2024-web.git
 ```
 
 Go to the project directory

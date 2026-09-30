@@ -25,7 +25,7 @@ export default function Trees() {
                     className={styles.righttree}
                 />
             </div>
-            <img src='/bottomShadow.png' alt='Bottom shadow' className={styles.desktopGradient}/>
+            <img src='/bottomShadow.webp' alt='Bottom shadow' className={styles.desktopGradient}/>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="430"

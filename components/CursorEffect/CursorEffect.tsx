@@ -70,7 +70,7 @@ export default function CursorEffect() {
           setTimeout(() => {
             icon.style.opacity = "0";
             setTimeout(() => {
-              container.removeChild(icon);
+              icon.remove();
             }, 300);
           }, Math.random() * 300 + 500);
         }, 0);
@@ -89,6 +89,7 @@ export default function CursorEffect() {
   };
 
   useEffect(() => {
+    if (matchMedia("(prefers-reduced-motion: reduce), (pointer: coarse)").matches) return;
     window.addEventListener("mousemove", onMouseMove);
 
     return () => {

@@ -1,3 +1,4 @@
+export const dynamic = "force-static";
 import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
@@ -7,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/admin", "/api", "/2024"],
     },
-    sitemap: "https://www.bits-oasis.org/sitemap.xml",
+    sitemap: "https://oasis2024.bits-oasis.org/sitemap.xml",
   };
 }

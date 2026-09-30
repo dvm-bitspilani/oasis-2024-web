@@ -14,17 +14,17 @@ import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
 import ContactCard from "@/components/ContactUs/ContactCard/ContactCard";
 import Image from "next/image";
 
-import prateek from "../../assets/Landing/contactUs/prateek.png";
-import aryan from "../../assets/Landing/contactUs/aryan.png";
-import shreeram from "../../assets/Landing/contactUs/shreeram.png";
-import jaiditya from "../../assets/Landing/contactUs/jaiditya.png";
-import rijul from "../../assets/Landing/contactUs/rijul.png";
-import shreyansh from "../../assets/Landing/contactUs/shreyansh.png";
-import ahan from "../../assets/Landing/contactUs/ahan.png";
-import aryankhorana from "../../assets/Landing/contactUs/aryankhorana.png";
+import prateek from "../../assets/Landing/contactUs/prateek.webp";
+import aryan from "../../assets/Landing/contactUs/aryan.webp";
+import shreeram from "../../assets/Landing/contactUs/shreeram.webp";
+import jaiditya from "../../assets/Landing/contactUs/jaiditya.webp";
+import rijul from "../../assets/Landing/contactUs/rijul.webp";
+import shreyansh from "../../assets/Landing/contactUs/shreyansh.webp";
+import ahan from "../../assets/Landing/contactUs/ahan.webp";
+import aryankhorana from "../../assets/Landing/contactUs/aryankhorana.webp";
 
-import left from "../../assets/Landing/contactUs/left.png";
-import right from "../../assets/Landing/contactUs/right.png";
+import left from "../../assets/Landing/contactUs/left.webp";
+import right from "../../assets/Landing/contactUs/right.webp";
 import gsap from "gsap";
 import RegBtn from "@/components/Landing/Navbar/RegBtn/RegBtn";
 import CursorEffect from "@/components/CursorEffect/CursorEffect";
@@ -34,10 +34,7 @@ export default function ContactUs() {
   const contactCard1Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!localStorage.getItem("hasReloaded")) {
-      localStorage.setItem("hasReloaded", "true");
-      window.location.reload();
-    }
+    const animationContext = gsap.context(() => {
 
     const container = contactCardRef.current;
     const container1 = contactCard1Ref.current;
@@ -191,23 +188,16 @@ export default function ContactUs() {
         });
       }
     }
+    });
+    return () => animationContext.revert();
   }, []);
 
-  const handleBackButtonClick = () => {
-    localStorage.removeItem("hasReloaded");
-  };
 
   const router = useRouter();
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const isMobile =
-        /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 800;
-
-      if (isMobile) {
-        router.push("/");
-      }
-    }
-    document.body.style.overflow = "hidden";
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "auto";
+    return () => { document.body.style.overflow = previousOverflow; };
   }, []);
 
   return (
@@ -222,7 +212,7 @@ export default function ContactUs() {
       </div>
 
       <div className={styles.ham}>
-        <Link href="/" onClick={handleBackButtonClick}>
+        <Link href="/">
           <BackButton />
         </Link>
       </div>

@@ -3,7 +3,7 @@ import styles from './slotMachine2d.module.scss'
 import Image from "next/image";
 import {forwardRef, useEffect} from "react";
 
-import slotMachine from '@/assets/Landing/slotMachine2D.png'
+import slotMachine from '@/assets/Landing/slotMachine2D.webp'
 
 interface Props {
     setIsSlotMachineLoaded: (value: boolean) => void

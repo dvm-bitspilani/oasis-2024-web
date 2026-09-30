@@ -7,7 +7,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 import EventCard from "../EventCard/EventCard";
 import Carousel from "../Carousel/Carousel";
-import axios from "axios";
+import { demoEvents } from "@/data/portfolio";
 import eventcard from "../../../assets/Events/Carousel/eventcard.png";
 
 interface CategoryProps {
@@ -20,18 +20,8 @@ export default function Category({ currentCategory, onClose }: CategoryProps) {
   const [carouselContent, setCarouselContent] = useState<EventDataType | null>(
     null
   );
-  const [eventsList, seteventsList] = useState([]);
+  const eventsList = demoEvents;
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
-
-  useEffect(() => {
-    axios
-      .get("https://bits-oasis.org/2024/main/registrations/events_details/")
-      .then((res) => {
-        const events = res.data;
-        // console.log(events);
-        seteventsList(events);
-      });
-  }, []);
 
   const filteredEvents = eventsList.filter((event: any) =>
     event.categories.some(

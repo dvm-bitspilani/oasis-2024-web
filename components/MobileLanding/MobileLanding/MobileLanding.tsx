@@ -12,14 +12,14 @@ import Artist from "@/components/MobileLanding/Artist/Artist";
 import ArtistN2O from "../Artist/ArtistN2O/artistn2o";
 import ContactUsMobile from "@/components/MobileLanding/ContactUs/ContactUs";
 
-import slotMachine2D from "@/assets/Landing/slotMachine2D2.png";
+import slotMachine2D from "@/assets/Landing/slotMachine2D2.webp";
 
-import profShowsBackground from "@/assets/MobileLanding/ProfShowsMobile/profShowsBackgroundMobile.png";
-import grungeBackground from "@/assets/MobileLanding/ProfShowsMobile/GrungeMobile.png";
+import profShowsBackground from "@/assets/MobileLanding/ProfShowsMobile/profShowsBackgroundMobile.webp";
+import grungeBackground from "@/assets/MobileLanding/ProfShowsMobile/GrungeMobile.webp";
 import profShowWaves from "@/assets/MobileLanding/ProfShowsMobile/profShowWavyWavy.svg";
-import vishal from "@/assets/MobileLanding/ProfShowsMobile/VishalMishra.png";
-import seedheMaut from "@/assets/MobileLanding/ProfShowsMobile/SeedheMaut.png";
-import yellowDiary from "@/assets/MobileLanding/ProfShowsMobile/YellowDiary.png";
+import vishal from "@/assets/MobileLanding/ProfShowsMobile/VishalMishra.webp";
+import seedheMaut from "@/assets/MobileLanding/ProfShowsMobile/SeedheMaut.webp";
+import yellowDiary from "@/assets/MobileLanding/ProfShowsMobile/YellowDiary.webp";
 import EventsMobile from "../EventsPageMobile/EventsPageMobile";
 import Slideshow from "../Slideshow/Slideshow";
 import { waitForPreload } from "@/helper/waitForPreload";

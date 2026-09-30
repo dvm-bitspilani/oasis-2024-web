@@ -7,7 +7,7 @@ import { forwardRef, useEffect, useState } from "react";
 
 import { detectAppleDevice } from "@/helper/detectAppleDevice";
 
-interface Props {
+export interface Props {
   setIs3dLoaded: (value: boolean) => void;
   isAboutUs: boolean;
   isXS: boolean;
@@ -36,6 +36,8 @@ const LandingScene = forwardRef(function LandingScene(
   return (
     <>
       <Canvas
+        dpr={[1, 1.5]}
+        gl={{ antialias: true, powerPreference: "low-power" }}
         style={{
           position: "absolute",
           // pointerEvents: isLanding ? "none" : "auto",

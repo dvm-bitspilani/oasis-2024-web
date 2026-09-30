@@ -1,0 +1,371 @@
+{
+  "converted": 91,
+  "beforeBytes": 92447848,
+  "afterBytes": 9157474,
+  "changes": [
+    {
+      "from": "assets/Devs/DevMembers/akshaya.png",
+      "to": "assets/Devs/DevMembers/akshaya.webp"
+    },
+    {
+      "from": "assets/Devs/DevMembers/animesh.png",
+      "to": "assets/Devs/DevMembers/animesh.webp"
+    },
+    {
+      "from": "assets/Devs/DevMembers/ankit.png",
+      "to": "assets/Devs/DevMembers/ankit.webp"
+    },
+    {
+      "from": "assets/Devs/DevMembers/anurag.png",
+      "to": "assets/Devs/DevMembers/anurag.webp"
+    },
+    {
+      "from": "assets/Devs/DevMembers/ashutosh.png",
+      "to": "assets/Devs/DevMembers/ashutosh.webp"
+    },
+    {
+      "from": "assets/Devs/DevMembers/atharv.png",
+      "to": "assets/Devs/DevMembers/atharv.webp"
+    },
+    {
+      "from": "assets/Devs/DevMembers/avi_image.png",
+      "to": "assets/Devs/DevMembers/avi_image.webp"
+    },
+    {
+      "from": "assets/Devs/DevMembers/ayush.png",
+      "to": "assets/Devs/DevMembers/ayush.webp"
+    },
+    {
+      "from": "assets/Devs/DevMembers/bhavesh.png",
+      "to": "assets/Devs/DevMembers/bhavesh.webp"
+    },
+    {
+      "from": "assets/Devs/DevMembers/chaitanya.png",
+      "to": "assets/Devs/DevMembers/chaitanya.webp"
+    },
+    {
+      "from": "assets/Devs/DevMembers/daksh.png",
+      "to": "assets/Devs/DevMembers/daksh.webp"
+    },
+    {
+      "from": "assets/Devs/DevMembers/dhayanidhi.png",
+      "to": "assets/Devs/DevMembers/dhayanidhi.webp"
+    },
+    {
+      "from": "assets/Devs/DevMembers/madhur.png",
+      "to": "assets/Devs/DevMembers/madhur.webp"
+    },
+    {
+      "from": "assets/Devs/DevMembers/manas.png",
+      "to": "assets/Devs/DevMembers/manas.webp"
+    },
+    {
+      "from": "assets/Devs/DevMembers/prathmesh.png",
+      "to": "assets/Devs/DevMembers/prathmesh.webp"
+    },
+    {
+      "from": "assets/Devs/DevMembers/priyanshu.png",
+      "to": "assets/Devs/DevMembers/priyanshu.webp"
+    },
+    {
+      "from": "assets/Devs/DevMembers/raza.png",
+      "to": "assets/Devs/DevMembers/raza.webp"
+    },
+    {
+      "from": "assets/Devs/DevMembers/samyak.png",
+      "to": "assets/Devs/DevMembers/samyak.webp"
+    },
+    {
+      "from": "assets/Devs/DevMembers/satyasheel.png",
+      "to": "assets/Devs/DevMembers/satyasheel.webp"
+    },
+    {
+      "from": "assets/Devs/DevMembers/siddharth.png",
+      "to": "assets/Devs/DevMembers/siddharth.webp"
+    },
+    {
+      "from": "assets/Devs/DevMembers/sitaram.png",
+      "to": "assets/Devs/DevMembers/sitaram.webp"
+    },
+    {
+      "from": "assets/Devs/DevMembers/surya.png",
+      "to": "assets/Devs/DevMembers/surya.webp"
+    },
+    {
+      "from": "assets/Devs/back.png",
+      "to": "assets/Devs/back.webp"
+    },
+    {
+      "from": "assets/Devs/design.png",
+      "to": "assets/Devs/design.webp"
+    },
+    {
+      "from": "assets/Devs/front.png",
+      "to": "assets/Devs/front.webp"
+    },
+    {
+      "from": "assets/Devs/video.png",
+      "to": "assets/Devs/video.webp"
+    },
+    {
+      "from": "assets/Events/Carousel/eventLarge.png",
+      "to": "assets/Events/Carousel/eventLarge.webp"
+    },
+    {
+      "from": "assets/Events/Folders/Comic photo effect 5.png",
+      "to": "assets/Events/Folders/Comic photo effect 5.webp"
+    },
+    {
+      "from": "assets/Events/Folders/camerabg.png",
+      "to": "assets/Events/Folders/camerabg.webp"
+    },
+    {
+      "from": "assets/Events/Folders/dancebg.png",
+      "to": "assets/Events/Folders/dancebg.webp"
+    },
+    {
+      "from": "assets/Events/Folders/dramabg.png",
+      "to": "assets/Events/Folders/dramabg.webp"
+    },
+    {
+      "from": "assets/Events/Folders/fashionbg.png",
+      "to": "assets/Events/Folders/fashionbg.webp"
+    },
+    {
+      "from": "assets/Events/Folders/miscbg.png",
+      "to": "assets/Events/Folders/miscbg.webp"
+    },
+    {
+      "from": "assets/Events/Folders/musicbg.png",
+      "to": "assets/Events/Folders/musicbg.webp"
+    },
+    {
+      "from": "assets/Events/Folders/n20.png",
+      "to": "assets/Events/Folders/n20.webp"
+    },
+    {
+      "from": "assets/Events/Folders/quizbg.png",
+      "to": "assets/Events/Folders/quizbg.webp"
+    },
+    {
+      "from": "assets/Gallery/eight.jpg",
+      "to": "assets/Gallery/eight.webp"
+    },
+    {
+      "from": "assets/Gallery/eightteen.jpg",
+      "to": "assets/Gallery/eightteen.webp"
+    },
+    {
+      "from": "assets/Gallery/eleven.jpg",
+      "to": "assets/Gallery/eleven.webp"
+    },
+    {
+      "from": "assets/Gallery/five.jpg",
+      "to": "assets/Gallery/five.webp"
+    },
+    {
+      "from": "assets/Gallery/four.jpg",
+      "to": "assets/Gallery/four.webp"
+    },
+    {
+      "from": "assets/Gallery/fourteen.jpg",
+      "to": "assets/Gallery/fourteen.webp"
+    },
+    {
+      "from": "assets/Gallery/nine.jpg",
+      "to": "assets/Gallery/nine.webp"
+    },
+    {
+      "from": "assets/Gallery/nineteen.jpg",
+      "to": "assets/Gallery/nineteen.webp"
+    },
+    {
+      "from": "assets/Gallery/one.jpg",
+      "to": "assets/Gallery/one.webp"
+    },
+    {
+      "from": "assets/Gallery/seven.jpg",
+      "to": "assets/Gallery/seven.webp"
+    },
+    {
+      "from": "assets/Gallery/seventeen.jpg",
+      "to": "assets/Gallery/seventeen.webp"
+    },
+    {
+      "from": "assets/Gallery/six.jpg",
+      "to": "assets/Gallery/six.webp"
+    },
+    {
+      "from": "assets/Gallery/sixteen.jpg",
+      "to": "assets/Gallery/sixteen.webp"
+    },
+    {
+      "from": "assets/Gallery/ten.jpg",
+      "to": "assets/Gallery/ten.webp"
+    },
+    {
+      "from": "assets/Gallery/thirteen.jpg",
+      "to": "assets/Gallery/thirteen.webp"
+    },
+    {
+      "from": "assets/Gallery/three.jpg",
+      "to": "assets/Gallery/three.webp"
+    },
+    {
+      "from": "assets/Gallery/twelve.jpg",
+      "to": "assets/Gallery/twelve.webp"
+    },
+    {
+      "from": "assets/Gallery/twenty.jpg",
+      "to": "assets/Gallery/twenty.webp"
+    },
+    {
+      "from": "assets/Gallery/twentyone.jpg",
+      "to": "assets/Gallery/twentyone.webp"
+    },
+    {
+      "from": "assets/Gallery/two.jpg",
+      "to": "assets/Gallery/two.webp"
+    },
+    {
+      "from": "assets/Landing/Grunge.png",
+      "to": "assets/Landing/Grunge.webp"
+    },
+    {
+      "from": "assets/Landing/RegBtnGlow.png",
+      "to": "assets/Landing/RegBtnGlow.webp"
+    },
+    {
+      "from": "assets/Landing/contactUs/ahan.png",
+      "to": "assets/Landing/contactUs/ahan.webp"
+    },
+    {
+      "from": "assets/Landing/contactUs/aryan.png",
+      "to": "assets/Landing/contactUs/aryan.webp"
+    },
+    {
+      "from": "assets/Landing/contactUs/aryankhorana.png",
+      "to": "assets/Landing/contactUs/aryankhorana.webp"
+    },
+    {
+      "from": "assets/Landing/contactUs/jaiditya.png",
+      "to": "assets/Landing/contactUs/jaiditya.webp"
+    },
+    {
+      "from": "assets/Landing/contactUs/left.png",
+      "to": "assets/Landing/contactUs/left.webp"
+    },
+    {
+      "from": "assets/Landing/contactUs/prateek.png",
+      "to": "assets/Landing/contactUs/prateek.webp"
+    },
+    {
+      "from": "assets/Landing/contactUs/right.png",
+      "to": "assets/Landing/contactUs/right.webp"
+    },
+    {
+      "from": "assets/Landing/contactUs/rijul.png",
+      "to": "assets/Landing/contactUs/rijul.webp"
+    },
+    {
+      "from": "assets/Landing/contactUs/shreeram.png",
+      "to": "assets/Landing/contactUs/shreeram.webp"
+    },
+    {
+      "from": "assets/Landing/contactUs/shreyansh.png",
+      "to": "assets/Landing/contactUs/shreyansh.webp"
+    },
+    {
+      "from": "assets/Landing/slotMachine2D.png",
+      "to": "assets/Landing/slotMachine2D.webp"
+    },
+    {
+      "from": "assets/Landing/slotMachine2D2.png",
+      "to": "assets/Landing/slotMachine2D2.webp"
+    },
+    {
+      "from": "assets/MobileLanding/ProfShowsMobile/GrungeMobile.png",
+      "to": "assets/MobileLanding/ProfShowsMobile/GrungeMobile.webp"
+    },
+    {
+      "from": "assets/MobileLanding/ProfShowsMobile/HarshVivek.png",
+      "to": "assets/MobileLanding/ProfShowsMobile/HarshVivek.webp"
+    },
+    {
+      "from": "assets/MobileLanding/ProfShowsMobile/SeedheMaut.png",
+      "to": "assets/MobileLanding/ProfShowsMobile/SeedheMaut.webp"
+    },
+    {
+      "from": "assets/MobileLanding/ProfShowsMobile/VishalMishra.png",
+      "to": "assets/MobileLanding/ProfShowsMobile/VishalMishra.webp"
+    },
+    {
+      "from": "assets/MobileLanding/ProfShowsMobile/YellowDiary.png",
+      "to": "assets/MobileLanding/ProfShowsMobile/YellowDiary.webp"
+    },
+    {
+      "from": "assets/MobileLanding/ProfShowsMobile/profShowsBackgroundMobile.png",
+      "to": "assets/MobileLanding/ProfShowsMobile/profShowsBackgroundMobile.webp"
+    },
+    {
+      "from": "public/Chip.png",
+      "to": "public/Chip.webp"
+    },
+    {
+      "from": "public/ProfShow/goat.png",
+      "to": "public/ProfShow/goat.webp"
+    },
+    {
+      "from": "public/ProfShow/n2o.png",
+      "to": "public/ProfShow/n2o.webp"
+    },
+    {
+      "from": "public/ProfShow/theyellowdiaries.png",
+      "to": "public/ProfShow/theyellowdiaries.webp"
+    },
+    {
+      "from": "public/ProfShow/vishalmishra.png",
+      "to": "public/ProfShow/vishalmishra.webp"
+    },
+    {
+      "from": "public/Registration/RouletteWheel.png",
+      "to": "public/Registration/RouletteWheel.webp"
+    },
+    {
+      "from": "public/Registration/rouletteImg.png",
+      "to": "public/Registration/rouletteImg.webp"
+    },
+    {
+      "from": "public/about.png",
+      "to": "public/about.webp"
+    },
+    {
+      "from": "public/backgroundNoiceImg.png",
+      "to": "public/backgroundNoiceImg.webp"
+    },
+    {
+      "from": "public/bottomShadow.png",
+      "to": "public/bottomShadow.webp"
+    },
+    {
+      "from": "public/contact.png",
+      "to": "public/contact.webp"
+    },
+    {
+      "from": "public/events.png",
+      "to": "public/events.webp"
+    },
+    {
+      "from": "public/home.png",
+      "to": "public/home.webp"
+    },
+    {
+      "from": "public/oasislogoNew.png",
+      "to": "public/oasislogoNew.webp"
+    },
+    {
+      "from": "public/slotmachine.png",
+      "to": "public/slotmachine.webp"
+    }
+  ]
+}

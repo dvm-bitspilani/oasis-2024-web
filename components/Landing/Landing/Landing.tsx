@@ -7,7 +7,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 import { waitForPreload } from "@/helper/waitForPreload";
 
-import LandingScene from "../Scene/Scene";
+import LandingScene from "../Scene/ProgressiveScene";
 import SlotMachineExitCross from "@/components/AboutUs/SlotMachineExitCross/SlotMachineExitCross";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -15,17 +15,9 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Landing() {
   const [isLoaded, setIsLoaded] = useState(false);
 
-  useEffect(() => {
-    waitForPreload("#preloader").then(() => {
-      setTimeout(() => {
-        setIsLoaded(true);
-        // console.log("hello loaded");
-      }, 500);
-      // console.log("#preloader");
-    });
-  }, []);
+  useEffect(() => { setIsLoaded(true); }, []);
 
-  const slotMachine: any = useRef();
+  const slotMachine: any = useRef(null);
   const [camera, setCamera] = useState<any>(null);
 
   const [isSlotMachineLoaded, setIsSlotMachineLoaded] = useState(false);

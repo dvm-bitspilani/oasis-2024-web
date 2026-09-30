@@ -4,12 +4,12 @@ import gsap from "gsap";
 import styles from "./profshow.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import grunge from "@/assets/Landing/Grunge.png";
-import sm from "@/public/ProfShow/goat.png";
-import vm from "@/public/ProfShow/vishalmishra.png";
-import tyd from "@/public/ProfShow/theyellowdiaries.png";
-import n2o from "@/public/ProfShow/n2o.png";
-import gif1 from "@/public/ProfShow/gif1.gif";
+import grunge from "@/assets/Landing/Grunge.webp";
+import sm from "@/public/ProfShow/goat.webp";
+import vm from "@/public/ProfShow/vishalmishra.webp";
+import tyd from "@/public/ProfShow/theyellowdiaries.webp";
+import n2o from "@/public/ProfShow/n2o.webp";
+
 import { useRouter } from "next/navigation";
 import CursorEffect from "@/components/CursorEffect/CursorEffect";
 import Preloader from "@/components/Preloader/Preloader";
@@ -114,11 +114,9 @@ const Shows = () => {
   ));
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
+    const timer = requestAnimationFrame(() => { setLoading(false); });
 
-    return () => clearTimeout(timer);
+    return () => cancelAnimationFrame(timer);
   }, []);
 
   // useEffect(() => {
@@ -126,7 +124,7 @@ const Shows = () => {
   //     animate();
   //   }, 10000);
 
-  //   return () => clearTimeout(timer);
+  //   return () => cancelAnimationFrame(timer);
   // }, [eventID, progressKey]);
 
   const handleArrowClick = (direction: string) => {
@@ -203,7 +201,7 @@ const Shows = () => {
                 </svg>
               </Link>
             </div>
-            <Image src={gif1} alt="gif" className={styles.backgroundGif} />
+            <video src="/ProfShow/ambient.mp4" aria-hidden="true" muted loop autoPlay playsInline preload="none" className={styles.backgroundGif} />
             <div className={styles.darkScreen} />
             <div className={styles.pageContent}>
               <div className={styles.eventName} ref={eventNameRef}>

@@ -4,7 +4,7 @@ import styles from "./carousel.module.scss";
 import arrow from "@/assets/Events/Carousel/carouselArrow.png";
 
 import { EventDataType } from "@/data/EventsCarousel";
-import largeImage from "@/assets/Events/Carousel/eventLarge.png";
+import largeImage from "@/assets/Events/Carousel/eventLarge.webp";
 
 interface CarouselProps {
   activeEvent: number | null;

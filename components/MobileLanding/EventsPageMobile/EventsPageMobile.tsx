@@ -15,7 +15,7 @@ import dance from "../../../assets/Events/Folders/Comic photo effect 4.png";
 import quiz from "../../../assets/Events/Folders/Comic photo effect 6.png";
 import camera from "../../../assets/Events/Folders/Comic photo effect 8.png";
 import drama from "../../../assets/Events/Folders/Comic photo effect 7.png";
-import fashion from "../../../assets/Events/Folders/Comic photo effect 5.png";
+import fashion from "../../../assets/Events/Folders/Comic photo effect 5.webp";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import gsap from "gsap";

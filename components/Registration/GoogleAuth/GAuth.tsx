@@ -37,6 +37,7 @@ export default function GoogleAuthPage({ gSignIn }: Props) {
       <div className={styles.instructionsContainer}>
         <Signin />
         <div
+          role="button" tabIndex={0} onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); gSignIn(); } }}
           onClick={() => {
             gSignIn();
           }}
@@ -106,7 +107,7 @@ export default function GoogleAuthPage({ gSignIn }: Props) {
               <div className={`${styles.circle} bulb`}></div>
             </div>
             <div className={styles.register}>
-              sign in
+              explore demo
               {/* <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="29"
@@ -172,7 +173,7 @@ export default function GoogleAuthPage({ gSignIn }: Props) {
         {/* {isOpen && <Modal closeModal={toggleModal} />} */}
         <Image
           className={styles.rouletteWheel}
-          src="/Registration/RouletteWheel.png"
+          src="/Registration/RouletteWheel.webp"
           alt=""
           width={460}
           height={440}

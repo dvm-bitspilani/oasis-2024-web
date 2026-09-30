@@ -42,7 +42,7 @@ export default function Home() {
           <OasisLogo />
           <a
             href="https://maps.app.goo.gl/EMBKXct4V92g8MbPA"
-            target="_blank"
+            target="_blank" rel="noopener noreferrer"
             className={styles.locationRedirect}
           >
             <Image src={locationIcon} alt="location icon" />

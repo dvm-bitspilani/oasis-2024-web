@@ -1,5 +1,4 @@
 import styles from "./regbtn.module.scss";
-import { sendGAEvent } from "@next/third-parties/google";
 import { memo } from "react";
 
 import Link from "next/link";
@@ -9,7 +8,6 @@ const RegBtn = memo(function RegBtn() {
     <Link
       href="/Registration"
       className={styles.link}
-      onClick={() => sendGAEvent("event", "Home-regbutton", { value: 1 })}
     >
       <div className={styles.btnwrapper} id="register">
         <div className={styles.glow}></div>

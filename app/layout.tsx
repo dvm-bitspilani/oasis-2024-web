@@ -1,74 +1,13 @@
-import type { Metadata } from "next";
-import type { Viewport } from "next";
-import { Inter } from "next/font/google";
-import { GoogleOAuthProvider } from "@react-oauth/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
-// import OasisLogo from "../public/oglogo.png";
-
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
-  title: "Oasis '24 | Regal Roulette",
-  description:
-    "The official website of Oasis 2024 - Regal Roulette. Asia's Largest Student-Run College Cultural Festival returns for its 52nd edition in 2024! Est. 1971",
-  keywords:
-    "oasis 24, bits oasis, oasis bits, oasis bits pilani, oasis 24 bits, oasis 24 bits pilani, oasis bits pilani 24, oasis 2024, oasis 2024 bits, oasis 2024 bits pilani",
-  robots: {
-    index: true,
-    follow: true,
-    nocache: false,
-    googleBot: {
-      index: true,
-      follow: true,
-      noimageindex: false,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  openGraph: {
-    type: "website",
-    url: "https://www.bits-oasis.org",
-    title: "Oasis '24 | Regal Roulette",
-    description:
-      "The official website of Oasis 2024 - Regal Roulette. Asia's Largest Student-Run College Cultural Festival returns for its 52nd edition in 2024! Est. 1971",
-    images: [
-      {
-        url: "https://www.bits-oasis.org/oglogo.png",
-      },
-    ],
-  },
+  metadataBase: new URL("https://oasis2024.bits-oasis.org"),
+  title: "Oasis ’24 | Regal Roulette — DVM Portfolio Archive",
+  description: "Restored frontend design portfolio for Oasis 2024, Regal Roulette. Historical artwork and interactive demos; registrations are closed.",
+  alternates: { canonical: "/" },
+  openGraph: { type: "website", url: "/", title: "Oasis ’24 | Regal Roulette — Portfolio Archive", images: [{ url: "/oglogo.png" }] },
 };
-
-export const viewport: Viewport = {
-  colorScheme: "dark",
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <head>
-        <title>Oasis &apos;24 | Regal Roulette</title>
-        <meta
-          name="google-site-verification"
-          content="GKxgBVi8dPgOPEBsP-lgb_ZM201NN8NE5ZbVEhrhpDw"
-        />
-      </head>
-      <body className={inter.className}>
-        <GoogleAnalytics gaId="G-P6H0V5H4L7" />
-        <GoogleOAuthProvider clientId="1003752349264-5u6j9a2thpcj84kj05bsah2u46q7jegt.apps.googleusercontent.com">
-          <div id="modal-portal"></div>
-          {children}
-        </GoogleOAuthProvider>
-      </body>
-    </html>
-  );
+export const viewport: Viewport = { colorScheme: "dark", width: "device-width", initialScale: 1 };
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+ return <html lang="en"><body><aside className="portfolio-notice" aria-label="Portfolio archive">Oasis 2024 · Portfolio archive · Demo interactions only</aside><div id="modal-portal" />{children}</body></html>;
 }

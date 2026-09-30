@@ -4,7 +4,7 @@ import styles from "./social.module.scss";
 const Social = () => {
     return (
         <div className={`${styles.wrapper} desktopBottomScroll`} id="social">
-            <a href="https://www.youtube.com/@oasisbitspilani6375" target="_blank">
+            <a href="https://www.youtube.com/@oasisbitspilani6375" target="_blank" rel="noopener noreferrer">
                 <svg
                     width="42"
                     height="34"
@@ -50,7 +50,7 @@ const Social = () => {
                     </defs>
                 </svg>
             </a>
-            <a href="https://www.instagram.com/bitsoasis" target="_blank">
+            <a href="https://www.instagram.com/bitsoasis" target="_blank" rel="noopener noreferrer">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="36"
@@ -81,7 +81,7 @@ const Social = () => {
             </a>
             <a
                 href="https://www.linkedin.com/company/oasis24-bits-pilani/"
-                target="_blank"
+                target="_blank" rel="noopener noreferrer"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +111,7 @@ const Social = () => {
                     </defs>
                 </svg>
             </a>
-            <a href="https://twitter.com/bitsoasis" target="_blank"
+            <a href="https://twitter.com/bitsoasis" target="_blank" rel="noopener noreferrer"
                style={{scale: 0.8, transform: 'translateX(-15px) translateY(5px)'}}>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

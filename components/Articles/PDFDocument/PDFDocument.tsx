@@ -15,7 +15,8 @@ export default function PDFDocument({ pdfFile, title }: PDFDocumentProps) {
                 src={pdfFile}
                 // title="Embedded PDF Viewer, non-downloadable PDF"
                 className={styles.pdfDoc}
-                allow="autoplay"
+                loading="lazy"
+                title={title || "Archived festival document"}
             ></iframe>
             <h4>{title}</h4>
         </div>

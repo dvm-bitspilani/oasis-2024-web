@@ -56,15 +56,15 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
   }: Props,
   ref: any
 ) {
-  const { nodes, materials } = useGLTF("/Models/uSlotM.glb") as GLTFResult;
+  const { nodes, materials } = useGLTF("/Models/uSlotM.glb") as unknown as GLTFResult;
 
   const videoUrlArrayIframe = ["Ogio7ZJSb9g", "ZCrClSBM1ns", "krsrGOqnAN0"];
 
   const [iframeIndex, setIframeIndex] = useState(0);
   const [machineHovered, setMachineHovered] = useState<boolean>(false);
 
-  const handleRef: any = useRef();
-  const buttonsRef: any = useRef();
+  const handleRef: any = useRef(null);
+  const buttonsRef: any = useRef(null);
 
   const nextVideoIframe = () => {
     if (!isEvents) {
@@ -282,5 +282,3 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
     </>
   );
 });
-
-useGLTF.preload("/Models/uSlotM.glb");

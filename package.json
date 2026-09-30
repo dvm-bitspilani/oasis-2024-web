@@ -4,42 +4,41 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "next build --webpack && node scripts/finalize-export.mjs",
+    "start": "wrangler pages dev out --port 4324",
+    "lint": "eslint .",
+    "preview": "wrangler pages dev out --port 4324",
+    "deploy": "npm run build && wrangler pages deploy out --project-name dvm-portfolio-oasis-2024",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
     "@hookform/resolvers": "^3.9.0",
-    "@next/third-parties": "^14.2.8",
-    "@react-oauth/google": "^0.12.1",
-    "@react-three/drei": "^9.109.5",
-    "@react-three/fiber": "^8.16.8",
-    "@rooks/use-window-size": "^4.11.2",
+    "@react-three/drei": "10.7.9",
+    "@react-three/fiber": "9.8.1",
     "antd": "^5.20.2",
-    "axios": "^1.7.2",
     "gsap": "^3.12.5",
-    "next": "^14.2.8",
-    "react": "^18",
-    "react-cookie": "^7.2.0",
-    "react-dom": "^18",
+    "next": "16.3.7",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
     "react-hook-form": "^7.52.2",
-    "react-pdf": "^9.1.1",
     "react-player": "^2.16.0",
-    "react-select": "^5.8.0",
-    "react-spring": "^9.7.4",
     "sass": "^1.77.8",
-    "three": "^0.167.1",
+    "three": "0.186.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "@types/three": "^0.167.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.5",
-    "sharp": "^0.33.5",
-    "typescript": "^5"
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/three": "0.186.0",
+    "eslint": "^9.39.0",
+    "eslint-config-next": "16.3.7",
+    "sharp": "0.35.5",
+    "typescript": "^5",
+    "wrangler": "4.145.0"
+  },
+  "engines": {
+    "node": ">=22.14.0"
   }
 }

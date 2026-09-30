@@ -1,5 +1,5 @@
 import image from "@/assets/Events/Carousel/event.png";
-import largeImage from "@/assets/Events/Carousel/eventLarge.png";
+import largeImage from "@/assets/Events/Carousel/eventLarge.webp";
 import { StaticImageData } from "next/image";
 
 export type EventDataType = {

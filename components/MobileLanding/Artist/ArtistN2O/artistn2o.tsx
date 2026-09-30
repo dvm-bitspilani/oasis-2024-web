@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./artistn2o.module.scss";
-import harshVivek from "@/assets/MobileLanding/ProfShowsMobile/HarshVivek.png";
+import harshVivek from "@/assets/MobileLanding/ProfShowsMobile/HarshVivek.webp";
 import youtube from "@/assets/MobileLanding/ProfShowsMobile/youtube.svg";
 import Image from "next/image";
 

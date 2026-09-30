@@ -1,4 +1,4 @@
-import grunge from "@/assets/Landing/Grunge.png";
+import grunge from "@/assets/Landing/Grunge.webp";
 import Image from "next/image";
 
 export default function Grunge() {

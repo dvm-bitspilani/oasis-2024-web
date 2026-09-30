@@ -8,11 +8,9 @@ import gsap from "gsap";
 import { Select } from "antd";
 import type { SelectProps } from "antd";
 
+import { demoEvents, demoColleges } from "@/data/portfolio";
 import styles from "./registrationForm.module.scss";
-import axios from "axios";
 import { useRouter } from "next/navigation";
-import { useCookies } from "react-cookie";
-import { sendGAEvent } from "@next/third-parties/google";
 
 const formSchema = z.object({
   name: z.string().min(1, { message: "*Name is required" }),
@@ -59,7 +57,6 @@ const formSchema = z.object({
 type FormData = z.infer<typeof formSchema>;
 
 type userStateType = {
-  access_token: string;
   email: string;
   exists: boolean;
   message: string;
@@ -70,13 +67,12 @@ type registrationFormProps = {
 };
 
 interface OptionType {
-  value: string;
+  value: string | number;
   label: string;
 }
 
 const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
   const router = useRouter();
-  const [cookies, setCookies, removeCookie] = useCookies(["Authorization"]);
   const {
     control,
     register,
@@ -101,38 +97,8 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
     { value: "design", label: "Design" },
   ];
 
-  const [eventOptions, setEventOptions] = useState([] as Option[]);
-
-  useEffect(() => {
-    axios
-      .get("https://bits-oasis.org/2024/main/registrations/events_details/")
-      .then((res) => {
-        const events = res.data;
-        setEventOptions(
-          events.map((event: { id: string; name: string }) => ({
-            value: event.id,
-            label: event.name,
-          }))
-        );
-      });
-  }, []);
-
-  const [collegeOptions, setCollegeOptions] = useState([] as Option[]);
-
-  useEffect(() => {
-    axios
-      .get("https://bits-oasis.org/2024/main/registrations/get_college/")
-      .then((res) => {
-        const colleges = res.data.data;
-        // console.log(colleges);
-        setCollegeOptions(
-          colleges.map((college: { id: number; name: string }) => ({
-            value: college.id,
-            label: college.name,
-          }))
-        );
-      });
-  }, []);
+  const eventOptions = demoEvents.map(event => ({ value: event.id, label: event.name }));
+  const collegeOptions = demoColleges;
 
   const states = [
     "Andaman and Nicobar Islands",
@@ -174,6 +140,7 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
   ];
 
   useEffect(() => {
+    const animationContext = gsap.context(() => {
     const bulbs = document.querySelectorAll(".bulb");
 
     for (let i = 0; i < bulbs.length; i += 2) {
@@ -186,6 +153,8 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
       tl.to(bulbs[i], { duration: 0.75, opacity: 1 });
       tl.to(bulbs[i], { duration: 0.75, opacity: 0.5 });
     }
+    });
+    return () => animationContext.revert();
   }, []);
 
   const numberValue = watch("phone");
@@ -253,31 +222,12 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
     }
   }, [selectedState, citiesData]);
 
-  const [modalData, setModalData] = useState(null);
+  const [modalData, setModalData] = useState<string | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
 
-  const onSubmit = (data: FormData) => {
-    const reqData = {
-      ...data,
-      head_of_society: false,
-      access_token: userState?.access_token,
-    };
-    // console.log(reqData);
-    axios
-      .post("https://bits-oasis.org/2024/main/registrations/register/", reqData)
-      .then((res) => {
-        setCookies("Authorization", res.data.tokens.access);
-        router.push("https://bits-oasis.org/2024/main/registrations");
-        // localStorage.setItem("tokens", JSON.stringify(res.data.tokens));
-        // console.log(res);
-      })
-      .catch((err) => {
-        // console.log(err);
-        setModalData(err.response.data.message);
-        (document.querySelector("#formContent") as HTMLElement).style.overflow = "hidden";        
-        setModalOpen(true);
-        // alert(err.response.data.message);
-      });
+  const onSubmit = (_data: FormData) => {
+    setModalData("Demo completed. No account was created, no payment was taken, and your details were not sent or saved. Refresh to reset.");
+    setModalOpen(true);
   };
 
   return (
@@ -345,8 +295,7 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
             id="email"
             type="email"
             {...register("email")}
-            value={userState?.email}
-            disabled
+            defaultValue={userState?.email}
             className={styles.disabledInput}
           />
           <div className={styles.inputUnderline}>
@@ -842,7 +791,6 @@ const RegistrationForm: React.FC<registrationFormProps> = ({ userState }) => {
         <div className={styles.glow}></div>
         <div
           className={styles.btnborder}
-          onClick={() => sendGAEvent("event", "Registered", { value: 1 })}
         >
           <div className={`${styles.circlewrapper} ${styles.top}`}>
             <div className={`${styles.circle} bulb`}></div>

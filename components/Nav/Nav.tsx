@@ -2,10 +2,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./nav.module.scss";
 import Image from "next/image";
-import about from "../../public/about.png";
-import home from "../../public/home.png";
-import contact from "../../public/contact.png";
-import events from "../../public/events.png";
+import about from "../../public/about.webp";
+import home from "../../public/home.webp";
+import contact from "../../public/contact.webp";
+import events from "../../public/events.webp";
 import gsap from "gsap";
 
 const Nav = () => {

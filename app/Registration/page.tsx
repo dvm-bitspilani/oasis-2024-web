@@ -6,12 +6,9 @@ import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGoogleLogin } from "@react-oauth/google";
-import axios from "axios";
 
 import RegistrationForm from "@/components/Registration/RegistrationForm/RegistrationForm";
 import GoogleAuthPage from "@/components/Registration/GoogleAuth/GAuth";
-import { useCookies } from "react-cookie";
 import { useRouter } from "next/navigation";
 import BackButton from "@/components/Registration/BackButton/BackButton";
 import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
@@ -20,7 +17,6 @@ import CursorEffect from "@/components/CursorEffect/CursorEffect";
 gsap.registerPlugin(ScrollTrigger);
 
 type userStateType = {
-  access_token: string;
   email: string;
   exists: boolean;
   message: string;
@@ -31,11 +27,6 @@ const Registration = () => {
 
   const [wheelRotating, setWheelRotating] = useState(false);
   const [userState, setUserState] = useState<userStateType | null>(null);
-
-  const [cookies, setCookies, removeCookie] = useCookies([
-    "user-auth",
-    "Authorization",
-  ]);
 
   const formRef = useRef<HTMLDivElement | null>(null);
   const wheelRef = useRef(null);
@@ -67,34 +58,7 @@ const Registration = () => {
     }
   };
 
-  const googleSignIn = useGoogleLogin({
-    onSuccess: (response) => {
-      // Register URL: https://bits-oasis.org/2024/main/registrations/register/
-      axios
-        .post("https://bits-oasis.org/2024/main/registrations/google-reg/", {
-          access_token: response.access_token,
-        })
-        .then((res) => {
-          if (res.data.exists) {
-            setCookies("user-auth", res.data);
-            setCookies("Authorization", res.data.tokens.access);
-            router.push("https://bits-oasis.org/2024/main/registrations");
-            // router.push("/");
-          } else {
-            setCookies("user-auth", res.data);
-            setUserState({
-              ...res.data,
-              access_token: response.access_token,
-            });
-            // console.log(res.data);
-            console.log("no route");
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
-  });
+  const googleSignIn = () => setUserState({ email: "visitor@example.test", exists: false, message: "Portfolio demo" });
 
   const handleMouseDown = (e: MouseEvent | TouchEvent | any) => {
     e.preventDefault();
@@ -394,7 +358,7 @@ const Registration = () => {
           </div>
         </div>
         <div className={styles.rouletteWheel}>
-          <img src="/Registration/RouletteWheel.png" alt="" ref={wheelRef} />
+          <img src="/Registration/RouletteWheel.webp" alt="" ref={wheelRef} />
         </div>
       </div>
     </>

@@ -66,7 +66,7 @@ export default function MobileContactCard({
   email,
   animationIndex,
 }: Props) {
-  const cardContainer: any = useRef();
+  const cardContainer: any = useRef(null);
 
   // useGSAP(
   //   () => {

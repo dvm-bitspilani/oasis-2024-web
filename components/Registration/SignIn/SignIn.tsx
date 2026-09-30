@@ -74,7 +74,7 @@ const Signin = () => {
         </div>
         <div className={styles.contentcontainer}>
           <div className={styles.fade}></div>
-          <Instruction text="Complete the registration form with all required details. You'll be able to login through your registered email id when required." />
+          <Instruction text="This is a portfolio demo. Use fictional details to explore the original registration design. Nothing is sent or saved." />
           <div className={styles.two}>
             <Instruction text="All team members are required to register separately." />
           </div>
@@ -85,8 +85,8 @@ const Signin = () => {
           <div className={styles.mobilecontent}>
             <Instruction text="⁠The heads and CR will be responsible for approving the other participating members." />
             <Instruction text=" ⁠After this, an approval email will be sent from the Department of Publication and Correspondence." />
-            <Instruction text=" ⁠Make the required payment as instructed." />
-            <Instruction text="⁠Upon successful payment, a confirmation email will be sent." />
+            <Instruction text=" ⁠Payments are unavailable in this archived demo." />
+            <Instruction text="⁠No payment or confirmation email is sent." />
           </div>
           <div className={styles.two}>
             <Instruction text="For further details contact:" />

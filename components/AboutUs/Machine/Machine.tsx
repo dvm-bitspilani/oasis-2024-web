@@ -5,7 +5,7 @@ import prev from "../../../assets/About/prev.png";
 import next from "../../../assets/About/next.png";
 import pause from "../../../assets/About/pause.png";
 import play from "../../../assets/About/play.png"; 
-import slotMachine from "@/assets/Landing/slotMachine2D.png";
+import slotMachine from "@/assets/Landing/slotMachine2D.webp";
 
 import Image from "next/image";
 import { forwardRef, useState, useEffect, useRef } from "react";

@@ -4,7 +4,7 @@ import styles from "./eventcard.module.scss";
 import { StaticImageData } from "next/image";
 import Image from "next/image";
 import image from "@/assets/Events/Carousel/event.png";
-import largeImage from "@/assets/Events/Carousel/eventLarge.png";
+import largeImage from "@/assets/Events/Carousel/eventLarge.webp";
 import eventcard from "../../../assets/Events/Carousel/eventcard.png";
 
 interface EventCardProps {

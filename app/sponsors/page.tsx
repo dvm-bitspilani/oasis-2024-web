@@ -7,23 +7,12 @@ import Link from "next/link";
 import BackButton from "@/components/Registration/BackButton/BackButton";
 import Trees from "@/components/ComingSoon/Trees";
 import Image from "next/image";
-import axios from "axios";
+import { demoSponsors } from "@/data/portfolio";
 import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
 import CursorEffect from "@/components/CursorEffect/CursorEffect";
 
 export default function Sponsors() {
-  const [sponsors, setSponsors] = React.useState<any[]>([]);
-  React.useEffect(() => {
-    axios
-      .get("https://www.bits-oasis.org/2024/main/wallet/sponsors/")
-      .then((response) => {
-        const sortedSponsors = response.data.sort(
-          (a: any, b: any) => a.order - b.order
-        );
-        setSponsors(sortedSponsors);
-        // setSponsors(response.data);
-      });
-  }, []);
+  const sponsors = demoSponsors;
 
   const containerRef = useRef<HTMLDivElement | null>(null);
 

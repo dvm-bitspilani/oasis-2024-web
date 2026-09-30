@@ -20,27 +20,12 @@ export default function About() {
 
   const router = useRouter();
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const isMobile =
-        /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 800;
-
-      if (isMobile) {
-        router.push("/");
-      }
-    }
-    document.body.style.overflow = "hidden";
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "auto";
+    return () => { document.body.style.overflow = previousOverflow; };
   }, []);
 
-  useEffect(() => {
-    if (!localStorage.getItem("hasAboutReloaded")) {
-      localStorage.setItem("hasAboutReloaded", "true");
-      window.location.reload();
-    }
-  });
 
-  const handleBackButtonClick = () => {
-    localStorage.removeItem("hasAboutReloaded");
-  };
 
   return (
     <>
@@ -53,7 +38,7 @@ export default function About() {
         <SuitBackground />
       </div>
       <div className={styles.ham}>
-        <Link href="/" onClick={handleBackButtonClick}>
+        <Link href="/">
           <BackButton />
         </Link>
       </div>

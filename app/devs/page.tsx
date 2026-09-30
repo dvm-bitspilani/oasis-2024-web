@@ -15,41 +15,38 @@ import card from "../../assets/Devs/devcard.png";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import front from "../../assets/Devs/front.png";
-import back from "../../assets/Devs/back.png";
-import design from "../../assets/Devs/design.png";
-import video from "../../assets/Devs/video.png";
+import front from "../../assets/Devs/front.webp";
+import back from "../../assets/Devs/back.webp";
+import design from "../../assets/Devs/design.webp";
+import video from "../../assets/Devs/video.webp";
 
 import DevCardFront from "@/components/Devs/DevCardFront";
 
-import askshaya from "../../assets/Devs/DevMembers/akshaya.png";
-import animesh from "../../assets/Devs/DevMembers/animesh.png";
-import ankit from "../../assets/Devs/DevMembers/ankit.png";
-import anurag from "../../assets/Devs/DevMembers/anurag.png";
-import ashutosh from "../../assets/Devs/DevMembers/ashutosh.png";
-import atharv from "../../assets/Devs/DevMembers/atharv.png";
-import avi_image from "../../assets/Devs/DevMembers/avi_image.png";
-import ayush from "../../assets/Devs/DevMembers/ayush.png";
-import bhavesh from "../../assets/Devs/DevMembers/bhavesh.png";
-import chaitanya from "../../assets/Devs/DevMembers/chaitanya.png";
-import daksh from "../../assets/Devs/DevMembers/daksh.png";
-import dhayanidhi from "../../assets/Devs/DevMembers/dhayanidhi.png";
-import madhur from "../../assets/Devs/DevMembers/madhur.png";
-import manas from "../../assets/Devs/DevMembers/manas.png";
+import askshaya from "../../assets/Devs/DevMembers/akshaya.webp";
+import animesh from "../../assets/Devs/DevMembers/animesh.webp";
+import ankit from "../../assets/Devs/DevMembers/ankit.webp";
+import anurag from "../../assets/Devs/DevMembers/anurag.webp";
+import ashutosh from "../../assets/Devs/DevMembers/ashutosh.webp";
+import atharv from "../../assets/Devs/DevMembers/atharv.webp";
+import avi_image from "../../assets/Devs/DevMembers/avi_image.webp";
+import ayush from "../../assets/Devs/DevMembers/ayush.webp";
+import bhavesh from "../../assets/Devs/DevMembers/bhavesh.webp";
+import chaitanya from "../../assets/Devs/DevMembers/chaitanya.webp";
+import daksh from "../../assets/Devs/DevMembers/daksh.webp";
+import dhayanidhi from "../../assets/Devs/DevMembers/dhayanidhi.webp";
+import madhur from "../../assets/Devs/DevMembers/madhur.webp";
+import manas from "../../assets/Devs/DevMembers/manas.webp";
 import manasM from "../../assets/Devs/DevMembers/manasmehta.png";
-import prathmesh from "../../assets/Devs/DevMembers/prathmesh.png";
-import priyanshu from "../../assets/Devs/DevMembers/priyanshu.png";
-import raza from "../../assets/Devs/DevMembers/raza.png";
-import samyak from "../../assets/Devs/DevMembers/samyak.png";
-import satyasheel from "../../assets/Devs/DevMembers/satyasheel.png";
-import siddharth from "../../assets/Devs/DevMembers/siddharth.png";
-import sitaram from "../../assets/Devs/DevMembers/sitaram.png";
-import surya from "../../assets/Devs/DevMembers/surya.png";
+import prathmesh from "../../assets/Devs/DevMembers/prathmesh.webp";
+import priyanshu from "../../assets/Devs/DevMembers/priyanshu.webp";
+import raza from "../../assets/Devs/DevMembers/raza.webp";
+import samyak from "../../assets/Devs/DevMembers/samyak.webp";
+import satyasheel from "../../assets/Devs/DevMembers/satyasheel.webp";
+import siddharth from "../../assets/Devs/DevMembers/siddharth.webp";
+import sitaram from "../../assets/Devs/DevMembers/sitaram.webp";
+import surya from "../../assets/Devs/DevMembers/surya.webp";
 
 export default function DevPage() {
-  const handleBackButtonClick = () => {
-    localStorage.removeItem("hasReloaded");
-  };
 
   const verticalRef: any = useRef(null);
   const backBtn: any = useRef(null);
@@ -220,7 +217,7 @@ export default function DevPage() {
       </div>
 
       <div className={styles.ham}>
-        <Link href="/" onClick={handleBackButtonClick}>
+        <Link href="/">
           <BackButton />
         </Link>
       </div>

@@ -63,7 +63,7 @@ export default function MusicSection({
           reverse ? `${styles.container} ${styles.reverse}` : styles.container
         }
       >
-        <a target="_blank" href={spotifyUrl} className={styles.spotify}>
+        <a target="_blank" rel="noopener noreferrer" href={spotifyUrl} className={styles.spotify}>
           <Image src={spotify} alt="spotify icon" />
         </a>
         <div className={styles.playPause} onClick={playClickHandler}>

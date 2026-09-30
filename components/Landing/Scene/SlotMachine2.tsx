@@ -56,7 +56,7 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
   }: Props,
   ref: any
 ) {
-  const { nodes, materials } = useGLTF("/Models/uSlotM.glb") as unknown as GLTFResult;
+  const { nodes, materials } = useGLTF("/Models/uSlotM.glb", "/draco/") as unknown as GLTFResult;
 
   const videoUrlArrayIframe = ["Ogio7ZJSb9g", "ZCrClSBM1ns", "krsrGOqnAN0"];
 
@@ -261,12 +261,12 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
                       : { zIndex: 2, opacity: 1 }
                   }
                 ></div>
-                <ReactPlayer
+                {isVideoFocused ? <ReactPlayer
                   url={`https://www.youtube.com/embed/${videoUrlArrayIframe[iframeIndex]}`}
                   style={isEvents ? { display: "none" } : { zIndex: 1 }}
                   playing={isVideoFocused}
                   loop
-                />
+                /> : <button type="button" onClick={iframeClick} aria-label="Play archived Oasis video" style={{ width: 320, height: 180, background: "#17120c", color: "#e6c580", border: 0, font: "inherit", cursor: "pointer" }}>▶ Play archived video</button>}
               </div>
             </Html>
           </mesh>

@@ -28,3 +28,7 @@ The baseline was Next 14.2 with OAuth/cookies, unavailable registration/event/sp
 YouTube videos, external social links and Google Drive archived documents remain optional external resources and can become unavailable; their iframes are lazy-loaded where applicable. The artwork/source survives independently. The runtime3D model is retained without geometry compression to preserve the original scene. CSS/GSAP legacy animations are retained; reduced-motion CSS and2D fallback cover the main intensive effects, while the parent runtime pass verifies final navigation/viewport behavior. No deployment or push was performed by this restoration agent.
 
 Reference: [Next static export](https://nextjs.org/docs/app/guides/static-exports). Cloudflare domains/DNS and deployment are owned by the parent task.
+
+## Final runtime repairs
+
+Desktop browser verification renders the original WebGL slot machine and loads Vidaloka, Poppins and Playfair Display correctly. Local Draco decoding and blob texture requests are permitted by a bounded CSP; decoder files are packaged from the pinned Three dependency. Video players and the navigation map mount only after interaction. Next bootstrap scripts remain externalized; WebAssembly compilation is allowed without general JavaScript unsafe-eval. Final artifact/header checks pass. Wrangler account selection uses CLOUDFLARE_ACCOUNT_ID because Pages configuration rejects account_id. Custom-domain DNS is deferred at the user’s request.

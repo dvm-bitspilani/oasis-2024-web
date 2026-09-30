@@ -8,7 +8,7 @@
     "start": "wrangler pages dev out --port 4324",
     "lint": "eslint .",
     "preview": "wrangler pages dev out --port 4324",
-    "deploy": "npm run build && wrangler pages deploy out --project-name dvm-portfolio-oasis-2024",
+    "deploy": "npm run build && CLOUDFLARE_ACCOUNT_ID=e6ad8a6f22a88b57a02e176325692373 wrangler pages deploy out --project-name dvm-portfolio-oasis-2024 --branch main",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

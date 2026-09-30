@@ -18,6 +18,7 @@ const MobileSlotMachine = forwardRef(function MobileSlotMachine(
   ref: any
 ) {
   const [iframeIndex, setIframeIndex] = useState(0);
+  const [playing, setPlaying] = useState(false);
 
   const nextVideoIframe = () => {
     setIframeIndex((prev) => {
@@ -49,10 +50,12 @@ const MobileSlotMachine = forwardRef(function MobileSlotMachine(
         className={styles.arrow}
         onClick={prevVideoIframe}
       />
-      <iframe
+      {playing ? <iframe
         src={`https://www.youtube.com/embed/${videoUrlArrayIframe[iframeIndex]}`}
         className={styles.ytEmbed}
-      />
+        title="Archived Oasis video"
+        loading="lazy"
+      /> : <button type="button" className={styles.ytEmbed} onClick={() => setPlaying(true)}>▶ Play archived video</button>}
       <Image src={slotMachine} alt="slot-machine-2d" id="slot-machine-2d" />
       <Image
         src={arrow}

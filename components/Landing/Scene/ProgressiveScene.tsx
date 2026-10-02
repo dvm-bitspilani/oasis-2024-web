@@ -21,7 +21,7 @@ const ProgressiveScene = forwardRef<any, Props>(function ProgressiveScene(props,
   const [mode, setMode] = useState<"loading" | "3d" | "fallback" | "mobile">("loading");
   const [ready, setReady] = useState(false);
   const surface = useRef<HTMLDivElement>(null);
-  const fallback = useCallback(() => { setMode("fallback"); setReady(false); }, []);
+  const fallback = useCallback(() => { setMode("fallback"); setReady(false); setIs3dLoaded(false); }, [setIs3dLoaded]);
   const loaded = useCallback((value: boolean) => { setReady(value); setIs3dLoaded(value); }, [setIs3dLoaded]);
 
   useEffect(() => {
@@ -55,7 +55,7 @@ const ProgressiveScene = forwardRef<any, Props>(function ProgressiveScene(props,
   if (mode === "mobile") return null;
   return <div ref={surface} style={{position: "absolute", inset: 0}}>
     {!ready && <Fallback />}
-    {mode === "3d" && <Suspense fallback={null}><SceneBoundary onFailure={fallback}><Scene {...props} setIs3dLoaded={loaded} ref={ref} /></SceneBoundary></Suspense>}
+    {mode === "3d" && <Suspense fallback={null}><SceneBoundary onFailure={fallback}><Scene {...props} onFailure={fallback} setIs3dLoaded={loaded} ref={ref} /></SceneBoundary></Suspense>}
   </div>;
 });
 export default ProgressiveScene;

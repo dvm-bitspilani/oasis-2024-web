@@ -63,7 +63,7 @@ assert(headers.includes('/_next/static/*\n  Cache-Control: public, max-age=31536
 for (const url of ['/', '/events/', '/Registration/', '/gallery/', '/shows/']) assert(headers.includes(`${url}\n  Cache-Control: public, max-age=0, must-revalidate`), `HTML cache policy missing for ${url}`);
 assert(headers.split('\n').every(line => Buffer.byteLength(line) < 2000));
 for (const decoder of ['draco_wasm_wrapper.js', 'draco_decoder.wasm', 'draco_decoder.js']) assert((await stat(`out/draco/${decoder}`)).size > 0);
-assert((await readFile('components/Landing/Scene/SlotMachine2.tsx', 'utf8')).includes('"/draco/"'), 'Local decoder is not configured');
+assert((await readFile('components/Landing/Scene/Scene.tsx', 'utf8')).includes('"/draco/"'), 'Local decoder is not configured');
 const model = await readFile('out/Models/uSlotM.glb');
 assert.equal(model.readUInt32LE(0), 0x46546c67);
 assert.equal(model.readUInt32LE(8), model.length);

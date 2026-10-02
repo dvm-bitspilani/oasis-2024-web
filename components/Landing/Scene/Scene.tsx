@@ -1,8 +1,9 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
+import { useGLTF } from "@react-three/drei";
 
-import { SlotMachine2 } from "./SlotMachine2";
+import { SlotMachine2, type GLTFResult } from "./SlotMachine2";
 import { Component, forwardRef, type ReactNode } from "react";
 
 export interface Props {
@@ -18,9 +19,9 @@ export interface Props {
   onFailure?: () => void;
 }
 
-// Fiber renders Canvas children in a separate React root. Catch model errors
-// inside that root before they propagate to Canvas's uncaught-error handler.
-class SceneAssetBoundary extends Component<{children: ReactNode; onFailure?: () => void}, {failed: boolean}> {
+// Keep renderer failures isolated. Asset loading below runs in the DOM React
+// root, where the page's Suspense and error boundaries handle failed requests.
+class SceneRenderBoundary extends Component<{children: ReactNode; onFailure?: () => void}, {failed: boolean}> {
   state = {failed: false};
   static getDerivedStateFromError() { return {failed: true}; }
   componentDidCatch() { this.props.onFailure?.(); }
@@ -42,6 +43,8 @@ const LandingScene = forwardRef(function LandingScene(
   }: Props,
   ref
 ) {
+  const model = useGLTF("/Models/uSlotM.glb", "/draco/") as unknown as GLTFResult;
+
   return (
     <>
       <Canvas
@@ -55,7 +58,7 @@ const LandingScene = forwardRef(function LandingScene(
           fov: 50,
         }}
       >
-        <SceneAssetBoundary onFailure={onFailure}>
+        <SceneRenderBoundary onFailure={onFailure}>
           <ambientLight intensity={1.3} />
           <group
             position={
@@ -64,6 +67,7 @@ const LandingScene = forwardRef(function LandingScene(
             rotation={[0, Math.PI, 0]}
           >
             <SlotMachine2
+              model={model}
               ref={ref}
               setIs3dLoaded={setIs3dLoaded}
               iframeClick={iframeClick}
@@ -73,7 +77,7 @@ const LandingScene = forwardRef(function LandingScene(
               isAboutUs={isAboutUs}
             />
           </group>
-        </SceneAssetBoundary>
+        </SceneRenderBoundary>
       </Canvas>
     </>
   );

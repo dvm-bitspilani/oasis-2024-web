@@ -17,19 +17,19 @@
     }
   },
   "after": {
-    "capturedAt": "2026-10-02T02:38:23.409Z",
+    "capturedAt": "2026-10-02T02:45:30.973Z",
     "public": {
       "files": 138,
       "bytes": 28452223
     },
     "out": {
       "files": 432,
-      "bytes": 29563072
+      "bytes": 29563096
     },
     "javascript": {
       "files": 85,
-      "bytes": 3437134,
-      "gzipBytes": 976632
+      "bytes": 3437158,
+      "gzipBytes": 976662
     },
     "routes": {
       "404/index.html": 4591,
@@ -60,32 +60,32 @@
       "index.html": {
         "files": 14,
         "bytes": 855261,
-        "gzipBytes": 277803,
+        "gzipBytes": 277804,
         "includesNomodulePolyfill": false
       },
       "events/index.html": {
         "files": 13,
         "bytes": 604411,
-        "gzipBytes": 184828,
+        "gzipBytes": 184827,
         "includesNomodulePolyfill": false
       },
       "Registration/index.html": {
         "files": 8,
         "bytes": 494769,
-        "gzipBytes": 148368,
+        "gzipBytes": 148367,
         "includesNomodulePolyfill": false
       },
       "about/index.html": {
         "files": 16,
         "bytes": 840250,
-        "gzipBytes": 278084,
+        "gzipBytes": 278083,
         "includesNomodulePolyfill": false
       }
     }
   },
   "reduction": {
-    "exportPercent": 21.42965938486188,
-    "javascriptGzipPercent": 12.264903517912973,
+    "exportPercent": 21.42959559960388,
+    "javascriptGzipPercent": 12.262208487548964,
     "audioPercent": 20.287823906940005
   },
   "audio": {
@@ -118,7 +118,7 @@
     "backendSubmissionCode": "none in application source",
     "originalSourceArtwork": "unchanged; unused public copies omitted from upload",
     "documents": "Original Drive viewer links require deliberate user navigation; no automatic document iframe",
-    "scene": "Local Suspense confines pending GLB loading; an asset error boundary inside Canvas notifies the original-art fallback before Fiber uncaught-error propagation"
+    "scene": "GLB loading runs in the DOM React root before Canvas mounts; local Suspense and the DOM boundary retain original artwork during pending or failed requests; an inner boundary remains for renderer failures"
   },
   "browserVerification": "Coordinated by the parent agent; final cold page, interaction and throttled lab results are stored in the parent refinement evidence."
 }

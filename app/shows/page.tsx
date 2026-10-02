@@ -10,8 +10,6 @@ import vm from "@/public/ProfShow/vishalmishra.webp";
 import tyd from "@/public/ProfShow/theyellowdiaries.webp";
 import n2o from "@/public/ProfShow/n2o.webp";
 
-import { useRouter } from "next/navigation";
-import CursorEffect from "@/components/CursorEffect/CursorEffect";
 import Preloader from "@/components/Preloader/Preloader";
 
 const eventDetails = [
@@ -42,22 +40,15 @@ const eventDetails = [
 ];
 
 const Shows = () => {
-  const router = useRouter();
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const isMobile =
-        /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 960;
-
-      if (isMobile) {
-        router.push("/");
-      }
-    }
+    const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = previous; };
   }, []);
 
   const [eventID, setEventID] = useState(3);
   const [progressKey, setProgressKey] = useState(0);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const eventNameRef = useRef(null);
   const eventDateRef = useRef(null);
@@ -108,6 +99,7 @@ const Shows = () => {
         src={event.image}
         alt={event.name}
         className={`${styles.eventImage} ${styles[`eventImage${eventID}`]}`}
+        priority={index === eventID}
         ref={index === eventID ? eventImageRef : null}
       />
     </div>
@@ -170,8 +162,7 @@ const Shows = () => {
         <Preloader />
       ) : (
         <>
-          <CursorEffect />
-          <div className={styles.profshow}>
+              <div className={styles.profshow}>
             <Image
               src={grunge}
               alt="grunge effect"
@@ -186,7 +177,7 @@ const Shows = () => {
               }}
             />
             <div className={styles.backBtn}>
-              <Link href="/">
+              <Link prefetch={false} href="/">
                 <svg
                   width="76"
                   height="60"

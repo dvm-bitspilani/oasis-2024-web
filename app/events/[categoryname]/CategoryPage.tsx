@@ -1,118 +1,23 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
 import styles from "./categories.module.scss";
 import Image from "next/image";
+import Link from "next/link";
 import grunge from "@/assets/Landing/Grunge.webp";
-import { demoEvents } from "@/data/portfolio";
-import Preloader from "@/components/Preloader/Preloader";
-import { useRouter } from "next/navigation";
-import LoaderChip from "@/components/Events/Loader/LoaderChip";
-import gsap from "gsap";
+import music from "@/assets/Events/Folders/musicbg.webp";
+import quizzes from "@/assets/Events/Folders/quizbg.webp";
+import drama from "@/assets/Events/Folders/dramabg.webp";
+import dance from "@/assets/Events/Folders/dancebg.webp";
+import photography from "@/assets/Events/Folders/camerabg.webp";
+import misc from "@/assets/Events/Folders/miscbg.webp";
 
-export default function Page({ params }: { params: { categoryname: string } }) {
-  const router = useRouter();
-  const [eventsList, setEventsList] = useState<any>(demoEvents.filter(event => event.categories.includes(params.categoryname as typeof event.categories[number])));
-  const [eventID, setEventID] = useState(0);
-  const [loading, setLoading] = useState(false);
-  const [imageLoaded, setImageLoaded] = useState(false);
+const artwork = {music, quizzes, drama, dance, photography, misc};
 
-  const titleRef = useRef<HTMLDivElement>(null);
-  const subtitleRef = useRef<HTMLDivElement>(null);
-  const contactRef = useRef<HTMLDivElement>(null);
-  const descriptionRef = useRef<HTMLDivElement>(null);
-
-  const handleBack = () => {
-    document.body.style.overflow = "auto";
-    if (window.history.length > 1) {
-      router.back();
-    } else {
-      router.push("/");
-    }
-  };
-
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
-  }, []);
-
-  useEffect(() => {
-    setEventsList(demoEvents.filter(event => event.categories.includes(params.categoryname as typeof event.categories[number])));
-    setLoading(false);
-    return () => { document.body.style.overflow = "auto"; };
-  }, [params.categoryname]);
-
-  const animate = (direction: string) => {
-    const tl = gsap.timeline();
-    tl.to([titleRef.current, subtitleRef.current, contactRef.current], {
-      x: window.innerWidth > 1148 ? -100 : 0,
-      y: window.innerWidth < 1148 ? -100 : 0,
-      opacity: 0,
-      duration: 0.5,
-    })
-      .to(
-        descriptionRef.current,
-        {
-          x: window.innerWidth > 1148 ? 100 : 0,
-          y: window.innerWidth < 1148 ? 100 : 0,
-          opacity: 0,
-          duration: 0.5,
-          onComplete: () => {
-            setEventID((prevID) => {
-              const newID =
-                direction === "left"
-                  ? (prevID - 1 + eventsList.length) % eventsList.length
-                  : (prevID + 1) % eventsList.length;
-              return newID;
-            });
-          },
-        },
-        "<"
-      )
-      .to([titleRef.current, subtitleRef.current, contactRef.current], {
-        x: 0,
-        y: 0,
-        opacity: 1,
-        duration: 0.25,
-        delay: 0.2,
-      })
-      .to(
-        descriptionRef.current,
-        {
-          x: 0,
-          y: 0,
-          opacity: 1,
-          duration: 0.25,
-        },
-        "<"
-      );
-  };
-
-  const handleCarousel = (direction: string) => {
-    animate(direction);
-    setImageLoaded(false);
-  };
-  return (
-    <>
-      {loading ? (
-        <Preloader />
-      ) : (
-        <div className={styles.pageBody}>
-          <div className={styles.pageContainer}>
-            <Image
-              src={grunge}
-              alt="grunge effect"
-              draggable={false}
-              className={styles.grunge}
-              style={{
-                height: "100lvh",
-                width: "100vw",
-                position: "absolute",
-                pointerEvents: "none",
-                top: 0,
-                zIndex: 1,
-              }}
-            />
-            <div className={styles.backBtn} onClick={handleBack}>
+export default function CategoryPage({params}: {params: {categoryname: string}}) {
+  const category = params.categoryname as keyof typeof artwork;
+  const title = category.toUpperCase();
+  return <main className={styles.pageBody}>
+    <div className={styles.pageContainer}>
+      <Image src={grunge} alt="" draggable={false} className={styles.grunge} style={{height: "100lvh", width: "100vw", position: "absolute", pointerEvents: "none", top: 0, zIndex: 1}} />
+      <Link href="/events/" prefetch={false} className={styles.backBtn} aria-label="Back to events">
               <svg
                 width="76"
                 height="60"
@@ -125,140 +30,19 @@ export default function Page({ params }: { params: { categoryname: string } }) {
                   fill="white"
                 />
               </svg>
-            </div>
-
-            <div className={styles.textBackground}>
-              <h1 className={styles.categoryTitle1}>
-                {params.categoryname.toUpperCase()}
-                {params.categoryname.toUpperCase()}
-                {params.categoryname.toUpperCase()}
-                {params.categoryname.toUpperCase()}
-              </h1>
-              <h1 className={styles.categoryTitle2}>
-                {params.categoryname.toUpperCase()}
-                {params.categoryname.toUpperCase()}
-                {params.categoryname.toUpperCase()}
-                {params.categoryname.toUpperCase()}
-              </h1>
-            </div>
-
-            <div className={styles.eventDisplay}>
-              <div className={styles.leftContent}>
-                <div className={styles.eventTitle} ref={titleRef}>
-                  {eventsList[eventID]?.name || "name"}
-                </div>
-                <div className={styles.eventSubTitle} ref={subtitleRef}>
-                  {/* <div className={styles.clubName}>
-                Organizer: {eventsList[eventID]?.organizer || ""}
-              </div> */}
-                  <div className={styles.location}>
-                    <svg
-                      viewBox="0 0 18 26"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M9 24.1111C13.4444 17.8889 17 12.5556 17 9C17 6.87827 16.1571 4.84344 14.6569 3.34315C13.1566 1.84285 11.1217 1 9 1C6.87827 1 4.84344 1.84285 3.34315 3.34315C1.84285 4.84344 1 6.87827 1 9C1 12.5556 4.55556 17.8889 9 24.1111Z"
-                        stroke="#FECE93"
-                        strokeWidth="1.77778"
-                      />
-                      <path
-                        d="M12.5555 8.99989C12.5555 9.94288 12.1809 10.8473 11.5141 11.514C10.8473 12.1808 9.94296 12.5554 8.99997 12.5554C8.05698 12.5554 7.15261 12.1808 6.48581 11.514C5.81901 10.8473 5.44441 9.94288 5.44441 8.99989C5.44441 8.0569 5.81901 7.15253 6.48581 6.48573C7.15261 5.81894 8.05698 5.44434 8.99997 5.44434C9.94296 5.44434 10.8473 5.81894 11.5141 6.48573C12.1809 7.15253 12.5555 8.0569 12.5555 8.99989Z"
-                        stroke="#FECE93"
-                        strokeWidth="1.77778"
-                      />
-                    </svg>
-
-                    {eventsList[eventID]?.venue_name || "TBA"}
-                  </div>
-                </div>
-                <div className={styles.eventContact} ref={contactRef}>
-                  Contact: {eventsList[eventID]?.contact || "N/A"}
-                </div>
-                <div className={styles.carouselControl}>
-                  <div
-                    className={styles.leftButton}
-                    onClick={() => handleCarousel("left")}
-                  >
-                    <svg
-                      width="44"
-                      height="44"
-                      viewBox="0 0 44 44"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M10.1665 22H40.8332M10.1665 22L21.1665 11M10.1665 22L21.1665 33"
-                        stroke="#FFE887"
-                        strokeWidth="3.66667"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className={styles.rightButton}
-                    onClick={() => handleCarousel("right")}
-                  >
-                    <svg
-                      width="44"
-                      height="44"
-                      viewBox="0 0 44 44"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M33.8335 22H3.16683M33.8335 22L22.8335 11M33.8335 22L22.8335 33"
-                        stroke="#FFE887"
-                        strokeWidth="3.66667"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div className={styles.rightContent}>
-                {!imageLoaded && (
-                  <div className={styles.eventImageSkeleton}>
-                    <div className={styles.skeleton}>
-                      <LoaderChip />
-                    </div>
-                  </div>
-                )}
-                <div className={styles.eventImageContainer}>
-                  <img
-                    className={styles.eventImage}
-                    src={
-                      eventsList[eventID]?.img_url !== "Nill"
-                        ? eventsList[eventID]?.img_url
-                        : "/oglogo.png"
-                    }
-                    style={{
-                      display: imageLoaded ? "block" : "none",
-                      opacity: imageLoaded ? 1 : 0,
-                      objectFit: "cover",
-                      objectPosition: "center",
-                    }}
-                    alt={eventsList[eventID]?.name || "event image"}
-                    onLoad={() => setImageLoaded(true)}
-                  />
-                </div>
-                <div
-                  className={`${styles.eventDescription} ${
-                    eventsList[eventID]?.about?.length > 350
-                      ? `${styles.longDescription}`
-                      : ""
-                  }`}
-                  ref={descriptionRef}
-                >
-                  {eventsList[eventID]?.about}
-                </div>
-              </div>
-            </div>
+      </Link>
+      <div className={styles.textBackground} aria-hidden="true">
+        <div className={styles.categoryTitle1}>{title.repeat(4)}</div>
+        <div className={styles.categoryTitle2}>{title.repeat(4)}</div>
+      </div>
+      <div className={styles.eventDisplay}>
+        <div className={styles.leftContent}><h1 className={styles.eventTitle}>{title}</h1></div>
+        <div className={styles.rightContent}>
+          <div className={styles.eventImageContainer}>
+            <Image className={styles.eventImage} src={artwork[category] || misc} alt={`${title} category`} priority sizes="(max-width: 1148px) 85vw, 45vw" style={{objectFit: "contain"}} />
           </div>
         </div>
-      )}
-    </>
-  );
+      </div>
+    </div>
+  </main>;
 }

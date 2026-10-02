@@ -9,8 +9,6 @@ import Glow from "@/components/Landing/Glow/Glow";
 import SuitBackground from "@/components/Landing/Backdrop/Backdrop";
 import BackButton from "@/components/Registration/BackButton/BackButton";
 import Link from "next/link";
-import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
-import CursorEffect from "@/components/CursorEffect/CursorEffect";
 
 import PDFDocument from "@/components/Articles/PDFDocument/PDFDocument";
 
@@ -54,8 +52,6 @@ const Articles: React.FC = () => {
   };
   return (
     <>
-      <PrePreloader />
-      <CursorEffect />
       <div className={styles.epcBack}>
         {/* <Glow /> */}
         <Grunge />
@@ -125,7 +121,7 @@ const Articles: React.FC = () => {
           </svg>
         </div>
         <div className={styles.backBtn}>
-          <Link href="/">
+          <Link prefetch={false} href="/" aria-label="Back to home">
             <BackButton />
           </Link>
         </div>

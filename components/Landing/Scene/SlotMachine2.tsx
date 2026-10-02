@@ -153,7 +153,7 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
       setIs3dLoaded(true);
       setCamera(camera);
     }
-  }, [camera, setIs3dLoaded, ref, ref.current]);
+  }, [camera, setIs3dLoaded, setCamera, ref]);
 
   return (
     <>
@@ -266,7 +266,7 @@ export const SlotMachine2 = forwardRef(function SlotMachine2(
                   style={isEvents ? { display: "none" } : { zIndex: 1 }}
                   playing={isVideoFocused}
                   loop
-                /> : <button type="button" onClick={iframeClick} aria-label="Play archived Oasis video" style={{ width: 320, height: 180, background: "#17120c", color: "#e6c580", border: 0, font: "inherit", cursor: "pointer" }}>▶ Play archived video</button>}
+                /> : <button type="button" onClick={iframeClick} aria-label="Play Oasis video" style={{ width: 320, height: 180, background: "#17120c", color: "#e6c580", border: 0, font: "inherit", cursor: "pointer" }}>▶ Play video</button>}
               </div>
             </Html>
           </mesh>

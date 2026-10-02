@@ -6,7 +6,7 @@ const Sidenav = () => {
   return (
     <>
       <div className={styles.wrapper}>
-        <Link href="/" className={styles.link}>
+        <Link prefetch={false} href="/" className={styles.link}>
           <div className={styles.container}>
             <p className={styles.home}>home</p>
             <svg
@@ -75,7 +75,7 @@ const Sidenav = () => {
             </svg>
           </div>
         </Link>
-        <Link href="/about" className={styles.link}>
+        <Link prefetch={false} href="/about" className={styles.link}>
           <div className={styles.container}>
             <p className={styles.about}>about</p>
             <svg
@@ -107,7 +107,7 @@ const Sidenav = () => {
             </svg>
           </div>
         </Link>
-        <Link href="/shows" className={styles.link}>
+        <Link prefetch={false} href="/shows" className={styles.link}>
           <div className={styles.container}>
             <p className={styles.shows}>shows</p>
             <svg
@@ -139,7 +139,7 @@ const Sidenav = () => {
             </svg>
           </div>
         </Link>
-        <Link href="/events" className={styles.link}>
+        <Link prefetch={false} href="/events" className={styles.link}>
           <div className={styles.container}>
             <p className={styles.events}>events</p>
             <svg
@@ -171,7 +171,7 @@ const Sidenav = () => {
             </svg>
           </div>
         </Link>
-        <Link href="/contact" className={styles.link}>
+        <Link prefetch={false} href="/contact" className={styles.link}>
           <div className={styles.container}>
             <p className={styles.contact}>contact</p>
             <svg

@@ -27,6 +27,7 @@ export default function MusicSection({
 
   function playClickHandler() {
     const thisAudio: HTMLMediaElement = document.querySelector(`#${artist}`)!;
+    if (!thisAudio) return;
     if (playingArtist !== artist) {
       thisAudio
         .play()
@@ -46,16 +47,16 @@ export default function MusicSection({
 
   useEffect(() => {
     const thisAudio: HTMLMediaElement = document.querySelector(`#${artist}`)!;
-    if (playingArtist !== artist && !thisAudio.paused) {
+    if (thisAudio && playingArtist !== artist && !thisAudio.paused) {
       thisAudio.pause();
       setIsMusicPlaying(false);
     }
-  }, [playingArtist]);
+  }, [playingArtist, artist]);
 
   return (
     <>
-      <audio className="music" id={artist} loop>
-        <source src={music} type="audio/mpeg" />
+      <audio className="music" id={artist} loop preload="none">
+        <source src={music} type="audio/ogg; codecs=opus" />
         Audio not supported
       </audio>
       <div
@@ -66,9 +67,9 @@ export default function MusicSection({
         <a target="_blank" rel="noopener noreferrer" href={spotifyUrl} className={styles.spotify}>
           <Image src={spotify} alt="spotify icon" />
         </a>
-        <div className={styles.playPause} onClick={playClickHandler}>
-          <Image src={isMusicPlaying ? pause : play} alt="spotify icon" />
-        </div>
+        <button type="button" className={styles.playPause} aria-label={isMusicPlaying ? "Pause music" : "Play music"} onClick={playClickHandler} style={{border: 0, background: "transparent"}}>
+          <Image src={isMusicPlaying ? pause : play} alt="" />
+        </button>
       </div>
     </>
   );

@@ -360,7 +360,7 @@ export default function HamBtn() {
             referrerPolicy="no-referrer"
           ></iframe>}
           <h1 className={styles.journeyText}>
-            <Link href="https://maps.app.goo.gl/b7LvciNHgtCRcWes6">
+            <Link prefetch={false} href="https://maps.app.goo.gl/b7LvciNHgtCRcWes6">
               <span>HOW TO REACH PILANI?</span>
               <svg
                 width="14px"

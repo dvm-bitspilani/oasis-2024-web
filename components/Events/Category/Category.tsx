@@ -7,7 +7,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 import EventCard from "../EventCard/EventCard";
 import Carousel from "../Carousel/Carousel";
-import { demoEvents } from "@/data/portfolio";
+import { eventRecords } from "@/data/festival";
 import eventcard from "../../../assets/Events/Carousel/eventcard.png";
 
 interface CategoryProps {
@@ -20,7 +20,7 @@ export default function Category({ currentCategory, onClose }: CategoryProps) {
   const [carouselContent, setCarouselContent] = useState<EventDataType | null>(
     null
   );
-  const eventsList = demoEvents;
+  const eventsList = eventRecords;
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
 
   const filteredEvents = eventsList.filter((event: any) =>

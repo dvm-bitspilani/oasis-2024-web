@@ -31,7 +31,7 @@ export default function Landing() {
   useGSAP(
     () => {
       // focus video when iframe clicked
-      if (camera) {
+      if (camera && slotMachine.current) {
         if (isVideoFocused) {
           const camTl = gsap.timeline();
           if (window.innerWidth > 1000) {
@@ -173,58 +173,35 @@ export default function Landing() {
   }, [isVideoFocused]);
 
   useEffect(() => {
-    let overlayWrapper: any = document.querySelector("#mainwrapper");
+    const overlayWrapper = document.querySelector<HTMLElement>("#mainwrapper");
+    if (!overlayWrapper) return;
 
-    window.addEventListener("beforeunload", () => {
-      window.scrollTo(0, 0);
-    });
-
-    window.addEventListener("scroll", () => {
-      if (isVideoFocused) {
-        setIsVideoFocused(false);
-      }
+    const beforeUnload = () => window.scrollTo(0, 0);
+    const onScroll = () => {
+      if (isVideoFocused) setIsVideoFocused(false);
       if (window.scrollY === 0 && !isLanding) {
         setIsLanding(true);
-        if (window.innerWidth > 1000) {
-          overlayWrapper.setAttribute("style", "z-index: -2;");
-        }
+        if (window.innerWidth > 1000) overlayWrapper.style.zIndex = "-2";
       } else if (window.scrollY !== 0 && isLanding) {
         setIsLanding(false);
-        overlayWrapper.setAttribute("style", "z-index: 1;");
+        overlayWrapper.style.zIndex = "1";
       }
-    });
-
+    };
+    window.addEventListener("beforeunload", beforeUnload);
+    window.addEventListener("scroll", onScroll, {passive: true});
     return () => {
-      window.removeEventListener("beforeunload", () => {
-        window.scrollTo(0, 0);
-      });
-
-      window.removeEventListener("scroll", () => {
-        if (isVideoFocused) {
-          setIsVideoFocused(false);
-        }
-        if (window.scrollY === 0 && !isLanding) {
-          setIsLanding(true);
-          if (window.innerWidth > 1000) {
-            overlayWrapper.setAttribute("style", "z-index: -2;");
-          }
-        } else if (window.scrollY !== 0 && isLanding) {
-          setIsLanding(false);
-          overlayWrapper.setAttribute("style", "z-index: 1;");
-        }
-      });
+      window.removeEventListener("beforeunload", beforeUnload);
+      window.removeEventListener("scroll", onScroll);
     };
   }, [isVideoFocused, isLanding]);
 
   useGSAP(() => {
     // these are the entry animations
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (isLoaded && slotMachine.current && isSlotMachineLoaded) {
       const timeline = gsap.timeline();
       if (window.innerWidth > 1000) {
         timeline
-          .set("#mainwrapper", { autoAlpha: 0 }) // Set initial state
-          .set("#oasisLogo", { autoAlpha: 0 })
-          .set("#hamBtn", { autoAlpha: 0 })
           .from(
             "#leftTree",
             {

@@ -9,7 +9,7 @@ export default function ComingSoon() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.backgroundImage} />
-      {/* <Link href="/" className={styles.backButton}>
+      {/* <Link prefetch={false} href="/" className={styles.backButton}>
         <BackButton />
       </Link> */}
       <div className={styles.comingSoon}>COMING SOON...</div>

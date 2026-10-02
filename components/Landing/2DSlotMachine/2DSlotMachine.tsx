@@ -53,9 +53,9 @@ const MobileSlotMachine = forwardRef(function MobileSlotMachine(
       {playing ? <iframe
         src={`https://www.youtube.com/embed/${videoUrlArrayIframe[iframeIndex]}`}
         className={styles.ytEmbed}
-        title="Archived Oasis video"
+        title="Oasis video"
         loading="lazy"
-      /> : <button type="button" className={styles.ytEmbed} onClick={() => setPlaying(true)}>▶ Play archived video</button>}
+      /> : <button type="button" className={styles.ytEmbed} onClick={() => setPlaying(true)}>▶ Play video</button>}
       <Image src={slotMachine} alt="slot-machine-2d" id="slot-machine-2d" />
       <Image
         src={arrow}

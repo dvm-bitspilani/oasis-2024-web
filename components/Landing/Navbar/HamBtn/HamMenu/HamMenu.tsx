@@ -106,7 +106,7 @@ const HamMenu: React.FC<HamMenuProps> = ({isHamOpen}) => {
                                 stroke-dasharray="4.63 4.63"
                             />
                         </svg>
-                        <Link
+                        <Link prefetch={false}
                             onClick={() => handleClick()}
                             href="/sponsors"
                             className={styles.magText}
@@ -136,7 +136,7 @@ const HamMenu: React.FC<HamMenuProps> = ({isHamOpen}) => {
                                 stroke-dasharray="4.63 4.63"
                             />
                         </svg>
-                        <Link
+                        <Link prefetch={false}
                             onClick={() => handleClick()}
                             href="/media-partners"
                             className={styles.devText}
@@ -166,7 +166,7 @@ const HamMenu: React.FC<HamMenuProps> = ({isHamOpen}) => {
                                 stroke-dasharray="4.63 4.63"
                             />
                         </svg>
-                        <Link
+                        <Link prefetch={false}
                             onClick={() => handleClick()}
                             href="/archive"
                             className={styles.medText}
@@ -196,7 +196,7 @@ const HamMenu: React.FC<HamMenuProps> = ({isHamOpen}) => {
                                 stroke-dasharray="4.63 4.63"
                             />
                         </svg>
-                        <Link
+                        <Link prefetch={false}
                             onClick={() => handleClick()}
                             href="/devs"
                             className={styles.sponsorsText}
@@ -226,7 +226,7 @@ const HamMenu: React.FC<HamMenuProps> = ({isHamOpen}) => {
                                 stroke-dasharray="4.63 4.63"
                             />
                         </svg>
-                        <Link
+                        <Link prefetch={false}
                             onClick={() => handleClick()}
                             href="/articles"
                             className={styles.galleryText}
@@ -252,7 +252,7 @@ const HamMenu: React.FC<HamMenuProps> = ({isHamOpen}) => {
                                 strokeWidth="3"
                             />
                         </svg>
-                        <Link
+                        <Link prefetch={false}
                             onClick={() => handleClick()}
                             href="/sponsors"
                             className={styles.magText}
@@ -275,7 +275,7 @@ const HamMenu: React.FC<HamMenuProps> = ({isHamOpen}) => {
                                 strokeWidth="3"
                             />
                         </svg>
-                        <Link
+                        <Link prefetch={false}
                             onClick={() => handleClick()}
                             href="/media-partners"
                             className={styles.devText}
@@ -299,7 +299,7 @@ const HamMenu: React.FC<HamMenuProps> = ({isHamOpen}) => {
                                 stroke-width="3"
                             />
                         </svg>
-                        <Link
+                        <Link prefetch={false}
                             onClick={() => handleClick()}
                             href="/archive"
                             className={styles.medText}
@@ -322,7 +322,7 @@ const HamMenu: React.FC<HamMenuProps> = ({isHamOpen}) => {
                                 strokeWidth="3"
                             />
                         </svg>
-                        <Link
+                        <Link prefetch={false}
                             onClick={() => handleClick()}
                             href="/devs"
                             className={styles.sponsorsText}
@@ -345,7 +345,7 @@ const HamMenu: React.FC<HamMenuProps> = ({isHamOpen}) => {
                                 strokeWidth="3"
                             />
                         </svg>
-                        <Link
+                        <Link prefetch={false}
                             onClick={() => handleClick()}
                             href="/articles"
                             className={styles.galleryText}

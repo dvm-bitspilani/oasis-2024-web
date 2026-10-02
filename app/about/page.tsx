@@ -10,11 +10,9 @@ import Glow from "@/components/Landing/Glow/Glow";
 import SuitBackground from "@/components/Landing/Backdrop/Backdrop";
 import BackButton from "@/components/Registration/BackButton/BackButton";
 import Link from "next/link";
-import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
 import AboutUsPage from "@/components/AboutUs/AboutUsPage";
 import RegBtn from "@/components/Landing/Navbar/RegBtn/RegBtn";
 import MobileSlotMachine from "@/components/AboutUs/Machine/Machine";
-import CursorEffect from "@/components/CursorEffect/CursorEffect";
 
 export default function About() {
 
@@ -29,8 +27,6 @@ export default function About() {
 
   return (
     <>
-      <PrePreloader />
-      <CursorEffect />
       <div className={styles.aboutBack}>
         {/* <Glow /> */}
         <Grunge />
@@ -38,7 +34,7 @@ export default function About() {
         <SuitBackground />
       </div>
       <div className={styles.ham}>
-        <Link href="/">
+        <Link prefetch={false} href="/" aria-label="Back to home">
           <BackButton />
         </Link>
       </div>
@@ -49,7 +45,7 @@ export default function About() {
       <div className={styles.pageWrapper}>
         {/* <div className={styles.header}>
           <div className={styles.backBtn}>
-            <Link href="/">
+            <Link prefetch={false} href="/" aria-label="Back to home">
               <BackButton />
             </Link>
           </div>

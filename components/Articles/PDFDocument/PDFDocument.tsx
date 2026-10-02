@@ -1,24 +1,16 @@
-import React from "react";
 import styles from "./pdfdocument.module.scss";
 
 interface PDFDocumentProps {
-    pdfFile: string;
-    title: string,
+  pdfFile: string;
+  title: string;
 }
 
-export default function PDFDocument({ pdfFile, title }: PDFDocumentProps) {
-
-    return (
-        <div className={styles.container}>
-            <iframe
-                // src="sample.pdf#toolbar=0&navpanes=0&scrollbar=0"
-                src={pdfFile}
-                // title="Embedded PDF Viewer, non-downloadable PDF"
-                className={styles.pdfDoc}
-                loading="lazy"
-                title={title || "Archived festival document"}
-            ></iframe>
-            <h4>{title}</h4>
-        </div>
-    )
+export default function PDFDocument({pdfFile, title}: PDFDocumentProps) {
+  const href = pdfFile.replace(/\/preview$/, "/view");
+  return <div className={styles.container}>
+    <div className={`${styles.pdfDoc} ${styles.documentLink}`}>
+      <a href={href} target="_blank" rel="noopener noreferrer">Open {title || "document"}</a>
+    </div>
+    <h4>{title}</h4>
+  </div>;
 }

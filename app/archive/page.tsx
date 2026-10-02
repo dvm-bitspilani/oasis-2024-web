@@ -11,8 +11,6 @@ import BackButton from "@/components/Registration/BackButton/BackButton";
 import Image from "next/image";
 import Link from "next/link";
 import Carousel from "@/components/Archive/Carousel";
-import CursorEffect from "@/components/CursorEffect/CursorEffect";
-import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
 
 import one from "../../assets/Gallery/one.webp";
 import two from "../../assets/Gallery/two.webp";
@@ -149,8 +147,6 @@ export default function GalleryPage() {
 
   return (
     <>
-      <PrePreloader />
-      <CursorEffect />
       <div className={styles.galleryBack}>
         {/* <Glow /> */}
         <Grunge />
@@ -220,7 +216,7 @@ export default function GalleryPage() {
           </svg>
         </div>
         <div className={styles.backBtn}>
-          <Link href="/">
+          <Link prefetch={false} href="/" aria-label="Back to home">
             <BackButton />
           </Link>
         </div>

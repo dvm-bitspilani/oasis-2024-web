@@ -22,7 +22,7 @@
 .mobilePage {
   display: none;
 
-  @media (width < 1000px) {
+  @media (width <= 1000px) {
     display: block;
   }
 

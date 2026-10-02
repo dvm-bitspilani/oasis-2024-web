@@ -5,9 +5,10 @@ import {useEffect, useState} from "react";
 
 interface Props {
     dateString: string;
+    id?: string;
 }
 
-export default function Countdown({dateString, ...args}: Props) {
+export default function Countdown({dateString, id = "countdownTimer", ...args}: Props) {
     const oasis = new Date(dateString).getTime();
     const [curr, setCurr] = useState(new Date().getTime());
     const [timeLeft, setTimeLeft] = useState({
@@ -54,7 +55,7 @@ export default function Countdown({dateString, ...args}: Props) {
     }, [curr, oasis]);
 
     return (
-        <div {...args} className={`${styles.countdown} desktopBottomScroll`} id="countdownTimer">
+        <div {...args} className={`${styles.countdown} desktopBottomScroll`} id={id}>
             <div className={styles.timeSegment}>
                 <p>{padZero(timeLeft.days)}</p>
                 <p>Days</p>

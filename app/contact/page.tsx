@@ -10,7 +10,6 @@ import Glow from "@/components/Landing/Glow/Glow";
 import SuitBackground from "@/components/Landing/Backdrop/Backdrop";
 import BackButton from "@/components/Registration/BackButton/BackButton";
 import Link from "next/link";
-import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
 import ContactCard from "@/components/ContactUs/ContactCard/ContactCard";
 import Image from "next/image";
 
@@ -27,7 +26,6 @@ import left from "../../assets/Landing/contactUs/left.webp";
 import right from "../../assets/Landing/contactUs/right.webp";
 import gsap from "gsap";
 import RegBtn from "@/components/Landing/Navbar/RegBtn/RegBtn";
-import CursorEffect from "@/components/CursorEffect/CursorEffect";
 
 export default function ContactUs() {
   const contactCardRef = useRef<HTMLDivElement>(null);
@@ -202,8 +200,6 @@ export default function ContactUs() {
 
   return (
     <>
-      <PrePreloader />
-      <CursorEffect />
       <div className={styles.contactBack}>
         {/* <Glow /> */}
         <Grunge />
@@ -212,7 +208,7 @@ export default function ContactUs() {
       </div>
 
       <div className={styles.ham}>
-        <Link href="/">
+        <Link prefetch={false} href="/" aria-label="Back to home">
           <BackButton />
         </Link>
       </div>

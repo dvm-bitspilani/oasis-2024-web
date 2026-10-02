@@ -7,12 +7,10 @@ import Link from "next/link";
 import BackButton from "@/components/Registration/BackButton/BackButton";
 import Trees from "@/components/ComingSoon/Trees";
 import Image from "next/image";
-import { demoSponsors } from "@/data/portfolio";
-import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
-import CursorEffect from "@/components/CursorEffect/CursorEffect";
+import { partnerRecords } from "@/data/festival";
 
 export default function Sponsors() {
-  const sponsors = demoSponsors;
+  const sponsors = partnerRecords;
 
   const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -145,15 +143,13 @@ export default function Sponsors() {
   };
   return (
     <>
-      <PrePreloader />
-      <CursorEffect />
       <div className={styles.wrapper}>
         <div className={styles.backgroundImage} />
-        {/* <Link href="/" className={styles.backButton}>
+        {/* <Link prefetch={false} href="/" className={styles.backButton} aria-label="Back to home">
         <BackButton />
       </Link> */}
         <div className={styles.mainContainer}>
-          <Link href="/" className={styles.backButton}>
+          <Link prefetch={false} href="/" className={styles.backButton} aria-label="Back to home">
             <BackButton />
           </Link>
           <div className={styles.title}>Sponsors</div>
@@ -163,7 +159,7 @@ export default function Sponsors() {
             ref={containerRef}
           >
             {sponsors.map((sponsor, index) => (
-              <Link
+              <Link prefetch={false}
                 key={sponsor.id}
                 href={sponsor.web_url}
                 className={styles.sponsorItemContainer}

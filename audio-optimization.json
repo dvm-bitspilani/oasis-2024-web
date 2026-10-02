@@ -1,0 +1,20 @@
+[
+  {
+    "source": "public/Audio/kaiseHua.mp3",
+    "output": "public/Audio/kaiseHua.opus",
+    "beforeBytes": 2675911,
+    "afterBytes": 2077467
+  },
+  {
+    "source": "public/Audio/khattaFlow.mp3",
+    "output": "public/Audio/khattaFlow.opus",
+    "beforeBytes": 2555539,
+    "afterBytes": 2154521
+  },
+  {
+    "source": "public/Audio/rozroz.mp3",
+    "output": "public/Audio/rozroz.opus",
+    "beforeBytes": 1741772,
+    "afterBytes": 1326519
+  }
+]

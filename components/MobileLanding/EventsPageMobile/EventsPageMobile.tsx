@@ -69,7 +69,7 @@ export default function EventsMobile() {
         text="Events"
       />
       <div className={styles.mobilecontainer} ref={eventRef1}>
-        <Link href="/events/music">
+        <Link prefetch={false} href="/events/music">
           <Image
             src={musicmobile}
             alt="music"
@@ -78,7 +78,7 @@ export default function EventsMobile() {
             className={styles.mobileimg}
           />
         </Link>
-        <Link href="/events/dance">
+        <Link prefetch={false} href="/events/dance">
           <Image
             src={dancemobile}
             alt="music"
@@ -87,7 +87,7 @@ export default function EventsMobile() {
             className={styles.mobileimg}
           />
         </Link>
-        <Link href="/events/quizzes">
+        <Link prefetch={false} href="/events/quizzes">
           <Image
             src={quizmobile}
             alt="music"
@@ -96,7 +96,7 @@ export default function EventsMobile() {
             className={styles.mobileimg}
           />
         </Link>
-        <Link href="/events/photography">
+        <Link prefetch={false} href="/events/photography">
           <Image
             src={cameramobile}
             alt="music"
@@ -105,7 +105,7 @@ export default function EventsMobile() {
             className={styles.mobileimg}
           />
         </Link>
-        <Link href="/events/drama">
+        <Link prefetch={false} href="/events/drama">
           <Image
             src={dramamobile}
             alt="music"
@@ -114,7 +114,7 @@ export default function EventsMobile() {
             className={styles.mobileimg}
           />
         </Link>
-        <Link href="/events/misc">
+        <Link prefetch={false} href="/events/misc">
           <Image
             src={fashionmobile}
             alt="music"
@@ -133,7 +133,7 @@ export default function EventsMobile() {
         /> */}
 
         <div className={styles.row} ref={eventRef2}>
-          <Link href="/events/music">
+          <Link prefetch={false} href="/events/music">
             <div className={styles.box}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -168,7 +168,7 @@ export default function EventsMobile() {
               <p className={styles.musictxt}>MUSIC</p>
             </div>
           </Link>
-          <Link href="/events/quizzes">
+          <Link prefetch={false} href="/events/quizzes">
             <div className={styles.box}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -203,7 +203,7 @@ export default function EventsMobile() {
               <p className={styles.quiztxt}>QUIZ</p>
             </div>
           </Link>
-          <Link href="/events/drama">
+          <Link prefetch={false} href="/events/drama">
             <div className={styles.box}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -238,7 +238,7 @@ export default function EventsMobile() {
               <p className={styles.dramatxt}>DRAMA</p>
             </div>
           </Link>
-          <Link href="/events/dance">
+          <Link prefetch={false} href="/events/dance">
             <div className={styles.box}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -273,7 +273,7 @@ export default function EventsMobile() {
               <p className={styles.dancetxt}>DANCE</p>
             </div>
           </Link>
-          <Link href="/events/misc">
+          <Link prefetch={false} href="/events/misc">
             <div className={styles.box}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -308,7 +308,7 @@ export default function EventsMobile() {
               <p className={styles.fashiontxt}>FASHION</p>
             </div>
           </Link>
-          <Link href="/events/photography">
+          <Link prefetch={false} href="/events/photography">
             <div className={styles.box}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -1,4 +1,4 @@
-import HamPokerChip from "@/components/Landing/Navbar/HamBtn/PokerChip";
+import HamPokerChip from "./PokerChipArtwork";
 import styles from "./btn.module.scss";
 
 export default function BackButton() {

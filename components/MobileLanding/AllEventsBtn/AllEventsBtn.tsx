@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function AllEventsBtn() {
     return (
-        <Link
+        <Link prefetch={false}
             href='/events'
             className={styles.container}
         >

@@ -5,9 +5,7 @@ import styles from "./dev.module.scss";
 
 import Grid from "@/components/Landing/Grid/Grid";
 import Grunge from "@/components/Landing/Backdrop/Grunge";
-import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
 import RegBtn from "@/components/Landing/Navbar/RegBtn/RegBtn";
-import CursorEffect from "@/components/CursorEffect/CursorEffect";
 import SuitBackground from "@/components/Landing/Backdrop/Backdrop";
 import BackButton from "@/components/Registration/BackButton/BackButton";
 import Link from "next/link";
@@ -207,8 +205,6 @@ export default function DevPage() {
 
   return (
     <>
-      <PrePreloader />
-      <CursorEffect />
       <div className={styles.devBack}>
         {/* <Glow /> */}
         <Grunge />
@@ -217,7 +213,7 @@ export default function DevPage() {
       </div>
 
       <div className={styles.ham}>
-        <Link href="/">
+        <Link prefetch={false} href="/" aria-label="Back to home">
           <BackButton />
         </Link>
       </div>

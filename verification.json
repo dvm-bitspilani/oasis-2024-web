@@ -1,8 +1,10 @@
 {
-  "outputBytes": 36868244,
-  "files": 539,
+  "outputBytes": 29562763,
+  "files": 432,
   "html": 23,
   "missingHtmlAssets": [],
+  "missingDynamicAssets": [],
+  "missingCssAssets": [],
   "inlineScripts": 0,
   "dependencyVulnerabilities": {
     "info": 0,

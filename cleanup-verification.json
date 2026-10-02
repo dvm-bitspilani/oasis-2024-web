@@ -1,0 +1,124 @@
+{
+  "baselineCommit": "be1ed4c",
+  "before": {
+    "capturedAt": "2026-10-01T00:45:20.356Z",
+    "public": {
+      "files": 134,
+      "bytes": 22892088
+    },
+    "out": {
+      "files": 542,
+      "bytes": 37626249
+    },
+    "javascript": {
+      "files": 163,
+      "bytes": 3786939,
+      "gzipBytes": 1113160
+    }
+  },
+  "after": {
+    "capturedAt": "2026-10-02T02:30:57.842Z",
+    "public": {
+      "files": 138,
+      "bytes": 28452223
+    },
+    "out": {
+      "files": 432,
+      "bytes": 29562763
+    },
+    "javascript": {
+      "files": 85,
+      "bytes": 3436825,
+      "gzipBytes": 976479
+    },
+    "routes": {
+      "404/index.html": 4591,
+      "404.html": 4591,
+      "Registration/index.html": 10072,
+      "_not-found/index.html": 4591,
+      "about/index.html": 28804,
+      "archive/index.html": 44548,
+      "articles/index.html": 23421,
+      "brochure/index.html": 18217,
+      "contact/index.html": 147326,
+      "dashboard/index.html": 10052,
+      "devs/index.html": 154140,
+      "events/dance/index.html": 5440,
+      "events/drama/index.html": 5440,
+      "events/index.html": 26953,
+      "events/misc/index.html": 5428,
+      "events/music/index.html": 5440,
+      "events/photography/index.html": 5502,
+      "events/quizzes/index.html": 5458,
+      "gallery/index.html": 24317,
+      "index.html": 173204,
+      "media-partners/index.html": 8111,
+      "shows/index.html": 7212,
+      "sponsors/index.html": 7912
+    },
+    "initialJavaScript": {
+      "index.html": {
+        "files": 14,
+        "bytes": 855242,
+        "gzipBytes": 277796,
+        "includesNomodulePolyfill": false
+      },
+      "events/index.html": {
+        "files": 13,
+        "bytes": 604411,
+        "gzipBytes": 184827,
+        "includesNomodulePolyfill": false
+      },
+      "Registration/index.html": {
+        "files": 8,
+        "bytes": 494769,
+        "gzipBytes": 148366,
+        "includesNomodulePolyfill": false
+      },
+      "about/index.html": {
+        "files": 16,
+        "bytes": 840231,
+        "gzipBytes": 278078,
+        "includesNomodulePolyfill": false
+      }
+    }
+  },
+  "reduction": {
+    "exportPercent": 21.430480620058624,
+    "javascriptGzipPercent": 12.278648172769413,
+    "audioPercent": 20.287823906940005
+  },
+  "audio": {
+    "beforeBytes": 6973222,
+    "afterBytes": 5558507,
+    "fullTracks": true,
+    "preload": "none"
+  },
+  "checks": {
+    "lockedInstall": "npm ci --ignore-scripts passed",
+    "build": "passed",
+    "typecheck": "passed",
+    "lint": {
+      "errors": 0,
+      "warnings": 11
+    },
+    "dependencyVulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "staticRoutes": 23,
+    "resourceReferences": "HTML, CSS and dynamic JavaScript local references passed",
+    "inlineExecutableScripts": 0,
+    "bootstrapContentHashes": "passed",
+    "registration": "native closed notice; original roulette artwork; no form inputs",
+    "backendSubmissionCode": "none in application source",
+    "originalSourceArtwork": "unchanged; unused public copies omitted from upload",
+    "documents": "Original Drive viewer links require deliberate user navigation; no automatic document iframe",
+    "scene": "Local Suspense confines pending GLB load to the scene; original fallback and navigation remain available"
+  },
+  "browserVerification": "Coordinated by the parent agent; final cold page, interaction and throttled lab results are stored in the parent refinement evidence."
+}

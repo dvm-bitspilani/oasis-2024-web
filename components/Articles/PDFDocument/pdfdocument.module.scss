@@ -13,6 +13,21 @@
     border: 2px solid #ccae57
   }
 
+  .documentLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    pointer-events: auto;
+
+    a {
+      color: #ccae57;
+      font: 24px/1.5 "Rye", serif;
+      max-width: 90%;
+      padding: 1rem;
+    }
+  }
+
   h4 {
     margin: 1rem 0;
     font-family: "Rye", sans-serif;

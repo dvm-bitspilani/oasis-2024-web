@@ -1,12 +1,17 @@
+"use client";
+
 import styles from "./regbtn.module.scss";
 import { memo } from "react";
 
 import Link from "next/link";
+import {useRegistrationClosed} from "@/components/Experience/Experience";
 
 const RegBtn = memo(function RegBtn() {
+  const open = useRegistrationClosed();
   return (
-    <Link
+    <Link prefetch={false}
       href="/Registration"
+      onClick={event => { event.preventDefault(); open(); }}
       className={styles.link}
     >
       <div className={styles.btnwrapper} id="register">

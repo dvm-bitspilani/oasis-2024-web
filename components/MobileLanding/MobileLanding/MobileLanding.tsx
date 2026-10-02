@@ -42,7 +42,7 @@ export default function MobileLanding() {
       }
     }
 
-    waitForPreload("#oasisLogo")
+    waitForPreload("#mobileOasisLogo")
       .then(() => {
         setIsLoaded(true);
       })
@@ -53,9 +53,10 @@ export default function MobileLanding() {
 
   useGSAP(
     () => {
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: "#oasisLogo",
+          trigger: "#mobileOasisLogo",
           markers: false,
           toggleActions: "play none reverse none",
           start: "60px top",
@@ -65,12 +66,12 @@ export default function MobileLanding() {
         },
       });
 
-      tl.to("#oasisLogo", {
+      tl.to("#mobileOasisLogo", {
         y: -75,
         opacity: 0,
         ease: "power1.inOut",
       }).to(
-        "#countdownTimer",
+        "#mobileCountdownTimer",
         {
           y: 75,
           opacity: 0,
@@ -89,6 +90,8 @@ export default function MobileLanding() {
           <Slideshow />
           <Image
             src={slotMachine2D}
+            priority
+            sizes="(max-width: 1000px) 331px, 1px"
             alt="2d slot machine"
             width={331.38}
             height={560}
@@ -152,7 +155,7 @@ export default function MobileLanding() {
             name="Vishal Mishra"
             date={26}
             artist="vishal"
-            music="/Audio/kaiseHua.mp3"
+            music="/Audio/kaiseHua.opus"
             spotifyUrl="https://open.spotify.com/playlist/4ynQv4hlWScbngDokGCjjA?si=8x8WBvC6T1mK9o9ztInOAA"
             playingArtist={playingArtist}
             setPlayingArtist={setPlayingArtist}
@@ -163,7 +166,7 @@ export default function MobileLanding() {
             name="Seedhe Maut"
             date={25}
             artist="seedhe"
-            music="/Audio/khattaFlow.mp3"
+            music="/Audio/khattaFlow.opus"
             spotifyUrl="https://open.spotify.com/playlist/7cK7NvCBOdSv7f62e5CgAQ?si=DpdIC1uHTki9YJJDjaQZPw"
             playingArtist={playingArtist}
             setPlayingArtist={setPlayingArtist}
@@ -174,7 +177,7 @@ export default function MobileLanding() {
             name="The Yellow Diary"
             date={24}
             artist="yellow"
-            music="/Audio/rozroz.mp3"
+            music="/Audio/rozroz.opus"
             spotifyUrl="https://open.spotify.com/playlist/1DXS4vvkCPMRfKVjAiTeZB?si=bYzlzZHrTziSqQgh37mX6g"
             playingArtist={playingArtist}
             setPlayingArtist={setPlayingArtist}

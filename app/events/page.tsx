@@ -1,18 +1,4 @@
-"use client";
-
-import React, { useState, useRef, useEffect } from "react";
 import styles from "./events.module.scss";
-import { useRouter } from "next/navigation";
-import Folder from "@/components/Events/Folder/Folder";
-import Category from "@/components/Events/Category/Category";
-
-// import music from "../../assets/Events/Folders/Comic photo effect 3.png";
-// import dance from "../../assets/Events/Folders/Comic photo effect 4.png";
-// import quiz from "../../assets/Events/Folders/Comic photo effect 6.png";
-// import camera from "../../assets/Events/Folders/Comic photo effect 8.png";
-// import drama from "../../assets/Events/Folders/Comic photo effect 7.png";
-// import fashion from "../../assets/Events/Folders/Comic photo effect 5.webp";
-import line from "../../assets/Events/Folders/lines.png";
 import musicmobile from "../../assets/Events/Folders/1.png";
 import dancemobile from "../../assets/Events/Folders/2.png";
 import quizmobile from "../../assets/Events/Folders/3.png";
@@ -25,114 +11,21 @@ import dramabg from "../../assets/Events/Folders/dramabg.webp";
 import dancebg from "../../assets/Events/Folders/dancebg.webp";
 import miscbg from "../../assets/Events/Folders/miscbg.webp";
 import camerabg from "../../assets/Events/Folders/camerabg.webp";
-import PrePreloader from "@/components/PreloaderProMax/PreloaderProMax";
-import CursorEffect from "@/components/CursorEffect/CursorEffect";
 import SuitBackground from "@/components/Landing/Backdrop/Backdrop";
 import Grunge from "@/components/Landing/Backdrop/Grunge";
-import Glow from "@/components/Landing/Glow/Glow";
 import Grid from "@/components/Landing/Grid/Grid";
 import BackButton from "@/components/Registration/BackButton/BackButton";
 import Link from "next/link";
 import RegBtn from "@/components/Landing/Navbar/RegBtn/RegBtn";
-import Image from "next/image";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+import CategoryArtwork from "@/components/Events/CategoryArtwork";
+import EventsEntrance from "@/components/Events/EventsEntrance";
 
 export default function EventsPage() {
-  const [category, setCategory] = useState<string>("");
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-
-  function handleSelect(selectedCategory: string) {
-    setCategory(selectedCategory);
-    setIsModalOpen(true);
-  }
-
-  function handleCloseModal() {
-    setIsModalOpen(false);
-    setCategory("");
-  }
-
-  const eventrowRef: any = useRef(null);
-
-  useGSAP(
-    () => {
-      const tl = gsap.timeline();
-
-      // if(eventrowRef)
-
-      tl.from(eventrowRef.current.children[0], {
-        scale: 0,
-        duration: 0.5,
-        ease: "power2.out",
-        delay: 0.5,
-      })
-        .from(
-          eventrowRef.current.children[1],
-          {
-            scale: 0,
-            duration: 0.5,
-            ease: "power2.out",
-          },
-          "-=0.25"
-        )
-        .from(
-          eventrowRef.current.children[2],
-          {
-            scale: 0,
-            duration: 0.5,
-            ease: "power2.out",
-          },
-          "-=0.25"
-        )
-        .from(
-          eventrowRef.current.children[3],
-          {
-            scale: 0,
-            duration: 0.5,
-            ease: "power2.out",
-          },
-          "-=0.25"
-        )
-        .from(
-          eventrowRef.current.children[4],
-          {
-            scale: 0,
-            duration: 0.5,
-            ease: "power2.out",
-          },
-          "-=0.25"
-        )
-        .from(
-          eventrowRef.current.children[5],
-          {
-            scale: 0,
-            duration: 0.5,
-            ease: "power2.out",
-          },
-          "-=0.25"
-        );
-    },
-    { dependencies: [] }
-  );
-
-  const router = useRouter();
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const isMobile =
-        /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 800;
-
-      if (isMobile) {
-        router.push("/");
-      }
-    }
-    document.body.style.overflowY = "scroll";
-    document.body.style.overflowX = "hidden";
-  }, []);
-
   return (
     <>
-      <PrePreloader />
-      <CursorEffect />
+      <link rel="preload" as="image" href={musicbg.src} media="(min-width: 550px)" />
+      <link rel="preload" as="image" href={musicmobile.src} media="(max-width: 549px)" />
+      <EventsEntrance />
       <div className={styles.eventsBack}>
         {/* <Glow /> */}
         <Grunge />
@@ -149,28 +42,28 @@ export default function EventsPage() {
           <path
             d="M1924.5 98.5004C1924.5 98.5004 1563.69 727.885 1063.69 838.594C1010.5 850.37 925.061 863.945 833 853.5C438.161 808.702 571.566 243.084 112.156 306.851C73.8775 312.164 36.2551 321.241 -0.499156 333.498"
             stroke="#F8D848"
-            stroke-width="1.5"
+            strokeWidth="1.5"
           />
           <path
             d="M1938.5 4.73586C1938.5 4.73586 1569.61 665.28 1069.5 776C979.358 795.956 941 808 861.5 787.5C504.475 695.436 641.513 170.288 131.5 251C85.8957 258.217 40.8328 267.997 -2.98607 282.199"
             stroke="#F8D848"
-            stroke-width="1.5"
+            strokeWidth="1.5"
           />
           <path
             d="M1921 253.5C1921 253.5 1598.27 759.911 1120.5 944.5C1054.5 970 856 989.795 761.5 970.5C355 887.5 406 279.5 -2.99938 438.5"
             stroke="#F8D848"
-            stroke-width="1.5"
+            strokeWidth="1.5"
           />
           <path
             d="M1921.5 179.499C1921.5 179.499 1556.16 768.919 1060.5 897.999C964.5 922.999 880.579 932.741 789.001 922.999C413 882.999 470.501 196.999 0.00129466 375.999"
             stroke="#F8D848"
-            stroke-width="1.5"
+            strokeWidth="1.5"
           />
         </svg>
       </div>
 
       <div className={styles.ham}>
-        <Link href="/">
+        <Link prefetch={false} href="/" aria-label="Back to home">
           <BackButton />
         </Link>
       </div>
@@ -241,94 +134,58 @@ export default function EventsPage() {
         </div>
 
         <div className={styles.gridcontainer}>
-          <div className={styles.row} ref={eventrowRef}>
-            <Link href="/events/music">
+          <div className={styles.row} id="eventsRow">
+            <Link prefetch={false} href="/events/music">
               <div className={styles.box}>
-                <Image src={musicbg} alt="music" width={484} height={300} />
+                <CategoryArtwork desktop={musicbg} mobile={musicmobile} alt="Music" width={484} height={300} critical />
               </div>
             </Link>
-            <Link href="/events/quizzes">
+            <Link prefetch={false} href="/events/quizzes">
               <div className={styles.box}>
-                <Image src={quizbg} alt="music" width={484} height={300} />
+                <CategoryArtwork desktop={quizbg} mobile={quizmobile} alt="Quizzes" width={484} height={300} />
               </div>
             </Link>
-            <Link href="/events/drama">
+            <Link prefetch={false} href="/events/drama">
               <div className={styles.box}>
-                <Image src={dramabg} alt="music" width={484} height={300} />
+                <CategoryArtwork desktop={dramabg} mobile={dramamobile} alt="Drama" width={484} height={300} />
               </div>
             </Link>
-            <Link href="/events/dance">
+            <Link prefetch={false} href="/events/dance">
               <div className={styles.box}>
-                <Image src={dancebg} alt="music" width={484} height={300} />
+                <CategoryArtwork desktop={dancebg} mobile={dancemobile} alt="Dance" width={484} height={300} />
               </div>
             </Link>
-            <Link href="/events/photography">
+            <Link prefetch={false} href="/events/photography">
               <div className={styles.box}>
-                <Image src={camerabg} alt="music" width={484} height={300} />
+                <CategoryArtwork desktop={camerabg} mobile={cameramobile} alt="Photography" width={484} height={300} />
               </div>
             </Link>
-            <Link href="/events/misc">
+            <Link prefetch={false} href="/events/misc">
               <div className={styles.box}>
-                <Image src={miscbg} alt="music" width={484} height={300} />
+                <CategoryArtwork desktop={miscbg} mobile={fashionmobile} alt="Miscellaneous" width={484} height={300} />
               </div>
             </Link>
           </div>
         </div>
 
         <div className={styles.mobilecontainer}>
-          <Link href="/events/music">
-            <Image
-              src={musicmobile}
-              alt="music"
-              width={312}
-              height={132}
-              className={styles.mobileimg}
-            />
+          <Link prefetch={false} href="/events/music">
+            <CategoryArtwork desktop={musicbg} mobile={musicmobile} alt="Music" width={312} height={132} className={styles.mobileimg} critical />
           </Link>
-          <Link href="/events/dance">
-            <Image
-              src={dancemobile}
-              alt="music"
-              width={312}
-              height={132}
-              className={styles.mobileimg}
-            />
+          <Link prefetch={false} href="/events/dance">
+            <CategoryArtwork desktop={dancebg} mobile={dancemobile} alt="Dance" width={312} height={132} className={styles.mobileimg} />
           </Link>
-          <Link href="/events/quizzes">
-            <Image
-              src={quizmobile}
-              alt="music"
-              width={312}
-              height={132}
-              className={styles.mobileimg}
-            />
+          <Link prefetch={false} href="/events/quizzes">
+            <CategoryArtwork desktop={quizbg} mobile={quizmobile} alt="Quizzes" width={312} height={132} className={styles.mobileimg} />
           </Link>
-          <Link href="/events/photography">
-            <Image
-              src={cameramobile}
-              alt="music"
-              width={312}
-              height={132}
-              className={styles.mobileimg}
-            />
+          <Link prefetch={false} href="/events/photography">
+            <CategoryArtwork desktop={camerabg} mobile={cameramobile} alt="Photography" width={312} height={132} className={styles.mobileimg} />
           </Link>
-          <Link href="/events/drama">
-            <Image
-              src={dramamobile}
-              alt="music"
-              width={312}
-              height={132}
-              className={styles.mobileimg}
-            />
+          <Link prefetch={false} href="/events/drama">
+            <CategoryArtwork desktop={dramabg} mobile={dramamobile} alt="Drama" width={312} height={132} className={styles.mobileimg} />
           </Link>
-          <Link href="/events/misc">
-            <Image
-              src={fashionmobile}
-              alt="music"
-              width={312}
-              height={132}
-              className={styles.mobileimg}
-            />
+          <Link prefetch={false} href="/events/misc">
+            <CategoryArtwork desktop={miscbg} mobile={fashionmobile} alt="Miscellaneous" width={312} height={132} className={styles.mobileimg} />
           </Link>
         </div>
       </div>

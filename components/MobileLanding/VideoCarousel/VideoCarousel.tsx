@@ -10,6 +10,7 @@ interface Props {
 
 export default function VideoCarousel({videoArray}: Props) {
     const [videoIndex, setVideoIndex] = useState(0)
+    const [playing, setPlaying] = useState(false)
 
     function nextClickHandler() {
         setVideoIndex(prev => {
@@ -33,12 +34,14 @@ export default function VideoCarousel({videoArray}: Props) {
         <div className={styles.container}>
             <Image onClick={prevClickHandler} src={carouselArrow} alt='carousel left arrow'/>
             <div className={styles.videoContainer}>
-                <iframe
-                    src={`https://www.youtube.com/embed/${videoArray[videoIndex]}`}
+                {playing ? <iframe
+                    loading="lazy"
+                    title="Oasis video"
+                    src={`https://www.youtube.com/embed/${videoArray[videoIndex]}?autoplay=1`}
                     referrerPolicy="strict-origin-when-cross-origin"
                     allowFullScreen
                     className={styles.player}
-                />
+                /> : <button type="button" className={styles.player} onClick={() => setPlaying(true)} aria-label="Play Oasis video" style={{background: "#0e0a12", border: 0, color: "#efd48d", font: "inherit", cursor: "pointer"}}>▶ Play video</button>}
             </div>
             <Image onClick={nextClickHandler} src={carouselArrow} alt='carousel right arrow'/>
         </div>
